@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- 数据库驱动包位置 -->
+	 <!-- <classPathEntry location="E:\generator\sqljdbc4.jar" />  -->
+	<classPathEntry location="E:\generator\mysql-connector-java-5.1.9.jar" />
+	<context id="DB2Tables" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<!-- 数据库链接URL、用户名、密码 -->
+		 <!--<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver" connectionURL="jdbc:sqlserver://192.168.6.135:1433;DatabaseName=ActionDBV2" userId="user_app_Test" password="AD19EFAC580DF3"> 
+		</jdbcConnection>  -->
+		<!--<jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver" connectionURL="jdbc:sqlserver://192.168.6.131:1433;DatabaseName=SecurityMsgDB" userId="user_app_Test" password="AD19EFAC580DF3"> 
+		</jdbcConnection>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.6.111:3306/webgame_pay_db" userId="dev" password="gyyx123qwe">  
+		 <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver" connectionURL="jdbc:oracle:thin:@localhost:1521:orcl" userId="msa" password="msa"> -->
+		 <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.6.111:3306/playwd_db" userId="dev" password="gyyx123qwe"> 
+		</jdbcConnection>
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+		<!-- 生成模型的包名和位置 -->
+		<javaModelGenerator targetPackage="cn.gyyx.playwd.beans.playwd" targetProject="E:\generator\src">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+		
+		<!-- 生成的映射文件包名和位置 -->
+		<sqlMapGenerator targetPackage="cn.gyyx.playwd.dao.playwd" targetProject="E:\generator\src">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- 生成DAO的包名和位置 -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="cn.gyyx.playwd.dao.playwd" targetProject="E:\generator\src">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		
+		
+		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
+		<table tableName="playwd_prize_log" domainObjectName="PrizeLogBean"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false" />
+  		</context>
+</generatorConfiguration>
