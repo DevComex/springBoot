@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.playwd.dao.playwd.UserDao" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.playwd.beans.playwd.UserBean" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="icon" property="icon" jdbcType="VARCHAR" />
+    <result column="rmb" property="rmb" jdbcType="DECIMAL" />
+    <result column="silver_coin" property="silverCoin" jdbcType="INTEGER" />
+    <result column="is_suspend" property="isSuspend" jdbcType="BIT" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    code, user_id, icon, rmb, silver_coin, is_suspend
+  </sql>
+  
+  <!-- 根据UserID获取 -->
+  <select id="getByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_user_tb
+    where user_id = #{userId}
+  </select>
+  
+  <!-- 插入 -->
+  <insert id="insert" parameterType="cn.gyyx.playwd.beans.playwd.UserBean" >
+    insert into playwd_user_tb ( user_id, 
+    									icon, 
+      									rmb, 
+      									silver_coin)
+   								values (#{userId,jdbcType=INTEGER}, 
+   										#{icon,jdbcType=VARCHAR}, 
+      									#{rmb,jdbcType=DECIMAL}, 
+      									#{silverCoin,jdbcType=INTEGER})
+  </insert>
+  
+  <!-- 根据Code更新 -->
+  <update id="updateByCode" parameterType="cn.gyyx.playwd.beans.playwd.UserBean" >
+    update playwd_user_tb
+    set user_id = #{userId,jdbcType=INTEGER},
+      icon = #{icon,jdbcType=VARCHAR},
+      rmb = #{rmb,jdbcType=DECIMAL},
+      silver_coin = #{silverCoin,jdbcType=INTEGER},
+      is_suspend = #{isSuspend,jdbcType=BIT}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 根据UserId更新 -->
+  <update id="updateByUserId" parameterType="cn.gyyx.playwd.beans.playwd.UserBean" >
+    update playwd_user_tb
+    set user_id = #{userId,jdbcType=INTEGER},
+      icon = #{icon,jdbcType=VARCHAR},
+      rmb = #{rmb,jdbcType=DECIMAL},
+      silver_coin = #{silverCoin,jdbcType=INTEGER},
+      is_suspend = #{isSuspend,jdbcType=BIT}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 根据奖励获取前N -->
+  <select id="getTopNOrderByUserReward" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select * from playwd_user_tb where (rmb + silver_coin) >0 order by (rmb*100+silver_coin) desc limit 0,#{topN}
+  </select>
+  
+   <!-- 更新财富 -->
+  <update id="updateRmbAndSilverCoin" >
+    update playwd_user_tb
+    set rmb = rmb+#{rmb},
+      	silver_coin =silver_coin+ #{silverCoin}
+    where user_id = #{userId}
+  </update>
+  
+</mapper>

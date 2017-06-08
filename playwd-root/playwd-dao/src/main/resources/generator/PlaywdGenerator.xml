@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" 
+"http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+	<properties url="file:///D:/DataConfig/playwd.oa.gyyx.cn/sqlServer.properties" />
+	<classPathEntry location="D:/DataConfig/playwd.oa.gyyx.cn/mysql-connector-java-5.1.29.jar" />
+
+	<context id="product" defaultModelType="flat">
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin" />
+		<!-- <plugin type="org.mybatis.generator.plugins.ToStringPlugin" /> -->
+		<commentGenerator> 
+		    <!-- 是否去除自动生成的注释 true：是 ： false:否 --> 
+		    <property name="suppressAllComments" value="true" /> 
+		    <property name="suppressDate" value="true"/>
+		</commentGenerator> 
+			
+		<jdbcConnection driverClass="${jdbc.PlaywdDriverClassName}"
+			connectionURL="${jdbc.PlaywdUrl}" userId="${jdbc.PlaywdUsername}"
+			password="${jdbc.PlaywdPassword}" />
+
+		<javaModelGenerator targetPackage="beans" targetProject="../playwd-dao/src/main/resources/generator">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="../playwd-dao/src/main/resources/generator" >
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="dao"  targetProject="../playwd-dao/src/main/resources/generator"
+        					type="XMLMAPPER">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- <table tableName="playwd_article_tb" domainObjectName="ArticleBean" mapperName="ArticleDao"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="true"> 
+		</table> -->
+		
+		<!--推荐位置表  -->
+        <!-- <table tableName="playwd_recommend_slot_tb" domainObjectName="RecommendSlotBean" mapperName="RecommendSlotDao"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="true"> 
+		</table> -->
+		
+		<!--分类表  -->
+        <!-- <table tableName="playwd_category_tb" domainObjectName="CategoryBean" mapperName="CategoryDao"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="true"> 
+		</table> -->
+		
+		<!--消息表  -->
+        <!-- <table tableName="playwd_message_tb" domainObjectName="MessageBean"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="true"> 
+		</table> -->
+		
+		<!--后台 图文或者视频状态变化表  -->
+        <!-- <table tableName="playwd_review_log" domainObjectName="ReviewLogBean"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="true"> 
+		</table> -->
+		<!--后台 图文或者视频状态变化表  -->
+        <!-- <table tableName="playwd_prize_tb" domainObjectName="PrizeBean" mapperName="PrizeDao"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="true"> 
+		</table> --> 
+        <!-- <table tableName="playwd_item_tb" domainObjectName="ItemBean" mapperName="ItemDao"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="true"> 
+		</table> -->
+		<!-- <table tableName="playwd_prize_item_rel_tb" domainObjectName="PrizeItemRelBean" mapperName="PrizeItemRelDao"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="true"> 
+		</table> -->  
+		<!--用户信息表  -->
+		<!--<table tableName="user_id_account_rel_tb" domainObjectName="UserIdAccountBean" mapperName="UserIdAccountDao"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="true"> 
+		</table>  -->
+		
+		<!-- <table tableName="playwd_recommend_content_tb" domainObjectName="RecommendContentBean"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="true">
+		</table> -->		
+		<!--虚拟物品订单表  -->
+		<!-- <table tableName="playwd_wdgift_order_tb" domainObjectName="WdgiftOrderBean" mapperName="WdgiftOrderDao"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="true"> 
+		</table> --> 	
+		<!--现金订单表  -->
+		<!-- <table tableName="playwd_rmb_order_tb" domainObjectName="RmbOrderBean" mapperName="RmbOrderDao"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="true"> 
+		</table> --> 
+		<!--用户在玩家天地称号表  -->
+		<table tableName="playwd_timeline_tb" domainObjectName="TimeLineBean"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="true"> 
+		</table> 		
+	</context>
+</generatorConfiguration>

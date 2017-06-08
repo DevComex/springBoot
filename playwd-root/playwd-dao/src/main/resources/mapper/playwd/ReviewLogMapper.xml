@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.playwd.dao.playwd.ReviewLogDao" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.playwd.beans.playwd.ReviewLogBean" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="content_type" property="contentType" jdbcType="VARCHAR" />
+    <result column="content_id" property="contentId" jdbcType="INTEGER" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="from_status" property="fromStatus" jdbcType="VARCHAR" />
+    <result column="to_status" property="toStatus" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  
+  <sql id="Base_Column_List" >
+    code, content_type, content_id, operator, from_status, to_status, create_time
+  </sql>
+  
+  <!-- 根据ID查询 -->
+  <select id="selectByCode" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_review_log
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  
+  <!-- 根据ID删除 -->
+  <delete id="deleteByCode" parameterType="java.lang.Integer" >
+    delete from playwd_review_log
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  
+  <!-- 插入 -->
+  <insert id="insert" parameterType="cn.gyyx.playwd.beans.playwd.ReviewLogBean" >
+    insert into playwd_review_log (code, content_type, content_id, 
+      operator, from_status, to_status, 
+      create_time)
+    values (#{code,jdbcType=INTEGER}, #{contentType,jdbcType=VARCHAR}, #{contentId,jdbcType=INTEGER}, 
+      #{operator,jdbcType=VARCHAR}, #{fromStatus,jdbcType=VARCHAR}, #{toStatus,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  
+  <!-- 根据ID更新不为空的字段 -->
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.playwd.beans.playwd.ReviewLogBean" >
+    update playwd_review_log
+    <set >
+      <if test="contentType != null" >
+        content_type = #{contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="contentId != null" >
+        content_id = #{contentId,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="fromStatus != null" >
+        from_status = #{fromStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="toStatus != null" >
+        to_status = #{toStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 根据ID更新全部字段 -->
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.playwd.beans.playwd.ReviewLogBean" >
+    update playwd_review_log
+    set content_type = #{contentType,jdbcType=VARCHAR},
+      content_id = #{contentId,jdbcType=INTEGER},
+      operator = #{operator,jdbcType=VARCHAR},
+      from_status = #{fromStatus,jdbcType=VARCHAR},
+      to_status = #{toStatus,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  
+</mapper>

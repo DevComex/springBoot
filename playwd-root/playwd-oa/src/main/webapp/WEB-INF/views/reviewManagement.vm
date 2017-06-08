@@ -1,0 +1,111 @@
+<link href="http://oa.gyyx.cn/Script/datatables/datatables.css">
+<script	src="${rc.contextPath}/static/script/My97DatePicker/WdatePicker.js"></script>
+<script	src="${rc.contextPath}/static/script/jquery.ajaxpage.2.0.1.js"></script>
+
+<section class="scrollable padder">
+    <header class="header bg-white b-b clearfix">
+        <div class="row m-t-sm">
+            <div class="col-sm-3">
+                <label>所属栏目</label>
+                <select class="input-sm js_column" style="width: 155px;">
+                	<option value="all">全部</option>
+                    <option value="article">图文驿站</option>
+                    <option value="manhua">漫画专区</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label>账号</label>
+                <input type="text"  class="input-sm js_account " />
+            </div>
+            <div class="col-sm-3">
+                <label>关键字</label>
+                <input type="text"  class="input-sm js_keyword" />
+            </div>
+            <div class="col-sm-3">
+                <label>作品标题</label>
+                <input type="text"  class="input-sm ja_worksTitle" />
+            </div>
+        </div>
+        <div class="row m-t-sm" style="margin-bottom:10px;">
+            <div class="col-sm-3">
+                <label>评论内容状态</label>
+                <select class="input-sm js_comment" style="width: 130px;">
+                    <option value="-1">全部</option>
+                    <option value="-1">隐藏</option>
+                    <option value="-1">展示</option>
+                </select>
+            </div>
+           
+            <div  class="col-sm-6">
+            	<div class="col-sm-3" style="width: 15%;line-height: 30px;padding-right: 0px;">发表时间</div>
+                <div class="col-sm-4">              
+                    <input type="text" readonly="" value="" name="StartDate" class="input form-control js_startTime" placeholder="开始时间" onclick="WdatePicker()" />
+                </div>
+                <div class="col-sm-1" style=" height: 30px;line-height:30px;">至</div>
+                <div class="col-sm-4">
+                    <input type="text" readonly="" value="" name="EndDate" class="input form-control js_endTime" placeholder="结束时间" onclick="WdatePicker()" />
+                </div>
+            </div>
+            <div  class="col-sm-3">
+                <a class="btn btn-info js_query"  href="javascript:;">查询</a>
+                <a class="btn btn-info"  href="javascript:;">批量隐藏</a>
+            </div>
+        </div>
+    </header>
+    <!--数据表格  begin -->
+    <section class="panel panel-default" style="margin-top: 2%;">
+        <div class="table-responsive">
+            <table class="table table-striped m-b-none">
+                <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>被举报评论</th>
+                        <th>被举报原因</th>
+                        <th>举报时间</th>
+                        <th>被举报账号</th>
+                        <th>被举报账号状态</th>
+                        <th>举报账号</th>
+                        <th>举报账号状态</th>
+                        <th>处理状态</th>
+                        <th>处理结果</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody class="js_tbodyBox">
+                    <tr>
+                        <td>1</td>
+                        <td>被举报评论被举报评论被举报评论被举报评论</td>
+                        <td>被举报原因</td>
+                        <td>2016-8-15</td>
+                        <td>123456</td>
+                        <td>正常</td>
+                        <td>123456</td>
+                        <td>正常</td>
+                        <td>已处理</td>
+                        <td>隐藏</td>
+                        <td>
+                            <a  href="javascript:;" data-toggle="tooltip" data-original-title="隐藏">隐藏</a>
+                            <a  href="javascript:;" data-toggle="tooltip" data-original-title="展示">展示</a>
+                            <a  href="javascript:;" data-toggle="tooltip" data-original-title="查看详情">查看详情</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <!-- 分页 -->
+        <footer class="footer bg-white b-t">
+            <div class="row dataTables_wrapper">
+                <div class="col-sm-6">
+                    <div id="DataTables_Table_0_info" class="dataTables_info"></div>
+                </div>
+                <div class="col-sm-6">
+                    <div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers"></div>
+                </div>
+            </div>
+        </footer>
+        <!-- 分页 -->
+    </section>
+    <!--数据表格  end -->
+</section>
+

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="登陆功能" preserve-order="true" parallel="tests"
+	thread-count="1" verbose="1">
+	
+	<listeners>
+		<!-- 生成测试报告 -->
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+        <listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+	</listeners>
+	
+	<test name="页游平台登录" annotations="jdk" preserve-order="true">
+		<classes>
+			<class name="cn.mahjong.cases.login.HeadLoginCases">
+				<methods>
+					<include name="accountValidation_test" />
+					<include name="login_test" />
+				</methods>
+			</class>
+		</classes>
+	</test> <!-- Test -->
+	
+</suite> <!-- Suite -->

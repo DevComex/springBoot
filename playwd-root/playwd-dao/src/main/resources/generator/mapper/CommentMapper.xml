@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.CommentBeanMapper" >
+  <resultMap id="BaseResultMap" type="beans.CommentBean" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="parent_code" property="parentCode" jdbcType="INTEGER" />
+    <result column="content_type" property="contentType" jdbcType="VARCHAR" />
+    <result column="content_id" property="contentId" jdbcType="INTEGER" />
+    <result column="from_user_id" property="fromUserId" jdbcType="INTEGER" />
+    <result column="from_user_account" property="fromUserAccount" jdbcType="VARCHAR" />
+    <result column="to_user_id" property="toUserId" jdbcType="INTEGER" />
+    <result column="to_user_account" property="toUserAccount" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="is_show" property="isShow" jdbcType="SMALLINT" />
+    <result column="from_ip" property="fromIp" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, parent_code, content_type, content_id, from_user_id, from_user_account, to_user_id, 
+    to_user_account, content, create_time, is_show, from_ip
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_comment_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from playwd_comment_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="beans.CommentBean" >
+    insert into playwd_comment_tb (code, parent_code, content_type, 
+      content_id, from_user_id, from_user_account, 
+      to_user_id, to_user_account, content, 
+      create_time, is_show, from_ip
+      )
+    values (#{code,jdbcType=INTEGER}, #{parentCode,jdbcType=INTEGER}, #{contentType,jdbcType=VARCHAR}, 
+      #{contentId,jdbcType=INTEGER}, #{fromUserId,jdbcType=INTEGER}, #{fromUserAccount,jdbcType=VARCHAR}, 
+      #{toUserId,jdbcType=INTEGER}, #{toUserAccount,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{isShow,jdbcType=SMALLINT}, #{fromIp,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="beans.CommentBean" >
+    insert into playwd_comment_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="parentCode != null" >
+        parent_code,
+      </if>
+      <if test="contentType != null" >
+        content_type,
+      </if>
+      <if test="contentId != null" >
+        content_id,
+      </if>
+      <if test="fromUserId != null" >
+        from_user_id,
+      </if>
+      <if test="fromUserAccount != null" >
+        from_user_account,
+      </if>
+      <if test="toUserId != null" >
+        to_user_id,
+      </if>
+      <if test="toUserAccount != null" >
+        to_user_account,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="isShow != null" >
+        is_show,
+      </if>
+      <if test="fromIp != null" >
+        from_ip,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="parentCode != null" >
+        #{parentCode,jdbcType=INTEGER},
+      </if>
+      <if test="contentType != null" >
+        #{contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="contentId != null" >
+        #{contentId,jdbcType=INTEGER},
+      </if>
+      <if test="fromUserId != null" >
+        #{fromUserId,jdbcType=INTEGER},
+      </if>
+      <if test="fromUserAccount != null" >
+        #{fromUserAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="toUserId != null" >
+        #{toUserId,jdbcType=INTEGER},
+      </if>
+      <if test="toUserAccount != null" >
+        #{toUserAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isShow != null" >
+        #{isShow,jdbcType=SMALLINT},
+      </if>
+      <if test="fromIp != null" >
+        #{fromIp,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="beans.CommentBean" >
+    update playwd_comment_tb
+    <set >
+      <if test="parentCode != null" >
+        parent_code = #{parentCode,jdbcType=INTEGER},
+      </if>
+      <if test="contentType != null" >
+        content_type = #{contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="contentId != null" >
+        content_id = #{contentId,jdbcType=INTEGER},
+      </if>
+      <if test="fromUserId != null" >
+        from_user_id = #{fromUserId,jdbcType=INTEGER},
+      </if>
+      <if test="fromUserAccount != null" >
+        from_user_account = #{fromUserAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="toUserId != null" >
+        to_user_id = #{toUserId,jdbcType=INTEGER},
+      </if>
+      <if test="toUserAccount != null" >
+        to_user_account = #{toUserAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isShow != null" >
+        is_show = #{isShow,jdbcType=SMALLINT},
+      </if>
+      <if test="fromIp != null" >
+        from_ip = #{fromIp,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="beans.CommentBean" >
+    update playwd_comment_tb
+    set parent_code = #{parentCode,jdbcType=INTEGER},
+      content_type = #{contentType,jdbcType=VARCHAR},
+      content_id = #{contentId,jdbcType=INTEGER},
+      from_user_id = #{fromUserId,jdbcType=INTEGER},
+      from_user_account = #{fromUserAccount,jdbcType=VARCHAR},
+      to_user_id = #{toUserId,jdbcType=INTEGER},
+      to_user_account = #{toUserAccount,jdbcType=VARCHAR},
+      content = #{content,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      is_show = #{isShow,jdbcType=SMALLINT},
+      from_ip = #{fromIp,jdbcType=VARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+</mapper>

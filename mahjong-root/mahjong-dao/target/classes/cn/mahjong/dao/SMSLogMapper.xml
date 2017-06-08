@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mahjong.dao.SMSLogMapper">
+  <resultMap id="BaseResultMap" type="cn.mahjong.beans.SMSLog">
+    <id column="code" jdbcType="INTEGER" property="code"/>
+    <result column="sms_code" jdbcType="INTEGER" property="smsCode"/>
+    <result column="channel" jdbcType="VARCHAR" property="channel"/>
+    <result column="status" jdbcType="VARCHAR" property="status"/>
+    <result column="response" jdbcType="VARCHAR" property="response"/>
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    code, create_time, sms_code, channel, status, response
+  </sql>
+  <insert id="insert" parameterType="cn.mahjong.beans.SMSLog">
+    INSERT INTO sms_log (create_time, sms_code, channel, status, response) VALUES (
+      #{createTime,jdbcType=TIMESTAMP},
+      #{smsCode,jdbcType=INTEGER},
+      #{channel,jdbcType=VARCHAR},
+      #{status,jdbcType=VARCHAR},
+      #{response,jdbcType=VARCHAR}
+    )
+  </insert>
+</mapper>

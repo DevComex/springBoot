@@ -1,0 +1,104 @@
+.bshare-custom {
+    float: left;
+    width: 150px;
+}
+#fenxiang {
+    display: none;
+}
+.share-con {
+    float: left;
+    height: 20px;
+    padding-left: 10px;
+    position: relative;
+}
+.share-con span.tit {
+    float: left;
+    padding-top: 2px;
+}
+.share-con a, .share-con a span {
+    display: block;
+    float: left;
+    height: 16px;
+    overflow: hidden;
+    width: 16px;
+}
+.share-con a {
+    padding: 3px;
+}
+.share-con a span {
+    background-image: url("../images/share-icon.gif");
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+.share-con a span.tengxunweibo {
+    background-position: 0 -16px;
+}
+.share-con a span.xinlang {
+    background-position: 0 -32px;
+}
+.share-con a span.renmin {
+    background-position: 0 -48px;
+}
+.share-con a span.wangyi {
+    background-position: 0 -64px;
+}
+.share-con a span.qqzone {
+    background-position: 0 -80px;
+}
+.share-con a span.mogujie {
+    background-position: 0 -96px;
+}
+.share-con a span.renren {
+    background-position: 0 -112px;
+}
+.share-con a span.kaixin {
+    background-position: 0 -128px;
+}
+.share-con a span.fenghuangkuaibo {
+    background-position: 0 -144px;
+}
+.share-con a span.douban {
+    background-position: 0 -160px;
+}
+.share-con a span.baidusoucang {
+    background-position: 0 -176px;
+    margin-right: 0;
+}
+.share-con a span.moreshare {
+    background: url("../images/more-style-addthis.png") repeat scroll 0 0 rgba(0, 0, 0, 0);
+}
+.more-con {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C2C2C2;
+    display: none;
+    height: 115px;
+    left: 127px;
+    overflow: hidden;
+    padding: 2px;
+    position: absolute !important;
+    top: 18px;
+    width: 198px;
+    z-index: 9;
+}
+.more-con a {
+    border: 1px solid #FFFFFF;
+    color: #006699;
+    float: left;
+    padding: 5px;
+    width: 87px;
+}
+.more-con a:hover {
+    background: none repeat scroll 0 0 #F0F0F0;
+    border: 1px solid #E0E0E0;
+    color: #FF6600;
+}
+.more-con a span {
+    float: left;
+    text-align: left;
+    text-indent: 20px;
+    width: 71px;
+}
+
+/*文章详情页 分享定位*/
+.article .more-con {left:-8px;top:19px; height:90px;}
+.more-con a { font-size:12px;}

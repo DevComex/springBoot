@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<configuration>
+	
+	<!-- 在文件中定义变量值 -->
+	<property resource="logback.properties" />
+	
+	<!-- 日志保存路径为tomcat下面的logs下面的mobileLog文件夹，logback会自动创建文件夹，这样设置了就可以输出日志文件了 -->
+	<substitutionProperty name="logbase" value="/data/logs/www.wyx.cn/" />
+	
+	<jmxConfigurator />
+	<!-- 控制台输出日志 -->
+	<appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<pattern>[%d{yyyy/MM/dd HH:mm:ss.SSS}]${projectKey}: %-5level : %logger - %msg%n</pattern>
+		</layout>
+	</appender>
+	<!-- 文件输出日志 (文件大小策略进行文件输出，超过指定大小对文件备份) -->
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${rollinglogfile.path}</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<FileNamePattern>${rollinglogdirectory.path}account.log.%i.bak</FileNamePattern>
+			<MinIndex>1</MinIndex>
+			<MaxIndex>5</MaxIndex>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>100MB</MaxFileSize>
+		</triggeringPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>[%d{yyyy-MM-dd HH:mm:ss.SSS}]${projectKey} : %-5level %logger - %msg%n</Pattern>
+		</layout>
+	</appender>
+	<!-- 文件输出日志 (文件大小策略进行文件输出，超过指定大小对文件备份) -->
+	<appender name="DAILYFILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>${dailyrollinglogfile.path}</File>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			  <!-- daily rollover -->
+		      <fileNamePattern>${rollinglogdirectory.path}%d{yyyyMMddHHmm}.log</fileNamePattern>
+		      <!-- keep 30 days' worth of history capped at 3GB total size -->
+		      <maxHistory>30</maxHistory>
+		      <totalSizeCap>1GB</totalSizeCap>
+		</rollingPolicy>
+		<layout class="ch.qos.logback.classic.PatternLayout">
+			<Pattern>%m-[%d{yyyy-MM-dd HH:mm:ss:SSS}]-%p-%c%n</Pattern>
+		</layout>
+	</appender>
+	<!--这里指定logger name 是为jmx设置日志级别做铺垫 -->
+	<logger name="org.springframework.web" level="DEBUG">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+		<appender-ref ref="DAILYFILE"/>
+	</logger>
+	<logger name="org.springframework.jdbc" level="DEBUG">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+		<appender-ref ref="DAILYFILE"/>
+	</logger>
+	<logger name="org.springframework.data.redis" level="DEBUG">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+		<appender-ref ref="DAILYFILE"/>
+	</logger>
+	<logger name="cn.mahjong" >
+		<level value="DEBUG" />
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+		<appender-ref ref="DAILYFILE"/>
+	</logger>
+	
+</configuration>

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.playwd.dao.playwd.CategoryDao">
+  <resultMap id="BaseResultMap" type="cn.gyyx.playwd.beans.playwd.CategoryBean">
+    <id column="code" jdbcType="INTEGER" property="code" />
+    <result column="content_type" jdbcType="VARCHAR" property="contentType" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="parent_id" jdbcType="INTEGER" property="parentId" />
+    <result column="game_id" jdbcType="INTEGER" property="gameId" />
+    <result column="is_delete" jdbcType="BIT" property="isDelete" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    code, content_type, title, parent_id, game_id, is_delete
+  </sql>
+  
+  <select id="getCategory"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_category_tb
+    where is_delete = 0 and game_id =2 and content_type = #{contentType};
+  </select>
+  
+   <select id="getParentCategoryBySubCode" resultMap="BaseResultMap">
+    select p.* from playwd_category_tb p ,playwd_category_tb s
+	where p.code = s.parent_id and s.code = #{subCode}
+  </select>
+  
+  <select id="getParentCategory"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_category_tb
+    where is_delete = 0 and game_id =2 and content_type = #{contentType} and parent_id =0;
+  </select>
+  
+  <select id="getChildCategory"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_category_tb
+    where is_delete = 0 and game_id =2 and content_type = #{contentType} and parent_id = #{categoryInt};
+  </select>
+  
+  <select id="selectCategroyByCode" resultMap="BaseResultMap">
+    select *
+    from playwd_category_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  
+  <insert id="insert" parameterType="cn.gyyx.playwd.beans.playwd.CategoryBean">
+    insert into playwd_category_tb (code, content_type, title, 
+      parent_id, game_id, is_delete
+      )
+    values (#{code,jdbcType=INTEGER}, #{contentType,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{parentId,jdbcType=INTEGER}, #{gameId,jdbcType=INTEGER}, #{isDelete,jdbcType=BIT}
+      )
+  </insert>
+  
+  <update id="update" parameterType="cn.gyyx.playwd.beans.playwd.CategoryBean">
+    update playwd_category_tb
+    set content_type = #{contentType,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      game_id = #{gameId,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=BIT}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateIsDelete">
+    update playwd_category_tb set
+    is_delete = 1
+    where code = #{code}
+  </update>
+  
+  <select id="getFirstCategoryListByContentType"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_category_tb
+    where is_delete = 0 and game_id =2 and content_type = #{contentType} and parent_id = 0
+  </select>
+  
+  <select id="getSubCategoryList"  resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_category_tb
+    where is_delete = 0 and parent_id = #{pid}
+  </select>
+  
+</mapper>

@@ -1,0 +1,47 @@
+﻿@charset "utf-8";
+/* CSS Document */
+.web_wrap { width: 1200px;margin:0 auto;zoom:1; }
+.web_wrap:after { content:""; display:block; clear:both; }
+
+.con_l{ width:900px;float:left;}
+.con_r{ width:270px;float:left; margin-left:30px; display:inline;}
+
+/*xyl*/
+
+.web_main{overflow:hidden;margin: 0 auto;width: 1168px;padding:18px 16px 36px;}
+.backgroundH{
+    background:url(/static/images/public/bg.jpg) top center no-repeat;
+    width: 100%;
+    margin-bottom:50px;
+    border-bottom:2px solid #a8a8a8;
+}
+.maiin_left,.maiin_right{min-height:500px;margin-top: 40px;}
+.maiin_left{width:900px;float:left;overflow: hidden; margin-top: 0;}
+.maiin_right{width:240px;float: left;padding-left: 30px;}
+
+/*右侧栏*/
+.fortuneList{height:600px;border-top: 1px solid #e3e3e3;padding-top:18px;margin-bottom:34px;}
+.fortune_text{font-size: 24px;font-weight: 100;margin-bottom:5px;color: #333;height:30px;}
+.fortune_text img{margin-right:11px;}
+.new_list li{overflow:hidden;}
+.box_img {width:28px;float:left;line-height:25px;margin-right: 3px; margin-left: 10px;position: relative;top:-2px;}
+.box_img a{cursor: default;}
+.img_number{position: absolute; top: 0px; left: 8px; color: red; font-size: 12px;}
+.listFortune li{ margin:0 0 10px 0 ; height:50px; }
+
+.title_name{float:left;width: 195px;}
+.hiddenTxt{line-height: 18px;display: inline-block;}
+.hiddenTxt:hover{color:red;text-decoration: none;}
+.title_name .hiddenTxt{width:200px;}
+
+.fortune_number{overflow: hidden;line-height: 18px;width: 210px;font-size:12px;}
+.fortune_number img{margin: 0 10px 2px 0;}
+.fortune_number a{cursor: text;}
+.money_number:hover{text-decoration: none;}
+.acer_number{width: 105px;float: left;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.title_name a.money_number,.title_name a .money_number,.fortune_number .money_number{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 105px;display: inline-block;}
+.title_name a .money_number{width: 95px;}
+
+.list_Like li{ margin:0 0 10px 0 ; height:50px; }
+.list_Like li .fortune_number,.list_Like li .fortune_number a{ color:#99a2aa; }
+

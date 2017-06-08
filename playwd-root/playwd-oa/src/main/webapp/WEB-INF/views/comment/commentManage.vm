@@ -1,0 +1,180 @@
+<!-- 举报管理页面 -->
+
+<style>
+   #DataTables_Table_0_paginate a{border: 1px solid #eee;padding: 4px 8px;}
+   .boxWord {
+    width: 100%;
+    overflow: hidden;
+    border-bottom: 1px solid #ccc;
+    background: #e5e9ef;
+}
+
+.userName {
+    width: 19%;
+    float: left;
+}
+.userName p{
+     color: #939ba2;
+    font-size: 14px;   
+    line-height: 27px;
+    text-align:center;
+}
+
+.content {
+    float: left;
+    width:60%;
+}
+.content p{color: #333;
+    width: 100%;
+    word-wrap: break-word;
+        line-height: 27px;}
+.creatTime{
+    width: 24%;
+    float: right;
+}
+.creatTime p{color:darkblue;}
+.modalBody .form-group{
+    overflow-y: auto;
+}
+.js_tbodyBox td:last-child a{
+	margin-right:3px;
+}
+</style>
+<script	src="${rc.contextPath}/static/script/My97DatePicker/WdatePicker.js"></script>
+<script	src="${rc.contextPath}/static/script/jquery.ajaxpage.2.0.1.js"></script>
+<script	src="${rc.contextPath}/static/script/commentManagerHjh.js"></script>
+
+<section class="scrollable padder">
+    <header class="header bg-white b-b clearfix">
+        <div class="row m-t-sm">
+            <div class="col-sm-3">
+                <label>所属栏目：</label>
+                <select class="input-sm js_column" style="width: 160px;">
+                    <option value="">全部</option>
+                    <option value="article">图文驿站</option>
+                    <option value="manhua">漫画专区</option>
+                </select>
+            </div>
+            <div class="col-sm-3">
+                <label>账号：</label>
+                <input type="text"  class="input-sm js_Account" />
+            </div>
+            <div class="col-sm-4">
+                <label >关键字：</label>
+                <input type="text"  class="input-sm js_keyword" />
+            </div>
+
+
+        </div>
+        <div class="row m-t-sm" style="margin-bottom: 10px;">
+            <div class="col-sm-3">
+                <label >作品标题：</label>
+                <input type="text"  class="input-sm js_title" />
+            </div>
+            <div class="col-sm-3">
+                <label>评论内容状态：</label>
+                <select class="input-sm input-sm js_showStatus" style="width: 130px;">
+                    <option value="">全部</option>
+                    <option value="0">隐藏</option>
+                    <option value="1">展示</option>
+                </select>
+            </div>
+            <div  class="col-sm-5">
+                <label style="float:left;line-height:34px;">发表时间：</label>
+                <div class="col-sm-4" style="padding-right: 0px;">
+                    <input type="text" readonly="" value="" name="StartDate" class="input form-control js_startTime" placeholder="开始时间" onclick="WdatePicker()" />
+                </div>
+                <div class="col-sm-1" style=" height: 30px;line-height:30px;">至</div>
+                <div class="col-sm-4" style="padding-right: 0px;" >
+                    <input type="text" readonly="" value="" name="EndDate" class="input form-control js_endTime" placeholder="结束时间" onclick="WdatePicker()" />
+                </div>
+            </div>
+            <a class="btn btn-info js_query"  href="javascript:;">查询</a>
+        </div>
+        <div class="row m-t-sm" style="margin-bottom: 10px;">
+            <a class="btn btn-info js_allStatus" data-show="show" href="javascript:;">批量展示</a>
+            <a class="btn btn-info js_allStatus" data-show="hidden" href="javascript:;">批量隐藏</a>
+        </div>
+    </header>
+    <!--数据表格  begin -->
+    <section class="panel panel-default" style="margin-top: 2%;">
+        <div class="table-responsive" style="height:410px;overflow-y: scroll;">
+            <table class="table table-striped m-b-none" style="table-layout:fixed">
+                <thead>
+                    <tr>
+                        <th style="width:5%;">选择</th>
+                        <th style="width:30%;">评论内容</th>
+                        <th style="width:5%;">状态</th>
+                        <th style="width:5%;">账号</th>
+                        <th style="width:10%;">账号状态</th>
+                        <th style="width:10%;">发表时间</th>
+                        <th style="width:15%;">评论作品</th>
+                        <th style="width:10%;">栏目</th>
+                        <th style="width:10%;">操作</th>
+                    </tr>
+                </thead>
+                <tbody class="js_tbodyBox">
+                    <tr>
+                        <td>1</td>
+                        <td>被举报评论被举报评论被举报评论被举报评论</td>
+                        <td>被举报原因</td>
+                        <td>2016-8-15</td>
+                        <td>123456</td>
+                        <td>正常</td>
+                        <td>123456</td>
+                        <td>正常</td>
+                        <td>
+                            <a  href="javascript:;" data-original-title="隐藏">隐藏</a>
+                            <a  href="javascript:;" data-original-title="展示">展示</a>
+                            <a  href="javascript:;" data-original-title="查看详情">查看详情</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <!-- 分页 -->
+        <footer class="footer bg-white b-t">
+            <div class="row dataTables_wrapper">
+                <div class="col-sm-6">
+                    <div id="DataTables_Table_0_info" class="dataTables_info"></div>
+                </div>
+                <div class="col-sm-6">
+                	<div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers"></div>
+                </div>
+            </div>
+            <input type="hidden" id="pageIndex" name="" value="1">
+        </footer>
+        <!-- 分页 -->
+        <div class="modal fade" id="layer-topic">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
+                        <h4 class="modal-title">话题记录</h4>
+                    </div>
+                    <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+                    <div class="modal-body modalBody">
+                        <div class="form-group">
+                            <div class="boxWord">
+                                <div class="userName">
+                                    <p>asda:</p>
+                                </div>
+                                <div class="content">
+                                    <p>回复 li****02：</p>
+                                </div>
+                                <div class="creatTime">
+                                    <p>2017-04-18 16:23:06</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button data-dismiss="modal" type="button" class="btn btn-info">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--数据表格  end -->
+</section>

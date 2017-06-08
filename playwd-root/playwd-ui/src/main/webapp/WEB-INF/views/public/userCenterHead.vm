@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>$title</title>
+    <meta name="keywords" content="问道玩家天地" />
+    <meta name="description" content="问道玩家天地" />
+
+    <link href="${rc.contextPath}/static/css/common.css" rel="stylesheet" type="text/css">
+    <link href="${rc.contextPath}/static/css/layout.css" rel="stylesheet" type="text/css">
+    <link href="${rc.contextPath}/static/css/icon.css" rel="stylesheet" type="text/css">
+    <link href="${rc.contextPath}/static/css/globle.css" rel="stylesheet" type="text/css">
+    <link href="${rc.contextPath}/static/css/style.css" rel="stylesheet" />
+    <link href="${rc.contextPath}/static/css/pf.css" rel="stylesheet" />
+    <script type="text/javascript" src="${rc.contextPath}/static/js/jquery-1.7.1.min.js"></script>
+
+    <script type="text/javascript" src="${rc.contextPath}/static/js/jquery.tools.min.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/static/js/jquery-scroll-fn.js"></script>
+
+    <script type="text/javascript" src="${rc.contextPath}/static/js/custom.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/static/js/common.js"></script>
+    <script src="${rc.contextPath}/static/js/pf.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/static/js/jquery.slimscroll.js"></script>
+
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+
+    <!--6.29问道玩家天地添加百度统计代码-->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5de513249ba2b0ed610709e84cec43ae";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+
+
+
+<script src="http://s.gyyx.cn/lib/addChinaCaptcha.js"></script>
+    <script src="${rc.contextPath}/static/js/userCenter.js"></script>
+    <script src="${rc.contextPath}/static/js/jquery.ajaxpage.2.0.1.js"></script>
+
+    <!--[if IE 6]>
+         <script src="/Content/js/DD_belatedPNG.js"></script>
+         <script>
+           /* EXAMPLE */
+           DD_belatedPNG.fix('.hnavl .on');
+           DD_belatedPNG.fix('.pngbg');
+
+           /* string argument can be any CSS selector */
+           /* .png_bg example is unnecessary */
+           /* change it to what suits you! */
+         </script>
+         <![endif]-->
+</head>
+
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+
+
+
+    <div class="head h165">
+        <div class="web_wrap wwd_head">
+            <div class="logo clear">
+                <a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm" class="lg_wd pngbg" title="问道官网">
+                </a>
+                <a target="_blank" href="http://wanwd.gyyx.cn/" class="lg_wanwd pngbg" title="问道玩家天地">
+                </a>
+            </div>
+            <div class="search">
+                <form method="get" id="js_SearchForm" action="/Home/Search" target="_blank">
+                    <div class="search_bg">
+                        <input type="text" class="text_w" name="s_KeyWord" maxlength="50" value="" />
+                        <input type="submit" class="input_s" value="搜索">
+                    </div>
+                </form>
+            </div>
+            <div class="upload_info">
+                <ul>
+                    <li><a target="_blank" href="/userCenter/myMessage" class="upload_ie6"><i class="upload_p"></i>用户中心</a></li>
+                    <li>
+                        <a href="javascript:void(0)" class="js_upload"><i class="upload_i"></i>上传<i class="down"></i></a>
+                        <ul class="upload_ls js_upload_ul" style="display: none;">
+                            <li class="up">
+                                <a href="javascript:void(0)"><i class="pngbg"></i>上&nbsp;传</a>
+                            </li>
+                            <li class="gj">
+                                <a target="_blank" href="/article/upload"><i class="pngbg"></i>上传稿件</a>
+                            </li>
+                            <li class="pic">
+                                <a target="_blank" href="http://wanwd.gyyx.cn/Picture/Upload"><i class="pngbg"></i>上传图片</a>
+                            </li>
+                            <li class="video">
+                                <a target="_blank" href="http://wanwd.gyyx.cn/Video/Upload"><i class="pngbg"></i>上传视频</a>
+                            </li>
+                            <li class="jl">
+                                <a target="_blank" href="http://hd.gyyx.cn/P/WDReporter/wd140214.html"><i class="pngbg"></i>投稿奖励</a>
+                            </li>
+                            <li class="cartoon">
+                                <a target="_blank" href="http://wanwdv2.gyyx.cn/upload"><i class="pngbg"></i>上传漫画</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav_wrap">
+            <div class="web_wrap">
+
+                <ul class="nav clear">
+                    <li class="icon1" alt="1">
+                        <a target="_blank" href="/"><i class="pngbg"></i>首页</a>
+                    </li>
+                    <li class="icon2" alt="2">
+                        <a target="_blank" href="http://wanwd.gyyx.cn/articlelist/Index"><i class="pngbg"></i>图文驿站</a>
+                    </li>
+                    <li class="icon3" alt="3">
+                        <a target="_blank" href="http://wanwd.gyyx.cn/Picture/Index"><i class="pngbg"></i>秀图专区</a>
+                    </li>
+                    <li class="icon4" alt="4">
+                        <a target="_blank" href="http://wanwd.gyyx.cn/Video/Index"><i class="pngbg"></i>火爆视频</a>
+                    </li>
+                    <li class="icon5" alt="5">
+                        <a target="_blank" href="http://wanwdv2.gyyx.cn/home"><i class="pngbg" style="width:23px;"></i>漫画专区</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+    </div>
+  <div style="padding-top: 10px;"></div>
+    <!-- end -->
+    <!-- main -->
+    <div class="web_wrap">

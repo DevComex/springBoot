@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+  <context:component-scan base-package="cn.mahjong">
+    <context:exclude-filter type="annotation"
+      expression="org.springframework.stereotype.Controller"/>
+  </context:component-scan>
+
+  <!-- rest客户端调用 -->
+  <bean id="restTemplate" class="org.springframework.web.client.RestTemplate">
+  </bean>
+
+  <!-- 引入其他配置 -->
+  <import resource="spring-mybatis.xml"/>
+
+  <!-- spring validation配置 -->
+  <bean id="validator"
+    class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+    <property name="providerClass" value="org.hibernate.validator.HibernateValidator"></property>
+  </bean>
+  <bean id="methodValidation"
+    class="org.springframework.validation.beanvalidation.MethodValidationPostProcessor">
+    <property name="validator" ref="validator"/>
+  </bean>
+
+  <!-- 引入其他配置 -->
+  <import resource="spring-mybatis.xml"/>
+  <import resource="spring-redis.xml"/>
+
+  <beans profile="development">
+    <bean id="propertyConfig"
+      class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="locations">
+        <list>
+          <value>classpath:/mysql.properties</value>
+          <value>classpath:/redis.properties</value>
+          <value>classpath:/controller.properties</value>
+        </list>
+      </property>
+    </bean>
+  </beans>
+
+  <beans profile="production">
+    <bean id="propertyConfig"
+      class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="locations">
+        <list>
+          <value>file:/data/conf/www.wyx.cn/mysql.properties</value>
+          <value>file:/data/conf/www.wyx.cn/redis.properties</value>
+          <value>file:/data/conf/www.wyx.cn/controller.properties</value>
+        </list>
+      </property>
+    </bean>
+  </beans>
+</beans>

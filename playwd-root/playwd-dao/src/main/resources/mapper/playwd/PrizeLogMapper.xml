@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.playwd.dao.playwd.PrizeLogDao" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.playwd.beans.playwd.PrizeLogBean" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="operator" property="operator" jdbcType="VARCHAR" />
+    <result column="content_type" property="contentType" jdbcType="VARCHAR" />
+    <result column="content_id" property="contentId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="prize_id" property="prizeId" jdbcType="INTEGER" />
+    <result column="alias" property="alias" jdbcType="VARCHAR" />
+    <result column="yyb" property="yyb" jdbcType="INTEGER" />
+    <result column="rmb" property="rmb" jdbcType="INTEGER" />
+    <result column="content_url" property="contentUrl" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, operator, content_type, content_id, user_id, prize_id, alias, yyb, rmb, content_url, 
+    create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_prize_log
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from playwd_prize_log
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+   
+  <insert id="insertSelective" parameterType="cn.gyyx.playwd.beans.playwd.PrizeLogBean" useGeneratedKeys="true" keyProperty="code">
+    insert into playwd_prize_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="operator != null" >
+        operator,
+      </if>
+      <if test="contentType != null" >
+        content_type,
+      </if>
+      <if test="contentId != null" >
+        content_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="prizeId != null" >
+        prize_id,
+      </if>
+      <if test="alias != null" >
+        alias,
+      </if>
+      <if test="yyb != null" >
+        yyb,
+      </if>
+      <if test="rmb != null" >
+        rmb,
+      </if>
+      <if test="contentUrl != null" >
+        content_url,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="operator != null" >
+        #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="contentType != null" >
+        #{contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="contentId != null" >
+        #{contentId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="prizeId != null" >
+        #{prizeId,jdbcType=INTEGER},
+      </if>
+      <if test="alias != null" >
+        #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="yyb != null" >
+        #{yyb,jdbcType=INTEGER},
+      </if>
+      <if test="rmb != null" >
+        #{rmb,jdbcType=INTEGER},
+      </if>
+      <if test="contentUrl != null" >
+        #{contentUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.playwd.beans.playwd.PrizeLogBean" >
+    update playwd_prize_log
+    <set >
+      <if test="operator != null" >
+        operator = #{operator,jdbcType=VARCHAR},
+      </if>
+      <if test="contentType != null" >
+        content_type = #{contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="contentId != null" >
+        content_id = #{contentId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="prizeId != null" >
+        prize_id = #{prizeId,jdbcType=INTEGER},
+      </if>
+      <if test="alias != null" >
+        alias = #{alias,jdbcType=VARCHAR},
+      </if>
+      <if test="yyb != null" >
+        yyb = #{yyb,jdbcType=INTEGER},
+      </if>
+      <if test="rmb != null" >
+        rmb = #{rmb,jdbcType=INTEGER},
+      </if>
+      <if test="contentUrl != null" >
+        content_url = #{contentUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 根据条件查询 发奖日志列表 -->
+  <select id="selectPrizeLogList" resultType="java.util.Map" parameterType="map" >
+<if test="contentType =='article'">
+	SELECT log.`code` , log.operator ,log.alias,log.yyb,log.rmb,log.content_url contentUrl,date_format(log.create_time,'%Y-%c-%d %H:%i:%s') createTime
+	 ,a.account,a.author,a.title,a.server_name serverName, '角色名' roleName,prize.`name`
+	FROM playwd_prize_log log
+	LEFT JOIN playwd_article_tb a ON a.code = log.content_id
+	LEFT JOIN playwd_prize_tb prize ON prize.`code`=log.prize_id
+	where 1=1
+	<if test="startTime !=null and startTime !=''">
+	AND log.create_time &gt;= #{startTime}
+	</if>
+	<if test="endTime !=null and endTime !=''">
+	AND log.create_time &lt;= #{endTime}
+	</if>
+	<if test="searchType =='account'">
+	AND a.account  LIKE '%${searchValue}%'
+	</if>
+	<if test="searchType =='title'">
+	AND a.title  LIKE '%${searchValue}%'
+	</if>
+	<if test="searchType =='author'">
+	AND a.author  LIKE '%${searchValue}%'
+	</if>
+	ORDER BY log.create_time DESC
+	LIMIT #{startSize},#{endSize}
+ </if>
+  </select>
+  
+  <!-- 根据条件查询 发奖日志数量 -->
+  <select id="getPrizeLogCount" resultType="int" parameterType="map" >
+SELECT count(*)
+FROM playwd_prize_log log
+LEFT JOIN playwd_article_tb a ON a.code = log.content_id
+LEFT JOIN playwd_prize_tb prize ON prize.`code`=log.prize_id
+where 1=1
+<if test="startTime !=null and startTime !=''">
+AND log.create_time &gt;= #{startTime}
+</if>
+<if test="endTime !=null and endTime !=''">
+AND log.create_time &lt;= #{endTime}
+</if>
+<if test="searchType =='account'">
+AND a.account  LIKE '%${searchValue}%'
+</if>
+<if test="searchType =='title'">
+AND a.title  LIKE '%${searchValue}%'
+</if>
+<if test="searchType =='author'">
+AND a.author  LIKE '%${searchValue}%'
+</if>
+  </select>
+  
+   <select id="selectPrizeLogResult" resultType="java.util.Map" parameterType="map" >
+<if test="contentType =='article'">
+	SELECT IFNULL(SUM(yyb),0) yybSum,IFNULL(SUM(rmb),0) rmbSum,COUNT(DISTINCT log.user_id) userCount,COUNT(DISTINCT log.content_id) contentCount
+	FROM playwd_prize_log log
+	LEFT JOIN playwd_article_tb a ON a.code = log.content_id
+	LEFT JOIN playwd_prize_tb prize ON prize.`code`=log.prize_id
+	where 1=1
+	<if test="startTime !=null and startTime !=''">
+	AND log.create_time &gt;= #{startTime}
+	</if>
+	<if test="endTime !=null and endTime !=''">
+	AND log.create_time &lt;= #{endTime}
+	</if>
+	<if test="searchType =='account'">
+	AND a.account  LIKE '%${searchValue}%'
+	</if>
+	<if test="searchType =='title'">
+	AND a.title  LIKE '%${searchValue}%'
+	</if>
+	<if test="searchType =='author'">
+	AND a.author  LIKE '%${searchValue}%'
+	</if>
+ </if>
+  </select>
+  
+</mapper>

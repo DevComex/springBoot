@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.ArticleDao">
+  <resultMap id="BaseResultMap" type="beans.ArticleBean">
+    <id column="code" jdbcType="INTEGER" property="code" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="author_type" jdbcType="VARCHAR" property="authorType" />
+    <result column="summary" jdbcType="VARCHAR" property="summary" />
+    <result column="cover" jdbcType="VARCHAR" property="cover" />
+    <result column="keywords" jdbcType="VARCHAR" property="keywords" />
+    <result column="game_id" jdbcType="INTEGER" property="gameId" />
+    <result column="server_id" jdbcType="INTEGER" property="serverId" />
+    <result column="server_name" jdbcType="VARCHAR" property="serverName" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="view_count" jdbcType="INTEGER" property="viewCount" />
+    <result column="collect_count" jdbcType="INTEGER" property="collectCount" />
+    <result column="prize_id" jdbcType="INTEGER" property="prizeId" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="publish_time" jdbcType="TIMESTAMP" property="publishTime" />
+    <result column="is_delete" jdbcType="BIT" property="isDelete" />
+    <result column="recommmend_time" jdbcType="TIMESTAMP" property="recommmendTime" />
+    <result column="recommend_detail" jdbcType="VARCHAR" property="recommendDetail" />
+  </resultMap>
+  <resultMap extends="BaseResultMap" id="ResultMapWithBLOBs" type="beans.ArticleBean">
+    <result column="content" jdbcType="LONGVARCHAR" property="content" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    code, user_id, category_id, title, author, author_type, summary, cover, keywords, 
+    game_id, server_id, server_name, create_time, view_count, collect_count, prize_id, 
+    status, publish_time, is_delete, recommmend_time, recommend_detail
+  </sql>
+  <sql id="Blob_Column_List">
+    content
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from playwd_article_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from playwd_article_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="beans.ArticleBean">
+    insert into playwd_article_tb (code, user_id, category_id, 
+      title, author, author_type, 
+      summary, cover, keywords, 
+      game_id, server_id, server_name, 
+      create_time, view_count, collect_count, 
+      prize_id, status, publish_time, 
+      is_delete, recommmend_time, recommend_detail, 
+      content)
+    values (#{code,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{categoryId,jdbcType=INTEGER}, 
+      #{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{authorType,jdbcType=VARCHAR}, 
+      #{summary,jdbcType=VARCHAR}, #{cover,jdbcType=VARCHAR}, #{keywords,jdbcType=VARCHAR}, 
+      #{gameId,jdbcType=INTEGER}, #{serverId,jdbcType=INTEGER}, #{serverName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{viewCount,jdbcType=INTEGER}, #{collectCount,jdbcType=INTEGER}, 
+      #{prizeId,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR}, #{publishTime,jdbcType=TIMESTAMP}, 
+      #{isDelete,jdbcType=BIT}, #{recommmendTime,jdbcType=TIMESTAMP}, #{recommendDetail,jdbcType=VARCHAR}, 
+      #{content,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="beans.ArticleBean">
+    insert into playwd_article_tb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        code,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+      <if test="title != null">
+        title,
+      </if>
+      <if test="author != null">
+        author,
+      </if>
+      <if test="authorType != null">
+        author_type,
+      </if>
+      <if test="summary != null">
+        summary,
+      </if>
+      <if test="cover != null">
+        cover,
+      </if>
+      <if test="keywords != null">
+        keywords,
+      </if>
+      <if test="gameId != null">
+        game_id,
+      </if>
+      <if test="serverId != null">
+        server_id,
+      </if>
+      <if test="serverName != null">
+        server_name,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="viewCount != null">
+        view_count,
+      </if>
+      <if test="collectCount != null">
+        collect_count,
+      </if>
+      <if test="prizeId != null">
+        prize_id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="publishTime != null">
+        publish_time,
+      </if>
+      <if test="isDelete != null">
+        is_delete,
+      </if>
+      <if test="recommmendTime != null">
+        recommmend_time,
+      </if>
+      <if test="recommendDetail != null">
+        recommend_detail,
+      </if>
+      <if test="content != null">
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="authorType != null">
+        #{authorType,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null">
+        #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null">
+        #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="gameId != null">
+        #{gameId,jdbcType=INTEGER},
+      </if>
+      <if test="serverId != null">
+        #{serverId,jdbcType=INTEGER},
+      </if>
+      <if test="serverName != null">
+        #{serverName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="viewCount != null">
+        #{viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="collectCount != null">
+        #{collectCount,jdbcType=INTEGER},
+      </if>
+      <if test="prizeId != null">
+        #{prizeId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null">
+        #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="recommmendTime != null">
+        #{recommmendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recommendDetail != null">
+        #{recommendDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="beans.ArticleBean">
+    update playwd_article_tb
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="authorType != null">
+        author_type = #{authorType,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null">
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null">
+        cover = #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null">
+        keywords = #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="gameId != null">
+        game_id = #{gameId,jdbcType=INTEGER},
+      </if>
+      <if test="serverId != null">
+        server_id = #{serverId,jdbcType=INTEGER},
+      </if>
+      <if test="serverName != null">
+        server_name = #{serverName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="viewCount != null">
+        view_count = #{viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="collectCount != null">
+        collect_count = #{collectCount,jdbcType=INTEGER},
+      </if>
+      <if test="prizeId != null">
+        prize_id = #{prizeId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null">
+        publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null">
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="recommmendTime != null">
+        recommmend_time = #{recommmendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recommendDetail != null">
+        recommend_detail = #{recommendDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null">
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="beans.ArticleBean">
+    update playwd_article_tb
+    set user_id = #{userId,jdbcType=INTEGER},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      author_type = #{authorType,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      cover = #{cover,jdbcType=VARCHAR},
+      keywords = #{keywords,jdbcType=VARCHAR},
+      game_id = #{gameId,jdbcType=INTEGER},
+      server_id = #{serverId,jdbcType=INTEGER},
+      server_name = #{serverName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      view_count = #{viewCount,jdbcType=INTEGER},
+      collect_count = #{collectCount,jdbcType=INTEGER},
+      prize_id = #{prizeId,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIT},
+      recommmend_time = #{recommmendTime,jdbcType=TIMESTAMP},
+      recommend_detail = #{recommendDetail,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="beans.ArticleBean">
+    update playwd_article_tb
+    set user_id = #{userId,jdbcType=INTEGER},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      author_type = #{authorType,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      cover = #{cover,jdbcType=VARCHAR},
+      keywords = #{keywords,jdbcType=VARCHAR},
+      game_id = #{gameId,jdbcType=INTEGER},
+      server_id = #{serverId,jdbcType=INTEGER},
+      server_name = #{serverName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      view_count = #{viewCount,jdbcType=INTEGER},
+      collect_count = #{collectCount,jdbcType=INTEGER},
+      prize_id = #{prizeId,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIT},
+      recommmend_time = #{recommmendTime,jdbcType=TIMESTAMP},
+      recommend_detail = #{recommendDetail,jdbcType=VARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+</mapper>

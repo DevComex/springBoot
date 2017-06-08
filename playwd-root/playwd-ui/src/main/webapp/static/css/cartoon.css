@@ -1,0 +1,40 @@
+a:hover{text-decoration:none;}
+/*ÉÏ´«Âþ»­*/
+.cartoonType {width:300px;border: 1px solid #ccc;background: #f7f7f7;-moz-box-shadow: 1px 1px 3px #dedcdc inset;-webkit-box-shadow: 1px 1px 3px #dedcdc inset;box-shadow: 1px 1px 3px #dedcdc inset;border-radius: 2px;height: 33px;line-height: 33px;padding: 0 10px;vertical-align: middle;}
+.yzm {width: 280px;}
+.cartoonIntroduction{display: block;width: 300PX;float: left;margin-left: 4px;border: 1px solid #ccc;background: #f7f7f7;-moz-box-shadow: 1px 1px 3px #dedcdc inset;-webkit-box-shadow: 1px 1px 3px #dedcdc inset;box-shadow: 1px 1px 3px #dedcdc inset;border-radius: 2px;height: 100px;line-height: 25px;}
+.CartoonName_div {position:relative;margin-top: 3px;margin-bottom: 5px;}
+#js_CartoonName_ul {border: 1px solid #ccc;width: 300px;margin-left: 184px;background-color: #f7f7f7;margin-bottom: 5px;border-top: 0px; border-radius:3px;display:none;position:absolute;}
+#js_CartoonName_ul li {border-bottom: 1px solid #ccc;height:30px;line-height:30px; padding-left: 5px; cursor:pointer}
+.uploadFormat {font-size:14px ;color:red;border-bottom:1px solid #f0f0f0;padding-bottom:10px;}
+.js_keyword {width:100%;display:block;}
+.VerificationCode { display: block; height: 80px;}
+.VerificationCode label { padding-left: 112px; float: left; line-height: 80px; }
+#js_yzm { float: left; margin-top: 24px;}
+.yzm_code {float: left;}
+
+/*Âþ»­Ô¤ÀÀ*/
+img{ border:0;}
+.ban{ width:600px; height:500px; position:fixed; overflow:hidden;margin:40px auto 0 auto;top:5%;left:30%;z-index:9990;}
+.ban2{ width:600px; height:400px; position:relative; overflow:hidden;}
+.ban2 ul{ position:absolute; left:0; top:0;}
+.ban2 ul li{ width:600px; height:400px;}
+.prev{ float:left; cursor:pointer;}
+.num{ height:82px;overflow:hidden; width:535px; position:relative;float:left;}
+.min_pic{ padding-top:10px; width:600px;}
+.num ul{ position:absolute; left:0; top:0;}
+.num ul li{ width:100px; height:80px; margin-right:5px; padding:1px;}
+.num ul li.on{ border:1px solid red; padding:0;}
+.prev_btn1{ width:16px; text-align:center; height:18px; margin-top:30px; margin-right:20px; cursor:pointer; float:left;}
+.next_btn1{  width:16px; text-align:center; height:18px; margin-top:30px;cursor:pointer;float:right;}
+.prev1{ position:absolute; top:165px; left:20px; width:28px; height:51px;z-index:9;cursor:pointer;}
+.next1{ position:absolute; top:165px; right:20px; width:28px; height:51px;z-index:9;cursor:pointer;}
+.mhc{ background:#000; width:100%;opacity:0.5;-moz-opacity:0.5;filter:alpha(Opacity=50); position:absolute; left:0; top:0; display:none;}
+.pop_up{ width:500px; height:500px; padding:10px; background:#fff; position:fixed; -position:absolute; left:50%; top:50%; margin-left:-255px; margin-top:-255px; display:none; z-index:99;}
+.pop_up_xx {display:none;width: 40px;height: 40px;position: fixed;top: 60px; right: 135px;cursor: pointer;z-index: 99999;}
+.pop_up2{ width:600px; height:400px; position:relative; overflow:hidden;}
+.pop_up2{ width:600px; height:400px; position:relative; overflow:hidden; float:left;}
+.pop_up2 ul{ position:absolute; left:0; top:0;}
+.pop_up2 ul li{ width:600px; height:400px; float:left;}
+.Mask {width: 100%;z-index: 9980;position: fixed;top: 0;background-color: #000;height: 1600px;opacity: 0.9;display:none;left: 0;}
+

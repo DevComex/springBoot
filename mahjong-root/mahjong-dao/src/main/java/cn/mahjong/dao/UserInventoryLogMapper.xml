@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mahjong.dao.UserInventoryLogMapper">
+  <resultMap id="BaseResultMap" type="cn.mahjong.beans.UserInventoryLog">
+    <id column="user_id" jdbcType="INTEGER" property="userId"/>
+    <result column="code" jdbcType="INTEGER" property="code"/>
+    <result column="amount" jdbcType="INTEGER" property="amount"/>
+    <result column="gift" jdbcType="INTEGER" property="gift"/>
+    <result column="create_time" jdbcType="INTEGER" property="createTime"/>
+  </resultMap>
+  <insert id="insert" parameterType="cn.mahjong.beans.UserInventoryLog">
+    insert into user_inventory_log (user_id, amount, gift, create_time) VALUES (
+      #{userId,jdbcType=INTEGER},
+      #{amount,jdbcType=INTEGER},
+      #{gift,jdbcType=INTEGER},
+      #{createTime,jdbcType=TIMESTAMP}
+    )
+  </insert>
+</mapper>

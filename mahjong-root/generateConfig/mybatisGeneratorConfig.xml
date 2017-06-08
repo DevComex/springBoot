@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+  <properties url="file:///D:/DataConfig/mysql.properties"></properties>
+
+  <classPathEntry
+    location="${user.home}/.m2/repository/mysql/mysql-connector-java/5.1.39/mysql-connector-java-5.1.39.jar"/>
+
+  <context id="gyyx_my" targetRuntime="MyBatis3">
+    <commentGenerator>
+    <property name="javaFileEncoding" value="UTF-8"/>
+      <property name="suppressDate" value="false"/>
+      <property name="suppressAllComments" value="false"/>
+      <property name="addRemarkComments" value="true"/>
+      <property name="type" value="cn.gyyx.mybatis.CommentGenerator"/>
+    </commentGenerator>
+
+    <jdbcConnection driverClass="${jdbc.mysql.JavaMahjongDBDriver}"
+      connectionURL="${jdbc.mysql.JavaMahjongDBurl}" userId="${jdbc.mysql.JavaMahjongDBusername}"
+      password="${jdbc.mysql.JavaMahjongDBpassword}"/>
+
+    <javaModelGenerator targetPackage="cn.mahjong.beans"
+      targetProject="mahjong-beans/src/main/java/">
+      <property name="enableSubPackages" value="true"/>
+      <property name="trimStrings" value="true"/>
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="cn.mahjong.dao"
+      targetProject="mahjong-dao/src/main/java">
+      <property name="enableSubPackages" value="true"/>
+    </sqlMapGenerator>
+
+    <javaClientGenerator targetPackage="cn.mahjong.dao"
+      targetProject="mahjong-dao/src/main/java" type="XMLMAPPER">
+      <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
+	<!-- 
+    <table tableName="user_inventory_tb" domainObjectName="UserInventory"
+      enableCountByExample="false" enableUpdateByExample="false"
+      enableDeleteByExample="false" enableSelectByExample="false"
+      selectByExampleQueryId="false">
+    </table>-->
+
+    <!-- 账户表
+        <table tableName="recharge_log" domainObjectName="RechargeLog"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+        </table> -->
+
+    <!-- 账户表
+    <table tableName="block_log" domainObjectName="BlockLog"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table> -->
+    <!-- 账户表
+    <table tableName="user_tb" domainObjectName="UserBean"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table> -->
+    <!-- 账户表
+    <table tableName="account_login_log" domainObjectName="AccountLoginLog"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table> -->
+    <!-- 账户表
+    <table tableName="account_find_change_pwd_log" domainObjectName="AccountFindChangePwdLog"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>
+     
+     -->
+     
+     <!-- 账户表
+    <table tableName="account_bind_change_phone_log" domainObjectName="AccountBindChangePhoneLog"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>-->
+     <!--
+     <table tableName="game_tb" domainObjectName="GameBean"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>-->
+    <!-- 
+    <table tableName="game_login_tb" domainObjectName="GameLoginBean"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>-->
+    <!-- 
+    <table tableName="game_new_room_tb" domainObjectName="GameNewRoomBean"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>-->
+    <!-- 
+    <table tableName="game_reg_tb" domainObjectName="GameRegBean"
+           enableCountByExample="false" enableUpdateByExample="false"
+           enableDeleteByExample="false" enableSelectByExample="false"
+           selectByExampleQueryId="false">
+    </table>-->
+     
+  </context>
+</generatorConfiguration>

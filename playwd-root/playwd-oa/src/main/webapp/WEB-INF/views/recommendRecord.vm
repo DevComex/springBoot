@@ -1,0 +1,203 @@
+<script src="${rc.contextPath}/static/script/upload/swfupload.js" type="text/javascript"></script>
+    <script src="${rc.contextPath}/static/script/upload/SWFInitialize.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/static/script/upload/videoHandlers.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/static/script/jquery.validate.min.js" type="text/javascript"></script>
+    <script src="${rc.contextPath}/static/script/RecommendList.js"></script>
+    <link href="${rc.contextPath}/static/css/wanwd.css" rel="stylesheet" />
+<script>
+        $(function () {
+            $("#Msgmark").hide();
+            var nowDate = new Date(),
+                nYear = nowDate.getFullYear(),
+                nMonth = ((nowDate.getMonth() + 1) < 10 ? ("0" + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1)),
+                nDate = (nowDate.getDate() < 10 ? ("0" + nowDate.getDate()) : nowDate.getDate()),
+                //当天年月日(格式2014-01-01)
+                today = [nYear, nMonth, nDate].join("-");
+
+            var m = nowDate.getMonth() - 1;
+            nowDate.setMonth(m);
+            var lMonth = ((nowDate.getMonth() + 1) < 10 ? ("0" + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1));
+            var lDate = (nowDate.getDate() < 10 ? ("0" + nowDate.getDate()) : nowDate.getDate());
+            var ltoday = [nowDate.getFullYear(), lMonth, lDate].join("-");
+
+            window.today = today;
+            window.ltoday = ltoday;
+
+            //开始时间（默认1个月前）
+            $(".js_startTimeCtr").datepicker({
+                format: 'yyyy-mm-dd',
+                startView: 2,
+                autoclose: true,
+                minView: 2
+            }).on('changeDate', function (ev) {
+                var AddStartTime = $(this).val();
+                $(".js_endTimeCtr").datepicker('setStartDate', AddStartTime);
+            }).val(ltoday);
+
+            //结束时间（默认当天）
+            $(".js_endTimeCtr").datepicker({
+                format: 'yyyy-mm-dd',
+                startView: 2,
+                autoclose: true,
+                todayBtn: true,
+                minView: 2
+            }).on('changeDate', function (ev) {
+                var AddEndTime = $(this).val();
+                $(".js_startTimeCtr").datepicker('setEndDate', AddEndTime);
+            }).val(today);
+
+            //获取列表
+            var dobj1 = {
+                prizeId:0,
+                contentType : "article",                   //默认展示状态全显示
+                startDate : $(".js_startTimeCtr").val(),           //默认开始时间为空
+                endDate : $(".js_endTimeCtr").val(),              //默认结束时间为空
+            };
+            $("#js_ArticleList").getArticle({ dataobj: dobj1 });
+
+            /*根据区组获取服务器*/
+            $("#areaS").change(function () {
+                $.ajax({
+                    url: "/Video/GetGameServerList?gameId=2&netType=" + $("#areaS option:selected").val(),
+                    type: "GET",
+                    dataType: "json",
+                    error: function (XMLHttpRequest, textStatus, errorThrown) { },
+                    success: function (data) {
+                        if (data.IsSuccess) {
+                            $("#serverS").html("<option value='0'>请选择服务器</option>");
+                            $.each(data.List, function (i, item) {
+                                $("#serverS").append("<option value='" + item.AreaCode + "'>" + item.AreaName + "</option>");
+                            });
+                        } else {
+                            alert(data.Message);
+                        }
+                    }
+                });
+            });
+
+            //获取二级分类
+            $("#onecate").change(function () {
+                var id = $("#onecate").val();
+                $("#aaa").getChildList(id);
+            });
+
+            $("#onecate_add").change(function () {
+                var id = $("#onecate_add").val();
+                $("#aaa").getChildList(id);
+            });
+
+
+            //查询
+            $("#query").click(function () {
+                var ContentType = $("#Search").val();
+                var starttime = $(".js_startTimeCtr").val();
+                var endtime = $(".js_endTimeCtr").val();
+                var dobj = {
+                    //geturl: "/Video/ForVideoList?",
+                    //AlbumsName: AlbumsName,
+                    //默认不筛选
+                    ContentType: ContentType,
+                    prizeId : $("#js_choosePrize").val(),
+                    startDate : starttime,           //默认开始时间为空
+                    endDate : endtime              //默认结束时间为空
+                };
+                $(this).getArticle({
+                    dataobj: dobj
+                });
+
+            });
+
+            // 导出
+            $("#huangzhi").click(function () {
+                var exportUrl = '/recommend/record/export';
+                var ContentType = $("#Search").val();
+                var BeginTime = $(".js_startTimeCtr").val() || "";
+                var EndTime = $(".js_endTimeCtr").val() || "";
+                var pageIndex = $(".paginate_active").text();
+                var prizeId  = $("#js_choosePrize").val();
+
+                window.location.href = exportUrl + "?r=" + Math.random() + "&contentType=" + ContentType + "&startDate=" + BeginTime + "&endDate=" + EndTime+"&pageIndex=" + pageIndex + "&pageSize=20" + "&prizeId=" + prizeId;
+                //if (qIndex > 0) {
+                //    location.href = exportUrl + location.href.substr(qIndex, location.href.length - qIndex);
+                //}
+                //else {
+                //    location.href = exportUrl;
+                //}
+            });
+
+            //批量展示1  批量隐藏2 批量删除3
+            $(".js_batch").click(function () {
+                var thistype = $(this).attr("data-type");
+                $("#js_ArticleList").batchShow({
+                    type: thistype
+                });
+            });
+            $(window).choosePrize();
+
+        });
+    </script>
+
+<header class="header bg-white b-b clearfix">
+
+    <div class="row m-t-sm">
+         <label class="col-lg-1 control-label">搜索选项:</label>
+        <div class="col-lg-1-6 m-b-xs">
+             <select id="Search" class="input-sm form-control">
+                <option value="article">文章推荐</option>
+            </select>
+        </div>
+        <label class="col-lg-1 control-label">奖励等级:</label>
+       <div class="col-lg-1-6 m-b-xs">
+            <select id="js_choosePrize" class="input-sm form-control">
+           </select>
+       </div>
+        <label class="col-lg-1 control-label">上传时间:</label>
+        <div class="col-sm-2 m-b-xs">
+            <div class="">
+                <input type="text" class="input-sm form-control js_startTimeCtr" readonly="readonly" placeholder="开始时间">
+            </div>
+        </div>
+        <label class="control-label label-float-left">至</label>
+        <div class="col-sm-2 m-b-xs">
+            <div class="">
+                <input type="text" class="input-sm form-control js_endTimeCtr" readonly="readonly" placeholder="结束时间">
+            </div>
+        </div>
+        <input class="btn btn-sm btn-info" id="query" type="button" value="查询"/>
+        <input class="btn btn-sm btn-info " id="huangzhi" type="button" value="导出"/>
+    </div>
+</header>
+
+<!--表格主体-->
+<section class="scrollable padder" style="height:84%;">
+    <div class="m-b-md"></div>
+    <!--数据表格  begin -->
+    <section class="panel panel-default col-sm-12 pad_r_0 pad_l_0 mb_60">
+        <div class="table-responsive">
+            <table class="table table-striped m-b-none m-table" id="js_tbComList" >
+
+                <tbody id="js_ArticleList">
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!--数据表格  end -->
+</section>
+
+<!--翻页功能-->
+<footer class="footer bg-white b-t pagewrapper">
+    <div class="row dataTables_wrapper">
+        <div class="col-sm-6">
+            <div class="dataTables_info" id="DataTables_Table_0_info"></div>
+        </div>
+        <div class="col-sm-6">
+            <div class="dataTables_paginate paging_full_numbers" id="js_pagecont">
+            </div>
+        </div>
+    </div>
+</footer>
+<input id="listcode" type="hidden" value="" />
+<input id="listdata" type="hidden" value="" />
+
+
+<div id="Msgmark" class="markMsg"></div>

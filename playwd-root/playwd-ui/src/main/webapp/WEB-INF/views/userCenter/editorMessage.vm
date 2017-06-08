@@ -1,0 +1,47 @@
+#parse("public/userCenterHead.vm")
+<div class="web_wrap">
+    <div class="banner_pers">
+        <span class="h_shade pngbg"></span>
+        <div class="w_head">
+            <span class="w_hinfo">
+                <a href="./Role" id="js_HeadPortrait">
+                    <img src="/Content/images/default_rolepic.jpg" title="点击进入我的角色" />
+                </a>
+            </span>
+            <span id="js_RoleName">金男</span>
+        </div>
+    </div>
+    <div class="v_list_tit pad30">
+        <ul class="v_list_class">
+            <li><a href="./myMessage">我的信息</a></li>
+            <li><a href="/userCenter/mycollect">我的收藏</a></li>
+            <li><a href="/userCenter/myupload">我的上传</a></li>
+            <li class="on"><a href="javascript:;">编辑回复</a></li>
+        </ul>
+    </div>
+
+    <div class="web_wrap">
+        <div class="wd_message">
+            <div class="wd_editorAnswer" id="js_MsgContWrap">
+
+                <!-- <ul class="message_list" id="js_editorAnswer">
+                    <li>
+                        <div class="answerTitle">
+                            <h3>编辑回复：</h3><span>2016-8-16 18:43:06</span>
+                        </div>
+                        <div></div>
+                    </li>
+                </ul>
+
+                <div class="mt30 s_page_wrap">
+                    <span class="gy_page search_page"></span>
+                    <span class="search_page_txt"></span>
+                </div> -->
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+#parse("public/userCenterBottom.vm")

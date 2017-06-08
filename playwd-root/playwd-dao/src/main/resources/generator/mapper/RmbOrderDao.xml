@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.RmbOrderDao">
+  <resultMap id="BaseResultMap" type="beans.RmbOrderBean">
+    <id column="code" jdbcType="INTEGER" property="code" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="content_type" jdbcType="VARCHAR" property="contentType" />
+    <result column="content_id" jdbcType="INTEGER" property="contentId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="prize_id" jdbcType="INTEGER" property="prizeId" />
+    <result column="rmb" jdbcType="DECIMAL" property="rmb" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="retry_count" jdbcType="INTEGER" property="retryCount" />
+    <result column="retry_time" jdbcType="TIMESTAMP" property="retryTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    code, order_id, content_type, content_id, user_id, account, prize_id, rmb, create_time, 
+    status, retry_count, retry_time
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_rmb_order_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from playwd_rmb_order_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="beans.RmbOrderBean">
+    insert into playwd_rmb_order_tb (code, order_id, content_type, 
+      content_id, user_id, account, 
+      prize_id, rmb, create_time, 
+      status, retry_count, retry_time
+      )
+    values (#{code,jdbcType=INTEGER}, #{orderId,jdbcType=VARCHAR}, #{contentType,jdbcType=VARCHAR}, 
+      #{contentId,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, 
+      #{prizeId,jdbcType=INTEGER}, #{rmb,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=VARCHAR}, #{retryCount,jdbcType=INTEGER}, #{retryTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="beans.RmbOrderBean">
+    insert into playwd_rmb_order_tb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        code,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="contentType != null">
+        content_type,
+      </if>
+      <if test="contentId != null">
+        content_id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="prizeId != null">
+        prize_id,
+      </if>
+      <if test="rmb != null">
+        rmb,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="retryCount != null">
+        retry_count,
+      </if>
+      <if test="retryTime != null">
+        retry_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="code != null">
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="contentType != null">
+        #{contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="contentId != null">
+        #{contentId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeId != null">
+        #{prizeId,jdbcType=INTEGER},
+      </if>
+      <if test="rmb != null">
+        #{rmb,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="retryCount != null">
+        #{retryCount,jdbcType=INTEGER},
+      </if>
+      <if test="retryTime != null">
+        #{retryTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="beans.RmbOrderBean">
+    update playwd_rmb_order_tb
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="contentType != null">
+        content_type = #{contentType,jdbcType=VARCHAR},
+      </if>
+      <if test="contentId != null">
+        content_id = #{contentId,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="account != null">
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="prizeId != null">
+        prize_id = #{prizeId,jdbcType=INTEGER},
+      </if>
+      <if test="rmb != null">
+        rmb = #{rmb,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="retryCount != null">
+        retry_count = #{retryCount,jdbcType=INTEGER},
+      </if>
+      <if test="retryTime != null">
+        retry_time = #{retryTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="beans.RmbOrderBean">
+    update playwd_rmb_order_tb
+    set order_id = #{orderId,jdbcType=VARCHAR},
+      content_type = #{contentType,jdbcType=VARCHAR},
+      content_id = #{contentId,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      account = #{account,jdbcType=VARCHAR},
+      prize_id = #{prizeId,jdbcType=INTEGER},
+      rmb = #{rmb,jdbcType=DECIMAL},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      retry_count = #{retryCount,jdbcType=INTEGER},
+      retry_time = #{retryTime,jdbcType=TIMESTAMP}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+</mapper>

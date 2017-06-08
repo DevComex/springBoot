@@ -1,0 +1,144 @@
+<!--记者财富榜-->
+
+<div class="box_fortune">
+	<h1 class="fortune_text"><img src="${rc.contextPath}/static/images/public/text.png">记者财富榜</h1>
+	<div class="fortuneList">
+		<ul class="listFortune">
+			<!-- <li class="first">
+				<span class="box_img"><img src="${rc.contextPath}/static/images/public/01.png" /></span>
+				<div class="title_name">
+					<a class="hiddenTxt" href="javascript:;" target="_blank">
+					【雪山飞狐】独倚望江楼
+					</a>
+					<div class="fortune_number">
+						<span class="money_number"><img src="${rc.contextPath}/static/images/public/acer.png" />200元</span>
+						<span class="acer_number"><img src="${rc.contextPath}/static/images/public/money.png" />2000000000</span>
+					</div>
+				</div>
+			</li> -->
+
+		</ul>
+	</div>
+</div>
+
+<!--猜你喜欢-->
+<div class="box_like">
+	<h1 class="fortune_text"><img src="${rc.contextPath}/static/images/public/like.png">猜你喜欢</h1>
+	<div class="fortuneList">
+		<ul class="list_Like">
+			<!-- <li class="first">
+				<span class="box_img"><img src="${rc.contextPath}/static/images/public/01.png" /></span>
+				<div class="title_name">
+					<a class="hiddenTxt" href="javascript:;" target="_blank">
+					【雪山飞狐】独倚望江楼
+					</a>
+					<div class="fortune_number">
+						<span class="money_number">区服</span>
+						<span class="acer_number">作者名</span>
+					</div>
+				</div>
+			</li> -->
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+	function guessLike(slotId,topN){
+		/*猜你喜欢*/
+		$.ajax({
+	    	url:rc+"/content",
+	    	type: "get",
+	        datatype: "json",
+	        data: {
+	            r: Math.random(),
+	            slotId:slotId,
+	            topNumber:topN
+	        },
+	        success: function (data) {
+	        	var Data = data.data;
+	        	var likeHtml = "";
+	        	if(data.isSuccess){
+	        		if(Data.length>0){
+	        			for(var i =0; i<Data.length;i++){
+							var serverName = (Data[i].serverName === "") ? '' : '<a href="javascript:;" class="money_number">【'+Data[i].serverName+'】</a>';
+	        				likeHtml += '<li class="first">'+
+	    									'<span class="box_img"><img src="${rc.contextPath}/static/images/public/'+(i+1)+'.png" /></span>'+
+	    									'<div class="title_name">'+
+	    										'<a class="hiddenTxt" href="'+Data[i].url+'" target="_blank">'+Data[i].title+'</a>'+
+	    										'<div class="fortune_number">'+
+	    											serverName +
+	    											'<span class="acer_number">'+Data[i].author+'</span>'+
+	    										'</div>'+
+	    									'</div>'+
+	    							   '</li>';
+	        			}
+	        			$(".list_Like").html(likeHtml);
+	        		}else{
+	            		$(".box_like .fortuneList").html('<h1>暂无数据~</h1>');
+	            	}
+	        	}
+	        }
+	    });
+	}
+	
+	function userWealth(){
+		/*记者财富榜*/
+		$.ajax({
+	    	url:rc+"/userCenter/wealthRanking",
+	    	type: "get",
+	        datatype: "json",
+	        data: {
+	            r: Math.random(),
+	            topNumber:10
+	        },
+	        success: function (data) {
+	        	var Data = data.data;
+	        	var fortuneHtml = "";
+	        	if(data.isSuccess){
+	        		if(Data.length>0){
+	        			for(var i=0; i<Data.length;i++){
+							var serverName = (Data[i].serverName === "") ? '' : '<span class="money_number">【'+Data[i].serverName+'】</span>';
+							if(Data[i].userRank<4){
+								var userRank=""
+								if(Data[i].userRank == "1"){
+									userRank = '<img src="${rc.contextPath}/static/images/public/1.png" />'
+								}else if(Data[i].userRank == "2"){
+									userRank = '<img src="${rc.contextPath}/static/images/public/2.png" />'
+								}else if(Data[i].userRank == "3"){
+									userRank = '<img src="${rc.contextPath}/static/images/public/3.png" />'
+								}
+								fortuneHtml += '<li class="first">'+
+													'<span class="box_img">'+userRank+'</span>'+
+													'<div class="title_name">'+
+														'<a class="hiddenTxt" href="javascript:;" target="_blank">'+serverName+'<span class="acer_number">'+Data[i].auth+'</span>'+
+														'</a>'+
+														'<div class="fortune_number">'+
+															'<span class="money_number"><img src="${rc.contextPath}/static/images/public//money.png" />'+Data[i].rmb+'</span>'+
+															'<span class="acer_number"><img src="${rc.contextPath}/static/images/public/acer.png" />'+Data[i].silverCoin+'</span>'+
+														'</div>'+
+													 '</div>'+
+											   '</li>';
+							}else{
+								fortuneHtml += '<li class="first">'+
+													'<span class="box_img"><img src="${rc.contextPath}/static/images/public/cai.png" /><a class="img_number">'+Data[i].userRank+'</a></span>'+
+													'<div class="title_name">'+
+														'<a class="hiddenTxt" href="javascript:;" target="_blank">'+serverName+'<span class="acer_number">'+Data[i].auth+'</span>'+
+														'</a>'+
+														'<div class="fortune_number">'+
+															'<span class="money_number"><img src="${rc.contextPath}/static/images/public/money.png" />'+Data[i].rmb+'</span>'+
+															'<span class="acer_number"><img src="${rc.contextPath}/static/images/public/acer.png" />'+Data[i].silverCoin+'</span>'+
+														'</div>'+
+													 '</div>'+
+											    '</li>';
+							}
+	
+	        			}
+	        			$(".listFortune").html(fortuneHtml);
+	        			return  fortuneHtml
+	        		}else{
+	            		$(".box_fortune .fortuneList").html('<h1>暂无数据~</h1>');
+	            	}
+	        	}
+	        }
+	    });
+	}
+</script>

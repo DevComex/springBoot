@@ -1,0 +1,716 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.playwd.dao.playwd.ArticleDao" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.playwd.beans.playwd.ArticleBean">
+		<id column="code" property="code" jdbcType="INTEGER" />
+		<result column="user_id" property="userId" jdbcType="INTEGER" />
+		<result column="category_id" property="categoryId" jdbcType="INTEGER" />
+		<result column="parent_id" property="parentId" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="second_title" property="secondTitle" jdbcType="VARCHAR" />
+		<result column="author" property="author" jdbcType="VARCHAR" />
+		<result column="author_type" property="authorType" jdbcType="VARCHAR" />
+		<result column="summary" property="summary" jdbcType="VARCHAR" />
+		<result column="cover" property="cover" jdbcType="VARCHAR" />
+		<result column="keywords" property="keywords" jdbcType="VARCHAR" />
+		<result column="game_id" property="gameId" jdbcType="INTEGER" />
+		<result column="server_id" property="serverId" jdbcType="INTEGER" />
+		<result column="server_name" property="serverName" jdbcType="VARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="view_count" property="viewCount" jdbcType="INTEGER" />
+		<result column="view_count_string" property="viewCountString" jdbcType="VARCHAR" />
+		<result column="like_count" property="likeCount" jdbcType="INTEGER" />
+		<result column="like_count_string" property="likeCountString" jdbcType="VARCHAR" />
+		<result column="collect_count" property="collectCount" jdbcType="INTEGER" />
+		<result column="collect_count_string" property="collectCountString" jdbcType="VARCHAR" />
+		<result column="prize_id" property="prizeId" jdbcType="INTEGER" />
+		<result column="status" property="status" jdbcType="VARCHAR" />
+		<result column="publish_time" property="publishTime" jdbcType="TIMESTAMP" />
+		<result column="is_delete" property="isDelete" jdbcType="BIT" />
+		<result column="is_recommend" property="isRecommend" jdbcType="VARCHAR" />
+		<result column="account" property="account" jdbcType="VARCHAR" />
+		<result column="first_name" property="firstCategoryName" jdbcType="VARCHAR" />
+		<result column="second_name" property="secondCategoryName" jdbcType="VARCHAR" />
+	    <result column="recommmend_time" jdbcType="TIMESTAMP" property="recommmendTime" />
+    	<result column="recommend_detail" jdbcType="VARCHAR" property="recommendDetail" />
+    	<result column="prize_name" jdbcType="VARCHAR" property="prizeName"/>
+    	<result column="remark" jdbcType="VARCHAR" property="remark" />
+	</resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.gyyx.playwd.beans.playwd.ArticleBean" extends="BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, user_id, category_id, title, author, author_type, summary, cover, keywords, 
+    game_id, server_id, server_name, create_time, view_count, like_count,collect_count, prize_id, 
+    status, publish_time, is_delete
+  </sql>
+  <sql id="Blob_Column_List" >
+    content
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    a.*,
+   	c.parent_id
+    from playwd_article_tb a
+    LEFT JOIN playwd_category_tb c ON a.category_id=c.`code`   
+    where a.code = #{code,jdbcType=INTEGER}
+  </select>
+  <select id="selectByTitle" resultType="int" parameterType="string" >
+    select 
+    count(1)
+    from playwd_article_tb
+    where title = #{title}
+  </select>
+  <select id="getArticleByUserId" resultMap="BaseResultMap" parameterType="map" >
+     select 
+    a.code, a.title, a.author, a.summary, a.cover, a.keywords,
+     a.create_time , a.status, a.publish_time,
+    t.title second_name,tt.title first_name
+    from playwd_article_tb a
+	LEFT JOIN playwd_category_tb t ON t.`code` =a.category_id
+	LEFT JOIN playwd_category_tb tt ON t.parent_id = tt.`code`
+    where user_id = #{userId}
+    <if test="state != null">
+    	and status = #{state}
+    </if>
+    ORDER BY a.create_time DESC
+    limit #{startSize},#{endSize}
+  </select>
+  
+  <select id="findAuthorInfoByUserId" resultType="java.util.Map" parameterType="int" >
+     select a.code, a.title , a.author,a.author_type authorType, a.content, a.cover, a.keywords, a.summary,
+a.category_id categoryId from playwd_article_tb a LEFT JOIN playwd_category_tb t ON t.`code` =a.category_id 
+LEFT JOIN playwd_category_tb tt ON t.parent_id = tt.`code` where user_id = #{userId} ORDER BY a.create_time DESC limit 1
+  </select>
+  
+  
+	<select id="getList" parameterType="map" resultMap="BaseResultMap">
+		SELECT *
+		FROM(
+		SELECT
+		a.code,a.title,a.server_name,a.author,a.`status`,a.create_time,d.title
+		as first_name,c.title as second_name,a.account,a.user_id FROM(
+		SELECT
+		code,title,server_name,author,status,create_time,user_id,category_id,account
+		FROM playwd_article_tb
+		WHERE is_delete=0 AND
+		create_time
+		BETWEEN
+		#{startTime} AND #{endTime}
+		<if test="authorType != null and authorType !='' and authorType!='all'">
+			AND author_type = #{authorType}
+		</if>
+		<if test="status != null and status !='' and status != 'all'">
+			AND status in
+			<foreach item="item" index="index" collection="status" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+		<if test="keyword!=null">
+			<if test="type=='account'">
+				AND account LIKE '%${keyword}%'
+			</if>
+		</if>
+		)a
+		INNER JOIN
+		playwd_category_tb c on
+		a.category_id=c.code
+		INNER JOIN
+		playwd_category_tb d ON
+		c.parent_id=d.code WHERE 1=1
+		<if test="keyword != null and keyword !=''">
+			<if test="type == 'title'">
+				AND a.title LIKE '%${keyword}%'
+			</if>
+			<if test="type == 'author'">
+				AND a.author LIKE '%${keyword}%'
+			</if>
+		</if>
+		<if test="firstCategoryId !=null and firstCategoryId !='-1'">
+			AND d.code=#{firstCategoryId}
+
+		</if>
+		<if test="secondCategoryId !=null and secondCategoryId !='-1'">
+			AND a.category_id=#{secondCategoryId}
+		</if>
+		) a ORDER BY code DESC limit #{startSize},#{endSize}
+	</select>
+
+	<select id="getCount" parameterType="map" resultType="int">
+		SELECT COUNT(*)
+		FROM(
+		SELECT
+		a.code,a.title,a.server_name,a.author,a.`status`,a.create_time,c.title
+		as first_name,d.title as second_name,a.account FROM(
+		SELECT
+		code,title,server_name,author,status,create_time,user_id,category_id,account
+		FROM playwd_article_tb
+		WHERE is_delete=0 AND
+		create_time
+		BETWEEN
+		#{startTime} AND #{endTime}
+		<if test="authorType != null and authorType !='' and authorType!='all'">
+			AND author_type = #{authorType}
+		</if>
+		<if test="status != null and status !='' and status != 'all'">
+			AND status in
+			<foreach item="item" index="index" collection="status" open="("
+				separator="," close=")">
+				#{item}
+			</foreach>
+		</if>
+		<if test="keyword!=null">
+			<if test="type=='account'">
+				AND account LIKE '%${keyword}%'
+			</if>
+		</if>
+		)a
+		INNER JOIN
+		playwd_category_tb c on
+		a.category_id=c.code
+		INNER JOIN
+		playwd_category_tb d ON
+		c.parent_id=d.code WHERE 1=1
+		<if test="keyword != null and keyword !=''">
+			<if test="type == 'title'">
+				AND a.title LIKE '%${keyword}%'
+			</if>
+			<if test="type == 'author'">
+				AND a.author LIKE '%${keyword}%'
+			</if>
+		</if>
+		<if test="firstCategoryId !=null and firstCategoryId !=-1">
+			AND d.code=#{firstCategoryId}
+
+		</if>
+		<if test="secondCategoryId !=null and secondCategoryId !=-1">
+			AND a.category_id=#{secondCategoryId}
+		</if>
+		) a
+	</select>
+  <!-- 获取自然月内被推荐的文章 -->
+  <select id="selectListByMonthUserId" resultMap="BaseResultMap" >
+	SELECT * FROM playwd_article_tb
+	where status='recommended' 
+			and date_format(recommmend_time,'%Y-%m')=date_format(now(),'%Y-%m') 
+			and user_id=#{userId}
+  </select>
+  <insert id="insertSelective" parameterType="cn.gyyx.playwd.beans.playwd.ArticleBean" useGeneratedKeys="true" keyProperty="code">
+    insert into playwd_article_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="categoryId != null" >
+        category_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="author != null" >
+        author,
+      </if>
+      <if test="authorType != null" >
+        author_type,
+      </if>
+      <if test="summary != null" >
+        summary,
+      </if>
+      <if test="cover != null" >
+        cover,
+      </if>
+      <if test="keywords != null" >
+        keywords,
+      </if>
+      <if test="gameId != null" >
+        game_id,
+      </if>
+      <if test="serverId != null" >
+        server_id,
+      </if>
+      <if test="serverName != null" >
+        server_name,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="viewCount != null" >
+        view_count,
+      </if>
+      <if test="likeCount != null" >
+        like_count,
+      </if>
+      <if test="prizeId != null" >
+        prize_id,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="publishTime != null" >
+        publish_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="recommmendTime != null" >
+        recommmend_time,
+      </if>
+      <if test="recommendDetail != null" >
+        recommend_detail,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="categoryId != null" >
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="authorType != null" >
+        #{authorType,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null" >
+        #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null" >
+        #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="gameId != null" >
+        #{gameId,jdbcType=INTEGER},
+      </if>
+      <if test="serverId != null" >
+        #{serverId,jdbcType=INTEGER},
+      </if>
+      <if test="serverName != null" >
+        #{serverName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="viewCount != null" >
+        #{viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="likeCount != null" >
+        #{likeCount,jdbcType=INTEGER},
+      </if>
+      <if test="prizeId != null" >
+        #{prizeId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null" >
+        #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="recommmendTime != null" >
+        #{recommmendTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="recommendDetail != null" >
+        #{recommendDetail,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.playwd.beans.playwd.ArticleBean" >
+    update playwd_article_tb
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="categoryId != null" >
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="secondTitle != null" >
+        second_title = #{secondTitle,jdbcType=VARCHAR},
+      </if>
+      <if test="author != null" >
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="authorType != null" >
+        author_type = #{authorType,jdbcType=VARCHAR},
+      </if>
+      <if test="summary != null" >
+        summary = #{summary,jdbcType=VARCHAR},
+      </if>
+      <if test="cover != null" >
+        cover = #{cover,jdbcType=VARCHAR},
+      </if>
+      <if test="keywords != null" >
+        keywords = #{keywords,jdbcType=VARCHAR},
+      </if>
+      <if test="gameId != null" >
+        game_id = #{gameId,jdbcType=INTEGER},
+      </if>
+      <if test="serverId != null" >
+        server_id = #{serverId,jdbcType=INTEGER},
+      </if>
+      <if test="serverName != null" >
+        server_name = #{serverName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="viewCount != null" >
+        view_count = #{viewCount,jdbcType=INTEGER},
+      </if>
+      <if test="likeCount != null" >
+        like_count = #{likeCount,jdbcType=INTEGER},
+      </if>
+      <if test="prizeId != null" >
+        prize_id = #{prizeId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="publishTime != null" >
+        publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.gyyx.playwd.beans.playwd.ArticleBean" >
+    update playwd_article_tb
+    set user_id = #{userId,jdbcType=INTEGER},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      author_type = #{authorType,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      cover = #{cover,jdbcType=VARCHAR},
+      keywords = #{keywords,jdbcType=VARCHAR},
+      game_id = #{gameId,jdbcType=INTEGER},
+      server_id = #{serverId,jdbcType=INTEGER},
+      server_name = #{serverName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      view_count = #{viewCount,jdbcType=INTEGER},
+      like_count = #{likeCount,jdbcType=INTEGER},
+      collect_count = #{collectCount,jdbcType=INTEGER},
+      prize_id = #{prizeId,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIT},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.playwd.beans.playwd.ArticleBean" >
+    update playwd_article_tb
+    set user_id = #{userId,jdbcType=INTEGER},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      title = #{title,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      author_type = #{authorType,jdbcType=VARCHAR},
+      summary = #{summary,jdbcType=VARCHAR},
+      cover = #{cover,jdbcType=VARCHAR},
+      keywords = #{keywords,jdbcType=VARCHAR},
+      game_id = #{gameId,jdbcType=INTEGER},
+      server_id = #{serverId,jdbcType=INTEGER},
+      server_name = #{serverName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      view_count = #{viewCount,jdbcType=INTEGER},
+      collect_count = #{collectCount,jdbcType=INTEGER},
+      like_count = #{likeCount,jdbcType=INTEGER},
+      prize_id = #{prizeId,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIT}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  
+  <update id="updateArticleStatusById" >
+    update playwd_article_tb
+    set status = #{status}
+    <if test="status == 'passed'" >
+        ,publish_time = now()
+    </if>
+    <if test="status == 'recommended'" >
+        ,recommmend_time = now()
+        ,recommend_detail=#{recommendDetail}
+        ,prize_id=#{prizeId}
+    </if>     
+    where code = #{code}
+  </update>
+  
+  <!-- 获取推荐管理列表 -->
+  <select id="selectRecommendManagementList" resultMap="BaseResultMap">
+     SELECT distinct(article.code),
+			article.title,
+			article.author_type,
+			article.cover,
+			prize.name as prize_name,
+			recommend.create_time recommmend_time
+	 from playwd_article_tb  article 
+		JOIN  (SELECT distinct(a.code)
+			   FROM playwd_article_tb a
+			   left join playwd_recommend_tb  b 
+					on b.content_id=a.code
+			   where a.status='recommended' 
+			   			and a.is_delete=0
+		   			<if test="slotId!=0">
+			   			and b.slot_id=#{slotId}  
+			   			and b.is_delete=0
+		   			</if>
+		   			<if test="prizeId!=0">
+						and a.prize_id=#{prizeId}
+					</if>
+					<if test="authorType!='all'">
+						and a.author_type=#{authorType} 
+					</if>
+			   ORDER BY code DESC LIMIT #{startCode},1) articleTemp 
+	 left join  playwd_prize_tb prize 
+		on article.prize_id=prize.code 
+	 left join playwd_recommend_tb  recommend 
+		on  recommend.content_id=article.code
+	 where article.code&lt;=articleTemp.code 
+		   and article.status='recommended'
+		   and article.is_delete=0
+		<if test="slotId!=0">
+		   and recommend.slot_id=#{slotId} 
+		   and recommend.is_delete=0
+		</if>
+		<if test="prizeId!=0">
+		   and article.prize_id=#{prizeId}
+		</if>
+		<if test="authorType!='all'">
+		   and article.author_type=#{authorType}
+		</if>
+	 order by recommend.create_time DESC LIMIT #{pageSize}
+  </select>
+  
+  <!-- 获取推荐管理列表数量-->
+  <select id="selectRecommendManagementCount" resultType="int">
+     SELECT count(distinct(article.code)) as num
+	 FROM playwd_article_tb article
+		 left join playwd_recommend_tb  recommend 
+		 on recommend.content_id=article.code
+		 left join playwd_prize_tb prize 
+		 on recommend.prize_id=prize.code
+	 where article.status='recommended'
+	 		and article.is_delete=0
+			<if test="slotId!=0">
+			and recommend.slot_id=#{slotId} 
+			and recommend.is_delete=0
+			</if>
+			<if test="prizeId!=0">
+			and article.prize_id=#{prizeId}
+			</if>
+			<if test="authorType!='all'">
+			and article.author_type=#{authorType}
+			</if>
+  </select>
+  <select id="getCountByUserId" resultType="int" parameterType="map" >
+     select 
+    count(*)
+    from playwd_article_tb a
+	LEFT JOIN playwd_category_tb t ON t.`code` =a.category_id
+	LEFT JOIN playwd_category_tb tt ON t.parent_id = tt.`code`
+    where user_id = #{userId}
+    <if test="state != null">
+    	and status = #{state}
+    </if>
+  </select>
+  <!-- 获取推荐记录数量 -->
+  <select id="selectRecommendRecordCount" resultType="int">
+     SELECT count(article.code) as num
+	 FROM playwd_article_tb article
+	 where article.status='recommended'
+	 		and article.is_delete=0			
+			and article.create_time&lt;=#{endDate} 
+			and article.create_time&gt;=#{startDate}
+			<if test="prizeId!=0">
+			and article.prize_id=#{prizeId}
+			</if>
+  </select>
+  <!-- 获取推荐记录 -->
+  <select id="selectRecommendRecordList" resultMap="BaseResultMap">
+     SELECT article.code,
+			article.title,
+			article.server_name,
+			article.account,
+			article.author,
+			article.view_count,
+			prize.name as prize_name,
+			article.recommmend_time,
+			article.remark
+	 from playwd_article_tb  article 
+		JOIN  (SELECT code
+			   FROM playwd_article_tb 
+			   where status='recommended' 
+					and is_delete=0
+					and create_time&lt;=#{endDate} 
+					and create_time&gt;=#{startDate}
+					<if test="prizeId!=0">
+					and prize_id=#{prizeId}
+					</if>
+			   ORDER BY code DESC LIMIT #{startCode},1) articleTemp 
+	 	left join  playwd_prize_tb prize 
+		on article.prize_id=prize.code 
+	 where article.code&lt;=articleTemp.code 
+		   and article.status='recommended'
+		   and article.is_delete=0
+		   and article.create_time&lt;=#{endDate} 
+		   and article.create_time&gt;=#{startDate}
+		<if test="prizeId!=0">
+		   and article.prize_id=#{prizeId}
+		</if>
+	 order by article.code DESC LIMIT #{pageSize}
+  </select>
+  <update id="updateRemark">
+  	update playwd_article_tb 
+  	set remark=#{remark} 
+  	where code=#{contentId}
+  </update>
+  
+  <select id="getAtricleList" resultMap="BaseResultMap" parameterType="map" >
+SELECT 
+a.`code`,a.account,a.title,a.author, a.cover,a.server_name,a.create_time,a.summary ,
+t.title second_name,tt.title first_name ,r.content_id ,IFNULL(a.second_title ,'') second_title  
+,IF( ISNULL(r.content_id),'false','true') is_recommend  
+,IF(a.view_count/1000>1 ,CONCAT(ROUND(a.view_count/1000,2),"K"),a.view_count) view_count_string
+,IF(a.like_count/1000>1 ,CONCAT(ROUND(a.like_count/1000,2),"K"),a.like_count) like_count_string
+,IF(a.collect_count/1000>1 ,CONCAT(ROUND(a.collect_count/1000,2),"K"),a.collect_count) collect_count_string
+,IF(ISNULL(p.`name`),0,LEFT(p.`name`,1)) prize_id
+FROM playwd_article_tb a
+LEFT JOIN playwd_category_tb t ON t.`code` =a.category_id
+LEFT JOIN playwd_category_tb tt ON t.parent_id = tt.`code`
+LEFT JOIN (SELECT DISTINCT content_id FROM playwd_recommend_tb  WHERE is_delete =0  ) r ON r.content_id = a.`code`
+LEFT JOIN playwd_category_tb c ON c.code = a.category_id
+LEFT JOIN playwd_prize_tb p ON a.prize_id= p.`code`
+WHERE 1=1 
+AND a.status in('passed','recommended')
+<if test=' categoryType=="parent" '>
+and c.parent_id =#{categoryId}
+
+</if>
+<if test=' categoryType=="child" '>
+and c.code =#{categoryId}
+
+</if>
+<if test=' sortType=="view" '>
+ORDER BY a.view_count desc
+
+</if>
+<if test=' sortType=="new" '>
+ORDER BY a.create_time desc
+
+</if>
+<if test=' sortType=="collect" '>
+ORDER BY a.collect_count desc
+
+</if>
+LIMIT #{startSize},#{endSize}
+  </select>
+  
+ <select id="getAtricleCount" resultType="int" parameterType="map" >
+SELECT 
+ COUNT(*)
+FROM playwd_article_tb a
+LEFT JOIN playwd_category_tb t ON t.`code` =a.category_id
+LEFT JOIN playwd_category_tb tt ON t.parent_id = tt.`code`
+LEFT JOIN (SELECT DISTINCT content_id FROM playwd_recommend_tb  WHERE is_delete =0  ) r ON r.content_id = a.`code` 
+LEFT JOIN playwd_category_tb c ON c.code = a.category_id
+WHERE 1=1 
+AND a.status in('passed','recommended')
+<if test=' categoryType=="parent" '>
+and c.parent_id =#{categoryId}
+
+</if>
+<if test=' categoryType=="child" '>
+and c.code =#{categoryId}
+
+</if>
+
+  </select>
+  
+  <!-- 获取用户审核通过的文章数据 -->
+  <select id="getPassedArtitleCountByUserId" resultType="int" parameterType="map" >
+	select count(code) from playwd_article_tb a where a.user_id = #{userId} and a.`status` not in ('unreviewd','failed')
+  </select>
+  
+  <!-- 获取用户图文list -->
+  <select id="getUserArticleList" resultMap="BaseResultMap" >
+	select 
+	<include refid="Base_Column_List" />
+	from playwd_article_tb a 
+	where a.user_id = #{userId} and a.is_delete=0
+	<if test=" statusList != null ">
+		and a.status in  
+		 <foreach item="item" index="index" collection="statusList" open="(" separator="," close=")">  
+		  #{item}  
+		 </foreach>  
+	</if>
+	order by ${orderBy}
+	<if test=" topN != 0 ">
+		limit 0,#{topN}
+	</if>
+  </select>
+  
+  <!-- 获取用户服务器信息和作者名-->
+  <select id="selectServerNameAndAuth" resultMap="BaseResultMap" >
+	select author,server_name
+	from playwd_article_tb 
+	where user_id = #{userId} and is_delete=0
+	order by code DESC
+	limit 1
+  </select>
+  
+  <!-- 增加浏览量 -->
+  <update id="increaseViewCount">
+  	update playwd_article_tb 
+  	set view_count= view_count+1
+  	where code=#{code}
+  </update>
+  
+  <!-- 增加点赞量 -->
+  <update id="increaseLikeCount">
+  	update playwd_article_tb 
+  	set like_count=like_count+1
+  	where code=#{code}
+  </update>
+  
+  <!-- 增加收藏量 -->
+  <update id="increaseCollectCount">
+  	update playwd_article_tb 
+  	set collect_count=collect_count+1
+  	where code=#{code}
+  </update>
+  
+</mapper>

@@ -1,0 +1,288 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>文章上传</title>
+    <meta name="keywords" content="问道玩家天地" />
+    <meta name="description" content="问道玩家天地" />
+
+    <link href="${rc.contextPath}/static/css/common.css" rel="stylesheet" type="text/css">
+    <link href="${rc.contextPath}/static/css/layout.css" rel="stylesheet" type="text/css">
+    <link href="${rc.contextPath}/static/css/icon.css" rel="stylesheet" type="text/css">
+    <link href="${rc.contextPath}/static/css/globle.css" rel="stylesheet" type="text/css">
+    <link href="${rc.contextPath}/static/css/style.css" rel="stylesheet" />
+     <link href="${rc.contextPath}/static/css/pf.css" rel="stylesheet" />
+    <script type="text/javascript" src="${rc.contextPath}/static/js/jquery-1.7.1.min.js"></script>
+
+    <script type="text/javascript" src="${rc.contextPath}/static/js/jquery.tools.min.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/static/js/jquery-scroll-fn.js"></script>
+
+    <script type="text/javascript" src="${rc.contextPath}/static/js/custom.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/static/js/common.js"></script>
+    <script src="${rc.contextPath}/static/js/pf.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/static/js/jquery.slimscroll.js"></script>
+
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+
+    <!--6.29问道玩家天地添加百度统计代码-->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?5de513249ba2b0ed610709e84cec43ae";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+
+
+
+    <script src="${rc.contextPath}/static/js/editor/ueditor.config.js"></script>
+    <script src="${rc.contextPath}/static/js/editor/ueditor.all.min.js"></script>
+    <script src="${rc.contextPath}/static/js/editor/lang/zh-cn/zh-cn.js"></script>
+    <script src="${rc.contextPath}/static/js/upload/swfupload.js"></script>
+    <script src="${rc.contextPath}/static/js/upload/articleHandlers.js"></script>
+    <script src="${rc.contextPath}/static/js/jquery.validate.min.js"></script>
+    <script src="${rc.contextPath}/static/js/ArticleUpload.js"></script>
+    <script>
+        $(function () {
+            $(document).uploadFn();
+        });
+    </script>
+
+    <!--[if IE 6]>
+         <script src="/Content/js/DD_belatedPNG.js"></script>
+         <script>
+           /* EXAMPLE */
+           DD_belatedPNG.fix('.hnavl .on');
+           DD_belatedPNG.fix('.pngbg');
+
+           /* string argument can be any CSS selector */
+           /* .png_bg example is unnecessary */
+           /* change it to what suits you! */
+         </script>
+         <![endif]-->
+</head>
+
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+
+
+
+    <div class="head h165">
+        <div class="web_wrap wwd_head">
+            <div class="logo clear">
+                <a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm" class="lg_wd pngbg" title="问道官网">
+                </a>
+                <a target="_blank" href="http://wanwd.gyyx.cn/" class="lg_wanwd pngbg" title="问道玩家天地">
+                </a>
+            </div>
+            <div class="search">
+                <form method="get" id="js_SearchForm" action="/Home/Search" target="_blank">
+                    <div class="search_bg">
+                        <input type="text" class="text_w" name="s_KeyWord" maxlength="50" value="" />
+                        <input type="submit" class="input_s" value="搜索">
+                    </div>
+                </form>
+            </div>
+            <div class="upload_info">
+                <ul>
+                    <li><a target="_blank" href="/userCenter/myMessage" class="upload_ie6"><i class="upload_p"></i>用户中心</a></li>
+                    <li>
+                        <a href="#" class="js_upload"><i class="upload_i"></i>上传<i class="down"></i></a>
+                        <ul class="upload_ls js_upload_ul" style="display: none;">
+                            <li class="up">
+                                <a href="#"><i class="pngbg"></i>上&nbsp;传</a>
+                            </li>
+                            <li class="gj">
+                                <a target="_blank" href="http://wanwd.gyyx.cn/article/upload"><i class="pngbg"></i>上传稿件</a>
+                            </li>
+                            <li class="pic">
+                                <a target="_blank" href="http://wanwd.gyyx.cn/Picture/Upload"><i class="pngbg"></i>上传图片</a>
+                            </li>
+                            <li class="video">
+                                <a target="_blank" href="http://wanwd.gyyx.cn/Video/Upload"><i class="pngbg"></i>上传视频</a>
+                            </li>
+                            <li class="jl">
+                                <a target="_blank" href="http://hd.gyyx.cn/P/WDReporter/wd140214.html"><i class="pngbg"></i>投稿奖励</a>
+                            </li>
+                            <li class="cartoon">
+                                <a target="_blank" href="http://wanwdv2.gyyx.cn/upload"><i class="pngbg"></i>上传漫画</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav_wrap">
+            <div class="web_wrap">
+                <ul class="nav clear">
+                    <li class="icon1" alt="1">
+                        <a target="_blank" href="/"><i class="pngbg"></i>首页</a>
+                    </li>
+                    <li class="icon2" alt="2">
+                        <a target="_blank" href="http://wanwd.gyyx.cn/articlelist/Index"><i class="pngbg"></i>图文驿站</a>
+                    </li>
+                    <li class="icon3" alt="3">
+                        <a target="_blank" href="http://wanwd.gyyx.cn/Picture/Index"><i class="pngbg"></i>秀图专区</a>
+                    </li>
+                    <li class="icon4" alt="4">
+                        <a target="_blank" href="http://wanwd.gyyx.cn/Video/Index"><i class="pngbg"></i>火爆视频</a>
+                    </li>
+                    <li class="icon5" alt="5">
+                        <a target="_blank" href="http://wanwdv2.gyyx.cn/home"><i class="pngbg" style="width:23px;"></i>漫画专区</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+
+    </div>
+  <div style="padding-top: 10px;"></div>
+    <!-- end -->
+    <!-- main -->
+    <div class="web_wrap">
+
+
+
+<div class="web_wrap popup_box" style="position:relative;">
+    <h3>稿件上传</h3>
+    <div class="popup_con">
+        <form id="js_FormArticle">
+            <div class="pop_form">
+                <p>
+                    <label>文章标题<span class="col_ff0">*</span></label>
+                    <input type="text" class="input_w" name="title" maxlength="20" />
+                </p>
+                <div class="wdgj_wznr">
+                    <label>文章内容<span class="col_ff0">*</span></label>
+                    <div class="wdgj_edit">
+                        <input type="hidden" name="validContent" id="validContent" />
+                        <script id="editor" type="text/plain" style="width: 750px; height: 400px; margin-top: 4px;"></script>
+                    </div>
+                </div>
+                <p>
+                    <label>描述<span class="col_ff0">*</span></label>
+                    <textarea name="summary" class="input_w input_h100" onpropertychange="if(value.length>200) value=value.substr(0,200)"
+                        maxlength="200"></textarea>
+                </p>
+                <p>
+                    <label>封面图片<span class="col_ff0">*</span></label>
+                    <span class="uploadimg">
+                        <input type="button" id="btnUpload" class="upload" value="上传封面图片" />
+                        <input type="hidden" id="hid_addImgUrl" name="cover" />
+                        <input type="hidden" id="hid_addthumbImgUrl" name="PictureSmall" />
+                    </span>
+                    <span class="titleimgs">
+                        <img class="titleimgs_add" id="addImg" src="${rc.contextPath}/static/images/testimg01.jpg">
+                    </span>
+                </p>
+                 <p>
+                    <label>区服选择<span class="col_ff0">*</span></label>
+                    <select class="input_w input_w170" id="NetId" name="NetId">
+                        <option value="">请选择区组</option>
+                        <option value="1">网通</option>
+                        <option value="2">电信</option>
+                        <option value="3">双线</option>
+                    </select>&nbsp;&nbsp;&nbsp;
+                     <select class="input_w input_w170" id="serverId" name="serverId">
+                         <option value="">请选择服务器</option>
+                     </select>
+                    <input type="hidden" id="ServerName" name="ServerName" />
+                </p>
+                <p>
+                    <label>角色名<span class="col_ff0">*</span></label>
+                    <input type="text" class="input_w input_w360" name="author" id="author" maxlength="16" />
+                </p>
+                <p>
+                    <label>关键词<span class="col_ff0">*</span></label>
+                    <input type="text" class="input_w input_w360" name="keywords" maxlength="20" />
+                </p>
+                <p>
+                    <label>分类<span class="col_ff0">*</span></label>
+                    <select class="input_w input_w170" id="PrimaryCategoryId" name="PrimaryCategoryId">
+                        <option value="">请选择一级分类</option>
+                    </select>&nbsp;&nbsp;&nbsp;
+                    <select class="input_w input_w170" id="categoryId" name="categoryId ">
+                        <option value="">请选择二级分类</option>
+                    </select>
+                </p>
+            </div>
+            <div class="pop_but">
+                <a href="javascript:;" class="pop_upbut" id="js_UploadArticle">提交</a>
+                <a href="javascript:;" class="pop_qxbut" id="js_CancelUpload">重置</a>
+            </div>
+        </form>
+    </div>
+    <div class="loginAlertBox" style="width:100%;height:100%;positon:absolute;">
+
+    </div>
+</div>
+
+<div class="tip_box pngbg" id="popError" style="display: none;">
+    <p class="icon icon02"></p>
+    <p class="errorMsg">上传失败</p>
+</div>
+
+<div class="tip_box popRole_box pngbg" id="popRoleList" style="display: none;">
+    <div class="pop_role_title">请选择角色</div>
+    <span class="pop_role_close"><img src="/Content/images/pop_close.gif" /></span>
+    <div class="pop_role_content"></div>
+    <p class="pop_role_txt">您如果想使用其他区组角色，可以去【用户中心】-【我的角色】再次进行同步并设置后，才可使用~\(≧▽≦)/~。<a class="torole" href="http://wanwd.gyyx.cn/user/Role" target="_blank">点击进入重新同步
+</a><a href="javascript:;" class="js_reflash" style="color:#f60;margin-left:50px;">刷新</a></p>
+</div>
+<div id="Mark" class="mark"></div>
+
+    </div>
+
+
+
+    <!-- end -->
+    <div class="linebot">&nbsp;</div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom("fff");</script>
+    </div>
+    <!--漂浮-->
+		<div class="pf js_pf">
+			<div class="report_txt"></div>
+            <div id="testDiv2">
+
+                <p></p>
+
+            </div>
+
+			<ul class="cf_txt">
+				<li><a href="http://wd.gyyx.cn/News/NewsDetail_New.aspx?NewsID=79062" target="_blank">新闻记者抄袭判定及惩罚公告</a></li>
+				<li><a href="http://wd.gyyx.cn/News/NewsDetail_New.aspx?NewsID=78967" target="_blank">官方新闻记者扩招啦!无门槛!</a></li>
+				<li><a href="http://wd.gyyx.cn/News/NewsDetail_New.aspx?NewsID=79097" target="_blank">11月8日问道新闻记者奖励发放公告</a></li>
+
+
+			</ul>
+			<div class="zm_txt"></div>
+			<div class="closeBtn"></div>
+			<a href="javascript:;" class="btn_report"></a>
+		</div>
+
+		<div class="mini_pf js_mini_pf"></div>
+		<!-- 弹窗 -->
+		<div class="pf_tc01 disC">
+			<a href="javascript:;" class="pf_close"></a>
+			<div class="pf_tcBox">
+				<h3></h3>
+                <div></div>
+
+			</div>
+            <a href="http://wd.gyyx.cn/huodong/wjfc2014/index.html?tabid=2" target="_blank" class="pf_tcBtn"></a>
+		</div>
+		<div class="mask"></div>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <!--统计代码 -->
+
+</body>
+</html>

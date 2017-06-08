@@ -1,0 +1,514 @@
+<script src="${rc.contextPath}/static/script/management.js" charset="utf-8" type="text/javascript"></script>
+<link rel="stylesheet" href="${rc.contextPath}/static/css/style.css">
+<link rel="stylesheet" href="${rc.contextPath}/static/css/wanwd.css">
+<style>
+    .control-label { padding:7px 0 0 0; text-align:left; }
+    .curr td:last-child a{margin-right:3px;}
+    .col-sm-2 {width: 16%;}
+    .btnClass{width:90px;}
+    .btnDiv{     width: 17%;
+    position: relative;
+    float: left;
+    margin: 0 12px 23px 4px;}
+    .btnDiv span{ position: absolute; right: -8px;top:-3px;width: 40px;height: 20px;background:#4cc0c1;text-align: center;color:#fff;border-radius:2px;}
+    #editAc .modal-body{overflow-y: auto;height: 333px;}
+    .modal-footer {padding: 19px 25px 20px; margin-top: 15px;text-align: center;border-top: 1px solid #e5e5e5;
+    margin: 0 auto;}
+    .js_review.grey{background:#ccc;}
+</style>
+<script>
+    $(function () {
+        $("#editAc").hide(); $("#addAc").hide(); $("#Msgmark").hide();
+        var nowDate = new Date(),
+            nYear = nowDate.getFullYear(),
+            nMonth = ((nowDate.getMonth() + 1) < 10 ? ("0" + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1)),
+            nDate = (nowDate.getDate() < 10 ? ("0" + nowDate.getDate()) : nowDate.getDate()),
+            //当天年月日(格式2014-01-01)
+            today = [nYear, nMonth, nDate].join("-");
+        var m = nowDate.getMonth() - 1;
+        nowDate.setMonth(m);
+        var lMonth = ((nowDate.getMonth() + 1) < 10 ? ("0" + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1));
+        var lDate = (nowDate.getDate() < 10 ? ("0" + nowDate.getDate()) : nowDate.getDate());
+        var ltoday = [nowDate.getFullYear(), lMonth, lDate].join("-");
+
+        window.today = today;
+        window.ltoday = ltoday;
+        //console.log(today,ltoday);
+        //开始时间（默认1个月前）
+        $(".js_startTimeCtr").datepicker({
+            format: 'yyyy-mm-dd',
+            startView: 2,
+            autoclose: true,
+            minView: 2
+        }).on('changeDate', function (ev) {
+            var AddStartTime = $(this).val();
+            //$(".js_endTimeCtr").datepicker('setStartDate', AddStartTime);
+        }).val(ltoday);
+
+        //结束时间（默认当天）
+        $(".js_endTimeCtr").datepicker({
+            format: 'yyyy-mm-dd',
+            startView: 2,
+            autoclose: true,
+            todayBtn: true,
+            minView: 2
+        }).on('changeDate', function (ev) {
+            var AddEndTime = $(this).val();
+            $(".js_startTimeCtr").datepicker('setEndDate', AddEndTime);
+        }).val(today);
+
+       
+        //获取章节管理页列表
+        var dobj1 = {
+                novelCode:getParam().code||"",                     
+                startChapterNum:"",                      
+                endChapterNum : "",                     
+                startTime: $(".js_startTimeCtr").val(), 
+                endTime:$(".js_endTimeCtr").val(),
+                status :"" 
+        };
+        $("#js_ArticleList").getChapterList({ dataobj: dobj1 });
+        
+        //将非数字替换为空
+        $(".js_inputChapter").on("input propertychange",function(){
+            //输入的内容只能是数字,将非数字替换为空
+            var reg = /\D/g;
+            var phone = $(this).val();
+            $(this).val(phone.replace(reg,""));
+
+        })
+         //获取地址栏参数
+         function getParam(){
+			var url = location.search.substr(1);
+			var obj = {};
+			if(!url) return false;    
+			var arr = url.split("&");
+			for(var i = 0,len = arr.length; i<len; i++){
+				var params = arr[i].split("=");      //用=将其分开
+				obj[params[0]] = decodeURI(params[1]);
+			}
+			return obj;
+       }
+        //查询
+        $("#query").click(function () {
+            var novelCode =  getParam().code;
+            var startChapterNum = $("#startChapterNum").val();
+            var endChapterNum  = $("#endChapterNum").val();
+            var status = $("#display_zt").val();
+            var startTime = $(".js_startTimeCtr").val();
+            var endTime = $(".js_endTimeCtr").val();
+            if(startChapterNum>endChapterNum){
+              alert("请输入正确的章节数");
+              return false;
+            }
+            var dobj = {
+                novelCode: novelCode,                     
+                startChapterNum: startChapterNum,                      
+                endChapterNum : endChapterNum,                     
+                startTime: startTime, 
+                endTime:endTime,
+                status : status                       
+                                              
+            };
+            $(this).getChapterList({
+                dataobj: dobj
+            });
+
+        });
+
+        //提交文章推荐
+        $(".js_index_tuij_ok").click(function () {
+            var locid = "";
+            var conid = $("#listcode").val();
+            var obj = $("#js_index_tuij .active");
+            for (var i = 0; i < obj.length; i++) {
+                locid += obj.eq(i).attr("data-id") + ",";
+            }
+            locid = locid.substring(0, locid.length - 1);
+            tjArticleUp(conid, locid);
+        });
+
+        $(".js_index_tuij_qx").click(function () {
+            $(".close").trigger("click");
+        });
+
+        // 请求提交文章推荐
+        function tjArticleUp(conid, locid) {
+            var prizeType=($("#js_prizeTypeChild")) ? $("#js_prizeTypeChild").val() : null;
+            if(!locid){
+                alert("请选择推荐位")
+                return;
+            }
+            if(!$("#js_prizeType").val()){
+                alert("请选择推荐奖励")
+                return;
+            }
+            $.ajax({
+                url: '/recommend',
+                type: 'POST',
+                dataType: 'json',
+                data: { contentId: conid, contentType : "article", recommendSlotId : locid, r: Math.random(),prizeId : $("#js_prizeType").val(), prizeType:prizeType},
+                success: function (d) {
+                    //alert(d.toSource());
+                    if (d.status === "success") {
+                        alert(d.message);
+                        window.location.href = window.location.href;
+                        $(".close").trigger("click");
+                    } else {
+                        alert(d.message);
+                    }
+
+                }
+            });
+        }
+        //绑定上传图片事件
+        $(window).on("click","#btnUpload",function(){
+            swfu.selectFile(); this.blur();
+        });
+        //D 请求提交
+        $(".js_index_edit_ok").click(function () {
+            var str = $("#listdata").val();
+            var cover=$(".titleimgs_change").eq(0).attr("src")?$(".titleimgs_change").eq(0).attr("src"):$(".titleimgs_change").eq(1).attr("src");
+            str = str;
+            var authorType=$(".js_edit_AuthorType").html()=='官方'?'official':'player'
+            var edit_dobj = {
+                author: $("#js_edit_AuthorName").html(),
+                authorType: authorType,
+                summary: $("#js_edit_des").val(),
+                categoryId: $("#js_edittwocate").val(),
+                code: str,
+                content: encodeURI(UE.getEditor('editor').getContent()),
+                keywords: $("#js_edit_keywords").val(),
+                PrimaryCategoryId: $("#js_edit_onecate").val(),
+                title: $("#input-edit-bt").val(),
+                cover : cover
+            };
+            //验证
+            if (!editcheck(edit_dobj)) {
+                return false;
+            }
+            $(".js_index_edit").postEditArticle({
+                pushdataobj: edit_dobj
+            });
+        });
+        //点击添加文章按钮 请求提交
+        $(".js_index_add_ok").click(function () {
+
+            var edit_dobj = {
+                author: $("#addAc .js_edit_AuthorName").val(),
+                authorType: "official",
+                summary: $("#addAc .js_edit_des").val(),
+                categoryId: $("#addAc .js_edittwocate").val(),
+                content: encodeURI(UE.getEditor('editor1').getContent()),
+                keywords: $("#addAc .js_edit_keywords").val(),
+                title: $("#addAc .input-edit-bt").val(),
+                cover : $(".titleimgs_change").eq(0).attr("src")?$(".titleimgs_change").eq(0).attr("src"):$(".titleimgs_change").eq(1).attr("src")
+
+            };
+            //验证
+            if (!addcheck(edit_dobj)) {
+                return false;
+            }
+            $(".js_index_add").postEditArticle({
+                getListUrl:"/article/save",
+                pushdataobj: edit_dobj
+            });
+        });
+
+        //添加文章点击清楚错误提示
+        $(".js_addAc").click(function () {
+            //点击添加文章时候清空默认图片以及
+            $(".titleimgs_change").attr("src","");
+            $("#htpou").html("");//编辑文章的裁剪部分需要置空
+            $("#htpou2").html(imgCut);//添加文章的裁剪部分需要添加进来
+            //Initialize();
+            $(".js_addAc").checkre();
+            var obj = $("#addAc");
+            $(document).alertBox(obj);
+            //点击添加文章时，调用
+            oAEditPic($(".uploadImgDiv"),$("#js_editPorSubmit"),$('#editPortrait'),$("#addImg"),$(".titleimgs"),"/static/data/UpLoadPhoto.json",$(".close_js_Msg"),"file_uploadPortrait","js_oriImgBox","js_prevImg","js_preCutImg");
+        });
+
+        $("#addAc .js_add_AuthorType").change(function () {
+            if ($(this).val() === "official") {
+                $("#addAc .js_add_AuthorName").val("官方");
+            } else {
+                $("#addAc .js_add_AuthorName").val("");
+            }
+        });
+   
+        
+
+        function trim(str) { //删除左右两端的空格
+            return str.replace(/(^\s*)|(\s*$)/g, "");
+        }
+        /*图片上传*/
+        UPLOADURL = "http://up.gyyx.cn/Image/WebSiteSaveToTemp.ashx?group=official_site&width=200&height=200";
+        FLASHURL = "http://up.gyyx.cn/flash/swfupload_f9.swf";
+        FILESIZE = "1MB";
+        FILETYPE = "*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+        TYPESDESCRIPTION = "*";
+        UPLOADLIMIT = "1";//限制上传张数
+        QUEUELIMIT = 0;
+        DEBUG = false;
+        UPLOADTARGET = "divFileProgressContainer";
+        SAVEELEMENT = "FileCode";
+        UPLOADBTNID = "btnUpload";
+    });
+</script>
+<input type="hidden" id="refreshed" value="no"> 
+<section class="vbox js_template_right">
+    <!--头部功能-->
+    <header class="header bg-white b-b clearfix">
+        <div class="row m-t-sm">
+
+            <div class="row m-t-sm">
+                <label class="col-lg-1 control-label01">审核状态</label>
+                <div class="col-sm-2 m-b-xs">
+                    <select id="display_zt" class="input-sm form-control sel">
+	                    <option value="">全部</option>
+	                    <option value="unreviewd">待审核</option>
+	                    <option value="passed">审核通过</option>
+	                    <option value="failed">审核不通过</option>
+                    </select>
+                </div>
+                <label class="col-lg-3 control-label01">章节:</label>
+	            <div class="col-sm-2 m-b-xs">
+	                <div class=""><input id="startChapterNum" class="input-sm form-control js_inputChapter" type="text" maxlength="15" value="" placeholder="起始章节"></div>
+	            </div>
+	            <label class="control-label01 label-float-left">至</label>
+	            <div class="col-sm-2 m-b-xs">
+	                <div class=""><input id="endChapterNum" class="input-sm form-control js_inputChapter" type="text" maxlength="15" value="" placeholder="结束章节"></div>
+	            </div>
+                
+            </div>
+            <div class="row m-t-sm">
+                
+                <label class="col-lg-1 control-label01">区服</label>
+                <div class="col-sm-2 m-b-xs">
+                    <select id="js_check" class="input-sm form-control" disabled>
+                        <option value="">请选择区组</option>
+                    </select>
+                </div>
+                <div class="col-sm-2 m-b-xs">
+                    <select id="js_check" class="input-sm form-control" disabled>
+                        <option value="">请选择服务器</option>
+                    </select>
+                </div>
+                <label class="col-lg-1 control-label01">上传时间:</label>
+	            <div class="col-sm-2 m-b-xs">
+	                <div class="">
+	                    <input type="text" class="input-sm form-control js_startTimeCtr" readonly="readonly" placeholder="开始时间">
+	                </div>
+	            </div>
+	            <label class="control-label01 label-float-left">至</label>
+	            <div class="col-sm-2 m-b-xs">
+	                <div class="">
+	                    <input type="text" class="input-sm form-control js_endTimeCtr" readonly="readonly" placeholder="结束时间">
+	                </div>
+	            </div>
+            
+            </div>
+
+        </div>
+       <div class="row m-t-sm">
+            <label class="col-lg-8 control-label"></label>
+            <div class="col-sm-9 m-b-xs">
+                <a href='/novel/manage'><button class="btn btn-sm btn-info pad_lr_m backTo" data-type="show" type="button" style="float:right;">返回小说列表</button></a>             
+            </div>
+            <span class="col-sm-1 pad_r_0 pad_l_0 w_p6">
+                <button class="btn btn-sm btn-info pad_lr_m" id="query" type="submit">查询</button>
+            </span>
+
+        </div>
+    </header>
+
+    <!--表格主体-->
+    <section class="scrollable padder" style="margin-top: 149px; margin-bottom:50px;">
+        <div class="m-b-md"></div>
+        <!--数据表格  begin -->
+        <section class="panel panel-default col-sm-12 pad_r_0 pad_l_0">
+            <div class="table-responsive">
+                <table class="table table-striped m-b-none m-table" id="js_tbComList" >
+
+                    <tbody id="js_ArticleList">
+                    
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+        <!--数据表格  end -->
+    </section>
+
+    <!--翻页功能-->
+    <footer class="footer bg-white b-t pagewrapper">
+        <div class="row dataTables_wrapper">
+            <div class="col-sm-6">
+                <div class="dataTables_info" id="DataTables_Table_0_info"></div>
+            </div>
+            <div class="col-sm-6">
+                <div class="dataTables_paginate paging_full_numbers" id="js_pagecont">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <input id="listcode" type="hidden" value="" />
+    <input id="listdata" type="hidden" value="" />
+
+
+    <!--弹出层 推荐位置-->
+    <div class="modal fade" id="CreateRole">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">推荐位置</h4>
+                </div>
+                <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+                <div id="js_index_tuij" class="modal-body modalBody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info js_index_tuij_ok">确定</button>
+                    <button type="button" class="btn btn-info js_index_tuij_qx ">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Msgmark" class="markMsg"></div>
+    <!--弹出层 编辑文章-->
+    <div class=" " id="editAc"  style="display:none">
+        <div class="modal-dialog">
+            <div class="modal-content" id="js_edit_Article">
+                <div class="modal-header">
+                    <button type="button" class="js_close close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">小说章节</h4>
+                </div>
+                <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+                <div class="modal-body modalBody js_index_edit_category">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info js_index_edit_ok">进入章节列表</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--弹出层 添加文章-->
+    <div class=" " id="addAc" style="display:none">
+        <div class="modal-dialog">
+            <div class="modal-content js_edit_Article" id="">
+                <div class="modal-header">
+                    <button type="button" class="close js_close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">添加文章</h4>
+                </div>
+                <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+                <div class="modal-body modalBody js_index_add">
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">发布管理>文章发布</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">文章标题:</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="title" class="form-control input-edit-bt" placeholder="">
+                            <label class="js_error js_error_title_err" style="display:none;">字数不能为空或者已超过20！</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">文章分类</label>
+                        <div class="col-sm-4 js_edit_cate">
+                            <div class="input-group">
+                                <select id="onecate_add" class="input-sm form-control js_edit_onecate">
+                                    <option value="-1">全部</option>
+                                    #foreach( $elem in $!list)
+                                    <option value="$elem.code">$elem.title</option>
+                                    #end
+                                </select>
+                            </div>
+                        </div>
+                        <label class="js_error js_edit_onecate_err col-sm-6" style="display:none;">分类不可为空！</label>
+                    </div>
+                    <div class="form-group js_edit_twocate" id="">
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">文章子分类</label>
+                        <div class="col-sm-4 js_edit_cate">
+                            <div class="input-group">
+                                <select id="" class="input-sm form-control twocate js_edittwocate">
+                                    <option value="-1">全部</option>
+                                </select>
+                            </div>
+                        </div>
+                        <label class="js_error js_edittwocate_err col-sm-6" style="display:none;">分类不可为空！</label>
+                    </div>
+
+                    <div class="form-group"">
+                    <label class="col-sm-2 control-label pad_t_10 pad_r_0">发布人</label>
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <p>官方</p>
+                        </div>
+                    </div>
+                    <label class="col-sm-3 control-label pad_t_10">前台显示名称：</label>
+                    <div class="col-sm-3">
+                        <input type="text" id="" class="form-control js_edit_AuthorName js_add_AuthorName" value="官方" disabled>
+                    </div>
+                </div>
+                <div class="form-group errtip js_errtip3"  >
+                    <label class="col-sm-2 control-label pad_t_10 pad_r_0">&nbsp;</label>
+                    <label class="js_error js_edit_AuthorType_err col-sm-4 pad_0" style="display:none;">分类不可为空！</label>
+                    <label class="col-sm-2 control-label pad_t_10 pad_r_0">&nbsp;</label>
+                    <label class="js_error js_edit_AuthorName_err col-sm-4 pad_0 authorName_err" style="display:none;">字数不能为空或者已超过20！</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label pad_t_10 pad_r_0">编辑内容</label>
+                    <div class="col-sm-10">
+                        <input type="hidden" name="content1" id="content1" value="" />
+                        <script id="editor1" name="editor1" style="height: 300px;" type="text/plain"></script>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label pad_t_10 pad_r_0">图片封面</label>
+
+                    <div class="col-sm-10" >
+                        <img class="titleimgs_add titleimgs_change" id="addImg3" src="">
+                        <div id="htpou2"></div>
+                    </div>
+                </div>
+                <div class="form-group errtip js_errtip4" >
+                    <label class="col-sm-2 control-label pad_t_10 pad_r_0">&nbsp;</label>
+                    <label class="js_error js_edit_uedit_err col-sm-10" style="display:none;">请输入文字！</label>
+                </div>
+                <div class="form-group">
+                    <label for="input-id-2" class="col-sm-2 control-label pad_t_10 pad_r_0">描述:</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" id="" class="form-control js_edit_des"></textarea>
+                        <label class="js_error js_edit_des_err" style="display:none;">字数不能为空或者已超过200！</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input-id-2" class="col-sm-2 control-label pad_t_10 pad_r_0">关键字:</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" id="" class="form-control js_edit_keywords"></textarea>
+                        <label class="js_error js_edit_keywords_err" style="display:none;">字数不能为空或者已超过100！</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info js_index_add_ok">确定</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+</section>
+<script>
+  onload=function(){ 
+      $(".sel option").eq(0).prop("selected","selected");
+      $(".js_inputChapter").val("");
+       
+    }
+</script>

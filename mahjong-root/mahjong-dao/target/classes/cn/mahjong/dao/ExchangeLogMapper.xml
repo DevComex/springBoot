@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mahjong.dao.ExchangeLogMapper">
+  <resultMap id="BaseResultMap" type="cn.mahjong.beans.ExchangeLog">
+    <id column="code" jdbcType="INTEGER" property="code"/>
+    <result column="operator" jdbcType="INTEGER" property="operator"/>
+    <result column="game_user_id" jdbcType="INTEGER" property="gameUserId"/>
+    <result column="amount" jdbcType="INTEGER" property="amount"/>
+    <result column="status" jdbcType="VARCHAR" property="status"/>
+    <result column="game_nick_name" jdbcType="VARCHAR" property="gameNickName"/>
+    <result column="operator_account" jdbcType="VARCHAR" property="operatorAccount"/>
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+  </resultMap>
+  <resultMap id="SummaryMap" type="cn.mahjong.beans.ExchangeSummary">
+    <result column="count" jdbcType="INTEGER" property="count"/>
+    <result column="sum" jdbcType="INTEGER" property="sum"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    code,
+    operator,
+    game_user_id,
+    amount,
+    create_time,
+    status,
+    operator_account,
+    game_nick_name
+  </sql>
+  <select id="selectSummaryByUserIdGameUserId" parameterType="map" resultMap="SummaryMap">
+    SELECT
+    count(1) as count,
+    sum(amount) as sum
+    FROM exchange_log
+    WHERE create_time &gt;= #{start,jdbcType=TIMESTAMP}
+    AND create_time &lt; #{end,jdbcType=TIMESTAMP}
+    <if test="userId != null">
+      AND operator = #{userId,jdbcType=INTEGER}
+    </if>
+    <if test="gameUserId != null">
+      AND game_user_id = #{gameUserId,jdbcType=INTEGER}
+    </if>
+  </select>
+  <select id="selectByUserIdGameUserId" parameterType="map" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM exchange_log WHERE
+    create_time &gt;= #{start,jdbcType=TIMESTAMP} AND create_time &lt; #{end,jdbcType=TIMESTAMP}
+    <if test="userId != null">
+        AND operator = #{userId,jdbcType=INTEGER}
+    </if>
+    <if test="gameUserId != null">
+      AND game_user_id = #{gameUserId,jdbcType=INTEGER}
+    </if>
+    ORDER BY code DESC
+    limit #{skip,jdbcType=INTEGER}, #{take,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="cn.mahjong.beans.ExchangeLog">
+    INSERT INTO exchange_log (game_user_id, amount, operator, create_time, status,
+    game_nick_name, operator_account) VALUES (
+      #{gameUserId,jdbcType=INTEGER},
+      #{amount,jdbcType=INTEGER},
+      #{operator,jdbcType=INTEGER},
+      #{createTime,jdbcType=TIMESTAMP},
+      #{status,jdbcType=VARCHAR},
+      #{gameNickName,jdbcType=VARCHAR},
+      #{operatorAccount,jdbcType=VARCHAR}
+    )
+  </insert>
+</mapper>

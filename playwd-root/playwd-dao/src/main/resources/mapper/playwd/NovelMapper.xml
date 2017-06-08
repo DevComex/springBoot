@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.playwd.dao.playwd.NovelDao" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.playwd.beans.playwd.NovelBean" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="category_id" property="categoryId" jdbcType="INTEGER" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="latest_publish_time" property="latestPublishTime" jdbcType="TIMESTAMP" />
+    <result column="cover" property="cover" jdbcType="VARCHAR" />
+    <result column="word_count" property="wordCount" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="chapter_count" property="chapterCount" jdbcType="INTEGER" />
+    <result column="view_count" property="viewCount" jdbcType="INTEGER" />
+    <result column="collect_count" property="collectCount" jdbcType="INTEGER" />
+    <result column="like_count" property="likeCount" jdbcType="INTEGER" />
+   	<result column="is_show" property="isShow" jdbcType="BIT" />
+  </resultMap>
+  
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    *
+    from playwd_novel_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  
+  <insert id="insert" parameterType="cn.gyyx.playwd.beans.playwd.NovelBean" useGeneratedKeys="true"  
+        keyProperty="code">
+    insert into playwd_novel_tb (code, user_id, account, 
+      name, category_id, description, 
+      create_time, latest_publish_time, cover, 
+      word_count, status, chapter_count, 
+      view_count, collect_count, like_count
+      )
+    values (#{code,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{categoryId,jdbcType=INTEGER}, #{description,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{latestPublishTime,jdbcType=TIMESTAMP}, #{cover,jdbcType=VARCHAR}, 
+      #{wordCount,jdbcType=INTEGER}, #{status,jdbcType=VARCHAR}, #{chapterCount,jdbcType=INTEGER}, 
+      #{viewCount,jdbcType=INTEGER}, #{collectCount,jdbcType=INTEGER}, #{likeCount,jdbcType=INTEGER}
+      )
+  </insert>
+  
+  <update id="update" parameterType="cn.gyyx.playwd.beans.playwd.NovelBean" >
+    update playwd_novel_tb
+    set user_id = #{userId,jdbcType=INTEGER},
+      account = #{account,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      category_id = #{categoryId,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      latest_publish_time = #{latestPublishTime,jdbcType=TIMESTAMP},
+      cover = #{cover,jdbcType=VARCHAR},
+      word_count = #{wordCount,jdbcType=INTEGER},
+      status = #{status,jdbcType=VARCHAR},
+      chapter_count = #{chapterCount,jdbcType=INTEGER},
+      view_count = #{viewCount,jdbcType=INTEGER},
+      collect_count = #{collectCount,jdbcType=INTEGER},
+      like_count = #{likeCount,jdbcType=INTEGER}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+   <!-- 修改小说展示状态 -->
+  <update id="updateShowAndhidden" parameterType="cn.gyyx.playwd.beans.playwd.NovelBean" >
+    update playwd_novel_tb
+    set is_show = #{isShow}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 自定义sql begin -->
+  
+  <!-- 根据条件查询单一实体 -->
+  <select id="selectNovel" resultMap="BaseResultMap" parameterType="cn.gyyx.playwd.beans.playwd.NovelBean" >
+    select 
+    *
+    from playwd_novel_tb
+    where 1=1
+    <if test="name != null" >
+        and name = #{name}
+    </if>
+    <if test="userId != null" >
+        and user_id = #{userId}
+    </if>
+  </select>
+  
+  <!-- 根据条件查询官方单一实体 -->
+  <select id="selectGuanNovel" resultMap="BaseResultMap" parameterType="string" >
+    select 
+    *
+    from playwd_novel_tb
+    where 1=1
+    <if test="name != null" >
+        and name = #{name}
+    </if>
+        and account = 'official'
+  </select>
+  
+  <!-- 根据条件查询单一实体列表 -->
+  <select id="selectNovelList" resultMap="BaseResultMap" parameterType="cn.gyyx.playwd.beans.playwd.NovelBean" >
+    select 
+    *
+    from playwd_novel_tb
+    where 1=1
+    <if test="userId != null" >
+        and user_id = #{userId}
+    </if>
+    <if test="status != null" >
+        and status = #{status}
+    </if>
+    order by create_time desc
+  </select>
+  <!-- 根据条件查询列表 -->
+  <select id="selectAllNovelList" resultType="java.util.Map" parameterType="map" >
+select n.`code` ,IF( n.account = 'official','官方',n.account) account,n.`name`, n.cover,IF(n.is_show = 1,'展示','未展示') isShow
+,c.title,IFNULL(n.chapter_count ,0) chapterCount,
+IF(nn.`status` IS NULL,'否','是') `status`,IF(novel.`status` IS NULL,'noPassed','havePassed') isPassed,
+IFNULL(n.word_count ,0) wordCount,
+IF(n.`status` ='finished','完结','未完结') isFinished,
+IF(n.latest_publish_time IS NULL,'无',date_format(n.latest_publish_time,'%Y-%c-%d %H:%i:%s')) latestPublishTime,
+IF(r.`code` is NULL,'-1',r.`code`) isRecommend
+from  playwd_novel_tb n
+LEFT JOIN playwd_category_tb c ON n.category_id = c.code
+LEFT JOIN(select DISTINCT nc.novel_id , nc.status from playwd_novel_chapter_tb nc WHERE nc.status ='unreviewd'  ) nn ON nn.novel_id = n.`code`
+LEFT JOIN(select DISTINCT nc.novel_id , nc.status from playwd_novel_chapter_tb nc WHERE nc.status ='passed'  ) novel ON novel.novel_id = n.`code`
+LEFT JOIN playwd_recommend_tb r ON r.content_id=n.`code` AND r.content_type='novel'  AND r.is_delete =0
+ where 1=1
+    <if test="name != null and name != ''" >
+        and n.`name`   LIKE '%${name}%'
+    </if>
+    <if test="isFinished != null and isFinished != ''" >
+        and n.`status` =  #{isFinished}
+    </if>
+    <if test="isShow != null " >
+        and n.`is_show` =  #{isShow}
+    </if>
+    <if test="categoryId != null " >
+        and n.category_id =  #{categoryId}
+    </if>
+    <if test="status == 'yes'" >
+        and nn.`status` = 'unreviewd'
+    </if>
+    <if test="status == 'no'" >
+        and nn.`status` IS NULL 
+    </if>
+    order by nn.`status` DESC ,n.latest_publish_time DESC
+    limit #{startSize},#{endSize}
+  </select>
+  
+  <!-- 根据条件查询列表数量 -->
+  <select id="selectAllNovelListCount" resultType="int" parameterType="map" >
+select count(*)
+from  playwd_novel_tb n
+LEFT JOIN playwd_category_tb c ON n.category_id = c.code
+LEFT JOIN(select DISTINCT nc.novel_id , nc.status from playwd_novel_chapter_tb nc WHERE nc.status ='unreviewd'  ) nn ON nn.novel_id = n.`code`
+ where 1=1
+    <if test="name != null and name != ''" >
+        and n.`name`   LIKE '%${name}%'
+    </if>
+    <if test="isFinished != null and isFinished != ''" >
+        and n.`status` =  #{isFinished}
+    </if>
+    <if test="isShow != null " >
+        and n.`is_show` =  #{isShow}
+    </if>
+    <if test="categoryId != null " >
+        and n.category_id =  #{categoryId}
+    </if>
+    <if test="status == 'yes'" >
+        and nn.`status` = 'unreviewd'
+    </if>
+    <if test="status == 'no'" >
+        and nn.`status` IS NULL 
+    </if>
+  </select>
+  
+   <!-- 根据条件查询小说推荐列表 -->
+  <select id="getNovelManagementList" resultType="map" >
+    SELECT n.`code`,n.cover,n.`name`,r.create_time
+FROM playwd_recommend_tb r
+LEFT JOIN playwd_novel_tb n  ON r.content_id=n.`code` 
+WHERE r.content_type='novel' AND is_delete =0
+AND r.slot_id =#{recommendSlotId}
+    order by r.create_time desc
+    limit #{startSize},#{endSize}
+  </select>
+  
+  <!-- 根据条件查询小说推荐列表 -->
+  <select id="getNovelManagementCount" resultType="int" >
+    SELECT count(*)
+FROM playwd_recommend_tb r
+LEFT JOIN playwd_novel_tb n  ON r.content_id=n.`code` 
+WHERE r.content_type='novel' AND is_delete =0
+<if test="recommendSlotId != null " >
+AND r.slot_id =#{recommendSlotId}
+</if>
+  </select>
+</mapper>

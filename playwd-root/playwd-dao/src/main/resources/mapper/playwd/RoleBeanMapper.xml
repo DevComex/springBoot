@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.playwd.dao.playwd.RoleBeanMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.playwd.beans.playwd.RoleBean" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="net_id" property="netId" jdbcType="INTEGER" />
+    <result column="server_id" property="serverId" jdbcType="INTEGER" />
+    <result column="server_name" property="serverName" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="faction" property="faction" jdbcType="VARCHAR" />
+    <result column="is_default" property="isDefault" jdbcType="BIT" />
+    <result column="picture" property="picture" jdbcType="VARCHAR" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="gender" property="gender" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, user_id, account, net_id, server_id, server_name, nick_name, level, faction, 
+    is_default, picture, qq 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_role_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from playwd_role_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.gyyx.playwd.beans.playwd.RoleBean" >
+    insert into playwd_role_tb (code, user_id, account, 
+      net_id, server_id, server_name, 
+      nick_name, level, faction, 
+      is_default, picture, qq, 
+      gender, update_time)
+    values (#{code,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, 
+      #{netId,jdbcType=INTEGER}, #{serverId,jdbcType=INTEGER}, #{serverName,jdbcType=VARCHAR}, 
+      #{nickName,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, #{faction,jdbcType=VARCHAR}, 
+      #{isDefault,jdbcType=BIT}, #{picture,jdbcType=VARCHAR}, #{qq,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gyyx.playwd.beans.playwd.RoleBean" >
+    insert into playwd_role_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="netId != null" >
+        net_id,
+      </if>
+      <if test="serverId != null" >
+        server_id,
+      </if>
+      <if test="serverName != null" >
+        server_name,
+      </if>
+      <if test="nickName != null" >
+        nick_name,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="faction != null" >
+        faction,
+      </if>
+      <if test="isDefault != null" >
+        is_default,
+      </if>
+      <if test="picture != null" >
+        picture,
+      </if>
+      <if test="qq != null" >
+        qq,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="netId != null" >
+        #{netId,jdbcType=INTEGER},
+      </if>
+      <if test="serverId != null" >
+        #{serverId,jdbcType=INTEGER},
+      </if>
+      <if test="serverName != null" >
+        #{serverName,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="faction != null" >
+        #{faction,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefault != null" >
+        #{isDefault,jdbcType=BIT},
+      </if>
+      <if test="picture != null" >
+        #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.playwd.beans.playwd.RoleBean" >
+    update playwd_role_tb
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="netId != null" >
+        net_id = #{netId,jdbcType=INTEGER},
+      </if>
+      <if test="serverId != null" >
+        server_id = #{serverId,jdbcType=INTEGER},
+      </if>
+      <if test="serverName != null" >
+        server_name = #{serverName,jdbcType=VARCHAR},
+      </if>
+      <if test="nickName != null" >
+        nick_name = #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="faction != null" >
+        faction = #{faction,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefault != null" >
+        is_default = #{isDefault,jdbcType=BIT},
+      </if>
+      <if test="picture != null" >
+        picture = #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="qq != null" >
+        qq = #{qq,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.playwd.beans.playwd.RoleBean" >
+    update playwd_role_tb
+    set user_id = #{userId,jdbcType=INTEGER},
+      account = #{account,jdbcType=VARCHAR},
+      net_id = #{netId,jdbcType=INTEGER},
+      server_id = #{serverId,jdbcType=INTEGER},
+      server_name = #{serverName,jdbcType=VARCHAR},
+      nick_name = #{nickName,jdbcType=VARCHAR},
+      level = #{level,jdbcType=INTEGER},
+      faction = #{faction,jdbcType=VARCHAR},
+      is_default = #{isDefault,jdbcType=BIT},
+      picture = #{picture,jdbcType=VARCHAR},
+      qq = #{qq,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <!-- 获取默认角色信息  -->
+   <select id="getDefaultRole" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_role_tb
+    where user_id = #{userId,jdbcType=INTEGER}
+    and is_default = 1 limit 1;
+  </select>
+  <!-- 获取我的角色列表  -->
+   <select id="selectRole" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_role_tb
+    where user_id = #{userId,jdbcType=INTEGER}
+    ;
+  </select>
+  <!-- 删除之前的同步信息  -->
+   <delete id="deleteByUserId" parameterType="java.lang.Integer" >
+    delete from playwd_role_tb
+    where user_id = #{userId,jdbcType=INTEGER}
+  </delete>
+</mapper>

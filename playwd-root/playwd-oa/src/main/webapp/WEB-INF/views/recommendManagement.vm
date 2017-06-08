@@ -1,0 +1,108 @@
+
+    <script src="${rc.contextPath}/static/script/jquery.ajaxpage.2.0.1.js"></script>
+    <script src="${rc.contextPath}/static/script/recommendMangeHjh.js"></script>
+    <style type="text/css">
+        .rcmd-thumbnail{
+            max-height: 100px;
+            max-width: 160px;
+        }
+        .gy_page a{
+            padding: 5px;
+            border: 1px #fff solid;
+        }
+        .gy_pageon{
+            background-color: #9d9d9d;
+
+        }
+        .pg_disabled{
+            background-color:#9d9d9d;
+
+        }
+    </style>
+
+<!--头部功能-->
+<header class="header bg-white b-b clearfix">
+    <div class="row m-t-sm">
+        <form>
+            <span class="col-sm-1 pad_t_5 pad_r_0">模块</span>
+            <div class="col-sm-2 m-b-xs">
+                <div class="input-group">
+                    <select id="js_chooseRecommendType" name="">
+
+                    </select>
+                </div>
+            </div>
+            <span class="col-sm-1 pad_t_5 pad_r_0">推荐位选择</span>
+            <div class="col-sm-2 m-b-xs">
+                <div class="input-group">
+                    <select id="js_chooseRecommendCont">
+                            
+                    </select>
+                </div>
+            </div>
+            
+           
+        </form>
+        <span class="col-sm-2 pad_l_0">
+            <button class="btn btn-sm btn-info pad_lr_m" id="js_check"  type="button">查询</button>
+        </span>
+    </div>
+</header>
+
+<!--表格主体-->
+<section class="scrollable padder" style="height:86%;">
+    <div class="m-b-md"></div>
+    <!--数据表格  begin -->
+    <section class="panel panel-default col-sm-12 pad_r_0 pad_l_0">
+        <div class="table-responsive">
+            <table class="table table-striped m-b-none m-table">
+                <thead>
+                    <tr>
+                        <th width="30%">标题</th>
+                        <th width="30%">封面图片</th>
+                        <th width="20%">推荐时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="js_One_ChildList">
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!--数据表格  end -->
+</section>
+
+
+
+<!--翻页功能-->
+<footer class="footer bg-white b-t">
+
+        <div class="mt30 s_page_wrap" style="margin-top:20px;position: relative;left:25%;">
+            <span class="gy_page search_page"></span>
+            <span class="search_page_txt"></span>
+        </div>
+
+</footer>
+<!--弹出层 推荐位选择-->
+<!--弹出城 添加/编辑文章-->
+<div class="modal fade" id="chooseRecommendType">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
+                <h4 class="modal-title recommend_tit">图文驿站推荐位</h4>
+            </div>
+            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+            <div class="modal-body modalBody">
+                <div class="form-group" id="js_editToRecommend">
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="js-save-confirm" type="button" class="btn btn-info js_createRoleSubmit">确定</button>
+                <button id="js-save-cancel" type="button" class="btn btn-info js_createRoleSubmit">取消</button>
+            </div>
+        </div>
+    </div>
+</div>

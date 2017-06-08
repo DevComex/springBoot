@@ -1,0 +1,225 @@
+<script src="${rc.contextPath}/static/script/upload/swfupload.js" charset="utf-8" type="text/javascript"></script>
+<script src="${rc.contextPath}/static/script/upload/SWFInitialize.js" charset="utf-8" type="text/javascript"></script>
+<script src="${rc.contextPath}/static/script/upload/Handlers.js" charset="utf-8" type="text/javascript"></script>
+    <script src="${rc.contextPath}/static/script/RecommendHjh.js"></script>
+    <link rel="stylesheet" href="${rc.contextPath}/static/css/recommend.css">
+    <style type="text/css">
+        .rcmd-thumbnail{
+            max-height: 100px;
+            max-width: 160px;
+        }
+
+
+    </style>
+
+<!--头部功能-->
+<header class="header bg-white b-b clearfix">
+    <div class="row m-t-sm">
+        <form action="" method="get">
+            <span class="col-sm-2 pad_t_5 pad_r_0">选择推荐位</span>
+            <div class="col-sm-2 m-b-xs">
+                <div class="input-group">
+                    <select id="js-locid" name="locid" class="input-sm form-control" onchange="javascript: $('form')[0].submit();">
+			            #foreach( $elem in $!list)
+			            	#if($elem.code==$code)
+			                	<option value="$elem.code" selected="selected"> $elem.slotGroup - $elem.slot</option>
+			                #else
+			                	<option value="$elem.code"> $elem.slotGroup - $elem.slot</option>
+			                #end
+						#end
+                    </select>
+                </div>
+            </div>
+        </form>
+    </div>
+</header>
+
+<!--表格主体-->
+<section class="scrollable padder" style="height:85%;">
+    <!--数据表格  begin -->
+    <section class="panel panel-default col-sm-12 pad_r_0 pad_l_0" style="height:90%;">
+        <div class="table-responsive">
+            <table class="table table-striped m-b-none m-table">
+                <thead>
+                    <tr>
+                        <th width="20%">标题</th>
+                        <th width="10%">图片</th>
+                        <th width="20%">URL</th>
+                        <th>展示状态</th>
+                        <th width="15%">更新时间</th>
+                        <th>显示顺序</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="js_One_ChildList">
+                	#foreach( $elem in $!recommendList)
+                		<tr class="curr js-recommend-cmd" data-id="$elem.code">
+                			<td>$elem.title</td>
+                			#if($elem.cover)
+                				<td><img class="rcmd-thumbnail" src="$elem.cover" /> </td>
+                			#else
+                				<td>暂无图片</td>
+                			#end
+                			<td>$elem.url</td>
+                			#if($elem.isDisplay==true)
+                				<td>显示</td>
+                			#else
+                				<td>隐藏</td>
+                			#end
+                			<td>$elem.updateTimeStr</td>
+                			<td>
+                			#if($elem.displayOrder>$minDisplayOrder)
+
+
+                                    <a data-toggle="modal" data-action="moveTop" class="btn btn-xs btn-primary js_category_edit_one" title="置底">
+                                            <i class="fa fa fa-arrow-circle-down"></i>
+                                     </a>
+                                     <a data-toggle="modal" data-action="moveUp" class="btn btn-xs btn-primary js_category_edit_one" title="下移">
+                                             <i class="fa fa-arrow-down"></i>
+                                         </a>
+
+							#end
+                			#if($elem.displayOrder<$maxDisplayOrder)
+                            <a data-toggle="modal" data-action="moveDown" class="btn btn-xs btn-primary js_category_edit_one" title="上移">
+                                    <i class="fa fa-arrow-up"></i>
+                                </a>
+                                    <a data-toggle="modal" data-action="moveBottom" class="btn btn-xs btn-primary js_category_edit_one" title="置顶">
+                                           <i class="fa fa fa-arrow-circle-up"></i>
+                                    </a>
+                			#end
+                			</td>
+                			<td>
+                			#if($elem.isDisplay==true)
+                				 <a data-toggle="modal" data-action="hide" class="btn btn-xs btn-primary js_category_edit_one" title="隐藏">
+                                        <i class="fa fa-ban"></i>
+                                    </a>
+                			#else
+                				 <a data-toggle="modal" data-action="show" class="btn btn-xs btn-primary js_category_edit_one" title="展示">
+                                        <i class="fa fa-unlock"></i>
+                                    </a>
+                			#end
+                			    <a data-toggle="modal" data-action="edit" class="btn btn-xs btn-info js_category_edit_one" href="#layer-save" title="编辑">
+                                    <i class="fa fa-edit"></i>
+                                </a></td>
+                	#end
+
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!--数据表格  end -->
+</section>
+
+
+
+<!--翻页功能-->
+<footer class="footer bg-white b-t">
+    <div class="row dataTables_wrapper">
+        <div class="col-sm-6">
+            <div class="dataTables_info">共$total条</div>
+        </div>
+    </div>
+</footer>
+
+
+<!--弹出城 添加/编辑文章-->
+<div class="modal fade" id="layer-save">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close" aria-hidden="true" data-dismiss="modal" type="button">×</button>
+                <h4 class="modal-title">添加/编辑推荐</h4>
+            </div>
+            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+            <div class="modal-body modalBody">
+                <div class="form-group">
+                    <label for="input-id-2" class="col-sm-2 control-label pad_t_10 pad_r_0">标题:</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="rcmd-title" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input-id-2" class="col-sm-2 control-label pad_t_10 pad_r_0">URL:</label>
+                    <div class="col-sm-10">
+                        <input type="text" id="rcmd-url" class="form-control">
+                    </div>
+                </div>
+				<div class="form-group">
+					<label for="input-id-2" class="col-sm-2 control-label pad_t_10 pad_r_0">原图片地址:</label>
+                    <div class="col-sm-8" >
+                        <label id="oldImgUrl" class="control-label pad_t_10 pad_r_0" style="word-break:break-all;" Width="50px"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input-id-1" class="col-sm-2 control-label">上传附件:</label>
+                    <div class="imgEditDiv">
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button id="js-save-confirm" type="button" class="btn btn-info js_createRoleSubmit">确定</button>
+                <button id="js-save-cancel" type="button" class="btn btn-info js_createRoleSubmit">取消</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript">
+var imgDIV = '<input type="hidden" id="imageUrl" value="" disabled="disabled">' +
+  '<div class="uploadArea">' +
+    '<div id="divFileProgressContainer"></div>' +
+        '<div class="upl">' +
+            '<span class="uploadimg">' +
+                '<input type="button" id="btnUpload" class="upload" onclick=" " value="上传图片" />' +
+                '<input type="hidden" id="hid_addImgUrl" name="hid_addImgUrl" />' +
+                '<input type="hidden" id="hid_addthumbImgUrl" name="hid_addthumbImgUrl" />' +
+            '</span>' +
+        '</div>' +
+    '</div>';
+    (function () {
+
+
+        /*图片上传*/
+        UPLOADURL = "http://up.gyyx.cn/Image/WebSiteSaveToTemp.ashx?group=official_site&width=200&height=200";
+        FLASHURL = "http://up.gyyx.cn/flash/swfupload_f9.swf";
+        FILESIZE = "51200";
+        FILETYPE = "*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+        TYPESDESCRIPTION = "*";
+        UPLOADLIMIT = "1";//限制上传张数
+        QUEUELIMIT = 0;
+        DEBUG = false;
+        UPLOADTARGET = "divFileProgressContainer";
+        SAVEELEMENT = "FileCode";
+        UPLOADBTNID = "btnUpload";
+        Initialize();
+
+
+
+        // $('.js-recommend-cmd').each(function () {
+        //     window.Recommend.initRecommendOperations($(this));
+        // });
+        // //推荐弹出框 确定
+        // $('#js-save-confirm').click(function () {
+        //     alert(1);
+        //     window.Recommend.saveRecommend();
+        // });
+        // //推荐弹出框 取消
+
+        // //添加推荐
+        // $('#js-add').click(function () {
+        //     $("#divFileProgressContainer").html("");
+        // });
+        //
+        // if ($("#js-locid").find("option:selected").val() != 18) {
+        //     $("#js-add").hide();
+        // } else {
+        //     $("#js-add").show();
+        // }
+    })();
+
+
+</script>

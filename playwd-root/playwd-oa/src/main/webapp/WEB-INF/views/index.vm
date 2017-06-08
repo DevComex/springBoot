@@ -1,0 +1,868 @@
+<script src="${rc.contextPath}/static/script/editor/ueditor.config.js" charset="utf-8" type="text/javascript"></script>
+<script src="${rc.contextPath}/static/script/editor/ueditor.all.min.js" charset="utf-8" type="text/javascript"></script>
+<script src="${rc.contextPath}/static/script/editor/lang/zh-cn/zh-cn.js" charset="utf-8" type="text/javascript"></script>
+<script src="${rc.contextPath}/static/script/editor/lang/zh-cn/zh-cn.js" charset="utf-8" type="text/javascript"></script>
+<script src="${rc.contextPath}/static/script/Article.js" charset="utf-8" type="text/javascript"></script>
+<script src="${rc.contextPath}/static/script/upload/swfupload.js" charset="utf-8" type="text/javascript"></script>
+<script src="${rc.contextPath}/static/script/upload/SWFInitialize.js" charset="utf-8" type="text/javascript"></script>
+<script src="${rc.contextPath}/static/script/upload/Handlers.js" charset="utf-8" type="text/javascript"></script>
+<link rel="stylesheet" href="${rc.contextPath}/static/css/style.css">
+<link rel="stylesheet" href="${rc.contextPath}/static/css/wanwd.css">
+<!新增js裁切图片-->
+<link href="${rc.contextPath}/static/cutpic/jquery.Jcrop.css" rel="stylesheet" />
+<script src="${rc.contextPath}/static/cutpic/jquery.Jcrop.min.js"></script>
+<script src="${rc.contextPath}/static/cutpic/cutPic.js"></script>
+<style>
+    .control-label { padding:7px 0 0 0; text-align:left; }
+
+    .curr td:last-child a{margin-right:3px;}
+</style>
+<script>
+  
+var imgCut=  '<span class="titleimgs" style="display:none;">'+
+                        '<img class="titleimgs_add" id="addImg" style="display:none;" src=""></span><div id="oneCuyt" class="uploadImgDiv" style="margin:10px 0">'+
+             '<div id="loprt"><input type="hidden" id="imageUrl" value="" disabled="disabled">' +
+        '<div class="uploadArea">' +
+        '<div id="divFileProgressContainer"></div>' +
+        '<div class="upl">' +
+        '<span class="uploadimg" style="display:none;">' +
+        '<input type="button" id="btnUpload" class="upload" onclick=" " value="" />' +
+        '<input type="hidden" id="hid_addImgUrl" name="hid_addImgUrl" />' +
+        '<input type="hidden" id="hid_addthumbImgUrl" name="hid_addthumbImgUrl" />' +
+        '</span></div></div></div></div>'+
+        					'<div id="editPortrait">'+
+                            '<input type="hidden" value="" id="FileCode" />'+
+                            '<div class="">'+
+                                '<input type="file" id="file_uploadPortrait" style="display:none;"/>'+
+                                '<div class="ori_img_box" id="js_oriImgBox"></div>'+
+                                '<canvas id="js_prevImg" width="292" height="163" style="display: none;margin-top:10px;"></canvas>'+
+                                '<div style="text-align: center;margin-top:13px;">'+
+                                    '<button class="btn btn-info btn-s-md" type="button" id="js_editPorSubmit" style="display: none;margin-right: 10px;">确定</button>'+
+                                    '</button>'+
+                                    '<button data-dismiss="modal" class="btn btn-info btn-s-md close_js_Msg" type="button" style="display:none;">返回</button>'+
+                                '</div>'+
+                            '</div>'+
+                        '</div>'
+
+    $(function () {
+
+        $("#editAc").hide(); $("#addAc").hide(); $("#Msgmark").hide();
+        var nowDate = new Date(),
+            nYear = nowDate.getFullYear(),
+            nMonth = ((nowDate.getMonth() + 1) < 10 ? ("0" + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1)),
+            nDate = (nowDate.getDate() < 10 ? ("0" + nowDate.getDate()) : nowDate.getDate()),
+            //当天年月日(格式2014-01-01)
+            today = [nYear, nMonth, nDate].join("-");
+
+        var m = nowDate.getMonth() - 1;
+        nowDate.setMonth(m);
+        var lMonth = ((nowDate.getMonth() + 1) < 10 ? ("0" + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1));
+        var lDate = (nowDate.getDate() < 10 ? ("0" + nowDate.getDate()) : nowDate.getDate());
+        var ltoday = [nowDate.getFullYear(), lMonth, lDate].join("-");
+
+        window.today = today;
+        window.ltoday = ltoday;
+
+        //开始时间（默认1个月前）
+        $(".js_startTimeCtr").datepicker({
+            format: 'yyyy-mm-dd',
+            startView: 2,
+            autoclose: true,
+            minView: 2
+        }).on('changeDate', function (ev) {
+            var AddStartTime = $(this).val();
+            $(".js_endTimeCtr").datepicker('setStartDate', AddStartTime);
+        }).val(ltoday);
+
+        //结束时间（默认当天）
+        $(".js_endTimeCtr").datepicker({
+            format: 'yyyy-mm-dd',
+            startView: 2,
+            autoclose: true,
+            todayBtn: true,
+            minView: 2
+        }).on('changeDate', function (ev) {
+            var AddEndTime = $(this).val();
+            $(".js_startTimeCtr").datepicker('setEndDate', AddEndTime);
+        }).val(today);
+
+        //获取列表
+        var dobj1 = {
+            displayStatus: -1,                   //默认展示状态全显示
+            startTime: $(".js_startTimeCtr").val(),           //默认开始时间为空
+            endTime: $(".js_endTimeCtr").val(),              //默认结束时间为空
+            authorType:"all",
+            firstCategoryId: -1,
+            secondCategoryId :-1
+        };
+        $("#js_ArticleList").getArticle({ dataobj: dobj1 });
+
+        //获取二级分类
+        $("#onecate").change(function () {
+            var id = $("#onecate").val();
+            $("#aaa").getChildList(id);
+        });
+
+        $("#onecate_add").change(function () {
+            var id = $("#onecate_add").val();
+            $("#aaa").getChildList(id);
+        });
+
+
+        //查询
+        $("#query").click(function () {
+            var search = $("#Search").val();
+            var article_bt = $("#article_bt").val();
+            var displayzt = $("#display_zt").val();
+            var onecate = $("#onecate").val();
+            var twocate = $("#js_twocateh").val();
+            var author = $("#authorName").find("option:selected").val();
+            var starttime = $(".js_startTimeCtr").val();
+            var endtime = $(".js_endTimeCtr").val();
+            var status = $("#js_status").val();
+            //alert("文章标题：" + article_bt + "展示状态：" + displayzt + "一级分类：" + onecate + "二级分类：" + twocate + "发布人：" + author + "开始时间：" + starttime + "结束时间：" + endtime);
+            var dobj = {
+                type:search,
+                status : status,
+                key: article_bt,                      //默认不筛选
+                displayStatus: displayzt,                   //默认展示状态全显示
+                firstCategoryId: onecate,                //一级分类
+                secondCategoryId: twocate,                  //二级分类
+                authorType: author,             //默认发布人为玩家，全部显示为-1
+                startTime: starttime,           //默认开始时间为空
+                endTime: endtime              //默认结束时间为空
+            };
+            $(this).getArticle({
+                dataobj: dobj
+            });
+
+        });
+
+        // 富文本编辑器
+        var ueditor = UE.getEditor('editor');
+        var ueditor1 = UE.getEditor('editor1');
+
+
+
+        //批量展示show  批量隐藏hide 批量删除3
+        $(".js_batch").click(function () {
+            var thistype = $(this).attr("data-type");
+            $("#js_ArticleList").batchShow({
+                type: thistype
+            });
+        });
+
+        //提交文章推荐
+        $(".js_index_tuij_ok").click(function () {
+            var locid = "";
+            var conid = $("#listcode").val();
+            var obj = $("#js_index_tuij .active");
+            for (var i = 0; i < obj.length; i++) {
+                locid += obj.eq(i).attr("data-id") + ",";
+            }
+            locid = locid.substring(0, locid.length - 1);
+            tjArticleUp(conid, locid);
+        });
+
+        $(".js_index_tuij_qx").click(function () {
+            $(".close").trigger("click");
+        });
+
+        // 请求提交文章推荐
+        function tjArticleUp(conid, locid) {
+            var prizeType=($("#js_prizeTypeChild")) ? $("#js_prizeTypeChild").val() : null;
+            if(!locid){
+                alert("请选择推荐位")
+                return;
+            }
+            if(!$("#js_prizeType").val()){
+                alert("请选择推荐奖励")
+                return;
+            }
+            $.ajax({
+                url: '/recommend',
+                type: 'POST',
+                dataType: 'json',
+                data: { contentId: conid, contentType : "article", recommendSlotId : locid, r: Math.random(),prizeId : $("#js_prizeType").val(), prizeType:prizeType},
+                success: function (d) {
+                    //alert(d.toSource());
+                    if (d.status === "success") {
+                        alert(d.message);
+                        window.location.href = window.location.href;
+                        $(".close").trigger("click");
+                    } else {
+                        alert(d.message);
+                    }
+
+                }
+            });
+        }
+        //绑定上传图片事件
+        $(window).on("click","#btnUpload",function(){
+            swfu.selectFile(); this.blur();
+        });
+        //D 请求提交
+        $(".js_index_edit_ok").click(function () {
+            var str = $("#listdata").val();
+            var cover=$(".titleimgs_change").eq(0).attr("src")?$(".titleimgs_change").eq(0).attr("src"):$(".titleimgs_change").eq(1).attr("src");         
+            str = str;
+            var authorType=$(".js_edit_AuthorType").html()=='官方'?'official':'player'
+            var edit_dobj = {
+                author: $("#js_edit_AuthorName").html(),
+                authorType: authorType,
+                summary: $("#js_edit_des").val(),
+                categoryId: $("#js_edittwocate").val(),
+                code: str,
+                content: encodeURI(UE.getEditor('editor').getContent()),
+                keywords: $("#js_edit_keywords").val(),
+                PrimaryCategoryId: $("#js_edit_onecate").val(),
+                title: $("#input-edit-bt").val(),
+                cover : cover
+            };
+            //验证
+            if (!editcheck(edit_dobj)) {
+                return false;
+            }
+            $(".js_index_edit").postEditArticle({
+             pushdataobj: edit_dobj
+             });
+        });
+        //点击添加文章按钮 请求提交
+        $(".js_index_add_ok").click(function () {
+
+            var edit_dobj = {
+                author: $("#addAc .js_edit_AuthorName").val(),
+                authorType: "official",
+                summary: $("#addAc .js_edit_des").val(),
+                categoryId: $("#addAc .js_edittwocate").val(),
+                content: encodeURI(UE.getEditor('editor1').getContent()),
+                keywords: $("#addAc .js_edit_keywords").val(),
+                title: $("#addAc .input-edit-bt").val(),
+                cover : $(".titleimgs_change").eq(0).attr("src")?$(".titleimgs_change").eq(0).attr("src"):$(".titleimgs_change").eq(1).attr("src")
+
+            };
+            //验证
+            if (!addcheck(edit_dobj)) {
+                return false;
+            }
+            $(".js_index_add").postEditArticle({
+                getListUrl:"/article/save",
+                pushdataobj: edit_dobj
+            });
+        });
+
+        //添加文章点击清楚错误提示
+        $(".js_addAc").click(function () {
+         //点击添加文章时候清空默认图片以及
+        $(".titleimgs_change").attr("src","");
+            $("#htpou").html("");//编辑文章的裁剪部分需要置空
+            $("#htpou2").html(imgCut);//添加文章的裁剪部分需要添加进来
+            //Initialize();
+            $(".js_addAc").checkre();
+            var obj = $("#addAc");
+            $(document).alertBox(obj);
+             //点击添加文章时，调用
+          oAEditPic($(".uploadImgDiv"),$("#js_editPorSubmit"),$('#editPortrait'),$("#addImg"),$(".titleimgs"),"/static/data/UpLoadPhoto.json",$(".close_js_Msg"),"file_uploadPortrait","js_oriImgBox","js_prevImg","js_preCutImg");
+        });
+
+        $("#addAc .js_add_AuthorType").change(function () {
+            if ($(this).val() === "official") {
+                $("#addAc .js_add_AuthorName").val("官方");
+            } else {
+                $("#addAc .js_add_AuthorName").val("");
+            }
+        });
+
+        //错误提示
+        function editcheck(edit_dobj) {
+
+            if (edit_dobj.title.length > 20 || trim(edit_dobj.title) === "" || edit_dobj.title.length === 0) {
+                $("#editAc .js_error_title_err").show(); return false;
+            } else {
+                $("#editAc .js_error_title_err").hide();
+            }
+
+            if (edit_dobj.PrimaryCategoryId == -1) {
+                $("#editAc .js_edit_onecate_err").show(); return false;
+            } else {
+                $("#editAc .js_edit_onecate_err").hide();
+            }
+
+            if (edit_dobj.categoryId == -1) {
+                $("#editAc .js_edittwocate_err").show(); return false;
+            } else {
+                $("#editAc .js_edittwocate_err").hide();
+            }
+
+            if (edit_dobj.authorType == -1) {
+                $("#editAc .js_edit_AuthorType_err").show();
+                $("#editAc .js_errtip1").show(); return false;
+            } else {
+                $("#editAc .js_edit_AuthorType_err").hide();
+                $("#editAc .js_errtip1").hide();
+            }
+
+            if (edit_dobj.author.length > 20 ||edit_dobj.author.length === 0|| trim(edit_dobj.author) === "") {
+                $("#editAc .js_edit_AuthorName_err").show();
+                $("#editAc .js_errtip1").show(); return false;
+            }  else {
+                $("#editAc .js_edit_AuthorName_err").hide();
+                $("#editAc .js_errtip1").hide();
+            }
+            if (edit_dobj.summary.length > 200 || trim(edit_dobj.summary) === "" || edit_dobj.summary.length === 0) {
+                $("#editAc .js_edit_des_err").show(); return false;
+            }else {
+                $("#editAc .js_edit_des_err").hide();
+            }
+            if (ueditor.getContentTxt().length === 0 || trim(ueditor.getContentTxt()) === "") {
+                $("#editAc .js_edit_uedit_err").show(); $("#editAc .js_errtip2").show(); return false;
+            } else {
+                $("#editAc .js_edit_uedit_err").hide(); $("#editAc .js_errtip2").hide();
+            }
+            if (edit_dobj.keywords.length > 100 || trim(edit_dobj.keywords) === "" || edit_dobj.keywords.length === 0) {
+                $("#editAc .js_edit_keywords_err").show(); return false;
+            }else {
+                $("#editAc .js_edit_keywords_err").hide();
+            }
+
+            return true;
+
+        }
+        //添加文章错误提示
+        function addcheck(edit_dobj) {
+            if (edit_dobj.title.length > 20 || edit_dobj.title.length === 0 || trim(edit_dobj.title) === "") {
+                $("#addAc .js_error_title_err").show(); return false;
+            }  else {
+                $("#addAc .js_error_title_err").hide();
+            }
+            if (edit_dobj.PrimaryCategoryId == -1) {
+                $("#addAc .js_edit_onecate_err").show(); return false;
+            } else {
+                $("#addAc .js_edit_onecate_err").hide();
+            }
+
+            if (edit_dobj.categoryId == -1) {
+                $("#addAc .js_edittwocate_err").show(); return false;
+            } else {
+                $("#addAc .js_edittwocate_err").hide();
+            }
+
+            if (edit_dobj.authorType == -1) {
+                $("#addAc .js_edit_AuthorType_err").show(); $("#addAc .js_errtip3").show(); return false;
+            } else {
+                $("#addAc .js_edit_AuthorType_err").hide(); $("#addAc .js_errtip3").hide();
+            }
+            if (edit_dobj.author.length > 20 || edit_dobj.author.length === 0 || trim(edit_dobj.author) === "") {
+                $("#addAc .js_edit_AuthorName_err").show(); $("#addAc .js_errtip3").show(); return false;
+            } else {
+                $("#addAc .js_edit_AuthorName_err").hide(); $("#addAc .js_errtip3").hide();
+            }
+            if (ueditor1.getContentTxt().length === 0 || trim(ueditor1.getContentTxt()) === "") {
+                $("#addAc .js_edit_uedit_err").show(); $("#addAc .js_errtip4").show(); return false;
+            } else {
+                $("#addAc .js_edit_uedit_err").hide(); $("#addAc .js_errtip4").hide();
+            }
+            if (edit_dobj.summary.length > 200 || edit_dobj.summary.length === 0 || trim(edit_dobj.summary) === "") {
+                $("#addAc .js_edit_des_err").show(); return false;
+            } else {
+                $("#addAc .js_edit_des_err").hide();
+            }
+            if (edit_dobj.keywords.length > 100 || edit_dobj.keywords.length === 0 || trim(edit_dobj.keywords) === "") {
+                $("#addAc .js_edit_keywords_err").show(); return false;
+            } else {
+                $("#addAc .js_edit_keywords_err").hide();
+            }
+
+            return true;
+
+        }
+
+        function trim(str) { //删除左右两端的空格
+            return str.replace(/(^\s*)|(\s*$)/g, "");
+        }
+        /*图片上传*/
+        UPLOADURL = "http://up.gyyx.cn/Image/WebSiteSaveToTemp.ashx?group=official_site&width=200&height=200";
+        FLASHURL = "http://up.gyyx.cn/flash/swfupload_f9.swf";
+        FILESIZE = "1MB";
+        FILETYPE = "*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+        TYPESDESCRIPTION = "*";
+        UPLOADLIMIT = "1";//限制上传张数
+        QUEUELIMIT = 0;
+        DEBUG = false;
+        UPLOADTARGET = "divFileProgressContainer";
+        SAVEELEMENT = "FileCode";
+        UPLOADBTNID = "btnUpload";
+
+
+
+
+
+
+    });
+</script>
+<section class="vbox js_template_right">
+    <!--头部功能-->
+    <header class="header bg-white b-b clearfix">
+        <div class="row m-t-sm">
+            <label class="col-lg-1 control-label01" >搜索选项</label>
+            <div class="col-sm-2 m-b-xs">
+                <select id="Search" class="input-sm form-control">
+                    <option value="title">文章标题</option>
+                    <option value="account">上传账号</option>
+                    <option value="author">昵称</option>
+                </select>
+            </div>
+            <div class="col-lg-1-6 m-b-xs">
+                <input id="article_bt" class="input-sm form-control" type="text" maxlength="15" value="">
+            </div>
+            <label class="col-lg-1 control-label01">展示状态</label>
+            <div class="col-lg-1 m-b-xs">
+                <select id="display_zt" class="input-sm form-control">
+                    <option value="-1">全部</option>
+                    <option value="0">未展示</option>
+                    <option value="1">已展示</option>
+                </select>
+            </div>
+
+
+        </div>
+        <div class="row m-t-sm">
+            <label class="col-lg-1 control-label01">文章分类</label>
+            <div class="col-sm-2 m-b-xs">
+                <select id="onecate" class="input-sm form-control">
+                    <option value="-1">全部</option>
+                    #foreach( $elem in $!list)
+                    #if($!elem.parentId == 0)
+                    <option value="$elem.code">$elem.title</option>
+                    #end
+                    #end
+                </select>
+            </div>
+            <div class="col-sm-2 m-b-xs">
+                <select id="js_twocateh" class="input-sm form-control twocate">
+                    <option value="-1">全部</option>
+                </select>
+            </div>
+            <label class="col-lg-1 control-label01">审核状态</label>
+            <div class="col-lg-1 m-b-xs">
+                <select id="js_status" class="input-sm form-control">
+                    <option value="">全部</option>
+                    <option value="unreviewd">待审核</option>
+                    <option value="passed">审核通过</option>
+                    <option value="failed">审核不通过</option>
+                    <option value="recommended">编辑推荐</option>
+
+                </select>
+            </div>
+        </div>
+        </div>
+        <div class="row m-t-sm">
+
+            <label class="col-lg-1 control-label01">上传时间:</label>
+            <div class="col-sm-2 m-b-xs">
+                <div class="">
+                    <input type="text" class="input-sm form-control js_startTimeCtr" readonly="readonly" placeholder="开始时间">
+                </div>
+            </div>
+            <label class="control-label01 label-float-left">至</label>
+            <div class="col-sm-2 m-b-xs">
+                <div class="">
+                    <input type="text" class="input-sm form-control js_endTimeCtr" readonly="readonly" placeholder="结束时间">
+                </div>
+            </div>
+            <label class="col-lg-1 control-label01">发布人</label>
+            <div class="col-sm-1 m-b-xs">
+                <select id="authorName" class="input-sm form-control">
+                    <option value="all">全部</option>
+                    <option value="official">官方</option>
+                    <option value="player">玩家</option>
+                </select>
+            </div>
+
+
+            <span class="col-sm-1 pad_r_0 pad_l_0 w_p6">
+        <button class="btn btn-sm btn-info pad_lr_m" id="query" type="submit">查询</button>
+    </span>
+        </div>
+
+        <div class="row m-t-sm">
+            <label class="col-lg-1 control-label"></label>
+            <div class="col-sm-8 m-b-xs">
+                <button class="btn btn-sm btn-info pad_lr_m js_batch" data-type="show" type="button">批量展示</button>
+                <button class="btn btn-sm btn-info pad_lr_m js_batch" data-type="hide" type="button">批量隐藏</button>
+                <button class="btn btn-sm btn-info pad_lr_m js_batch" data-type="3" type="button">批量删除</button>
+                <a  class="btn btn-sm btn-info pad_lr_m js_addAc" href="javascript:" >添加文章</a>
+            </div>
+
+        </div>
+    </header>
+
+    <!--表格主体-->
+    <section class="scrollable padder" style="margin-top: 149px; margin-bottom:50px;">
+        <div class="m-b-md"></div>
+        <!--数据表格  begin -->
+        <section class="panel panel-default col-sm-12 pad_r_0 pad_l_0">
+            <div class="table-responsive">
+                <table class="table table-striped m-b-none m-table" id="js_tbComList" >
+
+                    <tbody id="js_ArticleList">
+                    <tr>
+                        <th>
+                            <input class=" " data-val="true" type="checkbox" value=""></th>
+                        <th>标题</th>
+                        <th>一级分类</th>
+                        <th>二级分类</th>
+                        <th>发布人</th>
+                        <th>上传时间</th>
+                        <th>展示状态</th>
+                        <th>操作</th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+        <!--数据表格  end -->
+    </section>
+
+    <!--翻页功能-->
+    <footer class="footer bg-white b-t pagewrapper">
+        <div class="row dataTables_wrapper">
+            <div class="col-sm-6">
+                <div class="dataTables_info" id="DataTables_Table_0_info"></div>
+            </div>
+            <div class="col-sm-6">
+                <div class="dataTables_paginate paging_full_numbers" id="js_pagecont">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <input id="listcode" type="hidden" value="" />
+    <input id="listdata" type="hidden" value="" />
+
+
+    <!--弹出层 推荐位置-->
+    <div class="modal fade" id="CreateRole">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">推荐位置</h4>
+                </div>
+                <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+                <div id="js_index_tuij" class="modal-body modalBody">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info js_index_tuij_ok">确定</button>
+                    <button type="button" class="btn btn-info js_index_tuij_qx ">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="Msgmark" class="markMsg"></div>
+    <!--弹出层 编辑文章-->
+    <div class=" " id="editAc"  style="display:none">
+        <div class="modal-dialog">
+            <div class="modal-content" id="js_edit_Article">
+                <div class="modal-header">
+                    <button type="button" class="js_close close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">编辑文章</h4>
+                </div>
+                <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+                <div class="modal-body modalBody js_index_edit">
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">发布管理>文章发布</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">文章标题:</label>
+                        <div class="col-sm-10">
+                            <input type="text" id="input-edit-bt" class="form-control" placeholder="">
+                            <label class="js_error js_error_title_err" style="display:none;">字数不能为空或者已超过20！</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">文章分类</label>
+                        <div class="col-sm-4 js_edit_cate">
+                            <div class="input-group">
+                                <select id="js_edit_onecate" class="input-sm form-control">
+                                    <option value="-1">全部</option>
+                                    #foreach( $elem in $!list)
+                                    <option value="$elem.code">$elem.title</option>
+                                    #end
+                                </select>
+                            </div>
+                        </div>
+                        <label class="js_error js_edit_onecate_err col-sm-6 " style="display:none;">分类不可为空！</label>
+                    </div>
+                    <div class="form-group" id="js_edit_twocate">
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">文章子分类</label>
+                        <div class="col-sm-4 js_edit_cate">
+                            <div class="input-group">
+                                <select id="js_edittwocate" class="input-sm form-control twocate">
+                                    <option value="-1">全部</option>
+                                </select>
+                            </div>
+                        </div>
+                        <label class="js_error js_edittwocate_err col-sm-6" style="display:none;">分类不可为空！</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">发布人</label>
+                        <div class="col-sm-4">
+                            <label class="control-label pad_t_10 pad_r_0" id="js_edit_AuthorType"></label>
+                        </div>
+                        <label class="col-sm-2 control-label pad_t_10">前台显示名称：</label>
+                        <div class="col-sm-4">
+                            <label class="control-label pad_t_10 pad_r_0" id="js_edit_AuthorName"></label>
+                        </div>
+
+                    </div>
+                    <div class="form-group errtip js_errtip1"  >
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">&nbsp;</label>
+                        <label class="js_error js_edit_AuthorType_err col-sm-4 pad_0" style="display:none;">分类不可为空！</label>
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">&nbsp;</label>
+                        <label class="js_error js_edit_AuthorName_err col-sm-4 pad_0 authorName_err" style="display:none;">字数不能为空或者已超过20！</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">编辑内容</label>
+                        <div class="col-sm-10">
+                            <input type="hidden" name="content" id="content" value="" />
+                            <script id="editor" name="editor" style="height: 300px;" type="text/plain"></script>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">图片封面</label>
+                        <div class="col-sm-10">
+                        <img class="titleimgs_add titleimgs_change" id="addImg2" src="">
+                  <div id="htpou">
+                                                             
+                  </div>
+                        </div>
+                    </div>
+                    <div class="form-group js_errtip2" >
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">&nbsp;</label>
+                        <label class="js_error js_edit_uedit_err col-sm-10" style="display:none;">请输入文字！</label>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-id-2" class="col-sm-2 control-label pad_t_10 pad_r_0">描述:</label>
+                        <div class="col-sm-10">
+                            <textarea type="text" id="js_edit_des" class="form-control"></textarea>
+                            <label class="js_error js_edit_des_err " style="display:none;">字数不能为空或者已超过200！</label>
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="input-id-2" class="col-sm-2 control-label pad_t_10 pad_r_0">关键字:</label>
+                        <div class="col-sm-10">
+                            <textarea type="text" id="js_edit_keywords" class="form-control"></textarea>
+                            <label class="js_error js_edit_keywords_err " style="display:none;">字数不能为空或者已超过100！</label>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info js_index_edit_ok">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--弹出层 添加文章-->
+    <div class=" " id="addAc" style="display:none">
+        <div class="modal-dialog">
+            <div class="modal-content js_edit_Article" id="">
+                <div class="modal-header">
+                    <button type="button" class="close js_close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">添加文章</h4>
+                </div>
+                <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+                <div class="modal-body modalBody js_index_add">
+                    <div class="form-group">
+                        <label class="col-sm-12 control-label">发布管理>文章发布</label>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">文章标题:</label>
+                        <div class="col-sm-10">
+                            <input type="text" name="title" class="form-control input-edit-bt" placeholder="">
+                            <label class="js_error js_error_title_err" style="display:none;">字数不能为空或者已超过20！</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">文章分类</label>
+                        <div class="col-sm-4 js_edit_cate">
+                            <div class="input-group">
+                                <select id="onecate_add" class="input-sm form-control js_edit_onecate">
+                                    <option value="-1">全部</option>
+                                    #foreach( $elem in $!list)
+                                    <option value="$elem.code">$elem.title</option>
+                                    #end
+                                </select>
+                            </div>
+                        </div>
+                        <label class="js_error js_edit_onecate_err col-sm-6" style="display:none;">分类不可为空！</label>
+                    </div>
+                    <div class="form-group js_edit_twocate" id="">
+                        <label class="col-sm-2 control-label pad_t_10 pad_r_0">文章子分类</label>
+                        <div class="col-sm-4 js_edit_cate">
+                            <div class="input-group">
+                                <select id="" class="input-sm form-control twocate js_edittwocate">
+                                    <option value="-1">全部</option>
+                                </select>
+                            </div>
+                        </div>
+                        <label class="js_error js_edittwocate_err col-sm-6" style="display:none;">分类不可为空！</label>
+                    </div>
+
+                    <div class="form-group"">
+                    <label class="col-sm-2 control-label pad_t_10 pad_r_0">发布人</label>
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <p>官方</p>
+                        </div>
+                    </div>
+                    <label class="col-sm-3 control-label pad_t_10">前台显示名称：</label>
+                    <div class="col-sm-3">
+                        <input type="text" id="" class="form-control js_edit_AuthorName js_add_AuthorName" value="官方" disabled>
+                    </div>
+                </div>
+                <div class="form-group errtip js_errtip3"  >
+                    <label class="col-sm-2 control-label pad_t_10 pad_r_0">&nbsp;</label>
+                    <label class="js_error js_edit_AuthorType_err col-sm-4 pad_0" style="display:none;">分类不可为空！</label>
+                    <label class="col-sm-2 control-label pad_t_10 pad_r_0">&nbsp;</label>
+                    <label class="js_error js_edit_AuthorName_err col-sm-4 pad_0 authorName_err" style="display:none;">字数不能为空或者已超过20！</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label pad_t_10 pad_r_0">编辑内容</label>
+                    <div class="col-sm-10">
+                        <input type="hidden" name="content1" id="content1" value="" />
+                        <script id="editor1" name="editor1" style="height: 300px;" type="text/plain"></script>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label pad_t_10 pad_r_0">图片封面</label>
+                    
+                    <div class="col-sm-10" >
+                    <img class="titleimgs_add titleimgs_change" id="addImg3" src="">
+                       <div id="htpou2"></div>
+                    </div>
+                </div>
+                <div class="form-group errtip js_errtip4" >
+                    <label class="col-sm-2 control-label pad_t_10 pad_r_0">&nbsp;</label>
+                    <label class="js_error js_edit_uedit_err col-sm-10" style="display:none;">请输入文字！</label>
+                </div>
+                <div class="form-group">
+                    <label for="input-id-2" class="col-sm-2 control-label pad_t_10 pad_r_0">描述:</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" id="" class="form-control js_edit_des"></textarea>
+                        <label class="js_error js_edit_des_err" style="display:none;">字数不能为空或者已超过200！</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="input-id-2" class="col-sm-2 control-label pad_t_10 pad_r_0">关键字:</label>
+                    <div class="col-sm-10">
+                        <textarea type="text" id="" class="form-control js_edit_keywords"></textarea>
+                        <label class="js_error js_edit_keywords_err" style="display:none;">字数不能为空或者已超过100！</label>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-info js_index_add_ok">确定</button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    </div>
+</section>
+<script>
+/*封装图片裁剪调用*/
+    function oAEditPic($file,$editPorSub,$modalEditPor,$addImg,$titleimgs,url,$close_js_Msg,fileId,picBoxId,canvasId,cutImgId){
+       //点击$($file)时自动触发input[type = "file"];
+        $($file).click(function(){
+         $("#file_uploadPortrait").click();
+        });
+        
+        //数据处理
+        var handleData = function (resultp) {
+            var result=JSON.parse(resultp);
+            if (result.isSuccess) {
+                $($addImg).attr("src",result.data);                
+                $($addImg).parent().parent().siblings(".titleimgs_change").attr("src",result.data);
+                $("#htpou .editPicSrc").attr("src",result.data).show();
+                $($titleimgs).hide();
+                $($modalEditPor).hide();
+            }else{
+             alert(result.message);
+            }   
+        };
+        //有裁切图片后
+        var cutPicLoadFn = function () {
+            $close_js_Msg.show();
+            $($editPorSub).show().unbind("click").bind("click",function () {                
+            var _this=this;
+                var binData = cutPic.createBin();
+                var oReq = new XMLHttpRequest();
+                oReq.open("POST", "/imageUpPost");
+                oReq.send(binData);
+                oReq.onreadystatechange = function () {
+                    if (oReq.readyState == 4 && oReq.status == 200) {
+                        var result;
+                        try {
+                            result = oReq.responseText;
+                        } catch (e) {
+                            result = { Ret: -1, Message: "返回数据出错" };
+                        }
+                handleData(result);
+               if($(_this).parent().parent().parent().parent().attr("id")=="htpou2"){
+                 $("#htpou2").html("");
+                   $("#htpou").html("");
+                 $("#htpou2").html(imgCut);
+            }
+            if($(_this).parent().parent().parent().parent().attr("id")=="htpou"){
+                 $("#htpou2").html("");
+                 $("#htpou").html("");
+                 $("#htpou").html(imgCut);
+            }
+            oAEditPic($(".uploadImgDiv"),$("#js_editPorSubmit"),$('#editPortrait'),$("#addImg"),$(".titleimgs"),"/static/data/UpLoadPhoto.json",$(".close_js_Msg"),"file_uploadPortrait","js_oriImgBox","js_prevImg","js_preCutImg");
+                    }
+                }
+            });
+        };
+        //准备剪切图片
+        var cutPic = new CutPic({
+            cutPicLoad: cutPicLoadFn,
+            uploadImgDiv:$($file),
+            editPortrait:$($modalEditPor),
+            fileId:fileId,
+            picBoxId:picBoxId,
+            canvasId:canvasId,
+            cutImgId:cutImgId
+        });
+    };
+    
+   
+    $(function(){
+        $("body").on("click",".close_js_Msg",function(){
+            if($(this).parent().parent().parent().parent().attr("id")=="htpou2"){
+                 $("#htpou2").html("");
+                   $("#htpou").html("");
+                 $("#htpou2").html(imgCut);
+            }
+            if($(this).parent().parent().parent().parent().attr("id")=="htpou"){
+                 $("#htpou2").html("");
+                 $("#htpou").html("");
+                 $("#htpou").html(imgCut);
+            }
+             oAEditPic($(".uploadImgDiv"),$("#js_editPorSubmit"),$('#editPortrait'),$("#addImg"),$(".titleimgs"),"/static/data/UpLoadPhoto.json",$(".close_js_Msg"),"file_uploadPortrait","js_oriImgBox","js_prevImg","js_preCutImg");
+            $("#editPortrait").hide();
+            $(".editPicSrc").show();
+        })
+         $("body").on("click",".js_close",function(){
+            $("#editPortrait").remove();
+           
+        })
+        
+    })
+</script>

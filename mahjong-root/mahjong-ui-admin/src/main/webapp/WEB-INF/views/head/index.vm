@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+    <meta content="IE=11.0000" http-equiv="X-UA-Compatible">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width = device-width ,height = device-height ,initial-scale = 1,minimum-scale = 1,maximum-scale = 1,user-scalable =no" />
+    <title>小鸡麻将</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../resources/css/main.css" />
+    <script>var rc = "${rc.contextPath}";</script>
+    <script src="../resources/js/common/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script src="../resources/js/common/alertbox.js" type="text/javascript"></script>
+    <script src="../resources/js/static-oa/headManage.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () { $(".reg_form_web").HeadManage(); });
+    </script>
+</head>
+<body>
+    <div class="topbar-wrap white">
+        <div class="topbar-inner clearfix">
+            <div class="topbar-logo-wrap clearfix">
+                <ul class="navbar-list clearfix">
+                    <li>局头管理</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container clearfix">
+        <div class="main-wrap noleft">
+            <div class="result-wrap">
+                <form method="post" action="" class="reg_form_web">
+                    <p class="item_p">
+                        <label>账号：</label>
+                        <span class="ipt_box">
+                            <input class="ipt" type="text" name="account" data-tip="账号" placeholder="账号" value="">
+                        </span>
+                        <span class="error tip"></span>
+                    </p>
+                    <p class="formbtn">
+                        <a href="javascript:;" class="btn btn-success js_search">查询</a>
+                        <a href="javascript:;" class="btn btn-info js_newhead">新增局头</a>
+                        <a href="javascript:;" class="btn btn-warning dis">导出</a>
+                    </p>
+                    <table class="result-tab">
+                        <thead>
+                            <tr>
+                                <th>账号</th>
+                                <th>昵称</th>
+                                <th>库存</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                         <tbody class="js_pagetab">
+                        <tr><td colspan="4">暂无数据</td></tr>
+                        </tbody>
+                    </table>
+                    <p class="formbtn dis js_next">
+                    <a href="javascript:;" class="btn btn-success js_page">下一页</a>
+                  </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="botmenu white js_bottommenu"></div>
+    <script src="../resources/js/menu/js/menuprojson.js"></script>
+</body>
+</html>

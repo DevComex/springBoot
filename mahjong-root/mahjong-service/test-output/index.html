@@ -1,0 +1,2468 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+  <title>TestNG reports</title>
+
+    <link type="text/css" href="testng-reports.css" rel="stylesheet" />  
+    <script type="text/javascript" src="jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="testng-reports.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type='text/javascript'>
+      google.load('visualization', '1', {packages:['table']});
+      google.setOnLoadCallback(drawTable);
+      var suiteTableInitFunctions = new Array();
+      var suiteTableData = new Array();
+    </script>
+    <!--
+      <script type="text/javascript" src="jquery-ui/js/jquery-ui-1.8.16.custom.min.js"></script>
+     -->
+  </head>
+
+  <body>
+    <div class="top-banner-root">
+      <span class="top-banner-title-font">Test results</span>
+      <br/>
+      <span class="top-banner-font-1">1 suite, 3 failed tests</span>
+    </div> <!-- top-banner-root -->
+    <div class="navigator-root">
+      <div class="navigator-suite-header">
+        <span>All suites</span>
+        <a href="#" class="collapse-all-link" title="Collapse/expand all the suites">
+          <img class="collapse-all-icon" src="collapseall.gif">
+          </img> <!-- collapse-all-icon -->
+        </a> <!-- collapse-all-link -->
+      </div> <!-- navigator-suite-header -->
+      <div class="suite">
+        <div class="rounded-window">
+          <div class="suite-header light-rounded-window-top">
+            <a href="#" class="navigator-link" panel-name="suite-Default_suite">
+              <span class="suite-name border-failed">Default suite</span>
+            </a> <!-- navigator-link -->
+          </div> <!-- suite-header light-rounded-window-top -->
+          <div class="navigator-suite-content">
+            <div class="suite-section-title">
+              <span>Info</span>
+            </div> <!-- suite-section-title -->
+            <div class="suite-section-content">
+              <ul>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
+                    <span>C:\Users\Administrator\AppData\Local\Temp\testng-eclipse--878935189\testng-customsuite.xml</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="testlist-Default_suite">
+                    <span class="test-stats">1 test</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="group-Default_suite">
+                    <span>0 groups</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="times-Default_suite">
+                    <span>Times</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="reporter-Default_suite">
+                    <span>Reporter output</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-Default_suite">
+                    <span>Ignored methods</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+                <li>
+                  <a href="#" class="navigator-link " panel-name="chronological-Default_suite">
+                    <span>Chronological view</span>
+                  </a> <!-- navigator-link  -->
+                </li>
+              </ul>
+            </div> <!-- suite-section-content -->
+            <div class="result-section">
+              <div class="suite-section-title">
+                <span>Results</span>
+              </div> <!-- suite-section-title -->
+              <div class="suite-section-content">
+                <ul>
+                  <li>
+                    <span class="method-stats">90 methods, 3 failed,   87 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.HeadServiceTest" hash-for-method="getHeads_whenGetList_thenReturnList">getHeads_whenGetList_thenReturnList</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.RechargeServiceImplTest" hash-for-method="recharge_whenInventoryIsEnoughReturnTrue">recharge_whenInventoryIsEnoughReturnTrue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.HeadServiceTest" hash-for-method="update_whenDBUpdateSuccess_thenReturnTrue">update_whenDBUpdateSuccess_thenReturnTrue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
+                  </li>
+                  <li>
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content passed suite-Default_suite">
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="changePhoneFirst_whenSmsCodeError_thenRerurnFalse">changePhoneFirst_whenSmsCodeError_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="changePhoneFirst_whenSmsCode_thenRerurnTrue">changePhoneFirst_whenSmsCode_thenRerurnTrue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="changePhoneFirst_whenUserIdNotBindPhone_thenRerurnFalse">changePhoneFirst_whenUserIdNotBindPhone_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="changePhoneFirst_whenUserIdNotExit_thenRerurnFalse">changePhoneFirst_whenUserIdNotExit_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="changePhoneSecond_whenChangePhoneSuccess_thenRerurnTrue">changePhoneSecond_whenChangePhoneSuccess_thenRerurnTrue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="changePhoneSecond_whenSmsCodeError_thenRerurnFalse">changePhoneSecond_whenSmsCodeError_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="changePhoneSecond_whenUserNotExit_thenRerurnFalse">changePhoneSecond_whenUserNotExit_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="changePhoneSecond_whenUserNotPhone_thenRerurnFalse">changePhoneSecond_whenUserNotPhone_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="changePhoneSecond_whenUserPhoneNotEquals_thenRerurnFalse">changePhoneSecond_whenUserPhoneNotEquals_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="changePwd_whenUpdatePwdFail_thenRerurnFalse">changePwd_whenUpdatePwdFail_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="changePwd_whenUpdatePwdSuccess_thenRerurnFalse">changePwd_whenUpdatePwdSuccess_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="changePwd_whenUserIdNotExit_thenRerurnFalse">changePwd_whenUserIdNotExit_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.CaptchaServiceImplTest" hash-for-method="checkCaptcha_whenBidNullRedisCaptchaEqual_thenReturnFalse">checkCaptcha_whenBidNullRedisCaptchaEqual_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.CaptchaServiceImplTest" hash-for-method="checkCaptcha_whenRedisCaptchaEmpty_thenReturnFalse">checkCaptcha_whenRedisCaptchaEmpty_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.CaptchaServiceImplTest" hash-for-method="checkCaptcha_whenRedisCaptchaEqual_thenReturnFalse">checkCaptcha_whenRedisCaptchaEqual_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.CaptchaServiceImplTest" hash-for-method="checkCaptcha_whenRedisCaptchaNotEqual_thenReturnFalse">checkCaptcha_whenRedisCaptchaNotEqual_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.SPProviderFactoryTest" hash-for-method="createAll_whenAnyTime_thenReturnAllProviders">createAll_whenAnyTime_thenReturnAllProviders</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.HeadServiceTest" hash-for-method="createHead_whenInsertSuccess_thenReturnTrue">createHead_whenInsertSuccess_thenReturnTrue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.HeadServiceTest" hash-for-method="createHead_whenPhoneDuplicate_thenReturnFalse">createHead_whenPhoneDuplicate_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.HeadServiceTest" hash-for-method="createHead_whenVerifyCodeWrong_thenReturnFalse">createHead_whenVerifyCodeWrong_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.ExchangeServiceTest" hash-for-method="exchange_whenAmountLessThan0OrEquals0_thenReturnFalse">exchange_whenAmountLessThan0OrEquals0_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.ExchangeServiceTest" hash-for-method="exchange_whenExchangeIsNotSuccess_thenReturnFalse">exchange_whenExchangeIsNotSuccess_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.ExchangeServiceTest" hash-for-method="exchange_whenExchangeSuccess_thenReturnTrue">exchange_whenExchangeSuccess_thenReturnTrue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.ExchangeServiceTest" hash-for-method="exchange_whenGameUserIdLessThan0OrEquals0_thenReturnFalse">exchange_whenGameUserIdLessThan0OrEquals0_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.ExchangeServiceTest" hash-for-method="exchange_whenGameUserNotExist_thenReturnFalse">exchange_whenGameUserNotExist_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.ExchangeServiceTest" hash-for-method="exchange_whenGameUserNotExist_thenReturnFalse2">exchange_whenGameUserNotExist_thenReturnFalse2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.ExchangeServiceTest" hash-for-method="exchange_whenInventoryNotEnough2_thenReturnFalse">exchange_whenInventoryNotEnough2_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.ExchangeServiceTest" hash-for-method="exchange_whenInventoryNotEnough_thenReturnFalse">exchange_whenInventoryNotEnough_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.ExchangeServiceTest" hash-for-method="exchange_whenUserIdLessThan0OrEquals0_thenReturnFalse">exchange_whenUserIdLessThan0OrEquals0_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.ExchangeServiceTest" hash-for-method="exchange_whenUserNotExist_thenReturnFalse">exchange_whenUserNotExist_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="findPwd_whenSmsCodeError_thenRerurnFalse">findPwd_whenSmsCodeError_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="findPwd_whenUpdatePwdFail_thenRerurnFalse">findPwd_whenUpdatePwdFail_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="findPwd_whenUpdatePwdSuccess_thenRerurnFalse">findPwd_whenUpdatePwdSuccess_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="findPwd_whenUserIdNotBindPhone_thenRerurnFalse">findPwd_whenUserIdNotBindPhone_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="findPwd_whenUserIdNotExit_thenRerurnFalse">findPwd_whenUserIdNotExit_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="findPwd_whenUserIsHead_thenReturnFalse">findPwd_whenUserIsHead_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="findPwd_whenUserIsHq_thenReturnFalse">findPwd_whenUserIsHq_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="findPwd_whenUserIsNotHead_thenReturnFalse">findPwd_whenUserIsNotHead_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.HeadServiceTest" hash-for-method="getHead_whenUserNotExist_thenReturnNull">getHead_whenUserNotExist_thenReturnNull</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.HeadServiceTest" hash-for-method="getHead_whenUserNotParent_thenReturnNull">getHead_whenUserNotParent_thenReturnNull</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.HeadServiceTest" hash-for-method="getHead_whenUserStatusNotMatch_thenReturnNull">getHead_whenUserStatusNotMatch_thenReturnNull</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.GuoDuProviderTest" hash-for-method="getName_whenAnyTimes_thenReturnGuoDu">getName_whenAnyTimes_thenReturnGuoDu</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.ExchangeServiceTest" hash-for-method="getSummary_whenDBQuerySuccess_thenReturnTrue">getSummary_whenDBQuerySuccess_thenReturnTrue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.RechargeServiceImplTest" hash-for-method="getSummary_whenDBQuerySuccess_thenReturnTrue">getSummary_whenDBQuerySuccess_thenReturnTrue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.RechargeServiceImplTest" hash-for-method="get_whenDBQuerySuccess_thenReturnTrue">get_whenDBQuerySuccess_thenReturnTrue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.ExchangeServiceTest" hash-for-method="get_whenDBQuerySuccess_thenReturnTrue">get_whenDBQuerySuccess_thenReturnTrue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.LoginServiceImplTest" hash-for-method="isNeedCaptcha_whenLoginErrorTimeEqual3_thenReturn">isNeedCaptcha_whenLoginErrorTimeEqual3_thenReturn</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.LoginServiceImplTest" hash-for-method="isNeedCaptcha_whenLoginErrorTimeLess3_thenReturn">isNeedCaptcha_whenLoginErrorTimeLess3_thenReturn</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.LoginServiceImplTest" hash-for-method="isNeedCaptcha_whenLoginErrorTimeThan3_thenReturn">isNeedCaptcha_whenLoginErrorTimeThan3_thenReturn</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.LoginServiceImplTest" hash-for-method="isNeedCaptcha_whenLoginNotErrorTime_thenReturn">isNeedCaptcha_whenLoginNotErrorTime_thenReturn</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.LoginServiceImplTest" hash-for-method="isNeedCaptcha_whenLoginNotError_thenReturn">isNeedCaptcha_whenLoginNotError_thenReturn</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.LoginServiceImplTest" hash-for-method="login_whenAccountIsBanned_thenReturnFalse">login_whenAccountIsBanned_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.LoginServiceImplTest" hash-for-method="login_whenAccountIsHead_thenReturnFalse">login_whenAccountIsHead_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.LoginServiceImplTest" hash-for-method="login_whenAccountIsNotHead_thenReturnFalse">login_whenAccountIsNotHead_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.LoginServiceImplTest" hash-for-method="login_whenAccountNotExit_thenReturnFalse">login_whenAccountNotExit_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.LoginServiceImplTest" hash-for-method="login_whenAccountPwdError_thenReturnFalse">login_whenAccountPwdError_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.LoginServiceImplTest" hash-for-method="login_whenInsertLogFail_thenReturnFalse">login_whenInsertLogFail_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.LoginServiceImplTest" hash-for-method="login_whenLoginSuccess_thenReturnTrue">login_whenLoginSuccess_thenReturnTrue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.StatServiceImplTest" hash-for-method="personPurchaseSum_whenUserId_thenRerurn">personPurchaseSum_whenUserId_thenRerurn</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.StatServiceImplTest" hash-for-method="personSaleSum_whenUserId_thenRerurn">personSaleSum_whenUserId_thenRerurn</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.RechargeServiceImplTest" hash-for-method="recharge_whenAmountEquals0_thenReturnFalse">recharge_whenAmountEquals0_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.RechargeServiceImplTest" hash-for-method="recharge_whenAmountLessThan0_thenReturnFalse">recharge_whenAmountLessThan0_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.RechargeServiceImplTest" hash-for-method="recharge_whenGiftLessThan0_thenReturnFalse">recharge_whenGiftLessThan0_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.RechargeServiceImplTest" hash-for-method="recharge_whenInventoryNotEnoughReturnFalse">recharge_whenInventoryNotEnoughReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.RechargeServiceImplTest" hash-for-method="recharge_whenOperatorIdEquals0_thenReturnFalse">recharge_whenOperatorIdEquals0_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.RechargeServiceImplTest" hash-for-method="recharge_whenOperatorIdLessThan0_thenReturnFalse">recharge_whenOperatorIdLessThan0_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.RechargeServiceImplTest" hash-for-method="recharge_whenOperatorIsNotInUsersParentUsers_thenReturnFalse">recharge_whenOperatorIsNotInUsersParentUsers_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.RechargeServiceImplTest" hash-for-method="recharge_whenUserIdEquals0_thenReturnFalse">recharge_whenUserIdEquals0_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.RechargeServiceImplTest" hash-for-method="recharge_whenUserIdLessThan0_thenReturnFalse">recharge_whenUserIdLessThan0_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.RechargeServiceImplTest" hash-for-method="recharge_whenUserNotExist_thenReturnFalse">recharge_whenUserNotExist_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="sendChangePhoneSms_whenSendSuccess_thenRerurnFalse">sendChangePhoneSms_whenSendSuccess_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="sendChangePhoneSms_whenUserIdNotBindPhone_thenRerurnFalse">sendChangePhoneSms_whenUserIdNotBindPhone_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="sendChangePhoneSms_whenUserIdNotExit_thenRerurnFalse">sendChangePhoneSms_whenUserIdNotExit_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="sendFindPwdSms_whenSendSuccess_thenRerurnFalse">sendFindPwdSms_whenSendSuccess_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="sendFindPwdSms_whenUserIdNotBindPhone_thenRerurnFalse">sendFindPwdSms_whenUserIdNotBindPhone_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="sendFindPwdSms_whenUserIdNotExit_thenRerurnFalse">sendFindPwdSms_whenUserIdNotExit_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="sendSecondChangePhoneSms_whenUserIdExit_thenRerurnFalse">sendSecondChangePhoneSms_whenUserIdExit_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.UserServiceImplTest" hash-for-method="sendSecondChangePhoneSms_whenUserIdNotExit_thenRerurnFalse">sendSecondChangePhoneSms_whenUserIdNotExit_thenRerurnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.GuoDuProviderTest" hash-for-method="send_whenExceptionThrows_thenReturnFalse">send_whenExceptionThrows_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.SMSServiceImplTest" hash-for-method="send_whenIsOverLimit_thenReturnFalse">send_whenIsOverLimit_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.SMSServiceImplTest" hash-for-method="send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue">send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.SMSServiceImplTest" hash-for-method="send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue2">send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue2</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.SMSServiceImplTest" hash-for-method="send_whenIsVerifyCodeSMSAndNotArriveNextSendTime_thenReturnFalse">send_whenIsVerifyCodeSMSAndNotArriveNextSendTime_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.GuoDuProviderTest" hash-for-method="send_whenStatusCodeEquals0_thenReturnTrue">send_whenStatusCodeEquals0_thenReturnTrue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.GuoDuProviderTest" hash-for-method="send_whenStatusCodeNotEqualsMinus1_thenReturnFalse">send_whenStatusCodeNotEqualsMinus1_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.SMSServiceImplTest" hash-for-method="validate_whenValidateFailed_thenReturnFalse">validate_whenValidateFailed_thenReturnFalse</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="cn.mahjong.service.SMSServiceImplTest" hash-for-method="validate_whenValidateSuccess_thenReturnTrue">validate_whenValidateSuccess_thenReturnTrue</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-Default_suite -->
+                  </li>
+                </ul>
+              </div> <!-- suite-section-content -->
+            </div> <!-- result-section -->
+          </div> <!-- navigator-suite-content -->
+        </div> <!-- rounded-window -->
+      </div> <!-- suite -->
+    </div> <!-- navigator-root -->
+    <div class="wrapper">
+      <div class="main-panel-root">
+        <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">cn.mahjong.service.HeadServiceTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="getHeads_whenGetList_thenReturnList">
+                  </a> <!-- getHeads_whenGetList_thenReturnList -->
+                  <span class="method-name">getHeads_whenGetList_thenReturnList</span>
+                  <div class="stack-trace">java.lang.NoSuchMethodError: com.beust.jcommander.internal.Lists.newArrayList([Ljava/lang/Object;)Ljava/util/List;
+	at cn.mahjong.service.HeadServiceTest.getHeads_whenGetList_thenReturnList(HeadServiceTest.java:57)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:335)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:330)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+
+</div> <!-- stack-trace -->
+                  <em>
+(获取下级局头列表-为局头填充余额)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="update_whenDBUpdateSuccess_thenReturnTrue">
+                  </a> <!-- update_whenDBUpdateSuccess_thenReturnTrue -->
+                  <span class="method-name">update_whenDBUpdateSuccess_thenReturnTrue</span>
+                  <div class="stack-trace">org.mockito.exceptions.misusing.UnfinishedStubbingException: 
+Unfinished stubbing detected here:
+-&gt; at cn.mahjong.service.HeadServiceTest.getHeads_whenGetList_thenReturnList(HeadServiceTest.java:56)
+
+E.g. thenReturn() may be missing.
+Examples of correct stubbing:
+    when(mock.isOk()).thenReturn(true);
+    when(mock.isOk()).thenThrow(exception);
+    doThrow(exception).when(mock).someVoidMethod();
+Hints:
+ 1. missing thenReturn()
+ 2. you are trying to stub a final method, you naughty developer!
+ 3: you are stubbing the behaviour of another mock inside before &apos;thenReturn&apos; instruction if completed
+
+	at cn.mahjong.service.HeadServiceTest.update_whenDBUpdateSuccess_thenReturnTrue(HeadServiceTest.java:158)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:335)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:330)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+
+</div> <!-- stack-trace -->
+                  <em>
+(当更新成功时返回True)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">cn.mahjong.service.RechargeServiceImplTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="recharge_whenInventoryIsEnoughReturnTrue">
+                  </a> <!-- recharge_whenInventoryIsEnoughReturnTrue -->
+                  <span class="method-name">recharge_whenInventoryIsEnoughReturnTrue</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at cn.mahjong.service.impl.RechargeServiceImpl.recharge(RechargeServiceImpl.java:99)
+	at cn.mahjong.service.RechargeServiceImplTest.recharge_whenInventoryIsEnoughReturnTrue(RechargeServiceImplTest.java:140)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:335)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:330)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+
+</div> <!-- stack-trace -->
+                  <em>
+(当库存充足时返回True)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">cn.mahjong.service.ExchangeServiceTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="exchange_whenAmountLessThan0OrEquals0_thenReturnFalse">
+                  </a> <!-- exchange_whenAmountLessThan0OrEquals0_thenReturnFalse -->
+                  <span class="method-name">exchange_whenAmountLessThan0OrEquals0_thenReturnFalse</span>
+                  <em>
+(兑换-当充值金额小于等于0时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="exchange_whenExchangeIsNotSuccess_thenReturnFalse">
+                  </a> <!-- exchange_whenExchangeIsNotSuccess_thenReturnFalse -->
+                  <span class="method-name">exchange_whenExchangeIsNotSuccess_thenReturnFalse</span>
+                  <em>
+(兑换-操作失败时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="exchange_whenExchangeSuccess_thenReturnTrue">
+                  </a> <!-- exchange_whenExchangeSuccess_thenReturnTrue -->
+                  <span class="method-name">exchange_whenExchangeSuccess_thenReturnTrue</span>
+                  <em>
+(兑换-操作成功时返回True)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="exchange_whenGameUserIdLessThan0OrEquals0_thenReturnFalse">
+                  </a> <!-- exchange_whenGameUserIdLessThan0OrEquals0_thenReturnFalse -->
+                  <span class="method-name">exchange_whenGameUserIdLessThan0OrEquals0_thenReturnFalse</span>
+                  <em>
+(兑换-当用户ID小于等于0时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="exchange_whenGameUserNotExist_thenReturnFalse">
+                  </a> <!-- exchange_whenGameUserNotExist_thenReturnFalse -->
+                  <span class="method-name">exchange_whenGameUserNotExist_thenReturnFalse</span>
+                  <em>
+(兑换-当游戏用户不存在时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="exchange_whenGameUserNotExist_thenReturnFalse2">
+                  </a> <!-- exchange_whenGameUserNotExist_thenReturnFalse2 -->
+                  <span class="method-name">exchange_whenGameUserNotExist_thenReturnFalse2</span>
+                  <em>
+(兑换-当游戏用户不存在时返回False2)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="exchange_whenInventoryNotEnough2_thenReturnFalse">
+                  </a> <!-- exchange_whenInventoryNotEnough2_thenReturnFalse -->
+                  <span class="method-name">exchange_whenInventoryNotEnough2_thenReturnFalse</span>
+                  <em>
+(兑换-当库存不足时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="exchange_whenInventoryNotEnough_thenReturnFalse">
+                  </a> <!-- exchange_whenInventoryNotEnough_thenReturnFalse -->
+                  <span class="method-name">exchange_whenInventoryNotEnough_thenReturnFalse</span>
+                  <em>
+(兑换-当库存不足时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="exchange_whenUserIdLessThan0OrEquals0_thenReturnFalse">
+                  </a> <!-- exchange_whenUserIdLessThan0OrEquals0_thenReturnFalse -->
+                  <span class="method-name">exchange_whenUserIdLessThan0OrEquals0_thenReturnFalse</span>
+                  <em>
+(兑换-当用户游戏ID小于等于0时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="exchange_whenUserNotExist_thenReturnFalse">
+                  </a> <!-- exchange_whenUserNotExist_thenReturnFalse -->
+                  <span class="method-name">exchange_whenUserNotExist_thenReturnFalse</span>
+                  <em>
+(兑换-当用户不存在时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getSummary_whenDBQuerySuccess_thenReturnTrue">
+                  </a> <!-- getSummary_whenDBQuerySuccess_thenReturnTrue -->
+                  <span class="method-name">getSummary_whenDBQuerySuccess_thenReturnTrue</span>
+                  <em>
+(当数据库查询成功时返回True)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="get_whenDBQuerySuccess_thenReturnTrue">
+                  </a> <!-- get_whenDBQuerySuccess_thenReturnTrue -->
+                  <span class="method-name">get_whenDBQuerySuccess_thenReturnTrue</span>
+                  <em>
+(当数据库查询成功时返回True)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">cn.mahjong.service.HeadServiceTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createHead_whenInsertSuccess_thenReturnTrue">
+                  </a> <!-- createHead_whenInsertSuccess_thenReturnTrue -->
+                  <span class="method-name">createHead_whenInsertSuccess_thenReturnTrue</span>
+                  <em>
+(创建局头-创建成功)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createHead_whenPhoneDuplicate_thenReturnFalse">
+                  </a> <!-- createHead_whenPhoneDuplicate_thenReturnFalse -->
+                  <span class="method-name">createHead_whenPhoneDuplicate_thenReturnFalse</span>
+                  <em>
+(创建局头-当手机号已被注册为帐号时返回失败)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="createHead_whenVerifyCodeWrong_thenReturnFalse">
+                  </a> <!-- createHead_whenVerifyCodeWrong_thenReturnFalse -->
+                  <span class="method-name">createHead_whenVerifyCodeWrong_thenReturnFalse</span>
+                  <em>
+(创建局头-当手机验证码验证失败时返回失败)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getHead_whenUserNotExist_thenReturnNull">
+                  </a> <!-- getHead_whenUserNotExist_thenReturnNull -->
+                  <span class="method-name">getHead_whenUserNotExist_thenReturnNull</span>
+                  <em>
+(获取指定下级局头-当用户不存在时返回 null)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getHead_whenUserNotParent_thenReturnNull">
+                  </a> <!-- getHead_whenUserNotParent_thenReturnNull -->
+                  <span class="method-name">getHead_whenUserNotParent_thenReturnNull</span>
+                  <em>
+(获取指定下级局头-当用户并非下级时返回 null)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="getHead_whenUserStatusNotMatch_thenReturnNull">
+                  </a> <!-- getHead_whenUserStatusNotMatch_thenReturnNull -->
+                  <span class="method-name">getHead_whenUserStatusNotMatch_thenReturnNull</span>
+                  <em>
+(获取指定下级局头-当用户状态与要求不符时返回 null)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">cn.mahjong.service.LoginServiceImplTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="isNeedCaptcha_whenLoginErrorTimeEqual3_thenReturn">
+                  </a> <!-- isNeedCaptcha_whenLoginErrorTimeEqual3_thenReturn -->
+                  <span class="method-name">isNeedCaptcha_whenLoginErrorTimeEqual3_thenReturn</span>
+                  <em>
+(当Redis登录错误次数等于3，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="isNeedCaptcha_whenLoginErrorTimeLess3_thenReturn">
+                  </a> <!-- isNeedCaptcha_whenLoginErrorTimeLess3_thenReturn -->
+                  <span class="method-name">isNeedCaptcha_whenLoginErrorTimeLess3_thenReturn</span>
+                  <em>
+(当Redis登录错误次数小于3，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="isNeedCaptcha_whenLoginErrorTimeThan3_thenReturn">
+                  </a> <!-- isNeedCaptcha_whenLoginErrorTimeThan3_thenReturn -->
+                  <span class="method-name">isNeedCaptcha_whenLoginErrorTimeThan3_thenReturn</span>
+                  <em>
+(当Redis登录错误次数大于3，返回true)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="isNeedCaptcha_whenLoginNotErrorTime_thenReturn">
+                  </a> <!-- isNeedCaptcha_whenLoginNotErrorTime_thenReturn -->
+                  <span class="method-name">isNeedCaptcha_whenLoginNotErrorTime_thenReturn</span>
+                  <em>
+(当Redis没有登录错误次数时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="isNeedCaptcha_whenLoginNotError_thenReturn">
+                  </a> <!-- isNeedCaptcha_whenLoginNotError_thenReturn -->
+                  <span class="method-name">isNeedCaptcha_whenLoginNotError_thenReturn</span>
+                  <em>
+(当Redis没有登录错误次数时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="login_whenAccountIsBanned_thenReturnFalse">
+                  </a> <!-- login_whenAccountIsBanned_thenReturnFalse -->
+                  <span class="method-name">login_whenAccountIsBanned_thenReturnFalse</span>
+                  <em>
+(当用户已封停时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="login_whenAccountIsHead_thenReturnFalse">
+                  </a> <!-- login_whenAccountIsHead_thenReturnFalse -->
+                  <span class="method-name">login_whenAccountIsHead_thenReturnFalse</span>
+                  <em>
+(当管理员界面登录时，用户是局头账号，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="login_whenAccountIsNotHead_thenReturnFalse">
+                  </a> <!-- login_whenAccountIsNotHead_thenReturnFalse -->
+                  <span class="method-name">login_whenAccountIsNotHead_thenReturnFalse</span>
+                  <em>
+(当局头登录时，用户是非局头账号，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="login_whenAccountNotExit_thenReturnFalse">
+                  </a> <!-- login_whenAccountNotExit_thenReturnFalse -->
+                  <span class="method-name">login_whenAccountNotExit_thenReturnFalse</span>
+                  <em>
+(当用户不存在时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="login_whenAccountPwdError_thenReturnFalse">
+                  </a> <!-- login_whenAccountPwdError_thenReturnFalse -->
+                  <span class="method-name">login_whenAccountPwdError_thenReturnFalse</span>
+                  <em>
+(当密码错误时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="login_whenInsertLogFail_thenReturnFalse">
+                  </a> <!-- login_whenInsertLogFail_thenReturnFalse -->
+                  <span class="method-name">login_whenInsertLogFail_thenReturnFalse</span>
+                  <em>
+(当记录登录日志失败时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="login_whenLoginSuccess_thenReturnTrue">
+                  </a> <!-- login_whenLoginSuccess_thenReturnTrue -->
+                  <span class="method-name">login_whenLoginSuccess_thenReturnTrue</span>
+                  <em>
+(当登录成功时，返回true)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">cn.mahjong.service.SMSServiceImplTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="send_whenIsOverLimit_thenReturnFalse">
+                  </a> <!-- send_whenIsOverLimit_thenReturnFalse -->
+                  <span class="method-name">send_whenIsOverLimit_thenReturnFalse</span>
+                  <em>
+(当短信发送次数超出今日限制时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue">
+                  </a> <!-- send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue -->
+                  <span class="method-name">send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue</span>
+                  <em>
+(当短信包含验证码且已到达下次发送时间返回True)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue2">
+                  </a> <!-- send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue2 -->
+                  <span class="method-name">send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue2</span>
+                  <em>
+(当短信包含验证码且已到达下次发送时间返回True2)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="send_whenIsVerifyCodeSMSAndNotArriveNextSendTime_thenReturnFalse">
+                  </a> <!-- send_whenIsVerifyCodeSMSAndNotArriveNextSendTime_thenReturnFalse -->
+                  <span class="method-name">send_whenIsVerifyCodeSMSAndNotArriveNextSendTime_thenReturnFalse</span>
+                  <em>
+(当短信包含验证码且未到达下次发送时间返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validate_whenValidateFailed_thenReturnFalse">
+                  </a> <!-- validate_whenValidateFailed_thenReturnFalse -->
+                  <span class="method-name">validate_whenValidateFailed_thenReturnFalse</span>
+                  <em>
+(当验证失败时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="validate_whenValidateSuccess_thenReturnTrue">
+                  </a> <!-- validate_whenValidateSuccess_thenReturnTrue -->
+                  <span class="method-name">validate_whenValidateSuccess_thenReturnTrue</span>
+                  <em>
+(当验证成功时返回True)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">cn.mahjong.service.UserServiceImplTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="changePhoneFirst_whenSmsCodeError_thenRerurnFalse">
+                  </a> <!-- changePhoneFirst_whenSmsCodeError_thenRerurnFalse -->
+                  <span class="method-name">changePhoneFirst_whenSmsCodeError_thenRerurnFalse</span>
+                  <em>
+(当短信验证码错误时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="changePhoneFirst_whenSmsCode_thenRerurnTrue">
+                  </a> <!-- changePhoneFirst_whenSmsCode_thenRerurnTrue -->
+                  <span class="method-name">changePhoneFirst_whenSmsCode_thenRerurnTrue</span>
+                  <em>
+(当短信验证码正确时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="changePhoneFirst_whenUserIdNotBindPhone_thenRerurnFalse">
+                  </a> <!-- changePhoneFirst_whenUserIdNotBindPhone_thenRerurnFalse -->
+                  <span class="method-name">changePhoneFirst_whenUserIdNotBindPhone_thenRerurnFalse</span>
+                  <em>
+(当用户未绑定手机时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="changePhoneFirst_whenUserIdNotExit_thenRerurnFalse">
+                  </a> <!-- changePhoneFirst_whenUserIdNotExit_thenRerurnFalse -->
+                  <span class="method-name">changePhoneFirst_whenUserIdNotExit_thenRerurnFalse</span>
+                  <em>
+(当用户不存在时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="changePhoneSecond_whenChangePhoneSuccess_thenRerurnTrue">
+                  </a> <!-- changePhoneSecond_whenChangePhoneSuccess_thenRerurnTrue -->
+                  <span class="method-name">changePhoneSecond_whenChangePhoneSuccess_thenRerurnTrue</span>
+                  <em>
+(当修改手机号成功时，返回True)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="changePhoneSecond_whenSmsCodeError_thenRerurnFalse">
+                  </a> <!-- changePhoneSecond_whenSmsCodeError_thenRerurnFalse -->
+                  <span class="method-name">changePhoneSecond_whenSmsCodeError_thenRerurnFalse</span>
+                  <em>
+(当短信验证码错误时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="changePhoneSecond_whenUserNotExit_thenRerurnFalse">
+                  </a> <!-- changePhoneSecond_whenUserNotExit_thenRerurnFalse -->
+                  <span class="method-name">changePhoneSecond_whenUserNotExit_thenRerurnFalse</span>
+                  <em>
+(当用户不存在时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="changePhoneSecond_whenUserNotPhone_thenRerurnFalse">
+                  </a> <!-- changePhoneSecond_whenUserNotPhone_thenRerurnFalse -->
+                  <span class="method-name">changePhoneSecond_whenUserNotPhone_thenRerurnFalse</span>
+                  <em>
+(当暂未绑定手机时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="changePhoneSecond_whenUserPhoneNotEquals_thenRerurnFalse">
+                  </a> <!-- changePhoneSecond_whenUserPhoneNotEquals_thenRerurnFalse -->
+                  <span class="method-name">changePhoneSecond_whenUserPhoneNotEquals_thenRerurnFalse</span>
+                  <em>
+(当输入的手机号与原绑定的手机号一致时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="changePwd_whenUpdatePwdFail_thenRerurnFalse">
+                  </a> <!-- changePwd_whenUpdatePwdFail_thenRerurnFalse -->
+                  <span class="method-name">changePwd_whenUpdatePwdFail_thenRerurnFalse</span>
+                  <em>
+(当修改密码失败时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="changePwd_whenUpdatePwdSuccess_thenRerurnFalse">
+                  </a> <!-- changePwd_whenUpdatePwdSuccess_thenRerurnFalse -->
+                  <span class="method-name">changePwd_whenUpdatePwdSuccess_thenRerurnFalse</span>
+                  <em>
+(当修改密码成功时，返回true)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="changePwd_whenUserIdNotExit_thenRerurnFalse">
+                  </a> <!-- changePwd_whenUserIdNotExit_thenRerurnFalse -->
+                  <span class="method-name">changePwd_whenUserIdNotExit_thenRerurnFalse</span>
+                  <em>
+(当用户不存在时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="findPwd_whenSmsCodeError_thenRerurnFalse">
+                  </a> <!-- findPwd_whenSmsCodeError_thenRerurnFalse -->
+                  <span class="method-name">findPwd_whenSmsCodeError_thenRerurnFalse</span>
+                  <em>
+(当短信验证码错误时时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="findPwd_whenUpdatePwdFail_thenRerurnFalse">
+                  </a> <!-- findPwd_whenUpdatePwdFail_thenRerurnFalse -->
+                  <span class="method-name">findPwd_whenUpdatePwdFail_thenRerurnFalse</span>
+                  <em>
+(当找回密码失败时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="findPwd_whenUpdatePwdSuccess_thenRerurnFalse">
+                  </a> <!-- findPwd_whenUpdatePwdSuccess_thenRerurnFalse -->
+                  <span class="method-name">findPwd_whenUpdatePwdSuccess_thenRerurnFalse</span>
+                  <em>
+(当找回密码成功时，返回true)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="findPwd_whenUserIdNotBindPhone_thenRerurnFalse">
+                  </a> <!-- findPwd_whenUserIdNotBindPhone_thenRerurnFalse -->
+                  <span class="method-name">findPwd_whenUserIdNotBindPhone_thenRerurnFalse</span>
+                  <em>
+(当用户未绑定手机时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="findPwd_whenUserIdNotExit_thenRerurnFalse">
+                  </a> <!-- findPwd_whenUserIdNotExit_thenRerurnFalse -->
+                  <span class="method-name">findPwd_whenUserIdNotExit_thenRerurnFalse</span>
+                  <em>
+(当用户不存在时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="findPwd_whenUserIsHead_thenReturnFalse">
+                  </a> <!-- findPwd_whenUserIsHead_thenReturnFalse -->
+                  <span class="method-name">findPwd_whenUserIsHead_thenReturnFalse</span>
+                  <em>
+(当管理员登录时，用户是局头用户，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="findPwd_whenUserIsHq_thenReturnFalse">
+                  </a> <!-- findPwd_whenUserIsHq_thenReturnFalse -->
+                  <span class="method-name">findPwd_whenUserIsHq_thenReturnFalse</span>
+                  <em>
+(当管理员登录时，用户是管理员用户，用户未绑定手机，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="findPwd_whenUserIsNotHead_thenReturnFalse">
+                  </a> <!-- findPwd_whenUserIsNotHead_thenReturnFalse -->
+                  <span class="method-name">findPwd_whenUserIsNotHead_thenReturnFalse</span>
+                  <em>
+(当局头登录时，用户非局头用户，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="sendChangePhoneSms_whenSendSuccess_thenRerurnFalse">
+                  </a> <!-- sendChangePhoneSms_whenSendSuccess_thenRerurnFalse -->
+                  <span class="method-name">sendChangePhoneSms_whenSendSuccess_thenRerurnFalse</span>
+                  <em>
+(当发送成功时，返回true)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="sendChangePhoneSms_whenUserIdNotBindPhone_thenRerurnFalse">
+                  </a> <!-- sendChangePhoneSms_whenUserIdNotBindPhone_thenRerurnFalse -->
+                  <span class="method-name">sendChangePhoneSms_whenUserIdNotBindPhone_thenRerurnFalse</span>
+                  <em>
+(当用户未绑定手机时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="sendChangePhoneSms_whenUserIdNotExit_thenRerurnFalse">
+                  </a> <!-- sendChangePhoneSms_whenUserIdNotExit_thenRerurnFalse -->
+                  <span class="method-name">sendChangePhoneSms_whenUserIdNotExit_thenRerurnFalse</span>
+                  <em>
+(当用户不存在时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="sendFindPwdSms_whenSendSuccess_thenRerurnFalse">
+                  </a> <!-- sendFindPwdSms_whenSendSuccess_thenRerurnFalse -->
+                  <span class="method-name">sendFindPwdSms_whenSendSuccess_thenRerurnFalse</span>
+                  <em>
+(当发送成功时，返回true)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="sendFindPwdSms_whenUserIdNotBindPhone_thenRerurnFalse">
+                  </a> <!-- sendFindPwdSms_whenUserIdNotBindPhone_thenRerurnFalse -->
+                  <span class="method-name">sendFindPwdSms_whenUserIdNotBindPhone_thenRerurnFalse</span>
+                  <em>
+(当用户未绑定手机时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="sendFindPwdSms_whenUserIdNotExit_thenRerurnFalse">
+                  </a> <!-- sendFindPwdSms_whenUserIdNotExit_thenRerurnFalse -->
+                  <span class="method-name">sendFindPwdSms_whenUserIdNotExit_thenRerurnFalse</span>
+                  <em>
+(当用户不存在时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="sendSecondChangePhoneSms_whenUserIdExit_thenRerurnFalse">
+                  </a> <!-- sendSecondChangePhoneSms_whenUserIdExit_thenRerurnFalse -->
+                  <span class="method-name">sendSecondChangePhoneSms_whenUserIdExit_thenRerurnFalse</span>
+                  <em>
+(当用户存在时，返回True)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="sendSecondChangePhoneSms_whenUserIdNotExit_thenRerurnFalse">
+                  </a> <!-- sendSecondChangePhoneSms_whenUserIdNotExit_thenRerurnFalse -->
+                  <span class="method-name">sendSecondChangePhoneSms_whenUserIdNotExit_thenRerurnFalse</span>
+                  <em>
+(当用户不存在时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">cn.mahjong.service.StatServiceImplTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="personPurchaseSum_whenUserId_thenRerurn">
+                  </a> <!-- personPurchaseSum_whenUserId_thenRerurn -->
+                  <span class="method-name">personPurchaseSum_whenUserId_thenRerurn</span>
+                  <em>
+(当查询个人进货记录时，返回数据)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="personSaleSum_whenUserId_thenRerurn">
+                  </a> <!-- personSaleSum_whenUserId_thenRerurn -->
+                  <span class="method-name">personSaleSum_whenUserId_thenRerurn</span>
+                  <em>
+(当查询个人销售记录时，返回数据)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">cn.mahjong.service.SPProviderFactoryTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="createAll_whenAnyTime_thenReturnAllProviders">
+                  </a> <!-- createAll_whenAnyTime_thenReturnAllProviders -->
+                  <span class="method-name">createAll_whenAnyTime_thenReturnAllProviders</span>
+                  <em>
+(当任意场景时返回所有短信渠道)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">cn.mahjong.service.GuoDuProviderTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="getName_whenAnyTimes_thenReturnGuoDu">
+                  </a> <!-- getName_whenAnyTimes_thenReturnGuoDu -->
+                  <span class="method-name">getName_whenAnyTimes_thenReturnGuoDu</span>
+                  <em>
+(当任意情况时返回GuoDu)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="send_whenExceptionThrows_thenReturnFalse">
+                  </a> <!-- send_whenExceptionThrows_thenReturnFalse -->
+                  <span class="method-name">send_whenExceptionThrows_thenReturnFalse</span>
+                  <em>
+(当程序抛出异常时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="send_whenStatusCodeEquals0_thenReturnTrue">
+                  </a> <!-- send_whenStatusCodeEquals0_thenReturnTrue -->
+                  <span class="method-name">send_whenStatusCodeEquals0_thenReturnTrue</span>
+                  <em>
+(当状态码等于0时返回True)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="send_whenStatusCodeNotEqualsMinus1_thenReturnFalse">
+                  </a> <!-- send_whenStatusCodeNotEqualsMinus1_thenReturnFalse -->
+                  <span class="method-name">send_whenStatusCodeNotEqualsMinus1_thenReturnFalse</span>
+                  <em>
+(当状态码不等于-1时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">cn.mahjong.service.CaptchaServiceImplTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkCaptcha_whenBidNullRedisCaptchaEqual_thenReturnFalse">
+                  </a> <!-- checkCaptcha_whenBidNullRedisCaptchaEqual_thenReturnFalse -->
+                  <span class="method-name">checkCaptcha_whenBidNullRedisCaptchaEqual_thenReturnFalse</span>
+                  <em>
+(当bid等于null，验证码相等时，返回true)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkCaptcha_whenRedisCaptchaEmpty_thenReturnFalse">
+                  </a> <!-- checkCaptcha_whenRedisCaptchaEmpty_thenReturnFalse -->
+                  <span class="method-name">checkCaptcha_whenRedisCaptchaEmpty_thenReturnFalse</span>
+                  <em>
+(当缓存里验证码不存在时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkCaptcha_whenRedisCaptchaEqual_thenReturnFalse">
+                  </a> <!-- checkCaptcha_whenRedisCaptchaEqual_thenReturnFalse -->
+                  <span class="method-name">checkCaptcha_whenRedisCaptchaEqual_thenReturnFalse</span>
+                  <em>
+(当验证码相等时，返回true)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="checkCaptcha_whenRedisCaptchaNotEqual_thenReturnFalse">
+                  </a> <!-- checkCaptcha_whenRedisCaptchaNotEqual_thenReturnFalse -->
+                  <span class="method-name">checkCaptcha_whenRedisCaptchaNotEqual_thenReturnFalse</span>
+                  <em>
+(当验证码不相等时，返回false)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
+          <div class="suite-Default_suite-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">cn.mahjong.service.RechargeServiceImplTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="getSummary_whenDBQuerySuccess_thenReturnTrue">
+                  </a> <!-- getSummary_whenDBQuerySuccess_thenReturnTrue -->
+                  <span class="method-name">getSummary_whenDBQuerySuccess_thenReturnTrue</span>
+                  <em>
+(当数据库查询成功时返回True)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="get_whenDBQuerySuccess_thenReturnTrue">
+                  </a> <!-- get_whenDBQuerySuccess_thenReturnTrue -->
+                  <span class="method-name">get_whenDBQuerySuccess_thenReturnTrue</span>
+                  <em>
+(当数据库查询成功时返回True)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="recharge_whenAmountEquals0_thenReturnFalse">
+                  </a> <!-- recharge_whenAmountEquals0_thenReturnFalse -->
+                  <span class="method-name">recharge_whenAmountEquals0_thenReturnFalse</span>
+                  <em>
+(当Amount与Gift都等于0时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="recharge_whenAmountLessThan0_thenReturnFalse">
+                  </a> <!-- recharge_whenAmountLessThan0_thenReturnFalse -->
+                  <span class="method-name">recharge_whenAmountLessThan0_thenReturnFalse</span>
+                  <em>
+(当Amount小于0时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="recharge_whenGiftLessThan0_thenReturnFalse">
+                  </a> <!-- recharge_whenGiftLessThan0_thenReturnFalse -->
+                  <span class="method-name">recharge_whenGiftLessThan0_thenReturnFalse</span>
+                  <em>
+(当Gift小于0时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="recharge_whenInventoryNotEnoughReturnFalse">
+                  </a> <!-- recharge_whenInventoryNotEnoughReturnFalse -->
+                  <span class="method-name">recharge_whenInventoryNotEnoughReturnFalse</span>
+                  <em>
+(当库存不足时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="recharge_whenOperatorIdEquals0_thenReturnFalse">
+                  </a> <!-- recharge_whenOperatorIdEquals0_thenReturnFalse -->
+                  <span class="method-name">recharge_whenOperatorIdEquals0_thenReturnFalse</span>
+                  <em>
+(当UserId等于0时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="recharge_whenOperatorIdLessThan0_thenReturnFalse">
+                  </a> <!-- recharge_whenOperatorIdLessThan0_thenReturnFalse -->
+                  <span class="method-name">recharge_whenOperatorIdLessThan0_thenReturnFalse</span>
+                  <em>
+(当UserId小于0时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="recharge_whenOperatorIsNotInUsersParentUsers_thenReturnFalse">
+                  </a> <!-- recharge_whenOperatorIsNotInUsersParentUsers_thenReturnFalse -->
+                  <span class="method-name">recharge_whenOperatorIsNotInUsersParentUsers_thenReturnFalse</span>
+                  <em>
+(当Operator不是User上级时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="recharge_whenUserIdEquals0_thenReturnFalse">
+                  </a> <!-- recharge_whenUserIdEquals0_thenReturnFalse -->
+                  <span class="method-name">recharge_whenUserIdEquals0_thenReturnFalse</span>
+                  <em>
+(当UserId等于0时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="recharge_whenUserIdLessThan0_thenReturnFalse">
+                  </a> <!-- recharge_whenUserIdLessThan0_thenReturnFalse -->
+                  <span class="method-name">recharge_whenUserIdLessThan0_thenReturnFalse</span>
+                  <em>
+(当UserId小于0时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="recharge_whenUserNotExist_thenReturnFalse">
+                  </a> <!-- recharge_whenUserNotExist_thenReturnFalse -->
+                  <span class="method-name">recharge_whenUserNotExist_thenReturnFalse</span>
+                  <em>
+(当用户不存在时返回False)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-passed -->
+        </div> <!-- panel Default_suite -->
+        <div panel-name="test-xml-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">C:\Users\Administrator\AppData\Local\Temp\testng-eclipse--878935189\testng-customsuite.xml</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <pre>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE suite SYSTEM &quot;http://testng.org/testng-1.0.dtd&quot;&gt;
+&lt;suite name=&quot;Default suite&quot;&gt;
+  &lt;test verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;cn.mahjong.service.HeadServiceTest&quot;/&gt;
+      &lt;class name=&quot;cn.mahjong.service.CaptchaServiceImplTest&quot;/&gt;
+      &lt;class name=&quot;cn.mahjong.service.RechargeServiceImplTest&quot;/&gt;
+      &lt;class name=&quot;cn.mahjong.service.StatServiceImplTest&quot;/&gt;
+      &lt;class name=&quot;cn.mahjong.service.GuoDuProviderTest&quot;/&gt;
+      &lt;class name=&quot;cn.mahjong.service.UserServiceImplTest&quot;/&gt;
+      &lt;class name=&quot;cn.mahjong.service.SMSServiceImplTest&quot;/&gt;
+      &lt;class name=&quot;cn.mahjong.service.SPProviderFactoryTest&quot;/&gt;
+      &lt;class name=&quot;cn.mahjong.service.LoginServiceImplTest&quot;/&gt;
+      &lt;class name=&quot;cn.mahjong.service.ExchangeServiceTest&quot;/&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- Default test --&gt;
+&lt;/suite&gt; &lt;!-- Default suite --&gt;
+            </pre>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="testlist-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Tests for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <ul>
+              <li>
+                <span class="test-name">Default test (10 classes)</span>
+              </li>
+            </ul>
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="group-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Groups for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="times-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Times for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="times-div">
+              <script type="text/javascript">
+suiteTableInitFunctions.push('tableData_Default_suite');
+function tableData_Default_suite() {
+var data = new google.visualization.DataTable();
+data.addColumn('number', 'Number');
+data.addColumn('string', 'Method');
+data.addColumn('string', 'Class');
+data.addColumn('number', 'Time (ms)');
+data.addRows(90);
+data.setCell(0, 0, 0)
+data.setCell(0, 1, 'createHead_whenInsertSuccess_thenReturnTrue')
+data.setCell(0, 2, 'cn.mahjong.service.HeadServiceTest')
+data.setCell(0, 3, 318);
+data.setCell(1, 0, 1)
+data.setCell(1, 1, 'getSummary_whenDBQuerySuccess_thenReturnTrue')
+data.setCell(1, 2, 'cn.mahjong.service.RechargeServiceImplTest')
+data.setCell(1, 3, 253);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'send_whenStatusCodeEquals0_thenReturnTrue')
+data.setCell(2, 2, 'cn.mahjong.service.GuoDuProviderTest')
+data.setCell(2, 3, 167);
+data.setCell(3, 0, 3)
+data.setCell(3, 1, 'exchange_whenGameUserNotExist_thenReturnFalse2')
+data.setCell(3, 2, 'cn.mahjong.service.ExchangeServiceTest')
+data.setCell(3, 3, 119);
+data.setCell(4, 0, 4)
+data.setCell(4, 1, 'sendFindPwdSms_whenUserIdNotExit_thenRerurnFalse')
+data.setCell(4, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(4, 3, 93);
+data.setCell(5, 0, 5)
+data.setCell(5, 1, 'send_whenExceptionThrows_thenReturnFalse')
+data.setCell(5, 2, 'cn.mahjong.service.GuoDuProviderTest')
+data.setCell(5, 3, 88);
+data.setCell(6, 0, 6)
+data.setCell(6, 1, 'send_whenStatusCodeNotEqualsMinus1_thenReturnFalse')
+data.setCell(6, 2, 'cn.mahjong.service.GuoDuProviderTest')
+data.setCell(6, 3, 64);
+data.setCell(7, 0, 7)
+data.setCell(7, 1, 'exchange_whenUserIdLessThan0OrEquals0_thenReturnFalse')
+data.setCell(7, 2, 'cn.mahjong.service.ExchangeServiceTest')
+data.setCell(7, 3, 31);
+data.setCell(8, 0, 8)
+data.setCell(8, 1, 'recharge_whenInventoryIsEnoughReturnTrue')
+data.setCell(8, 2, 'cn.mahjong.service.RechargeServiceImplTest')
+data.setCell(8, 3, 27);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'checkCaptcha_whenBidNullRedisCaptchaEqual_thenReturnFalse')
+data.setCell(9, 2, 'cn.mahjong.service.CaptchaServiceImplTest')
+data.setCell(9, 3, 23);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'send_whenIsOverLimit_thenReturnFalse')
+data.setCell(10, 2, 'cn.mahjong.service.SMSServiceImplTest')
+data.setCell(10, 3, 21);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue')
+data.setCell(11, 2, 'cn.mahjong.service.SMSServiceImplTest')
+data.setCell(11, 3, 20);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'recharge_whenAmountEquals0_thenReturnFalse')
+data.setCell(12, 2, 'cn.mahjong.service.RechargeServiceImplTest')
+data.setCell(12, 3, 19);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'changePhoneFirst_whenSmsCodeError_thenRerurnFalse')
+data.setCell(13, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(13, 3, 9);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'update_whenDBUpdateSuccess_thenReturnTrue')
+data.setCell(14, 2, 'cn.mahjong.service.HeadServiceTest')
+data.setCell(14, 3, 8);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'exchange_whenExchangeIsNotSuccess_thenReturnFalse')
+data.setCell(15, 2, 'cn.mahjong.service.ExchangeServiceTest')
+data.setCell(15, 3, 6);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'get_whenDBQuerySuccess_thenReturnTrue')
+data.setCell(16, 2, 'cn.mahjong.service.RechargeServiceImplTest')
+data.setCell(16, 3, 3);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue2')
+data.setCell(17, 2, 'cn.mahjong.service.SMSServiceImplTest')
+data.setCell(17, 3, 3);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'login_whenLoginSuccess_thenReturnTrue')
+data.setCell(18, 2, 'cn.mahjong.service.LoginServiceImplTest')
+data.setCell(18, 3, 3);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'login_whenAccountIsBanned_thenReturnFalse')
+data.setCell(19, 2, 'cn.mahjong.service.LoginServiceImplTest')
+data.setCell(19, 3, 3);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'getHead_whenUserStatusNotMatch_thenReturnNull')
+data.setCell(20, 2, 'cn.mahjong.service.HeadServiceTest')
+data.setCell(20, 3, 3);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'recharge_whenInventoryNotEnoughReturnFalse')
+data.setCell(21, 2, 'cn.mahjong.service.RechargeServiceImplTest')
+data.setCell(21, 3, 3);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'recharge_whenOperatorIdLessThan0_thenReturnFalse')
+data.setCell(22, 2, 'cn.mahjong.service.RechargeServiceImplTest')
+data.setCell(22, 3, 3);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'createHead_whenVerifyCodeWrong_thenReturnFalse')
+data.setCell(23, 2, 'cn.mahjong.service.HeadServiceTest')
+data.setCell(23, 3, 2);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'exchange_whenExchangeSuccess_thenReturnTrue')
+data.setCell(24, 2, 'cn.mahjong.service.ExchangeServiceTest')
+data.setCell(24, 3, 2);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'getHead_whenUserNotParent_thenReturnNull')
+data.setCell(25, 2, 'cn.mahjong.service.HeadServiceTest')
+data.setCell(25, 3, 2);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'findPwd_whenUpdatePwdFail_thenRerurnFalse')
+data.setCell(26, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(26, 3, 2);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'changePhoneFirst_whenSmsCode_thenRerurnTrue')
+data.setCell(27, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(27, 3, 2);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'recharge_whenUserIdEquals0_thenReturnFalse')
+data.setCell(28, 2, 'cn.mahjong.service.RechargeServiceImplTest')
+data.setCell(28, 3, 2);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'personSaleSum_whenUserId_thenRerurn')
+data.setCell(29, 2, 'cn.mahjong.service.StatServiceImplTest')
+data.setCell(29, 3, 2);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'recharge_whenOperatorIsNotInUsersParentUsers_thenReturnFalse')
+data.setCell(30, 2, 'cn.mahjong.service.RechargeServiceImplTest')
+data.setCell(30, 3, 2);
+data.setCell(31, 0, 31)
+data.setCell(31, 1, 'sendFindPwdSms_whenUserIdNotBindPhone_thenRerurnFalse')
+data.setCell(31, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(31, 3, 2);
+data.setCell(32, 0, 32)
+data.setCell(32, 1, 'checkCaptcha_whenRedisCaptchaNotEqual_thenReturnFalse')
+data.setCell(32, 2, 'cn.mahjong.service.CaptchaServiceImplTest')
+data.setCell(32, 3, 2);
+data.setCell(33, 0, 33)
+data.setCell(33, 1, 'changePhoneFirst_whenUserIdNotExit_thenRerurnFalse')
+data.setCell(33, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(33, 3, 2);
+data.setCell(34, 0, 34)
+data.setCell(34, 1, 'changePwd_whenUpdatePwdFail_thenRerurnFalse')
+data.setCell(34, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(34, 3, 2);
+data.setCell(35, 0, 35)
+data.setCell(35, 1, 'checkCaptcha_whenRedisCaptchaEmpty_thenReturnFalse')
+data.setCell(35, 2, 'cn.mahjong.service.CaptchaServiceImplTest')
+data.setCell(35, 3, 2);
+data.setCell(36, 0, 36)
+data.setCell(36, 1, 'findPwd_whenUpdatePwdSuccess_thenRerurnFalse')
+data.setCell(36, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(36, 3, 2);
+data.setCell(37, 0, 37)
+data.setCell(37, 1, 'changePwd_whenUpdatePwdSuccess_thenRerurnFalse')
+data.setCell(37, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(37, 3, 2);
+data.setCell(38, 0, 38)
+data.setCell(38, 1, 'exchange_whenGameUserNotExist_thenReturnFalse')
+data.setCell(38, 2, 'cn.mahjong.service.ExchangeServiceTest')
+data.setCell(38, 3, 2);
+data.setCell(39, 0, 39)
+data.setCell(39, 1, 'changePhoneSecond_whenChangePhoneSuccess_thenRerurnTrue')
+data.setCell(39, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(39, 3, 2);
+data.setCell(40, 0, 40)
+data.setCell(40, 1, 'sendChangePhoneSms_whenUserIdNotExit_thenRerurnFalse')
+data.setCell(40, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(40, 3, 2);
+data.setCell(41, 0, 41)
+data.setCell(41, 1, 'sendFindPwdSms_whenSendSuccess_thenRerurnFalse')
+data.setCell(41, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(41, 3, 2);
+data.setCell(42, 0, 42)
+data.setCell(42, 1, 'getHeads_whenGetList_thenReturnList')
+data.setCell(42, 2, 'cn.mahjong.service.HeadServiceTest')
+data.setCell(42, 3, 2);
+data.setCell(43, 0, 43)
+data.setCell(43, 1, 'recharge_whenUserIdLessThan0_thenReturnFalse')
+data.setCell(43, 2, 'cn.mahjong.service.RechargeServiceImplTest')
+data.setCell(43, 3, 1);
+data.setCell(44, 0, 44)
+data.setCell(44, 1, 'changePhoneSecond_whenUserNotExit_thenRerurnFalse')
+data.setCell(44, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(44, 3, 1);
+data.setCell(45, 0, 45)
+data.setCell(45, 1, 'exchange_whenInventoryNotEnough2_thenReturnFalse')
+data.setCell(45, 2, 'cn.mahjong.service.ExchangeServiceTest')
+data.setCell(45, 3, 1);
+data.setCell(46, 0, 46)
+data.setCell(46, 1, 'findPwd_whenUserIsHead_thenReturnFalse')
+data.setCell(46, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(46, 3, 1);
+data.setCell(47, 0, 47)
+data.setCell(47, 1, 'login_whenAccountIsNotHead_thenReturnFalse')
+data.setCell(47, 2, 'cn.mahjong.service.LoginServiceImplTest')
+data.setCell(47, 3, 1);
+data.setCell(48, 0, 48)
+data.setCell(48, 1, 'findPwd_whenUserIdNotExit_thenRerurnFalse')
+data.setCell(48, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(48, 3, 1);
+data.setCell(49, 0, 49)
+data.setCell(49, 1, 'changePhoneSecond_whenSmsCodeError_thenRerurnFalse')
+data.setCell(49, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(49, 3, 1);
+data.setCell(50, 0, 50)
+data.setCell(50, 1, 'recharge_whenGiftLessThan0_thenReturnFalse')
+data.setCell(50, 2, 'cn.mahjong.service.RechargeServiceImplTest')
+data.setCell(50, 3, 1);
+data.setCell(51, 0, 51)
+data.setCell(51, 1, 'findPwd_whenUserIsHq_thenReturnFalse')
+data.setCell(51, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(51, 3, 1);
+data.setCell(52, 0, 52)
+data.setCell(52, 1, 'createAll_whenAnyTime_thenReturnAllProviders')
+data.setCell(52, 2, 'cn.mahjong.service.SPProviderFactoryTest')
+data.setCell(52, 3, 1);
+data.setCell(53, 0, 53)
+data.setCell(53, 1, 'findPwd_whenSmsCodeError_thenRerurnFalse')
+data.setCell(53, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(53, 3, 1);
+data.setCell(54, 0, 54)
+data.setCell(54, 1, 'getSummary_whenDBQuerySuccess_thenReturnTrue')
+data.setCell(54, 2, 'cn.mahjong.service.ExchangeServiceTest')
+data.setCell(54, 3, 1);
+data.setCell(55, 0, 55)
+data.setCell(55, 1, 'getHead_whenUserNotExist_thenReturnNull')
+data.setCell(55, 2, 'cn.mahjong.service.HeadServiceTest')
+data.setCell(55, 3, 1);
+data.setCell(56, 0, 56)
+data.setCell(56, 1, 'personPurchaseSum_whenUserId_thenRerurn')
+data.setCell(56, 2, 'cn.mahjong.service.StatServiceImplTest')
+data.setCell(56, 3, 1);
+data.setCell(57, 0, 57)
+data.setCell(57, 1, 'findPwd_whenUserIsNotHead_thenReturnFalse')
+data.setCell(57, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(57, 3, 1);
+data.setCell(58, 0, 58)
+data.setCell(58, 1, 'recharge_whenOperatorIdEquals0_thenReturnFalse')
+data.setCell(58, 2, 'cn.mahjong.service.RechargeServiceImplTest')
+data.setCell(58, 3, 1);
+data.setCell(59, 0, 59)
+data.setCell(59, 1, 'changePhoneSecond_whenUserNotPhone_thenRerurnFalse')
+data.setCell(59, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(59, 3, 1);
+data.setCell(60, 0, 60)
+data.setCell(60, 1, 'recharge_whenUserNotExist_thenReturnFalse')
+data.setCell(60, 2, 'cn.mahjong.service.RechargeServiceImplTest')
+data.setCell(60, 3, 1);
+data.setCell(61, 0, 61)
+data.setCell(61, 1, 'sendSecondChangePhoneSms_whenUserIdNotExit_thenRerurnFalse')
+data.setCell(61, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(61, 3, 1);
+data.setCell(62, 0, 62)
+data.setCell(62, 1, 'createHead_whenPhoneDuplicate_thenReturnFalse')
+data.setCell(62, 2, 'cn.mahjong.service.HeadServiceTest')
+data.setCell(62, 3, 1);
+data.setCell(63, 0, 63)
+data.setCell(63, 1, 'login_whenAccountPwdError_thenReturnFalse')
+data.setCell(63, 2, 'cn.mahjong.service.LoginServiceImplTest')
+data.setCell(63, 3, 1);
+data.setCell(64, 0, 64)
+data.setCell(64, 1, 'isNeedCaptcha_whenLoginNotError_thenReturn')
+data.setCell(64, 2, 'cn.mahjong.service.LoginServiceImplTest')
+data.setCell(64, 3, 1);
+data.setCell(65, 0, 65)
+data.setCell(65, 1, 'isNeedCaptcha_whenLoginErrorTimeEqual3_thenReturn')
+data.setCell(65, 2, 'cn.mahjong.service.LoginServiceImplTest')
+data.setCell(65, 3, 1);
+data.setCell(66, 0, 66)
+data.setCell(66, 1, 'findPwd_whenUserIdNotBindPhone_thenRerurnFalse')
+data.setCell(66, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(66, 3, 1);
+data.setCell(67, 0, 67)
+data.setCell(67, 1, 'exchange_whenAmountLessThan0OrEquals0_thenReturnFalse')
+data.setCell(67, 2, 'cn.mahjong.service.ExchangeServiceTest')
+data.setCell(67, 3, 1);
+data.setCell(68, 0, 68)
+data.setCell(68, 1, 'exchange_whenUserNotExist_thenReturnFalse')
+data.setCell(68, 2, 'cn.mahjong.service.ExchangeServiceTest')
+data.setCell(68, 3, 1);
+data.setCell(69, 0, 69)
+data.setCell(69, 1, 'login_whenInsertLogFail_thenReturnFalse')
+data.setCell(69, 2, 'cn.mahjong.service.LoginServiceImplTest')
+data.setCell(69, 3, 1);
+data.setCell(70, 0, 70)
+data.setCell(70, 1, 'checkCaptcha_whenRedisCaptchaEqual_thenReturnFalse')
+data.setCell(70, 2, 'cn.mahjong.service.CaptchaServiceImplTest')
+data.setCell(70, 3, 1);
+data.setCell(71, 0, 71)
+data.setCell(71, 1, 'send_whenIsVerifyCodeSMSAndNotArriveNextSendTime_thenReturnFalse')
+data.setCell(71, 2, 'cn.mahjong.service.SMSServiceImplTest')
+data.setCell(71, 3, 1);
+data.setCell(72, 0, 72)
+data.setCell(72, 1, 'changePhoneSecond_whenUserPhoneNotEquals_thenRerurnFalse')
+data.setCell(72, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(72, 3, 1);
+data.setCell(73, 0, 73)
+data.setCell(73, 1, 'changePhoneFirst_whenUserIdNotBindPhone_thenRerurnFalse')
+data.setCell(73, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(73, 3, 1);
+data.setCell(74, 0, 74)
+data.setCell(74, 1, 'sendChangePhoneSms_whenSendSuccess_thenRerurnFalse')
+data.setCell(74, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(74, 3, 1);
+data.setCell(75, 0, 75)
+data.setCell(75, 1, 'login_whenAccountIsHead_thenReturnFalse')
+data.setCell(75, 2, 'cn.mahjong.service.LoginServiceImplTest')
+data.setCell(75, 3, 1);
+data.setCell(76, 0, 76)
+data.setCell(76, 1, 'get_whenDBQuerySuccess_thenReturnTrue')
+data.setCell(76, 2, 'cn.mahjong.service.ExchangeServiceTest')
+data.setCell(76, 3, 1);
+data.setCell(77, 0, 77)
+data.setCell(77, 1, 'sendSecondChangePhoneSms_whenUserIdExit_thenRerurnFalse')
+data.setCell(77, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(77, 3, 1);
+data.setCell(78, 0, 78)
+data.setCell(78, 1, 'validate_whenValidateFailed_thenReturnFalse')
+data.setCell(78, 2, 'cn.mahjong.service.SMSServiceImplTest')
+data.setCell(78, 3, 1);
+data.setCell(79, 0, 79)
+data.setCell(79, 1, 'exchange_whenInventoryNotEnough_thenReturnFalse')
+data.setCell(79, 2, 'cn.mahjong.service.ExchangeServiceTest')
+data.setCell(79, 3, 1);
+data.setCell(80, 0, 80)
+data.setCell(80, 1, 'changePwd_whenUserIdNotExit_thenRerurnFalse')
+data.setCell(80, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(80, 3, 1);
+data.setCell(81, 0, 81)
+data.setCell(81, 1, 'recharge_whenAmountLessThan0_thenReturnFalse')
+data.setCell(81, 2, 'cn.mahjong.service.RechargeServiceImplTest')
+data.setCell(81, 3, 1);
+data.setCell(82, 0, 82)
+data.setCell(82, 1, 'login_whenAccountNotExit_thenReturnFalse')
+data.setCell(82, 2, 'cn.mahjong.service.LoginServiceImplTest')
+data.setCell(82, 3, 1);
+data.setCell(83, 0, 83)
+data.setCell(83, 1, 'isNeedCaptcha_whenLoginErrorTimeThan3_thenReturn')
+data.setCell(83, 2, 'cn.mahjong.service.LoginServiceImplTest')
+data.setCell(83, 3, 0);
+data.setCell(84, 0, 84)
+data.setCell(84, 1, 'exchange_whenGameUserIdLessThan0OrEquals0_thenReturnFalse')
+data.setCell(84, 2, 'cn.mahjong.service.ExchangeServiceTest')
+data.setCell(84, 3, 0);
+data.setCell(85, 0, 85)
+data.setCell(85, 1, 'isNeedCaptcha_whenLoginNotErrorTime_thenReturn')
+data.setCell(85, 2, 'cn.mahjong.service.LoginServiceImplTest')
+data.setCell(85, 3, 0);
+data.setCell(86, 0, 86)
+data.setCell(86, 1, 'getName_whenAnyTimes_thenReturnGuoDu')
+data.setCell(86, 2, 'cn.mahjong.service.GuoDuProviderTest')
+data.setCell(86, 3, 0);
+data.setCell(87, 0, 87)
+data.setCell(87, 1, 'sendChangePhoneSms_whenUserIdNotBindPhone_thenRerurnFalse')
+data.setCell(87, 2, 'cn.mahjong.service.UserServiceImplTest')
+data.setCell(87, 3, 0);
+data.setCell(88, 0, 88)
+data.setCell(88, 1, 'isNeedCaptcha_whenLoginErrorTimeLess3_thenReturn')
+data.setCell(88, 2, 'cn.mahjong.service.LoginServiceImplTest')
+data.setCell(88, 3, 0);
+data.setCell(89, 0, 89)
+data.setCell(89, 1, 'validate_whenValidateSuccess_thenReturnTrue')
+data.setCell(89, 2, 'cn.mahjong.service.SMSServiceImplTest')
+data.setCell(89, 3, 0);
+window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
+return data;
+}
+              </script>
+              <span class="suite-total-time">Total running time: 1 seconds</span>
+              <div id="times-div-Default_suite">
+              </div> <!-- times-div-Default_suite -->
+            </div> <!-- times-div -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="reporter-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Reporter output for Default suite</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="ignored-methods-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">0 ignored methods</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+        <div panel-name="chronological-Default_suite" class="panel">
+          <div class="main-panel-header rounded-window-top">
+            <span class="header-content">Methods in chronological order</span>
+          </div> <!-- main-panel-header rounded-window-top -->
+          <div class="main-panel-content rounded-window-bottom">
+            <div class="chronological-class">
+              <div class="chronological-class-name">cn.mahjong.service.HeadServiceTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">0 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">createHead_whenInsertSuccess_thenReturnTrue</span>
+                <span class="method-start">871 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">createHead_whenPhoneDuplicate_thenReturnFalse</span>
+                <span class="method-start">1191 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">createHead_whenVerifyCodeWrong_thenReturnFalse</span>
+                <span class="method-start">1193 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getHead_whenUserNotExist_thenReturnNull</span>
+                <span class="method-start">1196 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getHead_whenUserNotParent_thenReturnNull</span>
+                <span class="method-start">1199 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getHead_whenUserStatusNotMatch_thenReturnNull</span>
+                <span class="method-start">1202 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">getHeads_whenGetList_thenReturnList</span>
+                <span class="method-start">1206 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">update_whenDBUpdateSuccess_thenReturnTrue</span>
+                <span class="method-start">1212 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">cn.mahjong.service.CaptchaServiceImplTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">1224 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">checkCaptcha_whenBidNullRedisCaptchaEqual_thenReturnFalse</span>
+                <span class="method-start">1297 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkCaptcha_whenRedisCaptchaEmpty_thenReturnFalse</span>
+                <span class="method-start">1321 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkCaptcha_whenRedisCaptchaEqual_thenReturnFalse</span>
+                <span class="method-start">1324 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">checkCaptcha_whenRedisCaptchaNotEqual_thenReturnFalse</span>
+                <span class="method-start">1325 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">cn.mahjong.service.RechargeServiceImplTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">1328 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">getSummary_whenDBQuerySuccess_thenReturnTrue</span>
+                <span class="method-start">1350 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">get_whenDBQuerySuccess_thenReturnTrue</span>
+                <span class="method-start">1604 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">recharge_whenAmountEquals0_thenReturnFalse</span>
+                <span class="method-start">1608 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">recharge_whenAmountLessThan0_thenReturnFalse</span>
+                <span class="method-start">1628 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">recharge_whenGiftLessThan0_thenReturnFalse</span>
+                <span class="method-start">1629 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">recharge_whenInventoryIsEnoughReturnTrue</span>
+                <span class="method-start">1666 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">recharge_whenInventoryNotEnoughReturnFalse</span>
+                <span class="method-start">1696 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">recharge_whenOperatorIdEquals0_thenReturnFalse</span>
+                <span class="method-start">1700 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">recharge_whenOperatorIdLessThan0_thenReturnFalse</span>
+                <span class="method-start">1702 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">recharge_whenOperatorIsNotInUsersParentUsers_thenReturnFalse</span>
+                <span class="method-start">1706 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">recharge_whenUserIdEquals0_thenReturnFalse</span>
+                <span class="method-start">1709 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">recharge_whenUserIdLessThan0_thenReturnFalse</span>
+                <span class="method-start">1712 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">recharge_whenUserNotExist_thenReturnFalse</span>
+                <span class="method-start">1714 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">cn.mahjong.service.StatServiceImplTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">1717 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">personPurchaseSum_whenUserId_thenRerurn</span>
+                <span class="method-start">1721 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">personSaleSum_whenUserId_thenRerurn</span>
+                <span class="method-start">1730 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">cn.mahjong.service.GuoDuProviderTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">1733 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">getName_whenAnyTimes_thenReturnGuoDu</span>
+                <span class="method-start">1881 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">send_whenExceptionThrows_thenReturnFalse</span>
+                <span class="method-start">1882 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">send_whenStatusCodeEquals0_thenReturnTrue</span>
+                <span class="method-start">1971 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">send_whenStatusCodeNotEqualsMinus1_thenReturnFalse</span>
+                <span class="method-start">2139 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">cn.mahjong.service.UserServiceImplTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">2205 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">changePhoneFirst_whenSmsCodeError_thenRerurnFalse</span>
+                <span class="method-start">2219 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">changePhoneFirst_whenSmsCode_thenRerurnTrue</span>
+                <span class="method-start">2228 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">changePhoneFirst_whenUserIdNotBindPhone_thenRerurnFalse</span>
+                <span class="method-start">2230 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">changePhoneFirst_whenUserIdNotExit_thenRerurnFalse</span>
+                <span class="method-start">2232 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">changePhoneSecond_whenChangePhoneSuccess_thenRerurnTrue</span>
+                <span class="method-start">2235 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">changePhoneSecond_whenSmsCodeError_thenRerurnFalse</span>
+                <span class="method-start">2238 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">changePhoneSecond_whenUserNotExit_thenRerurnFalse</span>
+                <span class="method-start">2240 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">changePhoneSecond_whenUserNotPhone_thenRerurnFalse</span>
+                <span class="method-start">2242 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">changePhoneSecond_whenUserPhoneNotEquals_thenRerurnFalse</span>
+                <span class="method-start">2244 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">changePwd_whenUpdatePwdFail_thenRerurnFalse</span>
+                <span class="method-start">2245 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">changePwd_whenUpdatePwdSuccess_thenRerurnFalse</span>
+                <span class="method-start">2248 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">changePwd_whenUserIdNotExit_thenRerurnFalse</span>
+                <span class="method-start">2250 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">findPwd_whenSmsCodeError_thenRerurnFalse</span>
+                <span class="method-start">2253 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">findPwd_whenUpdatePwdFail_thenRerurnFalse</span>
+                <span class="method-start">2254 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">findPwd_whenUpdatePwdSuccess_thenRerurnFalse</span>
+                <span class="method-start">2256 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">findPwd_whenUserIdNotBindPhone_thenRerurnFalse</span>
+                <span class="method-start">2258 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">findPwd_whenUserIdNotExit_thenRerurnFalse</span>
+                <span class="method-start">2260 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">findPwd_whenUserIsHead_thenReturnFalse</span>
+                <span class="method-start">2262 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">findPwd_whenUserIsHq_thenReturnFalse</span>
+                <span class="method-start">2263 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">findPwd_whenUserIsNotHead_thenReturnFalse</span>
+                <span class="method-start">2305 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">sendChangePhoneSms_whenSendSuccess_thenRerurnFalse</span>
+                <span class="method-start">2307 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">sendChangePhoneSms_whenUserIdNotBindPhone_thenRerurnFalse</span>
+                <span class="method-start">2309 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">sendChangePhoneSms_whenUserIdNotExit_thenRerurnFalse</span>
+                <span class="method-start">2374 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">sendFindPwdSms_whenSendSuccess_thenRerurnFalse</span>
+                <span class="method-start">2377 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">sendFindPwdSms_whenUserIdNotBindPhone_thenRerurnFalse</span>
+                <span class="method-start">2379 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">sendFindPwdSms_whenUserIdNotExit_thenRerurnFalse</span>
+                <span class="method-start">2381 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">sendSecondChangePhoneSms_whenUserIdExit_thenRerurnFalse</span>
+                <span class="method-start">2475 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">sendSecondChangePhoneSms_whenUserIdNotExit_thenRerurnFalse</span>
+                <span class="method-start">2476 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">cn.mahjong.service.SMSServiceImplTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">2478 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">send_whenIsOverLimit_thenReturnFalse</span>
+                <span class="method-start">2490 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue</span>
+                <span class="method-start">2512 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue2</span>
+                <span class="method-start">2533 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">send_whenIsVerifyCodeSMSAndNotArriveNextSendTime_thenReturnFalse</span>
+                <span class="method-start">2537 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">validate_whenValidateFailed_thenReturnFalse</span>
+                <span class="method-start">2538 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">validate_whenValidateSuccess_thenReturnTrue</span>
+                <span class="method-start">2539 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">cn.mahjong.service.SPProviderFactoryTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">2540 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">createAll_whenAnyTime_thenReturnAllProviders</span>
+                <span class="method-start">2540 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">cn.mahjong.service.LoginServiceImplTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">2588 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">isNeedCaptcha_whenLoginErrorTimeEqual3_thenReturn</span>
+                <span class="method-start">2600 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">isNeedCaptcha_whenLoginErrorTimeLess3_thenReturn</span>
+                <span class="method-start">2602 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">isNeedCaptcha_whenLoginErrorTimeThan3_thenReturn</span>
+                <span class="method-start">2603 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">isNeedCaptcha_whenLoginNotErrorTime_thenReturn</span>
+                <span class="method-start">2604 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">isNeedCaptcha_whenLoginNotError_thenReturn</span>
+                <span class="method-start">2636 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">login_whenAccountIsBanned_thenReturnFalse</span>
+                <span class="method-start">2637 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">login_whenAccountIsHead_thenReturnFalse</span>
+                <span class="method-start">2640 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">login_whenAccountIsNotHead_thenReturnFalse</span>
+                <span class="method-start">2655 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">login_whenAccountNotExit_thenReturnFalse</span>
+                <span class="method-start">2657 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">login_whenAccountPwdError_thenReturnFalse</span>
+                <span class="method-start">2658 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">login_whenInsertLogFail_thenReturnFalse</span>
+                <span class="method-start">2660 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">login_whenLoginSuccess_thenReturnTrue</span>
+                <span class="method-start">2683 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">cn.mahjong.service.ExchangeServiceTest</div> <!-- chronological-class-name -->
+              <div class="configuration-class before">
+                <span class="method-name">setUp</span>
+                <span class="method-start">2687 ms</span>
+              </div> <!-- configuration-class before -->
+              <div class="test-method">
+                <span class="method-name">exchange_whenAmountLessThan0OrEquals0_thenReturnFalse</span>
+                <span class="method-start">2714 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">exchange_whenExchangeIsNotSuccess_thenReturnFalse</span>
+                <span class="method-start">2716 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">exchange_whenExchangeSuccess_thenReturnTrue</span>
+                <span class="method-start">2736 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">exchange_whenGameUserIdLessThan0OrEquals0_thenReturnFalse</span>
+                <span class="method-start">2738 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">exchange_whenGameUserNotExist_thenReturnFalse</span>
+                <span class="method-start">2739 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">exchange_whenGameUserNotExist_thenReturnFalse2</span>
+                <span class="method-start">2742 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">exchange_whenInventoryNotEnough2_thenReturnFalse</span>
+                <span class="method-start">2861 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">exchange_whenInventoryNotEnough_thenReturnFalse</span>
+                <span class="method-start">2862 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">exchange_whenUserIdLessThan0OrEquals0_thenReturnFalse</span>
+                <span class="method-start">2864 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">exchange_whenUserNotExist_thenReturnFalse</span>
+                <span class="method-start">2896 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">getSummary_whenDBQuerySuccess_thenReturnTrue</span>
+                <span class="method-start">2897 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">get_whenDBQuerySuccess_thenReturnTrue</span>
+                <span class="method-start">2899 ms</span>
+              </div> <!-- test-method -->
+          </div> <!-- main-panel-content rounded-window-bottom -->
+        </div> <!-- panel -->
+      </div> <!-- main-panel-root -->
+    </div> <!-- wrapper -->
+  </body>
+</html>

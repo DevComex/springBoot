@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+    <meta content="IE=11.0000" http-equiv="X-UA-Compatible">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width = device-width ,height = device-height ,initial-scale = 1,minimum-scale = 1,maximum-scale = 1,user-scalable =no" />
+    <title>小鸡麻将</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/logoin.css" />
+    <script>var rc = "${rc.contextPath}";</script>
+    <script src="../resources/js/common/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script src="../resources/js/common/configCaptcha.js" type="text/javascript"></script>
+    <script src="../resources/js/static-ui/login.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () { $(".reg_form_web").LoginValidate(); });
+    </script>
+</head>
+<body>
+    <div class="top_div"></div>
+    <div class="regbox">
+        <form method="post" action="" class="reg_form_web">
+            <div class="regboxr1">
+                <div class="tou"></div>
+                <div class="initial_left_hand" id="left_hand"></div>
+                <div class="initial_right_hand" id="right_hand"></div>
+            </div>
+            <p class="isptwo item_p">
+                <span class="ipt_box">
+                    <input class="ipt" data-tip="用户名" type="text" name="account" placeholder="请输入用户名" value="">
+                </span>
+                <span class="error tip"></span>
+            </p>
+            <p class="posr pb10 item_p">
+                <span class="ipt_box">
+                    <input class="ipt" data-tip="密码" id="password" name="password" type="password" maxlength="16" placeholder="请输入密码" value="">
+                </span>
+                <span class="error tip"></span>
+            </p>
+            <p class="posr txtleft dis js_iscaptcha item_p pb10">
+                <span class="ipt_box">
+                <input class="ipt yzm" id="password1" type="text" data-tip="验证码" name="captchaCode" placeholder="请输入验证码" value=""  maxlength="4">
+				<img src="" class="js_capimg">
+				</span>
+				<a href="javascript:;" class="kbq js_kbq" target="_blank">看不清？</a>
+				<span class="error tip"></span>
+            </p>
+			<p class="posr txtleft item_p">
+			<span class="ipt_box">
+                <input type="checkbox" name="agreement" value="1" data-tip="合作协议" checked="checked" class="agreement">
+                同意<a href="javascript:;" class="artxt">合作协议</a>
+				</span>
+				<span class="error tip"></span>
+            </p> 
+			<p class="posr txtleft">&nbsp;</p>
+            <div class="footdiv">
+                <p class="isp">
+                    <span class="fl"><span class="gylogo">小鸡麻将</span></span>
+                    <span class="fr">
+                        <a href="javascript:;" class="loginbtn js_submitform">登录</a>
+                        <a href="javascript:;" class="rpwbtn js_findpwd">&nbsp;&nbsp;找回密码</a>
+                    </span>
+                </p>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

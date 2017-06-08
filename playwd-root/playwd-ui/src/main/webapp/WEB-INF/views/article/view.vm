@@ -1,0 +1,196 @@
+#parse("public/publicTop.vm")
+<link rel="stylesheet" href="${rc.contextPath}/static/css/readStyle.css">
+<script src="${rc.contextPath}/static/js/editor/ueditor.config.js"></script>
+<script src="${rc.contextPath}/static/js/editor/ueditor.all.min.js"></script>
+<script src="${rc.contextPath}/static/js/editor/lang/zh-cn/zh-cn.js"></script>
+<script src="${rc.contextPath}/static/js/viewDetail.js" charset="utf-8"></script>
+
+    <div class="maiin_left">
+        <div class="detailsTitle">
+            <h1>$!item.title
+                #if( $!item.status == "recommended"  )
+                    <span class="recommendIcon"></span>
+                #end
+                </h1>
+            <p><span class="homeIcon"></span><a href="/">图文驿站</a> > <a href="/article/lists?categoryId=$!item.firstCategoryId">$!item.firstCategoryName</a> > <b style="color:red;font-weight:normal;">正文</b></p>
+        </div>
+        <div class="detailsContent">
+            <p style="overflow:hidden;margin:13px 0 60px;"><span class="peopleIcon"></span>
+                <span>【$!item.serverName】</span>
+                <span>$!item.author </span>
+                <span class="clockIcon"></span>
+                <span>$!item.publishTimeStr</span>
+                <span class="blueEye"></span>
+                <span>$!item.viewCount </span>
+                <span class="orangeHeart"></span>
+                <span>$!item.likeCount </span>
+            </p>
+            <div class="articleContents">
+                $!item.content
+            </div>
+            <div class="articleComment">
+                <!-- 标题 -->
+                <div class="articleComment_title">
+                    <h3>评论区</h3><p><span class="comentPerson">$!threadCount</span>次评论 <span class="participationPerson">$!participationCount</span>人参与</p>
+                </div>
+                <!-- 评论框 -->
+                <div class="articleComment_content">
+
+                </div>
+                <div class="commentL">
+                    <div class="commentL_title">
+                        <p>发表回帖：</p>
+                    </div>
+                    <script id="editorA" type="text/plain" style="width: 755px; height: 80px;"></script>
+                </div>
+                <p class="p_submitPL"><a class="js_submitPLA">发表</a></p>
+            </div>
+            <input type="hidden" id="userCode" name="" value="$!item.userId">
+            <input type="hidden" id="articleCode" name="" value="$!item.code">
+        </div>
+    </div>
+    <!-- 右侧边栏 -->
+    <div class="maiin_right">
+        <div class="rightBoxForAuthor">
+            <div class="rightTitle"></div>
+            <div class="peopleMessage">
+                <div class="peopleHead">
+                    <img src="http://img.gyyx.cn/temp1/M00/00/3F/wKgGpljQ_MqAOor1AAIPHYHhTTM746.gif" alt="">
+                </div>
+                <div class="peopleInfo">
+                    <h4><span class="authorName">$!item.author</span></h4>
+                    <p>所在区服:<span class="serverName">$!item.serverName</span></p>
+                </div>
+            </div>
+            <div class="authorInfo">
+                <p><span class="moneyIcon"></span><span>财富榜排名：</span><span class="getNum" style="color:#f65656"></span></p>
+                <p><span class="nickIcon"></span><span>所获称号：</span><span class="getNickName" style="color:#f65656">你爹</span></p>
+                <p><span class="prizeIcon"></span><span>所获奖励：</span><span class="getPrize" style="color:#f65656"></span></p>
+                <p><span class="articleIcon"></span><span>发表作品数:</span><span class="artucleNum" style="color:#f65656"></span></p>
+            </div>
+            <h5>记者力作</h5>
+            <div class="articleBest">
+                #foreach( $elem in $!userArticleList )
+                <div class="articleBestLi">
+                    <div class="especialNum num$!{velocityCount}">
+
+                    </div>
+                    <div class="articleInfo">
+                        <h6><a href="/article/view/$!elem.code" target="_blank">$!elem.title</a></h6>
+                        <p><span class="blueEye"></span><span>$!elem.viewCount</span>
+                        <!-- <span class="orangeHeasrt"></span><span>$!elem.collectCount</span> -->
+                        </p>
+                    </div>
+                </div>
+                #end
+            </div>
+
+        </div>
+        <!-- 漂浮 -->
+        <div class="flyingBar">
+            <ul>
+                <li class="floatType1">
+                    <a class="floatBox ">
+                        <span>评论</span>
+                    </a>
+                </li>
+                #if( $!collect == 'true'  )
+                    <li class="floatType2" data-click="false">
+                        <a class="floatBox on">
+                            <span>已收藏</span>
+                        </a>
+                    </li>
+                #else
+                    <li class="floatType2" data-click="true">
+                        <a class="floatBox ">
+                            <span>收藏</span>
+                        </a>
+                    </li>
+                #end
+
+                #if( $!praise == 'true'  )
+                    <li class="floatType3" data-click="false">
+                        <a class="floatBox on">
+                            <span>已点赞</span>
+                        </a>
+                #else
+                    <li class="floatType3" data-click="true">
+                        <a class="floatBox">
+                            <span>点赞</span>
+                        </a>
+                #end
+
+
+                </li>
+                <li class="floatType4">
+                    <a class="floatBox " href="/article/upload">
+                        <span>投稿</span>
+                    </a>
+                </li>
+                <li class="floatType5">
+                    <a class="floatBox " >
+                        <span>分享</span>
+                    </a>
+                </li>
+                <li class="floatType6" data-show="true">
+                    <a class="floatBox ">
+                        <span>收起</span>
+                    </a>
+                </li>
+            </ul>
+            <ul class="secondTypeUl">
+                <li class="floatType7">
+                    <div class="secFloatBox">
+                        <a target="_blank" href="http://v.t.sina.com.cn/share/share.php?url=$!item.shareFullUrl&title=$!item.title&content=utf-8&source=&sourceUrl=&pic="><div class="secIcon">
+
+                        </div></a>
+                    </div>
+                </li>
+                <li class="floatType8">
+                    <div class="secFloatBox">
+                        <a target="_blank" href="http://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?title=$!item.title&url=$!item.shareFullUrl&summary="><div class="secIcon">
+
+                        </div></a>
+                    </div>
+                </li>
+                <li class="floatType9">
+                    <div class="secFloatBox">
+                        <a href="http://share.v.t.qq.com/index.php?c=share&a=index&title=$!item.title&url=$!item.shareFullUrl" target="_blank"><div class="secIcon">
+
+                        </div></a>
+                    </div>
+                </li>
+                <li class="floatType10">
+                    <div class="secFloatBox">
+                        <div class="secIcon">
+
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="shareUrl" style="position: absolute; z-index:50; display:none; top:100px;">
+                <img src="https://sp0.baidu.com/5aU_bSa9KgQFm2e88IuM_a/micxp1.duapp.com/qr.php?value=https%3A%2F%2F$!item.url" alt="">
+            </div>
+
+
+        </div>
+    </div>
+    <!-- 举报弹窗 -->
+    <div class="reportBox">
+        <form>
+            <h2>举报<a id="popClose"><span id="closeIcon"></span></a></h2>
+            <div class="reportRadioBox">
+                <p>请选择举报理由</p>
+                <p class="radidP"><input type="radio" name="reportType" value="广告垃圾">广告垃圾</p>
+                <p class="radidP"><input type="radio" name="reportType" value="违规内容">违规内容</p>
+                <p class="radidP"><input type="radio" name="reportType" value="恶意灌水">恶意灌水</p>
+                <p class="radidP"><input type="radio" name="reportType" value="重复发帖">重复发帖</p>
+                <p class="radidP"><input type="radio" name="reportType" value="其他">其他</p>
+            </div>
+            <div class="reportNotebox">
+                <textarea name="name" id="reportNote" disabled="disabled"></textarea>
+                <p>还可以输入<span>200</span>个字 <a href="javascript:;" id="submitReport" class="submitReport">确定</a></p>
+            </div>
+        </form>
+    </div>
+#parse("public/publicBottom.vm")

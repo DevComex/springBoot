@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.playwd.dao.playwd.MessageDao" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.playwd.beans.playwd.MessageBean" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="content_type" property="contentType" jdbcType="VARCHAR" />
+    <result column="content_id" property="contentId" jdbcType="INTEGER" />
+    <result column="content_title" property="contentTitle" jdbcType="VARCHAR" />
+    <result column="message_type" property="messageType" jdbcType="VARCHAR" />
+    <result column="message" property="message" jdbcType="VARCHAR" />
+    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <!-- 根据ID查询 -->
+  <select id="selectByCode" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select *
+    from playwd_message_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  
+  <!-- 插入 -->
+  <insert id="insert" parameterType="cn.gyyx.playwd.beans.playwd.MessageBean" >
+    insert into playwd_message_tb (code, user_id, content_type, 
+      content_id, message_type, message, 
+      is_delete, create_time,content_title)
+    values (#{code,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{contentType,jdbcType=VARCHAR}, 
+      #{contentId,jdbcType=INTEGER}, #{messageType,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR}, 
+      #{isDelete,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP},#{contentTitle,jdbcType=VARCHAR})
+  </insert>
+ 
+  <!-- 根据用户获取小编回复列表 -->
+  <select id="selectMessageList" resultMap="BaseResultMap" >
+	SELECT message.code,message.user_id,message.message,message.create_time
+ 	from playwd_message_tb message 
+		JOIN  (SELECT code
+			   FROM playwd_message_tb 
+			   where is_delete=0
+					and user_id=#{userId} 
+					and message_type = 'editor'
+			   ORDER BY code DESC LIMIT #{startCode},1) messageTemp 
+    where message.code&lt;=messageTemp.code 
+		   and message.is_delete=0
+		   and message.user_id=#{userId} 
+		   and message_type = 'editor'		
+	order by message.code DESC LIMIT #{pageSize}
+  </select>
+  <!-- 根据用户获取小编回复数量 -->
+  <select id="selectMessageCount" resultType="int" >
+	SELECT count(code) as num
+ 	from playwd_message_tb  
+    where is_delete=0
+	   and user_id=#{userId} 
+	   and message_type = 'editor'		
+  </select>
+  <!-- 根据分类和消息分类获取消息 -->
+  <select id="selectMessage" resultMap="BaseResultMap">
+    select *
+    from playwd_message_tb
+    where content_type=#{contentType} 
+	    and is_delete=0 
+	    and content_id=#{contentId}
+	    and message_type=#{messageType}
+  </select>
+  <!-- 我的消息列表 -->
+  <select id="selectMyMessageList" resultMap="BaseResultMap" >
+	SELECT message.*
+ 	from playwd_message_tb message 
+		JOIN  (SELECT code
+			   FROM playwd_message_tb 
+			   where is_delete=0
+			   		and message_type!='editor'
+					and user_id=#{userId} 
+			   ORDER BY code DESC LIMIT #{startCode},1) messageTemp 
+    where message.code&lt;=messageTemp.code 
+		   and message.is_delete=0
+		   and message.message_type!='editor'
+		   and message.user_id=#{userId} 		
+	order by message.code DESC LIMIT #{pageSize}
+  </select>
+  <!-- 我的消息数量 -->
+  <select id="selectMyMessageCount" resultType="int" >
+    select count(code) as num
+    from playwd_message_tb
+    where user_id=#{userId} 
+	    and is_delete=0 
+	    and message_type!='editor'
+  </select>
+</mapper>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.playwd.dao.playwd.TimeLineDao">
+  <resultMap id="BaseResultMap" type="cn.gyyx.playwd.beans.playwd.TimeLineBean">
+    <id column="code" jdbcType="INTEGER" property="code" />
+    <result column="from_user_id" jdbcType="INTEGER" property="fromUserId" />
+    <result column="operate_id" jdbcType="INTEGER" property="operateId" />
+    <result column="to_user_id" jdbcType="INTEGER" property="toUserId" />
+    <result column="content_type" jdbcType="VARCHAR" property="contentType" />
+    <result column="content_id" jdbcType="INTEGER" property="contentId" />
+    <result column="operate_type" jdbcType="VARCHAR" property="operateType" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="description" jdbcType="VARCHAR" property="description" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    code, from_user_id, operate_id, to_user_id, content_type, content_id, operate_type, create_time, 
+    description
+  </sql>
+  
+  <!-- 根据code查询-->
+  <select id="getByCode" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_timeline_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  
+  <!-- 插入 -->
+  <insert id="insert" parameterType="cn.gyyx.playwd.beans.playwd.TimeLineBean">
+    insert into playwd_timeline_tb (code, from_user_id,operate_id, to_user_id, 
+      content_type, content_id, operate_type, 
+      create_time, description)
+    values (#{code,jdbcType=INTEGER}, #{fromUserId,jdbcType=INTEGER}, #{operateId,jdbcType=INTEGER}, #{toUserId,jdbcType=INTEGER}, 
+      #{contentType,jdbcType=VARCHAR}, #{contentId,jdbcType=INTEGER}, #{operateType,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{description,jdbcType=VARCHAR})
+  </insert>
+  
+  <!-- 更新 -->
+  <update id="update" parameterType="cn.gyyx.playwd.beans.playwd.TimeLineBean">
+    update playwd_timeline_tb
+    set operate_id = #{operateId,jdbcType=INTEGER},
+      to_user_id = #{toUserId,jdbcType=INTEGER},
+      from_user_id = #{fromUserId,jdbcType=INTEGER},
+      content_type = #{contentType,jdbcType=VARCHAR},
+      content_id = #{contentId,jdbcType=INTEGER},
+      operate_type = #{operateType,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      description = #{description,jdbcType=VARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 获取数量-->
+  <select id="getCount" parameterType="cn.gyyx.playwd.beans.playwd.TimeLineBean" resultType="int">
+    select 
+    count(1)
+    from playwd_timeline_tb
+    where 
+    <if test="fromUserId != null" >
+        from_user_id = #{fromUserId}
+    </if>
+    <if test="operateId != null" >
+        operate_id = #{operateId}
+    </if>
+    <if test="contentType != null" >
+        and content_type = #{contentType}
+    </if>
+    <if test="contentId != null" >
+        and content_id = #{contentId}
+    </if>
+    <if test="operateType != null" >
+        and operate_type = #{operateType}
+    </if>
+    
+  </select>
+</mapper>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.playwd.dao.playwd.RmbOrderDao">
+  <resultMap id="BaseResultMap" type="cn.gyyx.playwd.beans.playwd.RmbOrderBean">
+    <id column="code" jdbcType="INTEGER" property="code" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="content_type" jdbcType="VARCHAR" property="contentType" />
+    <result column="content_id" jdbcType="INTEGER" property="contentId" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="prize_id" jdbcType="INTEGER" property="prizeId" />
+    <result column="rmb" jdbcType="DECIMAL" property="rmb" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="retry_count" jdbcType="INTEGER" property="retryCount" />
+    <result column="retry_time" jdbcType="TIMESTAMP" property="retryTime" />
+  </resultMap>
+  
+  <insert id="insertRmbOrder" parameterType="cn.gyyx.playwd.beans.playwd.RmbOrderBean">
+    insert into playwd_rmb_order_tb (
+    								order_id, 
+    								content_type, 
+      								content_id, 
+      								user_id, 
+      								account, 
+      								prize_id, 
+      								rmb, 
+      								create_time, 
+      								status, 
+      								retry_count, 
+      								retry_time
+     								 )
+    						values (
+    								#{orderId,jdbcType=VARCHAR}, 
+    								#{contentType,jdbcType=VARCHAR}, 
+								    #{contentId,jdbcType=INTEGER}, 
+								    #{userId,jdbcType=INTEGER}, 
+								    #{account,jdbcType=VARCHAR}, 
+								    #{prizeId,jdbcType=INTEGER}, 
+								    #{rmb,jdbcType=DECIMAL}, 
+								    now(), 
+								    #{status,jdbcType=VARCHAR}, 
+								    0, 
+								    now()
+      )
+  </insert>
+</mapper>

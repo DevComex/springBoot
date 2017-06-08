@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="麻将单元测试报告">
+	<test name="全部测试">
+		<classes>
+			<class name="cn.mahjong.service.ExchangeServiceTest"></class>
+			<class name="cn.mahjong.service.HeadServiceTest"></class>
+			<class name="cn.mahjong.service.CaptchaServiceImplTest"></class>
+			<class name="cn.mahjong.service.LoginServiceImplTest"></class>
+			<class name="cn.mahjong.service.RechargeServiceImplTest"></class>
+			<class name="cn.mahjong.service.UserServiceImplTest"></class>
+		</classes>
+	</test> <!-- Test -->
+
+	<listeners>
+		<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+	</listeners>
+</suite> <!-- Suite -->

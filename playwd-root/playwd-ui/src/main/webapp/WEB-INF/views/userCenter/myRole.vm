@@ -1,0 +1,83 @@
+#parse("public/userCenterHead.vm")
+
+
+<div class="web_wrap">
+    <div class="banner_pers">
+        <span class="h_shade pngbg"></span>
+        <div class="w_head">
+            <span class="w_hinfo">
+                <a href="./Role" id="js_HeadPortrait">
+                    <img src="/Content/images/default_rolepic.jpg" title="点击进入我的角色" />
+                </a>
+            </span>
+            <span id="js_RoleName"></span>
+        </div>
+    </div>
+    <div class="v_list_tit pad30">
+        <ul class="v_list_class">
+            <li><a href="./myMessage">我的信息</a></li>
+            <li><a href="/userCenter/mycollect">我的收藏</a></li>
+            <li><a href="javascript:;">我的上传</a></li>
+            <li><a href="/userCenter/editorMessage">编辑回复</a></li>
+            <li class="on"><a href="/userCenter/myRoles">我的角色</a></li>
+        </ul>
+    </div>
+    <input type="hidden" value="Role" id="js_HidRole" />
+
+    <div class="web_wrap wdjs_box" id="js_RoleList">
+
+        <div class="wd_js_c"><a href="javascript:;" id="js_SynchroBtn">同步角色</a></div>
+    </div>
+
+    <div class="wd_js_r" id="js_SyncForm">
+        <form class="js_bindRole">
+            <p>
+                <label>大区</label>
+                <select class="input_w input_w135" id="js_Net">
+                    <option value="">&nbsp;请选择区组</option>
+                    <option value="1">&nbsp;网通</option>
+                    <option value="2">&nbsp;电信</option>
+                    <option value="3">&nbsp;双线</option>
+                </select>
+            </p>
+            <p>
+                <label>服务器</label>
+                <select class="input_w input_w135" id="js_Server">
+                    <option value="">&nbsp;请选择服务器</option>
+                </select>
+            </p>
+            <p>
+                <label>QQ</label>
+                <span><input type="text" class="input_w input_w115" id="js_QQ" maxlength="15" /></span>
+
+            </p>
+            <div class="js_captcha disnone" style="visibility: hidden;display:none;">
+                <p>
+                    <label>验证码</label>
+                    <span><input   type="text" class="input_w input_w115" id="js_Captcha" maxlength="6" /></span>
+                </p>
+                <p>
+                    <label>&nbsp;</label>
+                    <span><img height="34" width="94" src="" alt="验证码" class="login_code js_captchaimg" id="captcha_image"><a class="changecode">&nbsp;</a> </span>
+                </p>
+            </div>
+            <p>注： 选择服务器后将自动获取账号在该服务器下的角色信息</p>
+            <p class="js_but">
+                <a href="javascript:;" class="js_upbut input_w65" id="js_SyncRole" data-able="true">确定</a>
+                <a href="#" class="js_qxbut input_w65" id="js_CancelSync">取消</a>
+                <input type="hidden" name="captcha" class="js_insertCaptcha" value="">
+            </p>
+            <p class="errorTip" id="js_Error"></p>
+        </form>
+
+    </div>
+
+
+
+</div>
+
+</div>
+
+
+
+#parse("public/userCenterBottom.vm")

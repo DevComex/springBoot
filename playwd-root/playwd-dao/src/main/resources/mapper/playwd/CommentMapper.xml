@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.playwd.dao.playwd.CommentDao" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.playwd.beans.playwd.CommentBean" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="parent_code" property="parentCode" jdbcType="INTEGER" />
+    <result column="content_type" property="contentType" jdbcType="VARCHAR" />
+    <result column="content_id" property="contentId" jdbcType="INTEGER" />
+    <result column="from_user_id" property="fromUserId" jdbcType="INTEGER" />
+    <result column="from_user_account" property="fromUserAccount" jdbcType="VARCHAR" />
+    <result column="to_user_id" property="toUserId" jdbcType="INTEGER" />
+    <result column="to_user_account" property="toUserAccount" jdbcType="VARCHAR" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="is_show" property="isShow" jdbcType="BIT" />
+    <result column="from_ip" property="fromIp" jdbcType="VARCHAR" />
+    <result column="reply_count" property="replyCount" jdbcType="INTEGER" />
+  </resultMap>
+  
+  <!-- 查询bycode -->
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    *
+    from playwd_comment_tb
+    where code = #{code}
+  </select>
+  
+  <!-- 获取内容的评论和参与的数量 -->
+  <select id="getContentCommentCount" resultType="java.util.Map" >
+    select 
+    sum(case when parent_code = 0 then 1 else 0 end) as threadCount,count(code) as participationCount
+    from playwd_comment_tb
+    where content_type = #{contentType}
+    and content_id = #{contentId} and is_show = 1
+  </select> 
+  
+  <!-- 获取内容的评论数-->
+  <select id="getCount" resultType="java.lang.Integer" >
+    select 
+    count(1)
+    from playwd_comment_tb
+    where content_type = #{contentType}
+    and content_id = #{contentId} and is_show = 1
+  </select> 
+  
+  <!-- 获取浏览页评论列表 -->
+  <select id="getBrowsePageCommentList" resultMap="BaseResultMap" >
+    select a.*,ifnull(c.reply_count,0) as reply_count 
+    from playwd_comment_tb a left join
+		(select b.parent_code as parent_code ,count(1) as reply_count 
+		from playwd_comment_tb b where b.parent_code !=0 and b.is_show = 1 group by b.parent_code ) c
+    on a.code and a.code = c.parent_code 
+    where 
+    a.content_type = #{contentType} and a.content_id = #{contentId} and a.parent_code = 0 and a.is_show = 1 order by a.create_time desc
+    limit #{startSize},#{endSize}
+  </select>
+  
+  <!-- 获取浏览页回复列表 -->
+  <select id="getBrowsePageReplyList" resultMap="BaseResultMap" >
+    select a.* 
+    from playwd_comment_tb a 
+    where 
+    parent_code = #{commentId} and a.is_show = 1 order by a.create_time desc
+  </select>
+  
+  <!-- 插入 -->
+  <insert id="insert" parameterType="cn.gyyx.playwd.beans.playwd.CommentBean" useGeneratedKeys="true"  
+        keyProperty="code">
+    insert into playwd_comment_tb (parent_code, content_type, 
+      content_id, from_user_id, from_user_account, 
+      to_user_id, to_user_account, content, 
+      create_time, is_show, from_ip
+      )
+    values (#{parentCode,jdbcType=INTEGER}, #{contentType,jdbcType=VARCHAR}, 
+      #{contentId,jdbcType=INTEGER}, #{fromUserId,jdbcType=INTEGER}, #{fromUserAccount,jdbcType=VARCHAR}, 
+      #{toUserId,jdbcType=INTEGER}, #{toUserAccount,jdbcType=VARCHAR}, #{content,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{isShow,jdbcType=BIT}, #{fromIp,jdbcType=VARCHAR}
+      )
+  </insert>
+  
+  <!-- 修改评论状态 -->
+  <update id="updateCommentIsShow" >
+    update playwd_comment_tb
+    set is_show = #{isShow}
+    where code = #{code}
+  </update>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <!-- 查看详情 -->
+  <select id="viewDetailsByCode" resultType="java.util.Map" parameterType="map">
+  	SELECT a.from_user_account account ,date_format(a.create_time, '%Y-%m-%d %H:%i:%s') create_time ,a.code ,a.content FROM playwd_comment_tb a WHERE a.`code`= #{code}
+  	<if test="parent !=null and parent !='child'">
+		UNION 
+		SELECT d.from_user_account account ,date_format(d.create_time, '%Y-%m-%d %H:%i:%s') create_time ,d.code ,d.content FROM playwd_comment_tb d WHERE  d.`parent_code` = #{code} 
+	</if>
+	<if test="parent !=null and parent !='parent'">
+		UNION 
+		SELECT d.from_user_account account ,date_format(d.create_time, '%Y-%m-%d %H:%i:%s') create_time,d.code ,d.content FROM playwd_comment_tb d WHERE  d.`parent_code` = (
+			SELECT parent_code FROM playwd_comment_tb  WHERE  `code`= #{code} 
+		) 
+		UNION 
+		SELECT b.from_user_account account ,date_format(b.create_time, '%Y-%m-%d %H:%i:%s') create_time ,b.code ,b.content FROM playwd_comment_tb b WHERE b.`code`= (
+			SELECT parent_code FROM playwd_comment_tb  WHERE  `code`= #{code} 
+		) 
+	</if>
+	
+	
+  </select>
+    <!-- 查看评论列表 -->
+  <select id="selectCommentList" resultType="java.util.Map" parameterType="map" >
+ 		select c.code, 
+c.content,c.from_user_account account,c.is_show,c.from_ip,
+date_format(c.create_time, '%Y-%m-%d %H:%i:%s') create_time
+,IF(c.is_show=1,'展示','隐藏') show_type
+,IF(c.content_type='article','图文驿站',c.content_type) content_type
+,a.title
+FROM playwd_comment_tb c
+LEFT JOIN playwd_article_tb a ON a.`code`=c.content_id
+WHERE 1=1 
+<if test="content!=null and content !=''">
+AND c.content LIKE '%${content}%'
+</if>
+<if test="contentType!=null and contentType!=''">
+AND c.content_type=#{contentType}
+</if>
+<if test="account !=null and account !=''">
+AND c.from_user_account LIKE '%${account}%'
+</if>
+<if test="title !=null and title !=''">
+AND a.title LIKE '%${title}%'
+</if>
+<if test="isShow !=null  ">
+AND c.is_show=#{isShow}
+</if>
+<if test="startTime !=null and startTime !=''">
+AND c.create_time &gt;= #{startTime}
+</if>
+<if test="endTime !=null and endTime !=''">
+AND c.create_time &lt;= #{endTime}
+</if>
+ORDER BY c.create_time desc
+limit #{startSize},#{endSize}
+  </select>
+  
+   <!-- 查看评论列表 数量 -->
+  <select id="selectCommentListCount" resultType="int" parameterType="map" >
+ 		select  count(*)
+FROM playwd_comment_tb c
+LEFT JOIN playwd_article_tb a ON a.`code`=c.content_id
+WHERE 1=1 
+<if test="content!=null and content!=''">
+AND c.content LIKE '%${content}%'
+</if>
+<if test="contentType!=null and contentType!=''">
+AND c.content_type=#{contentType}
+</if>
+<if test="account !=null and account !=''">
+AND c.from_user_account LIKE '%${account}%'
+</if>
+<if test="title !=null and title !=''">
+AND a.title LIKE '%${title}%'
+</if>
+<if test="isShow !=null  ">
+AND c.is_show=#{isShow}
+</if>
+<if test="startTime !=null and startTime !=''">
+AND c.create_time &gt;= #{startTime}
+</if>
+<if test="endTime !=null and endTime !=''">
+AND c.create_time &lt;= #{endTime}
+</if>
+ORDER BY c.create_time desc
+  </select>
+</mapper>

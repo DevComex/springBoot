@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.playwd.dao.playwd.WdgiftOrderDao">
+  <resultMap id="WdgiftOrderResultMap" type="cn.gyyx.playwd.beans.playwd.WdgiftOrderBean">
+    <id column="code" jdbcType="INTEGER" property="code" />
+    <result column="order_id" jdbcType="VARCHAR" property="orderId" />
+    <result column="content_type" jdbcType="VARCHAR" property="contentType" />
+    <result column="content_id" jdbcType="INTEGER" property="contentId" />
+    <result column="prize_id" jdbcType="INTEGER" property="prizeId" />
+    <result column="game_id" jdbcType="INTEGER" property="gameId" />
+    <result column="server_id" jdbcType="INTEGER" property="serverId" />
+    <result column="server_name" jdbcType="VARCHAR" property="serverName" />
+    <result column="gift" jdbcType="VARCHAR" property="gift" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="retry_count" jdbcType="INTEGER" property="retryCount" />
+    <result column="retry_time" jdbcType="TIMESTAMP" property="retryTime" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+  </resultMap>
+  <!-- 增加虚拟物品订单 -->
+  <insert id="insertWdgiftOrder" parameterType="cn.gyyx.playwd.beans.playwd.WdgiftOrderBean" >
+    insert into playwd_wdgift_order_tb 
+    										(order_id, 
+									      <if test="contentType != null">
+									        content_type,
+									      </if>
+									      <if test="contentId != null">
+									        content_id,
+									      </if>
+									      <if test="prizeId != null">
+									        prize_id,
+									      </if>
+   											 game_id, 
+										     server_id, 
+										     server_name, 
+										     gift, 
+										     create_time, 
+										     status, 
+										     retry_count, 
+										     retry_time, 
+										     user_id, 
+										     account)
+    								values (#{orderId,jdbcType=VARCHAR}, 
+   										  <if test="contentType != null">
+									        #{contentType,jdbcType=VARCHAR},
+									      </if>
+									      <if test="contentId != null">
+									        #{contentId,jdbcType=INTEGER},
+									      </if>
+							      		  <if test="prizeId != null">
+									        #{prizeId,jdbcType=INTEGER},
+									      </if>
+      										#{gameId,jdbcType=INTEGER}, 
+      										#{serverId,jdbcType=INTEGER}, 
+      										#{serverName,jdbcType=VARCHAR}, 
+      										#{gift,jdbcType=VARCHAR}, 
+      										now(), 
+      										#{status,jdbcType=VARCHAR}, 
+      										0, 
+      										now(), 
+      										#{userId,jdbcType=INTEGER}, 
+      										#{account,jdbcType=VARCHAR})
+  </insert>
+  
+  <!-- 获取要发放的订单列表：状态为等待发送且未达到最大重试次数且到达下次重试时间 -->
+  <select id="getOrderListToSend" resultMap="WdgiftOrderResultMap" >
+    select *
+    from playwd_wdgift_order_tb
+    where status = 'waitgrant' and retry_count &lt; #{maxTryNum}
+     and retry_time &lt; now() limit 0,#{itemNum}
+  </select>
+  
+  <!-- 根据ID获取订单-->
+  <select id="getOrderByCode" resultMap="WdgiftOrderResultMap" >
+    select *
+    from playwd_wdgift_order_tb
+    where code = #{code}
+  </select>
+  
+  <update id="updateOrderStatus">
+  	update playwd_wdgift_order_tb 
+  	set status = #{status} where code = #{code}
+  </update>
+  
+  <update id="updateOrderRetryInfo">
+  	update playwd_wdgift_order_tb 
+  	set retry_count = #{retryCount},retry_time = #{retryTime} where code = #{code}
+  </update>
+  
+</mapper>

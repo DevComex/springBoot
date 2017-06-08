@@ -1,0 +1,4 @@
+common.css   里面写头部、尾部、
+icon.css     放翻页，标题、图标
+globle.css   放内容
+layout.css   放框架层比如box  left首页658px  right318px   中间22px

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.playwd.dao.playwd.CollectDao" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.playwd.beans.playwd.Collect" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="sources_code" property="sourcesCode" jdbcType="INTEGER" />
+    <result column="sources_type" property="sourcesType" jdbcType="NVARCHAR" />
+    <result column="creater_time" property="createrTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="NVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, sources_code, sources_type, creater_time, is_delete, user_id, user_name 
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_collect_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  
+  <select id="getCollectByUserId" resultType="java.util.Map" parameterType="map" >
+  SELECT a.code ,a.title,a.author,a.cover ,a.summary,
+t.title childTitle,tt.title parentTitle,c.user_id
+FROM playwd_collect_tb c   
+LEFT JOIN playwd_article_tb a ON a.`code` =c.sources_code
+LEFT JOIN playwd_category_tb t ON t.`code` =a.category_id
+LEFT JOIN playwd_category_tb tt ON t.parent_id = tt.`code`
+WHERE a.is_delete =0 and c.is_delete =0  and c.user_id=#{userId}  limit #{startSize},#{endSize}
+     
+  </select>
+  
+  
+  <select id="getCollectCountByUserId" resultType="int" parameterType="int" >
+  SELECT count(*)
+FROM playwd_collect_tb c   
+LEFT JOIN playwd_article_tb a ON a.`code` =c.sources_code
+LEFT JOIN playwd_category_tb t ON t.`code` =a.category_id
+LEFT JOIN playwd_category_tb tt ON t.parent_id = tt.`code`
+WHERE a.is_delete =0 and c.is_delete =0  and c.user_id=#{userId}  
+  </select>
+  
+  
+  <select id="selectByManhuaCode" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select top 1
+     <include refid="Base_Column_List" />
+    from playwd_collect_tb
+    where sources_code = #{manhuaCode,jdbcType=INTEGER} and user_id = #{userId,jdbcType=INTEGER} and is_delete =0 and sources_type =4
+  </select>
+  
+ <select id="getUserCollectCount" resultType="int" parameterType="java.lang.Integer" >
+    select count(1)
+    from playwd_collect_tb
+    where sources_code = #{code,jdbcType=INTEGER} and user_id = #{userId,jdbcType=INTEGER} and is_delete =0 and sources_type ='article'
+  </select>
+  
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from playwd_collect_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.gyyx.playwd.beans.playwd.Collect" >
+    insert into playwd_collect_tb (code, sources_code, sources_type, 
+      creater_time, is_delete, user_id, 
+      user_name)
+    values (#{code,jdbcType=INTEGER}, #{sourcesCode,jdbcType=INTEGER}, #{sourcesType,jdbcType=INTEGER}, 
+      #{createrTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIT}, #{userId,jdbcType=INTEGER}, 
+      #{userName,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gyyx.playwd.beans.playwd.Collect" >
+    insert into playwd_collect_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="sourcesCode != null" >
+        sources_code,
+      </if>
+      <if test="sourcesType != null" >
+        sources_type,
+      </if>
+      <if test="createrTime != null" >
+        creater_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="sourcesCode != null" >
+        #{sourcesCode,jdbcType=INTEGER},
+      </if>
+      <if test="sourcesType != null" >
+        #{sourcesType,jdbcType=INTEGER},
+      </if>
+      <if test="createrTime != null" >
+        #{createrTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.playwd.beans.playwd.Collect" >
+    update playwd_collect_tb
+    <set >
+      <if test="sourcesCode != null" >
+        sources_code = #{sourcesCode,jdbcType=INTEGER},
+      </if>
+      <if test="sourcesType != null" >
+        sources_type = #{sourcesType,jdbcType=INTEGER},
+      </if>
+      <if test="createrTime != null" >
+        creater_time = #{createrTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.playwd.beans.playwd.Collect" >
+    update playwd_collect_tb
+    set sources_code = #{sourcesCode,jdbcType=INTEGER},
+      sources_type = #{sourcesType,jdbcType=INTEGER},
+      creater_time = #{createrTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIT},
+      user_id = #{userId,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=NVARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <!-- 查询收藏状态和阅读记录 -->
+  <select id="selectCollectionStatusAndReadLog" parameterType="cn.gyyx.playwd.beans.playwd.Collect" 
+  	resultMap="BaseResultMap">
+	SELECT
+		<include refid="Base_Column_List" />
+	FROM
+		playwd_collect_tb
+	WHERE
+		sources_type = 4
+	AND sources_code = #{sourcesCode,jdbcType=INTEGER}
+	AND is_delete = 0
+	AND user_id =  #{userId,jdbcType=INTEGER}
+  </select>
+  <!-- 更新阅读记录 -->
+  <update id="updateReadLogByPrimaryKey" parameterType="cn.gyyx.playwd.beans.playwd.Collect" >
+    update playwd_collect_tb
+    set read_log_code=#{readLogCode}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <!-- 取消收藏 -->
+  <update id="updateStatusByCode" parameterType="int" >
+    update playwd_collect_tb
+    set is_delete =1
+    where sources_code = #{code,jdbcType=INTEGER}
+  </update>
+</mapper>

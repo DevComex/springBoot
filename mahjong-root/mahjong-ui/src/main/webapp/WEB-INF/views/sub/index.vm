@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+<head>
+    <meta content="IE=11.0000" http-equiv="X-UA-Compatible">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width = device-width ,height = device-height ,initial-scale = 1,minimum-scale = 1,maximum-scale = 1,user-scalable =no" />
+    <title>小鸡麻将</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../resources/css/main.css" />
+    <script>var rc = "${rc.contextPath}";</script>
+    <script src="../resources/js/common/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script src="../resources/js/common/alertbox.js" type="text/javascript"></script>
+    <script src="../resources/js/static-ui/AgentManage.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () { $(".reg_form_web").HeadManage(); });
+    </script>
+</head>
+<body>
+    <div class="topbar-wrap white">
+        <div class="topbar-inner clearfix">
+            <div class="topbar-logo-wrap clearfix">
+                <ul class="navbar-list clearfix">
+                    <li>下级管理</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container clearfix">
+        <div class="main-wrap noleft">
+            <div class="result-wrap">
+                <form method="post" action="" class="reg_form_web">
+                    <p class="item_p">
+                        <label>游戏名称：</label>
+                        <span class="ipt_box">
+                            <select class="ipt" name="game" data-tip="小鸡麻将">
+                                <option value="1" selected="selected">小鸡麻将</option>
+                            </select>
+                        </span>
+                        <span class="error tip"></span>
+                    </p>
+                    <p class="item_p">
+                        <label>账号：</label>
+                        <span class="ipt_box">
+                            <input class="ipt" type="text" name="account" data-tip="账号" placeholder="账号" value="" maxlength="16">
+                        </span>
+                        <span class="error tip"></span>
+                    </p>
+                     <p class="item_p">
+                        <label>代理等级：</label>
+                        <span class="ipt_box">
+                            <select class="ipt js_agents" name="agent" data-tip="代理等级">
+                                <option value="0">全部</option>
+                                <option value="1">推广员</option>
+                                <option value="2">客服员</option>
+                                <option value="3">局头</option>
+                            </select>
+                        </span>
+                        <span class="error tip"></span>
+                    </p>
+                     <p class="item_p">
+                        <label>封停状态：</label>
+                        <span class="ipt_box">
+                            <select class="ipt js_block" name="block" data-tip="封停">
+                                <option value="0">全部</option>
+                                <option value="1">封停</option>
+                                <option value="1">解封</option>
+                                
+                            </select>
+                        </span>
+                        <span class="error tip"></span>
+                    </p>
+                    <p class="formbtn">
+                        <a href="javascript:;" class="btn btn-success js_search">查询</a>
+                        <a href="javascript:;" class="btn btn-info js_newhead">添加</a>
+                        <a href="javascript:;" class="btn btn-warning dis">导出</a>
+                    </p>
+                    <table class="result-tab">
+                        <thead>
+                            <tr>
+                                <th>等级</th>
+                                <th>账号</th>
+                                <th>封停状态</th>
+                                <th>操作</th>
+                            </tr>
+                        </thead>
+                         <!--<tbody class="js_pagetab">
+                        <tr><td colspan="4">暂无数据</td></tr>
+                        </tbody>-->
+                        <tbody class="js_pagetab">
+                          <tr><td><a href="javascript:;" class="js_view" data-userid="18618161929">18618161929</a></td>
+                          	<td>无</td>
+                          	<td>0</td>
+                          	<td><a href ="javascript:;" class="js_editor">编辑</a><a href ="javascript:;" class="js_block">封停</a><a href ="javascript:;" class="js_blockHis">封停历史</a></td>
+                          </tr>
+                          <tr><td><a href="javascript:;" class="js_view" data-userid="18618161929">18618161929</a></td>
+                          	<td>无</td>
+                          	<td>0</td>
+                          	<td><a href ="javascript:;" class="js_editor">编辑</a><a href ="javascript:;" class="js_unblock">解封</a><a href ="javascript:;" class="js_blockHis">封停历史</a></td>
+                          </tr>
+                          <tr><td><a href="javascript:;" class="js_view" data-userid="18618161929">18618161929</a></td>
+                          	<td>无</td>
+                          	<td>0</td>
+                          	<td><a href ="javascript:;" class="js_editor">编辑</a><a href ="javascript:;" class="js_unblock">解封</a><a href ="javascript:;" class="js_blockHis">封停历史</a></td>
+                          </tr>
+                        </tbody>
+                    </table>
+                    <p class="formbtn dis js_next">
+                    <a href="javascript:;" class="btn btn-success js_page">下一页</a>
+                  </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="botmenu white js_bottommenu"></div>
+    <script src="../resources/js/menu/js/menuheadjson.js"></script>
+</body>
+</html>

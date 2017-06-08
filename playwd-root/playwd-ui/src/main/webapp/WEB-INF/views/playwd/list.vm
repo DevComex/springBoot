@@ -1,0 +1,81 @@
+#parse("public/publicTop.vm")
+<script type="text/javascript" src="${rc.contextPath}/static/js/list.js"></script><!--列表页-->
+<div class="maiin_left list_main_left">
+	<!-- 左侧浮动框 -->
+	<div class="suspension">
+		<div  class="float_box" > <!-- style="background:url(/static/images/public/pep.png) no-repeat;" -->
+			<img  src="${rc.contextPath}/static/images/public/pep.png" class="float_img" />
+			<ul class="float_ul">
+				<li class="type_text">文章分类</li>
+				<li class="comprehensive_text on" code="0"><b></b>综合</li><!-- <img src="${rc.contextPath}/static/images/public/zh.png" /> -->
+				<li class="interview_text"  code="9"><b></b>采访汇聚</li><!-- <img src="${rc.contextPath}/static/images/public/ren.png" /> -->
+				<li class="emotion_text"  code="1"><b></b>情感世界</li><!-- <img src="${rc.contextPath}/static/images/public/niao.png" /> -->
+				<li class="play_text"  code="7"><b></b>玩法攻略</li><!-- <img src="${rc.contextPath}/static/images/public/shu.png" /> -->
+				<li class="match_text"  code="8"><b></b>赛事热点</li><!-- <img src="${rc.contextPath}/static/images/public/deng.png" /> -->
+				<li class="joke_text"  code="2"><b></b>图文笑话</li><!-- <img src="${rc.contextPath}/static/images/public/lian.png" /> -->
+			</ul>
+		</div>
+	</div>
+
+	<div class="comprehensive">
+		<div class="list_top">
+			<div class="list_title">
+				<img src="${rc.contextPath}/static/images/public/zh.png"/>
+				<span class="title_text">综合</span>
+			</div>
+			<ul style="float:left;position:relative;">
+				<li class="js_hottest onCli"  dataType="view">最热</li><!-- <img src="${rc.contextPath}/static/images/public/huo.png" /> -->
+				<li class="js_new"  dataType="new" >最新</li><!-- <img src="${rc.contextPath}/static/images/public/shiz.png" /> -->
+				<!-- <li class="js_collection"  dataType="collect"><img src="${rc.contextPath}/static/images/public/xin.png" />收藏量</li> -->
+			</ul>
+		</div>
+		<div class="list_Main">
+			<!-- <div class="box_list">
+				<div class="list_img">
+					<img src ="${rc.contextPath}/static/images/public/tu.png" class="js_animate" />
+					<img src ="${rc.contextPath}/static/images/public/anCrown1.png" class="js_anCrown"/>
+				</div>
+				<div class="list_content">
+					<h1>情人节活动-荷灯传情</h1>
+					<h2>【雪山飞狐】<a>独倚望江楼。</a>
+						<a>【避暑山庄】</a>
+						<a class="two_a">ta与扥阿萨德</a>
+					</h2>
+					<span style="display:inline-flex;">
+						<span>
+							<a>【避暑山庄】</a>
+							<a>ta与扥阿萨德</a>
+						</span>
+						<span style="width:140px;">2017-2-10</span>
+					</span>
+				</div>
+				<div class="list_number">
+					<span class="zan"><i>137</i></span>
+					<span class="browse"><i>138</i></span>
+				</div>
+			</div> -->
+		</div>
+
+		<!-- 分页 -->
+		<div class="catalogPage">
+			<footer class="">
+  				<div class="">
+          			<div class="">
+          				<div id="DataTables_Table_0_paginate" class=""></div>
+          			</div>
+      			</div>
+   			</footer>
+		</div>
+		<!-- 分页 -->
+	</div>
+</div>
+<div class="maiin_right">
+#parse("public/sidebar.vm")
+</div>
+#parse("public/publicBottom.vm")
+<script>
+	$(function(){
+		guessLike(4,10);//彩你喜欢
+		userWealth();//财富
+	})
+</script>

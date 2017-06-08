@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="dao.ReportBeanMapper" >
+  <resultMap id="BaseResultMap" type="beans.ReportBean" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="coment_id" property="comentId" jdbcType="INTEGER" />
+    <result column="comment_user_id" property="commentUserId" jdbcType="INTEGER" />
+    <result column="comment_user_account" property="commentUserAccount" jdbcType="VARCHAR" />
+    <result column="report_user_id" property="reportUserId" jdbcType="INTEGER" />
+    <result column="report_user_account" property="reportUserAccount" jdbcType="VARCHAR" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="process_time" property="processTime" jdbcType="TIMESTAMP" />
+    <result column="operator_account" property="operatorAccount" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, coment_id, comment_user_id, comment_user_account, report_user_id, report_user_account, 
+    reason, status, create_time, process_time, operator_account
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from playwd_report_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from playwd_report_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="beans.ReportBean" >
+    insert into playwd_report_tb (code, coment_id, comment_user_id, 
+      comment_user_account, report_user_id, report_user_account, 
+      reason, status, create_time, 
+      process_time, operator_account)
+    values (#{code,jdbcType=INTEGER}, #{comentId,jdbcType=INTEGER}, #{commentUserId,jdbcType=INTEGER}, 
+      #{commentUserAccount,jdbcType=VARCHAR}, #{reportUserId,jdbcType=INTEGER}, #{reportUserAccount,jdbcType=VARCHAR}, 
+      #{reason,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{processTime,jdbcType=TIMESTAMP}, #{operatorAccount,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="beans.ReportBean" >
+    insert into playwd_report_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="comentId != null" >
+        coment_id,
+      </if>
+      <if test="commentUserId != null" >
+        comment_user_id,
+      </if>
+      <if test="commentUserAccount != null" >
+        comment_user_account,
+      </if>
+      <if test="reportUserId != null" >
+        report_user_id,
+      </if>
+      <if test="reportUserAccount != null" >
+        report_user_account,
+      </if>
+      <if test="reason != null" >
+        reason,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="processTime != null" >
+        process_time,
+      </if>
+      <if test="operatorAccount != null" >
+        operator_account,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="comentId != null" >
+        #{comentId,jdbcType=INTEGER},
+      </if>
+      <if test="commentUserId != null" >
+        #{commentUserId,jdbcType=INTEGER},
+      </if>
+      <if test="commentUserAccount != null" >
+        #{commentUserAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="reportUserId != null" >
+        #{reportUserId,jdbcType=INTEGER},
+      </if>
+      <if test="reportUserAccount != null" >
+        #{reportUserAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="processTime != null" >
+        #{processTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorAccount != null" >
+        #{operatorAccount,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="beans.ReportBean" >
+    update playwd_report_tb
+    <set >
+      <if test="comentId != null" >
+        coment_id = #{comentId,jdbcType=INTEGER},
+      </if>
+      <if test="commentUserId != null" >
+        comment_user_id = #{commentUserId,jdbcType=INTEGER},
+      </if>
+      <if test="commentUserAccount != null" >
+        comment_user_account = #{commentUserAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="reportUserId != null" >
+        report_user_id = #{reportUserId,jdbcType=INTEGER},
+      </if>
+      <if test="reportUserAccount != null" >
+        report_user_account = #{reportUserAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="reason != null" >
+        reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="processTime != null" >
+        process_time = #{processTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operatorAccount != null" >
+        operator_account = #{operatorAccount,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="beans.ReportBean" >
+    update playwd_report_tb
+    set coment_id = #{comentId,jdbcType=INTEGER},
+      comment_user_id = #{commentUserId,jdbcType=INTEGER},
+      comment_user_account = #{commentUserAccount,jdbcType=VARCHAR},
+      report_user_id = #{reportUserId,jdbcType=INTEGER},
+      report_user_account = #{reportUserAccount,jdbcType=VARCHAR},
+      reason = #{reason,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      process_time = #{processTime,jdbcType=TIMESTAMP},
+      operator_account = #{operatorAccount,jdbcType=VARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+</mapper>

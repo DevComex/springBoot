@@ -1,0 +1,88 @@
+#parse("public/userCenterHead.vm")
+
+
+<div class="web_wrap">
+    <div class="banner_pers">
+        <span class="h_shade pngbg"></span>
+        <div class="w_head">
+            <span class="w_hinfo">
+                <a href="./Role" id="js_HeadPortrait">
+                    <img src="/Content/images/default_rolepic.jpg" title="点击进入我的角色" />
+                </a>
+            </span>
+            <span id="js_RoleName">金男2222222</span>
+        </div>
+    </div>
+    <div class="v_list_tit pad30">
+        <ul class="v_list_class">
+            <li><a href="./myMessage">我的信息</a></li>
+            <li class="on"><a href="javascript:;">我的收藏</a></li>
+            <li><a href="/userCenter/myupload">我的上传</a></li>
+            <li><a href="/userCenter/editorMessage">编辑回复</a></li>
+        </ul>
+    </div>
+    <div class="wd_con" id="js_UserListBox">
+        <div class="con_l con_left">
+            <div class="v_qf_seabox">
+                <div class="v_info_up">
+                    <ul id="js_WorksCate">
+                        <li class="on" data-stype="1"><a href="javascript:;" title="文章">文章</a>|</li>
+                        <li data-stype="2"><a href="http://wanwd.gyyx.cn/user/Collect?type=2" title="图片">图片</a>|</li>
+                        <li data-stype="3"><a href="http://wanwd.gyyx.cn/user/Collect?type=3" title="视频">视频</a>|</li>
+                        <li data-stype="4"><a href="http://wanwdv2.gyyx.cn/userCenter/myCollectCartoon" title="视频">漫画</a></li>
+                    </ul>
+                </div>
+                <div id="js_CollectContainer">
+                </div>
+            </div>
+        </div>
+        <!--右侧相关推荐 begin-->
+        <div class="con_r con_ritht" id="js_RightCont">
+            <div class="box_area">
+                <h2 class="c_tit">
+                    <div class="tit_l">
+                        <span class="font_bg font_xg_tj"></span>
+                    </div>
+                </h2>
+
+
+<div class="box_inner playp">
+     <div class="graplist p_article_list">
+            <div class="graplist p_article_list">
+                <h3 class="title textover"><a href="http://wanwd.gyyx.cn/article/19655" title="我们的问道时代" target="_blank">
+                我们的问道时代</a></h3>
+               <div class="txt wordbreak">不可割舍的一段记忆
+               <a class="xx" href="http://wanwd.gyyx.cn/article/19655" target="_blank">[查看]</a>
+               </div>
+            </div>
+            <div class="graplist p_article_list">
+                <h3 class="title textover"><a href="http://wanwd.gyyx.cn/article/19597" title="盘点2016年度之六大优秀队伍" target="_blank">
+                盘点2016年度之六大优秀队伍</a></h3>
+               <div class="txt wordbreak">盘点2016年度之六大优秀队伍
+               <a class="xx" href="http://wanwd.gyyx.cn/article/19597" target="_blank">[查看]</a>
+               </div>
+            </div>
+            <div class="graplist p_article_list">
+                <h3 class="title textover"><a href="http://wanwd.gyyx.cn/article/19598" title="盘点问道之经典老区" target="_blank">
+                盘点问道之经典老区</a></h3>
+               <div class="txt wordbreak"> 问道里那些经典的老区，经典的人物，演绎了一段段经典的传奇。因为有他们，所以问道......
+               <a class="xx" href="http://wanwd.gyyx.cn/article/19598" target="_blank">[查看]</a>
+               </div>
+            </div>
+
+
+</div>
+
+
+            </div>
+
+        </div>
+        <!--右侧相关推荐 end-->
+    </div>
+</div>
+
+    </div>
+
+
+
+#parse("public/userCenterBottom.vm")

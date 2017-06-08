@@ -1,0 +1,41 @@
+<section class="vbox js_template_right">
+	<header class="header bg-white b-b clearfix">
+		<!-- 时间选择  -->
+		<span class="doc-buttons pull-left"> <select id="yearMes"
+			style="margin-top: 10px;" class="input-sm">
+				<option value="2016" selected>2016</option>
+				<option value="2017">2017</option>
+		</select>
+	</header>
+	
+	<section class="scrollable padder" style="top:56px">
+		<div class="m-b-md"></div>
+		<!--数据表格  begin -->
+		<section class="panel panel-default" id="main_region">
+			<div class="table-responsive">
+				<table class="table table-striped m-b-none" id="performance_convention_task_list">
+					<thead>
+						<tr>
+							<th style="width: 4%;">序号</th>
+							<th style="width: 8%;">项目集</th>
+							<th style="width: 10%;">项目名</th>
+							<th style="width: 10%;">常规任务类型</th>
+							<th style="width: 4%;">负责人</th>
+							<th style="width: 7%;">计划开始时间</th>
+							<th style="width: 7%;">计划结束时间</th>
+							<th style="width: 25%;text-align:left;">任务描述</th>
+							<th style="width: 12%; text-align: left;">参与人员</th>
+							<th style="width: 13%;">操作</th>
+						</tr>
+					</thead>
+					<tbody>
+
+					</tbody>
+				</table>
+
+			</div>
+
+			<!--数据表格  end -->
+		</section>
+	</section>
+</section>

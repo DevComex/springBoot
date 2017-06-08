@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="3" total="90" passed="87">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="2934" started-at="2017-06-02T09:47:12Z" finished-at="2017-06-02T09:47:15Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="2934" started-at="2017-06-02T09:47:12Z" finished-at="2017-06-02T09:47:15Z">
+      <class name="cn.mahjong.service.CaptchaServiceImplTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:cn.mahjong.service.CaptchaServiceImplTest@4aac85fa]" name="setUp" is-config="true" duration-ms="72" started-at="2017-06-02T17:47:13Z" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="checkCaptcha_whenBidNullRedisCaptchaEqual_thenReturnFalse()[pri:0, instance:cn.mahjong.service.CaptchaServiceImplTest@4aac85fa]" name="checkCaptcha_whenBidNullRedisCaptchaEqual_thenReturnFalse" duration-ms="23" started-at="2017-06-02T17:47:13Z" description="当bid等于null，验证码相等时，返回true" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkCaptcha_whenBidNullRedisCaptchaEqual_thenReturnFalse -->
+        <test-method status="PASS" signature="checkCaptcha_whenRedisCaptchaEmpty_thenReturnFalse()[pri:0, instance:cn.mahjong.service.CaptchaServiceImplTest@4aac85fa]" name="checkCaptcha_whenRedisCaptchaEmpty_thenReturnFalse" duration-ms="2" started-at="2017-06-02T17:47:13Z" description="当缓存里验证码不存在时，返回false" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkCaptcha_whenRedisCaptchaEmpty_thenReturnFalse -->
+        <test-method status="PASS" signature="checkCaptcha_whenRedisCaptchaEqual_thenReturnFalse()[pri:0, instance:cn.mahjong.service.CaptchaServiceImplTest@4aac85fa]" name="checkCaptcha_whenRedisCaptchaEqual_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:13Z" description="当验证码相等时，返回true" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkCaptcha_whenRedisCaptchaEqual_thenReturnFalse -->
+        <test-method status="PASS" signature="checkCaptcha_whenRedisCaptchaNotEqual_thenReturnFalse()[pri:0, instance:cn.mahjong.service.CaptchaServiceImplTest@4aac85fa]" name="checkCaptcha_whenRedisCaptchaNotEqual_thenReturnFalse" duration-ms="2" started-at="2017-06-02T17:47:13Z" description="当验证码不相等时，返回false" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkCaptcha_whenRedisCaptchaNotEqual_thenReturnFalse -->
+      </class> <!-- cn.mahjong.service.CaptchaServiceImplTest -->
+      <class name="cn.mahjong.service.ExchangeServiceTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:cn.mahjong.service.ExchangeServiceTest@1d207fad]" name="setUp" is-config="true" duration-ms="26" started-at="2017-06-02T17:47:15Z" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="exchange_whenAmountLessThan0OrEquals0_thenReturnFalse()[pri:0, instance:cn.mahjong.service.ExchangeServiceTest@1d207fad]" name="exchange_whenAmountLessThan0OrEquals0_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:15Z" description="兑换-当充值金额小于等于0时返回False" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exchange_whenAmountLessThan0OrEquals0_thenReturnFalse -->
+        <test-method status="PASS" signature="exchange_whenExchangeIsNotSuccess_thenReturnFalse()[pri:0, instance:cn.mahjong.service.ExchangeServiceTest@1d207fad]" name="exchange_whenExchangeIsNotSuccess_thenReturnFalse" duration-ms="6" started-at="2017-06-02T17:47:15Z" description="兑换-操作失败时返回False" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exchange_whenExchangeIsNotSuccess_thenReturnFalse -->
+        <test-method status="PASS" signature="exchange_whenExchangeSuccess_thenReturnTrue()[pri:0, instance:cn.mahjong.service.ExchangeServiceTest@1d207fad]" name="exchange_whenExchangeSuccess_thenReturnTrue" duration-ms="2" started-at="2017-06-02T17:47:15Z" description="兑换-操作成功时返回True" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exchange_whenExchangeSuccess_thenReturnTrue -->
+        <test-method status="PASS" signature="exchange_whenGameUserIdLessThan0OrEquals0_thenReturnFalse()[pri:0, instance:cn.mahjong.service.ExchangeServiceTest@1d207fad]" name="exchange_whenGameUserIdLessThan0OrEquals0_thenReturnFalse" duration-ms="0" started-at="2017-06-02T17:47:15Z" description="兑换-当用户ID小于等于0时返回False" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exchange_whenGameUserIdLessThan0OrEquals0_thenReturnFalse -->
+        <test-method status="PASS" signature="exchange_whenGameUserNotExist_thenReturnFalse()[pri:0, instance:cn.mahjong.service.ExchangeServiceTest@1d207fad]" name="exchange_whenGameUserNotExist_thenReturnFalse" duration-ms="2" started-at="2017-06-02T17:47:15Z" description="兑换-当游戏用户不存在时返回False" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exchange_whenGameUserNotExist_thenReturnFalse -->
+        <test-method status="PASS" signature="exchange_whenGameUserNotExist_thenReturnFalse2()[pri:0, instance:cn.mahjong.service.ExchangeServiceTest@1d207fad]" name="exchange_whenGameUserNotExist_thenReturnFalse2" duration-ms="119" started-at="2017-06-02T17:47:15Z" description="兑换-当游戏用户不存在时返回False2" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exchange_whenGameUserNotExist_thenReturnFalse2 -->
+        <test-method status="PASS" signature="exchange_whenInventoryNotEnough2_thenReturnFalse()[pri:0, instance:cn.mahjong.service.ExchangeServiceTest@1d207fad]" name="exchange_whenInventoryNotEnough2_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:15Z" description="兑换-当库存不足时返回False" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exchange_whenInventoryNotEnough2_thenReturnFalse -->
+        <test-method status="PASS" signature="exchange_whenInventoryNotEnough_thenReturnFalse()[pri:0, instance:cn.mahjong.service.ExchangeServiceTest@1d207fad]" name="exchange_whenInventoryNotEnough_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:15Z" description="兑换-当库存不足时返回False" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exchange_whenInventoryNotEnough_thenReturnFalse -->
+        <test-method status="PASS" signature="exchange_whenUserIdLessThan0OrEquals0_thenReturnFalse()[pri:0, instance:cn.mahjong.service.ExchangeServiceTest@1d207fad]" name="exchange_whenUserIdLessThan0OrEquals0_thenReturnFalse" duration-ms="31" started-at="2017-06-02T17:47:15Z" description="兑换-当用户游戏ID小于等于0时返回False" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exchange_whenUserIdLessThan0OrEquals0_thenReturnFalse -->
+        <test-method status="PASS" signature="exchange_whenUserNotExist_thenReturnFalse()[pri:0, instance:cn.mahjong.service.ExchangeServiceTest@1d207fad]" name="exchange_whenUserNotExist_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:15Z" description="兑换-当用户不存在时返回False" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- exchange_whenUserNotExist_thenReturnFalse -->
+        <test-method status="PASS" signature="getSummary_whenDBQuerySuccess_thenReturnTrue()[pri:0, instance:cn.mahjong.service.ExchangeServiceTest@1d207fad]" name="getSummary_whenDBQuerySuccess_thenReturnTrue" duration-ms="1" started-at="2017-06-02T17:47:15Z" description="当数据库查询成功时返回True" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getSummary_whenDBQuerySuccess_thenReturnTrue -->
+        <test-method status="PASS" signature="get_whenDBQuerySuccess_thenReturnTrue()[pri:0, instance:cn.mahjong.service.ExchangeServiceTest@1d207fad]" name="get_whenDBQuerySuccess_thenReturnTrue" duration-ms="1" started-at="2017-06-02T17:47:15Z" description="当数据库查询成功时返回True" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- get_whenDBQuerySuccess_thenReturnTrue -->
+      </class> <!-- cn.mahjong.service.ExchangeServiceTest -->
+      <class name="cn.mahjong.service.LoginServiceImplTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:cn.mahjong.service.LoginServiceImplTest@27b22f74]" name="setUp" is-config="true" duration-ms="12" started-at="2017-06-02T17:47:14Z" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="isNeedCaptcha_whenLoginErrorTimeEqual3_thenReturn()[pri:0, instance:cn.mahjong.service.LoginServiceImplTest@27b22f74]" name="isNeedCaptcha_whenLoginErrorTimeEqual3_thenReturn" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当Redis登录错误次数等于3，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- isNeedCaptcha_whenLoginErrorTimeEqual3_thenReturn -->
+        <test-method status="PASS" signature="isNeedCaptcha_whenLoginErrorTimeLess3_thenReturn()[pri:0, instance:cn.mahjong.service.LoginServiceImplTest@27b22f74]" name="isNeedCaptcha_whenLoginErrorTimeLess3_thenReturn" duration-ms="0" started-at="2017-06-02T17:47:14Z" description="当Redis登录错误次数小于3，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- isNeedCaptcha_whenLoginErrorTimeLess3_thenReturn -->
+        <test-method status="PASS" signature="isNeedCaptcha_whenLoginErrorTimeThan3_thenReturn()[pri:0, instance:cn.mahjong.service.LoginServiceImplTest@27b22f74]" name="isNeedCaptcha_whenLoginErrorTimeThan3_thenReturn" duration-ms="0" started-at="2017-06-02T17:47:14Z" description="当Redis登录错误次数大于3，返回true" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- isNeedCaptcha_whenLoginErrorTimeThan3_thenReturn -->
+        <test-method status="PASS" signature="isNeedCaptcha_whenLoginNotErrorTime_thenReturn()[pri:0, instance:cn.mahjong.service.LoginServiceImplTest@27b22f74]" name="isNeedCaptcha_whenLoginNotErrorTime_thenReturn" duration-ms="0" started-at="2017-06-02T17:47:14Z" description="当Redis没有登录错误次数时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- isNeedCaptcha_whenLoginNotErrorTime_thenReturn -->
+        <test-method status="PASS" signature="isNeedCaptcha_whenLoginNotError_thenReturn()[pri:0, instance:cn.mahjong.service.LoginServiceImplTest@27b22f74]" name="isNeedCaptcha_whenLoginNotError_thenReturn" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当Redis没有登录错误次数时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- isNeedCaptcha_whenLoginNotError_thenReturn -->
+        <test-method status="PASS" signature="login_whenAccountIsBanned_thenReturnFalse()[pri:0, instance:cn.mahjong.service.LoginServiceImplTest@27b22f74]" name="login_whenAccountIsBanned_thenReturnFalse" duration-ms="3" started-at="2017-06-02T17:47:14Z" description="当用户已封停时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_whenAccountIsBanned_thenReturnFalse -->
+        <test-method status="PASS" signature="login_whenAccountIsHead_thenReturnFalse()[pri:0, instance:cn.mahjong.service.LoginServiceImplTest@27b22f74]" name="login_whenAccountIsHead_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当管理员界面登录时，用户是局头账号，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_whenAccountIsHead_thenReturnFalse -->
+        <test-method status="PASS" signature="login_whenAccountIsNotHead_thenReturnFalse()[pri:0, instance:cn.mahjong.service.LoginServiceImplTest@27b22f74]" name="login_whenAccountIsNotHead_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当局头登录时，用户是非局头账号，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_whenAccountIsNotHead_thenReturnFalse -->
+        <test-method status="PASS" signature="login_whenAccountNotExit_thenReturnFalse()[pri:0, instance:cn.mahjong.service.LoginServiceImplTest@27b22f74]" name="login_whenAccountNotExit_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:15Z" description="当用户不存在时，返回false" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_whenAccountNotExit_thenReturnFalse -->
+        <test-method status="PASS" signature="login_whenAccountPwdError_thenReturnFalse()[pri:0, instance:cn.mahjong.service.LoginServiceImplTest@27b22f74]" name="login_whenAccountPwdError_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:15Z" description="当密码错误时，返回false" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_whenAccountPwdError_thenReturnFalse -->
+        <test-method status="PASS" signature="login_whenInsertLogFail_thenReturnFalse()[pri:0, instance:cn.mahjong.service.LoginServiceImplTest@27b22f74]" name="login_whenInsertLogFail_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:15Z" description="当记录登录日志失败时，返回false" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_whenInsertLogFail_thenReturnFalse -->
+        <test-method status="PASS" signature="login_whenLoginSuccess_thenReturnTrue()[pri:0, instance:cn.mahjong.service.LoginServiceImplTest@27b22f74]" name="login_whenLoginSuccess_thenReturnTrue" duration-ms="3" started-at="2017-06-02T17:47:15Z" description="当登录成功时，返回true" finished-at="2017-06-02T17:47:15Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- login_whenLoginSuccess_thenReturnTrue -->
+      </class> <!-- cn.mahjong.service.LoginServiceImplTest -->
+      <class name="cn.mahjong.service.SMSServiceImplTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:cn.mahjong.service.SMSServiceImplTest@22fba58c]" name="setUp" is-config="true" duration-ms="11" started-at="2017-06-02T17:47:14Z" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="send_whenIsOverLimit_thenReturnFalse()[pri:0, instance:cn.mahjong.service.SMSServiceImplTest@22fba58c]" name="send_whenIsOverLimit_thenReturnFalse" duration-ms="21" started-at="2017-06-02T17:47:14Z" description="当短信发送次数超出今日限制时返回False" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- send_whenIsOverLimit_thenReturnFalse -->
+        <test-method status="PASS" signature="send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue()[pri:0, instance:cn.mahjong.service.SMSServiceImplTest@22fba58c]" name="send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue" duration-ms="20" started-at="2017-06-02T17:47:14Z" description="当短信包含验证码且已到达下次发送时间返回True" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue -->
+        <test-method status="PASS" signature="send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue2()[pri:0, instance:cn.mahjong.service.SMSServiceImplTest@22fba58c]" name="send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue2" duration-ms="3" started-at="2017-06-02T17:47:14Z" description="当短信包含验证码且已到达下次发送时间返回True2" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- send_whenIsVerifyCodeSMSAndArriveNextSendTime_thenReturnTrue2 -->
+        <test-method status="PASS" signature="send_whenIsVerifyCodeSMSAndNotArriveNextSendTime_thenReturnFalse()[pri:0, instance:cn.mahjong.service.SMSServiceImplTest@22fba58c]" name="send_whenIsVerifyCodeSMSAndNotArriveNextSendTime_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当短信包含验证码且未到达下次发送时间返回False" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- send_whenIsVerifyCodeSMSAndNotArriveNextSendTime_thenReturnFalse -->
+        <test-method status="PASS" signature="validate_whenValidateFailed_thenReturnFalse()[pri:0, instance:cn.mahjong.service.SMSServiceImplTest@22fba58c]" name="validate_whenValidateFailed_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当验证失败时返回False" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validate_whenValidateFailed_thenReturnFalse -->
+        <test-method status="PASS" signature="validate_whenValidateSuccess_thenReturnTrue()[pri:0, instance:cn.mahjong.service.SMSServiceImplTest@22fba58c]" name="validate_whenValidateSuccess_thenReturnTrue" duration-ms="0" started-at="2017-06-02T17:47:14Z" description="当验证成功时返回True" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- validate_whenValidateSuccess_thenReturnTrue -->
+      </class> <!-- cn.mahjong.service.SMSServiceImplTest -->
+      <class name="cn.mahjong.service.UserServiceImplTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="setUp" is-config="true" duration-ms="14" started-at="2017-06-02T17:47:14Z" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="changePhoneFirst_whenSmsCodeError_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="changePhoneFirst_whenSmsCodeError_thenRerurnFalse" duration-ms="9" started-at="2017-06-02T17:47:14Z" description="当短信验证码错误时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changePhoneFirst_whenSmsCodeError_thenRerurnFalse -->
+        <test-method status="PASS" signature="changePhoneFirst_whenSmsCode_thenRerurnTrue()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="changePhoneFirst_whenSmsCode_thenRerurnTrue" duration-ms="2" started-at="2017-06-02T17:47:14Z" description="当短信验证码正确时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changePhoneFirst_whenSmsCode_thenRerurnTrue -->
+        <test-method status="PASS" signature="changePhoneFirst_whenUserIdNotBindPhone_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="changePhoneFirst_whenUserIdNotBindPhone_thenRerurnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当用户未绑定手机时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changePhoneFirst_whenUserIdNotBindPhone_thenRerurnFalse -->
+        <test-method status="PASS" signature="changePhoneFirst_whenUserIdNotExit_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="changePhoneFirst_whenUserIdNotExit_thenRerurnFalse" duration-ms="2" started-at="2017-06-02T17:47:14Z" description="当用户不存在时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changePhoneFirst_whenUserIdNotExit_thenRerurnFalse -->
+        <test-method status="PASS" signature="changePhoneSecond_whenChangePhoneSuccess_thenRerurnTrue()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="changePhoneSecond_whenChangePhoneSuccess_thenRerurnTrue" duration-ms="2" started-at="2017-06-02T17:47:14Z" description="当修改手机号成功时，返回True" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changePhoneSecond_whenChangePhoneSuccess_thenRerurnTrue -->
+        <test-method status="PASS" signature="changePhoneSecond_whenSmsCodeError_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="changePhoneSecond_whenSmsCodeError_thenRerurnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当短信验证码错误时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changePhoneSecond_whenSmsCodeError_thenRerurnFalse -->
+        <test-method status="PASS" signature="changePhoneSecond_whenUserNotExit_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="changePhoneSecond_whenUserNotExit_thenRerurnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当用户不存在时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changePhoneSecond_whenUserNotExit_thenRerurnFalse -->
+        <test-method status="PASS" signature="changePhoneSecond_whenUserNotPhone_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="changePhoneSecond_whenUserNotPhone_thenRerurnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当暂未绑定手机时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changePhoneSecond_whenUserNotPhone_thenRerurnFalse -->
+        <test-method status="PASS" signature="changePhoneSecond_whenUserPhoneNotEquals_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="changePhoneSecond_whenUserPhoneNotEquals_thenRerurnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当输入的手机号与原绑定的手机号一致时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changePhoneSecond_whenUserPhoneNotEquals_thenRerurnFalse -->
+        <test-method status="PASS" signature="changePwd_whenUpdatePwdFail_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="changePwd_whenUpdatePwdFail_thenRerurnFalse" duration-ms="2" started-at="2017-06-02T17:47:14Z" description="当修改密码失败时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changePwd_whenUpdatePwdFail_thenRerurnFalse -->
+        <test-method status="PASS" signature="changePwd_whenUpdatePwdSuccess_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="changePwd_whenUpdatePwdSuccess_thenRerurnFalse" duration-ms="2" started-at="2017-06-02T17:47:14Z" description="当修改密码成功时，返回true" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changePwd_whenUpdatePwdSuccess_thenRerurnFalse -->
+        <test-method status="PASS" signature="changePwd_whenUserIdNotExit_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="changePwd_whenUserIdNotExit_thenRerurnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当用户不存在时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- changePwd_whenUserIdNotExit_thenRerurnFalse -->
+        <test-method status="PASS" signature="findPwd_whenSmsCodeError_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="findPwd_whenSmsCodeError_thenRerurnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当短信验证码错误时时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findPwd_whenSmsCodeError_thenRerurnFalse -->
+        <test-method status="PASS" signature="findPwd_whenUpdatePwdFail_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="findPwd_whenUpdatePwdFail_thenRerurnFalse" duration-ms="2" started-at="2017-06-02T17:47:14Z" description="当找回密码失败时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findPwd_whenUpdatePwdFail_thenRerurnFalse -->
+        <test-method status="PASS" signature="findPwd_whenUpdatePwdSuccess_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="findPwd_whenUpdatePwdSuccess_thenRerurnFalse" duration-ms="2" started-at="2017-06-02T17:47:14Z" description="当找回密码成功时，返回true" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findPwd_whenUpdatePwdSuccess_thenRerurnFalse -->
+        <test-method status="PASS" signature="findPwd_whenUserIdNotBindPhone_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="findPwd_whenUserIdNotBindPhone_thenRerurnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当用户未绑定手机时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findPwd_whenUserIdNotBindPhone_thenRerurnFalse -->
+        <test-method status="PASS" signature="findPwd_whenUserIdNotExit_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="findPwd_whenUserIdNotExit_thenRerurnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当用户不存在时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findPwd_whenUserIdNotExit_thenRerurnFalse -->
+        <test-method status="PASS" signature="findPwd_whenUserIsHead_thenReturnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="findPwd_whenUserIsHead_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当管理员登录时，用户是局头用户，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findPwd_whenUserIsHead_thenReturnFalse -->
+        <test-method status="PASS" signature="findPwd_whenUserIsHq_thenReturnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="findPwd_whenUserIsHq_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当管理员登录时，用户是管理员用户，用户未绑定手机，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findPwd_whenUserIsHq_thenReturnFalse -->
+        <test-method status="PASS" signature="findPwd_whenUserIsNotHead_thenReturnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="findPwd_whenUserIsNotHead_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当局头登录时，用户非局头用户，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- findPwd_whenUserIsNotHead_thenReturnFalse -->
+        <test-method status="PASS" signature="sendChangePhoneSms_whenSendSuccess_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="sendChangePhoneSms_whenSendSuccess_thenRerurnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当发送成功时，返回true" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendChangePhoneSms_whenSendSuccess_thenRerurnFalse -->
+        <test-method status="PASS" signature="sendChangePhoneSms_whenUserIdNotBindPhone_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="sendChangePhoneSms_whenUserIdNotBindPhone_thenRerurnFalse" duration-ms="0" started-at="2017-06-02T17:47:14Z" description="当用户未绑定手机时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendChangePhoneSms_whenUserIdNotBindPhone_thenRerurnFalse -->
+        <test-method status="PASS" signature="sendChangePhoneSms_whenUserIdNotExit_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="sendChangePhoneSms_whenUserIdNotExit_thenRerurnFalse" duration-ms="2" started-at="2017-06-02T17:47:14Z" description="当用户不存在时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendChangePhoneSms_whenUserIdNotExit_thenRerurnFalse -->
+        <test-method status="PASS" signature="sendFindPwdSms_whenSendSuccess_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="sendFindPwdSms_whenSendSuccess_thenRerurnFalse" duration-ms="2" started-at="2017-06-02T17:47:14Z" description="当发送成功时，返回true" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendFindPwdSms_whenSendSuccess_thenRerurnFalse -->
+        <test-method status="PASS" signature="sendFindPwdSms_whenUserIdNotBindPhone_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="sendFindPwdSms_whenUserIdNotBindPhone_thenRerurnFalse" duration-ms="2" started-at="2017-06-02T17:47:14Z" description="当用户未绑定手机时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendFindPwdSms_whenUserIdNotBindPhone_thenRerurnFalse -->
+        <test-method status="PASS" signature="sendFindPwdSms_whenUserIdNotExit_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="sendFindPwdSms_whenUserIdNotExit_thenRerurnFalse" duration-ms="93" started-at="2017-06-02T17:47:14Z" description="当用户不存在时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendFindPwdSms_whenUserIdNotExit_thenRerurnFalse -->
+        <test-method status="PASS" signature="sendSecondChangePhoneSms_whenUserIdExit_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="sendSecondChangePhoneSms_whenUserIdExit_thenRerurnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当用户存在时，返回True" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendSecondChangePhoneSms_whenUserIdExit_thenRerurnFalse -->
+        <test-method status="PASS" signature="sendSecondChangePhoneSms_whenUserIdNotExit_thenRerurnFalse()[pri:0, instance:cn.mahjong.service.UserServiceImplTest@7e8a46b7]" name="sendSecondChangePhoneSms_whenUserIdNotExit_thenRerurnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当用户不存在时，返回false" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- sendSecondChangePhoneSms_whenUserIdNotExit_thenRerurnFalse -->
+      </class> <!-- cn.mahjong.service.UserServiceImplTest -->
+      <class name="cn.mahjong.service.RechargeServiceImplTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:cn.mahjong.service.RechargeServiceImplTest@6079cf5]" name="setUp" is-config="true" duration-ms="22" started-at="2017-06-02T17:47:13Z" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="getSummary_whenDBQuerySuccess_thenReturnTrue()[pri:0, instance:cn.mahjong.service.RechargeServiceImplTest@6079cf5]" name="getSummary_whenDBQuerySuccess_thenReturnTrue" duration-ms="253" started-at="2017-06-02T17:47:13Z" description="当数据库查询成功时返回True" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getSummary_whenDBQuerySuccess_thenReturnTrue -->
+        <test-method status="PASS" signature="get_whenDBQuerySuccess_thenReturnTrue()[pri:0, instance:cn.mahjong.service.RechargeServiceImplTest@6079cf5]" name="get_whenDBQuerySuccess_thenReturnTrue" duration-ms="3" started-at="2017-06-02T17:47:13Z" description="当数据库查询成功时返回True" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- get_whenDBQuerySuccess_thenReturnTrue -->
+        <test-method status="PASS" signature="recharge_whenAmountEquals0_thenReturnFalse()[pri:0, instance:cn.mahjong.service.RechargeServiceImplTest@6079cf5]" name="recharge_whenAmountEquals0_thenReturnFalse" duration-ms="19" started-at="2017-06-02T17:47:13Z" description="当Amount与Gift都等于0时返回False" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- recharge_whenAmountEquals0_thenReturnFalse -->
+        <test-method status="PASS" signature="recharge_whenAmountLessThan0_thenReturnFalse()[pri:0, instance:cn.mahjong.service.RechargeServiceImplTest@6079cf5]" name="recharge_whenAmountLessThan0_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:13Z" description="当Amount小于0时返回False" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- recharge_whenAmountLessThan0_thenReturnFalse -->
+        <test-method status="PASS" signature="recharge_whenGiftLessThan0_thenReturnFalse()[pri:0, instance:cn.mahjong.service.RechargeServiceImplTest@6079cf5]" name="recharge_whenGiftLessThan0_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:13Z" description="当Gift小于0时返回False" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- recharge_whenGiftLessThan0_thenReturnFalse -->
+        <test-method status="FAIL" signature="recharge_whenInventoryIsEnoughReturnTrue()[pri:0, instance:cn.mahjong.service.RechargeServiceImplTest@6079cf5]" name="recharge_whenInventoryIsEnoughReturnTrue" duration-ms="27" started-at="2017-06-02T17:47:14Z" description="当库存充足时返回True" finished-at="2017-06-02T17:47:14Z">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+	at cn.mahjong.service.impl.RechargeServiceImpl.recharge(RechargeServiceImpl.java:99)
+	at cn.mahjong.service.RechargeServiceImplTest.recharge_whenInventoryIsEnoughReturnTrue(RechargeServiceImplTest.java:140)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:335)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:330)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- recharge_whenInventoryIsEnoughReturnTrue -->
+        <test-method status="PASS" signature="recharge_whenInventoryNotEnoughReturnFalse()[pri:0, instance:cn.mahjong.service.RechargeServiceImplTest@6079cf5]" name="recharge_whenInventoryNotEnoughReturnFalse" duration-ms="3" started-at="2017-06-02T17:47:14Z" description="当库存不足时返回False" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- recharge_whenInventoryNotEnoughReturnFalse -->
+        <test-method status="PASS" signature="recharge_whenOperatorIdEquals0_thenReturnFalse()[pri:0, instance:cn.mahjong.service.RechargeServiceImplTest@6079cf5]" name="recharge_whenOperatorIdEquals0_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当UserId等于0时返回False" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- recharge_whenOperatorIdEquals0_thenReturnFalse -->
+        <test-method status="PASS" signature="recharge_whenOperatorIdLessThan0_thenReturnFalse()[pri:0, instance:cn.mahjong.service.RechargeServiceImplTest@6079cf5]" name="recharge_whenOperatorIdLessThan0_thenReturnFalse" duration-ms="3" started-at="2017-06-02T17:47:14Z" description="当UserId小于0时返回False" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- recharge_whenOperatorIdLessThan0_thenReturnFalse -->
+        <test-method status="PASS" signature="recharge_whenOperatorIsNotInUsersParentUsers_thenReturnFalse()[pri:0, instance:cn.mahjong.service.RechargeServiceImplTest@6079cf5]" name="recharge_whenOperatorIsNotInUsersParentUsers_thenReturnFalse" duration-ms="2" started-at="2017-06-02T17:47:14Z" description="当Operator不是User上级时返回False" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- recharge_whenOperatorIsNotInUsersParentUsers_thenReturnFalse -->
+        <test-method status="PASS" signature="recharge_whenUserIdEquals0_thenReturnFalse()[pri:0, instance:cn.mahjong.service.RechargeServiceImplTest@6079cf5]" name="recharge_whenUserIdEquals0_thenReturnFalse" duration-ms="2" started-at="2017-06-02T17:47:14Z" description="当UserId等于0时返回False" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- recharge_whenUserIdEquals0_thenReturnFalse -->
+        <test-method status="PASS" signature="recharge_whenUserIdLessThan0_thenReturnFalse()[pri:0, instance:cn.mahjong.service.RechargeServiceImplTest@6079cf5]" name="recharge_whenUserIdLessThan0_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当UserId小于0时返回False" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- recharge_whenUserIdLessThan0_thenReturnFalse -->
+        <test-method status="PASS" signature="recharge_whenUserNotExist_thenReturnFalse()[pri:0, instance:cn.mahjong.service.RechargeServiceImplTest@6079cf5]" name="recharge_whenUserNotExist_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当用户不存在时返回False" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- recharge_whenUserNotExist_thenReturnFalse -->
+      </class> <!-- cn.mahjong.service.RechargeServiceImplTest -->
+      <class name="cn.mahjong.service.StatServiceImplTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:cn.mahjong.service.StatServiceImplTest@1917d90f]" name="setUp" is-config="true" duration-ms="3" started-at="2017-06-02T17:47:14Z" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="personPurchaseSum_whenUserId_thenRerurn()[pri:0, instance:cn.mahjong.service.StatServiceImplTest@1917d90f]" name="personPurchaseSum_whenUserId_thenRerurn" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当查询个人进货记录时，返回数据" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- personPurchaseSum_whenUserId_thenRerurn -->
+        <test-method status="PASS" signature="personSaleSum_whenUserId_thenRerurn()[pri:0, instance:cn.mahjong.service.StatServiceImplTest@1917d90f]" name="personSaleSum_whenUserId_thenRerurn" duration-ms="2" started-at="2017-06-02T17:47:14Z" description="当查询个人销售记录时，返回数据" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- personSaleSum_whenUserId_thenRerurn -->
+      </class> <!-- cn.mahjong.service.StatServiceImplTest -->
+      <class name="cn.mahjong.service.HeadServiceTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:cn.mahjong.service.HeadServiceTest@72be135f]" name="setUp" is-config="true" duration-ms="865" started-at="2017-06-02T17:47:12Z" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="createHead_whenInsertSuccess_thenReturnTrue()[pri:0, instance:cn.mahjong.service.HeadServiceTest@72be135f]" name="createHead_whenInsertSuccess_thenReturnTrue" duration-ms="318" started-at="2017-06-02T17:47:13Z" description="创建局头-创建成功" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createHead_whenInsertSuccess_thenReturnTrue -->
+        <test-method status="PASS" signature="createHead_whenPhoneDuplicate_thenReturnFalse()[pri:0, instance:cn.mahjong.service.HeadServiceTest@72be135f]" name="createHead_whenPhoneDuplicate_thenReturnFalse" duration-ms="1" started-at="2017-06-02T17:47:13Z" description="创建局头-当手机号已被注册为帐号时返回失败" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createHead_whenPhoneDuplicate_thenReturnFalse -->
+        <test-method status="PASS" signature="createHead_whenVerifyCodeWrong_thenReturnFalse()[pri:0, instance:cn.mahjong.service.HeadServiceTest@72be135f]" name="createHead_whenVerifyCodeWrong_thenReturnFalse" duration-ms="2" started-at="2017-06-02T17:47:13Z" description="创建局头-当手机验证码验证失败时返回失败" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createHead_whenVerifyCodeWrong_thenReturnFalse -->
+        <test-method status="PASS" signature="getHead_whenUserNotExist_thenReturnNull()[pri:0, instance:cn.mahjong.service.HeadServiceTest@72be135f]" name="getHead_whenUserNotExist_thenReturnNull" duration-ms="1" started-at="2017-06-02T17:47:13Z" description="获取指定下级局头-当用户不存在时返回 null" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getHead_whenUserNotExist_thenReturnNull -->
+        <test-method status="PASS" signature="getHead_whenUserNotParent_thenReturnNull()[pri:0, instance:cn.mahjong.service.HeadServiceTest@72be135f]" name="getHead_whenUserNotParent_thenReturnNull" duration-ms="2" started-at="2017-06-02T17:47:13Z" description="获取指定下级局头-当用户并非下级时返回 null" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getHead_whenUserNotParent_thenReturnNull -->
+        <test-method status="PASS" signature="getHead_whenUserStatusNotMatch_thenReturnNull()[pri:0, instance:cn.mahjong.service.HeadServiceTest@72be135f]" name="getHead_whenUserStatusNotMatch_thenReturnNull" duration-ms="3" started-at="2017-06-02T17:47:13Z" description="获取指定下级局头-当用户状态与要求不符时返回 null" finished-at="2017-06-02T17:47:13Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getHead_whenUserStatusNotMatch_thenReturnNull -->
+        <test-method status="FAIL" signature="getHeads_whenGetList_thenReturnList()[pri:0, instance:cn.mahjong.service.HeadServiceTest@72be135f]" name="getHeads_whenGetList_thenReturnList" duration-ms="2" started-at="2017-06-02T17:47:13Z" description="获取下级局头列表-为局头填充余额" finished-at="2017-06-02T17:47:13Z">
+          <exception class="java.lang.NoSuchMethodError">
+            <message>
+              <![CDATA[com.beust.jcommander.internal.Lists.newArrayList([Ljava/lang/Object;)Ljava/util/List;]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.NoSuchMethodError: com.beust.jcommander.internal.Lists.newArrayList([Ljava/lang/Object;)Ljava/util/List;
+	at cn.mahjong.service.HeadServiceTest.getHeads_whenGetList_thenReturnList(HeadServiceTest.java:57)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:335)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:330)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NoSuchMethodError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getHeads_whenGetList_thenReturnList -->
+        <test-method status="FAIL" signature="update_whenDBUpdateSuccess_thenReturnTrue()[pri:0, instance:cn.mahjong.service.HeadServiceTest@72be135f]" name="update_whenDBUpdateSuccess_thenReturnTrue" duration-ms="8" started-at="2017-06-02T17:47:13Z" description="当更新成功时返回True" finished-at="2017-06-02T17:47:13Z">
+          <exception class="org.mockito.exceptions.misusing.UnfinishedStubbingException">
+            <message>
+              <![CDATA[
+Unfinished stubbing detected here:
+-> at cn.mahjong.service.HeadServiceTest.getHeads_whenGetList_thenReturnList(HeadServiceTest.java:56)
+
+E.g. thenReturn() may be missing.
+Examples of correct stubbing:
+    when(mock.isOk()).thenReturn(true);
+    when(mock.isOk()).thenThrow(exception);
+    doThrow(exception).when(mock).someVoidMethod();
+Hints:
+ 1. missing thenReturn()
+ 2. you are trying to stub a final method, you naughty developer!
+ 3: you are stubbing the behaviour of another mock inside before 'thenReturn' instruction if completed
+]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.mockito.exceptions.misusing.UnfinishedStubbingException: 
+Unfinished stubbing detected here:
+-> at cn.mahjong.service.HeadServiceTest.getHeads_whenGetList_thenReturnList(HeadServiceTest.java:56)
+
+E.g. thenReturn() may be missing.
+Examples of correct stubbing:
+    when(mock.isOk()).thenReturn(true);
+    when(mock.isOk()).thenThrow(exception);
+    doThrow(exception).when(mock).someVoidMethod();
+Hints:
+ 1. missing thenReturn()
+ 2. you are trying to stub a final method, you naughty developer!
+ 3: you are stubbing the behaviour of another mock inside before 'thenReturn' instruction if completed
+
+	at cn.mahjong.service.HeadServiceTest.update_whenDBUpdateSuccess_thenReturnTrue(HeadServiceTest.java:158)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:497)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:335)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:330)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at org.testng.remote.RemoteTestNG.run(RemoteTestNG.java:111)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:204)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:175)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.mockito.exceptions.misusing.UnfinishedStubbingException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- update_whenDBUpdateSuccess_thenReturnTrue -->
+      </class> <!-- cn.mahjong.service.HeadServiceTest -->
+      <class name="cn.mahjong.service.GuoDuProviderTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:cn.mahjong.service.GuoDuProviderTest@21fff664]" name="setUp" is-config="true" duration-ms="147" started-at="2017-06-02T17:47:14Z" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="getName_whenAnyTimes_thenReturnGuoDu()[pri:0, instance:cn.mahjong.service.GuoDuProviderTest@21fff664]" name="getName_whenAnyTimes_thenReturnGuoDu" duration-ms="0" started-at="2017-06-02T17:47:14Z" description="当任意情况时返回GuoDu" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- getName_whenAnyTimes_thenReturnGuoDu -->
+        <test-method status="PASS" signature="send_whenExceptionThrows_thenReturnFalse()[pri:0, instance:cn.mahjong.service.GuoDuProviderTest@21fff664]" name="send_whenExceptionThrows_thenReturnFalse" duration-ms="88" started-at="2017-06-02T17:47:14Z" description="当程序抛出异常时返回False" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- send_whenExceptionThrows_thenReturnFalse -->
+        <test-method status="PASS" signature="send_whenStatusCodeEquals0_thenReturnTrue()[pri:0, instance:cn.mahjong.service.GuoDuProviderTest@21fff664]" name="send_whenStatusCodeEquals0_thenReturnTrue" duration-ms="167" started-at="2017-06-02T17:47:14Z" description="当状态码等于0时返回True" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- send_whenStatusCodeEquals0_thenReturnTrue -->
+        <test-method status="PASS" signature="send_whenStatusCodeNotEqualsMinus1_thenReturnFalse()[pri:0, instance:cn.mahjong.service.GuoDuProviderTest@21fff664]" name="send_whenStatusCodeNotEqualsMinus1_thenReturnFalse" duration-ms="64" started-at="2017-06-02T17:47:14Z" description="当状态码不等于-1时返回False" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- send_whenStatusCodeNotEqualsMinus1_thenReturnFalse -->
+      </class> <!-- cn.mahjong.service.GuoDuProviderTest -->
+      <class name="cn.mahjong.service.SPProviderFactoryTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:cn.mahjong.service.SPProviderFactoryTest@66bfd864]" name="setUp" is-config="true" duration-ms="0" started-at="2017-06-02T17:47:14Z" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="createAll_whenAnyTime_thenReturnAllProviders()[pri:0, instance:cn.mahjong.service.SPProviderFactoryTest@66bfd864]" name="createAll_whenAnyTime_thenReturnAllProviders" duration-ms="1" started-at="2017-06-02T17:47:14Z" description="当任意场景时返回所有短信渠道" finished-at="2017-06-02T17:47:14Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- createAll_whenAnyTime_thenReturnAllProviders -->
+      </class> <!-- cn.mahjong.service.SPProviderFactoryTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

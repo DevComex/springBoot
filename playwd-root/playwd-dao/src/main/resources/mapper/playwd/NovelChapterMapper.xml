@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.playwd.dao.playwd.NovelChapterDao" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.playwd.beans.playwd.NovelChapterBean" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="novel_id" property="novelId" jdbcType="INTEGER" />
+    <result column="chapter_num" property="chapterNum" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="word_count" property="wordCount" jdbcType="INTEGER" />
+    <result column="publish_time" property="publishTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+  </resultMap>
+ 
+  <select id="get" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    *
+    from playwd_novel_chapter_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  
+  <insert id="insert" parameterType="cn.gyyx.playwd.beans.playwd.NovelChapterBean" >
+    insert into playwd_novel_chapter_tb (code, novel_id, chapter_num, title, 
+      create_time, word_count, publish_time, 
+      status, content)
+    values (#{code,jdbcType=INTEGER}, #{novelId,jdbcType=INTEGER}, #{chapterNum,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{wordCount,jdbcType=INTEGER}, #{publishTime,jdbcType=TIMESTAMP}, 
+      #{status,jdbcType=VARCHAR}, #{content,jdbcType=LONGVARCHAR})
+  </insert>
+ 
+  <update id="update" parameterType="cn.gyyx.playwd.beans.playwd.NovelChapterBean" >
+    update playwd_novel_chapter_tb
+    set novel_id = #{novelId,jdbcType=INTEGER},
+      chapter_num = #{chapterNum,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      word_count = #{wordCount,jdbcType=INTEGER},
+      publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      content = #{content,jdbcType=LONGVARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.playwd.beans.playwd.NovelChapterBean" >
+    update playwd_novel_chapter_tb
+    <set >
+      <if test="novelId != null" >
+        novel_id = #{novelId,jdbcType=INTEGER},
+      </if>
+      <if test="chapterNum != null" >
+        chapter_num = #{chapterNum,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="wordCount != null" >
+        word_count = #{wordCount,jdbcType=INTEGER},
+      </if>
+      <if test="publishTime != null" >
+        publish_time = #{publishTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <!-- 自定义sql begin -->
+  
+  <!-- 查询数量关联小说表 -->
+  <select id="selectCountJoinNovel" resultType="int" parameterType="cn.gyyx.playwd.beans.playwd.NovelChapterBean" >
+    select 
+    count(*)
+    from playwd_novel_tb a,playwd_novel_chapter_tb b
+    where a.code = b.novel_id
+    <if test="name != null" >
+        and a.name = #{name}
+    </if>
+    <if test="userId != null" >
+        and a.user_id = #{userId}
+    </if>
+    <if test="title != null" >
+        and b.title = #{title}
+    </if>
+  </select>
+  
+  <!-- 查询数量关联小说表 -->
+  <select id="getNovelCatalogue" resultType="java.util.Map" parameterType="int" >
+    select b.`code` bcode ,CONCAT('第',b.chapter_num,'章') chapterNum,b.`status` bstatus,
+IF(b.`status`='failed','不通过',IF(b.`status`='passed','通过',IF(b.`status`='unreviewd','待审核','无'))) status
+from playwd_novel_chapter_tb b
+where b.novel_id = #{novelCode} ORDER BY b.create_time
+  </select>
+  
+  
+  <select id="getPassedNovel" resultType="java.util.Map" parameterType="int" >
+select b.`code` bcode ,CONCAT('第',b.chapter_num,'章') chapternum,
+b.publish_time date,b.content,b.title chaptertitle
+from playwd_novel_chapter_tb b
+where b.novel_id = #{novelCode} AND b.`status`='passed'
+  </select>
+  
+  <!-- 查询小说 章节列表 -->
+  <select id="getChapterList" resultType="java.util.Map" parameterType="map" >
+SELECT c.`code`,CONCAT('第',c.chapter_num,'章') chapterNum,c.title,c.`status` englishStatus,
+IF(c.create_time IS NULL,'无',date_format(c.create_time,'%Y-%c-%d %H:%i:%s')) createTime,
+IF(c.`status`='failed','不通过',IF(c.`status`='passed','通过',IF(c.`status`='unreviewd','待审核','无'))) chineseStatus,
+'服务器' serverName, '角色' roleName,c.novel_id ,c.chapter_num
+FROM playwd_novel_chapter_tb  c
+WHERE novel_id=#{novelCode}
+<if test="status != null and status !=''" >
+    and c.`status` = #{status}
+</if>
+<if test="startChapterNum != null " >
+    and c.`chapter_num` &gt;= #{startChapterNum} 
+</if>
+<if test="endChapterNum != null " >
+    and c.`chapter_num` &lt;= #{endChapterNum}  
+</if>
+<if test="startTime != null and startTime != ''" >
+    and c.`create_time`  &gt;= #{startTime}
+</if>
+<if test="endTime != null and endTime != ''" >
+    and c.`create_time`  &lt;= #{endTime}
+</if>
+order by c.chapter_num DESC
+limit #{startSize},#{endSize}
+  </select>
+  
+    <!-- 查询小说 章节列表数量 -->
+  <select id="getChapterListCount" resultType="int" parameterType="map" >
+SELECT count(*)
+FROM playwd_novel_chapter_tb  c
+WHERE novel_id=#{novelCode}
+<if test="status != null and status !=''" >
+    and c.`status` = #{status}
+</if>
+<if test="startChapterNum != null " >
+    and c.`chapter_num` &gt;= #{startChapterNum} 
+</if>
+<if test="endChapterNum != null " >
+    and c.`chapter_num` &lt;= #{endChapterNum}  
+</if>
+<if test="startTime != null and startTime != ''" >
+    and c.`create_time`  &gt;= #{startTime}
+</if>
+<if test="endTime != null and endTime != ''" >
+    and c.`create_time`  &lt;= #{endTime}
+</if>
+  </select>
+  <!-- 获取小说上/下 章节-->
+  <select id="getChangeChapter"  resultMap="BaseResultMap" parameterType="map" >
+SELECT * from playwd_novel_chapter_tb
+WHERE novel_id =#{novelId} 
+<if test="change != null and change == 'next'" >
+AND chapter_num = #{chapterNum} +1
+</if>
+<if test="change != null and change == 'prev'" >
+AND chapter_num = #{chapterNum} -1
+</if>
+LIMIT 1
+  </select>
+  <!-- 修改章节状态-->
+  <update id="reviewChapter" parameterType="cn.gyyx.playwd.beans.playwd.NovelChapterBean" >
+ update playwd_novel_chapter_tb
+    set 
+      publish_time = NOW(),
+      status = #{status}
+    where code = #{chapterCode}
+  </update>
+  <!-- 获取章节信息-->
+  <select id="chapterInfo" resultType="java.util.Map"  >
+select c.`code` cCode,n.code nCode,c.chapter_num chapterNum,c.title ,c.content ,n.user_id userId,
+n.account ,n.`name`,n.category_id categoryId,a.title categoryTitle,n.description,n.cover,n.`status`
+from playwd_novel_chapter_tb c
+LEFT JOIN playwd_novel_tb n ON n.`code`=c.novel_id
+LEFT JOIN playwd_category_tb a ON a.`code` = n.category_id
+where c.`code` = #{chapterCode} AND c.`status` =#{status}
+  </select>
+</mapper>

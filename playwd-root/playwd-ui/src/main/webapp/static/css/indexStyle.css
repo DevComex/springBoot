@@ -1,0 +1,483 @@
+.maiin_left {
+  width: 886px;
+  height: auto;
+}
+.maiin_left .backToOld{
+	height:40px;
+	line-height:40px;
+}
+.maiin_left .bannerBox {
+  width: 100%;
+  height: 334px;
+  margin-bottom: 30px;
+}
+.maiin_left .bannerBox .leftBanner {
+  width: 584px;
+  height: 334px;
+  float: left;
+  margin-right: 11px;
+  border-radius: 5px;
+}
+.maiin_left .bannerBox .leftBanner .bannerPic {
+  width: 100%;
+  position: relative;
+}
+.maiin_left .bannerBox .leftBanner .bannerPic .imgTextscrollbody {
+  width: 584px;
+  height: 334px;
+  border-radius: 5px;
+  border-bottom: none;
+}
+.maiin_left .bannerBox .leftBanner .bannerPic .imgTextscrollbody .imgTextscrollableitems {
+  height: 100%;
+}
+.maiin_left .bannerBox .leftBanner .bannerPic .imgTextscrollbody .imgTextscrollableitems div {
+  height: 100%;
+  width: 584px;
+}
+.maiin_left .bannerBox .leftBanner .bannerPic .imgTextscrollbody .imgTextscrollableitems img {
+  height: 100%;
+  width: 100%;
+}
+.maiin_left .bannerBox .leftBanner .bannerPic ul {
+  padding: 0;
+  margin: 0;
+}
+.maiin_left .bannerBox .leftBanner .bannerPic .picnum {
+  text-align: right;
+  position: absolute;
+  bottom: 0;
+  z-index: 99;
+  height: 34px;
+  line-height: 34px;
+  padding-right: 20px;
+  width: 564px;
+  border-radius: 0 0 5px 5px;
+  background: url(../images/transparency.png) repeat;
+}
+.maiin_left .bannerBox .leftBanner .bannerPic .picnum li {
+  margin: 0 5px;
+  width: 11px;
+  height: 11px;
+  display: inline-block;
+  *zoom: 1;
+  *display: inline;
+  background-color: #fff;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.maiin_left .bannerBox .leftBanner .bannerPic .picnum li.active {
+  background-color: #e94646;
+}
+.maiin_left .bannerBox .rightBanner {
+  height: 334px;
+  width: 291px;
+  float: right;
+}
+.maiin_left .bannerBox .rightBanner div {
+  height: 162px;
+  padding:0 0 10px 0;
+}
+.maiin_left .bannerBox .rightBanner img {
+  border-radius: 5px;
+}
+.maiin_left .synthetical,
+.maiin_left .interview,
+.maiin_left .emotion,
+.maiin_left .strategy,
+.maiin_left .raceHot,
+.maiin_left .PicJoke {
+  margin: 34px 0;
+  width: 100%;
+}
+.maiin_left .synthetical .title,
+.maiin_left .interview .title,
+.maiin_left .emotion .title,
+.maiin_left .strategy .title,
+.maiin_left .raceHot .title,
+.maiin_left .PicJoke .title {
+  overflow: hidden;
+  border-bottom: #e3e3e3 1px solid;
+  position: relative;
+}
+.maiin_left .synthetical .title h2,
+.maiin_left .interview .title h2,
+.maiin_left .emotion .title h2,
+.maiin_left .strategy .title h2,
+.maiin_left .raceHot .title h2,
+.maiin_left .PicJoke .title h2 {
+  font-size: 24px;
+  line-height: 40px;
+  padding-bottom: 0px;
+  display: inline-block;
+  width: 150px;
+  float: left;
+  font-weight: 100;
+}
+.maiin_left .synthetical .title a,
+.maiin_left .interview .title a,
+.maiin_left .emotion .title a,
+.maiin_left .strategy .title a,
+.maiin_left .raceHot .title a,
+.maiin_left .PicJoke .title a {
+  text-decoration: none;
+  font-size:12px;
+  line-height:12px;
+}
+.maiin_left .synthetical .title span,
+.maiin_left .interview .title span,
+.maiin_left .emotion .title span,
+.maiin_left .strategy .title span,
+.maiin_left .raceHot .title span,
+.maiin_left .PicJoke .title span {
+  width: 26px;
+  height: 26px;
+  float: left;
+  margin: 8px 10px 0 0;
+}
+.maiin_left .synthetical .title span#syntheticalIcon,
+.maiin_left .interview .title span#syntheticalIcon,
+.maiin_left .emotion .title span#syntheticalIcon,
+.maiin_left .strategy .title span#syntheticalIcon,
+.maiin_left .raceHot .title span#syntheticalIcon,
+.maiin_left .PicJoke .title span#syntheticalIcon {
+  background: url(../images/icon.png) no-repeat 0px 1px;
+}
+.maiin_left .synthetical .title span#interview,
+.maiin_left .interview .title span#interview,
+.maiin_left .emotion .title span#interview,
+.maiin_left .strategy .title span#interview,
+.maiin_left .raceHot .title span#interview,
+.maiin_left .PicJoke .title span#interview {
+  background: url(../images/icon.png) no-repeat 0 -29px;
+}
+.maiin_left .synthetical .title span#emotion,
+.maiin_left .interview .title span#emotion,
+.maiin_left .emotion .title span#emotion,
+.maiin_left .strategy .title span#emotion,
+.maiin_left .raceHot .title span#emotion,
+.maiin_left .PicJoke .title span#emotion {
+  background: url(../images/icon.png) no-repeat 0 -60px;
+}
+.maiin_left .synthetical .title span#strategy,
+.maiin_left .interview .title span#strategy,
+.maiin_left .emotion .title span#strategy,
+.maiin_left .strategy .title span#strategy,
+.maiin_left .raceHot .title span#strategy,
+.maiin_left .PicJoke .title span#strategy {
+  background: url(../images/icon.png) no-repeat 0 -88px;
+}
+.maiin_left .synthetical .title span#raceHot,
+.maiin_left .interview .title span#raceHot,
+.maiin_left .emotion .title span#raceHot,
+.maiin_left .strategy .title span#raceHot,
+.maiin_left .raceHot .title span#raceHot,
+.maiin_left .PicJoke .title span#raceHot {
+  background: url(../images/icon.png) no-repeat 0 -117px;
+}
+.maiin_left .synthetical .title span#PicJoke,
+.maiin_left .interview .title span#PicJoke,
+.maiin_left .emotion .title span#PicJoke,
+.maiin_left .strategy .title span#PicJoke,
+.maiin_left .raceHot .title span#PicJoke,
+.maiin_left .PicJoke .title span#PicJoke {
+  background: url(../images/icon.png) no-repeat 0 -147px;
+}
+.maiin_left .synthetical .title .childType,
+.maiin_left .interview .title .childType,
+.maiin_left .emotion .title .childType,
+.maiin_left .strategy .title .childType,
+.maiin_left .raceHot .title .childType,
+.maiin_left .PicJoke .title .childType {
+  width: 712px;
+  overflow: hidden;
+}
+.maiin_left .synthetical .title .childType li,
+.maiin_left .interview .title .childType li,
+.maiin_left .emotion .title .childType li,
+.maiin_left .strategy .title .childType li,
+.maiin_left .raceHot .title .childType li,
+.maiin_left .PicJoke .title .childType li {
+  float: left;
+  margin: 10px 18px 10px;
+}
+.maiin_left .synthetical .title .childType li a,
+.maiin_left .interview .title .childType li a,
+.maiin_left .emotion .title .childType li a,
+.maiin_left .strategy .title .childType li a,
+.maiin_left .raceHot .title .childType li a,
+.maiin_left .PicJoke .title .childType li a {
+  line-height: 16px;
+  padding: 5px 10px 11px;
+}
+.maiin_left .synthetical .title .childType li a:hover,
+.maiin_left .interview .title .childType li a:hover,
+.maiin_left .emotion .title .childType li a:hover,
+.maiin_left .strategy .title .childType li a:hover,
+.maiin_left .raceHot .title .childType li a:hover,
+.maiin_left .PicJoke .title .childType li a:hover {
+  color: #fff;
+  background: url(../images/childChoose.png) no-repeat top center;
+}
+.maiin_left .synthetical .title .childType li a.on,
+.maiin_left .interview .title .childType li a.on,
+.maiin_left .emotion .title .childType li a.on,
+.maiin_left .strategy .title .childType li a.on,
+.maiin_left .raceHot .title .childType li a.on,
+.maiin_left .PicJoke .title .childType li a.on {
+  color: #fff;
+  background: url(../images/childChoose.png) no-repeat top center;
+}
+.maiin_left .synthetical .title .moreArticle,
+.maiin_left .interview .title .moreArticle,
+.maiin_left .emotion .title .moreArticle,
+.maiin_left .strategy .title .moreArticle,
+.maiin_left .raceHot .title .moreArticle,
+.maiin_left .PicJoke .title .moreArticle {
+  position: absolute;
+  top: 20px;
+  right: 0;
+  color: #99a2aa;
+}
+.maiin_left .synthetical .content,
+.maiin_left .interview .content,
+.maiin_left .emotion .content,
+.maiin_left .strategy .content,
+.maiin_left .raceHot .content,
+.maiin_left .PicJoke .content {
+  overflow: hidden;
+  width: 898px;
+  height: 400px;
+}
+.maiin_left .synthetical .content .articleBox,
+.maiin_left .interview .content .articleBox,
+.maiin_left .emotion .content .articleBox,
+.maiin_left .strategy .content .articleBox,
+.maiin_left .raceHot .content .articleBox,
+.maiin_left .PicJoke .content .articleBox {
+  float: left;
+  width: 214px;
+  height: 180px;
+  padding-top: 20px;
+  margin-right: 10px;
+  position: relative;
+}
+.maiin_left .synthetical .content .articleBox p,
+.maiin_left .interview .content .articleBox p,
+.maiin_left .emotion .content .articleBox p,
+.maiin_left .strategy .content .articleBox p,
+.maiin_left .raceHot .content .articleBox p,
+.maiin_left .PicJoke .content .articleBox p {
+  font-size: 12px;
+}
+.maiin_left .synthetical .content .articleBox p .peopleIcon,
+.maiin_left .interview .content .articleBox p .peopleIcon,
+.maiin_left .emotion .content .articleBox p .peopleIcon,
+.maiin_left .strategy .content .articleBox p .peopleIcon,
+.maiin_left .raceHot .content .articleBox p .peopleIcon,
+.maiin_left .PicJoke .content .articleBox p .peopleIcon {
+  background: url(../images/icon.png) no-repeat 0px -272px;
+  display: block;
+  width: 10px;
+  height: 14px;
+  float: left;
+}
+.maiin_left .synthetical .content .articleBox .headPic,
+.maiin_left .interview .content .articleBox .headPic,
+.maiin_left .emotion .content .articleBox .headPic,
+.maiin_left .strategy .content .articleBox .headPic,
+.maiin_left .raceHot .content .articleBox .headPic,
+.maiin_left .PicJoke .content .articleBox .headPic {
+  height: 118px;
+  width: 100%;
+}
+.maiin_left .synthetical .content .articleBox .articleInfo .articleTitle,
+.maiin_left .interview .content .articleBox .articleInfo .articleTitle,
+.maiin_left .emotion .content .articleBox .articleInfo .articleTitle,
+.maiin_left .strategy .content .articleBox .articleInfo .articleTitle,
+.maiin_left .raceHot .content .articleBox .articleInfo .articleTitle,
+.maiin_left .PicJoke .content .articleBox .articleInfo .articleTitle {
+  margin-top: 12px;
+  margin-bottom: 8px;
+  font-size: 15px;
+  color: #333333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.maiin_left .articleTitle a:hover{
+	 text-decoration: none;
+	 color:red;
+}
+.maiin_left .synthetical .content .articleBox .articleInfo .articleTitle .especialTitle,
+.maiin_left .interview .content .articleBox .articleInfo .articleTitle .especialTitle,
+.maiin_left .emotion .content .articleBox .articleInfo .articleTitle .especialTitle,
+.maiin_left .strategy .content .articleBox .articleInfo .articleTitle .especialTitle,
+.maiin_left .raceHot .content .articleBox .articleInfo .articleTitle .especialTitle,
+.maiin_left .PicJoke .content .articleBox .articleInfo .articleTitle .especialTitle {
+  color: #e94646;
+  font-weight: bold;
+}
+.maiin_left .synthetical .content .articleBox .articleInfo .articleAuthor,
+.maiin_left .interview .content .articleBox .articleInfo .articleAuthor,
+.maiin_left .emotion .content .articleBox .articleInfo .articleAuthor,
+.maiin_left .strategy .content .articleBox .articleInfo .articleAuthor,
+.maiin_left .raceHot .content .articleBox .articleInfo .articleAuthor,
+.maiin_left .PicJoke .content .articleBox .articleInfo .articleAuthor {
+  color: #99a2aa;
+}
+.maiin_left .synthetical .content .articleBox .hideInfoBox,
+.maiin_left .interview .content .articleBox .hideInfoBox,
+.maiin_left .emotion .content .articleBox .hideInfoBox,
+.maiin_left .strategy .content .articleBox .hideInfoBox,
+.maiin_left .raceHot .content .articleBox .hideInfoBox,
+.maiin_left .PicJoke .content .articleBox .hideInfoBox {
+  display: none;
+  width: 100%;
+  height: 118px;
+  position: absolute;
+  background: url(../images/transparency.png) repeat;
+  top: 20px;
+  border-radius: 5px;
+}
+.maiin_left .synthetical .content .articleBox .hideInfoBox p,
+.maiin_left .interview .content .articleBox .hideInfoBox p,
+.maiin_left .emotion .content .articleBox .hideInfoBox p,
+.maiin_left .strategy .content .articleBox .hideInfoBox p,
+.maiin_left .raceHot .content .articleBox .hideInfoBox p,
+.maiin_left .PicJoke .content .articleBox .hideInfoBox p {
+  margin: 5px 0;
+  color: #cccccc;
+  clear: both;
+  padding: 0 10px;
+}
+.maiin_left .synthetical .content .articleBox .hideInfoBox .summary,
+.maiin_left .interview .content .articleBox .hideInfoBox .summary,
+.maiin_left .emotion .content .articleBox .hideInfoBox .summary,
+.maiin_left .strategy .content .articleBox .hideInfoBox .summary,
+.maiin_left .raceHot .content .articleBox .hideInfoBox .summary,
+.maiin_left .PicJoke .content .articleBox .hideInfoBox .summary {
+  margin: 30px 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.maiin_left .synthetical .content .articleBox .hideInfoBox .crownIconB,
+.maiin_left .interview .content .articleBox .hideInfoBox .crownIconB,
+.maiin_left .emotion .content .articleBox .hideInfoBox .crownIconB,
+.maiin_left .strategy .content .articleBox .hideInfoBox .crownIconB,
+.maiin_left .raceHot .content .articleBox .hideInfoBox .crownIconB,
+.maiin_left .PicJoke .content .articleBox .hideInfoBox .crownIconB {
+  background: url(../images/icon.png) no-repeat 0 -288px;
+  display: block;
+  width: 18px;
+  height: 17px;
+  float: right;
+  margin: 0 2px;
+}
+.maiin_left .synthetical .content .articleBox .hideInfoBox .eyeIcon,
+.maiin_left .interview .content .articleBox .hideInfoBox .eyeIcon,
+.maiin_left .emotion .content .articleBox .hideInfoBox .eyeIcon,
+.maiin_left .strategy .content .articleBox .hideInfoBox .eyeIcon,
+.maiin_left .raceHot .content .articleBox .hideInfoBox .eyeIcon,
+.maiin_left .PicJoke .content .articleBox .hideInfoBox .eyeIcon {
+  background: url(../images/icon.png) no-repeat 0 -308px;
+  display: block;
+  width: 18px;
+  height: 10px;
+  float: left;
+  margin-top: 2px;
+  margin-right: 5px;
+}
+.maiin_left .synthetical .content .articleBox .hideInfoBox .heartIcon,
+.maiin_left .interview .content .articleBox .hideInfoBox .heartIcon,
+.maiin_left .emotion .content .articleBox .hideInfoBox .heartIcon,
+.maiin_left .strategy .content .articleBox .hideInfoBox .heartIcon,
+.maiin_left .raceHot .content .articleBox .hideInfoBox .heartIcon,
+.maiin_left .PicJoke .content .articleBox .hideInfoBox .heartIcon {
+  background: url(../images/icon.png) no-repeat -1px -320px;
+  display: block;
+  width: 14px;
+  height: 11px;
+  float: left;
+  margin-top: 2px;
+  margin-right: 5px;
+}
+.maiin_left .synthetical .content .articleBox .hideInfoBox .eyeNum,
+.maiin_left .interview .content .articleBox .hideInfoBox .eyeNum,
+.maiin_left .emotion .content .articleBox .hideInfoBox .eyeNum,
+.maiin_left .strategy .content .articleBox .hideInfoBox .eyeNum,
+.maiin_left .raceHot .content .articleBox .hideInfoBox .eyeNum,
+.maiin_left .PicJoke .content .articleBox .hideInfoBox .eyeNum,
+.maiin_left .synthetical .content .articleBox .hideInfoBox .heartNum,
+.maiin_left .interview .content .articleBox .hideInfoBox .heartNum,
+.maiin_left .emotion .content .articleBox .hideInfoBox .heartNum,
+.maiin_left .strategy .content .articleBox .hideInfoBox .heartNum,
+.maiin_left .raceHot .content .articleBox .hideInfoBox .heartNum,
+.maiin_left .PicJoke .content .articleBox .hideInfoBox .heartNum {
+  float: left;
+  margin-right: 12px;
+}
+.maiin_left .synthetical .content .articleBox img,
+.maiin_left .interview .content .articleBox img,
+.maiin_left .emotion .content .articleBox img,
+.maiin_left .strategy .content .articleBox img,
+.maiin_left .raceHot .content .articleBox img,
+.maiin_left .PicJoke .content .articleBox img {
+  border-radius: 5px;
+}
+.maiin_left .synthetical .content .articleBox .crownBox,
+.maiin_left .interview .content .articleBox .crownBox,
+.maiin_left .emotion .content .articleBox .crownBox,
+.maiin_left .strategy .content .articleBox .crownBox,
+.maiin_left .raceHot .content .articleBox .crownBox,
+.maiin_left .PicJoke .content .articleBox .crownBox {
+  position: absolute;
+  width: 48px;
+  height: 25px;
+  top: 26px;
+  right: 5px;
+  background: url(../images/transparency.png) repeat-x;
+  border-radius: 5px;
+}
+.maiin_left .synthetical .content .articleBox .crownBox p,
+.maiin_left .interview .content .articleBox .crownBox p,
+.maiin_left .emotion .content .articleBox .crownBox p,
+.maiin_left .strategy .content .articleBox .crownBox p,
+.maiin_left .raceHot .content .articleBox .crownBox p,
+.maiin_left .PicJoke .content .articleBox .crownBox p {
+  color: #fea50a;
+  font-weight: bold;
+  margin: 0;
+  text-align: center;
+  line-height: 25px;
+}
+.maiin_left .synthetical .content .articleBox .crownBox p .crownIcon,
+.maiin_left .interview .content .articleBox .crownBox p .crownIcon,
+.maiin_left .emotion .content .articleBox .crownBox p .crownIcon,
+.maiin_left .strategy .content .articleBox .crownBox p .crownIcon,
+.maiin_left .raceHot .content .articleBox .crownBox p .crownIcon,
+.maiin_left .PicJoke .content .articleBox .crownBox p .crownIcon {
+  background: url(../images/icon.png) no-repeat 0 -248px;
+  display: block;
+  width: 20px;
+  height: 16px;
+  float: left;
+  margin: 2px 0 0 7px;
+}
+.maiin_left .interview .content,
+.maiin_left .emotion .content,
+.maiin_left .strategy .content,
+.maiin_left .raceHot .content,
+.maiin_left .PicJoke .content {
+  height: 192px;
+}
+
+.interview .title h2,
+.emotion .title h2,
+.strategy .title h2,
+.raceHot .title h2,
+.PicJoke .title h2{cursor: pointer;}

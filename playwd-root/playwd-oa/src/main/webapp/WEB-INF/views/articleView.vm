@@ -1,0 +1,119 @@
+<link rel="stylesheet" href="${rc.contextPath}/static/css/readStyle.css">
+<section class="vbox js_template_right">
+    <!--头部功能-->
+<!--表格主体-->
+<section class="scrollable padder">
+<div class="m-b-md"></div>
+<!--数据表格  begin -->
+<section class="panel panel-default col-sm-12 pad_r_0 pad_l_0">
+
+    <div class="maiin_left" style="width: 895px; margin:0 auto;" >
+            <div class="detailsTitle" style="position: relative;">
+                <h1>$!item.title
+                    #if( $!item.status == "recommended"  )
+                        <span class="recommendIcon"></span>
+                    #end
+                    </h1>
+                    <div style="top: 55px;left: 401px;position: absolute;width: 300px;">
+                        <p><strong style="color:red;">标题特殊说明：</strong><input type="text" name="" id="wordInfo" value="$!item.secondTitle" placeholder="标题特殊说明(选填)" style="font-size: 14px;height: 23px;"><input type="button" name="" id="js_sumbit"  value="提交"></p>
+                    </div>
+                <p><span class="homeIcon"></span>图文驿站 > $!item.firstCategoryName > 正文</p>
+            </div>
+            <div class="detailsContent">
+                <p style="overflow:hidden;margin:13px 0 60px;"><span class="peopleIcon"></span>
+                    <span>【$!item.serverName】</span>
+                    <span>$!item.author </span>
+                    <span class="clockIcon"></span>
+                    <span>$!item.publishTimeStr</span>
+                    <span class="blueEye"></span>
+                    <span>$!item.viewCount </span>
+                    <span class="orangeHeart"></span>
+                    <span>$!item.likeCount </span>
+                </p>
+                <div class="articleContents">
+                    $!item.content
+                </div>
+                <style media="screen">
+                    .editorRepeat{
+                        border-top: 1px solid black;
+                        margin-top: 50px;
+                        padding-top: 20px;
+
+                    }
+                    .articleContents{
+                        overflow: hidden;
+                    }
+                    #js_editor{
+                        width: 100%;
+                        height: 100px;
+                        margin-bottom: 20px;
+                    }
+                </style>
+                <div class="editorRepeat">
+                    <p>小编回复（选填）：</p>                   
+                     #if( $!item.editorMessage != ""  )
+                        <!-- 如果有回复则绑在下面 -->
+                    	<p>$!item.editorMessage</p>
+                    	<p style="text-align:center;">
+	                        <a href="javascript:"  class="btn btn-lg btn-danger js_goback" title="返回">
+	                            返回
+	                        </a>
+	                    </p>
+                     #else
+	                    <textarea name="name" id="js_editor" style="resize: none;"></textarea>
+	                    <p style="text-align:center;">
+	                        <a href="javascript:"  class="btn btn-lg btn-success js_editMessage" title="小编回复">
+	                            提交回复
+	                        </a>
+	                        <a href="javascript:"  class="btn btn-lg btn-danger js_goback" title="返回">
+	                            返回
+	                        </a>
+	                    </p>
+                     #end 
+
+                </div>
+                <input type="hidden" id="userCode" name="" value="$!item.userId">
+                <input type="hidden" id="articleCode" name="" value="$!item.code">
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function(){
+                //副标题
+                $("#js_sumbit").click(function(){
+                    if($("#wordInfo").val().length > 5){
+                        alert("您只能输入5个字以内");
+                        return false;
+                    }
+                    $.get("/article/editSpecial",{ code : $("#articleCode").val(),r:Math.random(),special : $("#wordInfo").val()},function(d){
+                        alert(d.message);
+                    });
+                });
+                //返回
+                $(".js_goback").click(function(){
+                    window.history.back();
+                });
+                //提交小编回复
+                $(".js_editMessage").click(function(){
+                    if($("#js_editor").val().length === 0 ){
+                        alert("你没填还想提交？？？");
+                        return false;
+                    }
+                     $.post("/message/editor",{
+                 		message : $("#js_editor").val(),
+                 		contentType : 'article',
+                 		contentId : $("#articleCode").val(),
+                         r : Math.random()
+                     },function(d){
+                         alert(d.message);
+                         if(d.isSuccess){
+                             window.history.back();
+                         }
+                     });
+                });
+
+            });
+        </script>
+
+</section>
+<!--数据表格  end -->
+</section>

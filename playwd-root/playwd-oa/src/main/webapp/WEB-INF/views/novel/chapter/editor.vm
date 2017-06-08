@@ -1,0 +1,387 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>图片上传</title>
+    <meta name="keywords" content="问道玩家天地" />
+    <meta name="description" content="问道玩家天地" />
+	<script type="text/javascript" charset="utf-8">
+		var rc="";
+    </script>
+     
+    <link href="http://wanwdv2.gyyx.cn/assets/css/common.css" rel="stylesheet" type="text/css">
+    <link href="http://wanwdv2.gyyx.cn/assets/css/icon.css" rel="stylesheet" type="text/css">
+    <link href="http://wanwdv2.gyyx.cn/assets/css/globle.css" rel="stylesheet" type="text/css">
+    <link href="http://wanwdv2.gyyx.cn/assets/css/cartoon.css" rel="stylesheet" type="text/css">
+    <link href="http://wanwdv2.gyyx.cn/assets/css/JavaIcon.css" rel="stylesheet" />
+    <style>
+      .input_w170,.input_w360{width:140px;}
+     .pop_line{padding-left: 180px;}
+     .cartoonIntroduction{text-indent: 2rem;}
+    </style>
+    <script type="text/javascript" src="http://wanwdv2.gyyx.cn/assets/js/jquery.min.js"></script>
+    <link href="http://wanwdv2.gyyx.cn/assets/css/JavaIcon.css" rel="stylesheet" />
+    <script src="http://wanwdv2.gyyx.cn/assets/js/swfupload.js"></script>
+    <script src="${rc.contextPath}/static/script/uploadPic.js"></script>
+    
+    <script>
+   
+        $(function () {
+            //上传图片
+            var swfu = new SWFUpload({
+                //后台图片服务器设置
+                upload_url: "http://up.gyyx.cn/Image/WebSiteSaveToReal.ashx",
+                post_params: {
+                    group: "wd1",
+                    width: 176,
+                    height: 110
+                },
+                //文件上传设置
+                file_size_limit: "2 MB",
+                file_types: "*.jpg;*.bmp;*.gif;",
+                file_types_description: "JPG/BMP/GIF 格式图片",
+                file_upload_limit: 30,  //上传张数限制
+                file_queued_handler: fileQueued,
+                file_queue_error_handler: fileQueueError,
+                file_dialog_complete_handler: fileDialogComplete,
+                upload_progress_handler: uploadProgress,
+                upload_error_handler: uploadError,
+                upload_success_handler: uploadSuccess,
+                upload_complete_handler: uploadComplete,
+                // 按钮设置
+                //button_image_url: "images/wd_pic019.jpg",
+                button_image_url: "http://wanwdv2.gyyx.cn/assets/img/wd_pic019.jpg",
+                button_placeholder_id: "btnUpload",
+                button_width: 173,
+                button_height: 140,
+                button_text: '',
+                button_text_style: '',
+                button_text_top_padding: 0,
+                button_text_left_padding: 0,
+                flash_url: "http://up.gyyx.cn/flash/swfupload_f9.swf",
+                custom_settings: {
+                    upload_target: "divFileProgressContainer"
+                },
+                file_dialog_start_handler: changelimit,
+                debug: false
+            });
+            //改变上传图片数量限制
+            function changelimit() {
+                var stats = swfu.getStats();
+                stats.successful_uploads = $("#js_ImageUl").find("li.js_ReelNeedUpLi").length;
+                swfu.setStats(stats);
+            }
+            //图片上传
+            imgUploadFn();
+            //取消按钮返回来源页面
+            $("#js_ExitThisPage").click(function () {
+                var callurl = getQuery("callurl");
+                this.setAttribute("href", callurl);
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+ 
+    <!-- main -->
+    <div class="web_wrap">
+        
+        <div id="divFileProgressContainer"></div>
+        <div class="web_wrap  popup_box">
+            
+            <div class="web_wrap popup_box">
+                <div class="popup_con">
+                    <div class="pop_pinfo">
+		                <p>
+		                    <label style="padding-left:98px;">区服选择<span class="col_ff0">*</span></label>
+		                    <select class="input_w input_w170" id="netId" name="netId" disabled>
+		                        <option value="">请选择区组</option>
+		                    </select>&nbsp;&nbsp;&nbsp;
+		                     <select class="input_w input_w170" id="serverId" name="serverId" disabled>
+		                         <option value="">请选择服务器</option>
+		                     </select>
+		                    <input type="hidden" id="serverName " name="serverName" />
+		                    <label>角色名<span class="col_ff0">*</span></label>
+		                    <input type="text" class="input_w input_w360" name="author" id="author" maxlength="16" value="官方" disabled/>
+		                
+		                </p>		                
+		                    
+                                      
+                        <div class="CartoonName_div">
+                            <label style="padding-left:98px;color: #666;">小说名称<span class="col_ff0">*</span></label>
+                            <input type="text" class="input_w input_w280" id="js_CartoonName" maxlength="20">
+                            <input type="hidden" id="js_CartoonId"/>
+                            <ul id="js_CartoonName_ul">
+                            </ul>
+                            <span class="Prompt PromptName">必填</span>
+                        </div>  
+                        <p style="margin-bottom:5px;margin-top: 5px;">
+                            <label style="padding-left:98px;">小说类型<span class="col_ff0">*</span></label>
+                            <select class="cartoonType" id="js_cartoonType">
+                            </select>  
+                            <span class="Prompt PromptType">必填</span>                 
+                        </p>
+                        <p style="overflow:hidden;">
+                            <label style="padding-left:98px;float:left;">小说简介<span class="col_ff0">*</span></label>
+                            <textarea class="cartoonIntroduction" id="js_CartoonIntroduction" maxlength="300"></textarea>
+                            <span class="Prompt PromptIntroduction">必填</span>                    
+                        </p>
+                        <p>
+                            <label style="padding-left:98px;">当前章节<span class="col_ff0">*</span></label>
+                            <input type="text" class="input_w input_w280" id="js_ChapterNumber" value="1" disabled>
+                            <span class="Prompt PromptNumber">必填</span>
+                        </p>
+                         <p>
+                            <label style="padding-left:98px;">章节名称<span class="col_ff0">*</span></label>
+                            <input type="text" class="input_w input_w280" id="js_AlbumsName" maxlength="20">
+                            <span class="Prompt PromptChapter">必填</span>
+                        </p>
+                        <label style="padding-left:98px;">上传封面<span class="col_ff0">*</span></label>
+                        <div class="pop_picup  pop_line" style="height:180px;">
+	                        <ul class="ul_upimage" id="js_ImageUl">
+	                            <li id="js_UpImageLi">
+	                                <a href="#" id="btnUpload">
+	                                    <img src="http://wanwdv2.gyyx.cn/assets/img/wd_pic019.jpg">
+	                                </a>
+	                            </li>
+	                        </ul>
+	                        <div class="tip_box pngbg" id="js_StatuPop">
+	                            <p class="icon" id="js_StatuPop_Icon"></p>
+	                            <p id="js_StatuPop_Txt">成功上传30张图片</p>
+	                        </div>
+                       </div>
+                        <p style="margin-top:5px;">
+                            <label style="padding-left:98px;">是否完结<span class="col_ff0">*</span></label>
+                            <label><input name="IsOver" type="radio" value="finished"/>是 </label> 
+                            <label><input name="IsOver" type="radio" value="unfinished"  checked="checked"/>否</label>  
+                            <span class="PromptIs">必填</span>                  
+                        </p>
+                        <p style="margin-bottom:5px;margin-top: 5px;">
+                            <label style="padding-left:98px;">内容详情<span class="col_ff0">*</span></label>
+                            <textarea id="js_content" cols="100" rows="20"></textarea>  
+                            <span class="Prompt PromptType">必填</span>                 
+                        </p>
+                        
+               
+                    </div>
+                    <div class="pop_but">
+                        <a href="javascript:;" class="pop_upbut" id="js_SaveAlbum">上传</a>              
+                        <div id="thumbnails"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="Mark" class="mark"></div>
+    </div>  
+    <!-- end -->
+
+<script>
+ var tempIo="";
+ var userId = "";
+ var chapterIo ="";
+ function checkLogin(fn) {
+    $.ajax({
+        url: "http://reg.gyyx.cn/Login/Status",
+	    type: "GET",
+	    dataType: "jsonp",
+	    jsonp: "jsoncallback",
+	    data: {},
+	    success: function (d) {
+	        if (d.IsLogin) {
+	            if (fn) {
+	                fn.success(d);
+	            }
+	        }else {
+	            if (fn) {
+	                fn.failed(d);
+	            }
+	        }
+	    }
+    });
+};
+function Cartoon(){
+	//点击验证码切换
+	$("#js_yzmBtn").click(function(){
+		$("#js_yzmImg").attr("src","http://api.gyyx.cn/Captcha/CreateVJ.ashx?r="+Math.random());
+	});
+	$("#js_yzmImg").click(function(){
+		$("#js_yzmImg").attr("src","http://api.gyyx.cn/Captcha/CreateVJ.ashx?r="+Math.random());
+	});
+    //获取小说的类型
+	function getCategoryType(){
+		 $.ajax({
+			url: rc+"/category/getCategory",
+	        type: "GET",
+	        dataType: "json",
+	        data: {
+	        	contentType:'novel',
+	            r: Math.random
+	        },
+	        success: function (data) {
+	        	if(data.isSuccess){
+	            	if(data.data.length && data.data){
+	            		var selectHtml = '<option value="">请选择小说类型</option>';
+	            		for(var i = 0; i < data.data.length;i++){
+	            			selectHtml += '<option value="'+data.data[i].code+'">'+data.data[i].title+'</option>';
+	            		}
+	            		$("#js_cartoonType").html(selectHtml);
+	            		return selectHtml;
+	            	}
+	            }
+	        }
+		});
+	};
+	getCategoryType();
+	function getParam(){
+				var url = location.search.substr(1);
+				var obj = {};
+				if(!url) return false;    
+				var arr = url.split("&");
+				for(var i = 0,len = arr.length; i<len; i++){
+					var params = arr[i].split("=");      //用=将其分开
+					obj[params[0]] = decodeURI(params[1]);
+				}
+				return obj;
+		};
+	//进入页面首先调取接口获取章节数据
+	      function getChapterData(){
+	      
+	        $.ajax({	
+	                        url: '/novel/chapter/info',
+	                        type: 'GET',
+	                        dataType: 'json',
+	                        data: {chapterCode : getParam().chapterCode,r:Math.random()},
+	                        success:function(d){
+	                        	$("#js_CartoonName").val(d.data.name);
+	                        	tempIo=d.data.name;
+	                        	chapterIo = d.data.title;
+	                        	$("#js_cartoonType").val(d.data.categoryId);
+	                            $('#js_CartoonIntroduction').val(d.data.description);
+	                            $('#js_ChapterNumber').val(d.data.chapterNum);
+	                            $("#js_AlbumsName").val(d.data.title);
+	                            $("#js_content").val(d.data.content);
+	                            $('#js_cartoonType option')
+	                            $("input[name='IsOver'][value='"+d.data.status+"']").attr("checked",true);
+	                            userId = d.data.userId;
+	                            $(".js_ReelNeedUpLi").remove();
+                        			 createImgLi(0);
+                        			 $("#UploadLi_0").attr({
+                        		            "data-PictureUrl": d.data.cover,
+                        		      }).find("img").attr("src", d.data.cover);
+                        			 
+                        			 $(".js_RemoveThisPic").unbind("click").bind("click", function () {
+                        			        $(this).parents("li").remove();
+                        			        return false;
+                        			    });
+	
+	                        }
+	                    });
+	      };
+	 getChapterData();
+	//点击小说名称，将所有的名称都展示出来
+   
+}
+$(function () {
+	//检测登陆状态
+    checkLogin({
+        success: function (data) {
+        	Cartoon();//获取漫画列表
+        },
+        failed: function (data) {
+        	Cartoon();//获取漫画列表
+        	
+        }
+    });
+
+   
+   
+	
+     //检测章节名称
+	$("#js_AlbumsName").blur(function () {
+		var name = $.trim($("#js_CartoonName").val());
+		var title = $.trim($(this).val());
+		if(!name || !title){
+			return;
+		}
+		
+		$.ajax({
+            url: rc+"/novel/checkChapterTitle",
+            type: "POST",
+            dataType: "json",
+            data: {
+                r: Math.random,
+                name: name,   //小说名称
+                title: title,   //小说章节名称
+                userId:userId
+            },
+            success: function (data) {
+	           	 if(!data.isSuccess){
+	           		 if(data.data == 'title-repeat' && chapterIo!=title){
+	           			 alert('存在同名的章节名称,请更换');
+	           			 $("#js_AlbumsName").val("");
+	           		 }
+	           	 }else{
+	           		 
+	           	 }
+            }
+        });
+		
+	});
+	//检测小说名称
+	
+	
+	 $("#js_CartoonName").blur(function () {
+	   var tmp2 = $.trim($("#js_CartoonName").val());
+	    $.ajax({
+                     url: rc+"/novel/checkName",
+                     type: "POST",
+                     dataType: "json",
+                     data: {
+                         r: Math.random,
+                         name: tmp2,   //小说名称
+                         userId:userId
+                     },
+                     success: function (data) {
+                    	 var categoryCode = "";
+                    	 if(!data.isSuccess){
+                    		 var authorName='',context='',cartoonTypeVal='';
+                    		 if(data.message=="name-repeat"&&tempIo!=tmp2){
+                    			  alert("小说名称已存在");
+                    			  $("#js_CartoonName").val("");
+                    			  return false;
+                    			 
+                    		 }else if(data.message=="novel-over"&&tempIo!=tmp2){
+                    		       alert("小说名称已存在");
+                    		        $("#js_CartoonName").val("");
+                    		       return false;
+                    		 }
+                    	 }else{
+                    		//alert(data.message);
+                    		 
+                    	 }
+
+                     }
+                 });
+	 })
+    
+
+
+    $("#js_CartoonName").keydown(function () {
+        $("#js_CartoonName_ul").hide();
+    });
+    
+
+});
+
+</script>
+
+<style>
+.app,.app body {
+   overflow: auto !important;
+}
+</style>
+</body>
+</html>

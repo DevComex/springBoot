@@ -1,0 +1,131 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta content="IE=11.0000" http-equiv="X-UA-Compatible">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width = device-width ,height = device-height ,initial-scale = 1,minimum-scale = 1,maximum-scale = 1,user-scalable =no" />
+    <title>小鸡麻将</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../resources/css/main.css" />
+    <script>var rc = "${rc.contextPath}";</script>
+    <script src="../resources/js/common/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () { $(".reg_form_web").MyData(); });
+    </script>
+</head>
+<body>
+    <div class="topbar-wrap white">
+        <div class="topbar-inner clearfix">
+            <div class="topbar-logo-wrap clearfix">
+                <ul class="navbar-list clearfix">
+                    <li>&nbsp;&nbsp;我的资料</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container clearfix">
+        <div class="main-wrap noleft">
+            <div class="result-wrap">
+                <form method="post" action="" class="reg_form_web">
+                    <p class="item_t">
+                        <label>游戏ID：</label>
+                        <span class="txtform js_GameId">454544545454</span>
+                    </p>
+                    <p class="item_p dis">
+                        <label>游戏ID：</label>
+                        <span class="ipt_box">
+                            <input class="ipt" type="text" name="gameid" data-tip="游戏ID" placeholder="游戏ID" value="454544545454" maxlength="10">
+                        </span>
+                        <span class="error tip"></span>
+                    </p>
+                    <p class="item_t">
+                        <label>微信号：</label>
+                        <span class="txtform js_wechat">158******14</span>
+                    </p>
+                    <p class="item_p dis">
+                        <label>微信号：</label>
+                        <span class="ipt_box">
+                            <input class="ipt" type="text" name="wxid" data-tip="微信号" placeholder="微信号" value="158******14" maxlength="45">
+                        </span>
+                        <span class="error tip"></span>
+                    </p>
+                    <p class="item_t">
+                        <label>昵称：</label>
+                        <span class="txtform js_name">15814</span>
+                    </p>
+                    <p class="item_p dis">
+                        <label>昵称：</label>
+                        <span class="ipt_box">
+                            <input class="ipt" type="text" name="account" data-tip="昵称" placeholder="昵称" value="15814" maxlength="20">
+                        </span>
+                        <span class="error tip"></span>
+                    </p>
+                    <p class="item_t">
+                        <label>手机：</label>
+                        <span class="txtform js_phone">158******14</span>
+                    </p>
+                    <!--<p class="item_p dis">
+                        <label>手机：</label>
+                        <span class="ipt_box">
+                            <input class="ipt" type="text" name="phone" data-tip="手机" placeholder="手机" value="">
+                        </span>
+                        <span class="error tip"></span>
+                    </p>-->
+                    <p class="item_t">
+                        <label>地址：</label>
+                        <span class="txtform js_address">湖北省武汉市</span>
+                    </p>
+                   
+                  <p class="item_p dis">
+                        <label>地址：</label>
+                        <span class="ipt_box">
+                            <select class="ipt capthaipt sel01 js_local js_sheng" name="province" id="province" data-tip="省份">
+                                 <option value="">省份</option>
+                            </select>
+                        </span>
+                        <span class="error tip"></span>
+                    </p>
+                    <p class="item_p dis">
+                        <label></label>
+                        <span class="ipt_box">
+                            
+                            <select class="ipt capthaipt mrl10 js_city" name="city" id="city" data-tip="城市">
+                                <option value="">市县</option>
+                            </select>
+                        </span>
+                        <span class="error tip"></span>
+                    </p>
+                   
+                    <p class="item_t">
+                        <label>详细地址：</label>
+                        <span class="txtform js_detailAdd">东湖花园</span>
+                    </p>
+                    <p class="item_p dis">
+                        <label>详细地址：</label>
+                        <span class="ipt_box">
+                            <input class="ipt" type="text" name="address" data-tip="详细地址" placeholder="详细地址" value="东湖花园">
+                        </span>
+                        <span class="error tip"></span>
+                    </p>
+                    <p class="item_t">
+                        <label>注册时间：</label>
+                        <span class="txtform js_registerTime">2017-05-12 12:23:22</span>
+                    </p>
+                    <p class="formbtn item_t">
+                        <a href="javascript:;" class="btn btn-success js_edit">修改</a>
+                    </p>
+                       <p class="formbtn item_p dis">
+                        <a href="javascript:;" class="btn btn-info js_submit">确定</a>
+                        <a href="javascript:;" class="btn btn-danger js_cancel">取消</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="botmenu white js_bottommenu"></div>
+    <script src="../resources/js/menu/js/menuheadjson.js"></script>
+     <script src="../resources/js/static-ui/city.js" type="text/javascript"></script>
+    <script src="../resources/js/static-ui/myData.js" type="text/javascript"></script>
+</body>
+</html>

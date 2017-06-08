@@ -1,0 +1,84 @@
+﻿@charset "utf-8";
+/* CSS Document */
+@charset "utf-8";
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td { margin:0; padding:0;}
+table { border-collapse:collapse; border-spacing:0; }
+textarea{resize:none;}
+fieldset, img { border:0; }
+img{ vertical-align:bottom;}
+address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:normal; }
+ol, ul { list-style:none; }
+h1, h2, h3, h4, h5, h6 { font-size:100%; font-weight:normal; }
+abbr, acronym { border:0; }
+.clear{zoom:1;}
+.clear:after{ content:""; display:block; clear:both;}
+a{ text-decoration:none; cursor:pointer;blr:expression(this.onFocus=this.blur());}
+a:hover{ text-decoration:underline; cursor:pointer;}
+a:focus{outline:none;}
+body{ font-size:14px;font-family:"微软雅黑";position:relative;}
+
+
+/*漂浮*/
+.pf{width:307px;height:327px;background:url(../images/bg.png) no-repeat;overflow:hidden;padding-top:99px;z-index:20;position: fixed;bottom:0;left:0;display:block;}
+.report_txt{width: 167px;height: 36px;background:url(../images/reporter.png) no-repeat;}
+.scroll_txt{line-height: 20px;width: 188px;padding: 21px 8px;color: #fff;position:relative;height: 52px;
+    }
+.zm_txt{width:175px;height:24px;background:url(../images/zm.png) no-repeat;margin-top: 13px;}
+.cf_txt{margin-left:50px;}
+.cf_txt li{line-height:22px;white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;}
+.btn_report{width: 107px;
+    height: 81px;
+    display: inline-block;
+    background: url(../images/btn.png) no-repeat;
+    position: relative;
+    bottom: 28px;
+    margin-left: 28px;}
+.mini_pf{width: 101px;height: 109px;background:url(../images/arrow.png) no-repeat;position: fixed;top:40%;left:0;display:none;}
+.pf_tc01{width:352px;height:313px;background:url("../images/dialog.png") no-repeat;display:block;left: 50%;top:50%;margin-left: -176px;margin-top:-156.5px;position: fixed;
+display: none;z-index: 1001;}
+.pf_tcBox {width: 258px;margin:0 auto;}
+.pf_tcBox h3{width: 260px;height:26px;background:url(../images/reort2.png) no-repeat;margin-top: 55px;padding-bottom: 13px;}
+.pf_tcBox div{line-height: 20px;
+    margin-top: 13px;
+    height: 120px;
+       overflow: auto;
+
+}
+    .pf_tcBox div p {
+        word-wrap: break-word;
+    }
+    .pf>div {
+    margin-left:50px;
+}
+.pf_tcBtn{    width: 109px;
+    height: 77px;
+    display: inline-block;
+    background: url(../images/details.png) no-repeat;
+    margin: -10px 75px;
+    position: absolute;
+    left: 43px;
+    bottom: 20px;
+}
+
+
+.pf_close{width:28px;height: 29px;background:url(../images/close.png) no-repeat;position: absolute;right: 12px;
+    top: 13px;}
+ #scrollLine {width: 14px;height: 70px;position: absolute;right: 3px;top: 20px; background:url(../images/scroll_line.png) no-repeat 0 0 ;z-index: 10000;display:none;}
+#scrollBtn {width: 8px; height: 32px; position: absolute; left:-4px; top: 1px;background:url(../images/scroll_bar.png) no-repeat 0 0 ;display:none;}
+#scrollMain {width: 175px; height: 82px;position: absolute; left: 0px; top: 15px; overflow: hidden;padding-right: 20px;}
+#scrollBox {position: absolute; left: 6px; top: 0;width:175px;}
+#scrollBoxUl li{width:175px;word-wrap: break-word;text-indent: 27px;}
+.mask{width: 100%;height: 2500px;position:absolute;left:0;top:0;background-color: #000;opacity:0.5;filter:alpha(opacity=50);display: none; z-index: 1000;}
+.cf_txt {margin-top:18px;width:203px;}
+#testDiv2 p {
+    overflow: hidden;width: 172px;word-wrap: break-word;
+}
+a:hover {color:black;
+}
+.closeBtn{width:28px;height: 29px;background:url(../images/close.png) no-repeat;position: relative;
+    right: -198px;
+    top: -277px;}
+
+

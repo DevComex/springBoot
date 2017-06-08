@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+    <meta content="IE=11.0000" http-equiv="X-UA-Compatible">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width = device-width ,height = device-height ,initial-scale = 1,minimum-scale = 1,maximum-scale = 1,user-scalable =no" />
+    <title>小鸡麻将</title>
+    <link rel="stylesheet" type="text/css" href="../resources/css/common.css" />
+    <link rel="stylesheet" type="text/css" href="../resources/css/main.css" />
+    <script>var rc = "${rc.contextPath}";</script>
+    <script src="../resources/js/common/jquery-1.12.4.min.js" type="text/javascript"></script>
+    <script src="../resources/js/static-ui/exchangeidx.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () { $(".reg_form_web").RechargeCard(); });
+    </script>
+</head>
+<body>
+    <div class="topbar-wrap white">
+        <div class="topbar-inner clearfix">
+            <div class="topbar-logo-wrap clearfix">
+                <ul class="navbar-list clearfix">
+                    <li>充值房卡</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container clearfix">
+        <div class="main-wrap noleft">
+            <div class="result-wrap">
+                <form method="post" action="" class="reg_form_web">
+                    <div class="js_fir">
+                        <p class="tipp">
+                            <span class="tip">第一步：根据玩家ID查询玩家信息</span>
+                        </p>
+                        <p>
+                            <label>个人库存：</label>
+                            <span class="txtform js_inventory" data-blc=""></span>
+                        </p>
+                        <p class="item_p">
+                            <label>玩家ID：</label>
+                            <span class="ipt_box">
+                                <input class="ipt short" name="account" data-tip="玩家ID" type="text" placeholder="请输入玩家ID" value=""  maxlength="10">
+                            </span>
+                            <span class="error tip"></span>
+                            <a href="javascript:;" class="btn btn-info btnlater js_checkid">查找</a>
+                        </p>
+                        <p class="timg">
+                            <img src="../resources/images/timg.jpg" class="formimg" />
+                        </p>
+                    </div>
+                    <div class="js_sed dis">
+                        <p class="tipp">
+                            <span class="tip">第二步：填写充卡数量，给玩家充卡</span>
+                        </p>
+                        <p>
+                            <label>玩家ID：</label>
+                            <span class="txtform js_userid"></span>
+                        </p>
+                        <p>
+                            <label>玩家昵称：</label>
+                            <span class="txtform js_nickName"></span>
+                        </p>
+                        <p>
+                            <label>玩家库存：</label>
+                            <span class="txtform js_balance"></span>
+                        </p>
+                        <p class="item_p">
+                            <label>充卡数量：</label>
+                            <span class="ipt_box">
+                                <input class="ipt short" type="text" data-tip="充卡数量" name="amount" placeholder="请输入充卡数量" value=""  maxlength="7"/>
+                            </span>
+                            <span class="error tip"></span>
+                            <a href="javascript:;" class="btn btn-success btnlater js_recharge">充值</a>
+                        </p>
+                        <p class="formbtn">
+                            <a href="javascript:;" class="btn btn-info js_prev">上一步</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="botmenu white js_bottommenu"></div>
+    <script src="../resources/js/menu/js/menuheadjson.js"></script>
+</body>
+</html>

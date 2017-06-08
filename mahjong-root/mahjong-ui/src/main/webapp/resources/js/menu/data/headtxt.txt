@@ -1,0 +1,47 @@
+﻿var bottomdata = 
+ [
+        {
+		    "Code":"1",
+            "FirName": "用户管理",
+			"Sedlist":[
+			       {
+				     "SedName":"退出登录",
+					 "Sedurl":"javascript:;"
+				   },
+				    {
+				     "SedName":"修改密码",
+					 "Sedurl":"/user/changepwd"
+				   },
+				   {
+				     "SedName":"我的资料",
+					 "Sedurl":"/user/index"
+				   },
+				   {
+				     "SedName":"修改手机",
+					 "Sedurl":"/user/changephone"
+				   }
+			]
+        },
+        {
+		    "Code":"2",
+            "FirName": "充卡管理",
+			"Sedlist":[
+			       {
+				     "SedName":"给玩家充房卡",
+					 "Sedurl":"/exchange/"
+				   },
+				    {
+				     "SedName":"玩家充卡记录",
+					 "Sedurl":"/exchange/history?role=player"
+				   },
+				    {
+				     "SedName":"我的售卡记录",
+					 "Sedurl":"/exchange/history?role=head"
+				   },
+				    {
+				     "SedName":"我的购卡记录",
+					"Sedurl":"/recharge/history"
+				   }
+			]
+        }
+    ]

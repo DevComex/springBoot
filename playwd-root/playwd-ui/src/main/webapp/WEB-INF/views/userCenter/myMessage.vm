@@ -1,0 +1,58 @@
+#parse("public/userCenterHead.vm")
+<div class="web_wrap">
+    <div class="banner_pers">
+        <span class="h_shade pngbg"></span>
+        <div class="w_head">
+            <span class="w_hinfo">
+                <a href="./Role" id="js_HeadPortrait">
+                    <img src="/Content/images/default_rolepic.jpg" title="点击进入我的角色" />
+                </a>
+            </span>
+            <span id="js_RoleName">金男</span>
+        </div>
+    </div>
+    <div class="v_list_tit pad30">
+        <ul class="v_list_class">
+            <li class="on"><a href="javascript:;">我的信息</a></li>
+            <li><a href="/userCenter/mycollect">我的收藏</a></li>
+             <li><a href="/userCenter/myupload">我的上传</a></li>
+            <li><a href="/userCenter/editorMessage">编辑回复</a></li>
+        </ul>
+    </div>
+
+    <div class="web_wrap">
+        <div class="wd_message">
+            <div class="wd_message_l" id="js_MsgContWrap">
+                <ul class="message_list" id="js_MsgCont">
+
+                </ul>
+
+                <div class="mt30 s_page_wrap">
+                    <span class="gy_page search_page"></span>
+                    <span class="search_page_txt"></span>
+                </div>
+            </div>
+            <div class="wd_message_r">
+                <h2 class="c_tit">
+                    <div class="tit_l">
+                        <span class="font_bg font_zdnav"></span>
+                    </div>
+                </h2>
+                <ul>
+                    <li><a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm">问道官网</a></li>
+                    <li><a target="_blank" href="http://wanwd.gyyx.cn/">玩家天地</a></li>
+                    <li><a target="_blank" href="http://wanwd.gyyx.cn/articlelist/Index">图文驿站</a></li>
+                    <li><a target="_blank" href="http://wanwd.gyyx.cn/Picture/Index">秀图专区</a></li>
+                    <li><a target="_blank" href="http://wanwd.gyyx.cn/Video/Index">视频专区</a></li>
+                    <li><a target="_blank" href="http://wd.gyyx.cn/huodong/wjfc2014/index.html">有奖征稿</a>
+                    </li>
+                    <li><a target="_blank" href="http://e.t.qq.com/wendao2006">官方微博</a></li>
+                    <li><a target="_blank" href="http://wd.gyyx.cn/huodong/2014jhhd/index.html?tabid=2">官方微信</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+
+#parse("public/userCenterBottom.vm")

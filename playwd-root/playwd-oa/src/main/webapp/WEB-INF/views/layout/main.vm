@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>玩家天地后台</title>
+    <!-- script -->
+    <script type="text/javascript" src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js" charset="utf-8"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <!-- css -->
+    
+    <link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+    <link href="${rc.contextPath}/static/css/font.css" rel="stylesheet" />
+    <link href="${rc.contextPath}/static/css/oa-wdplayer.css" rel="stylesheet" />
+<script type="text/javascript" charset="utf-8">
+	document.write(teheadstr);
+</script>
+</head>
+<body>
+	<section class="vbox">
+		<header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+		<section>
+			<section class="hbox stretch">
+				<aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+				<section id="content">
+					$screen_content
+				</section>
+			</section>
+		</section>
+	</section>
+    <script type="text/javascript" src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mahjong.dao.BlockLogMapper">
+  <resultMap id="BaseResultMap" type="cn.mahjong.beans.BlockLog">
+    <id column="code" jdbcType="INTEGER" property="code" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="operator" jdbcType="INTEGER" property="operator" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    code, create_time, user_id, operator, type
+  </sql>
+  <select id="selectByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from block_log
+    where user_id = #{userId,jdbcType=INTEGER}
+  </select>
+  <select id="selectByOperatorId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from block_log
+    where operator = #{operatorId,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" parameterType="cn.mahjong.beans.BlockLog">
+    insert into block_log (code, create_time, user_id, 
+      operator, type)
+    values (#{code,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=INTEGER}, 
+      #{operator,jdbcType=INTEGER},#{type,jdbcType=VARCHAR})
+  </insert>
+</mapper>

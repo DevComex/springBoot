@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.mahjong.dao.UserInventoryMapper">
+  <resultMap id="BaseResultMap" type="cn.mahjong.beans.UserInventory">
+    <id column="user_id" jdbcType="INTEGER" property="userId"/>
+    <result column="inventory" jdbcType="INTEGER" property="inventory"/>
+    <result column="gift_inventory" jdbcType="INTEGER" property="giftInventory"/>
+  </resultMap>
+  <sql id="Base_Column_List">
+    user_id, inventory, gift_inventory
+  </sql>
+  <select id="selectByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM user_inventory_tb
+    where user_id = #{userId,jdbcType=INTEGER} FOR UPDATE
+  </select>
+  <insert id="insert" parameterType="cn.mahjong.beans.UserInventory">
+    INSERT INTO user_inventory_tb (user_id, inventory, gift_inventory) VALUES (
+      #{userId,jdbcType=INTEGER},
+      #{inventory,jdbcType=INTEGER},
+      #{giftInventory,jdbcType=INTEGER}
+    )
+  </insert>
+  <update id="increase" parameterType="map">
+    UPDATE user_inventory_tb set
+    inventory = inventory + #{amount,jdbcType=INTEGER},
+    gift_inventory = gift_inventory + #{giftInventory,jdbcType=INTEGER}
+    where user_id = #{userId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="cn.mahjong.service.HeadServiceTest">
+        <methods>
+          <include name="update_whenDBUpdateSuccess_thenReturnTrue"/>
+          <include name="setUp"/>
+          <include name="getHeads_whenGetList_thenReturnList"/>
+        </methods>
+      </class> <!-- cn.mahjong.service.HeadServiceTest -->
+      <class name="cn.mahjong.service.ExchangeServiceTest">
+        <methods>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- cn.mahjong.service.ExchangeServiceTest -->
+      <class name="cn.mahjong.service.LoginServiceImplTest">
+        <methods>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- cn.mahjong.service.LoginServiceImplTest -->
+      <class name="cn.mahjong.service.SMSServiceImplTest">
+        <methods>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- cn.mahjong.service.SMSServiceImplTest -->
+      <class name="cn.mahjong.service.UserServiceImplTest">
+        <methods>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- cn.mahjong.service.UserServiceImplTest -->
+      <class name="cn.mahjong.service.StatServiceImplTest">
+        <methods>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- cn.mahjong.service.StatServiceImplTest -->
+      <class name="cn.mahjong.service.SPProviderFactoryTest">
+        <methods>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- cn.mahjong.service.SPProviderFactoryTest -->
+      <class name="cn.mahjong.service.GuoDuProviderTest">
+        <methods>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- cn.mahjong.service.GuoDuProviderTest -->
+      <class name="cn.mahjong.service.CaptchaServiceImplTest">
+        <methods>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- cn.mahjong.service.CaptchaServiceImplTest -->
+      <class name="cn.mahjong.service.RechargeServiceImplTest">
+        <methods>
+          <include name="recharge_whenInventoryIsEnoughReturnTrue"/>
+          <include name="setUp"/>
+        </methods>
+      </class> <!-- cn.mahjong.service.RechargeServiceImplTest -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.playwd.dao.playwd.ReportDao" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.playwd.beans.playwd.ReportBean" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="comment_id" property="commentId" jdbcType="INTEGER" />
+    <result column="comment_user_id" property="commentUserId" jdbcType="INTEGER" />
+    <result column="comment_user_account" property="commentUserAccount" jdbcType="VARCHAR" />
+    <result column="report_user_id" property="reportUserId" jdbcType="INTEGER" />
+    <result column="report_user_account" property="reportUserAccount" jdbcType="VARCHAR" />
+    <result column="reason" property="reason" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="process_time" property="processTime" jdbcType="TIMESTAMP" />
+    <result column="operator_account" property="operatorAccount" jdbcType="VARCHAR" />
+    <collection property="commentBean" ofType="cn.gyyx.playwd.beans.playwd.CommentBean">  
+        <id column="comment_id"  property="code" />  
+        <result column="content" property="content" jdbcType="VARCHAR" />
+        <result column="is_show" property="isShow" jdbcType="SMALLINT" />
+   	</collection> 
+  </resultMap>
+  
+  <!-- 获取举报管理列表 -->
+  <select id="selectReportManagementList" resultMap="BaseResultMap">
+     SELECT report.code as code,
+     		comment_id,
+     		content,
+     		reason,
+     		report.create_time as create_time,
+     		comment_user_account,
+     		report_user_account,
+     		status,
+     		is_show
+	 from playwd_report_tb report 
+		JOIN  (SELECT a.code
+			   FROM playwd_report_tb a
+			   	join playwd_comment_tb  b 
+				on a.comment_id=b.code
+			   where a.create_time&gt;=#{startDate} 
+			   			and a.create_time&lt;=#{endDate}
+		   			<if test="contentType!='all'">
+			   			and b.content_type=#{contentType}  
+		   			</if>
+		   			<if test="status!='all'">
+						and a.status=#{status}
+					</if>
+					<if test="commentAccount!='' and commentAccount!=null">
+						and a.comment_user_account=#{commentAccount} 
+					</if>
+					<if test="reportAccount!='' and reportAccount!=null">
+						and a.report_user_account=#{reportAccount} 
+					</if>
+			   ORDER BY a.code DESC LIMIT #{startCode},1) reportTemp 
+	 	join  playwd_comment_tb comment 
+		on report.comment_id=comment.code 
+	 where report.code&lt;=reportTemp.code 
+		   and report.create_time&gt;=#{startDate} 
+		   and report.create_time&lt;=#{endDate}
+		<if test="contentType!='all'">
+  			and comment.content_type=#{contentType}  
+		</if>
+		<if test="status!='all'">
+			and report.status=#{status}
+		</if>
+		<if test="commentAccount!='' and commentAccount!=null">
+			and report.comment_user_account=#{commentAccount} 
+		</if>
+		<if test="reportAccount!='' and reportAccount!=null">
+			and report.report_user_account=#{reportAccount} 
+		</if>
+	 order by report.code DESC LIMIT #{pageSize}
+  </select>
+  
+  <!-- 获取举报管理列表数量-->
+  <select id="selectReportManagementCount" resultType="int">
+     SELECT count(report.code) as num
+	 FROM playwd_report_tb report 
+		 join playwd_comment_tb comment
+		 on report.comment_id=comment.code
+	 where report.create_time&gt;=#{startDate} 
+		   and report.create_time&lt;=#{endDate}
+		<if test="contentType!='all'">
+  			and comment.content_type=#{contentType}  
+		</if>
+		<if test="status!='all'">
+			and report.status=#{status}
+		</if>
+		<if test="commentAccount!='' and commentAccount!=null">
+			and report.comment_user_account=#{commentAccount} 
+		</if>
+		<if test="reportAccount!='' and reportAccount!=null">
+			and report.report_user_account=#{reportAccount} 
+		</if>
+  </select>
+  
+  <!-- 插入 -->
+  <insert id="insert" parameterType="cn.gyyx.playwd.beans.playwd.ReportBean" >
+    insert into playwd_report_tb (code, comment_id, comment_user_id, 
+      comment_user_account, report_user_id, report_user_account, 
+      reason, status, create_time, 
+      process_time, operator_account)
+    values (#{code,jdbcType=INTEGER}, #{commentId,jdbcType=INTEGER}, #{commentUserId,jdbcType=INTEGER}, 
+      #{commentUserAccount,jdbcType=VARCHAR}, #{reportUserId,jdbcType=INTEGER}, #{reportUserAccount,jdbcType=VARCHAR}, 
+      #{reason,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{processTime,jdbcType=TIMESTAMP}, #{operatorAccount,jdbcType=VARCHAR})
+  </insert>
+
+  <!-- 更新 -->
+  <update id="updateReport">
+    update playwd_report_tb
+    set status='processed',
+    	process_time = now(),
+        operator_account = #{operatorAccount}
+    where code = #{code}
+  </update>
+  
+  <!-- 获取举报记录-->
+  <select id="selectReportInfo" resultMap="BaseResultMap">
+     SELECT *
+	 FROM playwd_report_tb 
+	 where code=#{code}
+  </select>
+  
+  <!-- 获取用户举报-->
+  <select id="selectByUserAndCommentId" resultType="int">
+     SELECT count(1)
+	 FROM playwd_report_tb 
+	 where report_user_id=#{reportUserId} and comment_id=#{commentId}
+  </select>
+</mapper>

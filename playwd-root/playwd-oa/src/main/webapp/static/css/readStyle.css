@@ -1,0 +1,348 @@
+.maiin_left {
+  width: 895px;
+}
+.maiin_left span {
+  float: left;
+}
+.maiin_left h1 {
+  font-size: 36px;
+  line-height: 36px;
+  margin-bottom: 22px;
+}
+.maiin_left .detailsTitle {
+  padding-bottom: 10px;
+  border-bottom: #e7ebed solid 1px;
+}
+.maiin_left .detailsTitle .recommendIcon {
+  background: url(../images/icon.png) no-repeat -113px -159px;
+  display: inline-block;
+  width: 31px;
+  height: 41px;
+  float: none;
+  vertical-align: middle;
+}
+.maiin_left .detailsTitle p {
+  font-size: 14px;
+  line-height: 14px;
+}
+.maiin_left .detailsContent {
+  height: auto;
+  width: 100%;
+  word-break: break-all;
+}
+.maiin_left .peopleIcon {
+  background: url(../images/icon.png) no-repeat 0px -272px;
+  display: block;
+  width: 10px;
+  height: 14px;
+  margin-top: 3px;
+}
+.maiin_left .homeIcon {
+  background: url(../images/icon.png) no-repeat 0px -384px;
+  display: block;
+  width: 20px;
+  height: 14px;
+}
+.maiin_left .clockIcon {
+  background: url(../images/icon.png) no-repeat 0px -404px;
+  display: block;
+  width: 20px;
+  height: 14px;
+  margin-top: 3px;
+  margin-left: 20px;
+}
+.maiin_left .blueEye {
+  background: url(../images/icon.png) no-repeat 0px -437px;
+  display: block;
+  width: 20px;
+  height: 14px;
+  margin-top: 1px;
+  margin-left: 20px;
+}
+.maiin_left .orangeHeart {
+  background: url(../images/icon.png) no-repeat 0px -422px;
+  display: block;
+  width: 20px;
+  height: 14px;
+  margin-top: 3px;
+  margin-left: 20px;
+}
+.maiin_right {
+  position: relative;
+}
+.maiin_right .rightBoxForAuthor {
+  width: 99%;
+  height: 677px;
+  border: 1px solid #e3e3e3;
+  border-top: none;
+  margin-top: 40px;
+  position: relative;
+}
+.maiin_right .rightBoxForAuthor h5 {
+  background-color: #92d1e5;
+  line-height: 47px;
+  font-size: 18px;
+  padding-left: 10px;
+  margin-top: 17px;
+}
+.maiin_right .rightBoxForAuthor .rightTitle {
+  background: url(../images/leftTopHjh.png) no-repeat -10px 10px;
+  display: block;
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  top: -20px;
+}
+.maiin_right .rightBoxForAuthor .peopleMessage {
+  background-color: #f65656;
+  width: 99%;
+  height: 66px;
+  border-left: 1px solid #e3e3e3;
+  border-right: 1px solid #e3e3e3;
+  padding-top: 24px;
+}
+.maiin_right .rightBoxForAuthor .peopleMessage p,
+.maiin_right .rightBoxForAuthor .peopleMessage h4 {
+  color: #fff;
+}
+.maiin_right .rightBoxForAuthor .peopleMessage .peopleHead {
+  margin: 8px 0 0 21px;
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+.maiin_right .rightBoxForAuthor .peopleMessage .peopleHead img {
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+.maiin_right .rightBoxForAuthor .peopleMessage .peopleInfo {
+  margin: 8px 0 0 21px;
+  float: left;
+}
+.maiin_right .rightBoxForAuthor .peopleMessage .peopleInfo h4 {
+  font-size: 16px;
+  font-weight: bold;
+}
+.maiin_right .rightBoxForAuthor .authorInfo {
+  padding: 20px;
+  min-height: 200px;
+}
+.maiin_right .rightBoxForAuthor .authorInfo p {
+  overflow: hidden;
+  margin: 7px 0;
+}
+.maiin_right .rightBoxForAuthor .authorInfo p span {
+  float: left;
+}
+.maiin_right .rightBoxForAuthor .authorInfo .getNickName {
+  background: url(../images/icon.png) no-repeat 0 -186px;
+  display: inline-block;
+  padding: 2px 10px;
+  min-width: 60px;
+  text-align: center;
+}
+.maiin_right .rightBoxForAuthor .authorInfo .moneyIcon {
+  background: url(../images/icon.png) no-repeat -183px -311px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-right: 14px;
+}
+.maiin_right .rightBoxForAuthor .authorInfo .nickIcon {
+  background: url(../images/icon.png) no-repeat -185px -290px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-right: 14px;
+}
+.maiin_right .rightBoxForAuthor .authorInfo .prizeIcon {
+  background: url(../images/icon.png) no-repeat -184px -272px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-right: 14px;
+}
+.maiin_right .rightBoxForAuthor .authorInfo .articleIcon {
+  background: url(../images/icon.png) no-repeat -182px -246px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  margin-right: 14px;
+}
+.maiin_right .rightBoxForAuthor .articleBest {
+  min-height: 325px;
+}
+.maiin_right .rightBoxForAuthor .articleBest .articleBestLi {
+  width: 100%;
+  height: 56px;
+  border: 1px #8193ae dashed;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+}
+.maiin_right .rightBoxForAuthor .articleBest .articleBestLi .especialNum {
+  width: 46px;
+  height: 46px;
+  float: left;
+  margin-left: 20px;
+}
+.maiin_right .rightBoxForAuthor .articleBest .articleBestLi .articleInfo {
+  float: left;
+  height: 56px;
+  width: 171px;
+}
+.maiin_right .rightBoxForAuthor .articleBest .articleBestLi .articleInfo span {
+  float: left;
+}
+.maiin_right .rightBoxForAuthor .articleBest .articleBestLi .articleInfo h6 {
+  margin-top: 5px;
+}
+.maiin_right .rightBoxForAuthor .articleBest .articleBestLi .articleInfo .blueEye {
+  background: url(../images/icon.png) no-repeat 0px -437px;
+  display: block;
+  width: 20px;
+  height: 14px;
+  margin-top: 1px;
+}
+.maiin_right .rightBoxForAuthor .articleBest .articleBestLi .articleInfo .orangeHeart {
+  background: url(../images/icon.png) no-repeat 0px -422px;
+  display: block;
+  width: 20px;
+  height: 14px;
+  margin-top: 3px;
+  margin-left: 20px;
+}
+.maiin_right .rightBoxForAuthor .articleBest .articleBestLi .num1 {
+  background: url(../images/icon.png) no-repeat -100px -213px;
+}
+.maiin_right .rightBoxForAuthor .articleBest .articleBestLi .num2 {
+  background: url(../images/icon.png) no-repeat -100px -272px;
+}
+.maiin_right .rightBoxForAuthor .articleBest .articleBestLi .num3 {
+  background: url(../images/icon.png) no-repeat -100px -332px;
+}
+.maiin_right .rightBoxForAuthor .articleBest .articleBestLi .num4 {
+  background: url(../images/icon.png) no-repeat -100px -392px;
+}
+.maiin_right .rightBoxForAuthor .articleBest .articleBestLi .num5 {
+  background: url(../images/icon.png) no-repeat -100px -453px;
+}
+.maiin_right .flyingBar {
+  position: fixed;
+  top: 50%;
+  right: 70px;
+  width: 110px;
+}
+.maiin_right .flyingBar ul {
+  position: relative;
+}
+.maiin_right .flyingBar ul li {
+  position: absolute;
+}
+.maiin_right .flyingBar .secondTypeUl {
+  width: 50px;
+  padding-left: 60px;
+  margin-top: 70px;
+  height: 180px;
+  display: none;
+}
+.maiin_right .flyingBar .floatBox {
+  width: 49px;
+  height: 49px;
+  background-color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.maiin_right .flyingBar .floatBox.on {
+  border: 1px solid #f65656;
+  background-color: #f65656;
+}
+.maiin_right .flyingBar .floatBox.on p {
+  color: #fff;
+}
+.maiin_right .flyingBar .floatBox:hover {
+  border: 1px solid #f65656;
+  background-color: #f65656;
+}
+.maiin_right .flyingBar .floatBox:hover p {
+  color: #fff;
+}
+.maiin_right .flyingBar .floatBox p {
+  color: #f65656;
+  text-align: center;
+}
+.maiin_right .flyingBar .floatBox .TypeIcon {
+  width: 18px;
+  height: 18px;
+  margin: 9px auto 0;
+}
+.maiin_right .flyingBar .secFloatBox {
+  width: 49px;
+  height: 49px;
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+.maiin_right .flyingBar .floatType1 {
+  top: 0px;
+}
+.maiin_right .flyingBar .floatType2 {
+  top: 55px;
+}
+.maiin_right .flyingBar .floatType3 {
+  top: 110px;
+}
+.maiin_right .flyingBar .floatType4 {
+  top: 165px;
+}
+.maiin_right .flyingBar .floatType5 {
+  top: 220px;
+}
+.maiin_right .flyingBar .floatType6 {
+  top: 275px;
+}
+.maiin_right .flyingBar .floatType7 {
+  top: 0;
+}
+.maiin_right .flyingBar .floatType7 .secFloatBox {
+  background-color: #e84a4a;
+}
+.maiin_right .flyingBar .floatType7 .secFloatBox .secIcon {
+  background: url(../images/icon.png) no-repeat -103px 4px;
+  width: 100%;
+  height: 100%;
+}
+.maiin_right .flyingBar .floatType8 {
+  top: 55px;
+}
+.maiin_right .flyingBar .floatType8 .secFloatBox {
+  background-color: #fbc934;
+}
+.maiin_right .flyingBar .floatType8 .secFloatBox .secIcon {
+  background: url(../images/icon.png) no-repeat -155px 0px;
+  width: 100%;
+  height: 100%;
+}
+.maiin_right .flyingBar .floatType9 {
+  top: 110px;
+}
+.maiin_right .flyingBar .floatType9 .secFloatBox {
+  background-color: #92d1e5;
+}
+.maiin_right .flyingBar .floatType9 .secFloatBox .secIcon {
+  background: url(../images/icon.png) no-repeat -102px -48px;
+  width: 100%;
+  height: 100%;
+}
+.maiin_right .flyingBar .floatType10 {
+  top: 165px;
+}
+.maiin_right .flyingBar .floatType10 .secFloatBox {
+  background-color: #53dd71;
+}
+.maiin_right .flyingBar .floatType10 .secFloatBox .secIcon {
+  background: url(../images/icon.png) no-repeat -155px -47px;
+  width: 100%;
+  height: 100%;
+}

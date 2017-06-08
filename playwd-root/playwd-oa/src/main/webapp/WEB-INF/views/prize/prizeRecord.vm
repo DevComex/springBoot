@@ -1,0 +1,305 @@
+<!-- <script src="${rc.contextPath}/static/script/Article.js" charset="utf-8" type="text/javascript"></script>-->
+<script type="text/javascript" src="${rc.contextPath}/static/script/ajaxPage.js"></script>
+<link rel="stylesheet" href="${rc.contextPath}/static/css/style.css">
+<link rel="stylesheet" href="${rc.contextPath}/static/css/wanwd.css">
+ 
+<style>
+    .control-label { padding:7px 0 0 0; text-align:left; }
+
+    .curr td:last-child a{margin-right:3px;}
+    table#tj_result{margin-left:50px;margin-top:10px;}
+    table#tj_result td{
+    	width:80px;
+    	height:25px;
+    	text-align:center;
+    }
+    table#tj_result result_title{background:blue}
+</style>
+<script>
+    $(function () {
+        $("#editAc").hide(); $("#addAc").hide(); $("#Msgmark").hide();
+        var nowDate = new Date(),
+            nYear = nowDate.getFullYear(),
+            nMonth = ((nowDate.getMonth() + 1) < 10 ? ("0" + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1)),
+            nDate = (nowDate.getDate() < 10 ? ("0" + nowDate.getDate()) : nowDate.getDate()),
+            //当天年月日(格式2014-01-01)
+            today = [nYear, nMonth, nDate].join("-");
+
+        var m = nowDate.getMonth() - 1;
+        nowDate.setMonth(m);
+        var lMonth = ((nowDate.getMonth() + 1) < 10 ? ("0" + (nowDate.getMonth() + 1)) : (nowDate.getMonth() + 1));
+        var lDate = (nowDate.getDate() < 10 ? ("0" + nowDate.getDate()) : nowDate.getDate());
+        var ltoday = [nowDate.getFullYear(), lMonth, lDate].join("-");
+
+        window.today = today;
+        window.ltoday = ltoday;
+
+        //开始时间（默认1个月前）
+        $(".js_startTimeCtr").datepicker({
+            format: 'yyyy-mm-dd',
+            startView: 2,
+            autoclose: true,
+            minView: 2
+        }).on('changeDate', function (ev) {
+            var AddStartTime = $(this).val();
+            $(".js_endTimeCtr").datepicker('setStartDate', AddStartTime);
+        }).val(ltoday);
+
+        //结束时间（默认当天）
+        $(".js_endTimeCtr").datepicker({
+            format: 'yyyy-mm-dd',
+            startView: 2,
+            autoclose: true,
+            todayBtn: true,
+            minView: 2
+        }).on('changeDate', function (ev) {
+            var AddEndTime = $(this).val();
+            $(".js_startTimeCtr").datepicker('setEndDate', AddEndTime);
+        }).val(today);
+
+        //获取列表
+        var dobj1 = {
+            displayStatus: -1,                   //默认展示状态全显示
+            startTime: $(".js_startTimeCtr").val(),           //默认开始时间为空
+            endTime: $(".js_endTimeCtr").val(),              //默认结束时间为空
+            authorType:"all",
+            firstCategoryId: -1,
+            secondCategoryId :-1
+        };
+        
+        
+        // 请求提交文章推荐
+        function tjArticleUp(conid, locid) {
+            var prizeType=($("#js_prizeTypeChild")) ? $("#js_prizeTypeChild").val() : null;
+            if(!locid){
+                alert("请选择推荐位")
+                return;
+            }
+            if(!$("#js_prizeType").val()){
+                alert("请选择推荐奖励")
+                return;
+            }
+            $.ajax({
+                url: '/recommend',
+                type: 'POST',
+                dataType: 'json',
+                data: { contentId: conid, contentType : "article", recommendSlotId : locid, r: Math.random(),prizeId : $("#js_prizeType").val(), prizeType:prizeType},
+                success: function (d) {
+                    //alert(d.toSource());
+                    if (d.status === "success") {
+                        alert(d.message);
+                        window.location.href = window.location.href;
+                        $(".close").trigger("click");
+                    } else {
+                        alert(d.message);
+                    }
+
+                }
+            });
+        }
+        
+        function trim(str) { //删除左右两端的空格
+            return str.replace(/(^\s*)|(\s*$)/g, "");
+        }
+
+    });
+</script>
+<section class="vbox js_template_right">
+    <!--头部功能-->
+    <header class="header bg-white b-b clearfix">
+        <div class="row m-t-sm">
+            <div class="col-lg-2 m-b-xs">
+                <select id="display_zt" class="input-sm form-control">
+                    <option value="article">图文驿站</option>
+                    <option value="novel">小说专区</option>
+                </select>
+            </div>
+            <div class="col-sm-1 pad_r_0 pad_l_0 w_p6">
+            </div>
+            <div class="col-sm-2 m-b-xs">
+                <select id="Search" class="input-sm form-control">
+                    <option value="account">上传账号</option>
+                    <option value="title">文章标题</option>
+                    <option value="author">昵称</option>
+                </select>
+            </div>
+            <div class="col-lg-1-6 m-b-xs">
+                <input id="article_bt" class="input-sm form-control" type="text" maxlength="15" value="">
+            </div>
+
+
+        </div>
+        
+        <div class="row m-t-sm">
+            <label class="col-lg-2">上传时间:</label>
+            <div class="col-sm-2">
+                <div class="">
+                    <input type="text" class="input-sm form-control js_startTimeCtr" readonly="readonly" placeholder="开始时间">
+                </div>
+            </div>
+            <label class="control-label01 label-float-left">至</label>
+            <div class="col-sm-2 m-b-xs">
+                <div class="">
+                    <input type="text" class="input-sm form-control js_endTimeCtr" readonly="readonly" placeholder="结束时间">
+                </div>
+            </div>
+            
+        <button class="btn btn-sm btn-info pad_lr_m" id="query" type="submit">查询</button>
+        <button class="btn btn-sm btn-info pad_lr_m" id="download" type="submit">导出</button>
+        </div>
+ 
+    </header>
+		<div>
+			<table id="tj_result" border="1" cellspacing="0" cellpadding="0">
+			</table>
+		</div>
+    <!--表格主体-->
+    <section class="scrollable padder" style="position:initial !important" >
+        <div class="m-b-md"></div>
+        <!--数据表格  begin -->
+        <section class="panel panel-default col-sm-12 pad_r_0 pad_l_0">
+            <div class="table-responsive">
+                <table class="table table-striped m-b-none m-table" id="js_tbComList" >
+                    <tbody id="js_ArticleList">
+                    <tr>
+                        <th>作品标题</th>
+                        <th>服务器</th>
+                        <th>角色名</th>
+                        <th>账号</th>
+                        <th>昵称</th>
+                        <th>所获称号</th>
+                        <th>奖励星级</th>
+                        <th>发奖人</th>
+                        <th>发奖时间</th>
+                        <th>备注</th>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+        <!--数据表格  end -->
+    </section>
+<div class="row dataTables_wrapper pageCut">
+    <footer class="footer bg-white b-t">
+        <div class="row dataTables_wrapper">
+            <div class="col-sm-6">
+                <div id="DataTables_Table_0_info" class="dataTables_info"></div>
+            </div>
+            <div class="col-sm-6">
+                <div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers"></div>
+            </div>
+        </div>
+    </footer>
+</div>
+<!-- 分页 -->
+
+    <input id="listcode" type="hidden" value="" />
+    <input id="listdata" type="hidden" value="" />
+</section>
+<script>
+ $(function(){
+     $("#js_ArticleList").ajaxPage({
+            url:"/prize/history",
+            type: "GET",
+            pageObj: $("#DataTables_Table_0_paginate"),
+            pageIndex: 1,//默认起始页为第一页
+            pageSize: 3,//
+            curPageCls: "paginate_active",
+            pageInfo: {
+                obj: $("#DataTables_Table_0_info"),
+                content: ""
+            },
+            paramObj: {//传参
+            	 contentType:'article'
+            },
+         
+            dataFn: function (d, $this) {
+            	var listHtml = "<tr><th>作品标题</th><th>服务器</th><th>角色名</th><th>账号</th><th>昵称</th><th>所获称号</th><th>奖励星级</th><th>发奖人</th><th>发奖时间</th><th>备注</th></tr>";
+        		var resultHtml = "<tr class='title' style='background: #12d029;'><td colspan=4 >统计结果</td></tr><tr class='result_head'><td>现金总额</td><td>银元宝总和</td><td> 获奖人数</td><td>获奖稿件数</td></tr>";
+            	if(d.dataSet!=null){
+            		var list = d.dataSet[0];
+            		for (var i = 0; i < list.length; i++) {
+            			listHtml+="<tr><td>"+list[i].title+"</td><td>"+list[i].serverName+"</td><td>"+list[i].roleName+"</td><td>"
+            					+list[i].account+"</td><td>"+list[i].author+"</td><td>"+list[i].alias+"</td><td>"+list[i].name+"</td><td>"+list[i].operator+"</td><td>"+list[i].createTime+"</td>"+
+            					"</tr>";
+						
+					}
+            			resultHtml+="<tr><td>"+d.dataSet[1].rmbSum+"</td><td>"+d.dataSet[1].yybSum+"</td><td>"+d.dataSet[1].userCount+"</td><td>"+d.dataSet[1].contentCount+"</td></tr>"	
+            			$("#js_ArticleList").empty().append(listHtml)
+            			$("#tj_result").empty().append(resultHtml)
+            	}
+                return listHtml;
+            }
+        });
+        
+      //查询
+        $("#query").click(function () {
+            var contentType = $("#display_zt").val();
+            var searchType = $("#Search").val();
+            var searchValue = $("#article_bt").val();
+            var startTime = $(".js_startTimeCtr").val();
+            var endTime = $(".js_endTimeCtr").val();
+            var status = $("#js_status").val();
+             
+            console.log(contentType)
+            console.log(startTime)
+            console.log(endTime)
+            $("#js_ArticleList").ajaxPage({
+                url:"/prize/history",
+                type: "GET",
+                pageObj: $("#DataTables_Table_0_paginate"),
+                pageIndex: 1,//默认起始页为第一页
+                pageSize: 3,//
+                curPageCls: "paginate_active",
+                pageInfo: {
+                    obj: $("#DataTables_Table_0_info"),
+                    content: ""
+                },
+                paramObj: {//传参
+                	 contentType:contentType,
+                	 searchType:searchType,
+                	 searchValue:searchValue,
+                	 startTime:startTime,
+                	 endTime:endTime,
+                },
+             
+                dataFn: function (d, $this) {
+                	var listHtml = "<tr><th>作品标题</th><th>服务器</th><th>角色名</th><th>账号</th><th>昵称</th><th>所获称号</th><th>奖励星级</th><th>发奖人</th><th>发奖时间</th><th>备注</th></tr>";
+            		var resultHtml = "<tr class='title' style='background: #12d029;'><td colspan=4 >统计结果</td></tr><tr class='result_head'><td>现金总额</td><td>银元宝总和</td><td> 获奖人数</td><td>获奖稿件数</td></tr>";
+                	if(d.dataSet!=null){
+                		var list = d.dataSet[0];
+                		for (var i = 0; i < list.length; i++) {
+                			listHtml+="<tr><td>"+list[i].title+"</td><td>"+list[i].serverName+"</td><td>"+list[i].roleName+"</td><td>"
+                					+list[i].account+"</td><td>"+list[i].author+"</td><td>"+list[i].alias+"</td><td>"+list[i].name+"</td><td>"+list[i].operator+"</td><td>"+list[i].createTime+"</td>"+
+                					"</tr>";
+    						
+    					}
+                			resultHtml+="<tr><td>"+d.dataSet[1].rmbSum+"</td><td>"+d.dataSet[1].yybSum+"</td><td>"+d.dataSet[1].userCount+"</td><td>"+d.dataSet[1].contentCount+"</td></tr>"	
+                			$("#js_ArticleList").empty().append(listHtml)
+                			$("#tj_result").empty().append(resultHtml)
+                	}
+                    return listHtml;
+                }
+            });
+
+        });
+})
+    
+    
+    
+</script>
+<style>
+@media (min-width: 768px)
+.app .vbox>section, .app .vbox>footer {
+     position: initial !important; 
+}
+.dataTables_wrapper {
+    position: initial;
+    width: 90%;
+    float: right;
+}
+.tj_result {
+    background: #12d029;
+}
+</style>

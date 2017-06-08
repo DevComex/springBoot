@@ -1,0 +1,16 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+/* `Gird  >> 31 Columns-----------------------------------------------------------------------------------------------------*/
+
+.web_wrap { width: 1000px;margin:0 auto;zoom:1 }
+.web_wrap:after { content:""; display:block; clear:both; }
+
+.con_l{ width:650px;float:left;}
+.con_left{ width:745px;}
+.con_sub_l{ width:180px; float:left;}
+.con_r{ width:320px;float:left; margin-left:30px; display:inline;}
+.con_ritht{width:235px; margin-left:20px;}
+.con_sub_r{ width:820px; float:left;}
+.con_w500{ width:500px; float:left;}
+

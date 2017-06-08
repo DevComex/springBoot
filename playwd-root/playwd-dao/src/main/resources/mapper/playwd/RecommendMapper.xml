@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.playwd.dao.playwd.RecommendDao">
+  <resultMap id="RecommendResultMap" type="cn.gyyx.playwd.beans.playwd.RecommendBean">
+    <id column="code" jdbcType="INTEGER" property="code" />
+    <result column="content_type" jdbcType="VARCHAR" property="contentType" />
+    <result column="content_id" jdbcType="INTEGER" property="contentId" />
+    <result column="slot_id" jdbcType="INTEGER" property="slotId" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="cover" jdbcType="VARCHAR" property="cover" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="is_delete" jdbcType="BIT" property="isDelete" />
+    <result column="prize_id" jdbcType="INTEGER" property="prizeId" />
+  </resultMap>
+  <insert id="insertRecommend" parameterType="cn.gyyx.playwd.beans.playwd.RecommendBean">
+    insert into playwd_recommend_tb (
+    								content_type, 
+    								content_id, 
+      								slot_id, 
+      								title, 
+      								cover, 
+      								create_time, 
+      								prize_id)
+    						 values (
+    						 		#{contentType,jdbcType=VARCHAR}, 
+    						 		#{contentId,jdbcType=INTEGER}, 
+      								#{slotId,jdbcType=INTEGER}, 
+      								#{title,jdbcType=VARCHAR}, 
+      								#{cover,jdbcType=VARCHAR}, 
+     								now(),
+     								#{prizeId,jdbcType=INTEGER})
+  </insert>
+  <!-- 获取推荐信息的推荐位 -->
+  <select id="selectSlotsByContentId"  resultType="int">
+    select slot_id
+    from playwd_recommend_tb
+    where content_id = #{contentId}
+    		and is_delete=0 and content_type = #{contentType}
+  </select>
+  <!-- 根据 content_id和location_id删除推荐信息-->
+  <update id="updateIsDeleteByContentIdAndSlotId" >
+    update playwd_recommend_tb
+    set is_delete = 1
+    where slot_id=#{slotId} 
+    	and content_id=#{contentId}
+  </update>
+</mapper>

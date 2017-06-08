@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.playwd.dao.playwd.RecommendContentMapper">
+	<resultMap id="ContentResultMap"
+		type="cn.gyyx.playwd.beans.playwd.RecommendContentBean">
+		<id column="code" property="code" jdbcType="INTEGER" />
+		<result column="recommend_slot_id" property="recommendSlotId"
+			jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="url" property="url" jdbcType="VARCHAR" />
+		<result column="cover" property="cover" jdbcType="VARCHAR" />
+		<result column="display_order" property="displayOrder"
+			jdbcType="INTEGER" />
+		<result column="content_id" property="contentId" jdbcType="INTEGER" />
+		<result column="is_delete" property="isDelete" jdbcType="BIT" />
+		<result column="is_display" property="isDisplay" jdbcType="BIT" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+	    <collection property="articleBean" ofType="cn.gyyx.playwd.beans.playwd.ArticleBean">  
+	         <id column="article_code"  property="code" />  
+	         <result column="author" property="author" jdbcType="VARCHAR" />  
+	         <result column="server_name" property="serverName" jdbcType="VARCHAR" />
+    	</collection> 
+	</resultMap>
+
+	<select id="getList" parameterType="int" resultMap="ContentResultMap">
+		SELECT code,title,cover,url,is_display,display_order,update_time 
+		FROM playwd_recommend_content_tb
+		WHERE is_delete=0 AND recommend_slot_id=#{code} ORDER BY display_order DESC
+	</select>
+
+	<select id="getCount" parameterType="int" resultType="int">
+		SELECT
+		COUNT(*) FROM
+		playwd_recommend_content_tb
+		WHERE is_delete=0 AND
+		recommend_slot_id=#{code}
+	</select>
+
+	<select id="getDisplayOrder" parameterType="int" resultType="int">
+		SELECT MAX(display_order) FROM
+		playwd_recommend_content_tb
+		WHERE recommend_slot_id=#{code}
+	</select>
+
+	<select id="getMinDisplayOrder" parameterType="int" resultType="int">
+		SELECT
+		MIN(display_order) FROM
+		playwd_recommend_content_tb
+		WHERE
+		is_delete=0 AND recommend_slot_id=#{code}
+	</select>
+
+	<select id="getInfo" parameterType="cn.gyyx.playwd.beans.playwd.RecommendContentBean" resultMap="ContentResultMap">
+		SELECT
+		code,title,cover,url,is_display,display_order,update_time,recommend_slot_id
+		FROM
+		playwd_recommend_content_tb
+		WHERE is_delete=0
+		<if test="code!=null">
+			AND code=#{code}
+		</if>
+		<if test="recommendSlotId!=null">
+			AND recommend_slot_id=#{recommendSlotId}
+		</if>
+		<if test="displayOrder!=null">
+			AND display_order=#{displayOrder}
+		</if>
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		playwd_recommend_content_tb
+		where code = #{code}
+	</delete>
+	<insert id="insert" parameterType="cn.gyyx.playwd.beans.playwd.RecommendContentBean" useGeneratedKeys="true"
+    keyProperty="code">
+		insert into
+		playwd_recommend_content_tb (recommend_slot_id, title,
+		url, cover,
+		display_order,
+		content_id, is_delete,
+		is_display,
+		create_time,update_time)
+		values (#{recommendSlotId,jdbcType=INTEGER},
+		#{title,jdbcType=VARCHAR},
+		#{url,jdbcType=VARCHAR},
+		#{cover,jdbcType=VARCHAR},
+		#{displayOrder,jdbcType=INTEGER},
+		#{contentId,jdbcType=INTEGER},0,
+		#{isDisplay,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP},
+		#{updateTime,jdbcType=TIMESTAMP})
+	</insert>
+	<update id="update" parameterType="cn.gyyx.playwd.beans.playwd.RecommendContentBean">
+		update playwd_recommend_content_tb
+		set update_time = NOW(),
+			title =#{title,jdbcType=VARCHAR},
+			url = #{url,jdbcType=VARCHAR},
+			cover =#{cover,jdbcType=VARCHAR} ,
+			content_id=#{contentId,jdbcType=INTEGER}
+		where code = #{code,jdbcType=INTEGER}
+	</update>
+	<update id="updateDisplay" parameterType="cn.gyyx.playwd.beans.playwd.RecommendContentBean">
+		update playwd_recommend_content_tb set is_display = #{isDisplay},update_time = NOW() where code = #{code}
+	</update>
+	<update id="updateDisplayOrder" parameterType="cn.gyyx.playwd.beans.playwd.RecommendContentBean">
+		update playwd_recommend_content_tb set display_order = #{displayOrder},update_time = NOW() where code = #{code}
+	</update>
+	<update id="moveTop" parameterType="map">
+		UPDATE playwd_recommend_content_tb SET display_order=display_order+1
+		WHERE is_delete=0 AND display_order<![CDATA[<]]>#{displayOrder} AND recommend_slot_id = #{recommendSlotId} 
+	</update>
+	<update id="moveBottom" parameterType="map">
+		UPDATE playwd_recommend_content_tb SET display_order=display_order-1
+		WHERE is_delete=0 AND display_order<![CDATA[>]]>#{displayOrder} AND recommend_slot_id = #{recommendSlotId} 
+	</update>
+	<!-- 根据推荐位置和内容id删推荐区域信息 -->
+	<update id="updateIsDeleteBySlotIdAndContentId" >
+	    update playwd_recommend_content_tb
+	    set is_delete=1,is_display=0
+	    where recommend_slot_id = #{slotId} 
+	    	and content_id=#{contentId}
+  	</update>
+	<select id="selectSlotContentList" parameterType="int" resultMap="ContentResultMap">
+		SELECT content.code,
+			   content.title,
+			   content.cover,
+			   content.url,
+			   article.code as article_code,
+			   article.author,
+			   article.server_name
+		FROM playwd_recommend_content_tb content
+			left join playwd_article_tb article
+			on content.content_id=article.code
+		WHERE content.is_delete=0 
+		AND is_display=1 
+		AND recommend_slot_id=#{slotId} 
+		ORDER BY display_order DESC
+		limit #{topNumber}
+	</select>
+</mapper>

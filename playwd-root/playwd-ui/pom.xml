@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.gyyx.playwd</groupId>
+    <artifactId>playwd-root</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>playwd-ui</artifactId>
+  <packaging>war</packaging>
+  <name>playwd-ui</name>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  
+  <dependencies>
+  	<dependency>
+		<groupId>cn.gyyx.playwd</groupId>
+    	<artifactId>playwd-bll</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	<dependency>
+		<groupId>cn.gyyx.playwd</groupId>
+    	<artifactId>playwd-service</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	<dependency>
+		<groupId>cn.gyyx.playwd</groupId>
+    	<artifactId>playwd-beans</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.velocity</groupId>
+		<artifactId>velocity</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.apache.velocity</groupId>
+		<artifactId>velocity-tools</artifactId>
+	</dependency>
+	
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>servlet-api</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>javax.servlet.jsp</groupId>
+		<artifactId>jsp-api</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>jstl</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>cn.gyyx.oa.stage</groupId>
+		<artifactId>oa-auth</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-web</artifactId>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-webmvc</artifactId>
+	</dependency>
+	
+	<!-- auth :获取Cookie信息，验证登 -->
+		<dependency>
+			<groupId>cn.gyyx.core</groupId>
+			<artifactId>core-auth</artifactId>
+			<version>0.2.4</version>
+		</dependency>
+		<!-- captcha ：验证验证码 -->
+		<dependency>
+			<groupId>cn.gyyx.core</groupId>
+			<artifactId>core-captcha</artifactId>
+			<version>0.2.4</version>
+		</dependency>
+		<!-- 映射 -->
+		<dependency>
+		  <groupId>org.modelmapper</groupId>
+		  <artifactId>modelmapper</artifactId>
+		  <version>0.7.5</version>
+		</dependency>
+	 
+		
+  </dependencies>
+  
+</project>

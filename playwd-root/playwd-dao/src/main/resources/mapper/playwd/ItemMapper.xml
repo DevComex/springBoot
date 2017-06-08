@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.playwd.dao.playwd.ItemDao">
+  <resultMap id="ItemResultMap" type="cn.gyyx.playwd.beans.playwd.ItemBean">
+    <id column="code" jdbcType="INTEGER" property="code" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="value" jdbcType="VARCHAR" property="value" />
+    <result column="type" jdbcType="VARCHAR" property="type" />
+    <result column="item_code" jdbcType="VARCHAR" property="itemCode" />
+    <result column="is_delete" jdbcType="BIT" property="isDelete" />
+  </resultMap>
+  <select id="selectItemByName" resultMap="ItemResultMap">
+    select *
+    from playwd_item_tb
+    where name = #{name}
+  </select>
+</mapper>
