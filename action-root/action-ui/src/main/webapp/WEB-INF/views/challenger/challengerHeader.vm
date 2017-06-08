@@ -1,0 +1,100 @@
+
+    <!-- 活动公用头部-->
+    <div class="js_mask">
+        <ul class="navList">
+            <li><a id="navList_index" href="/challenger/lotteryIndex" class="active">首页</a></li>
+            <li><a id="navList_team" href="/challenger/teamList">挑战新世界</a></li>
+            <li><a id="navList_dare" href="/challenger/challengeinfo/fighterList">生死挑战者</a></li>
+        </ul>
+
+    </div>
+    <div class="poplic_top ">
+        <div class="wid1000">
+              <div class="top">
+           <a href="javascript:;" class="logo"></a>
+           <ul class="topNav">
+           	   <li><a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm ">进入官网</a>|</li>
+               <li><a target="_blank" href="http://news.gyyx.cn/Counter.ashx?pc=4089&sc=17763&mc=6304&gc=2&ul=http%3a%2f%2faccount.gyyx.cn%2fMember%2fRegister&mt=4061&et=1">账号注册</a>|</li>
+               <li><a target="_blank" href="http://wd.gyyx.cn/download/index.aspx ">下载中心</a>|</li>
+               <li><a target="_blank" href="http://bbs.gyyx.cn/forum.php?gid=8">游戏论坛</a></li>
+               #if($!pageType ==  "fighter") 
+	               <li class="js-share-btn" data-sharCon="我正在参与《问道》生死挑战者活动，够胆你就来挑战我，保证不拒战。生死看淡，单挑来战，7.22我在“二〇一六”等你一战！">
+	               	    <input id="source" name="index" value="challenge" type="hidden">
+	                   <a class="shar_wb" target="_self" href="javascript:void(0)" data-sharename="tqq"></a>
+	                   <a class="shar_kj" target="_self" href="javascript:void(0)" data-sharename="qzone"></a>
+	               </li>
+               #elseif($!pageType == 'teamlist' || $!pageType || 'myteam' || $!pageType == 'teamDetails') 
+               		 <li class="js-share-btn" data-sharCon="我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约 ！">
+               		   <input id="source" name="index" value="contingent" type="hidden">
+	                   <a class="shar_wb" target="_self" href="javascript:void(0)" data-sharename="tqq"></a>
+	                   <a class="shar_kj" target="_self" href="javascript:void(0)" data-sharename="qzone"></a>
+	                 </li>
+               #end 
+           </ul>
+       </div>
+        <!-- 登录/报名参赛 -->
+        <div class="siginBox">
+                	<!--登录前-->
+                    <div class="lb_before loginBtn">
+                       <a href="javascript:;">登录 <span>SIGN IN</span></a>
+                    </div>
+                    <!--登录后-->
+                    <P class="lb_log" style="display: none">
+                        <span>h***24</span><br />
+                        <a href="javascript:;" class="border" id="js_myPrize">查看我的中奖纪录</a><br>
+                        <a href="#" class="js_Logout">退出登录</a>
+                    </P>
+          </div>
+         #if($!pageType ==  "fighter") 
+         	<h3 class="activeTitle">生死挑战者</h3>
+         #else
+         	<h3 class="activeTitle">挑战“新世界”</h3>
+         #end 
+         <div class="enter">
+            <!--报名参赛按钮-->
+                    <div class="enterBtn wybm">
+                        <a href="javascript:;"><span>报名参赛</span></a>
+                    </div>
+             <!--报名信息展示-->
+              <P class="enterMessage" style="display: none"><span>角色名称：h***24</span><br><span>联系方式：12525252525</span></P>
+
+              <P class="enterMessageMore" style="display: none"><span>角色名称：h***24</span><br><span>联系方式：12525252525</span><br /><span><a href="#">谁挑战了我></a><a href="#">我挑战了谁></a></span></P>
+        </div>
+            
+            <!-- 选项导航--可以根据页面情况替换-->
+            <div class="navTab">
+            	#if($!pageType == "fighter") 
+            		<ul>
+	                    <li><a href="/challenger/challengeinfo/fighterList" class="active">挑战别人</a></li>
+	                    <li><a href="javascript:;" class="js_btn_ldyj">来打一架</a></li>
+	                    <li><a href="/challenger/liveRadioList" class="js_btn_spwg">视频围观</a></li>
+	                </ul>
+	                <input value="challengePage" type="hidden" id="challengePage"/>
+                #else
+	                <ul>
+	                    <li><a href="javascript:;" class="js_cjdw">创建队伍</a></li>
+	                    <li><a href="javascript:;" class="myTeam_zzl">我的队伍</a></li>
+	                    <li><a href="javascript:;" class="joinTeam">加入队伍</a></li>
+	                </ul>
+                #end 
+            </div>
+        </div>
+             <!-- 获取我中奖的记录弹层-->
+        <div class="tc tc_01" style="display:none;" id="pop_myLottery">
+            <div class="js_popAddressBox">
+                <h3 class="startIcon">中奖情况</h3>
+                <div class="opacity_lottery">
+                    <ul class="titleTop">
+                        <li>中奖时间</li>
+                        <li>奖品内容</li>
+                    </ul> 
+                    <div class="scrollY">
+                   
+                   </div>  
+                </div>
+            </div>
+        <a class="close pop-close js_closeThis" href="javascript:;">关闭</a>
+	</div>
+		<link href="http://static.cn114.cn/action/challenger/css/luckly.css" rel="stylesheet" />
+    </div>
+    <!-- 活动公用头部结束-->

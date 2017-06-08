@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <title>绝世武神预约活动</title>
+    <link href="http://static.cn114.cn/action/jswsReserve/css/style.css?v1.1" rel="stylesheet" />
+    <script  type="text/javascript">
+        var rc = "${rc.contextPath}";
+	 </script>
+	 <script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?5ac8320c468f58893b55bedc0534726c";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+<body>
+<section class="wrap">
+    <img src="http://static.cn114.cn/action/jswsReserve/images/bg.jpg"/>
+    <div class="input_cont js_input_wrap">
+        <img src="http://static.cn114.cn/action/jswsReserve/images/input.png"/>
+        <input type="text" placeholder="请输入手机号" class="input_phone js_phone" maxlength="11" />
+        <input type="button" value="立即预约"  class="button_phone js_order"/>
+    </div>
+    <div class="button_cont js_button_wrap" style="display:none;">
+        <img src="http://static.cn114.cn/action/jswsReserve/images/button.png"/>
+        <input type="button" class="button_share js_share" />
+        <input type="button" class="button_order js_orderAgain"/>
+    </div>
+    <div class="share_wrap js_shareWrap" style="display:none;">
+    	<p class="share_tip">点击右上角，分享至朋友圈</p>
+    	<input type="button" class="close js_iKnow" value="知道了"/>
+    </div>
+</section>
+<script src="http://static.cn114.cn/action/jswsReserve/script/gyyx_wxshare.js"></script>
+<script type="text/javascript">
+    wxShare({
+            debug: false,
+            game: "jswsol",
+            title: "全球首款R式卡牌，震撼来袭。 立即预约，与小伙伴一起成就武神之路。",
+            desc: "全球首款R式卡牌，震撼来袭。 立即预约，与小伙伴一起成就武神之路。",
+            link: "http://actionv2.gyyx.cn/jswsReserve/index",
+            imgUrl: "http://static.cn114.cn/action/jswsReserve/images/share.jpg",
+            success: function () {
+                alert("已分享");
+            },
+            cancel: function () {
+               
+            }
+        });
+</script>
+</body>
+</html>

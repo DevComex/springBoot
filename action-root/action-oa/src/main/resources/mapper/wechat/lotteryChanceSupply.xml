@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wechat.ILotteryChanceSupplyMapper">
+	<resultMap type="LotteryChanceSupplyBean" id="LotteryChanceSupplyMap">
+		<id column="code" property="code" />
+		<result column="chance_code" property="chanceCode" />
+		<result column="supply_num" property="supplyNum" />
+		<result column="action_code" property="actionCode" />
+		<result column="supply_date" property="supplyDate" />
+	</resultMap>
+	
+	<select id="getSupplyCount" parameterType="Integer" resultType="Integer">
+		SELECT SUM(supply_num) FROM [action_lottery_chance_supply_tb] WHERE [chance_code] = #{chanceCode}
+	</select>
+	
+	<insert id="addPrizeSupply" parameterType="LotteryChanceSupplyBean">
+		INSERT INTO [action_lottery_chance_supply_tb] (chance_code,supply_num,action_code,supply_date) VALUES (#{chanceCode},#{supplyNum},#{actionCode},#{supplyDate})
+	</insert>
+	
+	<select id="getTopSupply" parameterType="Integer" resultMap="LotteryChanceSupplyMap">
+		SELECT TOP 1 * FROM [action_lottery_chance_supply_tb] WHERE [chance_code] = #{chanceCode} ORDER BY [code] DESC
+	</select>
+</mapper>

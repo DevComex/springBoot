@@ -1,0 +1,99 @@
+  #parse("userCenter/include/head.vm")
+ <div class="web_wrap">
+    <div class="banner_pers">
+        <span class="h_shade pngbg"></span>
+        <div class="w_head">
+            <span class="w_hinfo">
+                <a href="http://wanwd.gyyx.cn/user/Role" id="js_HeadPortrait">
+                    <img src="${rc.contextPath}/assets/img/default_rolepic.jpg" title="点击进入我的角色" />
+                </a>
+            </span>
+            <span id="js_RoleName">金男</span>
+        </div>
+    </div>
+    <div class="v_list_tit pad30">
+        <ul class="v_list_class">
+           <li><a href="http://wanwd.gyyx.cn/user/Index">首页</a></li>
+            <li><a href="http://wanwd.gyyx.cn/user/Collect">我的收藏</a></li>
+            <li><a href="http://wanwd.gyyx.cn/user/Role">我的角色</a></li>
+            <li><a href="http://wanwd.gyyx.cn/user/Message">我的信息</a></li>
+            <li class="on"><a href="javascript:;">我的上传</a></li>
+            <li><a href="http://wanwdv2.gyyx.cn/userCenter/editorAnswer">编辑回复</a></li>
+        </ul>
+    </div>
+
+
+    <div class="wd_con" id="js_UserListBox">
+        <div class="con_l con_left">
+            <div class="v_qf_seabox">
+                <div class="v_info_up">
+                    <ul class="clear" id="js_WorksCate">
+                        <li data-stype="1"><a href="http://wanwd.gyyx.cn/user/Upload?type=1" title="文章">文章</a>|</li>
+                        <li data-stype="2"><a href="http://wanwd.gyyx.cn/user/Upload?type=2" title="图片">图片</a>|</li>
+                        <li data-stype="3"><a href="http://wanwd.gyyx.cn/user/Upload?type=3" title="视频">视频</a>|</li>
+                        <li class="on" data-stype="4"><a href="javascript:;" title="漫画">漫画</a></li>
+                    </ul>
+                    <select class="state" id="state">
+                        <option value="-1" data-status="DEFAULT" >全部</option>
+                        <option value="1" data-status="RECOMMEND" >编辑推荐</option>
+                        <option value="2" data-status="SUCCESS" >通过审核</option>
+                        <option value="3" data-status="REVIEW_ING" >审核中</option>
+                        <option value="4" data-status="FAIL" >审核不通过</option>
+                    </select>
+                    <div id="js_CollectContainer">
+                    </div>
+                </div>
+
+                <!--我的上传-文章  begin-->
+                
+                <!--我的上传-图片 end-->
+
+                <!--我的上传-视频  begin-->
+               
+                <!--我的上传-视频  end-->
+
+            </div>
+        </div>
+
+        <div class="con_r con_ritht" id="js_RightCont" style="display: block;">
+            <div class="box_area">
+                <h2 class="c_tit">
+                    <div class="tit_l">
+                        <span class="font_bg font_xg_tj"></span>
+                    </div>
+                </h2>
+                <div class="box_inner playp">
+     <div class="graplist p_article_list">
+            <div class="graplist p_article_list">
+                <h3 class="title textover"><a href="http://wanwd.gyyx.cn/article/19655" title="我们的问道时代" target="_blank">
+                我们的问道时代</a></h3>
+               <div class="txt wordbreak">不可割舍的一段记忆
+               <a class="xx" href="http://wanwd.gyyx.cn/article/19655" target="_blank">[查看]</a>
+               </div>
+            </div>
+            <div class="graplist p_article_list">
+                <h3 class="title textover"><a href="http://wanwd.gyyx.cn/article/19597" title="盘点2016年度之六大优秀队伍" target="_blank">
+                盘点2016年度之六大优秀队伍</a></h3>
+               <div class="txt wordbreak">盘点2016年度之六大优秀队伍
+               <a class="xx" href="http://wanwd.gyyx.cn/article/19597" target="_blank">[查看]</a>
+               </div>
+            </div>
+            <div class="graplist p_article_list">
+                <h3 class="title textover"><a href="http://wanwd.gyyx.cn/article/19598" title="盘点问道之经典老区" target="_blank">
+                盘点问道之经典老区</a></h3>
+               <div class="txt wordbreak"> 问道里那些经典的老区，经典的人物，演绎了一段段经典的传奇。因为有他们，所以问道......
+               <a class="xx" href="http://wanwd.gyyx.cn/article/19598" target="_blank">[查看]</a>
+               </div>
+            </div>
+
+    
+</div>
+
+                
+                </div>
+                </div>
+            </div>
+
+        </div>
+
+  #parse("userCenter/include/bottom.vm")

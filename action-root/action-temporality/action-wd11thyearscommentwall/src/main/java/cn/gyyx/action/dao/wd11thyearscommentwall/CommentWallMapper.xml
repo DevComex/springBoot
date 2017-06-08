@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wd11thyearscommentwall.CommentWallMapper">
+  <resultMap id="BaseResultMap" type="cn.gyyx.action.beans.wd11thyearscommentwall.CommentWallBean">
+    <id column="code" jdbcType="INTEGER" property="code" />
+    <result column="action_code" jdbcType="INTEGER" property="actionCode" />
+    <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+    <result column="message" jdbcType="VARCHAR" property="message" />
+    <result column="source_tag" jdbcType="NVARCHAR" property="sourceTag" />
+    <result column="is_audit" jdbcType="INTEGER" property="isAudit" />
+    <result column="auditor" jdbcType="NVARCHAR" property="auditor" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="audit_time" jdbcType="TIMESTAMP" property="auditTime" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    code, action_code, nick_name, message, source_tag, is_audit, auditor, create_time, 
+    audit_time
+  </sql>
+  <!--select top k by createTime desc， -->
+	<select id="selectTopComments" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select top (#{size,jdbcType=INTEGER} )
+		nick_name,message,create_time
+		from wd_eleven_comment_wall_tb
+		where is_audit=1
+		order by create_time desc
+	</select>
+	<!-- select top k by createTime desc，create_time before endTime -->
+	<select id="selectTopCommentsLimitTimeBefore" resultMap="BaseResultMap">
+	SELECT nick_name,message,create_time FROM (
+		SELECT
+			ROW_NUMBER() OVER (ORDER BY create_time desc) as rank, nick_name,message,create_time
+		FROM
+			wd_eleven_comment_wall_tb
+		WHERE
+			is_audit=1 
+		and create_time &lt; = #{endTime,jdbcType=TIMESTAMP}
+		<if test="actionCode != null">
+			and action_code = #{actionCode,jdbcType=INTEGER}
+		</if>
+	) t WHERE t.rank BETWEEN #{start,jdbcType=INTEGER} AND #{end,jdbcType=INTEGER}
+	</select>
+	<select id="selectCountLimitTimeBefore" resultType="java.lang.Integer" >
+	SELECT
+		COUNT (*)
+	FROM
+		wd_eleven_comment_wall_tb
+	WHERE
+	is_audit = 1
+	and create_time &lt; = #{endTime,jdbcType=TIMESTAMP}
+	<if test="actionCode != null">
+		and action_code = #{actionCode,jdbcType=INTEGER}
+	</if>
+	</select>
+  <insert id="insertSelective" parameterType="cn.gyyx.action.beans.wd11thyearscommentwall.CommentWallBean">
+    insert into wd_eleven_comment_wall_tb
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="actionCode != null">
+        action_code,
+      </if>
+      <if test="nickName != null">
+        nick_name,
+      </if>
+      <if test="message != null">
+        message,
+      </if>
+      <if test="sourceTag != null">
+        source_tag,
+      </if>
+      <if test="isAudit != null">
+        is_audit,
+      </if>
+      <if test="auditor != null">
+        auditor,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="auditTime != null">
+        audit_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="actionCode != null">
+        #{actionCode,jdbcType=INTEGER},
+      </if>
+      <if test="nickName != null">
+        #{nickName,jdbcType=VARCHAR},
+      </if>
+      <if test="message != null">
+        #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="sourceTag != null">
+        #{sourceTag,jdbcType=NVARCHAR},
+      </if>
+      <if test="isAudit != null">
+        #{isAudit,jdbcType=INTEGER},
+      </if>
+      <if test="auditor != null">
+        #{auditor,jdbcType=NVARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="auditTime != null">
+        #{auditTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

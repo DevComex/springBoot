@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>问道1.61官网</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wdGW/css/swiper.css" />
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wdGW/css/index.css" />
+		<script  type="text/javascript">
+	    	var rc = "${rc.contextPath}";
+	 	</script>
+		<!--[if lte IE 7]>
+		<style>
+			.wd_rq_rote dl dt,.a{
+				position:relative;
+			}
+			.wd_rq_rote dl dt>div,.b{
+				position:absolute;
+				top:50%;
+			}
+			.wd_rq_rote dl dt>div img,.b img{
+				position:relative;
+				top:-50%;
+			}
+		</style>
+		<![endif]-->
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdGW/js/jquery-1.8.2.min.js" ></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdGW/js/xMarquee.js" ></script>
+		
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+		 	 var hm = document.createElement("script");
+		  	hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+		 	 var s = document.getElementsByTagName("script")[0]; 
+		 	 s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+		<script type="text/javascript" src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> <!--光宇统计-->
+	</head>
+	<body>
+		<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+		<a id="top"></a>
+		<div id="wd_wrap">
+			<div class="main">
+				<div class="wd_nav">
+					<a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank"><i class="gw"></i>进入官网</a>|<a href="http://wd.gyyx.cn/download/index.aspx" target="_blank">游戏下载</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://pay.gyyx.cn/" target="_blank">游戏充值</a>
+				</div>
+				<div class="wd_data"></div>
+				<!--登录按钮-->
+				<a id="bm"></a>
+				<div class="wd_login"></div>
+				<div class="wd_ping" id="wd_ping"><ol></ol></div>
+				<div class="wd_pinglun">
+					<div class="wd_top">
+						<label>请选择昵称：</label>
+						<select class="s1 js_nickname">
+							<option>牢头</option><option>董老头</option><option>小二哥</option><option>门派使者</option>
+							<option>试道大会申请人</option><option>天机老人</option><option>辛仁皑</option><option>百晓通</option>
+							<option>念心道人</option><option>千面怪</option><option>杨镖头</option><option>厉巧手</option>
+							<option>管神工</option><option>夏总兵</option><option>冯喜来</option><option>通灵道人</option>
+							<option>乞丐</option><option>段铁心</option><option>杜卜思</option><option>杂货店老板</option>
+							<option>贾仁和</option><option>贾师爷</option><option>南极仙翁</option><option>夜行人</option>
+							<option>赵老板</option><option>黄仨儿</option><option>乐善施</option><option>卜老板</option>
+							<option>张老板</option><option>王老板</option><option>钱老板</option><option>贾掌柜</option>
+							<option>清净散人</option><option>灵兽异人</option><option>船夫</option><option>车夫</option>
+							<option>客栈老板</option><option>药店老板</option><option>钱庄老板</option><option>宋辛哲</option>
+							<option>无名钱庄老板</option><option>无名药铺老板</option><option>无名杂货店老板</option><option>无名客栈小二</option>
+							<option>无名武器店老板</option>
+						</select>
+					</div>
+					<div>
+						<label>请输入评论：</label><input class="s1 js_comment" type="text" />
+						<label>请输入验证码：</label><input class="s2 js_ya2inp" type="text" />
+						<img class="wd_y js_yz2" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=Math.random()" />
+						<a href="javascript:;" class="tipbg80 wd_btn1 js_fb">发  布</a>
+					</div>
+				</div>
+				<a id="tp"></a>
+				<a href="detail" class="tipbg120 wd_rq_more">+ 查看更多</a>
+				<div class="wd_rq_rote" id="wd_rq">
+					<dl> 
+						<dd class="wd_rq_rote_top">
+							<p class="left"><b>排名:</b><span></span></p>
+							<p class="right"><b>票数:</b><span></span></p>
+						</dd>
+						<dt>
+							<div>
+								<img class="js_cspic" src="" />
+							</div>
+						</dt>
+						<dd><b>角色名</b><span></span></dd>
+						<dd><b>区服名称</b><span></span></dd>
+						<dd class="wd_rq_rote_bottom"><a href="javascript:;"></a></dd>
+						<input class="js_hipic0" type="hidden" value="" />
+					</dl>
+				</div>
+				<a id="cj"></a>
+				<div class="wd_cj">
+					<div class="wd_cj_left">
+						<div class="cjcon clear">
+							<div class="img01 jp" id="dzp0"><span></span></div>
+							<div class="img01 jp" id="dzp1"><span></span></div>
+							<div class="img01 jp" id="dzp2"><span></span></div>
+							<div class="img01 jp" id="dzp3"><span></span></div>
+							<div class="img01 jp" id="dzp9"><span></span></div>
+							<div class="start">
+								<a href="javascript:;" id="btnStart" text="go">剩余抽奖次数：<b class="js_wd_cjnum"></b></a>
+							</div>
+							<div class="img01 jp" id="dzp4"><span></span></div>
+							<div class="img01 jp" id="dzp8"><span></span></div>
+							<div class="img01 jp" id="dzp7"><span></span></div>
+							<div class="img01 jp" id="dzp6"><span></span></div>
+							<div class="img01 jp" id="dzp5"><span></span></div>
+						</div>
+					</div>
+					<div class="wd_cj_right">
+						<p>
+							<a class="tipbg182 js_checkmyvote" href="javascript:;">查询中奖记录</a>
+							<a class="tipbg182 js_updateAdd" href="javascript:;">修改中奖地址</a>
+						</p>
+						<h1><span></span>中奖名单</h1>
+						<ul class="wd_cj_ul">
+							<li>区组名称</li>
+							<li>角色名称</li>
+							<li>奖品名称</li>
+						</ul>
+						<div class="scroll">
+							<div class="scrollbox" id="mqcon_v">
+								<ul id="js_scrollList"></ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="vrote"></div>
+			</div>
+		</div>
+		<div class="wd_piao">
+			<a href="#bm">我要报名</a>
+			<a href="#tp">我要投票</a>
+			<a href="#cj">我要抽奖</a>
+			<a class="js_hdgz" href="javascript:;">活动规则</a>
+			<a href="http://wd.gyyx.cn/action/1.61/index.html">1.61内容</a>
+			<a href="#top">返回顶部</a>
+		</div>
+		<!--作品大图显示-->
+		<div class="wd_tc wd_tc_Img">
+			<div class="wd_tc_zp">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<div class="top">
+					<h1></h1>
+					<a href="javascript:;" class="tipbg182 js_dVote">投  票</a>
+				</div>
+				<div class="bottom">
+					<div class="swiper-container">
+					    <div class="swiper-wrapper">
+					        
+					    </div>
+					    
+					    <!-- 如果需要导航按钮 -->
+					    <div class="swiper-button-prev"></div>
+					    <div class="swiper-button-next"></div>
+					    
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--活动规则-->
+		<div class="wd_tc" id="wd_tc_gz">
+			<div class="wd_tc_gz">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<p><img src="http://static.cn114.cn/action/wdGW/img/rolet.png"/></p>
+			</div>
+		</div>
+		<!--查看中奖记录-->
+		<div class="wd_tc" id="wd_tc_zj">
+			<div class="wd_tc_zj">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<h1>我的中奖情况</h1>
+				<ul></ul>
+			</div>
+		</div>
+		<!--核对投票信息-->
+		<div class="wd_tc" id="wd_tc_hdtp">
+			<div class="wd_tc_hdtp">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<h1>核对投票信息</h1>
+				<ul>
+					<li>您所拥有的票数：<b></b></li>
+					<li>您所选择的投票对象：<span></span></li>
+					<li>您本次的投票数：<input type="text" class="js_votenum"/></li>
+				</ul>
+				<input type="hidden" id="js_wdvote" />
+				<a class="tipbg182" id="js_surevote" txt="yes" href="javascript:;">确认投票</a>
+			</div>
+		</div>
+		<!--报名成功-->
+		<div class="wd_tc" id="wd_tc_bmcg">
+			<div class="wd_tc_bmcg">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<h1>恭喜报名成功</h1>
+				<p>赶快去上传作品吧</p>
+				<a class="tipbg182" href="javascript:;">去上传作品</a>
+			</div>
+		</div>
+		<!--投票记录-->
+		<div class="wd_tc" id="wd_tc_tpjl">
+			<div class="wd_tc_tpjl">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<h1>我的投票记录<span>(剩余投票次数：<b></b>)</span></h1>
+				<ul></ul>
+			</div>
+		</div>
+		<!--实物奖-->
+		<div class="wd_tc" id="wd_tc_swj">
+			<div class="wd_tc_swj">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<h1>恭喜中奖：<span></span></h1>
+				<p>请填写联系方式：</p>
+				<p><label>姓名：</label><input type="text" class="js_Name" /></p>
+				<p><label>电话：</label><input type="text" class="js_tel" /></p>
+				<p><label>地址：</label><input type="text" class="js_Address" /></p>
+				<a class="tipbg182 js_subAddress" href="javascript:;">确  定</a>
+				<b>注：活动奖品将在活动结束后由《问道》官方统一安排寄送，请保持电话畅通。</b>
+			</div>
+		</div>
+		<!--虚拟奖-->
+		<div class="wd_tc" id="wd_tc_xnj">
+			<div class="wd_tc_xnj">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<h1>恭喜中奖：<span></span></h1>
+				<a class="tipbg182 js_wdclose" href="javascript:;">确  定</a>
+			</div>
+		</div>
+		<!--修改中奖地址-->
+		<div class="wd_tc" id="wd_tc_zgdz">
+			<div class="wd_tc_zgdz">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<h1>修改中奖地址</h1>
+				<p>请填写联系方式：</p>
+				<p><label>姓名：</label><input type="text" class="js_Name" /></p>
+				<p><label>电话：</label><input type="text" class="js_tel" /></p>
+				<p><label>地址：</label><input type="text" class="js_Address" /></p>
+				<a class="tipbg182 js_subAddress" href="javascript:;">确  定</a>
+				<b>注：活动奖品将在活动结束后由《问道》官方统一安排寄送，请保持电话畅通。</b>
+			</div>
+		</div>
+		<!--评论发布成功-->
+		<div class="wd_tc" id="wd_tc_zpcg">
+			<div class="wd_tc_zpcg">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+			</div>
+		</div>
+		
+		<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+	</body>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdGW/js/Lotterywd.js" ></script>	
+<script type="text/javascript" src="http://static.cn114.cn/action/wdGW/js/swiper.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdGW/js/login.js" ></script>
+</html>

@@ -1,0 +1,335 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>“问道”才艺比拼</title>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wdTalent/css/main.css" />
+    <script  type="text/javascript">
+    	var rc = "${rc.contextPath}";
+ 	</script>
+    <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?927202856f7e5bc7678f2ae448654c7d";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</head>
+<body>
+<a id="top"></a>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wrap list">
+    	
+        <div class="main clear">
+            <div class="nav">
+                <a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm" class="on">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+            </div>
+            <div class="time clear">活动时间：4月7日—4月30日</div>
+            <div class="cate_title cs_title"></div>
+            <div class="un_login js_unlogin">
+                <label>参与活动前请先</label>
+                <a class="login_btn" onclick="alertFn(null,null,true);">登录</a>
+            </div>
+            <div class="login js_unbindRole" style="display:none;">
+                <label class="tip">欢迎您：<span class="accounts js_accountName">chn**24</span></label>
+                <input type="button" class="js_Loginout" value="退出登录"/>
+                <label>选择区组：</label>
+                <select id="sel_blocklist">
+                    <option value="0">请选择区组</option>
+                    <option value="1">网通</option>
+                    <option value="2">电信</option>
+                    <option value="3">双线</option>
+                </select>
+                <select id="sel_serverlist">
+                	<option value="0">请选择服务器</option>
+                </select>
+                <select class="js_roleList" style="display:none">
+	                <option>选择角色</option>
+	            </select>
+                <label class="js_captcha_label">验证码：</label>
+                <input class="captcha_role" id="captchaInput" value="" type="text" maxlength="5" />
+                <img  class="js_captcha"  src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=0.039287569699808955" width="77"/>
+                <input id="js_upRole" type="button" value="获取角色"/>
+                <input class="js_bindRoleBtn" style="display:none;" type="button" value="绑定角色"/>
+            </div>
+            <div class="login js_bindRole" style="display:none;">
+                <label class="tip">欢迎您：<span class="accounts js_accountName">chn**24</span></label>
+                <input type="button" class="js_Loginout" value="退出登录"/>
+                <label class="js_bind_info"></label>
+            </div>
+            <div class="works_con">
+                <div class="upload_img">
+                    <div class="category">
+                        <label>选择参赛类别：</label>
+                        <select id="type_up">
+                            <option value="qianming">签字比拼</option>
+                            <option value="shufa">书法比拼</option>
+                            <option value="huihua">绘画比拼</option>
+                            <option value="shougong">手工DIY比拼</option>
+                            <option value="cosplay">cosplay比拼</option>
+                        </select>
+                    </div>
+                    <div  class="uploaded_img_con">
+                        <img id="tem_upload" src="" width="282" height="253"/>
+                        <div class="upload_btn">
+                            <a id="btnUpload">
+                                <img src="http://static.cn114.cn/action/wdTalent/images/upload_img.png" width="282" height="253"/>
+                            </a>
+                        </div>
+                    </div>
+                    <a class="upload_submit js_submit">提交</a>
+                    <h2>上传作品注意事项</h2>
+                    <p>1. 每类比赛每人最多提交两个作品</p>
+                    <p>2. 提交作品后，需要通过审核才可以参加比赛</p>
+                    <p>3. 未通过审核的作品仍计算参赛名额</p>
+                </div>
+                <div class="my_img">
+                    <div class="category">
+                        <label>作品所在类别：</label>
+                        <select id="type_my">
+                            <option value="qianming">签字比拼</option>
+                            <option value="shufa">书法比拼</option>
+                            <option value="huihua">绘画比拼</option>
+                            <option value="shougong">手工DIY比拼</option>
+                            <option value="cosplay">cosplay比拼</option>
+                        </select>
+                    </div>
+                    <ul class="my_works js_my_works">
+                        <li>
+                            <img src="http://static.cn114.cn/action/wdTalent/images/work01.png" width="196" height="177">
+                        </li>
+                        <li>
+                            <img src="http://static.cn114.cn/action/wdTalent/images/work02.png" width="196" height="177">
+                        </li>
+                    </ul>
+                </div>
+                <div class="rules">
+                    <ul class="tab js_tab">
+                        <li class="gz on" id="gz"></li>
+                        <li class="jl" id="jl"></li>
+                    </ul>
+                </div>
+                <div class="gz_content js_con_tab">
+                    <h2>---活动时间---</h2>
+                    <p>活动时间：4月7日-4月30日</p>
+                    <p>投票时间：4月7日-4月30日</p>
+                    <h2>--活动规则---</h2>
+                    <p>1)在“我要参加”页面，登录后，点击“上传作品”选择要上传的作品进行提交，参与活动。</p>
+                    <p>2)所有参赛作品必须为上传者的原创作品，严禁抄袭，一经发现，则取消参赛资格及奖励。所有参赛作品内容必须是与问道有关的，或者问道素材，所有作品内容都应文明，不可有广告信息 。（签字比拼及书法比拼活动作品含有“问道”即算与问道有关）</p>
+                    <p>3)作品提交参赛后，玩家可在“我要参加—我的作品”页面查看详情。</p>
+                    <p>4)参与上传作品的玩家，每种作品均可上传2份，且每份审核通过的作品均可获得问道十周年活动10积分的奖励。十周年积分，可用于之后的许愿池、积分兑换福利活动。</p>
+                    <p>5)玩家登录后，可对其他作品进行投票，票数可进行排行。每个帐号每天只能投十次，不限类型，同一个作品每天只能投一次。每投一票，玩家可获得1个十周年积分。十周年积分，可用于之后的许愿池、积分兑换福利活动。<span>问道十周年纪念金币获得攻略：<a target="_blank" href="http://wanwd.gyyx.cn/article/15450">点击进入</a></span></p>
+                    <p>6)五种作品，每种作品排行票数互不干涉。</p>
+                    <p>7)票数相同的作品，最先达到该票数的作品排名靠前。</p>
+                    <p>8)严禁刷票，一经发现，则取消参赛资格及奖励。</p>
+                    <p>9)玩家无需登录，即可在各页面进行评论，语言必须文明，不可有广告信息。</p>
+                    <p>10)活动最终解释权由光宇在线科技有限责任公司所有。</p>
+                    <p>注：参与活动登录时，第一次需要绑定区组角色，绑定后不可更改。</p>
+                </div>
+                <div class="jl_content js_con_tab" style="display:none;">
+                    <h2>---活动奖励---</h2>
+                    <p>参与上传作品的玩家，每种作品均可上传2份，且每份均可获得10积分的奖励</p>
+                    <p>参与投票的玩家，不分类型，总共每天可投10票，每票可获得1积分的奖励</p>
+                    <h2>---排行奖励---</h2>
+                    <p class="img">
+                        <img src="http://static.cn114.cn/action/wdTalent/images/phone.png"/>
+                    </p>
+                    <div class="tables">
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <th colspan="2">签字排行奖励</th>
+                                </tr>
+                                <tr class="th">
+                                    <td>投票排名</td>
+                                    <td>奖励</td>
+                                </tr>
+                                <tr>
+                                    <td>第1名 </td>
+                                    <td>小米4</td>
+                                </tr>
+                                <tr>
+                                    <td>第2名 </td>
+                                    <td>红米Note</td>
+                                </tr>
+                                <tr>
+                                    <td>第3-5名</td>
+                                    <td>威威虎抱枕</td>
+                                </tr>
+                                <tr>
+                                    <td>第6-10名</td>
+                                    <td>问道平板包</td>
+                                </tr>
+                                <tr>
+                                    <td>第11-30名</td>
+                                    <td>1000游戏内银元宝</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <th colspan="2">书法排行奖励</th>
+                            </tr>
+                            <tr class="th">
+                                <td>投票排名</td>
+                                <td>奖励</td>
+                            </tr>
+                            <tr>
+                                <td>第1名 </td>
+                                <td>小米4</td>
+                            </tr>
+                            <tr>
+                                <td>第2名 </td>
+                                <td>红米note</td>
+                            </tr>
+                            <tr>
+                                <td>第3-4名</td>
+                                <td>九尾狐手办</td>
+                            </tr>
+                            <tr>
+                                <td>第5-10名</td>
+                                <td>问道平板包</td>
+                            </tr>
+                            <tr>
+                                <td>第11-30名</td>
+                                <td>1000游戏内银元宝</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <th colspan="2">绘画排行奖励</th>
+                            </tr>
+                            <tr class="th">
+                                <td>投票排名</td>
+                                <td>奖励</td>
+                            </tr>
+                            <tr>
+                                <td>第1名 </td>
+                                <td>小米4</td>
+                            </tr>
+                            <tr>
+                                <td>第2名 </td>
+                                <td>红米note</td>
+                            </tr>
+                            <tr>
+                                <td>第3-4名</td>
+                                <td>九尾狐手办</td>
+                            </tr>
+                            <tr>
+                                <td>第5-10名</td>
+                                <td>问道平板包</td>
+                            </tr>
+                            <tr>
+                                <td>第11-30名</td>
+                                <td>1000游戏内银元宝</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <th colspan="2">手工DIY排名奖励</th>
+                            </tr>
+                            <tr class="th">
+                                <td>投票排名</td>
+                                <td>奖励</td>
+                            </tr>
+                            <tr>
+                                <td>第1名 </td>
+                                <td>小米4</td>
+                            </tr>
+                            <tr>
+                                <td>第2名 </td>
+                                <td>红米note</td>
+                            </tr>
+                            <tr>
+                                <td>第3-4名</td>
+                                <td>九尾狐手办</td>
+                            </tr>
+                            <tr>
+                                <td>第5-10名</td>
+                                <td>问道平板包</td>
+                            </tr>
+                            <tr>
+                                <td>第11-30名</td>
+                                <td>1000游戏内银元宝</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table>
+                            <tbody>
+                            <tr>
+                                <th colspan="2">cosplay排名奖励</th>
+                            </tr>
+                            <tr class="th">
+                                <td>投票排名</td>
+                                <td>奖励</td>
+                            </tr>
+                            <tr>
+                                <td>第1名 </td>
+                                <td>小米4</td>
+                            </tr>
+                            <tr>
+                                <td>第2名 </td>
+                                <td>红米note</td>
+                            </tr>
+                            <tr>
+                                <td>第3-4名</td>
+                                <td>九尾狐手办</td>
+                            </tr>
+                            <tr>
+                                <td>第5-10名</td>
+                                <td>问道平板包</td>
+                            </tr>
+                            <tr>
+                                <td>第11-30名</td>
+                                <td>1000游戏内银元宝</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="follow">
+            <a href="${rc.contextPath}/wdTalent/list?type=qianming">签字比拼</a>
+            <a href="${rc.contextPath}/wdTalent/list?type=shufa">书法比拼</a>
+            <a href="${rc.contextPath}/wdTalent/list?type=huihua">绘画比拼</a>
+            <a href="${rc.contextPath}/wdTalent/list?type=shougong">手工DIY比拼</a>
+            <a href="${rc.contextPath}/wdTalent/list?type=cosplay">cosplay比拼</a>
+			<a class="out_link" href="http://actionv2.gyyx.cn/wdTalent/info" target="_blank">我要参赛</a>
+            <a class="out_link" href="http://wd.gyyx.cn/huodong/10zn/10qd/index.html" target="_blank">十年庆典</a>
+            <a class="out_link" href="http://wd.gyyx.cn/huodong/10zn/hdhz/index.html" target="_blank">更多活动</a>
+            <a class="go_top" href="#top">返回顶部</a>
+        </div>
+        <div class="error_pop js_upload_pop">
+            <p class="icon "></p>
+            <p class="js_upload_tip">错误提示</p>
+        </div>
+    </div>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdTalent/js/swfupload.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdTalent/js/imageHandlers.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdTalent/js/index.js"></script>
+        <script>
+            $(function () {
+                $().info();
+            });
+
+        </script>
+
+        <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+        </div>
+
+</body>
+</html>

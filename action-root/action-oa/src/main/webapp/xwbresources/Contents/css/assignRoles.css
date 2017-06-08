@@ -1,0 +1,19 @@
+/*add by chenqiaoling 2014-4-10*/
+
+/* 权限管理 - 凭据管理 - 账号分配角色 弹出层 */
+.dis_none{display:none;}
+#moduleul{padding:0;}
+#moduleul,#widget .fgs p{height: auto; line-height:37px; border:1px solid #cdcdcd;  background: -moz-linear-gradient(center top, #f8f8f8, #e8e8e8);background: -webkit-linear-gradient(top, #f8f8f8, #e8e8e8); background: -ms-linear-gradient(top, #f8f8f8, #e8e8e8);filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#f8f8f8', endColorstr='#e8e8e8',GradientType=0 ); color: #636363; font-size: 12px; overflow:hidden;}
+#moduleul{background: none; border:none; filter:none;}
+#widget #moduleul li{float: left; width:143px; margin:0 4px 4px 0; background:#58BCF5;  padding:0 8px; height:28px; line-height: 28px; border-left:none;  font-size: 14px; overflow: hidden; color:#fff;cursor:pointer;}
+#widget #moduleul li.bg-primary { background:#65bd77;}
+#widget #moduleul li.activeli{background:#ffc333;}
+#widget .fgs p{padding:0 10px !important;}
+#widget .modules{margin:10px 10px 0;overflow:hidden;}
+#widget .fgs p input{float:none; }
+#moduleul li input,.functionscon span input,#widget .fgs p input{vertical-align:middle; margin:0 2px 0 0;}
+#widget h4{height:20px; margin:10px auto; font-size:14px; text-align:center;}
+div.fgs{overflow:hidden;}
+div.fgs p strong { cursor:pointer;}
+.modules span{display:block; float:left; width:105px; height:30px; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; padding:0 15px 0 0; _display:inline;}
+.modules span input{vertical-align:middle; margin:0 3px 0 0;}

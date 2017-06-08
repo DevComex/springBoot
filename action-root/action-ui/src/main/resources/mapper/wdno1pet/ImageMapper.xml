@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdno1pet.IImageDAO">
+	<!-- 提交参赛作品 -->
+	<insert id="uploadImage" parameterType="ImageBean" useGeneratedKeys="true" keyProperty="img.imgCode">    
+		insert into game_pic_tb(
+			user_code,
+			img_status,
+			img_type,
+			temp_url,
+			img_width,
+			img_height,
+			img_feature
+		) values(
+			#{img.userCode},
+			#{img.imgStatus},
+			#{img.imgType},
+			#{img.tempUrl},
+			#{img.imgWidth},
+			#{img.imgHeight},
+			#{img.imgFeature}
+		)
+	</insert>   
+	<select id="getImageByImgCode" parameterType="Integer" resultMap="ImageBeanMap">
+		select * from game_pic_tb where img_code = #{imgCode}
+	</select>
+	
+	<!-- select qualification of userCode for lottery -->
+	<select id="selectQualification" resultType="java.lang.Integer" >
+		select distinct    
+		user_code from  game_pic_tb
+		 where   
+		 img_status = 'checked' AND img_type = 'wd1' UNION select    
+		 user_code 
+		 from  
+		   wdno1_vote_tb
+		    group by  
+		     user_code having   
+		    COUNT(user_code) >= 10
+	</select>
+	
+	<resultMap type="ImageBean" id="ImageBeanMap">
+		<id column="img_code" property="imgCode" />
+		<result column="user_code" property="userCode" />
+		<result column="img_status" property="imgStatus" />
+		<result column="img_type" property="imgType" />
+		<result column="temp_url" property="tempUrl" />
+		<result column="real_url" property="realUrl" />
+		<result column="img_width" property="imgWidth" />
+		<result column="img_height" property="imgHeight" />
+		<result column="img_feature" property="imgFeature" />
+	</resultMap>
+</mapper>

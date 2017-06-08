@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>问道十年：青城山封仙盛典</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/wdyaoqinghan/css/wd160701_sw2.css">
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/wdyaoqinghan/css/pindex2.css">
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js"></script>
+    <script src="http://static.cn114.cn/action/wdyaoqinghan/js/QuickReg150824_160325.js"></script>
+    <script>
+        var rc = "";
+        var popHtmlSet = '' +
+                '<div class="regActionFTpop">'+
+                '<div class="wd_tc pop_box">'+
+                '<a href="javascript:void(0)" class="close popclose"></a>'+
+                '<div class="tcCont">'+
+                '<div class="tcreg">'+
+                    <!--注册前-->
+                '<form class="regformwd popform" method="post">'+
+                '<div class="reg">'+
+                '<div class="div">'+
+                '<span class="word">6-16位字母和数字组合</span>'+
+                '<label class="user"></label>'+
+                '<input type="text" class="txt" name="userName" maxlength="16" autocomplete="off">'+
+                '<i class="siguserName"></i>'+
+                '</div>'+
+                '<div class="div">'+
+                '<span class="word">4-16位字符（除 &lt;和&gt;）</span>'+
+                '<label class="pass"></label>'+
+                '<input type="password" name="password" class="txt" autocomplete="off" maxlength="16">'+
+                '<i class="sigpassword"></i>'+
+                '</div>'+
+                '<div class="chkp">'+
+                '<input type="checkbox" value="" class="chk js_chkNickname" checked="checked">同意<a  href="http://www.gyyx.cn/Resource/Agreement.html" target="_blank">"服务条款"</a>'+
+                '</div>'+
+                '<div class="btnp">'+
+                '<input type="submit" class="btn" value=" ">'+
+                '</div>'+
+                '</div>'+
+                '</form>'+
+                '</div>'+
+                '<span class="download"><a href="barclientview://-Package 10115/" target="_blank"></a></span>'+
+                '</div>'+
+                '</div>'+
+                '<div class="mask">&nbsp;</div>'+
+                '</div>';
+        var succWordSet = ''+
+                '<span class="p01">注册成功</span><br/>'+
+                '<span class="p02" ><a href="javascript:void(0)" class="info_mli_a js_alertlogin_a no_lo_a">请登录</a></span>';
+        //注册
+        $(function(){
+            $('#regformwd').RegActionForThree({
+                IsOpenWin: true,
+                GameId: 2,
+                popHtml: popHtmlSet,
+                SuccWord: succWordSet,
+                DownUrl: ""
+            });
+        })
+    </script>
+
+</head>
+<body>
+<div class="public_nav_top" style="display: block;">
+    <script type="text/javascript">Showtop();</script>
+</div>
+<!--报名注册与用户信息-->
+<div class="mk1 mk">
+    <div class="header">
+        <div class="nav">
+            <a target="_blank" style="color: #fff;" href="http://wd.gyyx.cn/index_wd_v5.htm">游戏官网</a>|<a target="_blank" href="http://pay.gyyx.cn/">充值中心</a>|<a target="_blank" href="http://account.gyyx.cn/Member/Register">账号注册</a>|<a target="_blank" href="http://wd.gyyx.cn/download/">下载中心</a>
+        </div>
+    </div>
+   <div class="active">
+       <p class="activeTime">领取邀请函时间：11月1日-11月10日</p>
+       <p class="activeInfo">活动信息：11月12日-13日 四川成都 青城山</p>
+   </div>
+    <!--报名入口-->
+    <div class="banS">
+        <!--登录报名按钮-->
+        <p class="login" id="js_account">
+            <a class="noLoginSig" href="javascript:void(0)"></a>
+        </p>
+        <ul class="inLoinSig spOrIn">
+            <li class="myIntegral">
+                我的积分: 报名后显示
+            </li>
+            <li class="sigForAct" id="js_sigForAct"></li>
+        </ul>
+        <div class="inLoinSigforBm spOrIn" style="display: none;">
+            <ul class="infos_1">
+                 <li class="userName">欢迎您 : <span></span></li>
+                <li class="myIntegral">我的积分: <span></span></li>
+                <li class="prizeInfo js_prizeInfo" >查询获奖信息</li>
+                <li class="ditAddress js_btnPopEditAddress">修改联系方式</li>
+                <li class="ditAddress js_checkMyYQ">查看邀请函</li>
+            </ul>
+            <span class="seveBind"></span>
+        </div>
+        <div class="servers choose spOrIn lf">
+            <p class="userName lf" style="display: inline-block;">欢迎您 : <span></span></p>
+            <select name="select_block" style="margin-right: 5px" class="sel01 lf" id="js_netType">
+                <option value="">选择大区</option>
+                <option value="1">网通</option>
+                <option value="2">电信</option>
+                <option value="3">双线</option>
+            </select>
+            <select name="select_server"  class="sel02 lf"  id="js_server" style="margin-right: 5px">
+                <option value="">选择区组</option>
+            </select>
+            <input class="veriCode lf" type="text" name="" value="" maxlength="5" style="margin-right: 5px">
+            <img src="http://static.cn114.cn/action/wdyaoqinghan/images/pic02.jpg" class="lf" alt="验证码" id="js_updatVerCode">
+            <span class="getMyCos" style="float: left" id="js_getMyCos"></span>
+        </div> 
+        <div class="bindYCos spOrIn">
+        <p class="userName" style="display: inline-block;">欢迎您 : <span></span></p>
+            <span class="tName">绑定您的角色 : </span> 
+            <select name="select_cos" id="js_getCos">
+            </select>
+            <span class="getcurMyCos" id="js_curMyCos">确定绑定</span>
+        </div>
+        <div class="successInfos spOrIn" style="display: none;">
+            <ul class="infos_1">
+                <li class="userName">欢迎您 : <span></span></li>
+                <li class="myCoseforBind">已绑定角色 : </li>
+                <li class="myIntegral">我的积分: <span></span></li>
+                <li class="prizeInfo js_prizeInfo" id="js_prizeInfo">查询获奖信息</li>
+                <li class="ditAddress js_btnPopEditAddress" id="">修改获奖联系方式</li>
+                <li class="ditAddress js_checkMyYQ">查看邀请函</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="mk2 mk" id="dwdh">
+   <div class="dh">
+       <p class="convertImg" id="js_convertImg"></p>
+       <ul class="dhRule">
+           <li><i class="rul_Ico">1</i><span>活动期间，每个光宇账号可消耗75积分兑换一张邀请函，兑换数量有限，先到先得;</span></li>
+           <li><i class="rul_Ico">2</i><span>获得邀请函的玩家，为了确保您的获奖资格，请务必填写正确的个人信息（姓名、电话），工作人员将于最迟48小时以内与您联系;</span></li>
+           <li><i class="rul_Ico">3</i><span>活动不收取任何费用，参与玩家的住宿以及餐饮将由官方统一负责，往返青城山路费将最高报销1000元;</span></li>
+           <li><i class="rul_Ico">4</i><span>没有满足兑换积分资格的玩家、满足兑换积分资格但名额已全部兑换完毕，未能成功兑换邀请函的玩家，可通过抽奖活动赢取邀请函;</span></li>
+           <li><i class="rul_Ico">5</i><span>若活动报名人数突破10万人，将追加兑换名额;</span></li>
+           <li><i class="rul_Ico">6</i><span>本次活动的解释权归光宇游戏所有。</span></li>
+       </ul>
+   </div>
+</div>
+<div class="mk3 mk" id="mrjf">
+    <div class="jfAdqD">
+        <div class="mk3_jf">
+           <p class="jfTit">分享至新浪微博 最多可得50积分</p>
+            <input id="source" type="hidden" name="index" value="index" />
+            <a href="http://v.t.sina.com.cn/share/share.php?title=问道十年升仙录 @问道 “封仙盛宴”即将在青城山火爆开启，重金打造封仙仪式。“醉心客、小熊、妖娆”三界道王齐聚首，人气网红亲临现场，COS团新成员等你来撩，现场更有海量大奖任性送。为了神兽我也想去现场，还有道友一起吗？&url=http://actionv2.gyyx.cn/wdyqh?r=0.25685&pic=http://static.cn114.cn/action/wdyaoqinghan/images/pic01.jpg&content=utf-8" id="js_weiboShow" target="_blank" class="weiboShow"></a>
+            <p class="t3">每天可领取一次</p>
+        </div>
+        <div class="mk3_qd">
+        <p class="mrqd_p" >每日签到 可获得5积分</p>
+            <p class="dataFor">
+                <span class="dataYear">2016</span>
+                <span class="dataDate">11.01-11.10</span>
+                <span class="qiandao" id="js_qiandao"></span>
+            </p>
+            <p class="qdLine"></p>
+            <table id="tableDate" cellpadding="0" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>MON</th>
+                        <th>TUE</th>
+                        <th>WED</th>
+                        <th>THU</th>
+                        <th>FRI</th>
+                        <th>SAT</th>
+                        <th>SUN</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td relQD="1">01</td>
+                        <td relQD="2">02</td>
+                        <td relQD="3">03</td>
+                        <td relQD="4">04</td>
+                        <td relQD="5">05</td>
+                        <td relQD="6">06</td>
+                    </tr>
+                    <tr>
+                        <td relQD="7">07</td>
+                        <td relQD="8">08</td>
+                        <td relQD="9">09</td>
+                        <td relQD="10">10</td>
+
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="mk4 mk" id="cqdj">
+    <div class="activeCjInfo">
+        <div class="lotteryLb">
+            <div class="lottery dzp ">
+                <a href="javascript:;" id="js_start" class="start" data-state="yes"></a>
+                <div class="js_img dzp0" id="dzp0">
+                    <img class="img0" src="http://static.cn114.cn/action/wdyaoqinghan/images/wd160705_img01.png" alt="">
+                     <p class="txt">邀请函</p>
+                </div>
+                <div class="js_img dzp1" id="dzp1">
+                    <img class="img1" src="http://static.cn114.cn/action/wdyaoqinghan/images/wd160705_img02.png" alt="">
+                    <p class="txt">威威虎抱枕</p>
+                </div>
+                <div class="js_img dzp2" id="dzp2">
+                    <img class="img2" src="http://static.cn114.cn/action/wdyaoqinghan/images/wd160705_img03.png" alt="">
+                    <p class="txt">10光宇币</p>
+                </div>
+                <div class="js_img dzp3" id="dzp3">
+                    <img class="img3" src="http://static.cn114.cn/action/wdyaoqinghan/images/wd160705_img04.png" alt="">
+                    <p class="txt">iPad pro</p>
+                </div>
+                <div class="js_img dzp4" id="dzp4">
+                    <img class="img4" src="http://static.cn114.cn/action/wdyaoqinghan/images/wd160705_img05.png" alt="">
+                    <p class="txt">邀请函</p>
+                </div>
+                <div class="js_img dzp5" id="dzp5">
+                    <img class="img5" src="http://static.cn114.cn/action/wdyaoqinghan/images/wd160705_img06.png" alt="">
+                     <p class="txt">平板电脑包</p>
+                </div>
+                <div class="js_img dzp6" id="dzp6">
+                    <img class="img6" src="http://static.cn114.cn/action/wdyaoqinghan/images/wd160705_img07.png" alt="">
+                     <p class="txt">30光宇币</p>
+                </div>
+                <div class="js_img dzp7" id="dzp7">
+                    <p class="txt" style='margin-top: 14px;'>谢谢参与</p>
+                </div>
+
+            </div>
+        </div>
+        <div class="activeInfo">
+            <dl class="actTit noPadding" style="margin-top: -6px;margin-bottom:12px">
+                <dd><i>1</i><span>活动期间，每个光宇账号每次抽奖将消耗10积分，每日抽奖次数不限定;</span></dd>
+                <dd><i>2</i><span>活动实物奖品将由《问道》官方统一安排联系派送，为了确保您的获奖资格，请务必填写正确的个人信息（姓名，电话，邮箱，QQ、地址）以免影响发奖;</span></dd>
+                <dd><i>3</i><span>获得邀请函的玩家，为了确保您的获奖资格，请务必填写正确的个人信息（姓名、电话），工作人员将于最迟48小时以内与您联系，活动不收取任何费用;</span></dd>
+                <dd><i>4</i><span>参与玩家最高报销路费1000元;</span></dd>
+                <dd><i>5</i><span>本次活动的解释权归光宇游戏所有。</span></dd>
+            </dl>
+        </div>
+    </div>
+</div>
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom()</script>
+</div>
+<!--右侧悬浮-->
+<p id="navRg">
+    <a class="nav1 cur" href="javascript:void(0)">登录报名</a>
+    <a class="nav2" href="javascript:void(0)">活动规则</a>
+    <a class="nav3" href="#dwdh">点我兑换</a>
+    <a class="nav4" href="#mrjf">每日积分</a>
+    <a class="nav5" href="#cqdj">抽取大奖</a>
+</p>
+<!--是否确认兑换邀请函提示-->
+<div class="tc yqhISdh" id="js_yqhISdh" style="display: none">
+    <a class="close pop-close" href="#">关闭</a>
+    <p class="tit">您是否确定扣除75分兑换邀请函</p>
+    <p class="dhBtn">
+        <a class="dhTrue" href="javascript:void(0)"></a>
+        <a class="dhFalse" href="javascript:void(0)"></a>
+    </p>
+</div>
+<!--兑换后提示消息-->
+<div class="tc yqhISdh yqhISdh_Info" id="js_yqhISdh_Info" style="display: none">
+    <a class="close pop-close" href="#">关闭</a>
+    <p class="tit" style="padding-top: 115px;"></p>
+</div>
+<!--兑换成功-->
+<div class="tc SuccessDh" id="js_SuccessDh" style="display: none">
+    <a class="close pop-close" href="#">关闭</a>
+    <p class="tit" style="color: #aa1717;">恭喜您！获得封仙大会邀请函</p>
+    <form class="formInfo" id="js_popAddressForm">
+        <p class="inpuLi" >
+            <span>姓&nbsp;&nbsp;名</span>
+            <input type="text" name="userName">
+        </p>
+        <p class="inpuLi">
+            <span>电&nbsp;&nbsp;话</span>
+            <input type="text" name="userPhone">
+        </p >
+        <p class="inpuLi">
+            <span>邮&nbsp;&nbsp;箱</span>
+            <input type="text" name="userEmail">
+        </p>
+        <p class="inpuLi">
+            <span>Q&nbsp;&nbsp;Q</span>
+            <input type="text" name="qq">
+        </p>
+        <p class="inpuLi">
+            <span>地&nbsp;&nbsp;址</span>
+            <input type="text" name="userAddress">
+        </p>
+        <a class="submitAddr" id="js_submitAddr" href="javascript:void(0)"></a>
+    </form>
+</div>
+<!--登录注册框-->
+<div class="tc fastLoginforReg"  style="display: none" id="js_popAs">
+    <a class="close pop-close" href="#">关闭</a>
+    <p class="tit">参与活动前请先登录</p>
+    <div class="fasReg">
+        <p class="smallTit">没有账号&nbsp;&nbsp;<span>快速注册</span></p>
+        <div class="wdBox wdBox02">
+
+            <!--注册前-->
+            <form class="regformwd" method="post" id="regformwd">
+                <div class="reg">
+                    <div class="div">
+                        <span class="word">6-16位字母和数字组合</span>
+                        <label class="user">账 号 </label>
+                        <input type="text" class="txt" name="userName" maxlength="16">
+                        <i class="siguserName"></i>
+                    </div>
+                    <div class="div">
+                        <span class="word">4-16位字符（除 &lt;和&gt;）</span>
+                        <label class="pass">密 码 </label>
+                        <input type="password" name="password" class="txt" autocomplete="off">
+                        <i class="sigpassword"></i>
+                    </div>
+                    <div class="chkp">
+                        <input type="checkbox" value="" class="chk js_chkNickname" checked="checked">同意 <a href="http://www.gyyx.cn/Resource/Agreement.html" target="_blank">"服务条款"</a>
+                    </div>
+                    <div class="btnp">
+                        <input type="submit" class="btn" value=" ">
+                    </div>
+                </div>
+            </form>
+            <!--注册前-->
+        </div>
+    </div>
+    <div class="fasReg fasLogin">
+        <p class="smallTit">已有账号&nbsp;&nbsp;<span>立即登录</span></p>
+        <a class="info_mli_a js_alertlogin_a no_lo_a" href="javascript:void(0)"></a>
+    </div>
+</div>
+<!--实物奖弹层（查看联系方式）-->
+<div class="tc SuccessDh" id="js_cjSw" style="display:none;visibility: visible;">
+    <a class="close pop-close" href="#">关闭</a>
+    <p class="tit swXg" style="color: #aa1717;">修改获奖邮寄地址</p>
+    <p class="tit swHj" style="color: #aa1717;display: none;">恭喜你&nbsp;&nbsp;获得<span class="swMessa js_panelPrize"></span></p>
+    <p class="swTit">获得的奖励将在活动结束后，统一寄出，请填写联系方式、快递地址等信息。</p>
+    <form class="formInfo" id="js_popCjSw">
+        <p class="inpuLi">
+            <span>姓&nbsp;&nbsp;名</span>
+            <input type="text" name="userName">
+        </p>
+        <p class="inpuLi">
+            <span>电&nbsp;&nbsp;话</span>
+            <input type="text" name="userPhone">
+        </p>
+        <p class="inpuLi">
+            <span>邮&nbsp;&nbsp;编</span>
+            <input type="text" name="userYB">
+        </p>
+        <p class="inpuLi">
+            <span>地&nbsp;&nbsp;址</span>
+            <input type="text" name="userAddress">
+        </p>
+        <a style="margin-top: 45px;margin-left: 97px;" class="submitAddr" id="js_cjSubmitAddr" href="javascript:void(0)"></a>
+    </form>
+</div>
+<!--虚拟奖弹层-->
+<div class="tc tc_02 " id="js_popSuccTip" style="display:none;">
+
+    <a class="close pop-close" href="#">关闭</a>
+    <div class="tc_cj">
+        <div class="tc_cjtxt">
+            <h3>恭喜你</h3>
+            <div class="panelPrize">获得<span class="js_panelPrize">光宇点卡</span></div>
+            <p>卡号 : <span class="dkKh"></span></p>
+            <p >密码 : <span class="dkMm"></span></p>
+        </div>
+        <div class="tc_btn">
+            <a  href="javascript:;" class="pop-close cureClose"></a>
+        </div>
+    </div>
+</div>
+<!--谢谢参与弹层-->
+<div class="tc tc_02" id="js_popFailTip" style="display:none;">
+    <a class="close pop-close" href="#">关闭</a>
+    <div class="tc_cj">
+        <img src="http://static.cn114.cn/action/wdyaoqinghan/images/lotteryNo.png" alt="">
+    </div>
+</div>
+<!--签到成功提示-->
+<div class="tc tc_02" id="js_popSuccQD" style="display:none;">
+    <a class="close pop-close" href="#">关闭</a>
+    <div class="tc_cj">
+        <img src="http://static.cn114.cn/action/wdyaoqinghan/images/qiandaoSuc.png" alt="">
+    </div>
+</div>
+<!--奖品列表-->
+<div class="listPrize"  style="display: none" id="js_listPrize">
+    <a class="close pop-close" href="#">关闭</a>
+    <div class="listPri">
+       
+    </div>
+</div>
+<!--活动规则-->
+<div class="activeRule"  style="display: none">
+    <a class="close pop-close" href="#">关闭</a>
+    <img src="http://static.cn114.cn/action/wdyaoqinghan/images/activeRule.png" alt="">
+</div>
+<script>
+    var NLOTTERY_CONFIG = {
+    //活动时间
+      isActive:rc+"/activity/get",
+        //是否兑换过邀请函接口
+        isyqhSuc:rc+"/exchange/y/get/exsits",
+        //兑换邀请函接口
+        coverLetter:rc+"/exchange/y/post",
+          //查看邀请函地址
+       yqhAdress:rc+"/address/y/get/exchange",
+        //报名参与活动
+        userSign: rc+"/user/y/state",
+        //获取我的奖品
+        getMyPrize: rc+"/lottery/y/prizesinfo/get",
+        //获取用户信息
+        getMyIntegral:rc+"/user/y/get",
+        //服务器列表
+        serverListUrl: rc+"/user/y/servers",
+        //获取角色
+        getMyCos:rc+"/user/y/role",
+        //绑定角色
+        bindMycos:rc+"/user/y/put/game",
+        //抽奖
+        lotteryUrl: rc+"/lottery/y/epowo/get",
+        //获取我的地址
+        getBeforeAddress: rc +"/address/y/get/lottery",
+        //提交地址(邀请函)
+        submitAddress : rc +"/address/y/post/exchange",
+        //微博分享
+        shareWeibo:rc+"/blog/y/share",
+        //签到送积分
+        signDate:rc+"/wdqingchengshan/sign",
+      //获取已签到日期
+      getSignDate:rc+"/wdqingchengshan/sign/get",
+      //点击报名
+      postBM:rc+"/user/y/signup",
+      //修改联系方式确认
+      ajaxAddressFormws:rc+"/address/y/post/lottery",
+      //道行积分
+      dhjfAjax:rc+"/user/y/put/score"
+    };
+</script>
+<script src="http://s.gyyx.cn/lib/jquery.bgiframe.js"></script>
+<script src="http://static.cn114.cn/action/wdyaoqinghan/js/Lotterywd.js"></script>
+<script src="http://static.cn114.cn/action/wdyaoqinghan/js/handle.js"></script>
+<script>
+    $(function () {
+        nLottery.init();
+    });
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?299479fd483525ec01f8d154e83dad5d";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

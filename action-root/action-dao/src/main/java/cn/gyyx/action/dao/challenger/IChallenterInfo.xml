@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.challenger.IChallenterInfo">
+	<resultMap type="ChallenterInfoBean" id="ChallenterInfoBeanMap">
+		<id column="code" property="code" />
+		<result column="old_role" property="oldRole" />
+		<result column="declaration " property="declaration" />
+		<result column="create_time" property="createTime" />
+		<result column="state " property="state" />
+		<result column="user_id" property="userId" />
+		<result column="account" property="account" />
+		<result column="dare_count" property="dareCount" />
+		<result column="role_name" property="roleName" />
+
+	</resultMap>
+	<insert id="addChallenterInfo">
+		insert into challenger_dare_log
+		(old_role,declaration,user_id,account,role_name)
+		values
+		(#{oldRole},#{declaration},#{userId},#{account},#{roleName})
+	</insert>
+
+	<select id="getOneChallenterInfoWithoutUnPass" resultMap="ChallenterInfoBeanMap">
+		select
+		* from challenger_dare_log
+		where
+		user_id=#{userCode}
+		and
+		state!='unpass'
+	</select>
+
+	<select id="getStateChallenterInfo" resultMap="ChallenterInfoBeanMap"
+		resultType="java.util.List">
+		SELECT TOP
+		${size}
+		*
+		FROM
+		challenger_dare_log a
+		WHERE
+		(code NOT
+		IN
+		(SELECT TOP
+		(#{size} *
+		(#{pageNo} - 1))
+		code
+		FROM
+		challenger_dare_log
+		where
+		state=#{status}
+		order BY create_time desc
+		)
+		)
+		and
+		state=#{status}
+		order BY create_time desc
+
+
+	</select>
+
+	<select id="getCountStateChallenterInfo" resultType="int">
+		select
+		count(*) from challenger_dare_log
+		where
+		state=#{status}
+
+
+	</select>
+
+	<select id="getOneStatusChallenterInfo" resultMap="ChallenterInfoBeanMap">
+		select top 1
+		* from challenger_dare_log
+		where
+		state=#{status}
+		and
+		user_id=#{userCode}
+	</select>
+
+	<update id="addChallengeTimes">
+		update challenger_dare_log
+		set dare_count=dare_count+1
+		where
+		user_id=#{userCode}
+	</update>
+
+	<select id="getTopFiveChallenterInfo" resultMap="ChallenterInfoBeanMap"
+		resultType="java.util.List">
+		select top 5
+		* from challenger_dare_log
+				where state='pass'
+		order by dare_count
+		desc
+	</select>
+
+	<select id="getOneChallenterInfo" resultMap="ChallenterInfoBeanMap">
+		select top 1
+		* from challenger_dare_log
+		where
+		code=#{code}
+	</select>
+
+	<update id="setOneStatusAndTime">
+		update challenger_dare_log
+		set state=#{status},
+		create_time=getdate()
+		where
+		code=#{code}
+		and
+		state='oncheck'
+	</update>
+	
+	<select id="getUserInfoListByIds" resultMap="ChallenterInfoBeanMap">
+		select top 
+		* from challenger_dare_log
+		where
+		code=#{code}
+	</select>
+	
+</mapper>

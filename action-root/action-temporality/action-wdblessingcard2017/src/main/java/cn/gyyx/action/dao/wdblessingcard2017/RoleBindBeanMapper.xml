@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.wdblessingcard2017.RoleBindBeanMapper">
+	<resultMap id="BaseResultMap"
+		type="cn.gyyx.action.beans.wdblessingcard2017.RoleBindBean">
+		<id column="code" property="code" jdbcType="INTEGER" />
+		<result column="account" property="account" jdbcType="VARCHAR" />
+		<result column="server_code" property="serverCode" jdbcType="INTEGER" />
+		<result column="server_name" property="serverName" jdbcType="NVARCHAR" />
+		<result column="role_id" property="roleId" />
+		<result column="role_name" property="roleName" jdbcType="NVARCHAR" />
+		<result column="lottery_times" property="lotteryTimes"
+			jdbcType="INTEGER" />
+		<result column="remaining_times" property="remainingTimes"
+			jdbcType="INTEGER" />
+		<result column="ip" property="ip" jdbcType="VARCHAR" />
+		<result column="register_year" property="registerYear"
+			jdbcType="INTEGER" />
+		<result column="enable_get_lottery_times" property="enableGetLotteryTimes" />
+		<result column="upvote_times" property="upvoteTimes" />
+		<result column="is_received_title" property="isReceivedTitle" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		code, account, server_code, server_name, role_name, lottery_times,
+		remaining_times,
+		ip, register_year,enable_get_lottery_times, upvote_times, is_received_title
+	</sql>
+	<!-- 添加角色绑定信息 -->
+	<insert id="insertSelective"
+		parameterType="cn.gyyx.action.beans.wdblessingcard2017.RoleBindBean">
+		insert into wdblessingcard_role_bind_tb
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="account != null">
+				account,
+			</if>
+			<if test="serverCode != null">
+				server_code,
+			</if>
+			<if test="serverName != null">
+				server_name,
+			</if>
+			<if test="roleId != null">
+				role_id,
+			</if>
+			<if test="roleName != null">
+				role_name,
+			</if>
+			<if test="lotteryTimes != null">
+				lottery_times,
+			</if>
+			<if test="remainingTimes != null">
+				remaining_times,
+			</if>
+			<if test="ip != null">
+				ip,
+			</if>
+			<if test="registerYear != null">
+				register_year,
+			</if>
+			<if test="upvoteTimes != null">
+				upvote_times,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userId != null">
+				#{userId,jdbcType=INTEGER},
+			</if>
+			<if test="account != null">
+				#{account,jdbcType=VARCHAR},
+			</if>
+			<if test="serverCode != null">
+				#{serverCode,jdbcType=INTEGER},
+			</if>
+			<if test="serverName != null">
+				#{serverName,jdbcType=NVARCHAR},
+			</if>
+			<if test="roleId != null">
+				#{roleId},
+			</if>
+			<if test="roleName != null">
+				#{roleName,jdbcType=NVARCHAR},
+			</if>
+			<if test="lotteryTimes != null">
+				#{lotteryTimes,jdbcType=INTEGER},
+			</if>
+			<if test="remainingTimes != null">
+				#{remainingTimes,jdbcType=INTEGER},
+			</if>
+			<if test="ip != null">
+				#{ip,jdbcType=VARCHAR},
+			</if>
+			<if test="registerYear != null">
+				#{registerYear,jdbcType=INTEGER},
+			</if>
+			<if test="upvoteTimes != null">
+				#{upvoteTimes},
+			</if>
+			<if test="createTime != null">
+				#{createTime},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- OA后台-祝福卡审核通过后更新用户的抽奖次数 -->
+	<update id="updateUserLotteryTimes">
+		UPDATE
+		wdblessingcard_role_bind_tb
+		SET lottery_times =
+		#{lotteryTimes} ,
+		remaining_times = #{remainingTimes} ,
+		enable_get_lottery_times = #{enableGetLotteryTimes}
+		WHERE account =
+		#{account}
+	</update>
+	
+	<!--玩家前台-玩家玩了拼图游戏后更新玩家的抽奖次数 -->
+	<update id="updateUserLotteryTimesAfterPlayGame">
+        UPDATE
+        wdblessingcard_role_bind_tb
+        SET lottery_times =
+        #{lotteryTimes} ,
+        remaining_times = #{remainingTimes}
+        WHERE account =
+        #{account}
+    </update>
+
+	<!-- 更新玩家已领取过游戏称号 -->
+	<update id="updateUserReceivedTitle">
+		UPDATE
+		wdblessingcard_role_bind_tb
+		SET
+		is_received_title = 1
+		WHERE account =
+		#{account}
+	</update>
+	
+	<!-- 通过账号获取角色绑定信息 -->
+	<select id="getRoleBindBeanByAccount" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from wdblessingcard_role_bind_tb
+		where account = #{account}
+	</select>
+	<!-- 更新用户点赞数（专用） -->
+	<update id="updateUpvoteTimes" parameterType="cn.gyyx.action.beans.wdblessingcard2017.RoleBindBean" >
+		update wdblessingcard_role_bind_tb
+		set upvote_times = #{upvoteTimes}
+		where code = #{code}
+	</update>
+	<!-- 更新用户的抽奖次数 -->
+	<update id="updateRemainingTimes" parameterType="cn.gyyx.action.beans.wdblessingcard2017.RoleBindBean" >
+		update wdblessingcard_role_bind_tb
+		set remaining_times = #{remainingTimes}
+		where code = #{code}
+	</update>
+	<!-- 统计该角色的绑定次数 -->
+	<select id="getRoleBindBeanCount" parameterType="java.lang.String" resultType="java.lang.Integer" >
+		select count(*)
+		from wdblessingcard_role_bind_tb
+		where role_id = #{roleId}
+	</select>
+</mapper>

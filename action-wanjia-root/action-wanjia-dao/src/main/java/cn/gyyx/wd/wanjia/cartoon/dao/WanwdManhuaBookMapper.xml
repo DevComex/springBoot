@@ -1,0 +1,454 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.wd.wanjia.cartoon.dao.WanwdManhuaBookMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaBook" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="manhua_code" property="manhuaCode" jdbcType="INTEGER" />
+    <result column="book_name" property="bookName" jdbcType="VARCHAR" />
+    <result column="book_num" property="bookNum" jdbcType="VARCHAR" />
+    <result column="review_status" property="reviewStatus" jdbcType="VARCHAR" />
+    <result column="review_time" property="reviewTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
+    <result column="net_type_code" property="netTypeCode" jdbcType="INTEGER" />
+    <result column="server_code" property="areaCode" jdbcType="INTEGER" />
+    <result column="server_name" property="areaName" jdbcType="VARCHAR" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="userId" property="userId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, manhua_code, book_name, book_num, review_status, review_time, create_time, 
+    update_time,is_delete,net_type_code,server_code,server_name
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_manhua_chapter_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  
+  
+  <select id="findNewBookByManhuaCode" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+      select top 1
+     <include refid="Base_Column_List" />
+    from wanwd_manhua_chapter_tb
+    where manhua_code =#{manhuaCode,jdbcType=INTEGER} and is_delete = 0 AND review_status='SUCCESS'  order by book_num desc
+  </select>
+  
+  
+  <select id="getBookList" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+SELECT TOP 12 
+ <include refid="Base_Column_List" /> 
+FROM wanwd_manhua_chapter_tb b
+WHERE b.manhua_code = #{manhuaCode,jdbcType=INTEGER} AND b.review_status='SUCCESS'
+ORDER BY b.create_time DESC
+  </select>
+  
+  
+  <select id="getBookListCount" resultType="int" parameterType="java.lang.Integer" >
+SELECT CEILING(COUNT(*)/12.0) COUNT
+FROM wanwd_manhua_chapter_tb b
+WHERE b.manhua_code = #{manhuaCode,jdbcType=INTEGER} AND b.review_status='SUCCESS'
+  </select>
+  
+  
+  <select id="getbookGroupList" resultMap="BaseResultMap" parameterType="map" >
+SELECT * FROM(
+SELECT 
+ROW_NUMBER() OVER (ORDER BY b.create_time ) as rank,*
+FROM wanwd_manhua_chapter_tb b
+WHERE b.manhua_code = #{manhuaCode} AND b.review_status='SUCCESS'
+) t WHERE t.rank BETWEEN #{start} AND #{end}
+  </select>
+  
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wanwd_manhua_chapter_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaBook" >
+    insert into wanwd_manhua_chapter_tb (code, manhua_code, book_name, 
+      book_num, review_status, review_time, 
+      create_time, update_time)
+    values (#{code,jdbcType=INTEGER}, #{manhuaCode,jdbcType=INTEGER}, #{bookName,jdbcType=VARCHAR}, 
+      #{bookNum,jdbcType=VARCHAR}, #{reviewStatus,jdbcType=VARCHAR}, #{reviewTime,jdbcType=TIMESTAMP}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaBook" >
+    insert into wanwd_manhua_chapter_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="manhuaCode != null" >
+        manhua_code,
+      </if>
+      <if test="bookName != null" >
+        book_name,
+      </if>
+      <if test="bookNum != null" >
+        book_num,
+      </if>
+      <if test="reviewStatus != null" >
+        review_status,
+      </if>
+      <if test="reviewTime != null" >
+        review_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="netTypeCode != null" >
+        net_type_code,
+      </if>
+      <if test="areaCode != null" >
+        server_code,
+      </if>
+      <if test="areaName != null" >
+        server_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="manhuaCode != null" >
+        #{manhuaCode,jdbcType=INTEGER},
+      </if>
+      <if test="bookName != null" >
+        #{bookName,jdbcType=VARCHAR},
+      </if>
+      <if test="bookNum != null" >
+        #{bookNum,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewStatus != null" >
+        #{reviewStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewTime != null" >
+        #{reviewTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=TIMESTAMP},
+      </if>
+      <if test="netTypeCode != null" >
+        #{netTypeCode,jdbcType=TIMESTAMP},
+      </if>
+      <if test="areaCode != null" >
+        #{areaCode,jdbcType=TIMESTAMP},
+      </if>
+      <if test="areaName != null" >
+        #{areaName,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaBook" >
+    update wanwd_manhua_chapter_tb
+    <set >
+      <if test="manhuaCode != null" >
+        manhua_code = #{manhuaCode,jdbcType=INTEGER},
+      </if>
+      <if test="bookName != null" >
+        book_name = #{bookName,jdbcType=VARCHAR},
+      </if>
+      <if test="bookNum != null" >
+        book_num = #{bookNum,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewStatus != null" >
+        review_status = #{reviewStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewTime != null" >
+        review_time = #{reviewTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+       <if test="isDelete != null" >
+       is_delete = #{isDelete,jdbcType=INTEGER},
+      </if>
+       <if test="netTypeCode != null" >
+        net_type_code = #{netTypeCode,jdbcType=INTEGER},
+      </if>
+       <if test="areaCode != null" >
+        server_code = #{areaCode,jdbcType=INTEGER},
+      </if>
+       <if test="areaName != null" >
+        server_name = #{areaName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaBook" >
+    update wanwd_manhua_chapter_tb
+    set manhua_code = #{manhuaCode,jdbcType=INTEGER},
+      book_name = #{bookName,jdbcType=VARCHAR},
+      book_num = #{bookNum,jdbcType=VARCHAR},
+      review_status = #{reviewStatus,jdbcType=VARCHAR},
+      review_time = #{reviewTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <!-- 查询对应漫画的最大章节数，忽略审核 -->
+  <select id="selectMaxBookNumByManHuaCode" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
+    SELECT ISNULL(max(book_num), 0) max_book_num
+	FROM wanwd_manhua_chapter_tb
+	WHERE manhua_code = #{manhuaCode,jdbcType=INTEGER}
+  </select>
+  <!-- 插入新漫画章节，返回主键code -->
+  <select id="insertReturnCode" resultType="java.lang.Integer" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaBook" >
+   INSERT INTO wanwd_manhua_chapter_tb (manhua_code,
+	book_name,book_num,review_status,create_time,is_delete,net_type_code,server_code,server_name)
+	output inserted.code
+	VALUES(
+	#{manhuaCode,jdbcType=INTEGER},
+    #{bookName,jdbcType=VARCHAR},
+    #{bookNum,jdbcType=VARCHAR},
+    #{reviewStatus,jdbcType=VARCHAR},
+    #{createTime,jdbcType=TIMESTAMP},
+    #{isDelete,jdbcType=INTEGER},
+    #{netTypeCode,jdbcType=INTEGER},
+    #{areaCode,jdbcType=INTEGER},
+    #{areaName,jdbcType=VARCHAR}
+    )
+  </select>
+   <!-- 查询对应漫画的最大章节数，审核过的内容 -->
+  <select id="selectMaxBookNumByManHuaCodeWithStatus" resultType="java.lang.Integer" parameterType="java.lang.Integer" >
+	SELECT
+		ISNULL(MAX(book_num), 0) max_book_num
+	FROM
+		wanwd_manhua_chapter_tb
+	WHERE is_delete=0 AND
+		review_status = 'SUCCESS'
+	AND manhua_code = #{manhuaCode,jdbcType=INTEGER}
+  </select>
+ 
+  
+  <!-- 查询漫画信息， -->
+  <select id="selectManhuaBrowseInfo" resultType="java.util.Map" parameterType="java.util.Map">
+  	SELECT
+  		p.page_picture_num,
+		p.page_picture_url,
+		p.code,
+		m.title,
+		b.book_name,
+		m.category_code,
+		b.book_num
+	FROM
+		wanwd_manhua_chapter_tb b
+	JOIN wanwd_manhua_page_tb p ON p.book_code = b.code
+	JOIN wanwd_manhua_tb m ON b.manhua_code = m.code
+	WHERE b.is_delete=0 AND p.is_delete=0 AND
+		p.page_picture_num = #{pictureNum}
+	AND book_num = #{bookNum}
+	AND review_status = 'SUCCESS'
+	AND manhua_code = #{manhuaCode}
+  </select>
+  
+  <!-- 查询漫画上一章节数 -->
+  <select id="selectUpBookNum" resultType="java.lang.Integer" parameterType="java.util.Map">
+  SELECT 
+  	ISNULL(MAX(book_num),0) upbooknum 
+  FROM 
+  	wanwd_manhua_chapter_tb 
+  WHERE is_delete=0 AND
+  	book_num &lt; #{bookNum} 
+  AND review_status = 'SUCCESS' 
+  AND manhua_code=#{manhuaCode}
+  </select>
+  
+  <!-- 查询漫画下一章节数 -->
+  <select id="selectDownBookNum" resultType="java.lang.Integer" parameterType="java.util.Map">
+  SELECT ISNULL(MIN(book_num),0) downbooknum   FROM 
+  	wanwd_manhua_chapter_tb 
+  WHERE is_delete=0 AND
+  	book_num &gt; #{bookNum} 
+  AND review_status = 'SUCCESS' 
+  AND manhua_code=#{manhuaCode} 
+  </select>
+  <!-- 后台查询漫画列表,附带查询条件 -->
+  <select id="selectManhuaListByOrder" resultType="java.util.Map" parameterType="java.util.Map">
+	SELECT
+		b.code book_code,
+		p.page_picture_url,
+		b.manhua_code,
+		m.title,
+		b.book_name,
+		c.name category_name,
+		b.server_name,
+		m.author_account,
+		m.author_name,
+		b.create_time,
+		m.read_count,
+		b.is_delete,
+		m.is_closed,
+		b.review_status
+	FROM
+		wanwd_manhua_chapter_tb b
+	JOIN wanwd_manhua_tb m ON b.manhua_code = m.code
+	JOIN wanwd_manhua_page_tb p ON b.code = p.book_code
+	JOIN wanwd_category_tb c ON c.code=m.category_code
+	<where>
+		p.page_picture_num = 0 AND p.is_delete=0
+		<if test="categoryCode != null">
+		AND m.category_code = #{categoryCode}
+		</if>
+		<if test="isClosed != null">
+		AND m.is_closed = #{isClosed}
+		</if>
+		<if test="isDelete != null">
+		AND b.is_delete = #{isDelete}
+		</if>
+		<if test="reviewStatus == null">
+		AND (b.review_status='REVIEW_ING' OR b.review_status = 'SUCCESS')
+		</if>
+		<if test="reviewStatus != null">
+		AND b.review_status = #{reviewStatus}
+		</if>
+		<if test="netType != null">
+		AND b.net_type_code = #{netType}
+		</if>
+		<if test="areaCode != null">
+		AND b.server_code = #{areaCode}
+		</if>
+		<if test="manhuaTitle != null">
+		AND m.title  LIKE  '%'+#{manhuaTitle}+'%'
+		</if>
+		<if test="startTime != null">
+		AND b.create_time &gt;=#{startTime}
+		</if>
+		<if test="endTime != null">
+		AND b.create_time &lt;=#{endTime}
+		</if>
+	</where>
+	ORDER BY b.create_time DESC
+  </select>
+  
+  <!-- 查询所有未审核和审核通过的章节，通过章节主键，查询和章节同一漫画下的章节 -->
+  <select id="selectBelongSameManhuaWithNoFailByBookCode" parameterType="java.lang.Integer" resultType="java.util.Map">
+	SELECT
+		code,
+		book_num,
+		review_status
+	FROM
+		wanwd_manhua_chapter_tb
+	WHERE
+		manhua_code = (
+			SELECT
+				manhua_code
+			FROM
+				wanwd_manhua_chapter_tb
+			WHERE
+				code = #{code,jdbcType=INTEGER}
+		)
+	AND (
+		review_status = 'SUCCESS'
+		OR review_status = 'REVIEW_ING'
+	)
+	ORDER BY book_num DESC
+  </select>
+  
+  <!-- 查询漫画的最小章节 -->
+	<select id="selectMinBookNum" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+		SELECT MIN(book_num) mixbooknum   FROM 
+		wanwd_manhua_chapter_tb
+		WHERE
+			review_status = 'SUCCESS'
+		AND is_delete = 0
+		AND manhua_code = #{manhuaCode,jdbcType=INTEGER}
+	</select>
+	
+	<!-- 批量查询byPrimaryKey -->
+	<select id="selectListByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		 
+	    select 
+	    b.*,m.author_id userId,m.author_account account
+	    from wanwd_manhua_chapter_tb b
+		LEFT JOIN wanwd_manhua_tb m ON m.code=b.manhua_code
+	    where b.code in
+	    <foreach collection="list" item="code" open="(" close=")"
+	    separator=",">
+	      #{code,jdbcType=INTEGER}
+	    </foreach>
+	   
+	</select>
+	<!-- 批量修改展示状态为展示is_delete=0 -->
+	<update id="updateListToShow" parameterType="java.lang.Integer" >
+    	UPDATE wanwd_manhua_chapter_tb SET is_delete=0 WHERE code IN
+    	<foreach collection="list" item="code" open="(" close=")"
+	    separator=",">
+	      #{code,jdbcType=INTEGER}
+	    </foreach>
+  	</update>
+  	<!-- 批量修改展示状态为未展示is_delete=1 -->
+	<update id="updateListToHidden" parameterType="java.lang.Integer" >
+    	UPDATE wanwd_manhua_chapter_tb SET is_delete=1 WHERE code IN
+    	<foreach collection="list" item="code" open="(" close=")"
+	    separator=",">
+	      #{code,jdbcType=INTEGER}
+	    </foreach>
+  	</update>
+  	<!-- 批量修改审核状态为不通过is_delete=0 -->
+	<update id="updateListToStatusFail" parameterType="java.lang.Integer" >
+    	UPDATE wanwd_manhua_chapter_tb SET review_status='FAIL' ,review_time=GETDATE() WHERE code IN
+    	<foreach collection="list" item="code" open="(" close=")"
+	    separator=",">
+	      #{code,jdbcType=INTEGER}
+	    </foreach>
+  	</update>
+  	<!-- 查询用户上传的作品章节,分页 -->
+  	<select id="selectUserUpload" parameterType="java.util.Map" resultType="java.util.Map">
+	SELECT * FROM (
+		SELECT
+			ROW_NUMBER() OVER (ORDER BY c.create_time desc) as rank, m.author_id,
+			c.book_name title,
+			p.page_picture_url,
+			m.context,
+			c.review_status,c.create_time,
+			0 AS isRecommemd
+		FROM
+			wanwd_manhua_chapter_tb c
+		JOIN wanwd_manhua_tb m ON c.manhua_code = m.code
+		JOIN wanwd_manhua_page_tb p ON p.book_code = c.code
+		WHERE
+			m.author_id = #{userId,jdbcType=INTEGER}
+		AND p.is_delete = 0
+		AND p.page_picture_num = 0
+		<if test="status != null">
+		AND c.review_status=  #{status,jdbcType=INTEGER}
+		</if>
+	) t WHERE t.rank BETWEEN #{start,jdbcType=INTEGER} AND  #{end,jdbcType=INTEGER} ORDER BY t.create_time DESC
+  	</select>
+  	<select id="selectUserUploadTotalSize" parameterType="java.util.Map" resultType="java.lang.Integer">
+	SELECT
+		COUNT(*) AS total
+	FROM
+		wanwd_manhua_chapter_tb c
+	JOIN wanwd_manhua_tb m ON c.manhua_code = m.code
+	JOIN wanwd_manhua_page_tb p ON p.book_code = c.code
+	WHERE
+		m.author_id = #{userId,jdbcType=INTEGER}
+	AND p.is_delete = 0
+	AND p.page_picture_num = 0
+	<if test="status != null">
+	AND c.review_status=  #{status,jdbcType=INTEGER}
+	</if>
+	
+  	</select>
+</mapper>

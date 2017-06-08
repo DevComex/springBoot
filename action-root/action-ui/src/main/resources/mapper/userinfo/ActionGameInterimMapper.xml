@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.userinfo.mapper.IActionGameInterimMapper">
+	
+	<select id="selectOne" parameterType="cn.gyyx.action.beans.userinfo.po.ActionGameInterimPO"
+			resultType="cn.gyyx.action.beans.userinfo.po.ActionGameInterimPO">
+		select * 
+		  from action_game_interim_tb
+		 where 1=1
+		<if test="userId != null">
+		   and userId = #{userId}
+		</if>
+		<if test="serverId != null">
+		   and serverId = #{serverId}
+		</if>
+		<if test="serverName != null">
+		   and serverName = #{serverName}
+		</if>
+		<if test="roleId != null">
+		   and roleId = #{roleId}
+		</if>
+		<if test="roleName != null">
+		   and roleName = #{roleName}
+		</if>
+	</select>
+	
+	<insert id="insert" parameterType="cn.gyyx.action.beans.userinfo.po.ActionGameInterimPO">
+		insert into action_game_interim_tb
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userCode != null">userCode,</if>
+			<if test="userId != null">userId,</if>
+			<if test="userNick != null">userNick,</if>
+			<if test="serverId != null">serverId,</if>
+			<if test="serverName != null">serverName,</if>
+			<if test="roleId != null">roleId,</if>
+			<if test="roleName != null">roleName,</if>
+			<if test="roleLevel != null">roleLevel,</if>
+			<if test="roleProficiency != null">roleProficiency,</if>
+			<if test="createAt != null">createAt,</if>
+			<if test="modifyAt != null">modifyAt,</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userCode != null">#{userCode},</if>
+			<if test="userId != null">#{userId},</if>
+			<if test="userNick != null">#{userNick},</if>
+			<if test="serverId != null">#{serverId},</if>
+			<if test="serverName != null">#{serverName},</if>
+			<if test="roleId != null">#{roleId},</if>
+			<if test="roleName != null">#{roleName},</if>
+			<if test="roleLevel != null">#{roleLevel},</if>
+			<if test="roleProficiency != null">#{roleProficiency},</if>
+			<if test="createAt != null">#{createAt},</if>
+			<if test="modifyAt != null">#{modifyAt},</if>
+		</trim>
+	</insert>
+</mapper>

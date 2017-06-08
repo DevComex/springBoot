@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>问道-虚拟财产保险-我的保单</title>
+	 <script  type="text/javascript">
+      var rc="${rc.contextPath}";
+ 	</script>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wdinsurance/css/wd150702.css" type="text/css" />
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script> <!--统计代码 -->
+    <script src="http://static.cn114.cn/action/wdinsurance/js/common.js" type="text/ecmascript"></script>
+
+</head>
+<body>
+    <div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+	<div class="wrap">
+		<div class="main">
+			<div class="nav">
+				<a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm ">进入官网</a>｜<a target="_blank" href="http://pay.gyyx.cn/">充值中心</a>｜<a target="_blank" href="http://account.gyyx.cn/Member/Register ">帐号注册</a>｜<a target="_blank" href="http://wd.gyyx.cn/download/">下载中心</a>
+			</div>
+			<div class="conBox">
+				<ul class="tabBtn">
+					<li class="on"><a href="#" class="a01">首页</a></li>
+					<li><a href="#" class="a02">我的保单</a></li>
+					<li><a href="#" class="a03">了解投保</a></li>
+				</ul>
+				<div class="tabPart">
+					<div class="partCont"><!--首页-->
+						<div class="tm_succ">
+							<h3>投保成功，请去“<a href="#" class="red">我的保单</a>”进行查看。</h3>
+							<p class="red">5秒后跳转，若未跳转请点击这里</p>
+						</div>
+					</div><!--首页 End-->
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="public_nav_bottom"><script type="text/javascript">ShowBottom()</script></div>
+</body>
+</html>

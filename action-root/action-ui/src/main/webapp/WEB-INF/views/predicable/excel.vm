@@ -1,0 +1,1 @@
+<a href="${rc.contextPath}/predicable/exportSearchSum"> <input id = "addButton" type = "button" value = "Click" /></a>

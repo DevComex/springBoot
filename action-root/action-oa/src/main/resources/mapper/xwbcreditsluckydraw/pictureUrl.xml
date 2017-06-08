@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.IPictureUrlMapper">
+	<resultMap type="PictureUrlBean" id="PictureUrlBean">
+		<id column="code" property="code" />
+		<result column="prize_code" property="prizeCode" />
+		<result column="picture_url" property="pictureUrl" />
+		<result column="prize_flag" property="prizeFlag" />
+		<result column="prize_yard" property="prizeYard" />
+		<result column="chinese" property="chinese" />
+		<result column="english" property="english" />
+		<result column="action_code" property="actionCode" />
+		<result column="isReal" property="isReal" />
+		<result column="num" property="num" />
+		<result column="probability" property="probability" />
+		<result column="number" property="number" />
+		<result column="mail_content" property="mailContent" />
+	</resultMap>
+ <select id="getPictureUrlByPrizeCode" resultMap="PictureUrlBean" parameterType="Integer">
+	SELECT *
+  FROM xuanwuba_picture_tb where [prize_code] = #{prizeCode}
+  </select>	
+ <select id="getPictureUrlByPrizeFlag" resultMap="PictureUrlBean" parameterType="Integer">
+	SELECT *
+  FROM xuanwuba_picture_tb where [prize_flag] = #{prizeFlag}
+  </select>	
+<select id="getPrizeByFlag" resultMap="PictureUrlBean" parameterType="Integer">
+	SELECT * 
+  FROM xuanwuba_picture_tb a  join action_prize_tb b on a.prize_code=b.code join action_lottery_chance_tb c on c.prize_code=b.code where   a.prize_flag=#{prizeFlag}
+  </select>	
+  <update id="updatePictureUrlBean" parameterType="PictureUrlBean">
+ 	
+		  update xuanwuba_picture_tb set [picture_url]=#{pictureUrl},[prize_yard]=#{prizeYard},[mail_content]=#{mailContent} where prize_code=#{prizeCode}
+	
+  </update>
+  <select id="getPrizeByPrizeCode" resultMap="PictureUrlBean" parameterType="Integer">
+	SELECT * 
+  FROM xuanwuba_picture_tb a  join action_prize_tb b on a.prize_code=b.code join action_lottery_chance_tb c on c.prize_code=b.code where   a.code=#{code}
+  </select>	
+</mapper>

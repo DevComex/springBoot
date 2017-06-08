@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.IShowTopMapper">
+	<resultMap type="ShowTopBean" id="ShowTopMap">
+		<id column="code" property="code" />
+		<result column="audit_code" property="auditCode" />
+		<result column="material_type" property="materialType" />
+	</resultMap>
+	<!-- 增加一条记录 -->
+	<insert id="addOne" parameterType="ShowTopBean">
+		insert into xuanwuba_showtop_tb (audit_code,material_type)
+		values(#{auditCode},#{materialType})
+	</insert>
+	<!-- 根据审核code删除记录 -->
+	<delete id="deleteByAuditCode" parameterType="Integer">
+		delete from
+		xuanwuba_showtop_tb where audit_code = #{auditCode}
+	</delete>
+	<!-- 清空记录的数据 -->
+	<delete id="deleteAll">
+		delete from xuanwuba_showtop_tb
+	</delete>
+	<!-- 根据素材类型查询记录数量 -->
+	<select id="getCountByMaterialType" parameterType="String"
+		resultType="Integer">
+		select count(distinct audit_code) from xuanwuba_showtop_tb where
+		material_type = #{materialType}
+	</select>
+	<!-- 根据素材类型查询记录数量 -->
+	<select id="getCountByAuditCode" parameterType="Integer"
+		resultType="Integer">
+		select count(distinct audit_code) from xuanwuba_showtop_tb where
+		audit_code = #{auditCode}
+	</select>
+	<!-- 查询总记录数 -->
+	<select id="getCountAll" resultType="Integer">
+		select count(distinct audit_code) from
+		xuanwuba_showtop_tb
+	</select>
+	<!-- 查询所有记录-->
+	<select id="getAllInfo" resultMap="ShowTopMap">
+		select * from
+		xuanwuba_showtop_tb
+	</select>
+</mapper>

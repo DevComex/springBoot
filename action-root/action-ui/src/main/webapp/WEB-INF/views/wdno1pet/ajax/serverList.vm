@@ -1,0 +1,3 @@
+#foreach($item in $crtServers)
+	<option value ="${item.code}">${item.serverName}</option>
+#end

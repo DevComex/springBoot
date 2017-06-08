@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>激活游戏</title>
+		<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=webgame"></script>
+		<link type="text/css" href="http://static.cn114.cn/action/LHZSActivityCode/css/sm150806.css" rel="stylesheet" />
+	<style>
+.pop_mask {width: 100%;background: #000;opacity: 0.5;filter: alpha(opacity=50);position: fixed;left: 0;top: 0;z-index: 1000;}
+
+</style>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?c81d94f01b2e90690a832bc9840f85df";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+	</head>
+	<body>
+	  <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <!--导航-->
+    <div class="jhm_nav pt">
+        <div class="main clear">
+            <a href="http://actionv2.gyyx.cn/LHZS/step1Index"><i>01</i><span><em>STEP</em><br />
+                抢激活码</span></a><a href="http://actionv2.gyyx.cn/LHZS/step2Index" class="on"><i>02</i><span><em>STEP</em><br />
+                    激活游戏</span></a><a href="http://actionv2.gyyx.cn/LHZS/step3Index"><i>03</i><span><em>STEP</em><br />
+                        激活状态</span></a><a href="http://sm.gyyx.cn/download/download.shtml"><i>04</i><span><em>STEP</em><br />
+                            下载游戏</span></a>
+        </div>
+    </div>
+    <!--导航 end-->
+    <div class="game_bg">
+        <div class="main game_main">
+            <div class="game_login">
+                <div class="game_fail">抽奖前请先 <a class="game_col" onclick="alertFn(null,null,true); return false;">[登录]</a></div>
+                <div class="game_sucs" style="display: none;">
+                    欢迎您：<a href="#">[注销]</a><br>
+                    剩余抽奖次数：<span class="game_col">3</span>
+                </div>
+            </div>
+            <div class="game_activ">
+                <div>
+                    <p>请输入激活码</p>
+                    <input class="game_inp01 js_gameBtn01" type="text" value="" />
+                </div>
+                <div>
+                    <p>请输入密码</p>
+                    <input class="game_inp01 js_gameBtn02" type="password" oncut="return false" value="" maxlength="16" />
+                </div>
+                <div>
+                    <p>输入确认密码</p>
+                    <input class="game_inp01 js_gameBtn03" type="password" onpaste="return false" value="" maxlength="16" />
+                </div>
+                <div>
+                    <p>请选择游戏大区</p>
+                    <select class="game_sel js_game" style="height: 45px;">
+                        <option value="-1">请选择区服</option>
+                    </select>
+                </div>
+                <a class="game_btn js_now" href="javascript:;">立即激活</a>
+                <div class="game_tips jhm_left">
+                    <h3>激活提示</h3>
+                    <p style="padding: 0 0 0px 10px;"><span>-</span>本次不删档封测将开启一个游戏服务区“不删档封测服”，请玩家激活此区服即可。</p>
+                    <p style="padding: 0 0 0px 10px;"><span>-</span>激活后页面将弹出“激活成功”的提示，即代表该账号可以参与5月6日的不删档封测了。</p>
+                    <p style="padding: 0 0 0px 10px;"><span>-</span>如果您忘记账号是否已经被激活，可以在<a href="http://actionv2.gyyx.cn/LHZS/step3Index">激活状态</a>页面进行。</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pop_mask"></div>
+    <!-- 弹出层 -->
+    <div class="popup_con js_tcstprize" id="virtualPrize" style="display: none; z-index: 1001">
+        <h2 class="tit tc_tit">激活结果</h2>
+        <a class="close js_tcclose js_getjf" href="javascript:;">关闭</a>
+        <div class="con">
+            <p>激活成功</p>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            var Defaults = {
+                /*==================参数说明=========================*/
+                /* LoginStatusAjaxUrl 判断是否登录接口               */
+                /*===================================================*/
+                LoginStatusAjaxUrl: "http://reg.gyyx.cn/Login/Status"
+            };
+            var regionStr = '$!{region}';
+            if (regionStr == "error") {
+                alert("获取游戏区服失败！！");
+            } else {
+                var region = eval("(" + '$!{region}' + ")");
+                for (var paraM in region.data) {
+                    if (region.data[paraM].IsOpen == true && region.data[paraM].IsActivation == true) {
+                        $(".js_game").append("<option value=" + region.data[paraM].Code + ">" + region.data[paraM].ServerName + "</option>");
+                    }
+                }
+            }
+
+
+            //判断是否登录
+            function checkLogin(fn) {
+                $.ajax({
+                    url: Defaults.LoginStatusAjaxUrl,
+                    type: "GET",
+                    dataType: "jsonp",
+            		jsonp: "jsoncallback",
+                    data: { r: Math.random() },
+                    success: function (d) {
+                        if (d.IsLogin) {
+                            if (fn.success) {
+                                fn.success(d);
+                            }
+                        } else {
+                            if (fn.failed) {
+                                fn.failed(d);
+                            }
+                        }
+                    }
+                });
+            }
+            checkLogin({
+                success: function (d) {
+                    $(".game_fail").hide();
+                    $(".game_sucs").show();
+                    var temp = "$!{lotteryNum}";
+                    var temp2 = "$!{account}";
+                    $(".game_sucs").html('<p style="text-align: center;">欢迎您：<strong>' + temp2 + '</strong> <a class="js_Logout">[注销]</a><br />剩余抽奖次数：<span class="game_col">' + temp + '</span></p>');
+                    //
+                    $(".js_now").click(function () {
+                        var js_gameValue = $(".js_game").children("option:selected").val();
+                        var js_gameText = $(".js_game").children("option:selected").text();
+                        if (js_gameValue == "-1") {
+                            alert("请选择游戏大区！！");
+                            return false;
+                        }
+                        if ($(".js_gameBtn01").val().match(' ') || $(".js_gameBtn02").val().match(' ')) {
+                            alert("输入有空格，请核对后再填写")
+                        } else if ($(".js_gameBtn01").val() == '') {
+                            alert("请输入激活码")
+                        } else if ($(".js_gameBtn02").val() == '') {
+                            alert("请输入密码")
+                        } else if($(".js_gameBtn03").val() == ''){
+                         alert("请输入确认密码")
+                        } else if ($(".js_gameBtn02").val().length < 4) {
+                            alert("密码过短，必须在4-16个字符之间")
+                        } else if ($(".js_gameBtn02").val().indexOf("<") != -1 || $(".js_gameBtn02").val().indexOf(">") != -1) {
+                            alert("密码输入格式不正确")
+                        } else if ($(".js_gameBtn01").val() != '' && $(".js_gameBtn02").val() != '' && $(".js_gameBtn03").val() != '') {
+                            if (_VerCheckPasswordCompare($(".js_gameBtn02"), $(".js_gameBtn03"))) {
+                                $.ajax({
+                                    url: "http://actionv2.gyyx.cn/LHZS/step2",
+                                    type: "GET",
+                                    data: {
+
+                                        serverID: js_gameValue,//服务器ID
+                                        serverName: js_gameText,//服务器名
+                                        activityCode: $(".js_gameBtn01").val(),//激活码
+                                        userPsw: $(".js_gameBtn02").val()//用户密码
+                                    },
+                                    success: function (data) {
+                                        if (data.isSuccess == true) {
+                                            //alert("激活成功！！")
+                                            $(".js_prizes").text("激活成功！！");
+                                            showWindows($(".js_tcstprize"), $(".js_tcstprize"), $(".js_tcclose"));
+                                        } else {
+                                            alert(data.data);
+                                        }
+                                    }
+                                });
+                            }
+                        }
+                    });
+                    //
+                },
+                failed: function () {
+                    $(".game_fail").show();
+                    $(".game_sucs").hide();
+                    $(".game_fail").empty().html('<p> 抽奖前请先 <a class="game_col" onclick="alertFn(null,null,true); return false;">[登录]</a></span></p>');
+                    $(".js_now").click(function () {
+                        alertFn(null, null, true);
+                    });
+                }
+            });
+            //弹层方法
+            function showWindows(win, content, winClose) {
+                $(win).show();
+                var winwidth = $(window).width();
+                var thisleft = (winwidth / 2 - $(content).width() / 2) - 100;
+                var thistop = $(window).height() / 2 - $(content).height() / 2 + $(window).scrollTop();
+                var bodyheight = Math.max($(document.body).outerHeight(true), $(window).height());
+                $(".pop_mask").css("height", bodyheight).show();
+                $(content).css({ 'left': thisleft, 'top': thistop });
+
+                //关闭按钮
+                $(winClose).bind("click", function () {
+                    $(win).hide();
+                    $(".pop_mask").hide(); return false;
+                    window.location.reload();
+                });
+            }
+            //游戏大厅数据绑定
+
+
+
+            //$(".js_now").click(function () {
+
+            //    var js_gameValue = $(".js_game").children("option:selected").val();
+            //    var js_gameText = $(".js_game").children("option:selected").text();
+            //    if (js_gameValue == "-1") {
+            //        alert("请选择游戏大区！！");
+            //        return false;
+            //    }
+            //    if ($(".js_gameBtn01").val().match(' ') || $(".js_gameBtn02").val().match(' ')) {
+            //        alert("输入有空格，请核对后再填写")
+            //    } else if ($(".js_gameBtn01").val() == '') {
+            //        alert("请输入激活码")
+            //    } else if ($(".js_gameBtn02").val() == '') {
+            //        alert("请输入密码")
+            //    } else if ($(".js_gameBtn02").val().length < 4) {
+            //        alert("密码过短，必须在4-16个字符之间")
+            //    } else if ($(".js_gameBtn02").val().indexOf("<") != -1 || $(".js_gameBtn02").val().indexOf(">") != -1) {
+            //        alert("密码输入格式不正确")
+            //    } else if ($(".js_gameBtn01").val() != '' && $(".js_gameBtn02").val() != '' && $(".js_gameBtn03").val() != '') {
+            //        if (_VerCheckPasswordCompare($(".js_gameBtn02"), $(".js_gameBtn03"))) {
+            //            $.ajax({
+            //                url: "http://actionv2.gyyx.cn/LHZS/step2",
+            //                type: "GET",
+            //                data: {
+
+            //                    serverID: js_gameValue,//服务器ID
+            //                    serverName: js_gameText,//服务器名
+            //                    activityCode: $(".js_gameBtn01").val(),//激活码
+            //                    userPsw: $(".js_gameBtn02").val()//用户密码
+            //                },
+            //                success: function (data) {
+            //                    if (data.isSuccess == true) {
+            //                        //alert("激活成功！！")
+            //                        $(".js_prizes").text("激活成功！！");
+            //                        showWindows($(".js_tcstprize"), $(".js_tcstprize"), $(".js_tcclose"));
+            //                    } else {
+            //                        alert(data.data);
+            //                    }
+            //                }
+            //            });
+            //        }
+
+
+            //    }
+            //});
+
+            //列表获取
+            function getServerName(serverIDVal, serverNameVal, activityCodeVal, userPswVal) {
+                var seeHtml = '';
+                $.ajax({
+                    url: "http://actionv2.gyyx.cn/LHZS/step2",
+                    type: "GET",
+                    data: {
+
+                        serverID: serverIDVal,//服务器ID
+                        serverName: serverNameVal,//服务器名
+                        activityCode: activityCodeVal,//激活码
+                        userPsw: userPswVal//用户密码
+                    },
+                    success: function (data) {
+                        if (data.isSuccess == true) {
+                            //alert("激活成功！！")
+                            $(".js_prizes").text("激活成功！！");
+                            showWindows($(".js_tcstprize"), $(".js_tcstprize"), $(".js_tcclose"));
+                        } else {
+                            alert(data.data);
+                        }
+                    }
+                });
+
+            }
+
+            //密码重复验证
+            //验证用户名一致
+            var _VerCheckPasswordCompare = function (obj2, obj1) {
+                if ($.trim(obj2.val()) != "") {
+                    if (obj2.val() != obj1.val()) {
+                        alert("两次输入的密码不一致");
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }
+            };
+
+
+
+            $(".js_gameBtn02").val("");
+
+        })
+    </script>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+</body>
+</html>

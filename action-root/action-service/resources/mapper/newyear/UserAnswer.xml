@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.newyear.IUserAnswerMapper">
+
+	<select id="selectPartAnswerList"  resultMap="UserAnswerMap">
+		select *
+		 from user_answer_tb
+		where
+		(whole_question_code=#{num} and user_answer_text=#{choice} and user_answer_name=#{userAnswerName} and flag=1 and user_answer_true='未得分')
+		Order By
+		user_answer_time Asc
+	</select>
+	<select id="selectName" resultType="String" parameterType="java.util.Map">
+	<![CDATA[
+		select DISTINCT user_answer_name 
+		from user_answer_tb 
+		where flag=1 and  user_answer_time >= #{startTime} and user_answer_time < #{endTime}
+		]]>
+	</select>
+
+	<update id="updateFlag">
+		UPDATE user_answer_tb SET flag=1
+		WHERE
+		user_answer_name = #{name} and whole_question_code = #{questionCode}
+	</update>
+	<select id="getUserRanking" resultType="Integer" parameterType="UserAnswerBean">
+		select A.row_number
+		from( select row_number() over(order by
+		user_answer_time) as row_number,user_answer_name
+		from user_answer_tb
+		where whole_question_code=#{wholeQuestionCode} and user_answer_true='已得分' )
+		as A
+		where A.user_answer_name=#{userAnswerName}
+	</select>
+	<select id="getUploadRanking" resultType="Integer"
+		parameterType="UserAnswerBean">
+		select A.row_number
+		from( select row_number() over(order
+		by user_answer_time) as row_number,user_answer_name
+		from user_answer_tb
+		where whole_question_code=#{wholeQuestionCode} ) as A
+		where
+		A.user_answer_name=#{userAnswerName}
+	</select>
+	<insert id="insertUserAnswer" parameterType="UserAnswerBean">
+
+		INSERT INTO
+		user_answer_tb(user_answer_time,user_answer_name,whole_question_code,user_answer_text)
+		VALUES
+		(#{userAnswerTime},#{userAnswerName},#{wholeQuestionCode},#{userAnswerText})
+
+	</insert>
+
+	<select id="selectAnswer" resultType="String">
+		select
+		user_answer_text from
+		user_answer_tb
+		where whole_question_code=#{num} and
+		user_answer_name=#{username}
+	</select>
+	<select id="selectAnswerList" resultType="java.util.List"
+		resultMap="UserAnswerMap">
+		select top ${userNum}
+		[user_answer_code]
+		,[user_answer_time]
+		,[user_answer_name]
+		,[whole_question_code]
+		,[user_answer_text]
+		,[user_answer_true]
+		,[flag]
+		from user_answer_tb
+		where
+		(whole_question_code=#{num} and user_answer_text=#{choice} and user_answer_true='未得分')
+		Order By
+		user_answer_time Asc
+	</select>
+	<select id="selectFileList" resultType="java.util.List"
+		resultMap="UserAnswerMap">
+		select [user_answer_code]
+		,[user_answer_time]
+		,[user_answer_name]
+		,[whole_question_code]
+		,[user_answer_text]
+		,[user_answer_true]
+		,[flag]
+		from user_answer_tb
+		where
+		(whole_question_code=#{num} and user_answer_true!='不得分')
+		Order By
+		user_answer_time Asc
+	</select>
+	<select id="selectPartFileList"
+		resultMap="UserAnswerMap">
+		select * from user_answer_tb 
+		where (whole_question_code=#{num} and user_answer_true!='不得分' and flag = 1)
+		Order By user_answer_time Asc
+	</select>
+	<select id="selectMaxTrue" resultType="Integer">
+		select count(*)
+		from
+		user_answer_tb
+		where whole_question_code= #{num} and
+		user_answer_true='已得分'
+	</select>
+	<select id="selectScoreAnswer" resultType="String">
+		select top 1
+		user_answer_true from user_answer_tb where
+		whole_question_code=#{wholeQuestionCode} and user_answer_true='已得分'
+	</select>
+	<update id="updateTrue" parameterType="UserAnswerBean">
+		UPDATE user_answer_tb SET
+		user_answer_true=#{userAnswerTrue}
+		WHERE user_answer_name =
+		#{userAnswerName} and
+		whole_question_code=#{wholeQuestionCode}
+	</update>
+	<select id="selectAnswerListByName" resultType="java.util.List"
+		resultMap="UserAnswerMap">
+		select [user_answer_code]
+		,[user_answer_time]
+		,[user_answer_name]
+		,[whole_question_code]
+		,[user_answer_text]
+		,[user_answer_true]
+		,[user_ranking]
+		,[flag]
+		from user_answer_tb where user_answer_name=#{name}
+	</select>
+	<select id="selectWrongAnswer" resultType="Integer">
+		select
+		count(*)
+		from
+		user_answer_tb
+		where whole_question_code=#{num} and
+		user_answer_true='未得分'
+	</select>
+	<select id="selectSumAnswer" resultType="Integer">
+		select count(*)
+		from
+		user_answer_tb
+		where whole_question_code=#{num}
+	</select>
+	<select id="selectAnswerByNum" parameterType="UserAnswerBean"
+		resultMap="UserAnswerMap">
+		select * from user_answer_tb where user_answer_name =
+		#{userAnswerName} and whole_question_code = #{wholeQuestionCode}
+	</select>
+	<update id="updateAnswer" parameterType="UserAnswerBean">
+		update user_answer_tb
+		set user_answer_text = #{userAnswerText},
+		user_answer_time =
+		#{userAnswerTime} where user_answer_name =
+		#{userAnswerName} and
+		whole_question_code = #{wholeQuestionCode}
+	</update>
+	<resultMap id="UserAnswerMap" type="UserAnswerBean">
+		<result property="code" column="user_answer_code" />
+		<result property="userAnswerTime" column="user_answer_time" />
+		<result property="userAnswerName" column="user_answer_name" />
+		<result property="wholeQuestionCode" column="whole_question_code" />
+		<result property="userAnswerText" column="user_answer_text" />
+		<result property="userAnswerTrue" column="user_answer_true" />
+		<result property="userRanking" column="user_ranking" />
+		<result property="flag" column="flag" />
+	</resultMap>
+</mapper>
+	
+
+	
+	
+	

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>1月6日开启鸡年首服“2017”  17大活动送豪礼</title>
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/wdjnsf2017/css/index.css">
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wd10yearcoser/script/swfobject.min.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wd10yearcoser/script/ymadplayer.min.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdjnsf2017/js/prettify.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdjnsf2017/js/jquery.slimscroll.js"></script>
+</head>
+<body>
+<div class="public_nav_top" style="display: block;">
+    <script type="text/javascript">Showtop();</script>
+</div>
+<div class="mk1">
+    <div class="mk">
+        <div class="topNav">
+            <img class="logo" src="http://static.cn114.cn/action/wdjnsf2017/images/logo.png" alt="">
+            <ul class="navList">
+                <li ><a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm">进入官网</a></li>
+                <li><a target="_blank" href="http://wd.gyyx.cn/download/">下载游戏</a></li>
+                <li><a target="_blank" href="http://pay.gyyx.cn/">充值中心</a></li>
+                <li><a target="_blank" href="http://account.gyyx.cn/Member/Register">账号注册</a></li>
+                <li><a target="_blank" href="javascript:void(0)">领取礼包</a></li>
+                <li style="border: 0;"><a target="_blank" href="http://wd.gyyx.cn/Reserve/NewServer.html">预约新服</a></li>
+            </ul>
+        </div>
+    </div>
+    <p class="dl">
+        <img class="dl01" src="http://static.cn114.cn/action/wdjnsf2017/images/denglong.png" alt="">
+    </p>
+    <a href="javascript:void(0)" id="videoPlay"></a>
+    <div class="activeTiming">
+        <span class="DNum num">
+            <img class="im i1 iT" src="http://static.cn114.cn/action/wdjnsf2017/images/4.png" alt="">
+             <img class="i2 iT" src="http://static.cn114.cn/action/wdjnsf2017/images/8.png" alt="">
+        </span>
+        <span class="dT">天</span>
+        <span class="HNum num">
+             <img class="im i3 iT" src="http://static.cn114.cn/action/wdjnsf2017/images/1.png" alt="">
+             <img class="i4 iT" src="http://static.cn114.cn/action/wdjnsf2017/images/6.png" alt="">
+        </span>
+        <span class="dT">时</span>
+        <span class="MNum num">
+             <img class="im i5 iT" src="http://static.cn114.cn/action/wdjnsf2017/images/5.png" alt="">
+             <img class="i6 iT" src="http://static.cn114.cn/action/wdjnsf2017/images/9.png" alt="">
+        </span>
+        <span class="dT">分</span>
+    </div>
+</div>
+<div class="mk2">
+    <a href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/qzjs.html" target="_blank">
+        <p class="titImg"></p>
+    </a>
+    <div style="width: 500px; margin: 0 auto"><p class="lineTxt moveLr"></p></div>
+</div>
+<div class="mk3">
+    <ul class="ddList">
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d1.png" isOp=0  do="2016-12-19" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/sclb.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd1.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d2.png" isOp=0 do="2016-12-20" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/ljcz.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd2.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d3.png" isOp=0 do="2016-12-21" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/7dwq.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd3.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d4.png" do="2016-12-22" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/xfcb.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd4.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d5.png" isOp=0 do="2016-12-23" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/jlxy.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd5.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d6.png" isOp=0 do="2016-12-24" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/rlxd.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd6.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d7.png" isOp=0 do="2016-12-25" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/thlb.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd7.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d8.png" isOp=0 do="2016-12-26" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/cjdr.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd8.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d9.png" isOp=0 do="2016-12-27" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/sdwz.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd9.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d10.png" isOp=0 do="2016-12-28" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/jjwz.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd10.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d11.png" isOp=0 do="2016-12-29" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/xch.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd11.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d12.png" isOp=0 do="2016-12-30" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/hyxy.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd12.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d1.png" isOp=0 do="2016-12-30" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/wxqhb.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd13.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d13.png" isOp=0 do="2016-12-30" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/nfhy.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd14.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d8.png" isOp=0 do="2016-12-30" alt="">
+            <a class="lj"  target="_blank" href="http://wd.gyyx.cn/huodong/wdxf/tf/2017/yhcs.html">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd15.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li style="margin-left:395px;">
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d14.png" isOp=0 do="2016-12-30" alt="">
+            <a class="lj"  target="_blank" href="http://actionv2.gyyx.cn/wdlight2017light/index">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd16.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+        <li>
+            <img class="yx isT" src="http://static.cn114.cn/action/wdjnsf2017/images/d15.png" isOp=0 do="2016-12-31" alt="">
+            <a class="lj"  target="_blank" href="http://actionv2.gyyx.cn/wd2017/seekteam/index">
+                <img src="http://static.cn114.cn/action/wdjnsf2017/images/dd17.png" alt="">
+            </a>
+            <p class="openTime"></p>
+        </li>
+    </ul>
+    <p class="dlpc"></p>
+</div>
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom()</script>
+</div>
+<!--弹层-->
+<div class="szf tc">
+    <i class="close"></i>
+    <ul class="txtPc">
+        <li>
+            <span class="year">2012 : </span>
+            <p class="yearT">偶是第一个数字服哦~乘着末日预言的暴风诞生，因为2012末日并未到来，所以我还依然存在，也会一直存在哦，并且创造了当年的最高同时在线2万多人！</p>
+        </li>
+        <li>
+            <span class="year">2013 : </span>
+            <p class="yearT">因为2012她很火啊，而且道友们呼吁也很高，所以我就诞生啦~虽然平时比较小透明，也没有2012那么傲娇，但是本服最高同时在线是超越2012她的，达到3万6了！</p>
+        </li>
+        <li>
+            <span class="year">2014 : </span>
+            <p class="yearT">有了上面两个，这数字服的惯例肯定就一直延续下去啦，道友们都懂哒~本服最高同时在线达到4万6，又加了一万，本服还是挺满意的！</p>
+        </li>
+        <li>
+            <span class="year">2015 : </span>
+            <p class="yearT">马年是个幸运之年啊~什么“马到成功”啊、“马上有钱”啊、“马上升官”啊等等，能找出好多这样的美好“成语” 作为本命年服务器，同时在线人数也是飙升，达到了6万5哦~大家还记得第一次爆新服人数滴公告不？</p>
+        </li>
+        <li>
+            <span class="year">2016 : </span>
+            <p class="yearT">上面那几个都是小儿科啦，其实道友们起对本服才是真爱！！11万的同时在线不是盖滴~其他的我就不多说了！</p>
+        </li>
+        <li>
+            <span class="year">2017 : </span>
+            <p class="yearT">我有好多福利哦~我有好多福利哦~我有好多福利哦~重要的事情说三遍！人气就靠道友们啦~ </p>
+        </li>
+    </ul>
+</div>
+<!--遮罩-->
+<div class="zzc"></div>
+<script src="http://static.cn114.cn/action/wdjnsf2017/js/index.js" type="text/javascript"></script>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+
+        $('.txtPc').slimScroll({
+            height: '100px',
+            width: '300px'
+        });
+
+</script>
+</body>
+</html>

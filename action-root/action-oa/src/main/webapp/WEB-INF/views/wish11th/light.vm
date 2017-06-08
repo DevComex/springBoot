@@ -1,0 +1,377 @@
+#parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/jquery.ajaxpage-2.2.js"></script>
+<script src="${rc.contextPath}/resources/script/swfupload.js"
+	type="text/javascript"></script>
+<script src="${rc.contextPath}/resources/script/SWFInitialize.js"
+	type="text/javascript" charset="GB2312"></script>
+<script src="${rc.contextPath}/resources/script/videoHandlers.js"
+	type="text/javascript" charset="GB2312"></script>
+<script src="${rc.contextPath}/resources/script/VideoUpload.js"
+	type="text/javascript"></script>
+<style>
+.table td {
+	word-wrap: break-word;
+	vertical-align: middle !important;
+}
+
+#main_region th, #content td {
+  padding: 15px 5px 15px;
+  text-align: center;
+}
+
+.table td img {
+	width: 100%;
+	max-height:40px;
+}
+
+textarea {
+	border-color: #d9d9d9;
+}
+
+
+*{
+	outline:none;
+}
+
+.form_valid_mess {width: 212px;height: 48px;position: absolute;display:none;z-index:9000;}
+.form_valid_mess >div {width: 212px;height: 48px;position: relative;}
+.form_valid_mess .form_valid_flag01 {display: block;width: 60px;height: 13px;background: url(../resources/images/tip.gif) no-repeat;position: absolute;top: 0px;z-index: 10;left: 0px;}
+.form_valid_mess .form_valid_con01 {width: 210px;border: 1px solid #ffd4d4;background: #fdefed;position: absolute;top: 12px;z-index: 9px;}
+.form_valid_mess .form_valid_con01 p {width: 180px;margin: 0 auto;line-height: 35px;color: 000;text-align: left;word-wrap:break-word;}
+    	
+</style>
+<script>
+  function checkWorks(obj){
+
+		var level =  $(obj).parent("td").attr("level");
+      	var limitNum =  $(obj).parent("td").siblings(".numS").find("input").val();
+       
+      	$.ajax({
+      		url: rc+"/wish11th/modifyPepNum",
+              type: "POST",
+              data: { 
+              	r: Math.random(), 
+              	level:level,
+              	limitNum:limitNum
+              },
+              dataType: "json",
+              success: function (d) {
+            	  if (d.isSuccess) {
+						 alert(d.message);
+						 getlist();
+					 }else{
+						 alert(d.message);
+					 }
+              }
+      	});
+	  }
+   
+   function formatJsonDateStr(jsonDateStr) {
+		var date = new Date(parseInt(jsonDateStr));
+		var dateStr = [];
+		dateStr.push(date.getFullYear());
+		dateStr.push('-'
+				+ (Number(date.getMonth()) + 1));
+		dateStr.push('-' + date.getDate());
+		dateStr.push(' ' + date.getHours());
+		dateStr.push(':' + date.getMinutes());
+		dateStr.push(':' + date.getSeconds());
+		return dateStr.join('');
+	}
+   
+   function demo1_close(){
+	   $("#content div.mask").hide();
+	   $("#content div#demo1").hide();
+   }
+   
+   function getlist() {
+	      $("#js_tbSzList").ajaxPage({
+	          url: rc+"/wish11th/levelList",//接口
+	          dataFn: function (data, $this) {
+	          	   if(data.isSuccess&&data.data.length){	   
+	          	   	  	var s1=data.data
+	          	   	  	var status="";
+	          	   	  	var typeCZ=' <a href="javascript:;" onclick="checkWorks(this);" class="pass btn btn-xs btn-success">修改人数</a>';
+	          	   	  	var dataHtml="";
+	          	   	for(var i=0;i<s1.length;i++){
+	          	   	   
+	          	   	     if(s1[i].lightType>=3){
+	          	   	  		status="完全点亮";
+	          	   	  	 }else if(s1[i].lightType==0){
+	          	   	  	    status="尚未点亮";
+	          	   	  	 }else if(s1[i].lightType==1){
+	          	   	  	    status="三分之一亮";
+	          	   	  	 }else if(s1[i].lightType==2){
+	          	   	  	    status="三分之二亮";
+	          	   	  	 }
+	          	   	 
+	          	   			dataHtml+=''+ '<tr>'
+	          	   			   +'  <td></td>' 
+	                           +'  <td >' +s1[i].code+'</td>'
+	                           +'  <td>' +s1[i].actionCode+ '</td>' 
+	                           +'  <td>第'+s1[i].level+'层</td>' 
+	                           +'  <td>' +s1[i].wishNum+ '</td>'
+	                           +'  <td>' +s1[i].lotteryNum+ '</td>'
+	                           +'  <td>' +s1[i].limitNum+ '</td>'
+	                           +'  <td>' +status+ '</td>' 
+	                            +'  <td class="numS"><input type="text"/></td>' 
+	                           +'  <td level="'+s1[i].level+'">'+typeCZ+'</td>' 
+	                           +'</tr>'
+	          	   	}	          
+	           }else{
+	          	   	dataHtml="";
+	          	   	}	          	   	 	
+	          	   	$("#js_tbSzList").empty().html(dataHtml);
+	          	   	return dataHtml;
+	       }
+	          
+	     });
+	  }
+   
+	$(function() {
+		var curDate = '${curDate}';
+		//$("#beginTimeStr").val(curDate);
+		//$("#endTimeStr").val(curDate);
+		$("#beginTimeStr").datepicker({
+            format: 'yyyy-mm-dd',
+            startView: 2,   
+            autoclose: true,  
+            todayBtn: true,  
+            minView: 2 
+        }).on('changeDate', function (ev) {
+			var AddStartTime = $(this).val();
+			$("#beginTimeStr").blur();
+            $("#beginTimeStr").datepicker('hide');   
+    	});
+    	$("#endTimeStr").datepicker({
+                format: 'yyyy-mm-dd',
+                startView: 2,   
+                autoclose: true,  
+                todayBtn: true,  
+                minView: 2   
+        }).on('changeDate', function (ev) {
+                $("#endTimeStr").blur();
+                $("#endTimeStr").datepicker('hide');   
+    	});
+  		
+  		$("#search").click(function(){
+  			getlist();
+  		});
+  		
+  		/* $("#checkType").change(function(){
+  			var v = $(this).val();
+  			if(v){
+  				$("#isShow").val("");
+  			}
+  		}); */
+  		getlist();
+  	});
+  </script>
+  
+  <!-- 轮播css -->
+  <style type="text/css">
+	  	body,ul,li{padding: 0; margin: 0;}
+		ul,li{list-style: none;}
+		body{font-size:12px;}
+		
+		#demo1{ 
+		    position: absolute;    
+		    margin: 50px auto;
+		    width: 682px;     
+		    border:1px solid #ccc;
+		    z-index:2010;
+		    left:100px;
+		    top:50px;
+		}
+		#demo1 .img_list{overflow: hidden; position: relative; height: 370px;}
+		/* 根据图片的张数来设定ul的宽度 */
+		.img_list ul{ width: 9000px; position: absolute; height: 370px; left: 0px;}
+		.img_list li{ float: left; width: 682px;height:370px;background-color:#fff;text-align: center}
+		.img_list img{ margin: 1px; height: 100%;}
+		
+		/* 图片对应的按钮样式 */
+		.btn_list ul{ position: absolute; right: 20px; bottom: 35px; }
+		.btn_list li{ float: left; margin-right: 10px; color: #999; border: 1px solid #ccc; }
+		.btn_list li:hover,.btn_list li.on{ cursor: pointer; border: 1px solid #E204A4;}
+		.btn_list li img{ width: 30px; height: 15px; display: block;}
+		/* 左右点击的按钮样式 */
+		#demo1 .toLeft,#demo1 .toRight{
+		    position: absolute;
+		    width: 20px;
+		    height: 30px;    
+		    top: 160px;    
+		}
+		
+		#demo1 .toLeft{
+		    left: -40px;
+		}
+		#demo1 .toRight{
+		    right: -40px;
+		    background-position: -50px -150px;
+		}
+   </style>
+
+<section class="vbox">
+	<section>
+		<section class="hbox stretch">
+	
+			<section id="content">
+				<div class="form_valid_mess" style="display:none;">
+					<div>
+						<span class="form_valid_flag01"></span>
+						<div class="form_valid_con01">
+							<p></p>
+						</div>
+					</div>
+				</div>
+				
+				<div class="mask" style="display: none;position: fixed;left: 0;top: 0;background: #000;opacity: 0.5;filter: alpha(opacity=50);width: 100%;height: 100%;z-index: 2000"></div>
+				
+				<div id="demo1" style="display:none;">    
+					<a href="javascript:demo1_close();" class="clock" style="width: 32px;height: 45px;display: block;position:absolute;z-index: 1;right: -13px;top: -17px;">
+					<img width="32" height="45" src="http://pic.58pic.com/58pic/15/43/91/03q58PICtSW_1024.png"/>
+					</a>
+					<div class="img_list">
+						<ul></ul>
+					</div>
+					<div class="btn_list">
+						<ul>
+						</ul>
+					</div>
+					<a href="#" id="toLeft" class="link toLeft"></a>
+					<a href="#" id="toRight" class="link toRight"></a>
+				</div>
+			
+				<section class="vbox js_template_right">
+					<!--顶部标题导航 begin-->
+					<header class="header bg-white b-b clearfix">
+						<h4 class="doc-buttons pull-left" style="margin-top: 16px">问道周年许愿-点亮层设置</h4>
+					</header>
+					<!--顶部标题导航 end-->
+					
+					<!--主体内容 begin-->
+					<section class="scrollable padder">
+						<div class="m-b-md"></div>
+						<!--数据表格  begin -->
+						<section class="panel panel-default" id="main_region">
+							<div class="table-responsive">
+								<table class="table table-striped m-b-none"
+									style="table-layout: fixed;">
+									<thead>
+										<tr id="tr_COS_PIC">
+										<th width="2%"><input id="checkall" type="checkbox"/></th>
+											<th width="10%">序号</th>
+											<th width="10%">活动编号</th>
+											<th width="10%">层</th>
+											<th width="10%">已许愿人数</th>
+											<th width="10%">抽奖次数</th>
+											<th width="15%">点亮需求人数</th>
+											<th style="text-align: center;" width="10%">是否点亮</th>
+											<th width="25%">修改限制人数(3的倍数)</th>
+											<th width="10%">操作</th>
+										</tr>
+									</thead>
+									<tbody id="js_tbSzList">
+									</tbody>
+								</table>
+								<!-- 分页 -->
+								<div class="row dataTables_wrapper"
+									style="margin-right: 0px; margin-left: 0px;">
+									<footer class="footer bg-white b-t">
+										<div class="row dataTables_wrapper">
+											<div class="col-sm-6">
+												<div id="DataTables_Table_0_info" class="dataTables_info"></div>
+											</div>
+											<div class="col-sm-6">
+												<div id="DataTables_Table_0_paginate"
+													class="dataTables_paginate paging_full_numbers"></div>
+											</div>
+										</div>
+									</footer>
+								</div>
+								<!--分页 -->
+							</div>
+						</section>
+					</section>
+				</section>
+			</section>
+			
+	<!-- 轮播js -->
+ <script type="text/javascript">
+    var demo1Left =  ($(".scrollable").width()-$("#demo1").width())/2;
+    $("#demo1").css({left:demo1Left,top:80});
+	var index = 0;
+	
+	$('.link').on('click', function(event) {
+		var elm = $(event.target);
+		doMove(elm.attr('id'));
+		return false;
+	});
+	
+	function changeBtn(i){
+		var blist = $('.btn_list ul');
+		blist.find('li').eq(i).addClass('on').siblings().removeClass('on');
+	}
+	
+	function addBtn(){
+		var ulist = $('.img_list ul');
+		var list = ulist.find('li');
+		var blist = $('.btn_list ul').empty();
+		for (var i = 0; i < list.length; i++) {
+			var imgsrc = $(list[i]).find('img').attr('src');            
+			var listCon = '<li><img src="'+imgsrc+'""></li>';         
+			$(listCon).appendTo(blist);
+			//隐藏button中的数字
+			//list.css('text-indent', '10000px');
+		};
+		blist.find('li').first().addClass('on');
+		blist.find('li').click(function(event) {
+			var _index = $(this).index();            
+			doMove(_index);
+		});
+	}
+	
+	function doMove(direction){
+		var ulist = $('.img_list ul');
+		var list = ulist.find('li');
+		var llength = list.length;//li的个数，用来做边缘判断
+		var lwidth = $(list[0]).width();//每个li的长度，ul每次移动的距离
+		var uwidth = llength * lwidth;//ul的总宽度
+		//向右按钮
+		if (direction =="toRight") {
+			if(index == llength -1){
+				//alert("向右已经到头了!");
+				return false;
+			}
+			index++;
+			if ( index< llength) {
+				uwidth = lwidth *index;
+				//ulist.css('left',-uwidth);
+				ulist.animate({left: -uwidth}, "slow");
+			}else{
+				ulist.css('left','0px');
+				index = 0;
+			}; 
+		//向左按钮           
+		}else if(direction =="toLeft"){
+			if(index <=0){
+				//alert("向左已经到头了!");
+				return false;
+			}
+			index--;
+			if ( index < 0) {
+				index = llength - 1;                
+			}
+			uwidth = lwidth *index;
+			//ulist.css('left',-uwidth);
+			ulist.animate({left: -uwidth}, "slow");    
+		}else{
+			index = direction;
+			uwidth = lwidth *index;
+			ulist.animate({left: -uwidth}, "slow");    
+		};
+		changeBtn(index);
+	}
+</script>	
+#parse("/shared/footer.vm")

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd"
+	default-autowire="byName">
+	<!-- 不对controller进行管理 -->
+<!-- 	<context:component-scan base-package="cn.gyyx.training">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan> -->
+
+	<import resource="spring-mybatis.xml"/>	
+	
+	<beans profile="development">
+		<bean id="propertyConfig"
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations">
+				<list>
+					<value>file:D:/DataConfig/wanjia.wd/sqlServer.properties</value>
+				</list>
+			</property>
+		</bean>
+	</beans>
+	<beans profile="production">
+		<bean id="propertyConfig"
+			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+			<property name="locations">
+				<list>
+					<value>file:/data/conf/wanwdv2.gyyx.cn/sqlServer.properties
+					</value>
+
+				</list>
+			</property>
+		</bean>
+	</beans>
+	
+</beans>	

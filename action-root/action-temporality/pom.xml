@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>cn.gyyx.action</groupId>
+    <artifactId>action-root</artifactId>
+    <version>0.1</version>
+  </parent>
+  <artifactId>action-temporality</artifactId>
+  <packaging>pom</packaging>
+  <name>action-temporality</name>
+  <description>temporality</description>
+  <modules>
+  	<module>action-wdblessingcard2017</module>
+    <!-- 问道11年留言墙活动ui -->
+  	<module>action-wd11thyearscommentwall</module>
+  	<!-- 问道11年充值兑换返现活动 -->
+  	<module>action-wd11yearrechargerebate</module>
+	<!-- 微信积分大转盘 ui -->
+    <module>action-wechatroulette</module>
+    <!-- 微信视频送祝福 -->
+  	<module>action-wechatvideo</module>
+  	 <!--问道许愿活动 -->
+  	<module>action-wish11th</module>
+  	<!-- 问道森罗万象 -->
+  	<module>action-wdshenluowangxiang</module>
+	<!-- 2017新服冲榜活动 -->
+	<module>action-wdrankinglist2017</module>
+  </modules>
+</project>

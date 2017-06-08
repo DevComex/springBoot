@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>问道周年新服“1心1意”开启！冲榜比拼赢IPHONE7！</title>
+    <link  rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdxfcb/css/index.css" />
+    <link  rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdxfcb/css/chinaCaptcha.css" />
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdxfcb/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript"  src="http://static.cn114.cn/action/wdxfcb/js/addChinaCaptcha.js"></script>
+    <script type="text/javascript"  src="http://s.gyyx.cn/lib/md5-min.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdxfcb/js/gyyx_wxshare.min.js" ></script>
+    <script type="text/javascript" src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> <!--光宇统计-->
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+    <script>document.domain="gyyx.cn";</script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <style>
+        .chinaCaptchaContainer_p03,.chinaCaptchaContainer_p02s,.chinaCaptchaContainer_p02,.chinaCaptchaContainer_p01{
+            margin: 0;
+            padding: 0;
+        }
+        </style>
+</head>
+<body>
+<input type="hidden" value="" id="responseId01">
+<input type="hidden" value="" id="responseId">
+<div class="marstBox" id="maskId" style="display:none;"></div>
+<div class="topBG">
+    <img src="http://static.cn114.cn/action/wdxfcb/images/topBG2.jpg" width="100%" class="topImg" alt="">
+    <span class="rule"></span>
+</div>
+<div class="uploadWord tcT">
+    <div class="Tp">
+        <p class="bgTop"><span>恭喜您</span></p>
+        <p class="close"></p>
+        <!--活动规则-->
+        <div class="cont3 tcAl">
+            <p class="gzInfo">
+                <i class="gzBz">1</i>
+                <span>本次活动与官网“冲榜活动”配套，只有在本活动中报名参加冲榜活动，才可参与官网的“冲榜活动”;</span>
+            </p>
+            <p class="gzInfo">
+                <i class="gzBz">2</i>
+                <span>账号绑定后，等级、道行排行榜会定时更新，显示玩家该帐号在“1心1意”新服等级最大的角色名、等级、等级、道行。（等级、道行排行榜的数据以游戏内为准）;</span>
+            </p>
+            <p class="gzInfo">
+                <i class="gzBz">3</i>
+                <span>一个微信只能报名一个账号，报名后无法更改，请谨慎操作;</span>
+            </p>
+            <p class="gzInfo">
+                <i class="gzBz">4</i>
+                <span>上传的照片及留言，需要文明合法，涉及到不文明图片及文字、辱骂他人的、疑似软件推广的、其他游戏的等等，均不予审核通过，帐号及微信最多可重新报名五次、（未审核通过的玩家无法在各排行榜被展示，但是可参与游戏内冲榜活动！）</span>
+            </p>
+        </div>
+    </div>
+</div>
+<div class="login_main">
+    <div class="index_Bg">
+        <div class="m1">
+            <form id="formmima" method="post" action="" class="reg_form_web js_login_form">
+                <h1 class="lT">参与活动前请先登录</h1>
+               <input type="text" class="js_Account textWhite" id="Account" value="" name="Account" autocomplete="off" maxlength="18" placeholder="请输入账号" data-olduser="" /></p>
+               <input type="password" class="js_Password textWhite" id="Password" value="" name="Password" autocomplete="off" placeholder="请输入密码" /></p>
+                <h1 class="lT">请输入验证码完成登录</h1>
+                <div class="js_captcha " style="display:none;">
+                    <p class="item_p">
+                        <input type="text" id="Captcha" name="captcha" value="" class="validCodeVal" placeholder="验证码"   />
+                    </p>
+                    <p class="easycode">
+                        <img class="js_captchaimg" src="" />
+                        <a class="changecode chinaCaptcha_Tip03">看不清？</a>
+                    </p>
+                </div>
+                <p class="chinaCaptchaContainer_p01 js_china ">
+                    <label>验证码</label>
+			<span class="ChinaCaptchaInput_container ">
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="chinaCaptchaIcon chinaCaptchaIcon1 ChinaCaptchaInput ChinaCaptcha_DeleteBtn js_deleteChinaCaptcha"></em>
+			</span>
+                    <i class="chinaCaptchaIcon chinaCaptcha_Tip02 js_checkChinaCaptchaTip default"></i>
+                </p>
+                <p class="chinaCaptchaContainer_p02 js_china">
+                    <span class="chinaCaptchaImg chinaCaptchaImg_yes js_refreshChinaCaptcha"></span>
+                    <a class="chinaCaptchaChange js_refreshChinaCaptcha chinaCaptcha_Tip03">看不清？</a>
+                </p>
+                <p class="chinaCaptchaContainer_p03 js_china">点击框内文字输入上图中<b class="chinaCaptcha_Tip04">汉字</b>相应文字</p>
+                <div class="chinaCaptchaContainer_p02 js_china">
+                    <ul class="ChinaCaptchaSelectCon clearFix js_ChinaCaptchaSelect">
+                        <li class="chinaCaptchaImg chinaCaptchaImg_0 js_ChinaCaptchaSelect_img" data-code="0"></li>
+                        <li class="chinaCaptchaImg chinaCaptchaImg_1 js_ChinaCaptchaSelect_img" data-code="1"></li>
+                        <li class="chinaCaptchaImg chinaCaptchaImg_2 js_ChinaCaptchaSelect_img" data-code="2"></li>
+                        <li class="chinaCaptchaImg chinaCaptchaImg_3 js_ChinaCaptchaSelect_img" data-code="3"></li>
+                        <li class="chinaCaptchaImg chinaCaptchaImg_4 js_ChinaCaptchaSelect_img" data-code="4"></li>
+                        <li class="chinaCaptchaImg chinaCaptchaImg_5 js_ChinaCaptchaSelect_img" data-code="5"></li>
+                        <li class="chinaCaptchaImg chinaCaptchaImg_6 js_ChinaCaptchaSelect_img" data-code="6"></li>
+                        <li class="chinaCaptchaImg chinaCaptchaImg_7 js_ChinaCaptchaSelect_img" data-code="7"></li>
+                        <li class="chinaCaptchaImg chinaCaptchaImg_8 js_ChinaCaptchaSelect_img" data-code="8"></li>
+                    </ul>
+                </div>
+                <p class="chinaCaptchaContainer_p04" style="display:none;">
+                    <span class="chinaCaptchaSubmit_Btn js_chinaCaptchaBtn">确定</span>
+                </p>
+                <a id="loginBtn" class="login_btn" href="javascript:;"></a>
+            </form>
+            <div class="m2">
+                <!--<a class="changeUser" href="javascript:void(0)">切换账号</a>-->
+                <p class="m2_tit">
+                    请选择区服
+                </p>
+                <p class="m2_tit changeUser">
+                                    退出
+                                </p>
+             <div class="ct1">
+                 <select class="dq_select textWhite">
+                     <option value ="">双线</option>
+                 </select>
+                 <select class="fwq_select textWhite">
+                     <option value ="">1心1意</option>
+                 </select>
+             </div>
+                <a class="upButon ljbd" href="javascript:void(0)"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="Vup_main">
+    <div class="uploadWord" id="uploadWord01">
+        <p class="videoUploadWord">头像正在上传中...请耐心等待</p>
+        <i class="closeS">X</i>
+    </div>
+    <div class="enterName" style="width: 92%;margin: 0 auto;margin-top: 12%;margin-bottom: .95rem">
+        <p class="welC">
+            账号 : <span class="userName"></span>
+        </p>
+        <select class="textWhite textWhiteXX" name="" id="" style="width: 100%;">
+            <option value="">请选择相性</option>
+            <option value="金">金</option>
+            <option value="木">木</option>
+            <option value="水">水</option>
+            <option value="火">火</option>
+            <option value="土">土</option>
+        </select>
+        <input type="text" class="textWhite videoWrite sp1" placeholder="请输入您的爱好" maxlength="14" />
+        <input type="text" class="textWhite videoWrite sp2" placeholder="请输入您的新服宣言" maxlength="20" />
+        <div class="upload " style="overflow: hidden;">
+            <div class="form_images cfs">
+                <div class="js_imgLists_cont" style="word-break:break-all; height:auto;">
+                    <div class="imgFile">
+                        <form style="overflow: hidden;" action="http://up.gyyx.cn/Image/UploadToServer.ashx?group=vedio&width=110&height=100" method="POST" enctype="multipart/form-data" target="uploadImg">
+                            <a class="typeFileBtn typeFileBtn2" href="javascript:;" style="float: left">
+                                <input type="file" id="btnUploadFileImg" value="上传视频封面" name="fmFile"  />
+                                <input type="hidden" value="" id="imgUrl" />
+                            </a>
+                            <input type="submit" value="开始上传" id="subnitUpImg" style="display: none;" />
+                        </form>
+                        <iframe name="uploadImg" id="imgFrame" style="display:none"></iframe>
+                    </div>
+                    <a class="upButon3 upButon2" href="javascript:void(0)"></a>
+                    <p class="up_message"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<ul  class="footer">
+    <li class="rank01 f1">
+        <a href="#"></a>
+    </li>
+    <li class="rank02 f2 f2_cur">
+        <a href="#"></a>
+    </li>
+    <li class="rank04 f3">
+        <a href="#"></a>
+    </li>
+</ul>
+<script type="text/javascript"  src="http://static.cn114.cn/action/wdxfcb/js/publicnav.js"></script>
+<script  type="text/javascript" src="http://static.cn114.cn/action/wdxfcb/js/index.js" ></script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.meetingroom.IMeetingOrderMapper">
+	<resultMap type="MeetingOrder" id="MeetingOrder">
+		<id property="code" column="code" />
+		<result property="roomCode" column="room_code" />
+		<result property="orderPerson" column="order_person" />
+		<result property="orderStartPoint" column="order_start_point" />
+		<result property="orderEndPoint" column="order_end_point" />
+		<result property="meetingTitle" column="meeting_title" />
+		<result property="alertType" column="alert_type" />
+		<result property="isDeleted" column="is_deleted" />
+	</resultMap>
+	
+	<!-- 增加会议预约信息 -->
+	<insert id="insertMeetingOrder" parameterType="MeetingOrder" useGeneratedKeys="true" keyProperty="code">
+		insert into mos_meetingorder_tb (room_code,order_person,order_start_point,order_end_point,meeting_title,alert_type,is_deleted)
+				values(#{roomCode},#{orderPerson},#{orderStartPoint},#{orderEndPoint},#{meetingTitle},#{alertType},#{isDeleted})
+	</insert>
+
+	
+
+	<!-- 根据会议地点查询当天所有的会议室信息 -->
+	<select id="selectByDateAndPlace" resultMap="MeetingOrder" parameterType="java.util.Map">
+		select * from mos_meetingorder_tb where is_deleted = 0 and room_code= #{roomCode} and datediff(day,order_start_point,#{time})=0 order by order_start_point
+	</select>
+
+	<!-- 查询是否在此时间段内已经有会议室预约 -->
+	<select id="selectByTimeQuantum" resultMap="MeetingOrder" parameterType="map">
+		  select * from mos_meetingorder_tb where is_deleted = 0 and room_code = #{roomCode}
+		  		   and ((#{orderStartPoint} &lt; order_start_point and order_end_point &lt; #{orderEndPoint})
+		  		    or (#{orderStartPoint} = order_start_point and #{orderEndPoint} &gt; order_end_point) 
+		  		    or (#{orderStartPoint} &lt; order_start_point and #{orderEndPoint} = order_end_point) 
+		  		    or (#{orderStartPoint} &gt; order_start_point and #{orderEndPoint} &gt; order_end_point 
+		  		    and order_end_point &gt; #{orderStartPoint}) 
+		  		    or (#{orderStartPoint} &lt; order_start_point and #{orderEndPoint} &lt; order_end_point 
+		  		    and order_start_point &lt; #{orderEndPoint})
+		  		    or (order_start_point &lt; #{orderStartPoint} and #{orderEndPoint} &lt; order_end_point)
+		  		    or (order_start_point = #{orderStartPoint} and #{orderEndPoint} = order_end_point)
+		  		    or (order_start_point = #{orderStartPoint} and #{orderEndPoint} &lt; order_end_point)
+		  		    or (order_start_point &lt; #{orderStartPoint} and #{orderEndPoint} = order_end_point))		  		   		
+	</select>
+
+
+	<!-- 删除会议预约记录 -->
+	<update id="deleteMeetingOrder" parameterType="Integer">
+		UPDATE
+		mos_meetingorder_tb SET is_deleted = 'true' WHERE code = #{code}
+	</update>
+
+
+</mapper>

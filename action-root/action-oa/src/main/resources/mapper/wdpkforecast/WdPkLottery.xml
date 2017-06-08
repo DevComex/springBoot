@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdpkforecast.IWdPkLotteryMapper">
+
+	<update id="updatelotteryTime" parameterType="Integer">
+
+		update
+		wdnine_qualification_tb set lottery_time=lottery_time+#{lottery_time}
+		where
+		user_code=#{user_code} and action_code=#{action_code}
+	</update>
+
+	<select id="selectSamllLotteryStatusByTypeAndWin" parameterType="Integer"
+		resultType="cn.gyyx.action.beans.lottery.QualificationBean">
+
+		select userId as userCode,sum(voteTimes)/5 as
+		lotteryTime,401 as actionCode
+		from action_votelog_tb
+		where
+		actionCode=#{actionCode} and win=#{win}
+		and type=#{type} group by
+		userId,actionCode
+
+	</select>
+
+	<select id="selectBiglotteryByTypeAndWin" parameterType="cn.gyyx.action.beans.wdpkforecast.WdPkVoteLogBean"
+		resultType="cn.gyyx.action.beans.lottery.QualificationBean">
+
+		select userId as userCode,sum(voteTimes)/5 as
+		lotteryTime,actionCode
+		from action_votelog_tb
+		where
+		actionCode=#{actionCode} and win=#{win}
+		and type=#{type} group by
+		userId,actionCode
+
+	</select>
+	
+	<select id="selectSamll" parameterType="Integer"
+		resultType="cn.gyyx.action.beans.lottery.QualificationBean">
+
+		select userId as userCode,sum(voteTimes)%5 as
+		lotteryTime,401 as actionCode
+		from action_votelog_tb
+		where
+		actionCode=#{actionCode} and win=#{win}
+		and type=#{type} group by
+		userId,actionCode
+
+	</select>
+	
+		<select id="selectBig" parameterType="cn.gyyx.action.beans.wdpkforecast.WdPkVoteLogBean"
+		resultType="cn.gyyx.action.beans.lottery.QualificationBean">
+
+		select userId as userCode,sum(voteTimes)%5 as
+		lotteryTime,actionCode
+		from action_votelog_tb
+		where
+		actionCode=#{actionCode} and win=#{win}
+		and type=#{type} group by
+		userId,actionCode
+
+	</select>
+	
+	
+	<insert id="insertVoteSurplus" parameterType="cn.gyyx.action.beans.wdpkforecast.WdVoteSurplusBean">
+	  insert into action_voteSurplus (userId,voteSurplus,actionCode) values (#{userId},#{voteSurplus},#{actionCode});
+	</insert>
+		
+	<select id="selectSurplus"  parameterType="cn.gyyx.action.beans.wdpkforecast.WdVoteSurplusBean"
+	resultType="cn.gyyx.action.beans.wdpkforecast.WdVoteSurplusBean">
+	
+	  select userID,sum(voteSurplus)/5 as voteSurplus,actionCode from action_voteSurplus where
+		actionCode=#{actionCode} group by
+		userId,actionCode
+	
+	</select>	
+	
+	<select id="getLotteryCountGroupByDate" parameterType="int" resultType="java.util.Map">
+		select 
+			CONVERT(varchar(10), winningAt, 21) as lotteryTime,
+			cast(count(code) as varchar) as lotteryCount 
+		from action_lottery_log_tb 
+		where activityId = #{actionCode}  
+		group by CONVERT(varchar(10), winningAt, 21) order by 1
+	</select>
+		
+</mapper>

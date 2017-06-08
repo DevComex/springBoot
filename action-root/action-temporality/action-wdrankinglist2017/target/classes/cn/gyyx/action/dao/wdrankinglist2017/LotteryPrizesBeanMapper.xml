@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.wdrankinglist2017.LotteryPrizesBeanMapper">
+	<resultMap type="cn.gyyx.action.beans.wdrankinglist2017.LotteryPrizesBean"
+		id="Show_LotteryPrizes">
+		<id column="code" property="code" />
+		<result column="role_name" property="roleName" />
+		<result column="prizeName" property="prizeName" />
+		<result column="winningAt" property="winningAt" />
+	</resultMap>
+	<select id="getUserLotteryCount" resultType="java.lang.Integer">
+		select count(*)
+		from action_lottery_log_tb
+		where
+		activityId =
+		#{activityId}
+		and userId = #{account}
+		<if test=" prizeCodeList != null and prizeCodeList.size() > 0 ">
+			and prizeCode in
+			<foreach collection="prizeCodeList" item="code" index="index"
+				open="(" close=")" separator=",">
+				#{code}
+			</foreach>
+		</if>
+	</select>
+
+	<!-- 获取抽奖页面滚动中奖列表数据（200条） -->
+	<select id="getLotteryList" resultMap="Show_LotteryPrizes">
+		SELECT TOP 200
+		action_lottery_log_tb.code,
+		wdrankinglist_declaration_tb.role_name,action_lottery_log_tb.prizeName
+		FROM wdrankinglist_declaration_tb,action_lottery_log_tb WHERE
+		wdrankinglist_declaration_tb.open_id=action_lottery_log_tb.userId AND
+		action_lottery_log_tb.activityId=461 AND
+		action_lottery_log_tb.prizeName &lt;&gt; '谢谢参与' AND
+		action_lottery_log_tb.prizeName &lt;&gt; '铜钱铭牌' ORDER BY
+		action_lottery_log_tb.winningAt DESC
+	</select>
+
+	<!-- 根据openId获取当前玩家的中奖记录 -->
+	<select id="getLotteryListByOpenId" resultMap="Show_LotteryPrizes">
+		SELECT
+		code,prizeName,winningAt FROM action_lottery_log_tb WHERE
+		activityId=461 AND userId=#{openId} order by winningAt desc
+	</select>
+
+</mapper>

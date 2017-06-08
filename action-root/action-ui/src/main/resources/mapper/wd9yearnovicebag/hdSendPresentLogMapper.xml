@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wd9yearnovicebag.IHdSendPresentLogMapper">
+	<resultMap type="HdSendPresentLogBean" id="HdSendPresentLogBean">
+		<id column="code" property="code" />
+		<result column="activity_id" property="activityId" />
+		<result column="source" property="source" />
+		<result column="source_code" property="sourceCode" />
+		<result column="account" property="account" />
+		<result column="game_id" property="gameId" />
+		<result column="server_id" property="serverId" />
+		<result column="server_name" property="serverName" />
+		<result column="present_type" property="presentType" />
+		<result column="present_name" property="presentName" />
+		<result column="draw_time" property="drawTime" />
+		<result column="draw_ip" property="drawIp" />
+			<result column="available" property="available" />
+	</resultMap>
+	<insert id="insertHdSendPresentLog" parameterType="HdSendPresentLogBean">
+		insert into hd_send_present_log
+		([activity_id]
+	      ,[source]
+	      ,[source_code]
+	      ,[account]
+	      ,[game_id]
+	      ,[server_id]
+	      ,[server_name]
+	      ,[present_type]
+	      ,[present_name]
+	      ,[draw_time]
+	      ,[draw_ip])
+	      values(#{activityId}
+			      ,#{source}
+			      ,#{sourceCode}
+			      ,#{account}
+			      ,#{gameId}
+			      ,#{serverId}
+			      ,#{serverName}
+			      ,#{presentType}
+			      ,#{presentName}
+			      ,#{drawTime}
+			      ,#{drawIp}
+	     		 )
+	</insert>
+	<select id="selectBagLogAccount" parameterType="HdSendPresentLogBean" resultType="java.lang.Integer">
+		SELECT count(code)
+  		FROM [hd_send_present_log]
+   		WHERE game_id=#{gameId} and account=#{account} and activity_id=#{activityId} and server_id=#{serverId}
+	</select>
+		<select id="selectPresentLog" parameterType="HdSendPresentLogBean" resultMap="HdSendPresentLogBean">
+		SELECT 	code
+				,[activity_id]
+			 	,[source]
+			    ,[source_code]
+			    ,[account]
+			    ,[game_id]
+			    ,[server_id]
+			    ,[server_name]
+			    ,[present_type]
+			    ,[present_name]
+			    ,[draw_time]
+			    ,[draw_ip]
+  		FROM [hd_send_present_log]
+   		WHERE game_id=#{gameId} and activity_id=#{activityId} 
+   		<if test="account != null and account != '' ">
+    		<![CDATA[ and account = #{account} ]]>
+		</if> 
+		order by code desc
+	</select>
+		<select id="selectPresentLogByavailable" parameterType="HdSendPresentLogBean" resultMap="HdSendPresentLogBean">
+		SELECT 	code
+				,[activity_id]
+			 	,[source]
+			    ,[source_code]
+			    ,[account]
+			    ,[game_id]
+			    ,[server_id]
+			    ,[server_name]
+			    ,[present_type]
+			    ,[present_name]
+			    ,[draw_time]
+			    ,[draw_ip]
+			    ,[available]
+  		FROM [hd_send_present_log]
+   		WHERE game_id=#{gameId} and activity_id=#{activityId} and available=1
+   		<if test="account != null and account != '' ">
+    		<![CDATA[ and account = #{account} ]]>
+		</if> 
+		order by code desc
+	</select>
+<parameterMap type="map" id="qMap">  
+   		<parameter  property="activityId" jdbcType="INTEGER" mode="IN"/>
+		<parameter  property="source" jdbcType="VARCHAR" mode="IN"/>
+		<parameter  property="sourceCode" jdbcType="INTEGER" mode="IN"/>
+		<parameter  property="account" jdbcType="VARCHAR" mode="IN"/>
+		<parameter  property="gameId" jdbcType="INTEGER" mode="IN"/>
+		<parameter property="serverId" jdbcType="INTEGER" mode="IN"/>
+		<parameter property="serverName" jdbcType="VARCHAR" mode="IN"/>
+		<parameter  property="presentType" jdbcType="VARCHAR" mode="IN"/>
+		<parameter  property="presentName" jdbcType="VARCHAR" mode="IN"/>
+		<parameter  property="drawTime" jdbcType="TIMESTAMP" mode="IN"/>
+		<parameter  property="drawIp" jdbcType="VARCHAR" mode="IN"/>
+		<parameter  property="errorCode" jdbcType="INTEGER" mode="OUT"/>
+ 	</parameterMap>
+   <update id="spNoviceCardReceiveLog" statementType="CALLABLE" parameterMap="qMap"> 
+        <![CDATA[   
+         {
+        	call dbo.sp_novice_bag_receive_itemV9
+        	  (#{activityId, mode=IN, jdbcType=INTEGER},
+          		#{source, mode=IN, jdbcType=VARCHAR},
+          		#{sourceCode, mode=IN, jdbcType=INTEGER},
+          		#{account, mode=IN, jdbcType=VARCHAR},
+          		#{gameId, mode=IN, jdbcType=INTEGER},
+          		#{serverId, mode=IN, jdbcType=INTEGER},
+          		#{serverName, mode=IN, jdbcType=VARCHAR},
+          		#{presentType, mode=IN, jdbcType=VARCHAR},
+          		#{presentName, mode=IN, jdbcType=VARCHAR},
+          		#{drawTime, mode=IN ,jdbcType=TIMESTAMP},
+          		#{drawIp, mode=IN, jdbcType=VARCHAR},
+          		#{errorCode , mode = OUT,jdbcType=INTEGER})
+          }
+        ]]>   
+    </update> 
+    
+</mapper>
+
+
+
+
+
+
+

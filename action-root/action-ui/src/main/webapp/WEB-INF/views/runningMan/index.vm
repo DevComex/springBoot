@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="光宇，问道，奔跑吧道友，年终大服" >
+    <meta name="description" content="奔跑吧道友，勤学苦练寻仙路，道途艰险礼相随">
+    <title>光宇-问道-奔跑吧道友</title>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/runningman/css/style.css" />
+    <script  type="text/javascript">
+    	var rc = "${rc.contextPath}";
+ 	</script>
+	<script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+	<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+    <script type="text/javascript" src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> <!--光宇统计-->
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?6ef28b1b0aa788d910039b440d780c75";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</head>
+<body>
+	<div class="public_nav_top">
+		<script type="text/javascript">Showtop();</script>
+	</div>
+    <div class="wrap">
+        <div class="main">
+            <div class="top_link"><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">
+                下载中心</a>|<a
+                    href="http://wd.gyyx.cn/Reserve/NewServer.html" target="_blank">
+                新服预约</a>|<a href="http://actionv2.gyyx.cn/WD2699Bag/index" target="_blank">领取礼包</a></div>
+            <div class="times">活动时间：2016年7月22日-2016年8月21日</div>
+            <div class="user_info">
+            	<input type="hidden" class="js_bindRoleStatus" data-bind=""/>
+                <div class="no_login js_noLogin" style="display:block;">参与活动前请先：<span onclick="alertFn(null,null,true)">登录</span></div>
+                <div class="login js_unBindRole" style="display:none;">
+                    <label>欢迎您：</label>
+                    <span class="user_name js_accountName">***</span>
+                    <a class="sign_out js_Loginout" href="javascript:void(0);">退出登录</a>
+                    <label class="none">选择您的区组：</label>
+                    <select id="sel_blocklist">
+				        <!--<option value="0">请选择区组</option>
+	                    <option value="1">网通</option>
+	                    <option value="2">电信</option>-->
+	                    <option value="3">双线</option>
+                    </select>
+                    <select id="sel_serverlist">
+                        <option value="0">请选择服务器</option>
+                    </select>
+                    <label class="js_roleLabel" style="display:none;">选择您的角色：</label>
+                    <select class="js_roleList" style="display:none;">
+                        <option>角色1</option>
+                    </select>
+                    <input type="text" placeholder="请填写验证码" id="captchaInput" value="" maxlength="5" />
+                    <img class="js_captcha" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=0.9730367364827543" width="69" height="30" />
+                    <span class="user_btn" id="js_upRole">获取角色</span>
+                    <span class="user_btn01 js_bindRoleBtn" style="display:none">确定</span>
+                </div>
+                <div class="login js_bindRole" style="display: none;">
+                    <label>欢迎您：</label>
+                    <span class="user_name js_accountName">***</span>
+                    <a class="sign_out js_Loginout" href="javascript:void(0);">退出登录</a>
+                    <span class="js_server">绑定角色：XXXXXX</span>
+                    <span class="user_btn02 js_myPrizes">查看我的奖品</span>
+                    <span class="user_btn02 js_updateAddress">修改地址</span>
+                </div>
+            </div>
+            <!--line01-->
+            <div class="line01">
+                <div class="line01_top">
+                	<div class="js_line01Top" style="display:none;">
+	                    <a class="check_btn js_line01TaskStatus">查看任务完成情况</a>
+	                    <span>剩余<i class="js_prizeChance01">0</i>次抽奖机会</span>
+                    </div>
+                </div>
+                <div class="line01_task">
+                    <a class="t1_1_a"></a>
+                    <a class="t1_2_a"></a>
+                    <a class="t1_3_a"></a>
+                    <a class="t1_4_a"></a>
+                    <a class="t1_5_a"></a>
+                    <a class="t1_6_a"></a>
+                    <a class="t1_7_a"></a>
+                    <a class="t1_8_a"></a>
+                    <a class="t1_9_a"></a>
+                </div>
+                <div class="line01_prize">
+                    <img id="rotate01" width="416" height="416" src="http://static.cn114.cn/action/runningman/images/pan01.png" />
+                    <div class="rotate_btn01">
+                        <img src="http://static.cn114.cn/action/runningman/images/prize_btn.png" width="75" height="117"/>
+                        <input type="button" class="prize_btn01 js_prizeBtn01" value="抽奖"/>
+                    </div>
+                </div>
+            </div>
+            <!--line02-->
+            <div class="line01 line02">
+                <div class="line01_top">
+	                <div class="js_line02Top" style="display:none;">
+	                	<a class="check_btn js_line02TaskStatus">查看任务完成情况</a>
+	                    <span>剩余<i class="js_prizeChance02">0</i>次抽奖机会</span>
+	                </div>
+                </div>
+                <div class="line02_task">
+                    <a class="t2_1_a"></a>
+                    <a class="t2_2_a"></a>
+                    <a class="t2_3_a"></a>
+                    <a class="t2_4_a"></a>
+                    <a class="t2_5_a"></a>
+                    <a class="t2_6_a"></a>
+                    <a class="t2_7_a"></a>
+                    <a class="t2_8_a"></a>
+                    <a class="t2_9_a"></a>
+                    <a class="t2_10_a"></a>
+                    <a class="t2_11_a"></a>
+                    <a class="t2_12_a"></a>
+                    <a class="t2_13_a"></a>
+                    <a class="t2_14_a"></a>
+                    <a class="t2_15_a"></a>
+                    <a class="t2_16_a"></a>
+                    <a class="t2_17_a"></a>
+                    <a class="t2_18_a"></a>
+                    <a class="t2_19_a"></a>
+                </div>
+                <div class="line01_prize">
+                    <img class="rotate01" id="rotate02" width="416" height="416" src="http://static.cn114.cn/action/runningman/images/pan02.png" />
+                    <div class="rotate_btn01">
+                        <img src="http://static.cn114.cn/action/runningman/images/prize_btn.png" width="75" height="117"/>
+                        <input type="button" class="prize_btn01 js_prizeBtn02"  value="抽奖"/>
+                    </div>
+                </div>
+            </div>
+            <!--rule-->
+            <div class="text_con clear">
+                <div class="rules">
+                    <h2>活动规则</h2>
+                    <p class="tips">注：此页面相较于游戏内任务完成情况稍有延迟，建议玩家在游戏内任务完成后等1-2小时再在页面查看。</p>
+                    <ul>
+                        <li><i></i>此活动针对年中PK大服“二〇一六”开展，只可绑定“二〇一六”的角色且绑定之后不可更改。</li>
+                        <li><i></i>玩家完成游戏内任务后可在此活动页面领取奖励和抽奖机会。游戏任务共分为两类：日常任务（路线一）与节点任务（路线二）。这两条路线可同时进行，不互斥。各路线所获得的抽奖机会相互独立，只可在对应的奖池使用。<br/>具体奖励与抽奖机会：<br/>　　线路一：玩家完成所有任务后可领取花朵铭牌一个。完成四个任务后可获得一次奖池一的抽奖机会，完成所有任务后可获得一次奖池一的抽奖机会。【此线路活动情况将每日更新，每日都可领奖。每日凌晨将会对活动任务数据和抽奖次数进行清理（奖励数据不会被清除），请各位玩家在游戏内完成活动后及时登录与抽奖】<br/>　　线路二: 完成4项任务后获得一次奖池二的抽奖机会，完成6项任务后可获得铜钱铭牌一个，完成8项任务后可获得一次奖池二的抽奖机会，完成12项任务后可获得一次奖池二的抽奖机会和葫芦铭牌一个，完成16项任务后可获得一次奖池二的抽奖机会，完成19项任务后可获得一次奖池二的抽奖机会、天神护佑一个以及五个修为丹。（此线路在活动期间各个对应的奖励只可领取一次）</li>
+                    </ul>
+                </div>
+                <div class="rules all_prizes">
+                    <h2>中奖情况</h2>
+                    <div class="js_scroll scroll_con">
+                        <ul class="js_prizeAllList">
+                            <li>暂无数据</li>
+                        </ul>
+                    </div>
+					<ul>
+						<li><i></i>玩家抽奖所获得的虚拟物品（除银元宝、修为丹外）将实时发放，实物奖励将发至玩家所填写的地址中，银元宝与修为丹将在活动结束后统一发放至玩家参与活动的账号中。</li>
+						<li><i></i>玩家所获奖励可进行累计，铭牌与道具都为赠品。例如：玩家当日完成线路一的九个任务，一共可获得两次抽奖机会与花朵铭牌一个。</li>
+                        <li><i></i>活动期间玩家可更改地址。请各位玩家注意活动结束时间，活动结束后地址将不可更改，逾期不给予处理。</li>
+                        <li><i></i>每人仅限一个帐号参与活动，活动结束后官方将采用技术手段进行核实，一经发现将取消活动资格。</li>
+                        <li><i></i>活动最终解释权由光宇在线科技有限责任公司所有。</li>
+                    </ul>
+                </div>
+            </div>
+            <!--pop-->
+            <!--task01-->
+            <div class="pop_bg_small pop_in pop_task01" id="task01">
+            	<table>
+                    <thead>
+                    <tr>
+                        <th class="th_160">日常任务</th>
+                        <th class="th_200">所需任务次数</th>
+                        <th class="th_100">完成情况</th>
+                    </tr>
+                    </thead>
+                </table>
+                <ul class="js_task01Con prize_list">
+            		<li>暂无任务记录</li>
+            	</ul>
+            </div>
+            <!--task02-->
+            <div class="pop_con">
+                <div class="pop_bg_big pop_in pop_task02" id="task02">
+	                <table>
+	                    <thead>
+	                    <tr>
+	                        <th class="th_100">节点任务</th>
+	                        <th class="th_200">备注</th>
+	                        <th class="th_100">完成情况</th>
+	                    </tr>
+	                    </thead>
+	                </table>
+	                <ul class="js_task02Con prize_list">
+	            		<li>暂无任务记录</li>
+	            	</ul>
+                </div>
+            </div>
+            <!--prize log-->
+            <div class="pop_bg_small pop_in pop_prize_log" id="getPrizeLog">
+                <table>
+                    <thead>
+                    <tr>
+                        <th class="th_100">奖品来源</th>
+                        <th class="th_200">奖品名称</th>
+                        <th class="th_100">领取状态</th>
+                    </tr>
+                    </thead>
+                </table>
+                <ul class="js_prizeCon prize_list">
+            		<li>暂无奖品记录</li>
+            	</ul>
+            </div>
+            <!--virtual prize-->
+            <div class="pop_bg_small pop_in pop_virtual_prize" id="virtualPrize">
+                <h2>恭喜中奖：</h2>
+                <h3 class="js_virtualPrize">8000银元宝</h3>
+                <input type="button" class="js_iKonw" value="知道了"/>
+                <p>所获奖励将发送至绑定角色中，如有问题请联系客服：010-82438999</p>
+                <p>注：银元宝奖励将在活动结束后统一发放。</p>
+            </div>
+            <!--real prize-->
+            <div class="pop_bg_small pop_in pop_real_prize" id="realPrize">
+                <h2 class="js_realPrize">恭喜中奖：***</h2>
+                <h3>请填写联系方式：</h3>
+                <div class="txt">
+                    <label>姓名：</label>
+                    <input type="text" maxlength="10" id="userNames"/>
+                </div>
+                <div class="txt">
+                    <label>电话：</label>
+                    <input type="text" maxlength="11" id="phone"/>
+                </div>
+                <div class="txt">
+                    <label>地址：</label>
+                    <input type="text" maxlength="100" id="address"/>
+                </div>
+                <input class="btn js_updateAddressBtn" type="button" value="提　交"/>
+                <p>活动奖品将在活动结束后由《问道》官方统一安排寄送，请保持电话畅通</p>
+                <p>注意：如有问题请联系客服：010-82438999</p>
+            </div>
+        </div>
+    </div>
+    <div class="right_float">
+    	<a class="js_toRule">活动规则</a>
+    	<a href="http://wd.gyyx.cn/huodong/wdxf/tf/2016/xftj/index.html" target="_blank">更多精彩活动</a>
+    	<a class="js_toTop">回到顶部</a>
+    </div>
+    <div class="public_nav_bottom">
+		<script type="text/javascript">ShowBottom()</script>
+	</div>
+    <script src="http://static.cn114.cn/action/runningman/js/awardRotate.js" type="text/javascript"></script>
+    <script src="http://static.cn114.cn/action/runningman/js/index.js" type="text/javascript"></script>
+</body>
+</html>

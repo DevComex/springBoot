@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.common.INoteURLBean">
+	<resultMap type="NoteURLBean" id="INoteURLBeanMapper">
+		<id column="code" property="code" />
+		<result column="user_id" property="userID" />
+		<result column="account" property="account" />
+		<result column="now_url" property="nowURL" />
+		<result column="referrer_url" property="referrerURL" />
+		<result column="reg_time" property="regTime" />
+		<result column="draw_ip" property="drawIP" />
+	</resultMap>
+	<!-- 增加一条记录 -->
+	<insert id="insertNoteURLBean" useGeneratedKeys="true" keyProperty="code" parameterType="NoteURLBean">
+		insert into note_url
+		(user_id,account,now_url,referrer_url,reg_time,draw_ip)
+		values
+		(#{userID},#{account},#{nowURL},#{referrerURL},#{regTime},#{drawIP})
+	</insert>	
+	<!-- 根据用户code查找最近的100条记录 -->
+	<select id="selectNoteURLBeanList" parameterType="int"
+		resultMap="INoteURLBeanMapper" resultType="list">
+		select top 100 *
+		from
+		note_url order by code desc
+	</select>
+	
+</mapper>

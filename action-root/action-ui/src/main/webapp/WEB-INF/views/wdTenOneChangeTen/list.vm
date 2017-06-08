@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我用一生换你十年</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/tenyears/html/css/style.css" />
+		<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/tenyears/html/js/jquery.ajaxpage-2.0.js" ></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/tenyears/html/js/main.js" ></script>
+		<script type="text/javascript">
+			alert("谢谢参与，活动已结束")
+		</script>
+</head>
+	<body>
+		<!--公共头部-->
+		<div class="public_nav_top">
+      		<script type="text/javascript">
+    			var rc = "${rc.contextPath}";
+    			Showtop();
+			</script>
+    	</div>
+		<div class="background">
+			<div class="weixinma" style="position: absolute;">
+				<img src="http://static.cn114.cn/action/tenyears/html/img/indexhref.png" width="150px" height="150px"/>
+			</div>
+			<div class="minwidth" id="topindex">
+			<div class="shareAction" style="width: 300px;height: 40px;float: right;margin: 50px 0 0 0;font-size: 14px;">
+					<a href="http://wd.gyyx.cn/" style="color: #fde0e0;background-color: #c44428;padding: 5px;border-radius:10px ;">进入官网</a>	
+					<span style="font-weight: bold;color:#c44428 ;">分享活动：</span>
+					<a title="分享到微信" href="javascript:void(0);"  class="shareActionXin shareBtn"></a>
+					<a title="分享到新浪微博" href="http://v.t.sina.com.cn/share/share.php?url=http://actionv2.gyyx.cn/wdonechangeten/index&title=我用一生换你十年&content=utf-8&source=&sourceUrl=&pic=" class="shareActionBo shareBtn" target="_blank"></a>
+				</div>
+			<div class="time">
+				<h2>活动时间：4月22日-5月9日</h2>
+			</div>
+			<div class="storyCollect">
+				<a href="http://actionv2.gyyx.cn/WDOneChangeTen/upload">故事征集</a>
+			</div>
+			<div class="uploadTitle" style="margin: 140px 0 0 0;" >
+				<div class="search">
+					<p>筛选：
+						<select id="sel_blocklist">
+							<option value="0">选择大区</option>
+							<option value="1">网通</option>
+							<option value="2">电信</option>
+							<option value="3">双线</option>
+						</select><select id="sel_serverlist">
+							<option value="">选择区组</option>
+						</select>
+						<a class="sure" id="serverSure"></a>
+						<span class="space"></span>
+						<input type="text" placeholder="按作者账号查找" id="searchName">
+						<a class="sure" id="nameSure"></a>
+					</p>
+				</div>
+				<div class="backTo">
+					<ul>
+						<li><a class="checknew" href="http://actionv2.gyyx.cn/WDOneChangeTen/workInfoListIndex?type=0&currentPage=1"></a></li>
+						<li><a class="topTen" href="http://actionv2.gyyx.cn/WDOneChangeTen/workInfoListIndex?type=1&currentPage=1"></a></li>
+						<li><a class="backToIndex" href="http://actionv2.gyyx.cn/wdonechangeten/index"></a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="sortyList">
+				<ul class="storyList_ul">
+				</ul>
+					
+				<div class="cutPage">
+					
+				</div>	
+				</div>
+			</div>
+			
+			
+			
+			</div>
+		</div>
+		<div class="flyBoard">
+			<div class="flyDiv" style="margin-top: 164px;" ><a href="http://actionv2.gyyx.cn/WDOneChangeTen/upload"></a></div>
+			<div class="flyDiv"><a href="http://actionv2.gyyx.cn/WDOneChangeTen/workInfoListIndex"></a></div>
+			<div class="flyDiv" ><a href="http://actionv2.gyyx.cn/wdonechangeten/index"></a></div>
+			<div class="flyDiv"><a href="#topindex"></a></div>
+			
+		</div>
+		<!--公共页脚-->
+		<div class="public_nav_bottom" style="clear: both;">
+      		<script type="text/javascript">ShowBottom()</script>
+			<script>
+                var _hmt = _hmt || [];
+                (function() {
+                  var hm = document.createElement("script");
+                  hm.src = "//hm.baidu.com/hm.js?ba8797592648c3f68c14883094474437";
+                  var s = document.getElementsByTagName("script")[0]; 
+                  s.parentNode.insertBefore(hm, s);
+                })();
+            </script>
+    	</div>
+	</body>
+</html>

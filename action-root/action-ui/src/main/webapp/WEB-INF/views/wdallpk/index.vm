@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv = "X-UA-Compatible" content="IE=edge,chrome=1"/>
+		<title>问道全民PK128强信息</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wdallpk/css/wd160906_info.css" />
+		<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+        <script type="text/javascript" src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao"></script>
+        <script type="text/javascript" src="http://static.cn114.cn/action/wdallpk/js/message.js"></script>
+        <script type="text/javascript">
+            var rc = "";
+         </script>
+           <!--图片上传-->
+           <!-- 上传图片-->
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdallpk/js/swfupload.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdallpk/js/SWFInitialize.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdallpk/js/Handlers.js" charset="UTF-8"></script>
+	</head>
+	<body>
+        <!--公共导航-->
+	         <div class="public_nav_top">
+                 <script type="text/javascript">Showtop();</script>
+            </div>
+
+		<div class="sec_bg01">
+			<div class="sec_bg02">
+				<div class="sec_bg03">
+					<div class="main">
+						<div class="sec_header">
+							<div class="sy_nav sec_nav"><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a><a href="http://pay.gyyx.cn/" target="_blank">充值中心</a><a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a><a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a></div>
+							<h2 class="sec_title info_h2">真人信息</h2>
+							<div class="info_time">信息填写时间：2016年11月8日-2016年11月12日23:59</div>
+						</div>
+						<div class="info_cont">
+							<div class="info_txt">2016第三届全民PK赛火爆进行中！高端体验，全民参与！为确保比赛公正，一个参赛账号只能一个人，晋级128强的玩家需要填写个人信息，届时8进4时官方会通过技术手段，以及联系玩家进行认证！作弊有风险，一定要填写真实信息，否则奖励可能就与你失之交臂！</div>
+							<h3>信息填写</h3>
+							<!--登录-->
+							<div class="info_box">
+                                <ul>
+                                    <li class="box_red">进入128强玩家，需要玩家填写自己的真实信息。</li>
+								    <li class="box_login">
+                                    <!-- 登陆前-->
+                                    <a  href="javascript:;"  class="login_fail"">登录</a>
+                                    <!-- 登陆后-->
+                                    <div class="login_sucs" style="font-size: 16px;display: none;">您好 , <span class="user_name">1234567</span><a href="javascript:;" class="passLogin">退出</a></div>
+								    </li>
+                                </ul>
+								<ul id="click">
+
+								
+								<li class="box_txt"><label>真 实 姓 名</label><input type="text" value="" id="js_userName"/></li>
+								<li class="box_txt"><label>身　份　证</label><input type="text" value="" id="js_idNum"/>
+                                    <a class="phone_btn" href="javascript:;" id="js_idImg">上传证件图片</a>
+								</li>
+								<li class="box_txt"><label>手　机　号</label><input type="text" value="" id="js_cellPhone"/>
+                                    <input class="phone_yzm phone_btn" value="收取短信验证码" id="sendCaptcha" type="button"/>
+								</li>
+								<li class="box_txt"><label>短信验证码</label><input type="text" value="" id="js_message"/></li>
+								<li class="box_txt"><label>Q　Q　号</label><input type="text" value="" id="js_qqNum"/></li>
+								<li class="box_yzm"><label>验　证　码</label>
+                                    <input class="yzm_inpt" type="text" id="js_yzmInput"/><img class="wd_yzm yzm_indxImage" src="http://static.cn114.cn/action/wdallpk/images/wd160906_zr_yzm.jpg" width="90" height="34" /><span class="yzm_change"><a href="javascript:;" id="indexchangecode">看不清 换一张</a></span>
+                                    <input type="hidden" name="imageUrl" value="">
+								<li class="box_sub"><input type="button"  value="提交" id="js_submit"/></li>
+                              </ul>
+							</div>
+							<!--登录 end-->
+							<h3>活动流程</h3>
+							<p><span>1</span>进入全民PK 128强的玩家，可以在此登陆参与比赛的账号，填写真实的个人信息（真实姓名、身份证号、身份证照片、现在使用的手机号、QQ号，填写的信息可与账号注册信息不一致，但一定是参赛玩家本人的真实信息。）</p>
+							<p><span>2</span>一个参赛账号只能一个人，届时8进4时官方会通过技术手段，以及联系玩家进行认证，请填写真实信息。</p>
+							<p><span>3</span>未进行认证，或未通过认证的队伍，即使进入前4名，也将失去之后的比赛资格及奖励，会重新根据“总决赛队伍确认规则”确定参加决赛的队伍！</p>
+							<p><span>4</span>本次填写严重影响决赛及8强奖励，请务必及时、认真填写。</p>
+                            <p><span>5</span>本次填写信息所上传的身份证照片将会用于线下决赛时核实玩家身份，请各位玩家务必上传清晰的有个人信息的身份证照片。</p>
+                            <p>注：所上传的身份证照片需与所填写的身份证号码一致。（所填写的信息可与账号注册信息不一致，但一定是参赛玩家本人的真实信息。）</p>
+							<p><span>6</span>其他详细信息请进入全民PK赛专题页面查看。<a class="info_click" href="http://wd.gyyx.cn/huodong/qmpk2016/index.html" target="_blank">点击查看</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--piaofu-->
+		<div class="info_pf"><a href="http://wd.gyyx.cn/huodong/qmpk2016/index.html" target="_blank">返回全民pk</a></div>
+        <!-- 弹出层 -->
+        <div class="mask"></div>
+	    <div class="wd_tcc" style="display: none;">
+		    <h2>信息填写</h2>
+		    <a href="javascript:;" class="wd_close">x</a>
+		    <div class="tcc_con">
+			    <p><span style="display: none;" id="js_ttc1">登陆后才可进行信息填写</span></p>
+			    <p><span style="display: none;" id="js_ttc2">此账号不在全民PK赛128强中，无法填写信息，请确认登陆的是否为参加比赛的账号</span></p>
+			    <p><span style="display: none;" id="js_ttc3"></span></p>
+			    <a class="tcc_btn" href="javascript:;">我知道了</a>
+		    </div>
+	    </div>
+
+        <!--公共底部-->
+	        <div class="public_nav_bottom">
+              <script type="text/javascript">ShowBottom()</script>
+            </div>
+        <!-- 上传身份证信息弹层 -->
+        <div class="downBox" id="downBox">
+            <div style="position:relative">
+                <p>请上传身份证反面照(有个人信息的一面)</p>
+            <a href="javascript:;" class="clockBtn"></a>
+            <!-- 点击上传图片开始 -->
+            <form id="photoInfoForm" method="post"></form>
+                <div class="uploadArea">
+							<div id="divFileProgressContainer"></div>
+							<!--<div class="upl"></div>-->
+							<div class="upl">
+								<span class="uploadimg">
+                            <input type="button" id="btnUpload" class="upload" onclick=" swfu.selectFile(); this.blur(); " value="上传图片" />
+                            <input type="hidden" id="hid_addImgUrl" name="hid_addImgUrl" /><input type="hidden" id="hid_addthumbImgUrl" name="hid_addthumbImgUrl" />
+					    </span>
+							</div>
+						</div>
+            <!-- 点击上传图片结束 -->
+            <p style="padding:174px 0 0 ;text-align:left">注：本照片仅用于全民pk赛线下决赛时核实玩家身份，请仔细核对所上传的图片。若现场核实本人与所提供的身份证照片不一致，则取消比赛资格。(上传图片格式要求：大小为5M以下，格式为jpg、jpeg、png、bmp、gif中任意一种。)</p>
+            <a href="javascript:;" class="upBtn" id="upBtn">确认上传</a>
+            </div>
+            
+
+        </div>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdallpk/js/ymcore.min.js"></script>
+         
+		<script type="text/javascript">
+		    (function ($, window) {
+		        var box = $(".info_pf"),
+					winObj = $(window),
+					startPoint = 300,
+					box03 = $(".info_pf"),
+					startPoint03 = 300;
+		        box03.css({
+		            "top": startPoint03,
+		            "position": "absolute",
+		            "right": "74px"
+		        });
+		        winObj.scroll(function () {
+		            var pos03 = startPoint03 + winObj.scrollTop();
+		            box03.stop().animate({
+		                "top": pos03
+		            }, 300);
+		        });
+		    })(jQuery, window);
+		</script>
+       
+	</body>
+</html>

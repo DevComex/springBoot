@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.cadet.IStatistic">
+	<resultMap id="StatisticBeanMap" type="StatisticBean">
+		<result property="code" column="code" />
+		<result property="cadetCode" column="cadet_code" />
+		<result property="year" column="count_year" />
+		<result property="month" column="count_month" />
+		<result property="firstWeek" column="count_week_first" />
+		<result property="secondWeek" column="count_week_second" />
+		<result property="thirdWeek" column="count_week_third" />
+		<result property="forthWeek" column="count_week_forth" />
+		<result property="fifthWeek" column="count_week_fifth" />
+		<result property="notUpload" column="count_month_notup" />
+		<result property="average" column="count_month_average" />
+		
+		<result property="cadetName" column="cadet_name" />
+	</resultMap>
+	<insert id="addStatistic" parameterType="StatisticBean">
+		insert into cadet_count_tb (
+			cadet_code,
+			count_year,
+			count_month,
+			count_week_first,
+			count_week_second,
+			count_week_third,
+			count_week_forth,
+			count_week_fifth
+			)
+		values(#{cadetCode},#{year},#{month},#{firstWeek},#{secondWeek},#{thirdWeek},#{forthWeek},#{fifthWeek})
+	</insert>
+	<select id="getAllStatistics" resultMap="StatisticBeanMap">
+		select * from cadet_count_tb where count_year = #{year}
+	</select>
+	<select id="getStatistics" resultMap="StatisticBeanMap">
+		select * from cadet_count_tb
+		join cadet_cadet_tb
+		on cadet_count_tb.cadet_code = cadet_cadet_tb.code
+		where 
+		cadet_count_tb.count_month = #{month}
+		<if test="department != 'all'">
+			and
+			cadet_cadet_tb.cadet_department = #{department}
+		</if>
+	</select>
+	<select id="getStatisticsWithPost" resultMap="StatisticBeanMap">
+		select * from cadet_count_tb
+		join cadet_cadet_tb
+		on cadet_count_tb.cadet_code = cadet_cadet_tb.code
+		where 
+		cadet_count_tb.count_month = #{month}
+		<if test="department != 'all'">
+			and
+			cadet_cadet_tb.cadet_department = #{department}
+		</if>
+		<if test="post != 'all'">
+			and
+			cadet_cadet_tb.cadet_station = #{post}
+		</if>
+	</select>
+	<select id="getStatistic" resultMap="StatisticBeanMap">
+		select * from cadet_count_tb
+		where cadet_code = #{cadetCode}
+		and count_year = #{year}
+		and count_month = #{month}
+	</select>
+	<select id="statisticExists" resultType="boolean">
+		<![CDATA[
+			select count(code) from cadet_count_tb
+			where
+			cadet_code = #{cadetCode}
+			and
+			count_year = #{year}
+			and
+			count_month = #{month}
+		 ]]> 
+	</select>
+	<update id="updateStatistic" parameterType="StatisticBean">
+		update cadet_count_tb
+		set 
+		 count_week_first = #{firstWeek}
+		,count_week_second = #{secondWeek}
+		,count_week_third = #{thirdWeek}
+		,count_week_forth = #{forthWeek}
+		,count_week_fifth = #{fifthWeek}
+		,count_month_notup = #{notUpload}
+		,count_month_average = #{average}
+		where
+		code = #{code}
+	</update>
+	
+	<select id="getAllCountNotReport" resultType="java.lang.Integer"   parameterType="int" >
+	select count_month_notup
+	from 
+	cadet_count_tb
+	where 
+	cadet_code = #{cadetCode}
+	</select>
+	
+</mapper>

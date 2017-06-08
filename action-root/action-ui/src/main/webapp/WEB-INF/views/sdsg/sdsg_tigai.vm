@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>《神道三国》官网-你提我改</title>
+    <script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=webgame"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var rc = "${rc.contextPath}";
+        var pageNum = "3";
+    </script>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/shendaosanguo20161107/css/sdsg.css"/>
+</head>
+<body>
+
+<!--搜索及导航begin-->
+<div class="public_nav_top">
+    <script type="text/javascript">Showtop();</script>
+</div>
+<div class="box">
+    <div class="box_wrap">
+        <div class="ad">
+            <p>首次封测&nbsp;&nbsp; &nbsp;10月30日开启</p>
+        </div>
+        <div class="logo"></div>
+        <div class="box_in">
+            <div class="box_in_header">
+                <h2>你提我改</h2>
+
+                <h3>首页>你提我改</h3>
+            </div>
+            <div class="box_in_content">
+                <p>《神道三国》官方为了给玩家提供更丰富的游戏内容，更良好的游戏环境，同时也为了优化游戏中现有的系统，特此开启“你提我改”建议平台。希望大家能积极提交在游戏中遇到的BUG和改进建议、希望修改的游戏内容或是优秀的活动创意等。官方人员将定期查看审核玩家提交的各类BUG和建议，并筛选出有价值的bug、建议给予提出者丰厚的奖励。</p>
+                <table>
+                    <thead>
+                    <tr class="thead_in">
+                        <th><i class="rotate"></i> 一等奖 <i></i></th>
+                        <th><i></i> 二等奖 <i></i></th>
+                        <th><i></i> 三等奖 <i></i></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>传说灵魂士兵箱子*1</td>
+                        <td>英雄灵魂士兵箱子*2</td>
+                        <td>特殊灵魂士兵召唤石*10</td>
+                    </tr>
+                    <tr>
+                        <td>一级强化石*100</td>
+                        <td>HP/MP 100% 立即恢复*50</td>
+                        <td>HP/MP 100% 立即恢复*20</td>
+                    </tr>
+                    <tr>
+                        <td>HP/MP 100% 立即恢复*100</td>
+                        <td>疲劳值恢复200点道具*5</td>
+                        <td>疲劳值恢复200点道具*3</td>
+                    </tr>
+                    <tr>
+                        <td>疲劳度恢复200点道具*10</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    </tbody>
+                </table>
+                <div class="form">
+                    <ul>
+                        <li style="position: relative;" class="form_title">
+                            标题：<input maxlength="15" type="text" id="form_title" style="width:380px;"/> <label for="form_title">填写反应内容，如“装备强化”</label> <i>0/15</i>
+                                <a href="javascript:;" style="display: none">内容不能为空</a>
+                        </li>
+                        <li class="form_service">
+                            区服：<select name="" id="" class="js_game">
+                            <option value="请选择" >请选择</option>
+                        </select>
+                        </li>
+                        <li class="form_account">
+                            账号：<input id="account" type="text" maxlength="16" style="width:210px;"/> <a href="javascript:;" style="display: none">内容不能为空</a>
+                        </li>
+                        <li class="form_role" style="padding-bottom: 54px;position: relative;">
+                            角色：<input type="text" maxlength="30" style="width:210px;"/> <a href="javascript:;" style="display: none">内容不能为空</a><em>注：请正确填写区组、账号及角色名信息,以免一旦获取,奖励无法正常发放。</em>
+                        </li>
+                    </ul>
+                    <div class="textarea"><strong>内容：</strong><textarea maxlength="200" name="" id="textarea" ></textarea> <label for="textarea">
+                        <p>
+                            详细描述所提交的问题 <br/>
+                            1、建议：建议目的，建议内容，建议的实现方式等；<br/>
+                            2、BUG：包括BUG发生的现实时间、持续时间、出现地点、BUG现象描述及重现方法、所 <br/>涉及的NPC名；<br/>
+                            3、活动创意：详述活动的内容，活动的方式及活动的流程等。
+                        </p>
+                    </label></div>
+                    <div class="yam_box">验证码：<input type="text" maxlength="30" class="js_word"/><img style="top: 11px;left: 7px; position: relative;" class="js_captchaimg" id="captcha_image" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=" width="100" height="50" alt="验证码"/><a href="javascript:;" style="text-decoration: underline;color:#000;">换一张</a>
+                    </div>
+
+                    <div class="box_in_button">
+                        <div class="submit"><button>提交</button></div>
+                        <div class="reset"><button>重填</button></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom()</script>
+</div>
+<script src="http://static.cn114.cn/action/shendaosanguo20161107/js/sdsg.js"></script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdsigned.IWdAppSignSendPrizeMapper">
+	<resultMap type="cn.gyyx.action.beans.wdsigned.WdAppSignedSendPrizeBean"
+		id="WdAppSignedSendPrizeBeanMap">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="server_id" property="serverId" />
+		<result column="gift" property="gift" />
+		<result column="status" property="status" />
+		<result column="batch" property="batch" />
+		<result column="create_time" property="createTime" />
+		<result column="send_time" property="sendTime" />
+	</resultMap>
+	<sql id="Base_Column_List" >
+	    code
+	    ,account
+		,gift
+		,server_id
+		,status
+		,batch
+		,create_time
+		,send_time
+	  </sql>
+	<insert id="insert"
+		parameterType="cn.gyyx.action.beans.wdsigned.WdAppSignedSendPrizeBean"
+		useGeneratedKeys="true" keyProperty="code">
+		insert into
+		action_wdappsign_sendprize_log (
+		account
+		,gift
+		,server_id
+		,status
+		,batch
+		,create_time
+		,send_time)
+		values(
+		#{account}
+		,#{gift}
+		,#{serverId}
+		,#{status}
+		,#{batch}
+		,#{createTime}
+		,#{sendTime})
+	</insert>
+
+	<select id="getSignSendPrizeByPrize" resultMap="WdAppSignedSendPrizeBeanMap">
+		select 
+		<include refid="Base_Column_List" />
+		from
+		action_wdappsign_sendprize_log
+		where account = #{account}
+		and
+		server_id=#{serverId}
+		and batch=#{batch}
+		and gift=#{gift}
+	</select>
+	
+	<select id="getSignSendPrizeByPrizes" resultMap="WdAppSignedSendPrizeBeanMap">
+		select 
+		<include refid="Base_Column_List" />
+		from
+		action_wdappsign_sendprize_log
+		where account = #{account}
+		and
+		server_id=#{serverId}
+		and batch=#{batch}
+		and gift in 
+		       <foreach item="gift" collection="gifts" separator="," open="(" close=")" index="">
+		           #{gift}
+		       </foreach>
+	</select>
+
+	<select id="getSignSendPrize" resultMap="WdAppSignedSendPrizeBeanMap">
+		select 
+		<include refid="Base_Column_List" />
+		from
+		action_wdappsign_sendprize_log
+		where account = #{account}
+		and
+		server_id=#{serverId}
+		and batch=#{batch}
+		and status=#{status}
+	</select>
+
+	<update id="modifyPrizeStatus">
+		update
+		action_wdappsign_sendprize_log
+		set status = #{status},
+		send_time=#{sendTime}
+		where
+		account = #{account}
+		and server_id=#{serverId}
+		and batch=#{batch}
+		and gift=#{gift}
+	</update>
+	
+	
+
+</mapper>

@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>绝世武神-签到抽奖活动</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/jswstower/css/js151013.css" />
+    <script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+	<script src="${rc.contextPath}/commonSupporter/actionUtil?actionCode=279"></script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="js_wrap">
+        <div class="main">
+            <!--左侧-->
+            <div class="js_left">
+                <div class="js_return"><a href="http://jswsol.gyyx.cn/Home/index.shtml">返回官网</a></div>
+                <div class="js_item">
+                    <ul>
+                        <li class="on"><a href="${rc.contextPath}/commonS/index" class="a01">修炼塔介绍</a></li>
+                        <li><a href="${rc.contextPath}/commonS/jifen" class="a02">我的武道积分</a></li>
+                        <li><a href="${rc.contextPath}/commonS/xiulian" class="a03">武道修炼</a></li>
+                        <li><a href="${rc.contextPath}/commonS/huanli" class="a04">武道积分换礼</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--右侧-->
+            <div class="js_right">
+                <div class="js_box">
+                    <div class="js_ad"></div>
+					<!--抢激活码-->
+            <div class="js_jhm"><a href="${rc.contextPath}/commonS/huanli">抢激活码</a></div>
+                    <!--登录前-->
+                    <div class="js_login js_loginBefore" style="display: none;">
+                        <p>尊敬的玩家，您好！  请先：<a href="javascript:;" class="js_login">登录</a></p>
+                    </div>
+                    <!--登录后-->
+                    <div class="js_login js_loginAfter clear" style="display: block;">
+                        <div class="js_info">
+                            <p>
+                                <strong>昵称</strong><br />
+                                
+                            </p>
+                            <a href="#">退出登录</a>
+                        </div>
+                        <ul class="js_detail clear">
+                            <li><strong>我的武道积分</strong><br />
+                                分</li>
+                            <li><strong>已用武道积分</strong><br />
+                                分</li>
+                            <li><strong>已连续签到</strong><br />
+                                分</li>
+                        </ul>
+                    </div>
+                    <div class="js_intro">
+                        <ul>
+                            <li class="li01">
+                                <h3>“修炼塔”是什么？</h3>
+                                <p>修炼塔”是由《绝世武神》运营团队为回馈广大玩家建立的福利系统。玩家可使用“武道积分”兑换各种专属福利。</p>
+                            </li>
+                            <li class="li02">
+                                <h3>“武道积分”可以做什么？</h3>
+                                <p>“武道积分”可用于兑换各类官方奖励，包括游戏礼包、限量周边、话费充值卡、Kindle阅读器等。</p>
+                            </li>
+                            <li class="li03">
+                                <h3>“武道积分”如何获得？</h3>
+                                <p>玩家只需要参与如签到、关注微信、微博等等各类活动即可免费获得相应武道积分。</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="js_yflbtn"><a href="${rc.contextPath}/commonS/xiulian">修武道 赢福利</a></div>
+                </div>
+            </div>
+            <!--滚动条遮罩层-->
+            <div class="js_mask"></div>
+        </div>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+</body>
+<script type="text/javascript" src="http://static.cn114.cn/action/jswstower/js/ymscrollbar.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/jswstower/js/js151013.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".js_wrap").Indinfo();
+    });
+</script>
+</html>
+

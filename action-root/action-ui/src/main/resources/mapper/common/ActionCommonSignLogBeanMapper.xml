@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.common.ISignLogMapper">
+	<!-- Bean Map 映射 -->
+	<resultMap type="cn.gyyx.action.beans.common.ActionCommonSignLogBean"
+		id="ActionCommonSignLogBeanMapper">
+		<id column="code" property="code" />
+		<result column="sid" property="sid" />
+		<result column="action_code" property="actionCode" />
+		<result column="account" property="account" />
+		<result column="sign_time" property="signTime" />
+		<result column="remark" property="remark" />
+	</resultMap>
+
+	<!-- 插入签到明细记录 -->
+	<insert id="insertSignLog" parameterType="cn.gyyx.action.beans.common.ActionCommonSignLogBean">
+		insert into
+		common_signlog_tb(account,sid,action_code,sign_time,remark)
+		values(#{account},#{sid},#{actionCode},#{signTime},#{remark})
+	</insert>
+
+	<!-- 获得签到日志记录 -->
+	<select id="selectSignLog" parameterType="cn.gyyx.action.beans.common.ActionCommonSignLogBean"
+		resultMap="ActionCommonSignLogBeanMapper">
+		select *
+		from
+		common_signlog_tb
+		where
+		1=1
+		<if test="account != null">
+		 and account = #{account}
+	    </if>
+	    <if test="actionCode != null">
+		and action_code=#{actionCode}
+		</if>
+		<if test="signTime != null">
+		and sign_time = #{signTime}
+		</if>
+	</select>
+</mapper>

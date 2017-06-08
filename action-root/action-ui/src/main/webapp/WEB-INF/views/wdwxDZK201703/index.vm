@@ -1,0 +1,203 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>战斗补砖块h5小游戏,战斗补砖块手机小游戏_核弹头小游戏网</title>
+<meta name="keywords" content="战斗补砖块手机小游戏,战斗补砖块h5小游戏"/>
+<meta name="description" content="核弹头小游戏网为您提供战斗补砖块在线玩，战斗补砖块攻略秘籍和更多战斗补砖块h5小游戏尽在核弹头小游戏网！"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="full-screen" content="yes"/>
+<meta name="screen-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="360-fullscreen" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" href="css/style.css">
+<style type="text/css">
+    #player-ad,#p-bg-l,#p-bg-r {display:none!important;display:none}</style>
+<script src="http://s.gyyx.cn/Lib/jqueryModule/jquery-1.12.4.min.js "></script>
+</head>
+<body style="padding:0; margin: 0; background: #442117;">
+<script src="js/loading.js"></script>
+<canvas id="gameCanvas" width="800" height="450"></canvas>
+<script src="js/game.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/jweixin-1.0.0.js"></script>
+<div id="rank" class="rank">
+    <img class="close" src="res/close.png"/>
+    <ul>
+        <li>
+            <label>1</label>
+            <div>
+                <span>微信昵称0123微信昵称01236微信昵称01236微信昵称012366</span>
+            </div>
+            <label>123</label>
+        </li>
+        <li>
+            <label>2</label>
+            <div>
+                <span>微信昵称0123微信昵称01236微信昵称01236微信昵称012366</span>
+            </div>
+            <label>123</label>
+        </li>
+        <li>
+            <label>3</label>
+            <div>
+                <span>微信昵称0123微</span>
+            </div>
+            <label>123</label>
+        </li>
+        <li>
+            <label>4</label>
+            <div>
+                <span>微信昵</span>
+            </div>
+            <label>123</label>
+        </li>
+        <li>
+            <label>5</label>
+            <div>
+                <span>微信</span>
+            </div>
+            <label>123</label>
+        </li>
+        <li>
+            <label>6</label>
+            <div>
+                <span>微称366</span>
+            </div>
+            <label>123</label>
+        </li>
+        <li>
+            <label>7</label>
+            <div>
+                <span>微66</span>
+            </div>
+            <label>123</label>
+        </li>
+    </ul>
+</div>
+<div id="prizeList" class="prizeList">
+    <img class="close" src="res/close.png"/>
+    <ul>
+        <li>
+            <div>
+                <span>微信昵称0123微信昵称01236微信昵称01236微信昵称012366</span>
+            </div>
+            <div>
+                <span>威威虎抱枕</span>
+            </div>
+            <label>03.06</label>
+        </li>
+        <li>
+            <div>
+                <span>微信昵称0123微信昵称01236微信昵称01236微信昵称012366</span>
+            </div>
+            <div>
+                <span>威威虎抱枕</span>
+            </div>
+            <label>03.06</label>
+        </li>
+        <li>
+            <div>
+                <span>微信昵称0123微信昵称01236微信昵称01236微信昵称012366</span>
+            </div>
+            <div>
+                <span>威威虎抱枕</span>
+            </div>
+            <label>03.06</label>
+        </li>
+        <li>
+            <div>
+                <span>微信昵称0123微信昵称01236微信昵称01236微信昵称012366</span>
+            </div>
+            <div>
+                <span>威威虎抱枕</span>
+            </div>
+            <label>03.06</label>
+        </li>
+        <li>
+            <div>
+                <span>微信昵称0123微信昵称01236微信昵称01236微信昵称012366</span>
+            </div>
+            <div>
+                <span>威威虎抱枕</span>
+            </div>
+            <label>03.06</label>
+        </li>
+        <li>
+            <div>
+                <span>微信昵称0123微信昵称01236微信昵称01236微信昵称012366</span>
+            </div>
+            <div>
+                <span>威威虎抱枕</span>
+            </div>
+            <label>03.06</label>
+        </li>
+        <li>
+            <div>
+                <span>微信昵称0123微信昵称01236微信昵称01236微信昵称012366</span>
+            </div>
+            <div>
+                <span>威威虎抱枕</span>
+            </div>
+            <label>03.06</label>
+        </li>
+        <li>
+            <div>
+                <span>微信昵称0123微信昵称01236微信昵称01236微信昵称012366</span>
+            </div>
+            <div>
+                <span>威威虎抱枕</span>
+            </div>
+            <label>03.06</label>
+        </li>
+    </ul>
+    
+</div>
+<div id="myPrize" class="myPrize">
+    <img class="close" src="res/close.png"/>
+    <div class="js_prizeCon">
+        <!--中奖未领取==============================================================-->
+        <!--<h2>恭喜中奖</h2>
+        <h3>威威虎抱枕</h3>
+        <a class="btn"></a>-->
+        <!--未中奖==================================================================-->
+        <!--<p class="tip">很遗憾，您还未中奖</p>-->
+        <!--活动结束 已中奖=========================================================-->
+        <!--<h2>恭喜中奖</h2>
+        <h3>威威虎抱枕</h3>
+        <p class="tip01">活动领奖时间已结束！<br>敬请期待下次活动！</p>-->
+        <!--活动结束 未中奖=========================================================-->
+        <p class="tip">很遗憾，您还未中奖</p>
+        <p class="tip01">活动领奖时间已结束！<br>敬请期待下次活动！</p>
+    </div>
+</div>
+<div id="shareTip" class="shareTip">
+    <img src="res/shareTip.png"/>
+    <a class="close">关闭</a>
+</div>
+<script type="text/javascript">
+    $(function(){
+        //翻牌
+        weixin({
+            debug: false,
+            game:"Wd",
+            wxShareCfg:{
+                title: "我的分享test",
+                desc: "test描述",
+                link: "http://www.baidu.com",
+                imgUrl: "http://static.cn114.cn/actionModule/lotteryModule/images/rotate/start.png",
+                success: function () {
+                    alert("分享成功了:)");
+                },
+                cancel: function () {
+                    alert("取消了分享:(");
+                }
+            }
+        });
+
+    })
+</script>
+</body>
+</html>

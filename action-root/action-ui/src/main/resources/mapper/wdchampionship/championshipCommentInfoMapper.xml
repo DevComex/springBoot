@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdchampionship.IChampionshipCommentInfoMapper">
+	<resultMap type="championshipCommentInfoBean" id="commentMap">
+		<id column="code" property="code"/>
+		<result column="nick_name" property="nickName"/>
+		<result column="comment_content" property="commentContent"/>
+		<result column="comment_time" property="commentTime"/>
+		<result column="is_del" property="isDel"/>
+		<result column="type_of_year" property="typeOfYear"/>
+		<result column="account" property="account"/>
+		<result column="server_name" property="serverName"/>
+	</resultMap>
+	
+	
+	<!--插入一条评论 -->
+	<insert id="addComment" parameterType="championshipCommentInfoBean">
+		INSERT INTO wendao_Championship_commentt_info(
+			   nick_name,comment_content,type_of_year,account) 
+        VALUES(#{nickName},#{commentContent},#{typeOfYear},#{account})
+	</insert>
+	
+	<!-- 	查询评论 -->
+	<select id="selectComment" resultType="list" resultMap="commentMap">
+			WITH CommentList AS ( 
+                             SELECT ROW_NUMBER() OVER (ORDER BY code DESC)AS Row, *
+                             FROM wendao_Championship_commentt_info 
+                             WHERE is_del=isnull(#{isDel},is_del) 
+                             AND type_of_year=#{typeOfYear})
+
+         SELECT * FROM CommentList
+                  WHERE Row BETWEEN #{startIndex} AND #{endIndex}
+	</select>
+	
+	<!-- 	查询评论数量 -->
+	<select id="selectCommentCount" resultType="int">
+		SELECT count(1) FROM wendao_Championship_commentt_info 
+			WHERE is_del=isnull(#{isDel},is_del) 
+			AND type_of_year=#{typeOfYear}
+	</select>
+	
+	<select id="selectTopComment" parameterType="int" resultType="list" resultMap="commentMap">
+		SELECT TOP 99 * FROM wendao_Championship_commentt_info
+		 WHERE is_del=0 and type_of_year=#{typeOfYear} ORDER BY code DESC
+	</select>
+</mapper>

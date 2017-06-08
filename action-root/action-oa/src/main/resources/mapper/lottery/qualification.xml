@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdninestory.IQualificationMapper">
+	<resultMap type="Qualification" id="Qualification">
+		<id column="code" property="code" />
+		<result column="user_code" property="userCode" />
+		<result column="lottery_time" property="lotteryTime" />
+		<result column="action_code" property="actionCode" />
+	</resultMap>
+	
+	<resultMap type="CommonActionConfigBean" id="ActionConfig">
+		<id column="code" property="code" />
+		<result column="hd_name" property="hdName" />
+		<result column="hd_start" property="hdStartD" />
+		<result column="hd_end" property="hdEndD" />
+		<result column="is_delete" property="isDelete" />
+		<result column="game_id" property="gameId" />
+		<result column="paras" property="paras" />
+		<result column="hd_link" property="hdLink" />
+	</resultMap>
+	<!-- 根据用户编号和活动编号查询用户抽奖资格信息 -->
+	<select id="selectLotteryInfoByUserAndAction" resultMap="Qualification">
+		select
+		code,user_code,lottery_time,action_code from
+		wdnine_qualification_tb
+		where user_code=#{userCode} and
+		action_code=#{actionCode}
+	</select>
+
+	<!-- 根据用户编号查询用户抽奖资格信息 -->
+	<select id="selectQualification" resultMap="Qualification"
+		parameterType="int">
+		select
+		code,user_code,lottery_time,action_code from
+		wdnine_qualification_tb
+		where user_code=#{userCode}
+	</select>
+
+	<!-- 根据用户编号和活动编号查询用户抽奖资格信息 -->
+	<select id="selectByUserAndAction" resultMap="Qualification"
+		parameterType="map">
+		select
+		code,user_code,lottery_time,action_code from
+		wdnine_qualification_tb
+		where user_code=#{userCode} and
+		action_code=#{actionCode}
+	</select>
+	<select id="selectByAction" resultMap="Qualification"
+		parameterType="Integer">
+		select
+		code,user_code,lottery_time,action_code from
+		wdnine_qualification_tb
+		where action_code=#{actionCode}
+	</select>
+	<!-- 增加用户抽奖资格 问道康师傅抽奖活动 王雷 -->
+	<insert id="insertQualification" parameterType="Qualification">
+		insert into
+		wdnine_qualification_tb
+		(user_code,lottery_time,action_code)
+		values(#{userCode},#{lotteryTime},#{actionCode})
+	</insert>
+
+	<!-- 更改用户抽奖次数 -->
+	<update id="updateLotteryTime" parameterType="Qualification">
+		update
+		wdnine_qualification_tb set lottery_time=#{lotteryTime} where
+		user_code=#{userCode}
+	</update>
+	<update id="setTimes">
+		update wdnine_qualification_tb
+		set
+		lottery_time=(lottery_time+#{time}) where
+		user_code=#{userCode} and
+		action_code=#{actionCode}
+	</update>
+	
+	<!-- 审核通过添加1次抽奖机会 问道1.61官网活动 李志海 -->
+	<update id="addLotteryTime">
+		update wdnine_qualification_tb
+		set
+		lottery_time=(lottery_time + 1) where
+		user_code=#{userCode} and
+		action_code=#{actionCode}
+	</update>
+	
+	<!-- 获取活动配置信息 -->
+	<select id="selectActionConfig" resultMap="ActionConfig">
+		select *
+		from hd_config_tb
+		where code=#{actionCode}
+	</select>
+
+</mapper>

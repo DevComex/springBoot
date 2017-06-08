@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wd161.IWd161Mapper">
+	<resultMap type="Wd161RoleAccountBean" id="Wd161RoleAccountMap">
+		<id column="code" property="code" />
+		<result column="user_code" property="userCode" />
+		<result column="user_name" property="userName" />
+		<result column="server_code" property="serverCode" />
+		<result column="server_name" property="serverName" />
+		<result column="gid" property="gid" />
+		<result column="role_name" property="roleName" />
+		<result column="action_code" property="actionCode" />
+		<result column="create_time" property="createTime" />
+		<result column="audit_time" property="auditTime" />
+		<result column="ip" property="ip" />
+		<result column="pic_url" property="picUrl" />
+		<result column="audit_status" property="auditStatus" />
+		<result column="votes" property="votes" />
+		<result column="rank" property="rank" />
+		
+	</resultMap>
+	
+	<resultMap type="Wd161VoteBean" id="Wd161VoteMap">
+		<id column="code" property="code" />
+		<result column="user_code" property="userCode" />
+		<result column="user_name" property="userName" />
+		<result column="server_code" property="serverCode" />
+		<result column="server_name" property="serverName" />
+		<result column="role_name" property="roleName" />
+		<result column="votter_id" property="votterId" />
+		<result column="votter_name" property="votterName" />
+		<result column="create_time" property="createTime" />
+		<result column="votes_count" property="votesCount" />
+	</resultMap>
+	
+	<resultMap type="Wd161CommentsBean" id="Wd161CommentsMap">
+		<id column="code" property="code" />
+		<result column="nick_name" property="nickName" />
+		<result column="comments" property="comments" />
+		<result column="create_time" property="createTime" />
+		<result column="audit_status" property="auditStatus" />
+		<result column="audit_person" property="auditPerson" />
+		<result column="audit_time" property="auditTime" />
+	</resultMap>
+	
+	<resultMap type="Wd161ActiveBean" id="Wd161ActiveMap">
+		<id column="id" property="id" />
+		<result column="account" property="account" />
+		<result column="gid" property="gid" />
+		<result column="server_name" property="serverName" />
+		<result column="score" property="score" />
+		<result column="update_time" property="updateTime" />
+		<result column="insert_time" property="insertTime" />
+		<result column="score_date" property="scoreDate" />
+		<result column="has_votes" property="hasVotes" />
+	</resultMap>
+	
+	
+	
+	<!-- 获取用户绑定角色信息  -->
+	<select id="getUserInfo" parameterType="int" resultMap="Wd161RoleAccountMap">
+		select * from
+		wd161_role_account_tb
+		where user_code = #{userCode}
+	</select>
+	
+	<!-- 按server查询用户信息  -->
+	<select id="getUserInfoByServer"  resultMap="Wd161RoleAccountMap">
+		select * from
+		wd161_role_account_tb
+		where 
+		server_code = #{serverCode}
+		and
+		server_name = #{serverName}
+		and
+		role_name = #{roleName}
+		and 
+		gid = #{gid}
+	</select>
+	
+	<!-- 按userName查询用户信息  -->
+	<select id="getUserInfoByAccount"  resultMap="Wd161RoleAccountMap">
+		select * from
+		wd161_role_account_tb
+		where 
+		server_code = #{serverCode}
+		and
+		server_name = #{serverName}
+		and
+		user_name = #{userName}
+		
+	</select>
+
+	<!-- 添加用户角色绑定信息 -->
+	<insert id="addRoleAccount">
+		insert into wd161_role_account_tb
+		(user_code,user_name,server_code,server_name,gid,role_name,action_code,create_time,ip,votes)
+		values
+		(#{userCode},#{userName},#{serverCode},#{serverName},#{gid},#{roleName},#{actionCode},#{createTime},#{ip},#{votes})
+	</insert>
+	
+	<!-- 保存用户上传图品地址 -->
+	<update id="savePicUrl" >
+		update  wd161_role_account_tb set pic_url=#{picUrl} ,audit_status = 'oncheck' where user_code=#{userCode}
+	</update>
+	
+	<!-- 重新上传 重置用户状态到未上传 -->
+	<update id="reloadPicUrl" >
+		update  wd161_role_account_tb set pic_url=null ,audit_status = null, audit_time=null ,audit_person=null where user_code=#{userCode}
+	</update>
+	
+	<!-- 查询评论信息列表  -->
+	<select id="getCommentsList" resultMap="Wd161CommentsMap">
+		select * from
+		wd161_comments_tb a
+		where audit_status = 'pass' order by  audit_time desc 
+	</select>
+	
+	<!-- 查询作品列表  最热  -->
+	<select id="getWorkListByHot" resultMap="Wd161RoleAccountMap">
+	SELECT
+	TOP 15 *FROM
+	(
+		SELECT
+			*, row_number () OVER (ORDER BY rank ASC) AS rownumber
+		FROM
+			(
+				SELECT a.*, dense_rank () OVER (
+					ORDER BY votes DESC,update_time,code ASC) AS rank
+				FROM
+					wd161_role_account_tb a where a.audit_status='pass'
+			) b
+	) AS t
+	WHERE 
+	t.rownumber > 15 * (#{pageNo}-1) AND t.audit_status = 'pass'
+	</select>
+	
+	<!-- 查询作品列表  最新  -->
+	<select id="getWorkListByDate" resultMap="Wd161RoleAccountMap">
+		SELECT
+	TOP 15 *FROM
+	(
+		SELECT
+			*, row_number () OVER (ORDER BY audit_time desc) AS rownumber
+		FROM
+			(
+				SELECT a.*, dense_rank () OVER (
+					ORDER BY votes DESC,update_time,code ASC) AS rank
+				FROM
+					wd161_role_account_tb a where a.audit_status='pass'
+			) b  
+	) AS t
+	WHERE 
+	t.rownumber > 15 * (#{pageNo}-1) AND t.audit_status = 'pass' 
+	</select>
+	
+	<!-- 查询作品列表  角色 -->
+	<select id="getWorkListByRole" resultMap="Wd161RoleAccountMap">
+	SELECT
+	TOP 15 *FROM
+	(
+		SELECT
+			*, row_number () OVER (ORDER BY rank ASC) AS rownumber
+		FROM
+			(
+				SELECT a.*, dense_rank () OVER (
+					ORDER BY votes DESC,update_time,code ASC) AS rank
+				FROM
+					wd161_role_account_tb a where a.audit_status='pass' 
+			) b
+	) AS t
+	WHERE 
+	t.rownumber > 15 * (#{pageNo}-1) and t.role_name like '%'+#{roleName}+'%'
+	</select>
+	
+	<!-- 查询作品列表  总数-->
+	<select id="getWorkCount" resultType="java.lang.Integer">
+		select count(*) from wd161_role_account_tb where audit_status='pass'
+	</select>
+	
+	<!-- 查询作品列表  总数-->
+	<select id="getWorkCountBySearch" resultType="java.lang.Integer">
+		select count(*) from wd161_role_account_tb where audit_status='pass' and role_name like '%'+#{roleName}+'%'
+	</select>
+	
+	
+	<!-- 查询作品列表  top10-->
+	<select id="getTopTen" resultMap="Wd161RoleAccountMap">
+		SELECT
+	TOP 10 *FROM
+	(
+		SELECT
+			*, row_number () OVER (ORDER BY rank ASC) AS rownumber
+		FROM
+			(
+				SELECT a.*, dense_rank () OVER (
+					ORDER BY votes DESC,update_time,code ASC) AS rank
+				FROM
+					wd161_role_account_tb a where a.audit_status='pass'
+			) b
+	) AS t
+	WHERE 
+	t.rownumber > 10 * 0 AND t.audit_status = 'pass'
+
+	</select>
+
+	<!-- 发布评论 -->
+	<insert id="publishComments" >
+		insert into wd161_comments_tb
+		(nick_name,comments,create_time,audit_status)
+		values
+		(#{nickName},#{comments},#{creatTime},'oncheck')
+	</insert>
+
+	<!-- 查询用户投票记录信息列表  -->
+	<select id="getVoteList"  resultMap="Wd161VoteMap">
+		
+		select a.server_name,a.role_name,count(user_name) as votes_count
+		 from
+		wd161_vote_tb a 
+		where 
+		a.votter_id = #{userCode} group by a.server_name,a.role_name
+	</select>
+	
+	<!-- 查询用户投票记录信息列表  -->
+	<select id="getVoteList4Lottery"  resultMap="Wd161VoteMap">
+		select * from
+		wd161_vote_tb
+		where votter_id = #{userCode}
+	</select>
+	
+	<!-- 获取活跃度信息  -->
+	<select id="getActiveInfo" resultMap="Wd161ActiveMap">
+		select * from wd161_active_tb 
+		where 
+		account=#{userName}
+		and 
+		server_name=#{serverName}
+		and
+		gid=#{gid}
+		and
+		score_date=#{scoreDate}
+	</select>
+	
+	<!-- 查看对所选作品  已投票数-->
+	<select id="getcastedVotes" resultType="java.lang.Integer">
+		select count(*) from wd161_vote_tb 
+		where 
+		votter_id=#{userCode} 
+		and 
+		server_code=#{serverCode}
+		
+		and
+		role_name=#{roleName}
+		
+	</select>
+	
+	<!-- 投票成功 更新活跃度表 -->
+	<update id="updateActiveBean" >
+		update  wd161_active_tb 
+		set has_votes = has_votes-1 
+		where 
+		gid=#{gid}
+		and
+		server_name=#{serverName}
+		and
+		account=#{account}
+	</update>
+	
+	<!-- 投票成功 更新角色表 -->
+	<update id="updateRoleAccountBean" >
+		update  wd161_role_account_tb 
+		set votes =( votes+ #{votes}),
+		update_time= getdate()
+		where 
+		server_code=#{serverCode}
+		and
+		server_name=#{serverName}
+		and
+		role_name=#{roleName}
+		and
+		gid=#{gid}
+		
+	</update>
+	
+	<!-- 投票成功 添加投票记录表数据 -->
+	<insert id="insertVoteBean" >
+		insert into wd161_vote_tb
+		(user_code,user_name,role_name,create_time,server_name,server_code,votter_id,votter_name,votter_ip)
+		values
+		(#{userCode},#{userName},#{roleName},getdate(),#{serverName},#{serverCode},#{votterId},#{votterName},#{votterIp})
+	</insert>
+	
+</mapper>

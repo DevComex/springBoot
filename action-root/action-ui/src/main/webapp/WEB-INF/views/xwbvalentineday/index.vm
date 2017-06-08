@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>2017情人节</title>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/xwbValentineDay/css/css170106.css"/>
+    <script  type="text/javascript">
+        var rc = "${rc.contextPath}";
+    </script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xwbValentineDay/js/jquery-1.8.2.min.js" ></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+</head>
+<body>
+<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+<div class="wrap">
+    <div class="main">
+        <div class="nav">
+            <a href="http://xwb.gyyx.cn/Home/index.shtml" target="_blank">进入官网</a>|<a href="http://xwb.gyyx.cn/Download/index.shtml" target="_blank">游戏下载</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a
+                href="http://pay.gyyx.cn/" target="_blank">账号充值</a>
+        </div>
+        <div class="section1">
+            <div class="act">
+                <p class="duration">2017年2月14日0:00—2017年2月21日24:00</p>
+                <div class="put" id="loginmain">
+                </div>
+                <ul class="receive" id="waterlottory">
+                    <li id="one" txt="yes" data_code="1"><a href="javascript:;">
+                        浇水2天奖励<br/>
+                        <img src="http://static.cn114.cn/action/xwbValentineDay/images/reward11.png" alt=""/>
+                    </a></li>
+                    <li id="two" txt="yes" data_code="2"><a href="javascript:;">
+                        浇水5天奖励<br/>
+                        <img src="http://static.cn114.cn/action/xwbValentineDay/images/reward12.png" alt=""/>
+                    </a></li>
+                    <li id="three" txt="yes" data_code="3"><a href="javascript:;">
+                        浇水8天奖励<br/>
+                        <img src="http://static.cn114.cn/action/xwbValentineDay/images/reward13.png" alt=""/>
+                    </a></li>
+                </ul>
+            </div>
+            <div class="gift" id="getgift">
+                <a id="gf1"></a>
+                <a id="gf2"></a>
+                <a id="gf3"></a>
+                <a id="gf4"></a>
+                <a id="gf5"></a>
+            </div>
+        </div>
+        <div class="section2">
+            <div class="water" id="water">
+                <div class="myCursor" id="myCursor"></div>
+                <div class="tree"></div>
+                <div class="mupai">我的爱情树<br/>累计浇水<b id="day"></b>天</div>
+            </div>
+        </div>
+        <div class="section3">
+            <div class="rule">
+                <h3 class="tit1">活动规则</h3>
+                <p>活动时间：2017年2月14日0：00—2017年2月21日24：00。请您确保在活动结束前领取所有奖励。</p>
+                <p>每个帐号每天只能浇水一次，每次浇水可获得一次抽奖机会。</p>
+                <p>已获得的抽奖机会可累计，浇水机会隔天会重置，不累计。</p>
+                <p>累计浇水2、5、8天可领取对应天数的奖励。</p>
+                <p>抽奖和累计浇水奖励将通过游戏内邮件发放至您绑定区组中首个登录的角色上。</p>
+                <p>本活动最终解释权归光宇游戏所有。</p>
+            </div>
+            <div class="reward">
+                <h3 class="tit2">活动奖励</h3>
+                <table>
+                    <tr>
+                        <td width="48"><img src="http://static.cn114.cn/action/xwbValentineDay/images/reward1.png" alt=""/></td>
+                        <td width="171">赠送给心爱的人999朵玫瑰，表达你对忠贞爱情的向往！</td>
+                        <td width="48"><img src="http://static.cn114.cn/action/xwbValentineDay/images/reward2.png" alt=""/></td>
+                        <td width="171">有一定概率获得永久翅膀及非卖套装哦！</td>
+                    </tr>
+                    <tr>
+                        <td><img src="http://static.cn114.cn/action/xwbValentineDay/images/reward3.png" alt=""/></td>
+                        <td>有一定概率获得永久翅膀及非卖套装哦！</td>
+                        <td><img src="http://static.cn114.cn/action/xwbValentineDay/images/reward4.png" alt=""/></td>
+                        <td>有一定概率获得永久翅膀及非卖套装哦！</td>
+                    </tr>
+                    <tr>
+                        <td><img src="http://static.cn114.cn/action/xwbValentineDay/images/reward5.png" alt=""/></td>
+                        <td>爱情大作战专属道具，使用后可以转换自己的阵营！爱情究竟是什么滋味呢？</td>
+                        <td><img src="http://static.cn114.cn/action/xwbValentineDay/images/reward6.png" alt=""/></td>
+                        <td>可将银元宝/炫舞币放入红包，之后就可在房间/休闲广场发放红包了！</td>
+                    </tr>
+                    <tr>
+                        <td><img src="http://static.cn114.cn/action/xwbValentineDay/images/reward7.png" alt=""/></td>
+                        <td>勇敢地对TA示爱吧，使用后可传递给对方一颗心形泡泡！</td>
+                        <td><img src="http://static.cn114.cn/action/xwbValentineDay/images/reward8.png" alt=""/></td>
+                        <td>红色心形烟花，爱此刻永恒！</td>
+                    </tr>
+                    <tr>
+                        <td><img src="http://static.cn114.cn/action/xwbValentineDay/images/reward9.png" alt=""/></td>
+                        <td>可将银元宝/炫舞币放入红包，之后就可在房间内发放红包了！</td>
+                        <td><img src="http://static.cn114.cn/action/xwbValentineDay/images/reward10.png" alt=""/></td>
+                        <td>爱就爱吧，内含双倍经验卡、金钱卡，心形烟花及求婚卡哦！</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+<!--奖励领取成功-->
+<div class="blockBox" id="getprize">
+    <div class="dialog">
+        <a href="javascript:;" class="close"></a>
+        <div class="recei_Succ"></div>
+    </div>
+</div>
+
+<!--抽奖中-->
+<div class="blockBox" id="startprize">
+    <div class="dialog">
+        <p><span>抽奖中</span><img src="http://static.cn114.cn/action/xwbValentineDay/images/pg.gif"/p>
+    </div>
+</div>
+
+<!--您的抽奖次数用光啦-->
+<div class="blockBox" id="prizenum">
+    <div class="dialog">
+        <a href="javascript:;" class="close"></a>
+        <div class="use_up"></div>
+    </div>
+</div>
+
+<!--您的浇水次数不够哦-->
+<div class="blockBox" id="waternum">
+    <div class="dialog">
+        <a href="javascript:;" class="close"></a>
+        <div class="short_of"></div>
+    </div>
+</div>
+
+<!--恭喜抽到XXXXXXX-->
+<div class="blockBox" id="prize">
+    <div class="dialog">
+        <a href="javascript:;" class="close"></a>
+        <div class="get"></div>
+    </div>
+</div>
+
+<!--浇水成功-->
+<div class="blockBox" id="waterover">
+    <div class="dialog">
+        <a href="javascript:;" class="close"></a>
+        <div class="water_over"></div>
+    </div>
+</div>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?fe66fac96d321bda911cbdf54c5e4371";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script type="text/javascript" src="http://static.cn114.cn/action/xwbValentineDay/js/index.js" ></script>
+</body>
+</html>

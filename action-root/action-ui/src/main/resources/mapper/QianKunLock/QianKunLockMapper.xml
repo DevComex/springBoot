@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.qiankunlock.IQianKunLockMapper">
+	<resultMap id="QianKunLockModel" type="QianKunLockModel">
+		<id column="code" property="code" />
+		<result column="user_id" property="UserId" />
+		<result column="account" property="Account" />
+		<result column="game_id" property="GameId" />
+		<result column="server_id" property="ServerID" />
+		<result column="server_name" property="ServerName" />
+		<result column="ekey_type" property="EkeyType" />
+		<result column="ekey_sn" property="EkeySn" />
+		<result column="error_code" property="ErrCode" />
+		<result column="description" property="description" />
+	</resultMap>
+
+<update id="insertLog" statementType="CALLABLE" >
+	 <![CDATA[   	
+        {
+        	call sp_gyyx_ekey_sale_getitem(#{userID,mode=IN,jdbcType=INTEGER},#{account,mode=IN,jdbcType=VARCHAR},#{gameID,mode=IN,jdbcType=INTEGER},
+        	#{serverID,mode=IN,jdbcType=INTEGER},
+        	#{serverName,mode=IN,jdbcType=VARCHAR},
+        	#{ekeyType,mode=IN,jdbcType=INTEGER},
+        	#{ekeySn,mode=IN,jdbcType=VARCHAR},
+        	#{errcode,mode=OUT,jdbcType=INTEGER},
+        	#{logCode,mode=OUT,jdbcType=INTEGER})
+        }    
+        
+        ]]>
+	
+	</update>
+<update id="updateLog" parameterType="QianKunLockModel">
+		update gyyx_ekey_sale_log
+		set
+		error_code = #{ErrCode},description = #{description}
+		where
+		code = #{code}
+	</update>
+	
+	<select id="selectBindAcount" parameterType="Integer" resultMap="QianKunLockModel">
+		SELECT TOP 1 *
+  FROM gyyx_ekey_sale_log where user_id=#{userId}
+	</select>
+	<select id="SelectByEkeySn" parameterType="String" resultMap="QianKunLockModel">
+		SELECT TOP 1 *
+  FROM gyyx_ekey_sale_log where ekey_sn=#{EkeySn}
+	</select>
+</mapper>

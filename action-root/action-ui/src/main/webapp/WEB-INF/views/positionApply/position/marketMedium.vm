@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+    <title>光宇社招</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/positionApply/css/publicjian01.css"/>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/allstyle01.css" />
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/animate.css" />
+</head>
+<body style="background: #1a74c6;">
+	<div class="warp">
+		<div class="main shichangS" uid="560022685">
+			<h1><a href="${rc.contextPath}/position/index?a=1" class="list">职位列表</a></h1>
+			<div class="btn">
+				<p class="heads btnanimated fadeIn">
+					<img src="http://static.cn114.cn/action/positionApply/img01/swHead.png"/>
+				</p>
+				<a href="${rc.contextPath}/position/positiontype/marketSchemeManger" class="left leftani fadeInRight"></a>
+				<a href="${rc.contextPath}/position/positiontype/marketCommerce" class="right rightani fadeInLeft"></a>
+			</div>
+			<div class="content contentani fadeIn2">
+				<h2>媒介专员</h2>
+				<h3>岗位职责</h3>
+				<p>1、维护媒体关系，负责公司全部游戏项目及公司形象的宣传工作；</p>
+				<p>2、策划媒体活动，制作广告排期、跟盯广告后期数据及效果分析。</p>
+				<h3>任职资格</h3>
+				<p>1、有1年以上媒介行业经验者，拥有移动互联网媒体、游戏媒体、科技媒体资源者优先；</p>
+				<p>2、优秀的外联与公关能力，具备危机公关的能力。</p>
+			</div>
+			<div class="xsbtn xsani fadeInUpBig">
+					<a href="http://gyyx.m.zhiye.com/JobAd/Info?adid=560022685" class="sq">在线申请</a>
+				<a href="#" class="fx fxz">分享职位</a>
+			</div>
+		</div>
+	</div>
+	<div class="zz">
+		<img src="http://static.cn114.cn/action/positionApply/img01/zz.png" />
+	</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/zepto.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/allstyle01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/gyyx_wxshare.min.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/content01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/fx01.js" ></script>
+<script>
+	$("body").on("swipeLeft",function(){
+		location.href="${rc.contextPath}/position/positiontype/marketCommerce";
+	})
+	$("body").on("swipeRight",function(){
+		location.href="${rc.contextPath}/position/positiontype/marketSchemeManger";
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!doctype html>
+<html>
+  <head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <link type="image/x-icon" rel="icon" href="http://static.gyyx.cn/img/icon.ico" />
+		<title>APP签到</title>
+         <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+        <script src="http://static.cn114.cn/action/wdappSign20161122/js/qrcode.js"></script>
+        <link type="text/css" href="http://static.cn114.cn/action/wdappSign20161122/css/check.css" rel="stylesheet"/>
+		<script  type="text/javascript">
+		    var rc = "${rc.contextPath}";
+		</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+		 <script type="text/javascript" src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> 
+	</head>
+
+	<body style="background:#483700;">
+       <div class="sign">
+            <div id="mask"></div>
+     
+               <!-- 领取奖励弹层 -->
+               <div class="receive">
+                   <div class="receiveTop">
+                       <a href="javascript:;" class="closeBtnJop"></a>
+                   </div>
+                   <ul>  
+                       <li>获得 松树铭牌×1</li>
+                       <li>获得 五雷令×1</li>
+                       <li>获得 如意战斗令×3</li>
+                       <li>获得 修为丹×5</li>
+                   </ul>
+                   <div class="receiveBottom"></div>
+               </div>
+              <!-- 领取失败 -->
+               <div class="errorRecevie">
+                    <a href="javascript:;" class="closeBtnJop4"></a>
+               </div>
+               <!-- 签到成功 -->
+               <div class="signYes">
+                    <a href="javascript:;" class="closeBtnJop5"></a>
+
+               </div>
+              <!-- 服务器 -->
+               <div class="img404">
+                    <a href="javascript:;" class="closeBtnJop2"></a>
+
+               </div>
+           <!-- 错误弹层提示信息 -->
+           <div class="errorWord">
+               <p class="messageWord"></p>
+                <a href="javascript:;" class="closeBtnJop3"></a>
+
+           </div>
+
+
+            <!-- 二维码弹出层 -->
+               <div class="receiveEWM">
+                   <div class="receiveTop">
+                       <a href="javascript:;" class="closeBtnJop6"></a>
+                   </div>
+                   <div class="tanPop">
+                        <img src="http://static.cn114.cn/action/wdappSign20161122/image/gzBtnPop.png" class="gzBtnPop"/>
+                        <img src="http://static.cn114.cn/action/wdappSign20161122/image/xzBtnPop.png" class="xzBtnPop"/>
+                   </div>
+                    
+                   <div class="receiveBottom"></div>
+               </div>
+          
+          <!-- 关闭签到页面 -->
+           <a href="javascript:;" class="closeBtn">关闭</a>
+           
+           <ul class="calendarBox">
+               <li class="day01" data-day="0" data-position="0">第1天</li>
+               <li class="day02" data-day="1" data-position="-94px">第2天</li>
+               <li class="day03" data-day="2" data-position="-188px">第3天</li>
+               <li class="day04" data-day="3" data-position="-281px">第4天</li>
+               <li class="day05" data-day="4" data-position="-376px">第5天</li>
+               <li class="day06" data-day="5" data-position="-470px">第6天</li>
+               <li class="day07 nomargin" data-day="6" data-position="-564px">第7天</li>
+               <li class="day08" data-day="7" data-position="-658px">第8天</li>
+               <li class="day09" data-day="8" data-position="-752px">第9天</li>
+               <li class="day10" data-day="9" data-position="-846px">第10天</li>
+               <li class="day11" data-day="10" data-position="-939px">第11天</li>
+               <li class="day12" data-day="11" data-position="-1034px">第12天</li>
+               <li class="day13" data-day="12" data-position="-1128px">第13天</li>
+               <li class="day14 nomargin" data-day="13" data-position="-1222px">第14天</li>
+           </ul>
+           <div style="overflow:hidden;"></div>
+           <div class="reward">
+               <a href="javascript:;" class="rewardBtn">领取奖励</a>
+               <p class="totalWord">
+                   <span class="continuity">已连续签到天</span>
+                   <span class="total">已累计签到天</span>
+               </p>
+               <div class="rewardList">
+                   <ul>
+                       <li><p>连续3天<!--松树铭牌--></p><span class="gift01"></span><p>x1</p></li>
+                       <li><p>连续5天<!--五雷令--></p><span class="gift02"></span><p>x1</p></li>
+                       <li><p>累计8天<!--如意战斗令--></p><span class="gift03"></span><p>x3</p></li>
+                       <li><p>累计12天<!--修为丹--></p><span class="gift04"></span><p>x5</p></li>
+                   </ul>
+                   <p class="zhu">注：奖励均为赠品</p>
+               </div>
+           </div>
+           <div class="erweima">
+               <ul>
+                   <li>
+                       <!-- 二维码签到区块 -->
+                       <div class="ewmImgB">
+                           <div id="js_ewm_box"data-status="1"></div>
+                           <div class="ewmOverDue_box">
+                               <p class="ewmOverDue"></p>
+                               <p class="ewmtxt">二维码失效<br>请点击刷新</p>
+                           </div>
+                         </div>
+                       <!-- 二维码签到区块 -->
+                       <p>使用App扫一扫即可完成签到</p>
+                   </li>
+                  <li style="background:none; margin:0 0 0 10px">
+                       <a href="javascript:;" class="gzBtn">点击关注</a>
+                       <a href="javascript:;" class="xzBtn">点击下载</a>
+                   </li>
+               </ul>
+           </div>
+       </div>
+       
+         <script>
+             function getQuery(name, str) {
+                 var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"),
+                     r = !str ? window.location.search.substr(1).match(reg) : str.substr(1).match(reg);
+                 if (r != null) {
+                     return unescape(r[2]);
+                 }
+                 return null;
+             }
+             //获取url地址中的中文字符
+             var par = decodeURIComponent(window.location.search), serverName = getQuery("serverName", par), account = getQuery("account", par), serverId = getQuery("serverId", par);
+            
+             closeFn($(".closeBtnJop"), $("#mask"), $(".receive"));
+             closeFn($(".closeBtnJop2"), $("#mask"), $(".img404"));//error信息提示
+             closeFn($(".closeBtnJop3"), $("#mask"), $(".errorWord"));//错误信息提示
+             closeFn($(".closeBtnJop4"), $("#mask"), $(".errorRecevie"));//领取失败弹层
+             closeFn($(".closeBtnJop5"), $("#mask"), $(".signYes"));//签到成功弹层
+             closeFn($(".closeBtnJop6"), $("#mask"), $(".receiveEWM"));//签到成功弹层
+             //关闭弹层函数
+             function closeFn(objFn,mask,popdiv){
+                 objFn.click(function () {
+                     popdiv.hide();
+                     mask.hide();
+                 });
+             }
+             
+             $(".gzBtn").click(function () {
+                 $("#mask").show();
+                 $(".gzBtnPop").show();
+                 $(".receiveEWM").show();
+                 $(".xzBtnPop").hide();
+                 
+             })
+             $(".xzBtn").click(function () {
+                 $("#mask").show();
+                 $(".xzBtnPop").show();
+                 $(".receiveEWM").show();
+                 $(".gzBtnPop").hide();
+                 
+             })
+             
+             //签到日历展示，领取奖励判断
+             var flag = true;
+             var showSign;
+             signIn();
+             function signIn() {
+             $.ajax({
+                 url: rc+"/wdappsign/signlist",
+                 type: "post",
+                 dataType: "json",
+                 data: {
+                     r: Math.random(),
+                     account: account,
+                     serverName: serverName
+                 },
+                 success: function (data) {
+                     if (data.isSuccess) {
+                         if (data.isConnect) {
+                            //alert("纯展示")
+                         } else {
+                            //显示今日签到成功
+                            $(".signYes").show(); 
+                            $("#mask").show(); 
+                         }
+                         //获取签到日期
+                             for (var j = 0 ; j < data.signDay.length ; j++) {
+                                 var positionX = $(".calendarBox").find("li[data-day=" + data.signDay[j] + "]").attr("data-position");
+                                 $(".calendarBox").find("li[data-day=" + data.signDay[j] + "]").addClass("qian")
+                                 $(".calendarBox").find("li[data-day=" + data.signDay[j] + "]").css("background-position-x", positionX);//x背景位置
+                                 $(".calendarBox").find("li[data-day=" + data.signDay[j] + "]").css("background-position-y", "-189px ");//y背景位置
+                         };
+                         //获取漏签日期
+                             for (var q = 0 ; q < data.unsignDay.length ; q++) {
+                                 var positionLouX = $(".calendarBox").find("li[data-day=" + data.unsignDay[q] + "]").attr("data-position");
+                                 $(".calendarBox").find("li[data-day=" + data.unsignDay[q] + "]").addClass("qian")
+                                 $(".calendarBox").find("li[data-day=" + data.unsignDay[q] + "]").css("background-position-x", positionLouX);//x背景位置
+                                 $(".calendarBox").find("li[data-day=" + data.unsignDay[q] + "]").css("background-position-y", "-94px ");//y背景位置
+                             };
+                         
+                             $(".continuity").html('已连续签到' + data.serialDay + '天');
+                             $(".total").html('已累计签到' + data.totalDay + '天');
+                           //鼠标滑过领取奖励效果
+                         if (data.isGetGift) {
+                             $(".rewardBtn").css("background-position-y", "-40px").addClass("giftRevice");
+                             $(".giftRevice").mouseover(function () {
+                                 $(".giftRevice").css("background-position-y", "-80px")
+                             })
+                             $(".giftRevice").mouseout(function () {
+                                 $(".giftRevice").css("background-position-y", "-40px")
+                             })
+                         }
+                         giftRevice();//领取奖励
+                         if (data.isConnect == true) {//定时器进行循环
+                             flag = true;
+                         } else {//成功签到，停止链接
+                             flag = false;
+                             setTimeout(showSign);
+                         }
+                   }else{
+                         $("#mask").show();
+                         $(".errorWord").show();
+                         $(".messageWord").html(data.message);
+                         setTimeout(showSign);//清除定时器
+                         /*二维码失效*/
+                         $('.ewmOverDue_box').show();
+                         $('.ewmtxt').html('二维码失效<br>请点击刷新');
+                         oEwmbox.attr('data-status', '1');
+                   }
+
+                 },
+                 error: function () {
+                     //显示服务器错误提示
+                     $(".img404").show();
+                     $("#mask").show();
+                     /*二维码失效*/
+                     $('.ewmOverDue_box').show();
+                     $('.ewmtxt').html('二维码失效<br>请点击刷新');
+                     oEwmbox.attr('data-status', '1');
+         
+                 },
+              });
+             }
+             //领取奖励按钮显示
+             function giftRevice() {
+                 $(".giftRevice").click(function () {
+                     var dataHtml = '';
+                     $(".giftRevice").unbind("click")
+                     $.ajax({
+                         url: rc+"/wdappsign/sendgift",//领取奖励接口
+                         type: "POST",
+                         dataType: "json",
+                         data: {
+                             r: Math.random(),
+                             serverName: serverName,
+                             account:account
+                         },
+                         success: function (data) {
+                             if (data.isSuccess) {
+                                 $(".giftRevice").unbind("click")
+                                 $(".receive").show();
+                                 $("#mask").show();
+                                 for (var i = 0; i < data.data.length; i++) {
+                                     dataHtml += '<li>获得 ' + data.data[i] + '</li>';
+                                 }
+                                 $(".receive ul").html(dataHtml)//领取奖励物品详情
+                                 //置灰按钮
+                                 $(".rewardBtn").removeClass("giftRevice").css("background-position-y", "0");
+                             }else{
+                                 $("#mask").show();
+                                 $(".errorRecevie").show();
+                                 $(".giftRevice").bind("click")
+                             }
+                          },
+                         error: function () {
+                             //显示服务器错误提示
+                             $(".img404").show();
+                             $("#mask").show();
+                             },
+                      });
+                   })
+                 }
+
+             //初始化二维码
+             ewmLogin($('#js_ewm_box'));
+             //过期刷新二维码
+             $('.ewmOverDue_box').unbind('click').bind('click', function () {
+                 $(this).hide();
+				  signIn();
+                 ewmLogin($('#js_ewm_box'));
+             })
+
+             //扫码签到长轮循接口
+             function ewmLoginFn(oEwmbox) {
+             		function functionSgin(){
+                       signIn();
+                     }
+	                if (flag) {
+	                    setTimeout(showSign);
+	                    showSign = setTimeout(functionSgin, 20000);//1000为1秒钟
+	                 } else {
+	                     console.log(flag)
+	                     setTimeout(showSign);
+	                 }
+                
+             }
+
+             function ewmLogin(oEwmbox) {
+                 $.ajax({
+                     url: rc + "/wdappsign/qrcode",
+                     type: 'post', 
+                     dataType: 'json',
+                     data: {
+                         r: Math.random(),
+                         s: serverName,//服务器名
+                         account: account,//账号
+                         serverId: serverId
+                     },
+                     success: function (d) {
+                        if (d.isSuccess) {
+                         
+                             $('#js_ewm_box').empty();
+                            jQuery('#js_ewm_box').qrcode({
+					                render: "canvas",
+					                text: utf16to8(d.data),
+					                width: 161,
+					                height: 161,
+					                correctLevel: 0
+					            });
+					         ewmFalse();
+                             oEwmbox.attr('title', '')
+                             ewmLoginFn(oEwmbox);
+                            
+                            
+                         } else {
+                             $('.ewmOverDue_box').show();
+                             $('.ewmtxt').html('二维码失效<br>请点击刷新');
+                             oEwmbox.attr('data-status', '1');
+                             setTimeout(showSign);//清除定时器
+                         }
+                     },
+                     error: function () {
+                         $('.ewmOverDue_box').show();
+                         $('.ewmtxt').html('二维码失效<br>请点击刷新');
+                         oEwmbox.attr('data-status', '1');
+                     }
+                 })
+             }
+			/*二维码失效定时器60S*/
+         	function ewmFalse(){
+         		var timer= '';
+         		clearTimeout(timer);
+               timer = setTimeout(function(){
+                  $('.ewmOverDue_box').show();
+                  $('.ewmtxt').html('二维码失效<br>请点击刷新');
+                  setTimeout(showSign);//清除定时器
+              }, 60000)
+            } 
+            
+            
+       /*二维码中文处理*/
+         function utf16to8(str) {
+            var out, i, len, c;
+            out = "";
+            len = str.length;
+            for (i = 0; i < len; i++) {
+                c = str.charCodeAt(i);
+                if ((c >= 0x0001) && (c <= 0x007F)) {
+                    out += str.charAt(i);
+                } else if (c > 0x07FF) {
+                    out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+                    out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                } else {
+                    out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+                    out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+                }
+            }
+           return out;
+        }
+         </script>
+	</body>
+
+</html>

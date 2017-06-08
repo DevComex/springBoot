@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.backstage.ILimitPeopleMapper">
+	<resultMap type="LimitPeopleBean" id="LimitPeopleBean">
+		 <id property="code" column="code" />
+		<result property="personId" column="person_id" />
+		<result property="personName" column="person_name" />
+		<result property="limitCode" column="limit_code" />
+		<result property="deleteFlag" column="delete_flag"/>
+	</resultMap>
+	<select id="selectByActionCode" parameterType="Integer" resultMap="LimitPeopleBean" resultType="list">
+		select *
+		from action_common_limil_people 
+		where limit_code  = #{limitCode} and delete_flag = 0
+	</select>
+		<update id="deleteLimitPeopleBean" parameterType="Integer">
+		update action_common_limil_people
+		set
+		delete_flag = 1
+		where
+		limit_code = #{limitCode}
+	</update>
+	<insert id="insertByActionCode"  parameterType="LimitPeopleBean" useGeneratedKeys="true" keyProperty="code">
+		insert into action_common_limil_people   
+		(person_id, person_name,limit_code,delete_flag)  
+	    values(#{personId},#{personName},#{limitCode},#{deleteFlag}) 
+	</insert>
+</mapper>

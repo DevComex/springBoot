@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+    <title>加入光宇游戏，一起缔造快乐！</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/positionApply/css/swiper.css"/>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/publicjian01.css" />
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/zhiweilist01.css" />
+    <style>
+		.main{
+			position: relative;
+		}
+    	.swiper-container {
+		    width: 100%;
+		    height: 100%;
+		}
+		.btn{
+			width: 80%;
+			height: 40px;
+			position: absolute;
+			left: 10%;
+			bottom: 11%;
+		}
+		.btn>img{
+			width: 100%;
+			height: 100%; 
+			display: block;
+		}
+		@media only screen and (min-width: 1000px) {
+			.btn{
+				width: 70%;
+				height: 50px;
+				position: absolute;
+				left: 15%;
+			}
+		}
+    </style>
+	 <script  type="text/javascript">
+     var rc = "${rc.contextPath}";
+ </script>
+</head>
+<body style="background: #007AFF;">
+	<div class="warp">
+		<div class="swiper-container">
+	        <div class="swiper-wrapper">
+	            <div class="swiper-slide">
+	            	<div class="main shouye">
+						<img src="http://static.cn114.cn/action/positionApply/img01/shouye.png" />
+						<div class="jian j1">
+							<a href="#"><img src="http://static.cn114.cn/action/positionApply/img01/jian.png" /></a>
+						</div>
+					</div>
+	            </div>
+	            <div class="swiper-slide">
+	            	<div class="main">
+						<img src="http://static.cn114.cn/action/positionApply/img01/introduce.png" />
+						<div class="jian j1">
+							<a href="#"><img src="http://static.cn114.cn/action/positionApply/img01/jian.png" /></a>
+						</div>
+					</div>
+	            </div>
+	            <div class="swiper-slide">
+	            	<div class="main">
+						<img src="http://static.cn114.cn/action/positionApply/img01/zhiweifl.jpg" />
+						<div class="listH">
+							<ul>
+								<li>
+									<dl>
+										<dt><a href="${rc.contextPath}/position/positiontype/gamedeveloper"><img src="http://static.cn114.cn/action/positionApply/img01/kf.png"/></a></dt>
+										<dd><a href="${rc.contextPath}/position/positiontype/gamedeveloper">游戏开发类</a></dd>
+									</dl>
+									<dl>
+										<dt><a href="${rc.contextPath}/position/positiontype/artscene"><img src="http://static.cn114.cn/action/positionApply/img01/ms.png"/></a></dt>
+										<dd><a href="${rc.contextPath}/position/positiontype/artscene">游戏美术类</a></dd>
+									</dl>
+									<dl>
+										<dt><a href="${rc.contextPath}/position/positiontype/gameNumberDesigner"><img src="http://static.cn114.cn/action/positionApply/img01/ch.png"/></a></dt>
+										<dd><a href="${rc.contextPath}/position/positiontype/gameNumberDesigner">游戏策划类</a></dd>
+									</dl>
+								</li>
+								<li>
+									<dl>
+										<dt><a href="${rc.contextPath}/position/positiontype/applicationLinux"><img src="http://static.cn114.cn/action/positionApply/img01/yykf.png"/></a></dt>
+										<dd><a href="${rc.contextPath}/position/positiontype/applicationLinux">应用开发类</a></dd>
+									</dl>
+									<dl>
+										<dt><a href="${rc.contextPath}/position/positiontype/produceAnalysisSupervisor"><img src="http://static.cn114.cn/action/positionApply/img01/yy.png"/></a></dt>
+										<dd><a href="${rc.contextPath}/position/positiontype/produceAnalysisSupervisor">产品运营类</a></dd>
+									</dl>
+									<dl>
+										<dt><a href="${rc.contextPath}/position/positiontype/marketSchemeManger"><img src="http://static.cn114.cn/action/positionApply/img01/sw.png"/></a></dt>
+										<dd><a href="${rc.contextPath}/position/positiontype/marketSchemeManger">市场商务类</a></dd>
+									</dl>
+								</li>
+								<li id="lastList">
+									<dl>
+										<dt><a href="${rc.contextPath}/position/positiontype/videoGC"><img src="http://static.cn114.cn/action/positionApply/img01/sp.png"/></a></dt>
+										<dd><a href="${rc.contextPath}/position/positiontype/videoGC">视频美术类</a></dd>
+									</dl>
+									<dl>
+										<dt><a href="${rc.contextPath}/position/positiontype/function"><img src="http://static.cn114.cn/action/positionApply/img01/zn.png"/></a></dt>
+										<dd><a href="${rc.contextPath}/position/positiontype/function">职能类</a></dd>
+									</dl>
+								</li>
+							</ul>
+						</div>
+						<div class="jian j1">
+							<a href="#"><img src="http://static.cn114.cn/action/positionApply/img01/jian.png" /></a>
+						</div>
+					</div>
+				
+	            </div>
+	            <div class="swiper-slide">
+	            	<div class="main">
+						<img src="http://static.cn114.cn/action/positionApply/img01/lianxi.jpg" />
+						<div class="btn">
+							<img class="all fxzz" src="http://static.cn114.cn/action/positionApply/img01/alljobb.png" />
+						</div>
+						<div class="jian j2">
+							<a href="#"><img src="http://static.cn114.cn/action/positionApply/img01/jianT.png" /></a>
+						</div>
+					</div>
+	            </div>
+	        </div>
+       </div>
+		<div class="zz fxz" id="allFx">
+			<img src="http://static.cn114.cn/action/positionApply/img01/zz.png" />
+		</div>
+		
+	</div>
+	
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/zepto.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/swiper.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/allstyle01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/gyyx_wxshare.min.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/lianxiW01.js" ></script>
+<script>
+	var swiper = new Swiper('.swiper-container', {
+	    direction: 'vertical'
+	});
+	$(".j1").on("tap",function(){
+		swiper.slideNext();
+	});
+	$(".j2").on("tap",function(){
+		swiper.slidePrev();
+	});
+	//获取url参数 
+	function getQuery(name) {
+	    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"),
+	    r = window.location.search.substr(1).match(reg);
+	    if (r != null) {
+	        return r[2];
+	    }
+	    return null;
+	}
+	var n=getQuery("a");
+	if(n==1){
+		swiper.slideTo(2,1,false);
+	}
+	
+	var evt = "onorientationchange" in window ? "orientationchange" : "resize";
+              window.addEventListener(evt, function () {
+            if (window.orientation == 0 || window.orientation == 180) {
+                           //  alert('竖屏')
+	       
+                $('.tips').remove();
+
+            } else if (window.orientation == 90 || window.orientation == -90) {
+	     
+                $("body").append('<div class="tips">请旋转手机获取更好体验</div>');
+            }
+        }, false);
+</script>
+</body>

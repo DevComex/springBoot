@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="logImpl" value="STDOUT_LOGGING" />
+	</settings>
+	<!-- 为实体类起别名 -->
+	<typeAliases>
+		<typeAlias alias="CollectTopShowBean"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.CollectTopShowBean" />
+		<typeAlias alias="Server"
+			type="cn.gyyx.action.beans.novicecard.ServerBean" />
+		<typeAlias alias="NoviceCard"
+			type="cn.gyyx.action.beans.novicecard.NoviceCardBean" />
+		<typeAlias alias="VirtualItem"
+			type="cn.gyyx.action.beans.novicecard.VirtualItemBean" />
+		<typeAlias alias="ReceiveLog"
+			type="cn.gyyx.action.beans.novicecard.NoviceCardReceiveLogBean" />
+		<typeAlias alias="ActivityConfigBean"
+			type="cn.gyyx.action.beans.novicecard.ActivityConfigBean" />
+		<typeAlias alias="ErWeiMa"
+			type="cn.gyyx.action.beans.novicecard.ErWeiMaBean" />
+		<typeAlias alias="NoviceCardMutexBean"
+			type="cn.gyyx.action.beans.novicecard.NoviceCardMutexBean" />
+
+		<typeAlias alias="WDNo1PetInfoBean"
+			type="cn.gyyx.action.beans.wdno1pet.WDNo1PetInfoBean" />
+		<typeAlias alias="ImageBean" type="cn.gyyx.action.beans.wdno1pet.ImageBean" />
+		<typeAlias alias="CommentItem" type="cn.gyyx.action.beans.wdno1pet.CommentBean" />
+		<typeAlias alias="CrimeReporter"
+			type="cn.gyyx.action.beans.wdno1pet.CrimeReporterBean" />
+		<typeAlias alias="Vote" type="cn.gyyx.action.beans.wdno1pet.VoteBean" />
+		<typeAlias alias="LotteryConfig"
+			type="cn.gyyx.action.beans.wdno1pet.LotteryConfigBean" />
+		<typeAlias alias="UserLottery"
+			type="cn.gyyx.action.beans.wdno1pet.UserLotteryBean" />
+
+		<typeAlias alias="Writing"
+			type="cn.gyyx.action.beans.wdninestory.WritingBean" />
+		<typeAlias alias="VoteBean" type="cn.gyyx.action.beans.wdninestory.VoteBean" />
+
+		<typeAlias alias="WishBean" type="cn.gyyx.action.beans.wd9year.WishBean" />
+		<typeAlias alias="QianKunLockModel"
+			type="cn.gyyx.action.beans.QianKunLock.QianKunLockModel" />
+
+
+		<typeAlias alias="OrderAndPrizeBean"
+			type="cn.gyyx.action.beans.lottery.OrderAndPrizeBean" />
+		<typeAlias alias="PrizeBean" type="cn.gyyx.action.beans.lottery.PrizeBean" />
+		<typeAlias alias="ContrParmBean"
+			type="cn.gyyx.action.beans.lottery.ContrParmBean" />
+		<typeAlias alias="UserInfoBean" type="cn.gyyx.action.beans.lottery.UserInfoBean" />
+		<typeAlias alias="ChancePrizeBean"
+			type="cn.gyyx.action.beans.lottery.ChancePrizeBean" />
+		<typeAlias alias="Qualification"
+			type="cn.gyyx.action.beans.lottery.QualificationBean" />
+		<typeAlias alias="AddressBean" type="cn.gyyx.action.beans.lottery.AddressBean" />
+		<typeAlias alias="RechargeBean" type="cn.gyyx.action.beans.lottery.RechargeBean" />
+
+		<typeAlias alias="HdSendPresentLogBean"
+			type="cn.gyyx.action.beans.wd9yearnovicebag.HdSendPresentLogBean" />
+
+		<typeAlias alias="BagActivityConfigBean"
+			type="cn.gyyx.action.beans.wd9yearnovicebag.BagActivityConfigBean" />
+		<typeAlias alias="ActionServerConfigBeen"
+			type="cn.gyyx.action.beans.wd9yearnovicebag.ActionServerConfigBean" />
+
+		<typeAlias alias="Address"
+			type="cn.gyyx.action.beans.wdninestory.AddressBean" />
+		<!-- 问道9周年 大数据视频 -->
+		<typeAlias alias="PresentLogBean"
+			type="cn.gyyx.action.beans.wd9yeardatavideo.PresentLogBean" />
+		
+		<typeAlias alias="AddressBean" type="cn.gyyx.action.beans.lottery.AddressBean" />
+		<typeAlias alias="RechargeBean" type="cn.gyyx.action.beans.lottery.RechargeBean" />
+
+		<!-- dne -->
+		<typeAlias alias="UserRecordBean"
+			type="cn.gyyx.action.beans.lottery.UserRecordBean" />
+		<!-- wdtoplevel -->
+		<typeAlias alias="AppointmentBean"
+			type="cn.gyyx.action.beans.wdtoplevel.AppointmentBean" />
+		<!-- wdinsurance -->
+		<typeAlias alias="BlackListBean"
+			type="cn.gyyx.action.beans.insurance.BlackListBean" />
+		<typeAlias alias="OrderParameterBean"
+			type="cn.gyyx.action.beans.insurance.OrderParameterBean" />
+		<typeAlias alias="OrderBean" type="cn.gyyx.action.beans.insurance.OrderBean" />
+		<typeAlias alias="MyOrderParameterBean"
+			type="cn.gyyx.action.beans.insurance.MyOrderParameterBean" />
+		<typeAlias alias="LoginLogBean"
+			type="cn.gyyx.action.beans.insurance.LoginLogBean" />
+		<typeAlias alias="InsurerParaBean"
+			type="cn.gyyx.action.beans.insurance.TranferInsurerParaBean" />
+		<typeAlias alias="ReparationBean"
+			type="cn.gyyx.action.beans.insurance.ReparationBean" />
+		<typeAlias alias="InsuranceConfigBean"
+			type="cn.gyyx.action.beans.insurance.InsuranceConfigBean" />
+
+		<!-- common -->
+		<typeAlias alias="ActionCommonFormBean"
+			type="cn.gyyx.action.beans.common.ActionCommonFormBean" />
+		<typeAlias alias="ActionCommonImageBean"
+			type="cn.gyyx.action.beans.common.ActionCommonImageBean" />
+		<typeAlias alias="ActionCommonCommentBean"
+			type="cn.gyyx.action.beans.common.ActionCommonCommentBean" />
+		<typeAlias alias="NoteURLBean" type="cn.gyyx.action.beans.common.NoteURLBean" />
+
+
+		<!-- 炫舞吧积分活动 -->
+		<typeAlias alias="Player"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.PlayerInfoBean" />
+		<typeAlias alias="GoodsGetBean"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.GoodsGetBean" />
+		<typeAlias alias="SumCredit"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.SumCreditBean" />
+		<typeAlias alias="Credit"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.CreditsBean" />
+		<typeAlias alias="SignInBean"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.SignInBean" />
+		<typeAlias alias="Good"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.GoodsInfoBean" />
+		<typeAlias alias="MissionBean"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.MissionBean" />
+		<typeAlias alias="MissionReceiveBean"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.MissionReceiveBean" />
+		<typeAlias alias="MaterialAuditBean"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.MaterialAuditBean" />
+		<typeAlias alias="Record"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.OprateRecordsBean" />
+		<typeAlias alias="CommentsBean"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.CommentsBean" />
+		<typeAlias alias="MaterialInfoBean"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.MaterialInfoBean" />
+		<typeAlias alias="RewardReceiveLogBean"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.RewardReceiveLogBean" />
+		<typeAlias alias="PraiseBean"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.PraiseBean" />
+		<typeAlias alias="SignPrizeBean"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.SignPrizeBean" />
+		<typeAlias alias="PictureUrlBean"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.PictureUrlBean" />
+		<typeAlias alias="ServerStatusBean"
+			type="cn.gyyx.action.beans.xwbcreditsluckydraw.ServerStatusBean" />
+
+	
+		<typeAlias alias="voteItemMap" type="cn.gyyx.action.beans.lottery.VoteBean" />
+		<typeAlias alias="CommentBean" type="cn.gyyx.action.beans.lottery.CommentBean" />
+
+		<!-- 创世Online 元宝兑换光宇币活动 -->
+		<typeAlias alias="OnlineChangeBean"
+			type="cn.gyyx.action.beans.online.OnlineChangeBean" />
+		<typeAlias alias="OnlineChangeLogBean"
+			type="cn.gyyx.action.beans.online.OnlineChangeLogBean" />
+		<!-- 直接发送奖品码 -->
+		<typeAlias alias="_PresentMesBean"
+			type="cn.gyyx.action.beans.activityCode.PresentMesBean" />
+
+
+		<!-- 问道安装LOG数据 -->
+		<typeAlias alias="wdLogDataBean"
+			type="cn.gyyx.action.beans.wdlogdata.WdLogDataBean" />
+
+
+		<!-- 问道全民PK赛报名 -->
+		<typeAlias alias="AllPKInfo" type="cn.gyyx.action.beans.wdallpk.AllPKInfo" />
+
+		<!-- 微信游戏后台统计 -->
+		<typeAlias alias="WeChatCountBean"
+			type="cn.gyyx.action.beans.wechat.WeChatCountBean" />
+
+		<!-- 小说连载 -->
+		<typeAlias alias="ChapterBean" type="cn.gyyx.action.beans.chapter.ChapterBean" />
+
+		<!-- 后台统计 -->
+		<typeAlias alias="ConfigBean" type="cn.gyyx.action.beans.wechat.ConfigBean" />
+		<typeAlias alias="OperateBean" type="cn.gyyx.action.beans.wechat.OperateBean" />
+		<typeAlias alias="CustomBean" type="cn.gyyx.action.beans.wechat.CustomBean" />
+		<typeAlias alias="MappingBean" type="cn.gyyx.action.beans.wechat.MappingBean" />
+
+		<!-- 微信lottery -->
+		<typeAlias alias="WeiXinRechargeBean"
+			type="cn.gyyx.action.beans.wechat.WeiXinRechargeBean" />
+		<typeAlias alias="WeiXinAddressBean"
+			type="cn.gyyx.action.beans.wechat.WeiXinAddressBean" />
+		<typeAlias alias="WeiXinQualificationBean"
+			type="cn.gyyx.action.beans.wechat.WeiXinQualificationBean" />
+
+		<!-- 炫舞吧老玩家回归活动 -->
+		<typeAlias alias="InviteBean"
+			type="cn.gyyx.action.beans.xwbplayerback.InviteBean" />
+
+
+		<!-- 绝世武神预约活动 -->
+		<typeAlias alias="ReserveBean"
+			type="cn.gyyx.action.beans.jswsReserve.ReserveBean" />
+
+		<!-- 乾坤锁礼包领取 -->
+		<typeAlias alias="QianKunLockLimitBean"
+			type="cn.gyyx.action.beans.QianKunLock.QianKunLockLimitBean" />
+		<!-- 职位申请 -->
+		<typeAlias alias="ApplyInfoBean"
+			type="cn.gyyx.action.beans.positionApply.ApplyInfoBean" />
+		<!-- 灵魂战神 -->
+		<typeAlias alias="ActionConfigBean"
+			type="cn.gyyx.action.beans.lhzs.activityCode.ActionConfigBean" />
+		<!-- 通用活动配置 -->
+		<typeAlias alias="CommonActionConfigBean"
+			type="cn.gyyx.action.beans.common.ActionConfigBean" />
+		<!-- 问道十年画图 -->
+		<typeAlias alias="WDTenYearScoreBean"
+			type="cn.gyyx.action.beans.tenyearpicture.ScoreBean" />
+		<typeAlias alias="WDTenYearScoreLogBean"
+			type="cn.gyyx.action.beans.tenyearpicture.ScoreLogBean" />
+
+		<!--问道名人争霸赛 -->
+		<typeAlias alias="championshipCommentInfoBean"
+			type="cn.gyyx.action.beans.wdchampionship.ChampionshipCommenttInfoBean" />
+
+		<!--问道十周年粉丝榜 -->
+		<typeAlias alias="WdAccountInfoBean"
+			type="cn.gyyx.action.beans.wdtenyearfans.WdAccountInfoBean" />
+		<typeAlias alias="WdAccountScoreBean"
+			type="cn.gyyx.action.beans.wdtenyearfans.WdAccountScoreBean" />
+		<typeAlias alias="WdCommentsBean"
+			type="cn.gyyx.action.beans.wdtenyearfans.WdCommentsBean" />
+		<typeAlias alias="WdNominationInfoBean"
+			type="cn.gyyx.action.beans.wdtenyearfans.WdNominationInfoBean" />
+		<typeAlias alias="WdVoteInfoBean"
+			type="cn.gyyx.action.beans.wdtenyearfans.WdVoteInfoBean" />
+		<typeAlias alias="WdMajorImageBean"
+			type="cn.gyyx.action.beans.wdtenyearfans.WdMajorImageBean" />
+
+		<!-- 问道积分兑换 -->
+		<typeAlias alias="PrizeConfigBean"
+			type="cn.gyyx.action.beans.exchangescore.PrizeConfigBean" />
+		<typeAlias alias="PrizeExchangeLogBean"
+			type="cn.gyyx.action.beans.exchangescore.PrizeExchangeLogBean" />
+
+
+
+		<!-- 未来新世界挑战赛 -->
+
+		<typeAlias alias="LuckyDrawLogBean"
+			type="cn.gyyx.action.beans.lottery.LuckyDrawLogBean" />
+
+		<typeAlias alias="ChallenterUserInfoBean"
+			type="cn.gyyx.action.beans.challenger.ChallenterUserInfoBean" />
+
+		<typeAlias alias="OperationLogBean"
+			type="cn.gyyx.action.beans.challenger.OperationLogBean" />
+
+		<typeAlias alias="ChallenterTeamApplyLogBean"
+			type="cn.gyyx.action.beans.challenger.ChallenterTeamApplyLogBean" />
+
+		<typeAlias alias="ChallenterTeamBean"
+			type="cn.gyyx.action.beans.challenger.ChallenterTeamBean" />
+
+		<typeAlias alias="ChallenterTeamUserBean"
+			type="cn.gyyx.action.beans.challenger.ChallenterTeamUserBean" />
+
+		<typeAlias alias="ChallenterInfoBean"
+			type="cn.gyyx.action.beans.challenger.ChallenterInfoBean" />
+
+		<typeAlias alias="ChallengeRelationshipBean"
+			type="cn.gyyx.action.beans.challenger.ChallengeRelationshipBean" />
+
+		<typeAlias alias="ChallenterLiveBean"
+			type="cn.gyyx.action.beans.challenger.ChallenterLiveBean" />
+
+		<!--  绝世武神微信签到功能 -->
+		<typeAlias alias="JSWSWxSignGiftBean"
+			type="cn.gyyx.action.beans.jswswxsign.Gift" />
+		<typeAlias alias="JSWSWxSignExchangeLogBean"
+			type="cn.gyyx.action.beans.jswswxsign.ExchangeLog" />
+		<typeAlias alias="JSWSWxSignBean"
+			type="cn.gyyx.action.beans.jswswxsign.Sign" />
+		<typeAlias alias="JSWSWxSignLogBean"
+		type="cn.gyyx.action.beans.jswswxsign.SignLog" />
+		<typeAlias alias="JSWSWxSignGiftExchangeCodeBean"
+			type="cn.gyyx.action.beans.jswswxsign.GiftExchangeCode" />
+		<typeAlias alias="JSWSWxSignUserScoreBean"
+		type="cn.gyyx.action.beans.jswswxsign.UserScore" />
+		
+		<!-- 问道1.61 -->
+		<typeAlias alias="Wd161RoleAccountBean"
+			type="cn.gyyx.action.beans.wd161.Wd161RoleAccountBean" />
+		<typeAlias alias="Wd161VoteBean"
+			type="cn.gyyx.action.beans.wd161.Wd161VoteBean" />
+		<typeAlias alias="Wd161CommentsBean"
+			type="cn.gyyx.action.beans.wd161.Wd161CommentsBean" />	
+		<typeAlias alias="Wd161ActiveBean"
+			type="cn.gyyx.action.beans.wd161.Wd161ActiveBean" />	
+			
+	</typeAliases>
+
+	<environments default="ActionDBV2">
+		<environment id="ActionDBV2">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driverClassName}" />
+				<property name="url" value="${jdbc.ActionDBV2url}" />
+				<property name="username" value="${jdbc.ActionDBV2username}" />
+				<property name="password" value="${jdbc.ActionDBV2password}" />
+				<property name="poolTimeToWait" value="2000" />
+				<property name="poolMaximumActiveConnections" value="380" />
+				<property name="poolMaximumIdleConnections" value="160"/>
+			</dataSource>
+		</environment>
+	</environments>
+
+
+	<mappers>
+		<mapper resource="mapper/novicecard/hd-config-mapper.xml" />
+		<mapper resource="mapper/novicecard/serverMapper.xml" />
+		<mapper resource="mapper/novicecard/noviceCardMapper.xml" />
+		<mapper resource="mapper/novicecard/receiveLogMapper.xml" />
+		<mapper resource="mapper/novicecard/novice-card-virtual-item.xml" />
+		<mapper resource="mapper/novicecard/erWeiMaMapper.xml" />
+		<mapper resource="mapper/novicecard/novice-card-mutex.xml" />
+
+		<mapper resource="mapper/wdno1pet/PetInfoMapper.xml" />
+		<mapper resource="mapper/wdno1pet/ImageMapper.xml" />
+		<mapper resource="mapper/wdno1pet/Comment.xml" />
+		<mapper resource="mapper/wdno1pet/CrimeReporter.xml" />
+		<mapper resource="mapper/wdno1pet/Vote.xml" />
+		<mapper resource="mapper/wdno1pet/UserLottery.xml" />
+		<mapper resource="mapper/wdno1pet/LotteryConfig.xml" />
+
+
+		<mapper resource="mapper/wd9year/WishMapper.xml" />
+
+
+
+		<mapper resource="mapper/lottery/LotteryByOrder.xml" />
+		<mapper resource="mapper/lottery/ChancePrize.xml" />
+		<mapper resource="mapper/lottery/PrizeAndOrder.xml" />
+		<mapper resource="mapper/lottery/Prize.xml" />
+		<mapper resource="mapper/lottery/ContrParm.xml" />
+		<mapper resource="mapper/lottery/UserInfo.xml" />
+		<mapper resource="mapper/lottery/address.xml" />
+		<mapper resource="mapper/lottery/AddressBean.xml" />
+		<mapper resource="mapper/lottery/recharge.xml" />
+		<mapper resource="mapper/lottery/qualification.xml" />
+		<mapper resource="mapper/lottery/UserRecordBean.xml" />
+		<mapper resource="mapper/lottery/ILuckyDrawLog.xml" />
+
+
+		<mapper resource="mapper/wd9yearnovicebag/hd-bag-config-mapper.xml" />
+		<mapper resource="mapper/wd9yearnovicebag/hdSendPresentLogMapper.xml" />
+		<mapper resource="mapper/wd9yearnovicebag/serverConfigMapper.xml" />
+
+		<mapper resource="mapper/QianKunLock/QianKunLockMapper.xml" />
+		<mapper resource="mapper/lottery/address.xml" />
+
+		<!-- dnelottery -->
+
+		<mapper resource="mapper/lottery/UserRecordBean.xml" />
+		
+		
+		<!-- wdinsurance -->
+		<mapper resource="mapper/insurance/orderMapper.xml" />
+		<mapper resource="mapper/insurance/loginLogMapper.xml" />
+		<mapper resource="mapper/insurance/BlackListBean.xml" />
+		<mapper resource="mapper/insurance/OrderParameterBean.xml" />
+		<mapper resource="mapper/insurance/blackListMapper.xml" />
+		<mapper resource="mapper/insurance/reparationMapper.xml" />
+		<mapper resource="mapper/insurance/BlackListBean.xml" />
+		<mapper resource="mapper/insurance/OrderParameterBean.xml" />
+		<mapper resource="mapper/wdinsurance/GyyxGoPay.xml" />
+
+		<!-- common -->
+		<mapper resource="mapper/common/ActionCommonFormBeanMapper.xml" />
+		<mapper resource="mapper/common/ActionCommonImageBeanMapper.xml" />
+		<mapper resource="mapper/common/ActionCommonCommentBeanMapper.xml" />
+		<mapper resource="mapper/common/NoteURLBeanMapper.xml" />
+
+		<!-- 炫舞吧积分活动 -->
+		<mapper resource="mapper/xwbcreditsluckydraw/playerinfo.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/goodsGet.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/sumCredit.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/credits.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/signIn.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/goodsinfo.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/mission.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/missionReceive.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/material.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/oprateRecord.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/comments.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/materialInfo.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/praise.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/rewardReceiveLog.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/signprize.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/pictureUrl.xml" />
+		<mapper resource="mapper/xwbcreditsluckydraw/serverStatus.xml" />
+
+
+
+		<!-- 创世Online 元宝兑换光宇币活动 -->
+		<mapper resource="mapper/online/onlineChange.xml" />
+		<mapper resource="mapper/online/onlineChangeLog.xml" />
+		<!-- 烈火裁决 -->
+		<mapper resource="mapper/activityCode/hdActivityCode.xml" />
+		<mapper resource="mapper/activityCode/sendPresentLog.xml" />
+
+		<!-- commonSupporter -->
+		<mapper resource="mapper/commonSupporter/MainTbMapper.xml" />
+		<mapper resource="mapper/commonSupporter/SubTbMapper.xml" />
+		<mapper resource="mapper/commonSupporter/AloneTbMapper.xml" />
+		<mapper resource="mapper/commonSupporter/EventTbMapper.xml" />
+		<mapper resource="mapper/commonSupporter/TableUpdateMapper.xml" />
+
+		<!-- 灵魂战神激活码大放送 -->
+		<mapper resource="mapper/LHZSActivityCode/presentLog.xml" />
+		<!-- 神道三国激活码大放送 -->
+		<mapper resource="mapper/SDSGActivityCode/presentLog.xml" />
+
+		<!-- 问道安装LOG数据 -->
+		<mapper resource="mapper/wdlogdata/WdLogDataMapper.xml" />
+
+
+		<!-- wechat -->
+		<mapper resource="mapper/wechat/count.xml" />
+		<mapper resource="mapper/wechat/weiXinAddress.xml" />
+		<mapper resource="mapper/wechat/weiXinqualification.xml" />
+		<mapper resource="mapper/wechat/weiXinrecharge.xml" />
+
+		<!-- 小说连载 -->
+		<mapper resource="mapper/chapter/chapter.xml" />
+
+		<!-- 后台统计 -->
+		<mapper resource="mapper/wechat/config.xml" />
+		<mapper resource="mapper/wechat/operate.xml" />
+		<mapper resource="mapper/wechat/custom.xml" />
+		<mapper resource="mapper/wechat/mapping.xml" />
+
+		<!-- 新抽奖 -->
+		<mapper resource="mapper/newLottery/ContrParm.xml" />
+		<mapper resource="mapper/newLottery/Prize.xml" />
+		<mapper resource="mapper/newLottery/ChancePrize.xml" />
+		<mapper resource="mapper/newLottery/UserInfo.xml" />
+		<mapper resource="mapper/newLottery/recharge.xml" />
+		<mapper resource="mapper/newLottery/PrizeAndOrder.xml" />
+		<mapper resource="mapper/newLottery/LotteryByOrder.xml" />
+
+		<!-- 问道微信刮刮卡抽奖活动 -->
+		<mapper resource="mapper/wechat/weiXinSendpresent.xml" />
+
+
+		<!-- 绝世武神预约分享 -->
+		<mapper resource="mapper/jswsReserve/reserve.xml" />
+
+
+	
+		<!-- 乾坤锁礼包领取活动 -->
+		<mapper resource="mapper/QianKunLock/QianKunLockLimitMapper.xml" />
+		<!-- 职位申请 -->
+		<mapper resource="mapper/position/applyInfo.xml" />
+		<!-- 问道十年画图 -->
+		<mapper resource="mapper/tenyearpicture/score.xml" />
+		<mapper resource="mapper/tenyearpicture/scoreLog.xml" />
+	
+		<mapper resource="mapper/weixin/weixinrelated.xml" />
+		<!-- 问道名人争霸赛 -->
+		<mapper resource="mapper/wdchampionship/championshipCommentInfoMapper.xml" />
+
+		<!-- -->
+		<mapper resource="mapper/mobileWebsite/registe.xml" />
+
+		<mapper resource="mapper/weixin/weixinrelated.xml" />
+
+
+		<mapper resource="mapper/activationCodeAPI/ActivationCodeMapper.xml" />
+
+        <!-- 问道十周年积分兑换 -->
+        <mapper resource="mapper/wdtenexchangescore/prizeConfigBean.xml" />
+        <mapper resource="mapper/wdtenexchangescore/PrizeExchangeLogBean.xml" />
+
+		<!-- 问道新手卡 -->
+		<mapper resource="mapper/novicecard/noviceCardReceivGiftLogMapper.xml" />
+		<mapper resource="mapper/userregistlog/userregistlog.xml" />
+
+		
+		<!-- 问道国庆微信活动 -->
+        <mapper resource="mapper/lottery/ActionQualificationMapper.xml" />
+        <mapper resource="mapper/lottery/ActionLotteryLogMapper.xml" />
+		<mapper resource="mapper/lottery/ActionPrizesAddressMapper.xml" />
+		<mapper resource="mapper/config/ActionLotteryChanceMapper.xml" />
+		<mapper resource="mapper/config/ActionPrizeMapper.xml" />
+		<mapper resource="mapper/config/HdConfigMapper.xml" />
+		<mapper resource="mapper/wdnationalday/WdNationalSignLog.xml"/>
+		<mapper resource="mapper/wdnationalday/WdNationalPrizesLog.xml"/>
+		<mapper resource="mapper/wdnationalday/WdNationaldayEnroll.xml"/>
+		<mapper resource="mapper/wdnationalday/WdNationaldaySignLog.xml"/>
+
+		<!-- 兑换邀请函 -->
+		<mapper resource="mapper/userinfo/ActionUserInfoMapper.xml"/>
+		<mapper resource="mapper/userinfo/ActionGameInterimMapper.xml"/>
+		<mapper resource="mapper/exchange/ActionExchangeMapper.xml"/>
+		<mapper resource="mapper/lottery/ActionQualificationLogMapper.xml"/>
+		<mapper resource="mapper/wdqingchengshan/WdqingchengshanSignLog.xml"/>
+		
+		<!-- 问道全民PK赛官网活动 -->
+		<mapper resource="mapper/wdpkforecast/WdPkRoleBindBeanMapper.xml"/>
+        <mapper resource="mapper/wdpkforecast/WdPkVoteLogBeanMapper.xml"/>
+        <mapper resource="mapper/wdpkforecast/WdPkUILottery.xml"/>
+
+		<!--  绝世武神微信签到功能 -->
+		<mapper resource="mapper/jswswxsign/gift.xml" />
+		<mapper resource="mapper/jswswxsign/sign.xml" />
+		<mapper resource="mapper/jswswxsign/signLog.xml" />
+		<mapper resource="mapper/jswswxsign/userScore.xml" />
+		<mapper resource="mapper/jswswxsign/exchangeLog.xml" />
+		<mapper resource="mapper/jswswxsign/giftExchangeCode.xml" />
+		
+		<!-- 问道1.61 -->
+		<mapper resource="mapper/wd161/IWd161Mapper.xml" />
+
+		<!-- 问道全民PK赛 -->
+		<mapper resource="mapper/wdpk/AllPKInfo.xml" />	
+		
+		<!-- 驯龙三国微信签到 -->
+		<mapper resource="mapper/xlsgwxsign/XlsgExchangeLog.xml" />
+		<mapper resource="mapper/xlsgwxsign/XlsgGift.xml" />
+		<mapper resource="mapper/xlsgwxsign/XlsgGiftExchangeCode.xml" />
+		<mapper resource="mapper/xlsgwxsign/XlsgSign.xml" />
+		<mapper resource="mapper/xlsgwxsign/XlsgSignLog.xml" />
+		<mapper resource="mapper/xlsgwxsign/XlsgUserScore.xml" />
+		
+        <!-- 神道三国问卷调查 -->
+		<mapper resource="mapper/actionSurvey/ActionSurvey.xml"/>
+	    <!--问道app签到-->
+        <mapper resource="mapper/wdappsigned/WdAppSignLog.xml" />	
+        <mapper resource="mapper/wdappsigned/WdAppSign.xml" />
+        <mapper resource="mapper/wdappsigned/WdAppSignSendPrize.xml" />
+        
+       
+		<!--神道三国你提我改  -->
+		<mapper resource="mapper/sdsg/SdsgAdviceMapper.xml"/>
+
+		<!--公用签到服务  -->
+		<mapper resource="mapper/common/ActionCommonSignBeanMapper.xml"/>
+		<mapper resource="mapper/common/ActionCommonSignLogBeanMapper.xml"/>
+
+		
+		<!--微信兑换 -->
+		<mapper resource="mapper/wechatcharge/wechatChargeMapper.xml"/>
+		
+		<!--灵魂战神返还金币  -->
+		 <mapper resource="mapper/lhzsgoldback/lhzsgoldreturn201612.xml" />
+
+		<mapper resource="mapper/wechatcharge/wechatChargeMapper.xml"/>		
+		
+		<!-- ↓自动扫描包放置于下方 ↑手动配置的mapper放置于上方 顺序错了的话xml要遭 -->
+		<package name="cn.gyyx.action.dao.cs2sign" />
+		<package name="cn.gyyx.action.dao.wdtravelentry" />
+		<package name="cn.gyyx.action.dao.wdwxmidyear" />
+		<package name="cn.gyyx.action.dao.challenger" />
+		<package name="cn.gyyx.action.dao.wdkaixuela" />
+		<package name="cn.gyyx.action.dao.wdtombthreeteam" />
+		
+		<!-- 问道十周年同人coser活动 -->
+		<package name="cn.gyyx.action.dao.wd10yearcoser" />
+
+		<package name="cn.gyyx.action.dao.wdnirvana"/>
+		<!-- 百人网红问道冲级2017活动 -->
+		<package name="cn.gyyx.action.dao.wdleveling2017" />
+		
+		<!-- 问道light2017活动 -->
+		<package name="cn.gyyx.action.dao.wdlight2017" />	
+		<!-- 443 祝福卡活动 -->
+		<package name="cn.gyyx.action.dao.wdblessingcard2017"/>		
+		
+		<!-- 问道11周年留言墙活动 -->
+		<package name="cn.gyyx.action.dao.wd11thyearscommentwall" />
+		
+		<!-- 449 问道周年大转盘活动 -->
+		<package name="cn.gyyx.action.dao.wechatroulette"/>
+
+		<!-- 问道周年视频祝福活动 -->
+
+		<package name="cn.gyyx.action.dao.wechatvideo" />		
+		
+		<!-- 微信h5小游戏 -->
+		<package name="cn.gyyx.action.dao.fightbrickgame"/>
+
+		<!-- 问道周年许愿活动 -->
+		<package name="cn.gyyx.action.dao.wish11th" />	
+		
+		<!-- 问道11周年充值返现活动 -->
+		<package name="cn.gyyx.action.dao.wd11yearrechargerebate" />
+		
+		<!-- 森罗万象 -->
+		<package name="cn.gyyx.action.dao.wdshenluowangxiang" />
+	<!-- 2017新服冲榜活动 -->
+	<package name="cn.gyyx.action.dao.wdrankinglist2017" />
+	</mappers>
+</configuration>

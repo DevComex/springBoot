@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>爱情大作战成长礼包</title>
+<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/lovefight/css/xwb160108.css">
+<script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+<script src="http://static.cn114.cn/action/lovefight/js/ReceiveCommon.js"></script>
+<script type="text/javascript" charset="utf-8">
+	alert("谢谢参与，活动已结束");
+</script>
+</head>
+<body>
+    <div class="mask" id="maskBox"></div>
+    <!-- 活动批次号 -->
+     <input type="hidden" name="batchNo" id="batchNo" value="3" />
+    <input type="hidden" name="hdName" id="hdName" value="炫舞吧爱情大作战新手卡" />
+    <input type="hidden" name="activityId" id="activityId" value="339" />
+    
+     <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+
+<div class="xwb_wrap02">
+   <div class="main">
+      <!--导航-->
+      <div class="xwb_nav">
+         <a href="http://xwb.gyyx.cn/Home/index.shtml">进入官网</a>|<a href="http://pay.gyyx.cn/">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/">账号注册</a>|<a href="http://xwb.gyyx.cn/Download/index.shtml">下载中心</a>
+      </div>
+      <!--活动时间-->
+      <div class="xwb_time">2016-01-20</div>
+      <div class="xwb_lb">
+         <!--未登录-->
+         <div class="xwb_before">请先&nbsp;<a href="javascript:;" class="loginBtn">[登录]</a>&nbsp; ，领取礼包！</div>
+         <!--登录后-->
+         <div class="xwb_after" style="display:none;">欢迎&nbsp;<span>aaa</span>&nbsp;回来！</div>
+         <!--成长礼包-->
+         <div class="xwb_pic">
+            <ul>
+               <li class="li01"><img src="http://static.cn114.cn/action/lovefight/images/xwb160108_pic.png" width="40" height="40"><p>1级成长礼包</p></li>
+               <li class="li02"><img src="http://static.cn114.cn/action/lovefight/images/xwb160108_pic.png" width="45" height="45"><p>10级成长礼包</p></li>
+               <li class="li03"><img src="http://static.cn114.cn/action/lovefight/images/xwb160108_pic.png" width="55" height="55"><p>20级成长礼包</p></li>
+               <li class="li04"><img src="http://static.cn114.cn/action/lovefight/images/xwb160108_pic.png" width="65" height="65"><p>30级成长礼包</p></li>
+               <li class="li05"><img src="http://static.cn114.cn/action/lovefight/images/xwb160108_pic.png" width="75" height="75"><p>40级成长礼包</p></li>
+            </ul>
+         </div>
+         <div class="xwb_btn">
+            <h2>输入领奖兑换码</h2>
+            <input type="text" name="code" class="exchangeCode" id="exchangeCode" maxlength="12">
+            <a href="javascript:;" class="alltake">全部领取</a>
+         </div>
+      </div>
+      <div class="xwb_text">
+         <h2>活动说明</h2>
+         <ul class="xwb_list">
+            <li><span>1</span><p>活动期间，所有玩家凭借兑换码均可领取成长礼包；</p></li>
+            <li><span>2</span><p>每个账号只可领取一次礼包；</p></li>
+            <li><span>3</span><p>领取礼包前，没有角色的账号需登陆炫舞吧客户端创建角色后，才能成功领取礼包；</p></li>
+            <li><span>4</span><p>本活动最终解释权归光宇游戏所有。</p></li>
+         </ul>
+      </div>
+   </div>
+</div>
+<!--弹层-->
+<div class="tc tc05">  
+   <a class="close" href="javascript:;">关闭</a>   
+   <div class="cont">
+      <h3 style="font-size:16px; text-align:left; line-height:30px;padding:0 30px;">注意：没有角色的账号需要登录炫舞吧客户端创建角色，才能成功领取礼包哦~</h3>
+       <a href="javascript:;" class="yes">确定</a>
+   </div>  
+</div>
+
+<div class="tc tc01">  
+   <a class="close" href="javascript:;">关闭</a>   
+   <div class="cont">
+      <h3>兑换码不能为空或存在空格哦！</h3>
+      <p>请输入正确的兑换码</p>
+   </div>  
+</div>
+
+<div class="tc tc02">  
+   <a class="close" href="javascript:;">关闭</a>   
+   <div class="cont">
+      <h3>恭喜您！礼包领取成功~</h3>
+      <p>请在游戏邮箱中查看</p>
+   </div>  
+</div>
+
+<div class="tc tc03">  
+   <a class="close" href="javascript:;">关闭</a>   
+   <div class="cont">
+      <h3>您已经领取过礼包了哦~</h3>
+   </div>  
+</div>
+
+<div class="tc tc04">  
+   <a class="close" href="javascript:;">关闭</a>   
+   <div class="cont">
+      <div class="refer clear">
+         <label>选择区服</label>
+         <div class="server_list" >
+        <select name="netType" id="ddlNetType">
+                                <option value="3">双线</option>
+                                <option value="1">网通</option>
+                                <option value="2">电信</option>
+                            </select>
+                <select name="serverId" class="selectLine" id="selectLine">
+                       <option value="0">请选择服务器</option>
+                </select>
+         </div>
+         
+      </div>
+      <p class="errorp" style="color:red;"></p>
+      <a href="javascript:;" class="tj">提交</a>
+   </div>  
+</div>
+     <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+ 
+</body>
+    <script>
+      
+            var timerShowRegBox = setTimeout(function () {
+                $('.tc05').fadeIn();
+                $('.mask').show()
+            }, 1000);
+
+            $(".yes").click(function () {
+                $('.mask').hide()
+                $('.tc05').fadeOut();
+            })
+            $(".close").click(function () {
+                $('.mask').hide()
+                $('.tc').fadeOut();
+            })
+
+            //登录判断 
+            checkLogin({
+                success: function (d) {
+                    $(".xwb_after").show();
+                    $(".xwb_before").hide();
+                    var uname = "";
+                    if (d.Account.length <= 8) {
+                        uname = d.Account;
+                    } else {
+                        var uname1 = d.Account.substring(0, 2);
+                        var uname2 = d.Account.substring(d.Account.length - 2, d.Account.length);
+                        uname = uname1 + "****" + uname2;
+                    }
+                    $(".xwb_after").html('欢迎<span>' + uname + "</span>回来！ <a href='javascript:;' class='js_Loginout'>退出</a>");
+                    $(".xwb_after").attr("data-account", d.Account);
+                      
+                    stringVal();
+                },
+                failed: function () {
+                    $(".xwb_before").show();
+                    $(".xwb_after").hide();
+                    $(".loginBtn").click(function () {
+                        alertFn(null, null, true); return false
+                    });
+                    $(".alltake").click(function () {
+                        alertFn(null, null, true); return false
+                    });
+                }
+            });
+            function checkLogin(fn) {
+                $.ajax
+				({
+                    url: "http://reg.gyyx.cn/Login/Status",
+                    type: "GET",
+                    dataType: "jsonp",
+                    jsonp: "jsoncallback",
+                    data: { r: Math.random() },
+                    success: function (d) {
+                        if (d.IsLogin) {
+                            if (fn) {
+                                fn.success(d);
+                            }
+                        }
+                        else {
+                            if (fn) {
+                                fn.failed(d);
+                            }
+                        }
+                    }
+                });
+            }
+            
+            function stringVal() {
+                
+                $(".alltake").click(function () {
+                    var stringVal = $("#exchangeCode").val();
+                    stringVal = $.trim(stringVal); // 用jQuery的trim方法删除前后空格
+                    if (stringVal == "") {
+                        $('.mask').show()
+                        $('.tc01').fadeIn();
+
+                    } else {
+                        $('.mask').show()
+                        $('.tc04').fadeIn();
+                       
+                    }
+                })
+            }
+            
+
+       
+      
+</script>   
+<!--[if IE 6]>
+<script>
+var oMask = document.getElementById('maskBox');//遮罩层
+
+        var iH = Math.max( view().h, scrollH(), offsetH() );//获取最大值
+        //遮罩层的height铺满
+        oMask.style.height = iH + 'px';
+
+        function scrollH(){
+            return document.body.scrollHeight;	
+        }
+
+        function offsetH(){
+            return document.body.offsetHeight;	
+        }
+
+        function scrollX(){
+            return document.body.scrollLeft || document.documentElemenbt.scrollLeft;
+        }
+
+        function scrollY(){
+            return document.body.scrollTop || document.documentElement.scrollTop;
+	
+        }
+
+        function view(){
+
+            return {
+		
+                w : document.documentElement.clientWidth,
+		
+                h : document.documentElement.clientHeight
+		
+            };	
+	
+        }
+</script>
+<![endif]-->
+<!--[if IE 6]>
+<script src="http://www.gyyx.cn/Scripts/DD_belatedPNG.js"></script>
+<script>
+DD_belatedPNG.fix('.xwb_btn a');
+DD_belatedPNG.fix('.tc');
+DD_belatedPNG.fix('.cont a.tj');
+DD_belatedPNG.fix('.xwb_list li span');
+
+</script>
+<![endif]-->
+</html>

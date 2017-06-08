@@ -1,0 +1,322 @@
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="author" content="Layout:luochongfei" />
+	<title>问道年中微信预测阶段管理</title>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+	<script src="http://ams.oa.gyyx.cn/resources/js/My97DatePicker/WdatePicker.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+    <link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+	<script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+	<script type="text/javascript" charset="utf-8">
+		document.write(teheadstr);
+	</script>
+	<script type="text/javascript" charset="utf-8">
+	$(document).ready(function(){
+		$("#calcAndStartNext").click(function(){
+			alert("根据参与人数的不同，此操作可能会有延时现象，请耐心等待返回结果，不要连续点击");
+			var end = $("#endtime").val();
+			var calctime = $("#calctime").val();
+			$.
+			ajax({
+				type:"POST",
+				url:"${rc.contextPath}/wdWxMidyear/calcAndStartNext",
+				data:{"nextEnd":end,"calcDate":calctime},
+				success:function(data) {
+					alert(data.message);
+				},
+				error:function(data) {
+					alert(data);
+				}
+			});
+		});
+		
+		$("#calcOnly").click(function(){
+			alert("根据参与人数的不同，此操作可能会有延时现象，请耐心等待返回结果，不要连续点击");
+			var calctime = $("#calctime").val();
+			$.
+			ajax({
+				type:"POST",
+				url:"${rc.contextPath}/wdWxMidyear/calcOnly",
+				data:{"calcDate":calctime},
+				success:function(data) {
+					alert(data.message);
+				},
+				error:function(data) {
+					alert(data);
+				}
+			});
+		});
+	});
+	</script>
+	<link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+	<link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet" />
+</head>
+<body>
+	<section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+                        <header class="header bg-white b-b clearfix">
+                            <div class="">
+                                <div class="col-sm-2 m-b-xs">
+                                    <h4 class="m-t bold"></h4>
+                                </div>
+                                <div class="col-sm-2 m-b-xs m-t-sm">
+                                    <div class="input-group">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+						<section id="content">
+							<section class="vbox">
+								<!--表格主体-->
+								<section class="panel panel-default scrollable padder" style="margin: 0px 0 0 0;">
+									<h3 class="m-t-xs">问道年中微信预测阶段管理</h4>
+									<div class="doc-buttons">
+										选择结算日期
+										<input name="WorkStartTime" style="display:inline-block; width:auto;" id="calctime" type="text" class="form-control FV_form FV_none" onclick="WdatePicker({startDate:'%y-%M-%d %H:00:00', dateFmt: 'yyyy-MM-dd HH:mm:ss', autoPickDate: false })" readonly="" />
+										<br />
+										设置下一阶段的结束日期
+										<input name="WorkStartTime" style="display:inline-block; width:auto;" id="endtime" type="text" class="form-control FV_form FV_none" onclick="WdatePicker({startDate:'%y-%M-%d %H:00:00', dateFmt: 'yyyy-MM-dd HH:mm:ss', autoPickDate: false })" readonly="" />
+										<br />
+										<input type='button' id='calcAndStartNext' value='结算并开启下一阶段' class="btn btn-s-md btn-primary"/>
+										<input type='button' id='calcOnly' value='仅结算（针对最后一个阶段）' class="btn btn-s-md btn-primary"/>
+									</div>
+								</section>
+							</section>
+                        <!--翻页功能-->
+                        <footer class="footer bg-white b-t">
+                            <div class="row dataTables_wrapper">
+                                <div class="col-sm-6">
+                                    <div class="dataTables_info" id="DataTables_Table_0_info"><a id="totalPage"></a><a id="currentPage"></a></div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_0_paginate">
+                                        <a class="first paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_first">首页</a><a class="previous paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_previous">上一页</a><span id="pageSign"></span><a class="next paginate_button" tabindex="0" id="DataTables_Table_0_next">下一页</a><a class="last paginate_button" tabindex="0" id="DataTables_Table_0_last">末页</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </section>
+                </section>
+				 </section>
+					<!--主体内容 begin-->
+					</section>
+                </section>
+            </section>
+        </section>
+    </section>
+
+    <!--添加网络组件弹层 begin-->
+    <div id="addPop">
+        <div class="row">
+            <div class="col-sm-3 text-right m-t-xs">所属项目集</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">所属项目</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">网络组件名称</div>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">说明</div>
+            <div class="col-sm-8">
+                <textarea cols="30" rows="2" class="form-control"></textarea>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+    </div>
+    <!--添加网络组件弹层 begin-->
+
+    <!--编辑网络组件弹层 begin-->
+    <div id="editPop">
+        <div class="row">
+            <div class="col-sm-3 text-right m-t-xs">所属项目集</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">所属项目</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">网络组件名称</div>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">说明</div>
+            <div class="col-sm-8">
+                <textarea cols="30" rows="2" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+    <!--编辑网络组件弹层 end-->
+
+    <script>
+        $(function () {
+            //准备添加网络组件弹层
+            $("#addPop").dialog({
+                //标题【必须，否则为空】
+                title: "添加一个网络组件",
+                autoOpen: false,
+                width: 550,
+                modal: true,
+                btnWrapTextAlign: "right",
+                show: {
+                    effect: "drop",
+                    distance: 300,
+                    direction: "up",
+                    duration: 300
+                },
+                hide: {
+                    effect: "drop",
+                    distance: 100,
+                    direction: "up",
+                    duration: 200
+
+                },
+                buttons: [
+                    {
+                        text: "取消",
+                        click: function () {
+                            $(this).dialog("close");
+                        },
+                        btnCls: "btn btn-default"
+                    },
+                    {
+                        text: "确认",
+                        click: function () {
+                            alert("提交成功！");
+                        },
+                        btnCls: "btn-info btn-s-md"
+                    }
+                ]
+            });
+
+            //准备编辑网络组件弹层
+            $("#editPop").dialog({
+                //标题【必须，否则为空】
+                title: "编辑网络组件",
+                autoOpen: false,
+                width: 550,
+                modal: true,
+                btnWrapTextAlign: "right",
+                show: {
+                    effect: "drop",
+                    distance: 300,
+                    direction: "up",
+                    duration: 300
+                },
+                hide: {
+                    effect: "drop",
+                    distance: 100,
+                    direction: "up",
+                    duration: 200
+
+                },
+                buttons: [
+                    {
+                        text: "取消",
+                        click: function () {
+                            $(this).dialog("close");
+                        },
+                        btnCls: "btn btn-default"
+                    },
+                    {
+                        text: "确认",
+                        click: function () {
+                            alert("提交成功！");
+                        },
+                        btnCls: "btn-info btn-s-md"
+                    }
+                ]
+            });
+
+            //点击开启添加网络组件弹层
+            $("#btn").click(function (event) {
+                $("#addPop").dialog("open");
+                event.preventDefault();
+            });
+
+            //点击开启编辑网络组件弹层
+            $(".js_editNet").click(function (event) {
+                $("#editPop").dialog("open");
+                event.preventDefault();
+            });
+
+        });
+    </script>
+    <script type="text/javascript">
+    	$(function(){
+    	$('.js_Date').datepicker({    
+			format: 'yyyy-mm-dd hh:ii',    
+			autoclose: true,           
+			todayBtn: true,      
+			minView: 0,           
+			startView: 2					
+		}).on('changeDate', function (ev) {        
+			$(".js_Date").datepicker('hide'); 
+		});
+	});
+    </script>
+</body>
+</html>

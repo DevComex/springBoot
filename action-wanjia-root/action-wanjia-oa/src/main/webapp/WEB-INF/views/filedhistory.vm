@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <title>图片上传管理</title>
+    <meta name="description" />
+    <script type="text/javascript" charset="utf-8">
+		var rc="${rc.contextPath}";
+    </script>
+    <link rel="stylesheet" href="${rc.contextPath}/assets/css/font.css" type="text/css" />
+    <link rel="stylesheet" href="${rc.contextPath}/assets/css/app.v2.css" type="text/css" />
+    <link rel="stylesheet" href="${rc.contextPath}/assets/css/common.css" type="text/css" />
+    <link rel="stylesheet" href="${rc.contextPath}/assets/css/list.css" type="text/css" />
+     <link rel="stylesheet" href="${rc.contextPath}/assets/css/listCharapter.css" type="text/css" />
+    <script src="${rc.contextPath}/assets/js/jquery.min.js"></script>
+    <script src="${rc.contextPath}/assets/js/jquery.ajaxpage.2.0.1.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script> 
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script type="text/javascript">
+        document.write(teheadstr);
+    </script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+   
+    <script	src="${rc.contextPath}/assets/js/My97DatePicker/WdatePicker.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+	<style>
+    	footer{
+    		line-height:50px;
+    	}
+    	#DataTables_Table_0_paginate a{
+    		margin: 0 5px;
+		    border: 1px #717171 solid;
+		    padding: 3px 8px;
+    	}
+    	.curpage,.pg_disabled{
+    		background-color: #f1f1f1;
+    	}
+    </style>
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!---------------------------------- ((((((套用内容))))))---------------------------------->
+                        <!--头部内容开始-->
+                        <header class="header bg-white b-b clearfix">
+							<form action="SelectTaskInfoList" method="post">
+                                <div class="row m-t-sm">
+                                	<!--类型-->
+                                    <div class="col-sm-4 js_tyepDiv">
+                                    	<span class="js_type">搜索选项</span>
+                                        <select class="js_typeSelect" id="js_cartoonType">
+                                            <option value="4">漫画推荐</option>
+                                            <option value="1">文章推荐</option>
+                                            <option value="2">视频推荐</option>
+                                            <option value="3">图片推荐</option>
+                                        </select>
+                                    </div>
+
+                                    <!--完结状态-->
+                                    <div class="col-sm-4 js_stateDiv">
+                                    	<span class="js_state">完结状态</span>
+                                        <select class="js_stateSelect" id="js_isClosed">
+                                            <option value="-1">全部</option>
+                                            <option value="1">已完结</option>
+                                            <option value="0">未完结</option>
+                                        </select>
+                                    </div>
+
+
+
+                                    <!--漫画名称-->
+                                    <div class="col-sm-4 js_nameDiv">
+                                    	<span class="js_nameDiv">漫画名称</span>
+                                        <input type="text" class="js_nameInput" id="js_title"/>
+                                    </div>
+
+                                    <!--等级1、等级2、等级3、等级4、等级5-->
+
+                                    <div class="col-sm-4 js_serviceDiv">
+                                    	<label class="js_service ">奖励等级</label>
+                                        <select class="js_serviceSelect1"  id="js_leavel">
+                                            <option value="-1">请选择等级</option>
+                                            <option value="1">等级1</option>
+                                            <option value="2">等级2</option>
+                                            <option value="3">等级3</option>
+                                            <option value="4">等级4</option>
+                                            <option value="5">等级5</option>
+                                        </select>
+
+                                    </div>
+
+                                   <div class="col-sm-4 js_serviceDiv">
+                                        <span class="js_serviceDiv">玩家帐号</span>
+                                        <input type="text" class="js_serviceDiv" id="js_account"/>
+                                    </div>
+
+                                    <!--查询按钮-->
+                                    <div class="col-sm-1 js_queryDiv">
+							            <span class="input-group-btn">
+							                <a href="#" class="btn btn-sm btn-info js_query" onclick="query()" style="border-radius:3px;">查询</a>
+							            </span>
+
+							        </div>
+                                     <div class="col-sm-1 js_queryDiv">
+                                        <span class="input-group-btn">
+                                            <a href="#" class="btn btn-sm btn-info js_down" onclick="down()"  style="border-radius:3px;">导出</a>
+                                        </span>
+
+                                    </div>
+
+
+
+                                </div>
+							</form>
+						</header>
+                        <!--头部内容结束-->
+
+                        <!--中间内容开始-->
+                        <section class="scrollable padder" style="margin-top:100px;bottom:55px;overflow: auto;margin-bottom:30px;">
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" style="margin-top:2%;width:100%;">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none" id="js_table">
+                                        <thead>
+                                            <tr>
+                                                <th style="border: 1px solid #ddd;">作品名称</th>
+                                                <th  style="border: 1px solid #ddd;">推荐时间</th>
+                                                <th style="border: 1px solid #ddd;">玩家帐号</th>
+                                                <th style="border: 1px solid #ddd;">查看量</th>
+                                                <th style="border: 1px solid #ddd;">完结状态</th>
+                                                <th style="border: 1px solid #ddd;">地址</th>
+                                                <th style="border: 1px solid #ddd;">奖励等级</th>
+                                                <th style="border: 1px solid #ddd;">推荐栏位</th>
+                                                <th style="border: 1px solid #ddd;">备注</th>
+                                                <th style="border: 1px solid #ddd;">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="js_tbody">
+
+                                        </tbody>
+                                    </table>
+                                    <div id="js_pagecont"></div>
+                                </div>
+                            </section>
+                            <!--数据表格  end -->
+                        </section>
+                        <footer class="footer bg-white b-t"><div class="row dataTables_wrapper"><div class="col-sm-6"><div class="dataTables_info" id="DataTables_Table_0_info">当前显示：第 1 至 10 条 总共 90 条记录</div></div><div class="col-sm-6"><div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_0_paginate"><a class="first paginate_button paginate_button_disabled">首页</a><a class="next paginate_button paginate_button_disabled">上一页</a><span><a class="paginate_active" href="/MyWfFlow?WfTypeCode=0&WfFlowCode=0&Status=0&currentPage=1" tabindex="0">1</a><a class="paginate_button" href="/MyWfFlow?WfTypeCode=0&WfFlowCode=0&Status=0&currentPage=2" tabindex="0">2</a><a class="paginate_button" href="/MyWfFlow?WfTypeCode=0&WfFlowCode=0&Status=0&currentPage=3" tabindex="0">3</a><a class="paginate_button" href="/MyWfFlow?WfTypeCode=0&WfFlowCode=0&Status=0&currentPage=4" tabindex="0">4</a><a class="paginate_button" href="/MyWfFlow?WfTypeCode=0&WfFlowCode=0&Status=0&currentPage=5" tabindex="0">5</a></span><a href="/MyWfFlow?WfTypeCode=0&WfFlowCode=0&Status=0&currentPage=2" class="next paginate_button" tabindex="0" id="DataTables_Table_0_next">下一页</a><a href="/MyWfFlow?WfTypeCode=0&WfFlowCode=0&Status=0&currentPage=9" class="last paginate_button" tabindex="0" id="DataTables_Table_0_last">末页</a></div></div></div></footer>
+                        <!--中间内容结束-->
+
+                        <!---------------------------------- ((((((套用内容))))))---------------------------------->
+                        
+                    </section>                          
+                </section>
+            </section>
+        </section>
+    </section>
+
+      
+
+<!--预览弹层 start-->
+    <div class="Mask"></div>
+    <div class="js_popKuang">
+    	<div class="pop_up_xx"><img src="${rc.contextPath}/assets/img/chacha3.png" width="40" height="40"  /></div>
+
+
+        <div class="ban" id="demo1">
+			<div class="ban2" id="ban_pic1">
+				<div class="prev1" id="prev1">
+					<img src="${rc.contextPath}/assets/img/index_tab_l.png" width="28" height="51"  />
+				</div>
+				<div class="next1" id="next1">
+					<img src="${rc.contextPath}/assets/img/index_tab_r.png" width="28" height="51"  />
+				</div>
+				<ul id="previewPop">
+				</ul>
+			</div>
+			<div class="min_pic">
+				<div class="prev_btn1" id="prev_btn1"><img src="${rc.contextPath}/assets/img/feel3.png" width="9" height="18"  /></div>
+				<div class="num clearfix" id="ban_num1">
+					<ul id="previewPop_small">
+					</ul>
+				</div>
+				<div class="next_btn1" id="next_btn1"><img src="${rc.contextPath}/assets/img/feel4.png" width="9" height="18"  /></div>
+			</div>
+		</div>
+
+
+    </div>
+    <!--预览弹层 end-->
+
+	<script src="${rc.contextPath}/assets/js/pic_tab.js"></script>
+
+<script>
+$(function(){
+  var type =$("#js_cartoonType").val();
+  var leavel =$("#js_leavel").val();
+  var isClosed =$("#js_isClosed").val();
+  var title =$("#js_title").val();
+  var account =$("#js_account").val();
+  pageCut("-1,-1,,");
+      // $.ajax({
+      //   url: rc+"/recommend/recommendHistory",
+      //       type: "GET",
+      //       dataType: "json",
+      //       data: {
+      //           r: Math.random,
+      //           leavel:leavel,
+      //           isClosed:isClosed,
+      //           account:account,
+      //           title:title
+      //       },
+      //       success: function (data) {
+      //         if(data.success){
+      //             var list = data.data;
+      //             var str ="";
+      //             for (var i = 0; i < list.length; i++) {
+      //                  str+= " <tr><td>"+
+      //                       list[i].title+"</td><td>"+
+      //                       list[i].create_time+"</td><td>"+
+      //                       list[i].author_account+"</td><td>"+
+      //                       list[i].read_count+"</td><td>"+
+      //                       list[i].is_closed+"</td><td>"+
+      //                       list[i].url+"</td><td>"+
+      //                       list[i].thumbnail+"</td><td><span class='js_more'>"+
+      //                       list[i].remark+"</span></td><td>"+
+      //                       "<a  class='btn btn-xs btn-success js_edit' href='javascript:void(0)' data-code='"+list[i].code+"' data-title='编辑' data-toggle='tooltip' data-original-title='编辑'>"+
+      //                       "<i class='fa fa-edit'></i></a></td></tr>";
+      //             }
+      //             $("#js_tbody").html(str);
+      //             //alert(data.message);list[i].code
+
+      //         }else{
+      //             alert(data.message);
+      //         };
+      //       }
+      // });
+
+
+
+});
+function query(){
+  var type =$("#js_cartoonType").val();
+  var leavel =$("#js_leavel").val();
+  var isClosed =$("#js_isClosed").val();
+  var title =$("#js_title").val();
+  var account =$("#js_account").val();
+  var obj = leavel +',' + isClosed + ',' + account +',' + title;
+   pageCut(obj);
+
+
+  // alert("type:"+type+" leavel:"+leavel+" isClosed"+isClosed+" title:"+title+" account:"+account)
+  // $.ajax({
+  //   url: rc+"/recommend/recommendHistory",
+  //       type: "GET",
+  //       dataType: "json",
+  //       data: {
+  //           r: Math.random,
+  //           leavel:leavel,
+  //           isClosed:isClosed,
+  //           account:account,
+  //           title:title
+  //       },
+  //       success: function (data) {
+  //         if(data.success){
+  //             var list = data.data;
+  //             var str ="";
+  //             for (var i = 0; i < list.length; i++) {
+  //                  str+= " <tr><td>"+
+  //                       list[i].title+"</td><td>"+
+  //                       list[i].create_time+"</td><td>"+
+  //                       list[i].author_account+"</td><td>"+
+  //                       list[i].read_count+"</td><td>"+
+  //                       list[i].is_closed+"</td><td>"+
+  //                       list[i].url+"</td><td>"+
+  //                       list[i].thumbnail+"</td><td><span class='js_more'>"+
+  //                       list[i].remark+"</span></td><td>"+
+  //                       "<a class='btn btn-xs btn-success js_edit' href='javascript:void(0)' data-code='"+list[i].code+"' data-title='编辑' data-toggle='tooltip' data-original-title='编辑'>"+
+  //                       "<i class='fa fa-edit'></i></a></td></tr>";
+  //             }
+  //             $("#js_tbody").html(str);
+  //             //alert(data.message);
+
+  //         }else{
+  //             alert(data.message);
+  //         };
+  //       }
+  // });
+}
+$('body').on("click",".js_edit",function(){
+  var value=$(this).parent().prev().find(".js_more").text();
+  //alert(value);
+  $(this).parent().prev().html("");
+  $(this).parent().prev().append('<input class="js_inpEndit" value="'+value+'" type="text"/>');
+})
+$('body').on("blur",".js_inpEndit",function(){
+    var code = $(this).parent().next().find(".js_edit").data("code");
+
+    var remark=$(this).val();
+     $.ajax({
+          url: rc+"/recommend/editRemark",
+          type: "GET",
+          dataType: "json",
+          data: {
+              r: Math.random,
+              code:code,
+              remark:remark
+          },
+          success: function (data) {
+            if(data.success){
+
+            }else{
+                alert(data.message);
+            };
+            query();
+          }
+    });
+})
+
+function down(){
+    var type =$("#js_cartoonType").val();
+    var leavel =$("#js_leavel").val();
+    var isClosed =$("#js_isClosed").val();
+    var title =$("#js_title").val();
+    var account =$("#js_account").val();
+  //  $(".js_down").attr
+    window.open(rc+"/recommend/exportPerformanceResultExcel?account="+account+"&title="+title+"&isClosed="+isClosed+"&leavel="+leavel,"_blank")
+
+
+}
+function pageCut(obj){
+  obj = obj.split(",");
+
+   $("#js_tbody").empty().ajaxPageS({
+      url:rc+"/recommend/recommendHistory",
+      pageObj:$("#DataTables_Table_0_paginate"),
+      pageIndex:1,
+      pageSize:10,
+      curPageCls:"curpage",
+      pageBtn: {
+          first: "首页",
+          last: "末页",
+          prev: "上页",
+          next: "下页"
+      },
+      paramObj:{leavel:obj[0],isClosed:obj[1],account:obj[2],title:obj[3],r:Math.random()},
+      dataFn:function(data,$this){
+        if(data.success&&data.data.list.length>0){
+              var list = data.data.list;
+              var str ="";
+              for (var i = 0; i < list.length; i++) {
+                   str+= " <tr><td>"+
+                        list[i].title+"</td><td>"+
+                        list[i].create_time+"</td><td>"+
+                        list[i].author_account+"</td><td>"+
+                        list[i].read_count+"</td>";
+                  if (list[i].is_closed==0) {
+                    str+="<td>未完结</td>";
+                  }else{
+                    str+="<td>完结</td>";
+                  }
+
+                  str+="<td>"+list[i].url+"</td><td> 等级 "+
+                        list[i].thumbnail+"</td><td>"+
+                        list[i].location+"</td><td>";
+
+
+                      if (typeof(list[i].remark)=='undefined') {
+                        str+="<span class='js_more'> </span>"
+                      } else {
+                        str+="<span class='js_more'>"+list[i].remark+"</span>"
+                      }
+
+
+                    str+="</td><td>"+
+                        "<a class='btn btn-xs btn-success js_edit' href='javascript:void(0)' data-code='"+list[i].code+"' data-title='编辑' data-toggle='tooltip' data-original-title='编辑'>"+
+                        "<i class='fa fa-edit'></i></a></td></tr>";
+              }
+              return str;
+              //alert(data.message);
+
+          }else{
+              alert(data.message);
+          };
+      }
+   })
+}
+</script>
+</body>
+</html>
+
+ 

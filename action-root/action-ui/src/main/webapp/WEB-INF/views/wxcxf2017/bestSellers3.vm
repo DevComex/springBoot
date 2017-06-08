@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+    	<title>2017新服冲榜活动</title>
+    	<link href="http://qibao.gyyx.cn/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+    	<link rel="stylesheet" href="http://static.cn114.cn/action/wdcf2017/css/wd0706.css" />
+    	<script  type="text/javascript">
+	        var rc = "${rc.contextPath}";
+		</script>
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?aba5e966fed9988b5ef049a442d595a9";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+
+	</head>
+	<body>
+		<a name="b0"></a>
+		<div id="logo">
+			<a href="javascript:;" class="btn2">
+				<img src="http://static.cn114.cn/action/wdcf2017/img/gzbtn.png" />
+				
+			</a>
+			<a href="javascript:;" class="btn1" id="btn1">
+				<img src="http://static.cn114.cn/action/wdcf2017/img/salebm.png" />
+			</a>
+		</div>
+		<div id="main">
+			<div class="search">
+				<input type="text" id="searchText" />
+                <span><input type="image" value="daoheng" src="http://static.cn114.cn/action/wdcf2017/img/search.png" id="searchBtn"></span>
+			</div>
+			<div class="nav_btn">
+				<a href="${rc.contextPath}/wxcxf2017/bestSellers" data_id="0" >最新排行</a>
+				<a href="${rc.contextPath}/wxcxf2017/bestSellers2" data_id="1" >等级排行</a>
+				<a href="${rc.contextPath}/wxcxf2017/bestSellers3" class="on" data_id="2" >道行排行</a>
+				<a href="${rc.contextPath}/wxcxf2017/bestSellers4" data_id="3" >转发排行</a>
+			</div>
+			<div id="sales_box">
+				
+			</div>
+			<div id="lastPage"></div>
+		</div>
+		<div id="footer">
+			<a href="javascript:;" class="on" id="phPage">
+				<img src="http://static.cn114.cn/action/wdcf2017/img/pmon.png" />
+				<b>排行</b>
+			</a>
+			<a href="javascript:;" id="bmPage">
+				<img src="http://static.cn114.cn/action/wdcf2017/img/bm.png" />
+				<b>报名</b>
+			</a>
+			
+			<a href="javascript:;" id="jfPage">
+				<img src="http://static.cn114.cn/action/wdcf2017/img/jf.png" />
+				<b>积分兑换</b>
+			</a>
+		</div>
+		<a href="#b0"  id="top">
+			<img src="http://static.cn114.cn/action/wdcf2017/img/top.png" />
+		</a>
+		<div class="txtc">
+			<div class="tc3">
+				<h1>微信活动规则</h1>
+			<h2>活动时间：</h2>
+			<p style="color:red;">&nbsp;&nbsp;报名时间：12月30日0:00:00-2017年1月22日23:59：59</p> 
+			<p style="color:red;">&nbsp;&nbsp;排行榜和分享时间：12月30日0:00:00-2017年2月5日23：59</p>
+			<p style="color:red;">&nbsp;&nbsp;兑换时间：12月30日-2017年2月13日</p>
+			<h2>活动规则：</h2>
+			<p>1.本次活动只在“2017”新服开启；</p>
+			<p>2.本次活动与游戏内“冲榜活动”配套，只有在该活动中报名成功，才可参与游戏内的“冲榜活动”；</p>
+			<p>3.本次活动只有关注“问道”微信公众号的玩家才可以进行报名，且只有报名后的玩家才可以通过分享获得积分奖励，每个玩家每天只能分享同一名玩家一次，且每天无论分享多少次，只可获得一次积分奖励；</p>
+			<p>4.在微信中等级、道行排行数据有延迟，先是玩家该帐号参与“冲榜活动”的角色，在2017区组的角色名、等级、道行。（微信被分享次数排行榜以微信数据为准，而游戏内等级、道行榜数据以游戏内为准）；</p>
+			<p>5.排行榜中展示的内容，除被转发次数排行奖励为本次活动的微信奖励，其他均为游戏内冲榜活动的奖励展示，奖励只会发放一次；</p>
+			<p>6.严禁刷票，若被发现，取消参赛资格及奖励。</p>
+			<h2>活动奖励：</h2>
+			<p>被分享次数排行奖励：</p>
+			<p>第1名：50000银元宝</p>
+			<p>第2名：30000银元宝</p>
+			<p>第3名：10000银元宝</p>
+			<p>第4-10名：6000银元宝</p>
+			<p>所有报名参加活动的：铜钱铭牌奖励</p>
+			<a href="javascript:;" class="roleClose">关闭</a>
+			</div>
+		</div>
+		<div class="zztc" id="gztc"  style="display: none;">
+			<div class="tc4">
+				<img src="http://static.cn114.cn/action/wdcf2017/img/ewm.png" class="img1"/>
+				<img src="http://static.cn114.cn/action/wdcf2017/img/know.png" class="close img2"/>
+			</div>
+		</div>
+		 <div class="alert_box">
+               <div class="alert_msg">亲，请竖屏观看哦~~</div>
+          </div>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdcf2017/js/jquery-1.8.2.min.js" ></script>
+<script src="http://static.cn114.cn/action/wdcf2017/js/gyyx_wxshare.min.js"></script>
+<script src="http://static.cn114.cn/action/wdcf2017/js/gyyx_wxImgUp.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdcf2017/js/publicnav.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdcf2017/js/bestSellers3.js" ></script>	
+	</body>
+</html>

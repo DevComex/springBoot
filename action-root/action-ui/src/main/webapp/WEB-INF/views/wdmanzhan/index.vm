@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html xmlns:wb=“http://open.weibo.com/wb”>
+    <head>
+        <meta charset="UTF-8">
+        <title>IDo漫展</title>
+        <link href="http://static.cn114.cn/action/wdmanzhan/css/wd160824.css" type="text/css" rel="stylesheet" />
+        <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+        <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+        <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+       <!-- <script src="http://static.cn114.cn/action/wdmanzhan/js/jquery-2.1.0.js" charset="utf-8"></script> -->
+        <script src="http://static.cn114.cn/action/wdmanzhan/js/main.js" charset="utf-8"></script>
+        <script src="http://static.cn114.cn/action/wdmanzhan/js/Lottery.js" charset="utf-8"></script>
+        <script src="http://static.cn114.cn/action/wdmanzhan/js/QuickReg150824_160325.js" charset="utf-8"></script>
+        <script src="http://static.cn114.cn/action/wdmanzhan/js/PageStat.js" charset="utf-8"></script>
+        <!-- 百度统计 -->
+        <script>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "//hm.baidu.com/hm.js?60c4ff42e94c9884ade9ad1cddc35471";
+              var s = document.getElementsByTagName("script")[0];
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+        <script  type="text/javascript">
+		    var rc = "${rc.contextPath}";
+	    </script>
+    </head>
+<body>
+	<!-- 社区公用头部-->
+      <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+	<div class="wrap">
+		<div class="main">
+			<div class="header">
+				<div class="nav"><a href="http://wd.gyyx.cn/index_wd_v5.htm">进入官网</a>|<a href="http://pay.gyyx.cn">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register">账号注册</a>|<a href="http://wd.gyyx.cn/download">下载中心</a></div>
+				<div class="loginBox"></div>
+			</div>
+			<div class="part part01">
+				<div class="left">
+					<h3 class="tit">漫展的小脚印</h3>
+					<div class="picList">
+						<div class="pic" style="display: block;"><img src="http://static.cn114.cn/action/wdmanzhan/images/pleasehold_2.jpg"></div>
+						<ul class="num">
+							<li class="nom"><a href="javascript:;" class="miniPic"><img src="http://static.cn114.cn/action/wdmanzhan/images/pleasehold_1.jpg"></a></li>
+							<li class="on"><a href="javascript:;" class="miniPic"><img src="http://static.cn114.cn/action/wdmanzhan/images/pleasehold_1.jpg"></a></li>
+							<li><a href="javascript:;" class="miniPic"><img src="http://static.cn114.cn/action/wdmanzhan/images/pleasehold_1.jpg"></a></li>
+							<li><a href="javascript:;" class="miniPic"><img src="http://static.cn114.cn/action/wdmanzhan/images/pleasehold_1.jpg"></a></li>
+							<li><a href="javascript:;" class="miniPic"><img src="http://static.cn114.cn/action/wdmanzhan/images/pleasehold_1.jpg"></a></li>
+							<li><a href="javascript:;" class="miniPic"><img src="http://static.cn114.cn/action/wdmanzhan/images/pleasehold_1.jpg"></a></li>
+							<li><a href="javascript:;" class="miniPic"><img src="http://static.cn114.cn/action/wdmanzhan/images/pleasehold_1.jpg"></a></li>
+							<li><a href="javascript:;" class="miniPic"><img src="http://static.cn114.cn/action/wdmanzhan/images/pleasehold_1.jpg"></a></li>
+							<li><a href="javascript:;" class="miniPic"><img src="http://static.cn114.cn/action/wdmanzhan/images/pleasehold_1.jpg"></a></li>
+							<li><a href="javascript:;" class="miniPic"><img src="http://static.cn114.cn/action/wdmanzhan/images/pleasehold_1.jpg"></a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="right">
+					<h3 class="tit tit02">漫展的小脚印</h3>
+					<a href="javascript:;" class="mhBtn" id="js_mhBtn"><img src="http://static.cn114.cn/action/wdmanzhan/images/mahua1.jpg" style="width:100%; height:100%;"></a>
+				</div>
+			</div>
+			<div class="part part02 liteAccordion" id="one">
+				<h3 class="tit tit03">人物COS海报展示</h3>
+				<ol class="showList">
+					<li class="nom slide">
+						<h3 class="showTit01">金</h3>
+						<div class="showCont" code="1"><img src="http://static.cn114.cn/action/wdmanzhan/images/wdjinzhankai.jpg"></div>
+					</li>
+					<li class="slide on">
+						<h3 class="showTit02">木</h3>
+						<div class="showCont" code="2"><img src="http://static.cn114.cn/action/wdmanzhan/images/wd160824_mu.jpg"></div>
+					</li>
+					<li class="slide">
+						<h3 class="showTit03">水</h3>
+						<div class="showCont" code="3"><img src="http://static.cn114.cn/action/wdmanzhan/images/wd160824_shui.jpg"></div>
+					</li>
+					<li class="slide">
+						<h3 class="showTit04">火</h3>
+						<div class="showCont" code="4"><img src="http://static.cn114.cn/action/wdmanzhan/images/wd160824_huo.jpg"></div>
+					</li>
+					<li class="slide">
+						<h3 class="showTit05">土</h3>
+						<div class="showCont" code="5"><img src="http://static.cn114.cn/action/wdmanzhan/images/wd160824_tu.jpg"></div>
+					</li>
+				</ul>
+			</div>
+			<div class="part">
+				<h3 class="tit tit04">漫展的小脚印</h3>
+				<div class="sinaCj">
+					<div class="cjBox">
+						<div class="cjCount">剩余抽奖次数：<strong></strong></div>
+						<ul class="cjList">
+							<li class="on jp" id="dzp0"><img src="http://static.cn114.cn/action/wdmanzhan/images/thankU.jpg"><span>少年再试一次吧</span><i></i></li>
+							<li class="jp" id="dzp1"><img src="http://static.cn114.cn/action/wdmanzhan/images/wd160824_pic01.jpg"><span>IPAD Air 2</span><i></i></li>
+							<li class="jp" id="dzp2"><img src="http://static.cn114.cn/action/wdmanzhan/images/thankU.jpg"><span>少年再试一次吧</span><i></i></li>
+							<li class="jp" id="dzp7"><img src="http://static.cn114.cn/action/wdmanzhan/images/mingxinpian.jpg"><span>小师妹珍藏明信片</span><i></i></li>
+							<li class="cjBtn"><a href="javascript:;" id="btnStart" text="go">立即抽奖</a></li>
+							<li class="jp" id="dzp3"><img src="http://static.cn114.cn/action/wdmanzhan/images/lingshi.jpg"><span>童年零食大礼包</span><i></i></li>
+							<li class="jp" id="dzp6"><img src="http://static.cn114.cn/action/wdmanzhan/images/thankU.jpg"><span>少年再试一次吧</span><i></i></li>
+							<li class="jp" id="dzp5"><img src="http://static.cn114.cn/action/wdmanzhan/images/1Tyingpan.jpg"><span>联想1T硬盘</span><i></i></li>
+							<li class="jp" id="dzp4"><img src="http://static.cn114.cn/action/wdmanzhan/images/coin.jpg"><span>30光宇币</span><i></i></li>
+						</ul>
+						<div class="cjTxt">
+							<h4>活动规则：</h4>
+							<p><span>1、</span>在本页面发送带有#I DO，宇我同在#话题的微博并@两名好友，即可获得一次抽奖机会，每个微博账号每天最多获得一次抽奖机会，活动结束后问道微博将从@问道 的用户 中选出10名用户赠送幸运奖；</p>
+							<p><span>2、</span>给cos海报点赞即可获得两次抽奖机会，每个账号每天最多获得两次抽奖机会；</p>
+							<p><span>3、</span>抽奖机会当天未用完累加到第二天，以此类推。</p>
+						</div>
+					</div>
+					<div class="sinaBox">
+                       <wb:topic topmid="z8ClGsZa8" column="n" border="y" width="560" height="1190" tags="IDO%EF%BC%8C%E5%AE%87%E6%88%91%E5%90%8C%E5%9C%A8" color="333333%2Cffffff%2C0078b6%2Ccccccc%2C333333%2Cfafeff%2C0078b6%2Ccccccc%2C%2Ce9f4fb" language="zh_cn" version="base" appkey="5fp91K" refer="y" footbar="y" url="http%3A%2F%2Furl.gyyx.cn%2Furl%2F6Bn6vu" filter="y" ></wb:topic>
+                        <div class="sinabtn">
+
+                        </div>
+                    </div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+ 	</div>
+	<div class="pf">
+		<a href="http://weibo.com/1610915385/E7l70ei6d?from=page_1006061610915385_profile&wvr=6&mod=weibotime&type=comment#_rnd1473821969402"></a>
+	</div>
+	<!--漫画弹层-->
+	<div class="tc mhTc">
+		<a href="javascript:;" class="close"></a>
+		<div class="tcPic">
+			
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua2.jpg">
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua3.jpg">
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua4.jpg">
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua5.jpg">
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua6.jpg">
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua7.jpg">
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua8.jpg">
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua9.jpg">
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua10.jpg">
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua11.jpg">
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua12.jpg">
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua13.jpg">
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua14.jpg">
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua15.jpg">
+			<img src="http://static.cn114.cn/action/wdmanzhan/images/manhua16.jpg">
+		</div>
+	</div>
+	<!--注册-->
+	<div class="tc logTc">
+		<a href="javascript:;" class="close"></a>
+		<h3 class="tcTit">参与活动前请先登录</h3>
+		<div class="logBox">
+			<div class="logLeft">
+				<h4 class="logTit"><strong>快速注册</strong>（没有账号）</h4>
+				<form method="post" class="regformwd">
+					<div class="div">
+						<label>账号：</label><input type="text" value="" class="txt" name="userName"><span class="word">6-16位字母和数字组合</span>
+						<i class="signname siguserName"></i>
+					</div>
+					<div class="div">
+						<label>密码：</label><input type="password" value="" class="txt" name="password"><span class="word">4-16位字符（除<和>）</span>
+						<i class="signname sigpassword"></i>
+					</div>
+					<div class="div">
+						<label>验证码：</label><input name="checkcode" autocomplete="off" type="text" class="txt" maxlength="5" style="width:90px;"/>
+<span class="yzm"><img src="http://account.gyyx.cn/captcha/create?bid=JroFvzcyrErtvfgreWfbacI2&r=0.3232063027098775.png" width="80" height="36" class="flash_pagecode"/><i class="signname sigcheckcode"></i>
+</span>
+					</div>
+					<div class="chkp">
+						<input type="checkbox" value="" class="chk js_chkNickname" checked="checked">同意<a href="#" target="_blank">"服务条款"</a>
+					</div>
+	                <div class="btnp">
+	                    <input type="submit" class="logbtn" value="注册">
+	                </div>
+				</form>
+			</div>
+			<div class="logRight">
+				<h4 class="logTit"><strong>立即登录</strong>（已有账号）</h4>
+				<div class="btnp">
+                    <input type="submit" class="logbtn" value="登录" onclick="alertFn(null, null, true); return false;">
+                </div>
+			</div>
+		</div>
+	</div>
+    <!--cos弹层-->
+	<div class="tc tc02 cosTc">
+		<a href="javascript:;" class="close"></a>
+		<div class="cosBox">
+			<a href="javascript:;" class="tcPre" id="js_left"></a>
+			<div class="cosPic">
+				<ul>
+					<li>
+                        <div class="cosPlayerPic"><img src="http://static.cn114.cn/action/wdmanzhan/images/wd160824_cosPic.jpg"></div>
+						<div class="dzTxt"><i class="dzIco js_heart"></i><span id="js_likeCont">999</span></div>
+					</li>
+				</ul>
+			</div>
+			<a href="javascript:;" class="tcNext" id="js_right"></a>
+		</div>
+	</div>
+    <!--实物-->
+	<div class="plusTc tc tc02">
+		<a href="javascript:;" class="close"></a>
+		<h3 class="tcTit">恭喜你<br>获得<span id="realPrize"></span></h3>
+		<p>获得的奖励将在活动结束后，统一寄出，请尽快填写联系方式、快递地址等信息。</p>
+		<div class="tcMess">
+			<div class="div">
+				<label>姓名</label><input type="text"  class="txt" id="js_name">
+			</div>
+			<div class="div">
+				<label>电话</label><input type="text"  class="txt" id="js_cell">
+			</div>
+			<div class="div">
+				<label>QQ</label><input type="text"  class="txt" id="js_QQ">
+			</div>
+			<div class="div div01">
+				<label>地址</label><textarea class="txt txt02" id="js_adress"></textarea>
+			</div>
+            <div class="btnp">
+                <input type="submit" class="logbtn js_subAdress" value="提交 ">
+            </div>
+		</div>
+	</div>
+    <!--获得点卡-->
+	<div class="kaTc tc tc02">
+		<a href="javascript:;" class="close"></a>
+		<h3 class="tcTit">恭喜你<br>获得光宇点卡30元</h3>
+		<div class="kaBox">
+			<p >卡号：<span id="js_cardId"></span></p>
+			<p >密码：<span id="js_cardKey"></span></p>
+            <div class="btnp">
+                <input type="submit" class="logbtn kaClose" value="提交 ">
+            </div>
+		</div>
+	</div>
+    <!--中奖查询-->
+    <div class="zjTc tc tc02">
+		<a href="javascript:;" class="close"></a>
+		<h3 class="tcTit">中奖情况</h3>
+		<div class="zjBox">
+			<table class="zjTab">
+				<tr><th width="130">中奖时间</th><th width="270">奖品内容</th></tr>
+			</table>
+		</div>
+	</div>
+    <!--已用完-->
+	<div class="fullTc tc tc02">
+		<a href="javascript:;" class="close"></a>
+		<h3 class="tcTit">很遗憾，您的抽奖机会已用完，<br>赶快去增加抽奖次数吧~</h3>
+	</div>
+	<div class="blackMask"></div>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Layout:luochongfei"/>
+    <title>紧急任务</title>
+    <link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet"/>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/jquery.OASearch.js"></script>
+<link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+	<script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <script type="text/javascript" charset="utf-8">
+        $(function () {
+            $!{alertinfo}
+        });
+    </script>
+	<script>
+	$(function(){
+		var collection = "$!collectionCode";
+		var project = "$!projectCode";
+    	$(".js_DayBefore").datepicker({
+                format: 'yyyy-mm-dd',
+                startView: 2,   //默认打开是年试图
+                autoclose: true,  //选择后自动关闭
+                todayBtn: true,  //选择今天的按钮
+                minView: 2   //只能选到年试图  （0 代表能选到分钟、1 代表能选到小时、2 代表能选到日 ）
+            }).on('changeDate', function (ev) {
+				var AddStartTime = $(this).val();
+                $(".js_DayBefore").datepicker('hide');    //隐藏开始时间面板
+                $(this).parent().parent().find(".js_DayAfter").datepicker('show')   //显示结束时间面板
+				$(".js_DayAfter").datepicker('setStartDate', AddStartTime);
+    	});
+    	$(".js_DayAfter").datepicker({
+                format: 'yyyy-mm-dd',
+                startView: 2,   //默认打开是年试图
+                autoclose: true,  //选择后自动关闭
+                todayBtn: true,  //选择今天的按钮
+                minView: 2   //只能选到年试图  （0 代表能选到分钟、1 代表能选到小时、2 代表能选到日 ）
+            }).on('changeDate', function (ev) {
+                $(".js_DayAfter").datepicker('hide');    //隐藏开始时间面板
+    	});
+		$.ajax
+			({
+				url:"../ProjectCollection/ProjectCollectionList",  
+                   type:'get',  
+                   dataType:'json', 
+				   async: false,
+                   success:function(data){  
+					   if(data != null){
+							var optionhtml = "<option value='-1'>请选择项目集</option>";
+							for (var i = 0; l = data.length, i < l; i++) {
+                                 optionhtml += "<option value='" + data[i].code + "'>" + data[i].projectCollectioName + "</option>"
+                            }
+                            $(".versionCol").empty().html(optionhtml);
+							$("#projectGroupSelect").val(collection);
+					   }else{
+							$(".versionCol").empty().html("<option value='-1'>请选择项目集</option>");
+						} 
+                   },  
+                   error:function(){  
+    					alert("获取项目集列表失败！");
+                   }   
+            });
+			var projectGroup = $(".versionCol").val();
+				var postData={
+					projectGroup:projectGroup
+				};
+				var $this = $(this);
+				$.ajax
+				({
+				   url:"../projectbasic/secondSelect",  
+                   type:'get', 
+				   data: postData,
+                   dataType:'json',  
+                   success:function(data){  
+					   if(data != null){
+							var optionhtml = "<option value=''>请选择项目内容</option>";
+							for (var i = 0; l = data.length, i < l; i++) {
+                                 optionhtml += "<option value='" + data[i].code + "'>" + data[i].projectName + "</option>"
+                            }
+                            $(".versionPro").empty().html(optionhtml);
+							$("#projectReportSelect").val(project);
+					   }else{
+							$(".versionPro").empty().html("<option value=''>请选择项目内容</option>");
+						} 
+                   },  
+                   error:function(){  
+    					$(".versionPro").empty().html("<option value=''>请选择项目内容</option>");
+                   }   
+            	});
+			$(".versionCol").on("change",function(){
+				var projectGroup = $(".versionCol").val();
+				var postData={
+					projectGroup:projectGroup
+				};
+				var $this = $(this);
+				$.ajax
+				({
+				   url:"../projectbasic/secondSelect",  
+                   type:'get', 
+				   data: postData,
+                   dataType:'json',  
+                   success:function(data){  
+					   if(data != null){
+							var optionhtml = "<option value=''>请选择项目内容</option>";
+							for (var i = 0; l = data.length, i < l; i++) {
+                                 optionhtml += "<option value='" + data[i].code + "'>" + data[i].projectName + "</option>"
+                            }
+                            $(".versionPro").empty().html(optionhtml);
+					   }else{
+							$(".versionPro").empty().html("<option value=''>请选择项目内容</option>");
+						} 
+                   },  
+                   error:function(){  
+    					$(".versionPro").empty().html("<option value=''>请选择项目内容</option>");
+                   }   
+            	});
+			});
+			$("#projectReportSelect").change(function(){
+				var collectionCode = $("#projectGroupSelect").val();
+				var projectCode = $("#projectReportSelect").val();
+				if(projectCode!=""){
+					window.location.href="listByProjectCode?collectionCode="+collectionCode+"&projectCode="+projectCode;
+				}
+			})
+	});
+</script>
+<script type="text/javascript" charset="utf-8">
+    alert("谢谢参与，活动已结束");
+</script>
+    <link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet"/>
+</head>
+<body>
+<section class="vbox">
+    <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+    <section>
+        <section class="hbox stretch">
+            <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+            <section id="content">
+                <section class="vbox js_template_right">
+                    <!--顶部标题导航 begin-->
+                    <header class="header bg-white b-b clearfix">
+                        <div class="col-sm-2 m-b-xs">
+                            <h4 class="m-t bold">紧急任务列表</h4>
+                        </div>
+						<div class="col-sm-2">
+								<form action="list" method="get"> 
+									<select name="projectGroup" id="projectGroupSelect" class="m-t-sm form-control versionCol" style="width: 160px;margin-left:18px">
+                                        <option value="-1">请选择项目集</option>
+									</select>
+									
+                                </form>
+                        </div>
+						<div class="col-sm-2">
+								<form action="list1" method="get"> 
+									<select name="projectReport" id="projectReportSelect" class="m-t-sm form-control versionPro" style="width: 160px;margin-left:18px">
+                                        <option value="-1">请选择项目内容</option>
+									</select>
+									
+                                </form>
+                        </div>
+                        <div class="col-sm-1 m-b-xs m-t-sm m-l-xl">
+                            
+                                <a href="add" class="btn btn-s-md  btn-info m-l-xl">添加紧急任务</a>
+                           
+                        </div>
+						<div class="col-sm-1 m-b-xs m-t-sm m-l-xl" style="margin-left:60px;">
+                           
+								<a class="btn btn-s-md  btn-info m-l-xl" href="#exportExcelTime" data-toggle="modal">导出人员任务表格</a>
+							
+                        </div>
+						<div class="col-sm-1 m-b-xs m-t-sm m-l-xl" style="margin-left:80px;">
+                           
+                                <a class="btn btn-s-md  btn-info m-l-xl" id="home">主页</a>
+                          
+                        </div>
+                    </header>
+                    <!--顶部标题导航 end-->
+                    <!--主体内容 begin-->
+                    <section class="scrollable padder">
+                        <div class="m-b-md">
+                        </div>
+                        <!--数据表格  begin -->
+
+                        <section class="panel panel-default">
+                            <div class="table-responsive">
+                                <table class="table table-striped m-b-none">
+                                    <thead>
+                                    <tr>
+										<th>序号</th>
+                                        <th>任务编号</th>
+                                        <th>项目集</th>
+                                        <th>项目名称</th>
+                                        <th>紧急任务描述</th>
+                                        <th>紧急任务时间</th>
+                                        <th>操作</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                        #foreach($task in $urgentTaskList)
+                                        <tr>
+											<td>$!task.row</td>
+                                            <td id="paraCodeM">$!task.code</td>
+                                            <td>$!task.projectCollectionName</td>
+                                            <td>$!task.projectName</td>
+                                            <td>$!task.taskContent</td>
+                                            <td>
+                                                <!--$dateFormatter.format("yyyy-MM-dd hh:mm",$task.taskDate)-->
+                                                $dateFormatter.format($task.taskDate)
+                                            </td>
+                                            <td class="js_btn_edit">
+                                                <a title="" class="btn btn-xs btn-info js_view_task"
+                                                   data-title="查看紧急任务明细" data-toggle="tooltip"
+                                                   data-original-title="查看紧急任务明细">
+                                                    <i class="fa fa-align-left"></i>
+                                                </a>
+												<a title="" class="btn btn-xs btn-success js_edit_task" is_over="$!task.isOver"
+                                                   data-title="编辑紧急任务" data-toggle="tooltip"
+                                                   data-original-title="编辑紧急任务">
+                                                    <i class="fa fa-edit"></i>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        #end
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+						
+                    </section>
+					<!--翻页功能-->
+                        <footer class="footer bg-white b-t">
+                            <div class="row dataTables_wrapper">
+                                <div class="col-sm-6">
+                                    <div class="dataTables_info" id="DataTables_Table_0_info">共 $!pageBean.totalRecords 条</div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_0_paginate">
+                                        <a class="first paginate_button" tabindex="0" id="DataTables_Table_0_first">首页</a>
+										<a class="previous paginate_button" tabindex="0" id="DataTables_Table_0_previous">上一页</a>
+										<span>
+											 $!pageBean.pageIndex / $!pageBean.totalPages 
+										</span>
+										<a class="next paginate_button" tabindex="0" id="DataTables_Table_0_next">下一页</a>
+										<a class="last paginate_button" tabindex="0" id="DataTables_Table_0_last">末页</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+						
+						<script>
+							$(function(){
+								var pagePrevious = $!pageBean.isHavePrePage;
+								var pageNext = $!pageBean.isHaveNextPage;
+								if(!pagePrevious){
+									$("#DataTables_Table_0_previous").addClass("paginate_button_disabled");
+									$("#DataTables_Table_0_first").addClass("paginate_button_disabled");
+								}
+								if(!pageNext){
+									$("#DataTables_Table_0_next").addClass("paginate_button_disabled");
+									$("#DataTables_Table_0_last").addClass("paginate_button_disabled");
+								}
+								$("#DataTables_Table_0_previous").click(function(){
+									if(pagePrevious){
+										var page = $!pageBean.pageIndex -1;
+											window.location.href="list?pageIndex="+page;
+									}	
+								})
+								$("#DataTables_Table_0_next").click(function(){
+									if(pageNext){
+										var page = $!pageBean.pageIndex + 1;
+											window.location.href="list?pageIndex="+page;
+									}
+								})
+								$("#DataTables_Table_0_first").click(function(){
+									if(pagePrevious){
+											window.location.href="list?pageIndex="+1;
+									}
+								})
+								$("#DataTables_Table_0_last").click(function(){
+									if(pageNext){
+										var page = $!pageBean.totalPages;
+											window.location.href="list?pageIndex="+page;
+									}
+								})
+							})
+						</script>
+                </section>
+            </section>
+        </section>
+    </section>
+    <script>
+        $(function () {
+            $("#home").click(function (event) {
+                window.location.href = "../tasktrace/adminHome";
+            });
+
+
+            $(".js_view_task").click(function () {
+                var taskCode = $(this).parent().parent().find("td").eq(1).text();
+                window.location.href = "view?taskCode=" + taskCode;
+            });
+			
+			$(".js_edit_task").click(function () {
+				if($(this).attr("is_over")==1){
+					alert("该任务已经结束，无法编辑！");
+				}else{
+					var taskCode = $(this).parent().parent().find("td").eq(1).text();
+                	window.location.href = "update?taskCode=" + taskCode;
+				}
+                
+            });
+        });
+    </script>
+<div class="modal fade" id="exportExcelTime">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h6 class="modal-title">导出</h6>
+            </div>
+            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+            <div class="modal-body">
+					<div class="form-group">
+                            <label class="col-sm-3 control-label" style="text-align:center;font-size:10pt">日期区间:</label>
+                            <div class="col-sm-4">
+								<input type="text" placeholder="起始日期" id="js_exportAllExcel_year" class="input-sm form-control js_DayBefore" value="">
+                            </div>
+							<div class="col-sm-4">
+								<input type="text" placeholder="截止日期" id="js_exportAllExcel_month" class="input-sm form-control js_DayAfter" value="">
+                            </div>
+                    	</div>
+                    <div class="modal-footer" style="border-top:0px">
+                    	<button type="button"  class="btn btn-info js_addallExcelTime">确定</button>
+                        <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">返回</button>
+                    </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<script>
+        $(function () {
+           $(".js_addallExcelTime").click(function(){
+		   		var startDate = $("#js_exportAllExcel_year").val();
+				var endDate = $("#js_exportAllExcel_month").val();
+				if(startDate==""||endDate==""){
+					alert("请先选择相应的日期！");
+				}else{
+					window.location.href="exportTaskList?startDate="+startDate+"&endDate="+endDate;
+					$(".close_js_Msg").click();
+				}
+		   });
+        });
+    </script>
+</body>
+</html>

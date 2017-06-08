@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.jswswxsign.IGiftExchangeCodeMapper">
+	<!-- Bean Map 映射 -->
+	<resultMap type="JSWSWxSignGiftExchangeCodeBean" id="JSWSWxSignGiftExchangeCodeBeanMap">
+		<id column="code" property="code" />
+		<result column="exchange_code" property="exchangeCode" />
+		<result column="is_use" property="isUse" />
+		<result column="gid" property="gid" />
+		<result column="os" property="os" />
+	</resultMap>
+	
+	<!-- 获得对应礼包下可用的一条兑换码 -->
+	<select id="getGiftExchangeCodeOne" parameterType="JSWSWxSignGiftExchangeCodeBean" resultMap="JSWSWxSignGiftExchangeCodeBeanMap">
+		select 
+			top 1 * 
+		from
+			jsws_wx_sign_gift_exchange_code_tb
+		where 
+			1=1 and is_use = 0 and gid=#{gid} and os = #{os}
+		order by code 
+	</select>
+	
+	<!-- 更新礼包兑换码记录 -->     
+	<update id="updateGiftExchangeCode" parameterType="JSWSWxSignGiftExchangeCodeBean">     
+	    update jsws_wx_sign_gift_exchange_code_tb      
+	    <set>     
+	        <if test="isUse!=null ">     
+	            is_use = #{isUse},      
+	        </if>
+	    </set>     
+	    where exchange_code = #{exchangeCode}
+	</update>  
+	
+</mapper>

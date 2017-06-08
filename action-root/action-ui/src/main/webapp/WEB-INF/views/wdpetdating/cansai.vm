@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>问道-我和宠物有个约会</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdpetdating/css/wd150824.css">
+    <script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>	<script>
+	 var rc = "${rc.contextPath}";
+	</script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+    <script src="http://static.cn114.cn/action/wdpetdating/js/upload/swfupload.js" type="text/javascript"></script>
+    <script src="http://static.cn114.cn/action/wdpetdating/js/upload/SWFInitialize.js" type="text/javascript" charset="GB2312"></script>
+    <script src="http://static.cn114.cn/action/wdpetdating/js/upload/Handlers.js" type="text/javascript" charset="GB2312"></script>
+    <script src="http://static.cn114.cn/action/wdpetdating/js/pet.js"></script>
+</head>
+<body>
+     <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wd_bg">
+        <!--左侧-->
+        <div class="wd_left">
+            <div class="wd_logo">问道</div>
+            <!--活动类目-->
+            <div class="wd_item">
+                <ul>
+                    <li><a class="a01" href="index.html">赛事首页</a></li>
+                    <li><a class="a02" href="guize.html">活动规则</a></li>
+                    <li class="on"><a class="a03" href="cansai.html">我要参赛</a></li>
+                    <li><a class="a04" href="choujiang.html">参与抽奖</a></li>
+                </ul>
+            </div>
+            <!--左侧链接-->
+            <div class="wd_link">
+                <a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>
+                <a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>
+                <a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>
+                <a href="http://wd.gyyx.cn/download/" target="_blank">下载游戏</a>
+            </div>
+        </div>
+        <!--右侧-->
+        <div class="wd_right">
+            <!--导航-->
+            <div class="wd_nav">
+                <a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+            </div>
+            <div class="people">人物</div>
+            <div class="wd_tab">
+                <!--我要参赛开始-->
+                <div class="wd_cont wd_box03">
+                    <div class="wd_main">
+                        <h2>我要参赛</h2>
+                        <div class="txt">
+                            <h3 class="tit01">作品要求</h3>
+                            <p>
+                                （1）稿件中的宠物必须为玩家本人的宠物，<br>
+                                若不符合要求则会审批不通过。<span>（举例如页面底部的图，标红处截图时必有）</span>
+                            </p>
+                            <p>（2）若官方人员检查或有玩家举报核实确认为违规或未PS等修改后的假图则取消其参赛和获奖资格。</p>
+                        </div>
+                        <div class="txt">
+                            <h3 class="tit02">上传作品</h3>
+                            <div class="input_box clear js_area">
+                                <label>选择大区</label>
+                                <select class="select" name="netType" id="ddlNetType">
+                                    <option value="-1">请选择大区</option>
+									<option value="3">双线</option>
+                                    <option value="1">网通</option>
+                                    <option value="2">电信</option>
+                                </select>
+								<span class="red" style="display:none;">请选择大区</span>
+                            </div>
+                            <div class="input_box js_group">
+                                <label>服务器</label>
+                                <select class="select" name="serverId" id="ddlGameServer">
+                                    <option value="-1">请选择服务器</option>
+                                </select>
+                                <span class="red" style="display:none;">请选择服务器</span>
+                            </div>
+                            <div class="input_box">
+                                <label>角色名称</label><input id="roleName" type="text" value="" placeholder="请输入">
+                                <span class="red" style="display:none;">请输入角色名称</span>
+                            </div>
+                            <div class="input_box">
+                                <label>作品名称</label><input id="worksName" type="text" value="" placeholder="请输入">
+                                <span class="red" style="display:none;">请输入作品名称</span>
+                            </div>
+                            <div class="input_box ib05">
+                                <label>作品介绍</label><textarea id="worksAbout" class="intro"></textarea>
+                                <span  class="red" style="display:none;margin-left:80px;">请输入作品介绍</span>
+                            </div>
+                            <div class="input_box">
+                                <!--<input type="button" class="upload"></div>-->
+                                <input type="button" id="btnUpload" onclick=" swfu.selectFile(); this.blur();" value="" />
+                                <input type="hidden" id="FileCode" name="FileCode" />
+                                <input type="hidden" id="OldFileName" name="OldFileName" />
+                                <a class="qrtj js_upload" href="javascript:;"></a>
+                            </div>
+                            <div class="input_box">
+                                <p>作品预览</p>
+                            </div>
+                            <div class="prev_pic">
+                                <div class="form-group filecontainer upload_padding_left">
+                                    <label for="input-id-1" class="col-sm-2 control-label"></label>
+                                    <div id="divFileProgressContainer">
+                                    </div>
+                                </div>
+                                <img src="http://static.cn114.cn/action/wdpetdating/images/wd150824_pic03.jpg">
+                            </div>
+                        </div>
+                    </div>
+                    <!--我要参赛结束-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+</body>
+</html>

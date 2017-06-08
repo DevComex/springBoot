@@ -1,0 +1,12 @@
+                   #foreach ( $listScoreOA in $result.data) 
+				  <tr>
+                        <td width="10%">$listScoreOA.account</td>
+		                <td>$listScoreOA.score</td>	
+                        #foreach ( $listActionScore in $listScoreOA.hdScore) 
+						<td>$listActionScore</td>
+						#end
+						
+                  </tr>    
+				   #end
+				   <input type="hidden" value='$result.totalPage' id="allPageA" />
+					<input type="hidden" value='$pageNo'  id="pageNoA" />

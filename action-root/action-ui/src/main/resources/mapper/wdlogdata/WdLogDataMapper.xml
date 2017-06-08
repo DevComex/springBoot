@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdlogdata.WdLogDataMapper">
+	<resultMap type="cn.gyyx.action.beans.wdlogdata.WdLogDataBean" id="wdLogDataBean">
+		<id column="wd_log_code" property="code" />
+		<result column="wd_log_time" property="time" />
+		<result column="wd_log_ip" property="ip" />
+		<result column="wd_log_mac" property="mac" />
+		<result column="wd_log_ver" property="ver" />
+		<result column="wd_log_type" property="type" />
+		<result column="wd_log_acc" property="acc" />
+		<result column="wd_log_gameid" property="gameid" />
+	</resultMap>
+	<insert id="saveLog" parameterType="wdLogDataBean">
+        insert into wd_log 
+  		(wd_log_time,wd_log_ip,wd_log_mac,wd_log_ver,wd_log_type,wd_log_acc,wd_log_gameid) 
+  		values (#{time},#{ip},#{mac},#{ver},#{type},#{acc},#{gameid})
+   </insert>
+	
+	
+</mapper>

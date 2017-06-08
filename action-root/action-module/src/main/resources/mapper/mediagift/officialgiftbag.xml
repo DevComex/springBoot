@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.giftbaginterface.IOfficialGiftBag">
+	<resultMap type="OfficialGiftBagBean" id="OfficialGiftBagBeanMap">
+		<result column="con" property="number" />
+		<result column="server_name" property="serverName" />
+		<result column="present_type" property="pageName" />
+	</resultMap>
+	<select id="getOfficialGiftBagBean" resultMap="OfficialGiftBagBeanMap"
+		resultType="java.util.List">
+		select count(code) as con,server_name,present_type from
+		hd_send_present_log
+		where
+		remark='noviceBag'
+		and
+		server_name=#{serverName}
+		and
+		<![CDATA[
+		draw_time >= #{begin}
+		and
+		draw_time < #{end}
+		]]>
+		group by present_type,server_name
+
+	</select>
+</mapper>

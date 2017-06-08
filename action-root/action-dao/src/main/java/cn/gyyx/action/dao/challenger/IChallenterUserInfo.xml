@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.challenger.IChallenterUserInfo">
+	<resultMap type="ChallenterUserInfoBean" id="ChallenterUserInfoBeanMap">
+		<id column="code" property="code" />
+		<result column="user_id" property="userId" />
+		<result column="account" property="account" />
+		<result column="role_name" property="roleName" />
+		<result column="contact_type" property="contactType" />
+		<result column="contact " property="contact" />
+		<result column="create_time" property="createTime" />
+		<result column="user_state" property="state" />
+	</resultMap>
+
+	<update id="setUserInfoState">
+		update challenger_user_info_tb
+		set
+		user_state=#{status}
+		where
+		code=#{code}
+		and
+		user_state='oncheck'
+	</update>
+
+	<select id="getUserInfoBean" parameterType="ChallenterUserInfoBean"
+		resultMap="ChallenterUserInfoBeanMap">
+		select
+		top 1 *
+		from
+		challenger_user_info_tb
+		where
+		1=1 and user_state !=
+		'unpass'
+		<if test="userId!= null and userId!= '' ">
+			and user_id = #{userId}
+		</if>
+	</select>
+
+	<select id="getStatusChallenterUserInfo" resultMap="ChallenterUserInfoBeanMap"
+		resultType="java.util.List">
+		SELECT TOP
+		${size}
+		code,user_id,account,role_name,contact_type,contact,create_time,user_state
+		FROM
+		challenger_user_info_tb
+		WHERE
+		(code NOT
+		IN
+		(SELECT TOP
+		(#{size} *
+		(#{pageNo} - 1))
+		code
+		FROM
+		challenger_user_info_tb
+		where
+		user_state=#{status}
+		order BY create_time desc
+		)
+		)
+		and
+		user_state=#{status}
+		order BY create_time desc
+
+	</select>
+
+	<select id="getCountStatusChallenterUserInfo" resultType="int">
+		select
+		count(*)
+		from challenger_user_info_tb
+		where
+		user_state=#{status}
+
+	</select>
+	<select id="getUserInfoCount" parameterType="ChallenterUserInfoBean"
+		resultType="int">
+		select
+		count(1)
+		from
+		challenger_user_info_tb
+		where
+		1=1 and user_state !=
+		'unpass'
+		<if test="roleName!= null and roleName!= '' ">
+			and role_name = #{roleName}
+		</if>
+	</select>
+	<select id="getOneChallenterUserInfo" resultMap="ChallenterUserInfoBeanMap">
+		select top 1 *
+		from challenger_user_info_tb
+		where
+		user_state=#{status}
+		and
+		user_id=#{userCode}
+	</select>
+	<select id="getCodeChallenterUserInfo" resultMap="ChallenterUserInfoBeanMap">
+		select *
+		from
+		challenger_user_info_tb
+		where
+		user_state=#{status}
+		and
+		code=#{code}
+	</select>
+	<insert id="insert" parameterType="ChallenterUserInfoBean"
+		useGeneratedKeys="true" keyProperty="code">
+		insert into
+		challenger_user_info_tb (
+		user_id
+		,account
+		,role_name
+		,contact_type
+		,contact
+		,create_time
+		,user_state)
+		values(
+		#{userId}
+		,#{account}
+		,#{roleName}
+		,#{contactType}
+		,#{contact}
+		,#{createTime}
+		,#{state})
+	</insert>
+
+	<select id="getLastOneChallenterUserInfo" resultMap="ChallenterUserInfoBeanMap">
+		select top 1 *
+		from challenger_user_info_tb
+		where
+		user_id= #{userCode}
+		order by code desc
+	</select>
+	<select id="getUserInfoListByIds" resultMap="ChallenterUserInfoBeanMap">
+		select top 1 *
+		from challenger_user_info_tb
+		where user_state='pass' and
+		user_id in
+		<foreach item="item" index="index" collection="userIds" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+	</select>
+
+	<select id="getTeamMemberUserInfoListByTeamIds" resultMap="ChallenterUserInfoBeanMap">
+		with temp as (select user_id from challenger_team_user_tb
+		where
+		team_id
+		in
+		<foreach item="item" index="index" collection="teamIds" open="("
+			separator="," close=")">
+			#{item}
+		</foreach>
+		)
+		select distinct * from challenger_user_info_tb where user_state =
+		'pass' and user_id in ( SELECT user_id from temp )
+	</select>
+</mapper>

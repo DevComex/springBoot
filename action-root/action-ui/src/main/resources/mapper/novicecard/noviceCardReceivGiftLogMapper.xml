@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.novicecard.INoviceCardReceivGiftLogNewMapper">
+	<insert id="insert">
+		insert into novice_card_receive_gift_new_log
+		(user_id,account_name,game_id,server_id,server_name,activity_id,activity_name,create_date,batch_no,flag,card_no,result)
+		values ( 
+		         #{userId},
+		         #{accountName},
+		         #{gameId},
+		         #{serverId},
+		         #{serverName},
+		         #{activityId},
+		         #{activityName},
+		         #{createDate},
+		         #{batchNo},
+		         #{flag},
+		         #{cardNo},
+		         #{responseResult}
+		        ) 
+	</insert>
+</mapper>
+
+
+
+
+
+
+

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.novicecard.IServerMapper">
+	<resultMap type="Server" id="Server">
+		<id column="code" property="code" />
+		<result column="game_id" property="gameId" />
+		<result column="server_id" property="serverId" />
+		<result column="server_name" property="serverName" />
+		<result column="state" property="state" />
+		<result column="area_id" property="areaId" />
+		<result column="batch_no" property="batchNo" />
+	</resultMap>
+
+	<!-- 通过状态，游戏编号，区域，批次号查询服务器信息 -->
+	<select id="selectServerByGameIdAndState" resultMap="Server" parameterType="Server">
+		select code,game_id,server_id,server_name,state,area_id,batch_no from novice_card_server  
+		where game_id=#{gameId} and area_id=#{areaId} and state=#{state} and batch_no=#{batchNo} order by code desc
+	</select>
+
+	<!-- 通过游戏编号查询所有服务器信息 -->
+	<select id="selectServerByGameId" resultMap="Server" parameterType="Integer" >
+		select code,game_id,server_id,server_name,state,area_id,batch_no from novice_card_server  
+		where game_id=#{gameId}
+	</select>
+
+</mapper>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.mapper.IActionQualificationLogMapper">
+	
+	<select id="selectDataToday" parameterType="cn.gyyx.action.beans.lottery.po.ActionQualificationLogPO"
+			resultType="cn.gyyx.action.beans.lottery.po.ActionQualificationLogPO">
+		select *
+		  from action_qualification_log_tb
+		 where activityId = #{activityId}
+		   and userId = #{userId}
+		   and CONVERT(varchar(10), createAt, 120) = CONVERT(varchar(10), getdate(), 120)
+		   and operate like CONCAT('%', '${operate}', '%');
+	</select>
+	
+	<insert id="insert" parameterType="cn.gyyx.action.beans.lottery.po.ActionQualificationLogPO">
+		insert into action_qualification_log_tb(activityId, userId, operate, createAt, ip)
+			values (#{activityId}, #{userId}, #{operate}, #{createAt}, #{ip})
+	</insert>
+</mapper>

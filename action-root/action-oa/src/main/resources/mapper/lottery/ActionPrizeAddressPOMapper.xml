@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.mapper.IActionPrizesAddressMapper">
+	<resultMap type="cn.gyyx.action.beans.lottery.po.ActionPrizesAddressPO" id="ActionPrizesAddressPOMap">
+		<id column="code" property="code" />
+		<result column="activity_type" property="activityType" />
+		<result column="activity_id" property="activityId" />
+		<result column="user_code" property="userCode" />
+		<result column="user_id" property="userId" />
+		<result column="user_name" property="userName" />
+		<result column="user_phone" property="userPhone" />
+		<result column="user_email" property="userEmail" />
+		<result column="user_address" property="userAddress" />
+		<result column="remark" property="remark" />
+		<result column="create_at" property="createAt" />
+		<result column="modify_at" property="modifyAt" />
+		<result column="winning_at" property="winningAt" />
+		<result column="qq" property="qq" />
+		<result column="source" property="source" />
+		<result column="zip_code" property="zipCode" />
+	</resultMap>
+	
+	<select id="getUserAddress" resultMap="ActionPrizesAddressPOMap">
+	SELECT
+		addr.userID,
+		addr.username,
+		addr.userphone,
+		addr.userEmail,
+		addr.qq,
+		addr.userAddress,
+		logs.winningAt,
+		logs.activityType,
+		info.source
+		FROM
+			action_prizes_address_tb addr
+		JOIN action_lottery_log_tb logs ON logs.activityId = addr.activityId and logs.userID = addr.userID 
+	  JOIN action_user_info_tb info ON info.activityId = addr.activityId and info.userID = addr.userID 
+		WHERE
+			1 = 1
+		AND logs.activityId = 399
+		and addr.activityType = 'exchange'
+		AND logs.prizeType = 'Invitation'
+		order by winningAt DESC
+	</select>
+	<!-- 分页显示用户填写信息 -->
+	<select id="getUserAddressPaging" resultMap="ActionPrizesAddressPOMap">
+	
+		SELECT
+			TOP (#{pageSize})  
+			A.*
+		from (
+			SELECT
+			TOP (#{pageSize}*#{currentPage})
+			    ROW_NUMBER() OVER (ORDER BY logs.winningAt DESC) AS row_num,
+			addr.userID,
+			addr.username,
+			addr.userphone,
+			addr.userEmail,
+			addr.qq,
+			addr.userAddress,
+			logs.winningAt,
+			logs.activityType,
+		    info.source
+			FROM
+			action_prizes_address_tb addr
+		    JOIN action_lottery_log_tb logs ON logs.activityId = addr.activityId and logs.userID = addr.userID 
+	        JOIN action_user_info_tb info ON info.activityId = addr.activityId and info.userID = addr.userID 
+			WHERE
+				1 = 1
+			AND logs.userId = addr.userId
+			AND logs.activityId = 399
+			AND addr.activityType ='exchange'
+			AND logs.prizeType = 'Invitation'
+			order by winningAt DESC
+		) A
+		WHERE row_num >
+		(#{pageSize}*(#{currentPage}-1))
+	</select>
+	
+	<select id="getCount" resultType="java.lang.Integer">
+		SELECT
+		count(1)
+		FROM
+			action_prizes_address_tb addr
+	    JOIN action_lottery_log_tb logs ON logs.activityId = addr.activityId
+	    JOIN action_user_info_tb info ON info.activityId = addr.activityId and info.userID = addr.userID 
+		WHERE
+			1 = 1
+		AND logs.userId = addr.userId
+		AND logs.activityId = 399
+		AND addr.activityType ='exchange'
+		AND logs.prizeType = 'Invitation'
+	</select>
+</mapper>

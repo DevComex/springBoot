@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.insurance.IGyyxGoPay">
+	<!-- 更新 订单流水号-->
+	<update id="paySuccess">
+		update wd_insurance_order_tb
+		set gyyx_order_num=#{0}
+		where order_num=#{1}
+	</update>
+	<select id="isSuccessPay" parameterType="String" resultType="String">
+		select status
+		from wd_insurance_order_tb
+		where order_num=#{outTradeNo}
+	</select>
+	<!-- 添加PICC投保订单号 -->
+	<update id="addPICCOrder">
+		update wd_insurance_order_tb
+		set piccnum = #{0}
+		where order_num=#{1}
+	</update>
+	<!-- 修改支付时间，过期时间，订单状态 -->
+	<update id="alterPaySuccOrderInfo">
+		update wd_insurance_order_tb
+		set status='succpay',
+			pay_time=#{1},
+			valid_time=#{2}
+		where order_num=#{0}
+	</update>
+	<update id="alterOrder">
+		update wd_insurance_order_tb
+		set status=#{1}
+		where order_num=#{0}
+	</update>
+	<select id="getCircle" parameterType="String" resultType="int">
+		select circle
+  		from wd_insurance_order_tb
+  		where order_num=#{outTradeNo}
+	</select>
+	<select id="selectInsurePara" parameterType="String" resultMap="insurerPara">
+		select phone,
+			   name,
+			   server_name,
+			   protection,
+			   reparation,
+			   circle,
+			   order_num,
+			   pay_time,
+			   role_name,
+			   game_name
+		from wd_insurance_order_tb
+		where order_num=#{outTradeNo}
+	</select>
+	<select id="getAllConfig" resultType="List" resultMap="insureConfig">
+		select *
+  		from wd_insurance_config
+	</select>
+	<select id="getInsureKey" parameterType="String" resultType="String">
+		select insurance_value
+		from wd_insurance_config
+		where insurance_key = #{para}
+	</select>
+	<resultMap id="insureConfig" type="InsuranceConfigBean">
+		<id column="code" property="code" />
+		<result column="insurance_key" property="key" />
+		<result column="insurance_value" property="value" />
+	</resultMap>
+	<resultMap id="insurerPara" type="InsurerParaBean">
+		<id column="code" property="code" />
+		<result column="phone" property="mobile" />
+		<result column="name" property="realname" />
+		<result column="server_name" property="gameserver" />
+		<result column="game_name" property="gamename" />
+		<result column="role_name" property="rolename" />
+		<result column="protection" property="insermoney" />
+		<result column="reparation" property="preclaims" />
+		<result column="circle" property="insureterm" />
+		<result column="order_num" property="orderid" />
+		<result column="pay_time" property="ctime" />
+	</resultMap>
+</mapper>

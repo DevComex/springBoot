@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta charset="UTF-8">
+		<title>问道全民PK赛-抽奖</title>
+		<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdpkforecast/css/wd161011.css">
+		<script  type="text/javascript">
+		    var rc="${rc.contextPath}";
+	    </script>
+		<script src="http://s.gyyx.cn/lib/jquery.js"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+		 <script type="text/javascript" src="http://static.cn114.cn/action/wdpkforecast/js/script2.js"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdpkforecast/js/scrollFn.js"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdpkforecast/js/Lotterywd.js"></script>
+
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdpkforecast/js/handler.js"></script>
+	   <script type="text/javascript" src="http://static.cn114.cn/action/wdpkforecast/js/login.js"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdpkforecast/js/cj.js"></script>
+		
+	   
+	</head>
+
+	<body>
+		<div class="public_nav_top"><script type="text/javascript">Showtop();</script>
+	</div>
+		<div class="wd_wrap">
+			<div class="main">
+				<!--导航-->
+						<div class="wd_nav">
+							<a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+						</div>
+				<!--活动时间-->
+				<div class="wd_time">活动时间：11月8日0:00-11月25日23:59</div>
+				<!--登陆框 start-->
+						<div class="wd_login">
+							<!--登陆前-->
+							<div class="login_before login_box" style="display:block;">
+								<a href="javascript:;" class="login_pk">登录</a>
+							</div>
+							<!--登陆后-->
+							<div class="login_after login_box" style="display:none;">
+								<div class="login_left"><img src="http://static.cn114.cn/action/wdpkforecast/images/wd161011_loginbf.png" width="79" height="79"></div>
+								<div class="login_right">
+									<select id="ddlNetType" name="netType">
+										<option value="-1">请选择大区</option>
+										<option value="3">双线</option>
+										<option value="1">网通</option>
+										<option value="2">电信</option>
+									</select>
+									<select  class="group" name="serverId" id="ddlGameServer">
+										<option>请选择服务器</option>
+									</select>
+									<input class="captchaInput" id="captchaInput" value="" type="text" maxlength="5">
+									<img class="Captcha" width="110" height="26" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=0.6718032911203768" alt="验证码">
+									<a href="javascript:" class="new">刷新</a>
+									<a href="javascript:" class="getRoles  js_getRoles">&gt;&gt;获取角色&lt;&lt;</a>
+									<select id="joine" style="display: none;"><option>角色：</option></select>
+									<a href="javascript:" class="bindRoles  js_bindrole" style="display: none;">&gt;&gt;绑定角色&lt;&lt;</a>
+								</div>
+							</div>
+							<!--获取角色后-->
+							<div class="login_role login_box" style="display:none;">
+								<div class="login_left"><img src="http://static.cn114.cn/action/wdpkforecast/images/wd161011_loginbf.png" width="79" height="79"></div>
+								<div class="login_right">
+									<p><span>&nbsp;&nbsp;欢迎您：<b class="nameText">ab***cd</b></span>
+										<a href="javascript:;" class="back js_Logout">退出登录</a>
+									</p>
+									<p><span class="roleName">不忘初心-美猴王悟空</span>
+										<a href="javascript:;" class="address" id="js_btnPopEditAddress">&gt;&gt;修改地址&lt;&lt;</a>
+										<a href="javascript:;" class="address2" id="checkMyprize">&gt;&gt;查看我的中奖&lt;&lt;</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--登陆框 end-->
+				<!--大奖池 start-->
+				<div class="wd_box wd_big">
+					<h2>大奖池</h2>
+					<div class="prize_left" id="prize_left">
+						<ul>
+							<li id="dzp0" class="js_img dzp0">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_big01.jpg" width="173" height="113">
+								<div class="prize_txt">酒葫芦铭牌</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li id="dzp11" class="js_img dzp11">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_big12.jpg" width="173" height="113">
+								<div class="prize_txt">Iphone 7</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li id="dzp10" class="js_img dzp10">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_big11.jpg" width="173" height="113">
+								<div class="prize_txt">Ipad air2</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li id="dzp9" class="js_img dzp9">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_big10.jpg" width="173" height="113">
+								<div class="prize_txt">小米5</div>
+								<div class="prize_cover"></div>
+							</li>
+						</ul>
+						<ul class="prize_ul02">
+							<li id="dzp1" class="js_img dzp1">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_big02.jpg" width="173" height="113">
+								<div class="prize_txt">威威虎U型枕</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li id="dzp2" class="js_img dzp2">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_big03.jpg" width="173" height="113">
+								<div class="prize_txt">移动电源（蓝色）</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li id="js_start" class="prize_btn" data-state="yes" data-type=0>
+								<a href="javascript:;">点击愁啊经</a>
+							</li>
+							<li id="dzp8" class="js_img dzp8">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_big09.jpg" width="173" height="113">
+								<div class="prize_txt">红米note 3</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li id="dzp7" class="js_img dzp7">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_big08.jpg" width="173" height="113">
+								<div class="prize_txt">代代封候千足金吊坠</div>
+								<div class="prize_cover"></div>
+							</li>
+						</ul>
+						<ul>
+							<li id="dzp3" class="js_img dzp3">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_big04.jpg" width="173" height="113">
+								<div class="prize_txt">3000银元宝</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li id="dzp4" class="js_img dzp4">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_big05.jpg" width="173" height="113">
+								<div class="prize_txt">5000银元宝</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li id="dzp5" class="js_img dzp5">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_big06.jpg" width="173" height="113">
+								<div class="prize_txt">8000银元宝</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li id="dzp6" class="js_img dzp6">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_big07.jpg" width="173" height="113">
+								<div class="prize_txt">问道T恤（新式）</div>
+								<div class="prize_cover"></div>
+							</li>
+						</ul>
+					</div>
+					<div class="prize_right">
+						<!--获奖名单-->
+						<div class="prize_win">
+							<h3>获奖名单</h3>
+							<table class="prize_table">
+								<tr>
+									<th width="75">角色名</th>
+									<th width="94">区组</th>
+									<th width="94">奖品</th>
+								</tr>
+							</table>
+							<div class="prize_name js_bigPrize_name" id="js_bigPrize_name">
+								<ul>
+									
+								</ul>
+							</div>
+						</div>
+						<!--抽奖规则-->
+						<div class="prize_rule">
+							<h3>抽奖规则</h3>
+							<p><i>1</i>抽奖时间:<br><b>11月8日0:00-11月25日23:59</b></p>
+							<p><i>2</i>抽奖时间内，玩家每投中五票可在此抽奖一次.</p>
+							<p><i>3</i>官方将会采用技术手段查询刷奖行为，一经发现则取消奖励。</p>
+						</div>
+					</div>
+				</div>
+				<!--大奖池 end-->
+				<!--小奖池 start-->
+				<div class="wd_box wd_small">
+					<h2>小奖池</h2>
+					<div class="prize_left">
+						<ul>
+							<li class="js_imgs dzp0">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_big01.jpg" width="173" height="113">
+								<div class="prize_txt">酒葫芦铭牌</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li class="js_imgs dzp11">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_small12.jpg" width="173" height="113">
+								<div class="prize_txt">Ipad air2</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li class="js_imgs dzp10">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_small11.jpg" width="173" height="113">
+								<div class="prize_txt">小米5</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li class="js_imgs dzp9">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_small10.jpg" width="173" height="113">
+								<div class="prize_txt">红米note 3</div>
+								<div class="prize_cover"></div>
+							</li>
+						</ul>
+						<ul class="prize_ul02">
+							<li class="js_imgs dzp1">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_small02.jpg" width="173" height="113">
+								<div class="prize_txt">1000银元宝</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li class="js_imgs dzp2">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_small03.jpg" width="173" height="113">
+								<div class="prize_txt">3000银元宝</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li class="prize_btn" id="prize_btn" data-state="yes" data-type=1>
+								<a href="javascript:void(0)">点击愁啊经</a>
+							</li>
+							<li class="js_imgs dzp8">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_small09.jpg" width="173" height="113">
+								<div class="prize_txt">代代封候千足金吊坠</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li class="js_imgs dzp7">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_small08.jpg" width="173" height="113">
+								<div class="prize_txt">问道T恤（新式）</div>
+								<div class="prize_cover"></div>
+							</li>
+						</ul>
+						<ul>
+							<li class="js_imgs dzp3">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_small04.jpg" width="173" height="113">
+								<div class="prize_txt">5000银元宝</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li class="js_imgs dzp4">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_small05.jpg" width="173" height="113">
+								<div class="prize_txt">问道T恤（老式）</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li class="js_imgs dzp5">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_small06.jpg" width="173" height="113">
+								<div class="prize_txt">威威虎U型枕</div>
+								<div class="prize_cover"></div>
+							</li>
+							<li class="js_imgs dzp6">
+								<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_small07.jpg" width="173" height="113">
+								<div class="prize_txt">移动电源（金色）</div>
+								<div class="prize_cover"></div>
+							</li>
+						</ul>
+					</div>
+					<div class="prize_right">
+						<!--获奖名单-->
+						<div class="prize_win">
+							<h3>获奖名单</h3>
+							<table class="prize_table">
+								<tr>
+									<th width="75">角色名</th>
+									<th width="94">区组</th>
+									<th width="94">奖品</th>
+								</tr>
+							</table>
+							<div class="prize_name" id="js_smallPrize_name">
+								<ul>							
+									
+								</ul>
+							</div>
+						</div>
+						<!--抽奖规则-->
+						<div class="prize_rule">
+							<h3>抽奖规则</h3>
+							<p><i>1</i>抽奖时间:<br><b>11月8日0：00-11月25日23 : 59</b></p>
+							<p><i>2</i>抽奖时间内，玩家每投五票（除去投中的票数）可在此抽奖一次。</p>
+							<p><i>3</i>官方将会采用技术手段查询刷奖行为，一经发现则取消奖励。</p>
+						</div>
+					</div>
+				</div>
+				<!--小奖池 end-->
+			</div>
+
+		</div>
+		<!--弹层 我的中奖信息-->
+		<div class="tc tc03 disC my_prize">
+			<a href="javascript:;" class="close"></a>
+			<div class="tcBox">
+				<div class="tcTit">
+					<p>所剩大奖池抽奖机会：<b class="bigTimes"></b></p>
+					<p>所剩小奖池抽奖机会：<b class="smallTimes"></b></p>
+				</div>
+				<div class="tcShow">
+				<p class='pInfo' style='padding-top: 30px;padding-left: 139px; font-size: 28px;display:none;'>很抱歉，你还没有中奖</p>
+					<table class="tcTab">
+						
+					</table>
+				</div>
+			</div>
+		</div>
+		<!--弹层 未中奖-->
+		<div class="tc tc04 disC">
+			<a href="javascript:;" class="close"></a>
+			<div class="tcBox">
+				<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_prizepic.png" width="81" height="52">
+				<p>很遗憾你没有中奖，继续努力吧~</p>
+				<a href="javascript:;" class="tcBtn">确认</a>
+			</div>
+		</div>
+		<!--弹层 机会用完-->
+		<div class="tc tc05 disC my_noprize">
+			<a href="javascript:;" class="close"></a>
+			<div class="tcBox">
+				<img src="http://static.cn114.cn/action/wdpkforecast/images/wd161012_prizepic.png" width="81" height="52">
+				<p>很遗憾，您的抽奖机会已用完，<br>赶快去增加抽奖次数吧~</p>
+				<a href="javascript:;" class="tcBtn">确认</a>
+			</div>
+		</div>
+		<!--弹层 中奖铭牌-->
+		<div class="tc tc06 disC my_mpxnprize">
+			<a href="javascript:;" class="close"></a>
+			<div class="tcBox">
+				<h3>恭喜您<span class="prizeName"></span>奖励！</h3>
+				<a href="javascript:;" class="tcBtn">确认</a>
+			</div>
+		</div>
+		<!--弹层 中奖元宝-->
+		<div class="tc tc06 disC my_xnprize">
+			<a href="javascript:;" class="close"></a>
+			<div class="tcBox">
+				<h3>恭喜您<span class="prizeName"></span>奖励！</h3>
+				<p>我们将在活动结束7个工作日内统一发放奖励。</p>
+				<a href="javascript:;" class="tcBtn">确认</a>
+			</div>
+		</div>
+		<!--弹层 恭喜中奖-->
+		<div class="tc tc07 disC  my_swprize">
+			<a href="javascript:;" class="close"></a>
+			<div class="tcBox">
+				<h3>恭喜您获得了<span class="prizeName"></span></h3>
+				<p>获得的奖励将在活动结束后，统一寄出，<br>请尽快填写联系方式、快递地址等信息。</p>
+				<div class="tcMess">
+					<div class="div">
+						<label>收货人姓名：</label>
+						<input type="text" class="txt" name="userName">
+					</div>
+					<div class="div">
+						<label>联系电话：</label>
+						<input type="text" class="txt" name="userPhone" >
+					</div>
+					<div class="div">
+						<label>收货地址：</label>
+						<input type="text" class="txt" name="userAddress">
+					</div>
+					<div class="btnp">
+
+						<input type="submit" id="js_popAddressForm" class="subtn js_popAddressForm" >
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--漂浮-->
+		<div class="wd_pf">
+			<ul>
+				<li>
+					<a href="index" target="_blank" class="a01">我要预测</a>
+				</li>
+				<li class="on">
+					<a href="#prize_left" class="a02">我要抽奖</a>
+				</li>
+				<li>
+					<a href="index#rule" target="_blank" class="a03">活动规则</a>
+				</li>
+				<li>
+					<a href="javascript:;" target="_blank" class="a04 morePk">更多全新pk赛精彩活动</a>
+				</li>
+			</ul>
+		</div>
+		<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+		<div class="mask"></div>
+		<script>
+
+		function  tcControl(objs,name){
+			
+	      $(".disC").hide();
+	      objs.show();
+	      $(".mask").show();
+	      $(".close").click(function(){
+	             objs.hide();
+	             $(".mask").hide();
+	      });
+	      $(".tcBtn").click(function(){
+	             objs.hide();
+	             $(".mask").hide();
+	      });
+	};
+		$(function () {
+			nLottery.init();
+		});
+
+		
+	</script>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		alert("谢谢参与，活动已结束！");
+</script>
+	</body>
+
+	
+
+</html>

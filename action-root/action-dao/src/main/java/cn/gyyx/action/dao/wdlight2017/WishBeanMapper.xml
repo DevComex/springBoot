@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.wdlight2017.WishBeanMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.action.beans.wdlight2017.WishBean" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="prize_code" property="prizeCode" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="role_name" property="roleName" jdbcType="VARCHAR" />
+    <result column="server_name" property="serverName" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="prize_name" property="prizeName" jdbcType="VARCHAR" />
+    <result column="server_id" property="serverId" jdbcType="INTEGER" />
+    <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="presentType" property="presenttype" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    code, prize_code, user_id, level, role_name, server_name, create_time, prize_name, 
+    server_id, content, status, presentType
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.gyyx.action.beans.wdlight2017.WishBeanExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from wd_light2017_wish_tb
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wd_light2017_wish_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wd_light2017_wish_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.gyyx.action.beans.wdlight2017.WishBeanExample" >
+    delete from wd_light2017_wish_tb
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.gyyx.action.beans.wdlight2017.WishBean" >
+    insert into wd_light2017_wish_tb (code, prize_code, user_id, 
+      level, role_name, server_name, 
+      create_time, prize_name, server_id, 
+      content, status, presentType
+      )
+    values (#{code,jdbcType=INTEGER}, #{prizeCode,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{level,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{serverName,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{prizeName,jdbcType=VARCHAR}, #{serverId,jdbcType=INTEGER}, 
+      #{content,jdbcType=VARCHAR}, #{status,jdbcType=INTEGER}, #{presenttype,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gyyx.action.beans.wdlight2017.WishBean" >
+    insert into wd_light2017_wish_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="prizeCode != null" >
+        prize_code,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="roleName != null" >
+        role_name,
+      </if>
+      <if test="serverName != null" >
+        server_name,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="prizeName != null" >
+        prize_name,
+      </if>
+      <if test="serverId != null" >
+        server_id,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="presenttype != null" >
+        presentType,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="prizeCode != null" >
+        #{prizeCode,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="roleName != null" >
+        #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="serverName != null" >
+        #{serverName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="prizeName != null" >
+        #{prizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="serverId != null" >
+        #{serverId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="presenttype != null" >
+        #{presenttype,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.gyyx.action.beans.wdlight2017.WishBeanExample" resultType="java.lang.Integer" >
+    select count(*) from wd_light2017_wish_tb
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update wd_light2017_wish_tb
+    <set >
+      <if test="record.code != null" >
+        code = #{record.code,jdbcType=INTEGER},
+      </if>
+      <if test="record.prizeCode != null" >
+        prize_code = #{record.prizeCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.userId != null" >
+        user_id = #{record.userId,jdbcType=INTEGER},
+      </if>
+      <if test="record.level != null" >
+        level = #{record.level,jdbcType=INTEGER},
+      </if>
+      <if test="record.roleName != null" >
+        role_name = #{record.roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serverName != null" >
+        server_name = #{record.serverName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.prizeName != null" >
+        prize_name = #{record.prizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.serverId != null" >
+        server_id = #{record.serverId,jdbcType=INTEGER},
+      </if>
+      <if test="record.content != null" >
+        content = #{record.content,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=INTEGER},
+      </if>
+      <if test="record.presenttype != null" >
+        presentType = #{record.presenttype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update wd_light2017_wish_tb
+    set code = #{record.code,jdbcType=INTEGER},
+      prize_code = #{record.prizeCode,jdbcType=INTEGER},
+      user_id = #{record.userId,jdbcType=INTEGER},
+      level = #{record.level,jdbcType=INTEGER},
+      role_name = #{record.roleName,jdbcType=VARCHAR},
+      server_name = #{record.serverName,jdbcType=VARCHAR},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      prize_name = #{record.prizeName,jdbcType=VARCHAR},
+      server_id = #{record.serverId,jdbcType=INTEGER},
+      content = #{record.content,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=INTEGER},
+      presentType = #{record.presenttype,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.action.beans.wdlight2017.WishBean" >
+    update wd_light2017_wish_tb
+    <set >
+      <if test="prizeCode != null" >
+        prize_code = #{prizeCode,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="roleName != null" >
+        role_name = #{roleName,jdbcType=VARCHAR},
+      </if>
+      <if test="serverName != null" >
+        server_name = #{serverName,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="prizeName != null" >
+        prize_name = #{prizeName,jdbcType=VARCHAR},
+      </if>
+      <if test="serverId != null" >
+        server_id = #{serverId,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="presenttype != null" >
+        presentType = #{presenttype,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.action.beans.wdlight2017.WishBean" >
+    update wd_light2017_wish_tb
+    set prize_code = #{prizeCode,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      level = #{level,jdbcType=INTEGER},
+      role_name = #{roleName,jdbcType=VARCHAR},
+      server_name = #{serverName,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      prize_name = #{prizeName,jdbcType=VARCHAR},
+      server_id = #{serverId,jdbcType=INTEGER},
+      content = #{content,jdbcType=VARCHAR},
+      status = #{status,jdbcType=INTEGER},
+      presentType = #{presenttype,jdbcType=VARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 后添加的 -->
+  <select id="findWishByLevel" resultMap="BaseResultMap" >
+ 		SELECT TOP (#{num}) *
+		FROM wd_light2017_wish_tb 
+		WHERE status = #{status} and level = #{level}
+		ORDER BY create_time desc;
+  </select>
+  
+  <select id="findWishAll" resultMap="BaseResultMap" >
+ 		SELECT TOP (#{num}) *
+		FROM wd_light2017_wish_tb 
+		ORDER BY prize_code desc;
+  </select>
+  
+  <select id="getWishUserCountByLevel" resultType="java.lang.Integer" >
+ 		select count(distinct(user_id)) from wd_light2017_wish_tb where level = #{level}
+  </select>
+  
+</mapper>

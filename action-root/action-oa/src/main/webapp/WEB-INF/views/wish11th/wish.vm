@@ -1,0 +1,506 @@
+#parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/jquery.ajaxpage-2.2.js"></script>
+<script src="${rc.contextPath}/resources/script/swfupload.js"
+    type="text/javascript"></script>
+<script src="${rc.contextPath}/resources/script/SWFInitialize.js"
+    type="text/javascript" charset="GB2312"></script>
+<script src="${rc.contextPath}/resources/script/videoHandlers.js"
+    type="text/javascript" charset="GB2312"></script>
+<script src="${rc.contextPath}/resources/script/VideoUpload.js"
+    type="text/javascript"></script>
+<style>
+.table td {
+    word-wrap: break-word;
+    vertical-align: middle !important;
+}
+
+#main_region th, #content td {
+    padding: 5px 5px 5px;
+    text-align:center;
+}
+
+.table td img {
+    width: 100%;
+    max-height:40px;
+}
+
+textarea {
+    border-color: #d9d9d9;
+}
+
+*{
+    outline:none;
+}
+
+.form_valid_mess {width: 212px;height: 48px;position: absolute;display:none;z-index:9000;}
+.form_valid_mess >div {width: 212px;height: 48px;position: relative;}
+.form_valid_mess .form_valid_flag01 {display: block;width: 60px;height: 13px;background: url(../resources/images/tip.gif) no-repeat;position: absolute;top: 0px;z-index: 10;left: 0px;}
+.form_valid_mess .form_valid_con01 {width: 210px;border: 1px solid #ffd4d4;background: #fdefed;position: absolute;top: 12px;z-index: 9px;}
+.form_valid_mess .form_valid_con01 p {width: 180px;margin: 0 auto;line-height: 35px;color: 000;text-align: left;word-wrap:break-word;}
+        
+</style>
+<script>
+  function checkWorks(obj){
+        var code = $(obj).parent("td").attr("data_code");
+        var  verifyStatus= 0;
+        if($(obj).hasClass("pass")){
+        	 verifyStatus = 1;
+        }else if($(obj).hasClass("unpass")){
+        	 verifyStatus = -1;
+        }
+        $.ajax({
+            url: rc+"/wish11th/audit",
+              type: "POST",
+              data: { 
+                r: Math.random(), 
+                codesStr: code,
+                verifyStatus: verifyStatus
+              },
+              dataType: "json",
+              success: function (d) {
+                  if (d.isSuccess) {
+                         alert(d.message);
+                         getlist();
+                     }else{
+                         alert(d.message);
+                     }
+              }
+        });
+      }
+    
+   function batchCheck(obj){
+       
+        var verifyStatus = 0;
+        if($(obj).hasClass("batchPass")){
+        	verifyStatus = 1;
+        }else if($(obj).hasClass("batchUnPass")){
+        	verifyStatus = -1;
+        }
+        var codes = [];
+        $("input[name=checkRadio]:checked").each(function(){
+            codes.push($(this).parent().parent().find("td:last").attr("data_code"));
+        });
+        if(codes.length == 0){
+            alert("请选择行！");
+            return;
+        }
+        $.ajax({
+            url: rc+"/wish11th/audit",
+             type: "POST",
+             data: { 
+                r: Math.random(), 
+                codesStr:codes.join(","),
+                verifyStatus: verifyStatus
+             },
+             dataType: "json",
+             success: function (d) {
+              if (d.isSuccess) {
+                 alert(d.message);
+                 getlist();
+                 }else{
+                     alert(d.message);
+                 }
+             }
+        });
+   }
+   
+    function formatJsonDateStr(jsonDateStr) {
+        var date = new Date(parseInt(jsonDateStr));
+        var dateStr = [];
+        dateStr.push(date.getFullYear());
+        dateStr.push('-'
+                + ((Number(date.getMonth()) + 1)>9 ? (Number(date.getMonth()) + 1) : ("0"+(Number(date.getMonth()) + 1))));
+        dateStr.push('-' + (date.getDate()>9?date.getDate():("0"+date.getDate())));
+        dateStr.push(' ' + (date.getHours()>9?date.getHours():("0"+date.getHours())));
+        dateStr.push(':' + (date.getMinutes()>9?date.getMinutes():("0"+date.getMinutes())));
+        dateStr.push(':' + (date.getSeconds()>9?date.getSeconds():("0"+date.getSeconds())));
+        return dateStr.join('');
+    }
+   
+
+   function demo1_close(){
+       $("#content div.mask").hide();
+       $("#content div#demo1").hide();
+   }
+   
+   function getlist() {
+		$("#js_tbSzList")
+				.ajaxPage(
+						{
+							url : rc+ "/wish11th/getwishlist",//接口
+							pageObj : $("#DataTables_Table_0_paginate"),
+							type : "post",
+							pageIndex : 1,
+							pageSize : 10,
+							curPageCls : "paginate_active",
+							pageInfo : {
+								obj : $("#DataTables_Table_0_info"),
+								content : "共{allCount}条  当前第{pageIndex}/{allPage}页"
+							},
+							paramObj : {
+								beginTime : $("#beginTimeStr").val(),
+								endTime : $("#endTimeStr").val(),
+								rolename : $("#rolename").val(),
+								verifyStatus : $("#verifyStatus").val()
+							},
+							dataFn : function(data, $this) {
+								var dataHtml = "", dataHtmlmain = "", dCont = data.data;//获取返回数据
+								if (dCont && dCont.length && dCont[0]) {
+									for (var i = 0; i < dCont.length; i++) {
+										dataHtml += ''
+												+ '<tr><td><input name="checkRadio" type="checkbox"/></td>'
+												+ '  <td>'
+												+ (i + 1)
+												+ '</td>'
+												+ '  <td>'
+												+ dCont[i].account
+												+ '</td>'
+												+ '  <td>'
+												+ dCont[i].serverName
+												+ '</td>'
+												+ '  <td>'
+												+ dCont[i].roleName
+												+ '</td>'
+												+ '  <td>'
+												+ dCont[i].content
+												+ '</td>'
+												+ '  <td>第'
+												+ dCont[i].level
+												+ '层</td>'
+												+ '  <td>'
+												+ dCont[i].prizeName
+												+ '</td>'
+												+ '  <td>'
+												+ dCont[i].num
+												+ '</td>'
+										dataHtml += '<td>'
+												+ (dCont[i].createTime == null ? "null"
+														: formatJsonDateStr(dCont[i].createTime))
+												+ '</td>';
+										dataHtml += '<td style="text-align:center;"><span class="label ';
+										var status = dCont[i].verifyStatus;
+										var statusStr = "待审核";
+										var statusColor = "label-default";
+										if (dCont[i].status == '1') {
+											statusStr = "审核通过";
+											statusColor = "bg-success";
+										}
+										if (dCont[i].status == '-1') {
+											statusStr = "审核拒绝";
+											statusColor = "bg-danger";
+										}
+										dataHtml += statusColor + '">'
+												+ statusStr + '</span></td>';
+										
+
+										if (dCont[i].status == '0') {
+											dataHtml += '<td data_code="' + dCont[i].code + '"><a href="javascript:;" onclick="checkWorks(this);" class="pass btn btn-xs btn-success">通过</a>';
+											dataHtml += ' <span style="margin:0 10px;">|</span><a href="javascript:;" onclick="checkWorks(this);" class="unpass btn btn-xs btn-danger">拒绝</a></td>';
+										}
+										if (dCont[i].status == '1') {
+											dataHtml += '<td data_code="' + dCont[i].code + '">';
+											dataHtml += '<a href="javascript:;" onclick="checkWorks(this);" class="unpass btn btn-xs btn-danger">拒绝</a></td>';
+										}
+										if (dCont[i].status == '-1') {
+											dataHtml += '<td data_code="' + dCont[i].code + '"><a href="javascript:;" onclick="checkWorks(this);" class="pass btn btn-xs btn-success">通过</a>';
+											dataHtml += '</td>';
+										}
+										dataHtml += '</tr>';
+									}
+									$("#js_tbSzList").empty().html(dataHtml);
+
+									$("body")
+											.delegate(
+													".details",
+													"mouseover",
+													function() {
+														var _val = $(this)
+																.attr('data-i');
+														var _x = $(this)
+																.offset().left
+																- $("#nav")
+																		.width()
+																+ $(this)
+																		.width()
+																/ 2;
+														var _y = $(this)
+																.offset().top - 40;
+														_y = _y + 14;
+														_x = _x - 22;
+														$(".form_valid_mess")
+																.css(
+																		{
+																			display : 'block',
+																			left : _x
+																					+ 'px',
+																			top : _y
+																					+ "px"
+																		});
+														$(".form_valid_con01 p")
+																.html(_val);
+													});
+									$("body").delegate(
+											".details",
+											"mouseout",
+											function() {
+												$(".form_valid_mess").css(
+														'display', 'none');
+											});
+
+									return dataHtml;
+								} else {
+									// alert(data.message)
+									$("#js_tbSzList").empty()
+									$("#scrollable_one").hide();
+								}
+							}
+						});
+	}
+
+	$(function() {
+		var curDate = '${curDate}';
+		//$("#beginTimeStr").val(curDate);
+		//$("#endTimeStr").val(curDate);
+		$("#beginTimeStr").datepicker({
+			format : 'yyyy-mm-dd',
+			startView : 2,
+			autoclose : true,
+			todayBtn : true,
+			minView : 2
+		}).on('changeDate', function(ev) {
+			var AddStartTime = $(this).val();
+			$("#beginTimeStr").blur();
+			$("#beginTimeStr").datepicker('hide');
+		});
+		$("#endTimeStr").datepicker({
+			format : 'yyyy-mm-dd',
+			startView : 2,
+			autoclose : true,
+			todayBtn : true,
+			minView : 2
+		}).on('changeDate', function(ev) {
+			$("#endTimeStr").blur();
+			$("#endTimeStr").datepicker('hide');
+		});
+
+		$("#search").click(function() {
+			getlist();
+		});
+		$(".batchPass,.batchUnPass").click(function() {
+			batchCheck(this);
+		});
+
+		/* $("#checkType").change(function(){
+		    var v = $(this).val();
+		    if(v){
+		        $("#isShow").val("");
+		    }
+		}); */
+		getlist();		
+
+	$(".js_image_showBtn").live("click", function() {
+			var _this = $(this);
+			$(".js_image_show").attr("src", _this.attr("data-src"));
+		});
+	});
+</script>
+
+    <div class="modal fade" id="imageShow">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">头像展示</h4>
+                </div>
+                <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+                <div class="modal-body">
+                    <img class="js_image_show" src="" width="300" height="100%"/>
+                </div>
+            </div>
+        </div>
+    </div>  
+
+<section class="vbox">
+    <section>
+        <section class="hbox stretch">
+    
+            <section id="content">
+                <div class="form_valid_mess" style="display:none;">
+                    <div>
+                        <span class="form_valid_flag01"></span>
+                        <div class="form_valid_con01">
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="mask" style="display: none;position: fixed;left: 0;top: 0;background: #000;opacity: 0.5;filter: alpha(opacity=50);width: 100%;height: 100%;z-index: 2000"></div>                
+            
+                <section class="vbox js_template_right">
+                    <!--顶部标题导航 begin-->
+                    <header class="header bg-white b-b clearfix">
+                        <h4 class="doc-buttons pull-left" style="margin-top: 16px">问道许愿-审核页</h4>
+                        
+                        <span class="doc-buttons pull-left"> <select
+                            id="verifyStatus" style="margin-top: 10px; margin-left: 10px;"
+                            class="input-sm">
+                                <option value="">全部</option>
+                                <option value="0">未审核</option>
+                                <option value="1">已审核</option>
+                                <option value="-1">已拒绝</option>
+                        </select>
+                        </span> 
+                        <span class="doc-buttons pull-left"><input type="text"
+                            class="input-sm form-control"
+                            style="display: inline-block; width: 160px; margin-top: 10px; margin-left: 10px;"
+                            placeholder="账号" id="rolename" name="rolename" /> <input type="text"
+                            class="input-sm form-control"
+                            style="display: inline-block; width: 160px; margin-top: 10px; margin-left: 10px;"
+                            placeholder="创建开始时间" id="beginTimeStr" name="beginTimeStr" /> <input
+                            type="text" class="input-sm form-control"
+                            style="display: inline-block; width: 160px;" placeholder="创建结束时间"
+                            id="endTimeStr" name="endTimeStr" />
+                        </span> <span class="doc-buttons pull-left"> <a id="search"
+                            class="btn btn-sm btn-info"
+                            style="margin-top: 10px; margin-left: 10px"
+                            href="javascript:void(0);"><i class="fa fa-search"></i>搜索</a>
+                        </span> <span class="doc-buttons pull-left"> <a
+                            class="btn btn-sm btn-info batchPass"
+                            style="margin-top: 10px; margin-left: 10px"
+                            href="javascript:void(0);"><i class="fa fa-search"></i>批量通过</a>
+                        </span><span class="doc-buttons pull-left"> <a
+                            class="btn btn-sm btn-info batchUnPass"
+                            style="margin-top: 10px; margin-left: 10px"
+                            href="javascript:void(0);"><i class="fa fa-search"></i>批量拒绝</a>
+                        </span>
+                    </header>
+                    <!--顶部标题导航 end-->
+                  
+                    <!--主体内容 begin-->
+                    <section class="scrollable padder">
+                        <!--数据表格  begin -->
+                        <section class="panel panel-default" id="main_region">
+                            <div class="table-responsive">
+                                <table class="table table-striped m-b-none"
+                                    style="table-layout: fixed;">
+                                   <thead>
+										<tr id="tr_COS_PIC">
+										<th width="2%"><input id="checkall" type="checkbox"/></th>
+											<th width="3%">序号</th>
+											<th width="8%">账号</th>
+											<th width="6%">区服</th>
+											<th width="10%">角色名称</th>
+											<th width="18%">许愿内容</th>
+											<th width="6%">许愿层数</th>
+											<th width="13%">获取奖品</th>
+											<th width="4%">剩余积分</th>
+											<th width="10%">许愿时间</th>
+											<th style="text-align: center;" width="5%">审核状态</th>
+											<th width="10%">操作</th>
+										</tr>
+									</thead>
+                                    <tbody id="js_tbSzList">
+                                    </tbody>
+                                </table>
+                                <!-- 分页 -->
+                                <div class="row dataTables_wrapper"
+                                    style="margin-right: 0px; margin-left: 0px;">
+                                    <footer class="footer bg-white b-t">
+                                        <div class="row dataTables_wrapper">
+                                            <div class="col-sm-6">
+                                                <div id="DataTables_Table_0_info" class="dataTables_info"></div>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <div id="DataTables_Table_0_paginate"
+                                                    class="dataTables_paginate paging_full_numbers"></div>
+                                            </div>
+                                        </div>
+                                    </footer>
+                                </div>
+                                <!--分页 -->
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            
+    <!-- 轮播js -->
+ <script type="text/javascript">
+    var demo1Left =  ($(".scrollable").width()-$("#demo1").width())/2;
+    $("#demo1").css({left:demo1Left,top:80});
+    var index = 0;
+    
+    $('.link').on('click', function(event) {
+        var elm = $(event.target);
+        doMove(elm.attr('id'));
+        return false;
+    });
+    
+    function changeBtn(i){
+        var blist = $('.btn_list ul');
+        blist.find('li').eq(i).addClass('on').siblings().removeClass('on');
+    }
+    
+    function addBtn(){
+        var ulist = $('.img_list ul');
+        var list = ulist.find('li');
+        var blist = $('.btn_list ul').empty();
+        for (var i = 0; i < list.length; i++) {
+            var imgsrc = $(list[i]).find('img').attr('src');            
+            var listCon = '<li><img src="'+imgsrc+'""></li>';         
+            $(listCon).appendTo(blist);
+            //隐藏button中的数字
+            //list.css('text-indent', '10000px');
+        };
+        blist.find('li').first().addClass('on');
+        blist.find('li').click(function(event) {
+            var _index = $(this).index();            
+            doMove(_index);
+        });
+    }
+    
+    function doMove(direction){
+        var ulist = $('.img_list ul');
+        var list = ulist.find('li');
+        var llength = list.length;//li的个数，用来做边缘判断
+        var lwidth = $(list[0]).width();//每个li的长度，ul每次移动的距离
+        var uwidth = llength * lwidth;//ul的总宽度
+        //向右按钮
+        if (direction =="toRight") {
+            if(index == llength -1){
+                //alert("向右已经到头了!");
+                return false;
+            }
+            index++;
+            if ( index< llength) {
+                uwidth = lwidth *index;
+                //ulist.css('left',-uwidth);
+                ulist.animate({left: -uwidth}, "slow");
+            }else{
+                ulist.css('left','0px');
+                index = 0;
+            }; 
+        //向左按钮           
+        }else if(direction =="toLeft"){
+            if(index <=0){
+                //alert("向左已经到头了!");
+                return false;
+            }
+            index--;
+            if ( index < 0) {
+                index = llength - 1;                
+            }
+            uwidth = lwidth *index;
+            //ulist.css('left',-uwidth);
+            ulist.animate({left: -uwidth}, "slow");    
+        }else{
+            index = direction;
+            uwidth = lwidth *index;
+            ulist.animate({left: -uwidth}, "slow");    
+        };
+        changeBtn(index);
+    }
+</script>
+            
+#parse("/shared/footer.vm")

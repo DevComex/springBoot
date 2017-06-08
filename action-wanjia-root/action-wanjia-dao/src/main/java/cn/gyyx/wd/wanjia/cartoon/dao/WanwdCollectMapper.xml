@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.wd.wanjia.cartoon.dao.WanwdCollectMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.wd.wanjia.cartoon.beans.WanwdCollect" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="sources_code" property="sourcesCode" jdbcType="INTEGER" />
+    <result column="sources_type" property="sourcesType" jdbcType="INTEGER" />
+    <result column="creater_time" property="createrTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="NVARCHAR" />
+    <result column="read_log_code" property="readLogCode" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, sources_code, sources_type, creater_time, is_delete, user_id, user_name,read_log_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_collect_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  
+  <select id="userCatalogList" resultType="java.util.Map" parameterType="java.lang.Integer" >
+    select 
+    code ,sources_code manhuaCode
+    from wanwd_collect_tb
+    where user_id = #{userId,jdbcType=INTEGER} and is_delete =0 and sources_type =4
+  </select>
+  
+  
+  <select id="selectByManhuaCode" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select top 1
+     <include refid="Base_Column_List" />
+    from wanwd_collect_tb
+    where sources_code = #{manhuaCode,jdbcType=INTEGER} and user_id = #{userId,jdbcType=INTEGER} and is_delete =0 and sources_type =4
+  </select>
+  
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wanwd_collect_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdCollect" >
+    insert into wanwd_collect_tb (code, sources_code, sources_type, 
+      creater_time, is_delete, user_id, 
+      user_name)
+    values (#{code,jdbcType=INTEGER}, #{sourcesCode,jdbcType=INTEGER}, #{sourcesType,jdbcType=INTEGER}, 
+      #{createrTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIT}, #{userId,jdbcType=INTEGER}, 
+      #{userName,jdbcType=NVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdCollect" >
+    insert into wanwd_collect_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="sourcesCode != null" >
+        sources_code,
+      </if>
+      <if test="sourcesType != null" >
+        sources_type,
+      </if>
+      <if test="createrTime != null" >
+        creater_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="sourcesCode != null" >
+        #{sourcesCode,jdbcType=INTEGER},
+      </if>
+      <if test="sourcesType != null" >
+        #{sourcesType,jdbcType=INTEGER},
+      </if>
+      <if test="createrTime != null" >
+        #{createrTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=NVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdCollect" >
+    update wanwd_collect_tb
+    <set >
+      <if test="sourcesCode != null" >
+        sources_code = #{sourcesCode,jdbcType=INTEGER},
+      </if>
+      <if test="sourcesType != null" >
+        sources_type = #{sourcesType,jdbcType=INTEGER},
+      </if>
+      <if test="createrTime != null" >
+        creater_time = #{createrTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=NVARCHAR},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdCollect" >
+    update wanwd_collect_tb
+    set sources_code = #{sourcesCode,jdbcType=INTEGER},
+      sources_type = #{sourcesType,jdbcType=INTEGER},
+      creater_time = #{createrTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIT},
+      user_id = #{userId,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=NVARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <!-- 查询收藏状态和阅读记录 -->
+  <select id="selectCollectionStatusAndReadLog" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdCollect" 
+  	resultMap="BaseResultMap">
+	SELECT
+		<include refid="Base_Column_List" />
+	FROM
+		wanwd_collect_tb
+	WHERE
+		sources_type = 4
+	AND sources_code = #{sourcesCode,jdbcType=INTEGER}
+	AND is_delete = 0
+	AND user_id =  #{userId,jdbcType=INTEGER}
+  </select>
+  <!-- 更新阅读记录 -->
+  <update id="updateReadLogByPrimaryKey" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdCollect" >
+    update wanwd_collect_tb
+    set read_log_code=#{readLogCode}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+</mapper>

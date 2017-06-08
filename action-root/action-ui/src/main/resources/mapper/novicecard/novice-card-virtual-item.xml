@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.novicecard.IVirtualItemMapper">
+
+	<resultMap type="VirtualItem" id="VirtualItem">	
+		<id column="code" property="code" />
+		<result column="item_name" property="itemName" />
+		<result column="item_note" property="itemNote" />
+		<result column="game_id" property="gameId" />
+	</resultMap>
+
+    <!-- 根据物品编号，返回物品信息 -->
+	<select id="selectVirtualItemByCode" parameterType="int" resultMap="VirtualItem">
+		select code,item_name,item_note,game_id from novice_card_virtual_item where code=#{code}
+	</select>
+</mapper>

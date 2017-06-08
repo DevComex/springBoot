@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wd10yearcoser.ICoserNovice">
+	<resultMap type="cn.gyyx.action.beans.wd10yearcoser.CoserNovice" id="CoserNoviceMap">
+		<result column="code" property="code" />
+		<result column="title" property="title" />
+		<result column="content" property="content" />
+		<result column="is_pub" property="isPub" />
+		<result column="create_time" property="createTime" />
+		<result column="pub_time" property="pubTime" />
+	</resultMap>
+
+	<insert id="insert" parameterType="cn.gyyx.action.beans.wd10yearcoser.CoserNovice"
+		useGeneratedKeys="true" keyProperty="code">
+		INSERT INTO 
+			wd_tenyears_coser_novice_tb
+		 ( [title], [content], [is_pub], [create_time], [pub_time]) 
+		 VALUES (#{title}, #{content}, #{isPub}, #{createTime}, #{pubTime})
+	</insert>
+	
+	
+	<delete id="delete">
+		delete from wd_tenyears_coser_novice_tb
+		where code = #{code}
+	</delete>
+	
+	<update id="update" parameterType="cn.gyyx.action.beans.wd10yearcoser.CoserNovice">
+		update wd_tenyears_coser_novice_tb 
+		<set>
+			<if test="title!= null and title!= '' ">
+				title = #{title}, 
+			</if>
+			<if test="content!= null and content!= '' ">
+				content = #{content}, 
+			</if>
+			<if test="isPub!= null and isPub!= '' ">
+				is_pub = #{isPub}, 
+			</if>
+			<if test="pubTime!= null and pubTime!= '' ">
+				pub_time = #{pubTime}, 
+			</if>
+		</set>
+		where code = #{code}
+	</update>
+	
+	<!--分页总数量 -->
+	<select id="getNoviceCount" resultType="java.lang.Integer">
+		select count(1) from wd_tenyears_coser_novice_tb where 1=1 
+		<if test="isPub!= null and isPub!= '' ">
+				and is_pub = #{isPub}
+		</if>
+	</select>
+	
+	<!--分页显示 -->
+	<select id="getNoviceListPaging"
+		resultMap="CoserNoviceMap">
+		select 
+			TOP (#{pageSize})  
+			A.*
+		from (
+			SELECT 
+				TOP (#{pageSize}*#{currentPage})
+			    ROW_NUMBER() OVER (ORDER BY is_pub desc,a.create_time desc) AS row_num,a.*
+			FROM wd_tenyears_coser_novice_tb a
+			where 1=1  
+			<if test="isPub!= null and isPub!= '' ">
+					and is_pub = #{isPub}
+				</if>
+			order by is_pub desc,pub_time desc,a.create_time desc
+		) A
+		WHERE row_num >
+		(#{pageSize}*(#{currentPage}-1))
+	</select>
+	
+	<select id="getCoserNovice" parameterType="int"
+		resultMap="CoserNoviceMap">
+		select top 1 * from
+		wd_tenyears_coser_novice_tb
+		where code = #{code}
+	</select>
+	
+	<select id="getNoviceFontListPaging" resultMap="CoserNoviceMap">
+		select top 20 * from
+		wd_tenyears_coser_novice_tb
+		where is_pub = 'Y' order by pub_time desc
+	</select>
+	
+	<select id="getNoviceNew" resultMap="CoserNoviceMap">
+		select top 1 * from
+		wd_tenyears_coser_novice_tb
+		where is_pub = 'Y' order by pub_time desc
+	</select>
+	
+	
+</mapper>

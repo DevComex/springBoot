@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.wd.wanjia.cartoon.dao.WanwdMessageMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.wd.wanjia.cartoon.beans.WanwdMessage" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="NVARCHAR" />
+    <result column="source_type" property="sourceType" jdbcType="INTEGER" />
+    <result column="source_code" property="sourceCode" jdbcType="INTEGER" />
+    <result column="source_title" property="sourceTitle" jdbcType="NVARCHAR" />
+    <result column="message_type" property="messageType" jdbcType="INTEGER" />
+    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, user_id, user_name, source_type, source_code, source_title, message_type, is_delete, 
+    create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_message_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wanwd_message_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdMessage" >
+    insert into wanwd_message_tb (code, user_id, user_name, 
+      source_type, source_code, source_title, 
+      message_type, is_delete, create_time
+      )
+    values (#{code,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{userName,jdbcType=NVARCHAR}, 
+      #{sourceType,jdbcType=INTEGER}, #{sourceCode,jdbcType=INTEGER}, #{sourceTitle,jdbcType=NVARCHAR}, 
+      #{messageType,jdbcType=INTEGER}, #{isDelete,jdbcType=BIT}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdMessage" >
+    insert into wanwd_message_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="sourceType != null" >
+        source_type,
+      </if>
+      <if test="sourceCode != null" >
+        source_code,
+      </if>
+      <if test="sourceTitle != null" >
+        source_title,
+      </if>
+      <if test="messageType != null" >
+        message_type,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=NVARCHAR},
+      </if>
+      <if test="sourceType != null" >
+        #{sourceType,jdbcType=INTEGER},
+      </if>
+      <if test="sourceCode != null" >
+        #{sourceCode,jdbcType=INTEGER},
+      </if>
+      <if test="sourceTitle != null" >
+        #{sourceTitle,jdbcType=NVARCHAR},
+      </if>
+      <if test="messageType != null" >
+        #{messageType,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdMessage" >
+    update wanwd_message_tb
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=NVARCHAR},
+      </if>
+      <if test="sourceType != null" >
+        source_type = #{sourceType,jdbcType=INTEGER},
+      </if>
+      <if test="sourceCode != null" >
+        source_code = #{sourceCode,jdbcType=INTEGER},
+      </if>
+      <if test="sourceTitle != null" >
+        source_title = #{sourceTitle,jdbcType=NVARCHAR},
+      </if>
+      <if test="messageType != null" >
+        message_type = #{messageType,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdMessage" >
+    update wanwd_message_tb
+    set user_id = #{userId,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=NVARCHAR},
+      source_type = #{sourceType,jdbcType=INTEGER},
+      source_code = #{sourceCode,jdbcType=INTEGER},
+      source_title = #{sourceTitle,jdbcType=NVARCHAR},
+      message_type = #{messageType,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 查询漫画编辑回复 -->
+  <select id="selectMagagerManHuaReply" parameterType="java.util.Map" resultType="java.util.Map">
+	SELECT
+		*
+	FROM
+		(
+			SELECT
+				ROW_NUMBER () OVER (ORDER BY me.create_time DESC) AS rank ,CONVERT(varchar(100), me.create_time, 20)AS create_time,me.source_title AS conntext,me.user_id
+			FROM
+				wanwd_message_tb me
+			WHERE
+				me.message_type = 3
+			AND me.is_delete = 0
+			AND me.user_id = #{userId,jdbcType=INTEGER}
+			AND me.source_type = #{resourceType,jdbcType=INTEGER}
+		) t
+	WHERE
+		t.rank BETWEEN #{start,jdbcType=INTEGER}
+	AND #{end,jdbcType=INTEGER}
+	ORDER BY
+		t.create_time DESC
+  </select>
+  <!-- 查询漫画编辑回复总条数 -->
+  <select id="selectMagagerManHuaReplyTotalSize" parameterType="java.util.Map" resultType="java.lang.Integer">
+	SELECT
+		COUNT (*) AS total
+	FROM
+		wanwd_message_tb me
+	WHERE
+		me.message_type = 3
+	AND me.is_delete = 0
+	AND me.user_id = #{userId,jdbcType=INTEGER}
+	AND me.source_type = #{resourceType,jdbcType=INTEGER}
+  </select>
+  <!-- 查询漫画的用户的消息通知  -->
+  <select id="selectMessageAboutManHuaTotalSize" parameterType="java.util.Map" resultType="java.lang.Integer">
+	SELECT
+		COUNT(*) AS total
+	FROM
+		wanwd_message_tb me
+	WHERE
+		me.source_type = #{resourceType,jdbcType=INTEGER}
+	AND me.is_delete = 0
+	AND me.message_type IN (1,2,4)
+	AND me.user_id=#{userId,jdbcType=INTEGER}
+   </select>
+  <!-- 查询关于漫画的用户的消息通知 -->
+  <select id="selectMessageAboutManHua" parameterType="java.util.Map" resultType="java.util.Map">
+	SELECT CONVERT (VARCHAR (100),k.createTime,20) AS createTime,message,review_status,isShow,userId,url,title FROM
+		(	SELECT
+				ROW_NUMBER () OVER (ORDER BY t.createTime DESC) AS rank ,*
+			FROM
+				(	SELECT
+						me.create_time AS createTime,
+						me.source_title AS message,
+						'SUCCESS' AS review_status,
+						ISNULL(mm.is_delete, 1) AS isShow,
+						me.user_id AS userId,
+						'http://wanwdv2.gyyx.cn/catalog?manhuaCode=' + CAST (me.source_code AS VARCHAR) AS url,
+						m.title AS title
+					FROM
+						wanwd_message_tb me
+					LEFT JOIN wanwd_manhua_tb m ON me.source_code = m.code
+					LEFT JOIN (
+						SELECT DISTINCT
+							m.code AS manhuaCode,
+							0 AS is_delete
+						FROM
+							wanwd_manhua_chapter_tb c
+						JOIN wanwd_manhua_tb m ON m.code = c.manhua_code
+						WHERE
+							c.is_delete = 0
+						AND c.review_status = 'SUCCESS'
+						AND m.author_id = #{userId,jdbcType=INTEGER}
+					) mm ON mm.manhuaCode = me.source_code
+					WHERE
+						me.source_type = #{resourceType,jdbcType=INTEGER}
+					AND me.is_delete = 0
+					AND me.message_type = 4
+					AND me.user_id = #{userId,jdbcType=INTEGER}
+					UNION
+						SELECT
+							me.create_time AS createTime,
+							me.source_title AS message,
+							c.review_status,
+							c.is_delete AS isShow,
+							me.user_id AS userId,
+							'http://wanwdv2.gyyx.cn/browse?manhuaCode=' + CAST (c.manhua_code AS VARCHAR) + '&amp;bookNum=' + CAST (c.book_num AS VARCHAR) AS url,
+							c.book_name AS title
+						FROM
+							wanwd_message_tb me
+						LEFT JOIN wanwd_manhua_chapter_tb c ON me.source_code = c.code
+						WHERE
+							me.source_type = #{resourceType,jdbcType=INTEGER}
+						AND me.is_delete = 0
+						AND me.message_type IN (1, 2)
+						AND me.user_id = #{userId,jdbcType=INTEGER}
+				) t
+		) k
+	WHERE k.rank BETWEEN #{start,jdbcType=INTEGER} AND #{end,jdbcType=INTEGER}
+	ORDER BY k.createTime DESC
+  </select>
+</mapper>

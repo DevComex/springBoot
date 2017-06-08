@@ -1,0 +1,459 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道-1.58点亮许愿池 100%中奖等你来拿！</title>
+<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/ChristmasLight/css/wd151208.css">
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+ <script  type="text/javascript">
+     var rc = "${rc.contextPath}";
+ </script>
+</head>
+<body>
+<div class="public_nav_top">
+   <script type="text/javascript">Showtop();</script>
+</div>
+<div class="wd_wrap">
+   <div class="main">
+      <!--导航-->
+      <div class="wd_nav">
+         <a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm">进入官网</a>|<a target="_blank" href="http://pay.gyyx.cn/gamepay/paygold?gameId=2">充值中心</a>|<a target="_blank" href="http://account.gyyx.cn/Member/Register">账号注册</a>|<a target="_blank" href="http://wd.gyyx.cn/download/">下载中心</a>
+      </div>
+      <!--活动时间-->
+      <div class="wd_time">许愿活动时间：12月25日12:00-1月14日23:59 </div>
+      <!--许愿瓶-->
+       <!--**********************************************************************************************************************************8------>
+      <div class="wd_bottle">
+         <a href="javascript:void(0);" class="a01" data-code="1"><span class="js_level_1">第一层</span></a>
+         <a href="javascript:void(0);" class="a02" data-code="2"><span class="js_level_2">第二层</span></a>
+         <a href="javascript:void(0);" class="a03" data-code="3"><span class="js_level_3">第三层</span></a>
+         <a href="javascript:void(0);" class="a04" data-code="4"><span class="js_level_4">第四层</span></a>
+         <a href="javascript:void(0);" class="a05" data-code="5"><span class="js_level_5">第五层</span></a>
+         <a href="javascript:void(0);" class="a06" data-code="6"><span class="js_level_6">第六层</span></a>
+      </div>
+         <!--************************************************************************************************************************************8------>
+      <!--内容区-->
+      <div class="wd_box">
+         <div class="wd_top">
+            <!--许愿登陆开始-->
+            <div class="wd_xydl">
+               <!--登录-->
+               <div class="wd_login js_login_wrap">
+                  <p>许愿前请先<span>登录</span>哦！</p>
+                  <a href="javascript:void(0);" class="btn js_loginBtn">登录</a>
+               </div>
+               <!--选区确认-->
+               <div class="wd_select js_unbindRole" style="display:none;">
+                  <h2>欢迎您：<span class="js_accountName">Chn**24</span>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" class="js_Loginout">退出登录</a></h2>
+                  <p>许愿前请先选择您的角色信息，许愿后不可修改，请认真选择</p>
+                  <div class="wd_selbox clear">
+                     <select id="sel_blocklist">
+                        <option value="0">请选择区组</option>
+                        <option value="1">网通</option>
+                        <option value="2">电信</option>
+                        <option value="3">双线</option>
+                    </select>
+                     <select id="sel_serverlist"><option value="0">请选择服务器</option></select>
+                  <select class="js_roleList" style="display:none">
+                        <option>选择角色</option>
+                        <option>选择角色</option>
+                     </select>
+                     <br/>
+                     <input style="clear:both;" class="captchaInput" id="captchaInput" value="" type="text" maxlength="5" >
+                    <img class="Captcha js_captcha" width="100" height="40" src="#" alt="验证码" />
+                    <a id="js_upRole" data-able="true" class="up_fwq " href="javascript:;">同步角色</a>
+
+                  </div>
+                  <input type="button" style="display:none;" class="btn js_bindRoleBtn">
+               </div>
+               <!--我的积分-->
+               <div class="wd_num js_bindRole" style="display:none;">
+                  <h2>欢迎您：<span class="js_accountName">Chn**24</span>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" class="js_Loginout">退出登录</a></h2>
+                  <h3>我的积分：<span class="js_integral">9999</span></h3>
+                  <a href="javascript:void(0);" class="a01 js_myWish">查询我许下的愿望</a>
+                  <a href="javascript:void(0);" class="a02 js_myPrize">查询我所获得的奖励</a>
+               </div>
+            </div>
+            <!--许愿登陆结束-->
+            <!--我要许愿开始-->
+            <div class="wd_wyxy">
+               <textarea id="wishContent" name="wishContent" maxlength="16" placeholder="请输入您的愿望（16字内哦！）"></textarea>
+               <p>
+                  <label>我要在这层许愿：</label>
+                  <select class="js_prizelevel" id="wishLevel" name="wishLevel">
+                     <!--<option>第一层</option>
+                     <option>第二层</option>
+                     <option>第三层</option>
+                     <option>第四层</option>
+                     <option>第五层</option>
+                     <option>第六层</option>-->
+                  </select>
+               </p>
+               <p><input class="js_wishBtn" data-bind="" type="button"><input style="display:none;" data-bind="" class="prize js_getPrizeBtn" type="button"></p>
+            </div>
+            <!--我要许愿结束-->
+         </div>
+         <!--文本区-->
+         <div class="wd_text">
+            <h3><strong>活动规则</strong></h3>
+            <p>1.	如何获取积分<br/>在活动期间，玩家在游戏内完成日常任务可以获得积分，日常活动项目包括：助人为乐、帮派日常挑战、副本系统、驱除邪灵、八仙梦境、探索世界、通天塔、悬赏任务、答题任务、师门任务。每种活动每天最多可获得2积分~另外在玩家天地投稿获得推荐后，也可以获得积分，每次50积分哦~（积分可用于在本页面进行许愿）
+            </p>
+			<br/>
+			<p>2.	如何“点亮许愿池”<br/>玩家在本页面可进行许愿，召集小伙伴一起将许愿池点亮后在许愿池中抽奖100%会获得奖励哦（获得奖池中的随机一个奖励）！每次许愿都会消耗积分，在越高层的许愿池进行许愿消耗的积分就越多，奖励也更好哦~<br/>玩家每次许愿的内容不可以超过16个字哦，我们会尽快审核大家的愿望，通过审核的愿望将会显示在许愿池内哟~
+			</p>
+			<br/>
+			<p>3.	如何进行许愿抽奖<br/>许愿池只能依次被点亮，参与点亮过程的玩家在许愿池被点亮后，可获得一次在该层免费抽奖的机会，未参与点亮过程的玩家在该层抽奖会消耗更多的积分。所有玩家在同层许愿池进行多次许愿的时候，需要消耗的积分会越来越多哦~
+			</p>
+			<br/>
+			<p>4.	如何获得奖励<br/>玩家抽取到的称号和铭牌奖励将在获奖次日发放，玩家可在收到系统邮箱提示后前往“南极仙翁”处领取（遇节假日则发放时间延后，其他奖励会在活动结束后统一发放哦~（称号效果是会覆盖的╰(￣▽￣)╮）
+		
+			</p>
+			<br/>
+			<p>
+				<span>温馨提示<br/>玩家用鼠标停留在许愿池上的时候就可以看见许愿池中的奖励啦，点击许愿池还可以看见大家许下的愿望哦~(部分奖池奖励种类较多，仅显示部分)<br/>玩家在游戏内获取的积分每小时会更新一次~在玩家天地投稿获得的积分将每天更新一次~
+				</span>
+			</p>
+			<br/>
+            <h3><strong>活动限制</strong></h3>
+            <p>1.	玩家绑定角色后才可进行许愿；绑定角色不可更改~；</p>
+			<p>2.	在每层许愿池被点亮之前，玩家只可在该层许愿一次，点亮后可进行多次许愿；</p>
+			<p>3.	获得实物奖励的玩家需要认真填写自己的收件地址，如果因为地址填写问题导致奖励无法发放，则视为玩家放弃奖励~；</p>
+         </div>
+      </div>
+   </div>
+</div>
+<!--漂浮-->
+    <!--？？？？？？？？？？？？？？？-->
+
+<div class="wd_pf">
+    <a href="javascript:void(0);">许愿</a>
+</div>
+<!--许愿弹层-->
+<!--未登录-->
+<!--<div class="xy_tc tc01" id="js_login_pop">
+   <div class="xy_cont">
+      <p>您还未<span>登录</span>，许愿前请先登录！</p>
+   </div>
+   <a class="sure" href="#">确定</a>
+</div>-->
+<!--积分消耗-->    
+<div class="xy_tc tc02" id="js_countConsume_pop">     
+   <div class="xy_cont">
+      <p>本次许愿将会消耗积分：<span class="js_countConsume"></span></p><br>
+      <p>您确定许愿吗？</p>
+   </div>
+   <a class="sure js_wishSubmit" href="javascript:void(0);">确定</a>
+   <a class="cancel js_wishQuite" href="javascript:void(0);">取消</a>
+</div>   
+<!--许愿成功-->   
+<div class="xy_tc tc03" id="js_wishSuccess_pop">     
+   <div class="xy_cont">
+      <p><span>恭喜您，许愿成功！</span></p>
+      <p>您可以在“查询我许下的愿望”中查看该愿望！同时也可以通过鼠标点击奖池查看该池中其他玩家的愿望哦！</p>
+   </div>
+   <a class="sure js_wishSucc_confirm" href="javascript:void(0);">确定</a>
+</div>  
+<!--每层多次许愿--> 
+<div class="xy_tc tc04" id="js_moreWish_pop">     
+   <div class="xy_cont">
+      <p>尊敬的玩家：<br>此层<span>被点亮后</span>您才可以在此层多次许愿哦！赶快呼唤小伙伴们一起许愿点亮该层吧！</p>
+   </div>
+   <a class="sure js_moreWish_confirm" href="javascript:void(0);">确定</a>
+</div>  
+<!--该层无法许愿-->  
+<!--<div class="xy_tc tc05">     
+   <div class="xy_cont">
+      <p>尊敬的玩家：<br>此层级<span>还未被点亮</span>，暂时不可以许愿哦！赶快呼唤小伙伴嗯一起许愿点亮该层吧！</p>
+   </div>
+   <a class="sure" href="#">确定</a>
+</div>   -->
+     
+<!--许愿池奖品弹层-->
+<!--该层已有XXXX玩家许愿-->
+<div class="jp_tc tc06" id="js_wishList">
+   <div class="jp_cont">
+      <h3>该层已有<span class="js_personCount">9999</span>人许愿！</h3>
+      <div class="jp_switch">
+         <a class="pre" href="javascript:void(0);"></a>
+         <div class="jp_show">
+		    <ul class="js_wish_cont">
+		       <li><p>来自“<i>区服名称</i>”的“<em>角色名称</em>”愿望：</p><p><span>玩家愿望玩家愿望玩家愿望玩家愿望</span></p></li>
+		    </ul>
+	     </div>
+  	    <a class="next" href="javascript:void(0);"></a>
+     </div>
+   </div>
+</div>    
+<!--该层奖品-->   
+<div class="jp_tc tc07 hoverCon">    
+   <div class="jp_cont">
+      <h3>第一层奖品</h3>
+      <ul class="jp_pic">
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/chenghao.jpg">
+            <p>称号（限时）</p>
+         </li>        
+      </ul>    
+   </div>
+</div>      
+    
+<div class="jp_tc tc08 hoverCon">     
+   <div class="jp_cont">
+      <h3>第二层奖品</h3>
+      <ul class="jp_pic">
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/mingpai.jpg">
+            <p>铭牌（限时）</p>
+         </li>        
+      </ul>        
+   </div>
+</div>     
+    
+<div class="jp_tc tc09 hoverCon">     
+   <div class="jp_cont">
+      <h3>第三层奖品</h3>
+      <ul class="jp_pic">
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/yinyuanbao.jpg">
+            <p>3000银元宝</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/qianbao.jpg">
+            <p>问道钱包</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/chenghao.jpg">
+            <p>称号（限时）</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/mingpai.jpg">
+            <p>铭牌（限时）</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/Tshirt.jpg">
+            <p>问道T恤</p>
+         </li>        
+      </ul>    
+   </div>
+</div>     
+    
+<div class="jp_tc tc10 hoverCon">     
+   <div class="jp_cont">
+      <h3>第四层奖品</h3>
+      <ul class="jp_pic">
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/yinyuanbao.jpg">
+            <p>4000银元宝</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/5s.jpg">
+            <p>Iphone5S</p>
+         </li>
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/iphone6.jpg">
+            <p>Iphone6</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/weiweihu.jpg">
+            <p>威威虎抱枕</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/chenghao.jpg">
+            <p>称号（限时）</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/mingpai.jpg">
+            <p>铭牌（限时）</p>
+         </li>
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/hongmi.jpg">
+            <p>红米手机</p>
+         </li> 
+         <!--<li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/shizhuang.jpg">
+            <p>时装</p>
+         </li>  -->      
+      </ul>    
+   </div>
+</div>     
+    
+<div class="jp_tc tc11 hoverCon">     
+   <div class="jp_cont">
+      <h3>第五层奖品</h3>
+      <ul class="jp_pic">
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/yinyuanbao.jpg">
+            <p>5000银元宝</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/iphone6plus.jpg">
+            <p>Iphone6SPLUS</p>
+         </li>  
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/iphone6s.jpg">
+            <p>Iphone6S</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/chenghao.jpg">
+            <p>称号（限时）</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/shubiao.jpg">
+            <p>极致鼠标</p>
+         </li>
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/xiaomi4.jpg">
+            <p>小米4</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/bianyi.jpg">
+            <p>变异（随机）</p>
+         </li>
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/yidongdianyuan.jpg">
+            <p>移动电源</p>
+         </li>        
+      </ul>
+   </div>
+</div>     
+    
+<div class="jp_tc tc12 hoverCon">     
+   <div class="jp_cont">
+      <h3>第六层奖品</h3>
+      <ul class="jp_pic">
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/yinyuanbao.jpg">
+            <p>8000银元宝</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/iphone6plus.jpg">
+            <p>Iphone6SPLUS</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/chenghao.jpg">
+            <p>称号（限时）</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/mingpai.jpg">
+            <p>铭牌（限时）</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/bianyi.jpg">
+            <p>变异（随机）</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/xiaomi4.jpg">
+            <p>小米4</p>
+         </li>
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/shouban.jpg">
+            <p>九尾仙狐 手办</p>
+         </li> 
+         <li>
+            <img src="http://static.cn114.cn/action/ChristmasLight/images/shenshou.jpg">
+            <p>神兽（随机）</p>
+         </li>        
+      </ul>
+   </div>
+</div>     
+    
+<!--获奖弹层-->  
+<!--实物奖-->
+<div class="hj_tc tc13" id="js_realPrize_pop">     
+   <div class="hj_cont">
+      <h3>恭喜您中奖：<span class="js_realPrize">iPhone6</span></h3>  
+      <p>请填写准确详细的个人信息，以便我们邮寄奖品，包邮哦！</p>
+      <ul class="hj_ul">
+         <li><label>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</label><input type="text" name="user" id="user" maxlength="10"></li>
+         <li><label>手机号码：</label><input type="text" name="tel" id="tel" maxlength="11"></li>
+         <li><label>邮寄地址：</label><input type="text" name="ads" id="ads" maxlength="50"></li>
+      </ul>
+      <a class="sure js_realPrize_submit" href="javascript:void(0);">确定</a> 
+   </div>
+   <p>活动结束后我们会统一邮寄奖品，请耐心等待~~以上信息不可修改，如有疑问请咨询客服：010-82438999</p>
+</div>    
+<!--虚拟奖--> 
+<div class="hj_tc tc14" id="js_noRealPrize_pop">     
+   <div class="hj_cont">
+      <h3 class="js_noRealprize"></h3> 
+      <a class="sure js_noRealPrize_confirm" href="javascript:void(0);">确定</a> 
+   </div>  
+</div>     
+  
+<!--登录弹层-->
+<!--未许过愿-->
+<div class="dl_tc tc15" id="js_noWish_pop">     
+   <div class="dl_cont">
+     <p>尊敬的玩家，您<span>还没有许过愿</span>呢，快去许愿吧！</p>
+   </div> 
+   <a class="sure js_noWish_confirm" href="javascript:void(0);">确定</a>  
+</div>   
+<!--许愿N次-->
+<div class="dl_tc tc16" id="js_myWish_pop">   
+   <a class="close" href="#">关闭</a>  
+   <div class="dl_cont clear">
+      <div class="dl_scroll">
+         <ul class="dl_ul clear js_myWish_listCont">
+           <!--<li>
+              <span>1.</span>
+              <p>第一层许愿:<br>许愿内容许愿内容许愿内容许愿内容</p>
+           </li>
+           <li>
+              <span>2.</span>
+              <p>第二层许愿:<br>许愿内容许愿内容许愿内容许愿内容</p>
+           </li>
+           <li>
+              <span>3.</span>
+              <p>第三层许愿:<br>许愿内容许愿内容许愿内容许愿内容</p>
+           </li>
+           <li>
+              <span>4.</span>
+              <p>第四层许愿:<br>许愿内容许愿内容许愿内容许愿内容</p>
+           </li>
+           <li>
+              <span>5.</span>
+              <p>第五层许愿:<br>许愿内容许愿内容许愿内容许愿内容</p>
+           </li>-->
+      </ul>
+      </div>
+   </div>      
+</div> 
+<!--未获奖-->
+<div class="dl_tc tc17" id="js_noPrize_pop">     
+   <div class="dl_cont">
+     <p>尊敬的玩家，您还<span>没有获得过奖品</span>呢，许愿可以增加获奖几率哦！</p>
+   </div> 
+   <a class="sure js_noPrize_confirm" href="javascript:void(0);">确定</a>  
+</div>   
+<!--获奖N个--> 
+<div class="dl_tc tc18" id="js_myPrize_pop">   
+   <a class="close" href="#">关闭</a>  
+   <div class="dl_cont clear">
+      <div class="dl_scroll">
+         <ul class="dl_ul clear js_myPrize_listCont">
+           <li><span>1.</span><p>实物奖品</p><i>九尾仙狐手办</i></li>
+           <li><span>2.</span><p>虚拟道具</p><i>4000银元宝</i></li>
+           <li><span>3.</span><p>实物奖品</p><i>IPhone 6S PLUS</i></li>
+           <li><span>4.</span><p>虚拟道具</p><i>时装（梦与清风时）</i></li>
+           <li><span>5.</span><p>实物奖品</p><i>九尾仙狐手办</i></li>
+           <li><span>6.</span><p>虚拟道具</p><i>4000银元宝</i></li>
+           <li><span>7.</span><p>虚拟道具</p><i>时装（梦与清风时）</i></li>
+      </ul>
+      </div>
+   </div>      
+</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/ChristmasLight/js/index.js"></script>
+<script type="text/javascript">
+   $(function () {
+      $(document).inits();
+   });
+</script>
+<div class="public_nav_bottom">
+   <script type="text/javascript">ShowBottom()</script>
+</div>
+
+</body>
+   
+</html>

@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>问道-无限火力 重磅出击</title>
+    <link href="http://static.cn114.cn/action/wdFire/css/wxdl.css" rel="stylesheet" type="text/css">
+     <script  type="text/javascript">
+         var rc = "${rc.contextPath}";
+	</script>
+    <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <!--统计代码 -->
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+    <script src="http://static.cn114.cn/action/wdFire/js/Lotterywd.js" type="text/javascript"></script>
+    <script src="http://static.cn114.cn/action/wdFire/js/share.js" type="text/javascript"></script>
+    <script src="http://static.cn114.cn/action/wdFire/js/fire.js" type="text/javascript"></script>
+    <script src="http://static.cn114.cn/action/wdFire/js/index.js" type="text/javascript"></script>
+	<!--[if IE 6]><script src="http://static.cn114.cn/action/wdFire/js/DD_belatedPNG.js"></script><![endif]-->
+	<script type="text/javascript">
+		alert("谢谢参与，活动已结束");
+	</script> 
+</head>
+	
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="subwrap">
+        <div class="main">
+            <div class="nav"><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a></div>
+            <div class="datediv">活动时间：2015年4月23日-2015年5月5日</div>
+            <div class="qdbtn">
+                <p class="p01">签到</p>
+                <p class="p02">点击此处人品值+2哟</p>
+            </div>
+            <!--<div class="logintxt">您尚未登录，请 <a href="#">登录</a></div>-->
+            <div id="login" class="logintxt">
+                <!--您尚未登录，请 <a href="javascript:;">登录</a>-->
+            </div>
+            <div class="qdL">
+                <h3 class="title">签到抽奖</h3>
+                <div class="numtxt" id="js_spirtual"></div>
+                <p class="p01">注意事项  </p>
+                <p>1、官方将在活动结束后十五个工作日内，在官网和论坛公布获奖玩家名单</p>
+                <p>2、获奖名单公布后七个工作日内，我们会主动联系获奖玩家并确认奖励发放形式</p>
+                <p>3、确认相关信息后，所有实体性奖励将统一通过申通快递的方式邮寄给玩家</p>
+                <p>4、 请玩家在活动中自觉抵制辅助软件，禁止任何不正当方式进行参与，一经发现我们将取消该玩家的账号参与资格</p>
+                <p>5、本次活动禁止使用暴力，色情，政治相关及侮辱性的语言</p>
+                <p>6、本次活动最终解释权归北京光宇在线科技有限公司所有</p>
+            </div>
+            <div class="qdR">
+                <a class="click js_btnStart" text="go" href="javascript:;"></a>
+                <ul>
+                    <li class="img01 on" id="dzp0"><b class="pngFix"></b>
+                        <img src="http://static.cn114.cn/action/wdFire/images/wd_wxhl_cj01.jpg" /></li>
+                    <li class="img01" id="dzp1"><b class="pngFix"></b>
+                        <img src="http://static.cn114.cn/action/wdFire/images/wd_wxhl_cj02.jpg" /></li>
+                    <li class="img01" id="dzp2"><b class="pngFix"></b>
+                        <img src="http://static.cn114.cn/action/wdFire/images/wd_wxhl_cj03.jpg" /></li>
+                    <li class="li04 img01" id="dzp7"><b class="pngFix"></b>
+                        <img src="http://static.cn114.cn/action/wdFire/images/wd_wxhl_cj04.jpg" /></li>
+                    <li class="img01" id="dzp3"><b class="pngFix"></b>
+                        <img src="http://static.cn114.cn/action/wdFire/images/wd_wxhl_cj05.jpg" /></li>
+                    <li class="img01" id="dzp6"><b class="pngFix"></b>
+                        <img src="http://static.cn114.cn/action/wdFire/images/wd_wxhl_cj06.jpg" /></li>
+                    <li class="img01" id="dzp5"><b class="pngFix"></b>
+                        <img src="http://static.cn114.cn/action/wdFire/images/wd_wxhl_cj07.jpg" /></li>
+                    <li class="img01" id="dzp4"><b class="pngFix"></b>
+                        <img src="http://static.cn114.cn/action/wdFire/images/wd_wxhl_cj08.jpg" /></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="pfmenu">
+        <ul>
+            <li><a class="pngFix" href="index.html">活动<br>
+                首页</a></li>
+            <li><a class="pngFix" href="rule.html">活动<br>
+                规则</a></li>
+            <li><a class="pngFix" href="manifestolist.html">宣言<br>
+                列表</a></li>
+            <li class=""><a class="pngFix" href="contribute.html">我要<p>来“搞”</p>
+            </a></li>
+            <li class="on"><a class="last pngFix" href="lottery.html">签到<br>
+                抽奖</a></li>
+        </ul>
+    </div>
+
+    <div class="pfbox pngFix">
+        <div class="link">
+            <a title="分享到新浪微博" href="javascript:void(0);" class="a01 sina xinlang">新浪</a>
+            <a title="分享到QQ空间" href="javascript:void(0)" class="a02 qqzone Qzone">空间</a>
+        </div>
+        <div style="display: none" class="txt" id="fenxiang">《问道》九周年广撒豪礼，无限火力重磅出击，灵符天降助你功成名就</div>
+        <div class="pftxt">
+            <p>活动客服QQ</p>
+            <p>12345555</p>
+            <p>7582232232</p>
+        </div>
+    </div>
+
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div>
+  
+
+
+
+     <!--弹出框 s-->
+    <div class="tcbox js_commonPop" style="display: none;">
+        <div id="pop_con" class="pop_con">
+            <a class="close js_popclose" href="javascript:;"></a>
+            <div class="tctit js_popTip"></div><!-- 标题-->
+            <div class="tcform js_popContent">  <!--弹出框内容-->
+		       <!-- <div class="tctxt">
+			        <p class="p01">恭喜，您获得XXX！</p>
+			        <p class="p02">请填写个人信息，以便我们与您取得联系</p>
+		        </div>
+		        <div class="tcin">
+			        <p><label>姓名</label><input id="txtRecName" type="text" class="intxt" /></p>
+			        <p><label>电话</label><input id="txtMobPhoneNumber" type="text" class="intxt" /></p>
+			        <p><label>地址</label><input id="txtAddress" type="text" class="intxt" /></p>
+			        <p class="btnp"><input id="btn_subRecInfo" type="button" value="确定" class="tjbtn" /></p>
+		        </div>	-->	
+	        </div>
+        </div>
+        <div class="pop_mask"></div>
+    </div>
+    <!--弹出框 e-->
+
+
+
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdFire/js/ymcore.min.js"></script>
+    <script type="text/javascript">
+        YM.UI.Sidebar({ container: 'div.pfmenu', closeBtn: '.close', offTop: 100 });
+        YM.UI.Sidebar({ container: 'div.pfbox', closeBtn: '.close', offTop: 100 });
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.IAddressMapper">
+	<resultMap type="AddressBean" id="Address">
+		<id column="code" property="code" />
+		<result column="user_code" property="userCode" />
+		<result column="user_name" property="userName" />
+		<result column="user_phone" property="userPhone" />
+		<result column="user_address" property="userAddress" />
+		<result column="action_code" property="actionCode" />
+			<result column="user_account" property="userAccount" />
+	</resultMap>
+
+	<!-- 根据用户编号查询用户地址信息 -->
+	<select id="selectAddress" resultMap="Address" parameterType="int">
+	select 
+	code,user_code,user_name,user_phone,user_address,action_code from 
+    action_adressInfo_tb
+	where user_code=#{userCode} 
+	</select>
+		<!-- 根据用户编号查询用户地址信息 -->
+	<select id="selectAddressByUser" resultMap="Address" >
+	select top 1 
+	* from 
+	action_adressInfo_tb 
+	where user_account=#{userAccount} 
+	and 
+    action_code=#{actionCode} 
+	</select>
+	<!-- 新增用户地址信息-->
+	<insert id="insertAddress" parameterType="Address">
+	  insert action_adressInfo_tb
+	  (user_code,user_name,user_phone,user_address,action_code,user_account)
+	  values
+	  (#{userCode},#{userName},#{userPhone},#{userAddress},#{actionCode},#{userAccount})
+	</insert>
+	
+	<!-- 更改用户地址信息-->
+	<update id="updateAddress" parameterType="Address">
+	  update action_adressInfo_tb set user_name=#{userName},
+	  user_phone=#{userPhone},
+	  user_address=#{userAddress} 
+	  where user_code=#{userCode}
+	</update>
+
+</mapper>

@@ -1,0 +1,69 @@
+  #parse("userCenter/include/head.vm")
+  <script src="${rc.contextPath}/assets/js/jquery.ajaxpage.2.0.1.js"></script>
+<div class="web_wrap">
+    <div class="banner_pers">
+        <span class="h_shade pngbg"></span>
+        <div class="w_head">
+            <span class="w_hinfo">
+                <a href="http://wanwd.gyyx.cn/user/Role" id="js_HeadPortrait">
+                    <img src="${rc.contextPath}/assets/img/default_rolepic.jpg" title="点击进入我的角色" />
+                </a>
+            </span>
+            <span id="js_RoleName">金男</span>
+        </div>
+    </div>
+    <div class="v_list_tit pad30">
+        <ul class="v_list_class">
+            <li><a href="http://wanwd.gyyx.cn/user/Index">首页</a></li>
+            <li><a href="http://wanwd.gyyx.cn/user/Collect">我的收藏</a></li>
+            <li><a href="http://wanwd.gyyx.cn/user/Role">我的角色</a></li>
+            <li class="on"><a href="javascript:;">我的信息</a></li>
+            <li><a href="http://wanwd.gyyx.cn/user/Upload">我的上传</a></li>
+            <li><a href="http://wanwdv2.gyyx.cn/userCenter/editorAnswer">编辑回复</a></li>
+        </ul>
+    </div>
+
+    <div class="web_wrap">
+        <div class="wd_message">
+            <div class="wd_message_l" id="js_MsgContWrap">
+                <ul class="message_list" id="js_MsgCont">
+                    <li>
+                        <div class="del_ico"></div>
+                        <div class="message_cont">
+                            <h3><span class="message_tit">土豪真金白银砸出来的人宠经验</span><span class="mess_time">2014-7-10
+                                21：06</span></h3>
+                            <p>恭喜,您发的文章"土豪真金白银砸出来的人宠经验"被官方采用<br>
+                                您将获得以下奖励:XXXXXXXXXXXX,请在游戏内注意查收<a href="#">查看文章</a></p>
+                        </div>
+                    </li>
+                </ul>
+
+                <div class="mt30 s_page_wrap">
+                    <span class="gy_page search_page"></span>
+                    <span class="search_page_txt"></span>
+                </div>
+            </div>
+            <div class="wd_message_r">
+                <h2 class="c_tit">
+                    <div class="tit_l">
+                        <span class="font_bg font_zdnav"></span>
+                    </div>
+                </h2>
+                <ul>
+                    <li><a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm">问道官网</a></li>
+                    <li><a target="_blank" href="http://wanwd.gyyx.cn/">玩家天地</a></li>
+                    <li><a target="_blank" href="http://wanwd.gyyx.cn/articlelist/Index">图文驿站</a></li>
+                    <li><a target="_blank" href="http://wanwd.gyyx.cn/Picture/Index">秀图专区</a></li>
+                    <li><a target="_blank" href="http://wanwd.gyyx.cn/Video/Index">视频专区</a></li>
+                    <li><a target="_blank" href="http://wd.gyyx.cn/huodong/wjfc2014/index.html">有奖征稿</a>
+                    </li>
+                    <li><a target="_blank" href="http://e.t.qq.com/wendao2006">官方微博</a></li>
+                    <li><a target="_blank" href="http://wd.gyyx.cn/huodong/2014jhhd/index.html?tabid=2">官方微信</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+  #parse("userCenter/include/bottom.vm")

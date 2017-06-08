@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.challenger.IChallenterTeam">
+	<resultMap type="ChallenterTeamBean" id="ChallenterTeamBeanMap">
+	    <id column="code" property="code" />
+		<result column="team_name" property="teamName" />
+		<result column="contact_type" property="contactType" />
+		<result column="contact_name" property="contactName" />
+		<result column="target" property="target" />
+		<result column="declaration " property="declaration" />
+		<result column="create_time" property="createTime" />
+		<result column="state" property="state" />
+		<result column="user_id" property="userId" />
+		<result column="account" property="account" />
+		<result column="apply_count" property="applyCount" />
+		<result column="review_time" property="reviewTime" />
+		
+		<!-- 冗余 -->
+		<result column="role_name" property="roleName" />
+		<result column="contact" property="contact" />
+	</resultMap>
+
+	<insert id="insert" parameterType="ChallenterTeamBean"
+		useGeneratedKeys="true" keyProperty="code">
+		insert into
+		challenger_team_tb (
+		team_name
+		,contact_name
+		,target
+		,declaration
+		,create_time
+		,state
+		,user_id
+		,account
+		,apply_count,contact_type)
+		values(
+		#{teamName}
+		,#{contactName}
+		,#{target}
+		,#{declaration}
+		,#{createTime}
+		,#{state}
+		,#{userId}
+		,#{account}
+		,#{applyCount},#{contactType})
+	</insert>
+	
+	<!-- 用户创建审核中和已创建的队伍 -->
+	<select id="getUserCreateTeam" parameterType="int"
+		resultMap="ChallenterTeamBeanMap">
+		select top 1 * from
+		challenger_team_tb
+		where
+		1=1 and state != 'unpass' and user_id = #{userId}
+		order by create_time desc
+	</select>
+	
+	<!-- 用户所在队伍 -->
+	<select id="getUserTeamInfo" 
+		resultMap="ChallenterTeamBeanMap">
+		select top 1 t1.* 
+			from challenger_team_tb t1,
+			challenger_team_user_tb t2 
+		where 1=1
+		and t1.code = t2.team_id
+		and t2.user_id = #{userId}
+	</select>
+	
+	<!-- 用户所在队伍 -->
+	<select id="checkTeamNameExist" parameterType="java.lang.String" resultType="java.lang.Integer">
+		select count(1) from challenger_team_tb where team_name = #{teamName}
+	</select>
+	
+	<!-- 根据ID查询 -->
+	<select id="getTeam" 
+		resultMap="ChallenterTeamBeanMap">
+		select * from challenger_team_tb where code = #{teamId}
+	</select>
+	
+	<!-- 队伍列表分页总数量 -->
+	<select id="teamListPagingCount" resultType="java.lang.Integer">
+		select count(1) from challenger_team_tb where 1=1
+		<if test="state!= null and state!= '' ">
+			and state = #{state}
+		</if>
+	</select>
+	
+	<!-- 队伍列表分页显示 -->
+	<select id="teamListPaging"
+		resultMap="ChallenterTeamBeanMap">
+		select 
+			TOP (#{pageSize})  
+			A.*
+		from (
+			SELECT 
+				TOP (#{pageSize}*#{currentPage})
+			    ROW_NUMBER() OVER (ORDER BY a.review_time desc) AS row_num,a.*
+			FROM challenger_team_tb a
+			where 1=1
+			<if test="state!= null and state!= '' ">
+					and state = #{state}
+				</if>
+			order by a.review_time desc
+		) A
+		WHERE row_num >
+		(#{pageSize}*(#{currentPage}-1))
+	</select>
+	
+	<update id="updateTeamApplyCountAddOne">
+		update challenger_team_tb set apply_count = apply_count + 1
+		where code = #{teamId}
+	</update>
+	
+	<!-- 队伍成员列表 不含队长 -->
+	<select id="getTeamMemberNamesNotLeader"
+		resultType="ChallenterUserInfoBean">
+		select c.role_name as roleName,c.user_id as userId,c.account as account,c.contact ,c.contact_type as contactType from challenger_team_tb a,challenger_team_user_tb b,challenger_user_info_tb c
+		where a.code = b.team_id and b.user_id = c.user_id and a.user_id != b.user_id and c.user_state = 'pass'
+		and a.code = #{teamId}
+	</select>
+	
+	
+	<!-- oa后台队伍列表分页 记录-->
+	 <select id="getTeamListData"
+		resultMap="ChallenterTeamBeanMap">
+		select 
+			TOP (#{pageSize})  
+			A.*
+		from (
+			SELECT 
+				TOP (#{pageSize}*#{currentPage})
+			    ROW_NUMBER() OVER (ORDER BY a.create_time desc) AS row_num,a.*,b.role_name 
+			FROM challenger_team_tb a ,challenger_user_info_tb b
+			where a.user_id = b.user_id and b.user_state = 'pass'
+			<if test="state!= null and state!= '' ">
+				and a.state = #{state}
+			</if>
+			order by a.create_time desc
+		) A
+		WHERE row_num >
+		(#{pageSize}*(#{currentPage}-1))
+	</select>  
+	
+	<!-- oa后台队伍列表分页数量 -->
+	 <select id="getTeamListDataCount" resultType="java.lang.Integer">
+		select count(1)
+		FROM challenger_team_tb a ,challenger_user_info_tb b
+		where a.user_id = b.user_id and b.user_state = 'pass'
+		<if test="state!= null and state!= '' ">
+			and a.state = #{state}
+		</if>
+	</select> 
+	
+	<update id="reviewChallenterTeam">
+		update challenger_team_tb set 
+			state = #{state},
+			review_time = getdate()
+		where code = #{code}
+	</update>
+	
+	
+	
+	
+</mapper>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.fightbrickgame.IFightBrickGameMapper">
+	<resultMap type="cn.gyyx.action.beans.fightbrickgame.FightBrickGameBean" id="FightBrickGameMap">
+		<id column="code" jdbcType="INTEGER" property="code" />
+		<result column="openid" jdbcType="VARCHAR" property="openid" />
+		<result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+		<result column="latest_score" jdbcType="INTEGER" property="latestScore" />
+		<result column="high_score" jdbcType="INTEGER" property="highScore" />
+		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+		<result column="rank" jdbcType="INTEGER" property="rank"/>
+		<result column="present_name" jdbcType="VARCHAR" property="prizeName"/>
+		<result column="history_score" jdbcType="INTEGER" property="historyScore"/>
+		<result column="history_rank" jdbcType="INTEGER" property="historyRank"/>
+	</resultMap>
+
+	<insert id="addScore" parameterType="cn.gyyx.action.beans.fightbrickgame.FightBrickGameBean">
+		INSERT INTO
+		fightbrickgame_score_tb(openid,nick_name,latest_score,high_score,create_time,update_time)
+		VALUES(#{openid},#{nickName},#{latestScore},#{highScore},GETDATE(),GETDATE())
+	</insert>
+
+	<update id="update" parameterType="cn.gyyx.action.beans.fightbrickgame.FightBrickGameBean">
+		UPDATE fightbrickgame_score_tb SET
+		nick_name=#{nickName},latest_score=#{latestScore}
+		<if test="isUpdate==true">
+			,update_time=GETDATE(),high_score=#{highScore}
+		</if>
+		WHERE code=#{code}
+	</update>
+
+	<select id="getRank" resultMap="FightBrickGameMap">
+		SELECT TOP 200 nick_name,latest_score,openid,high_score,ROW_NUMBER() OVER(ORDER BY high_score DESC,update_time ASC) rank 
+			FROM fightbrickgame_score_tb 
+		WHERE create_time BETWEEN CONVERT(date,GETDATE()) AND CONVERT(date,DATEADD(DAY, 1, GETDATE()))			
+	</select>		
+		
+	<select id="getYesterdayRank" resultMap="FightBrickGameMap">
+		SELECT TOP 200 nick_name,latest_score,openid,high_score,ROW_NUMBER() OVER(ORDER BY high_score DESC,update_time ASC) rank 
+			FROM fightbrickgame_score_tb 
+		WHERE create_time BETWEEN CONVERT(date,DATEADD(DAY, -1, GETDATE())) AND CONVERT(date,GETDATE())
+	</select>	
+		
+	<select id="getScoreInfo" resultMap="FightBrickGameMap">
+		SELECT code,openid,nick_name,latest_score,high_score FROM fightbrickgame_score_tb 
+			WHERE openid=#{openid} AND create_time BETWEEN CONVERT(date,GETDATE()) AND CONVERT(date,DATEADD(DAY, 1, GETDATE()))
+	</select>
+
+	<select id="getAwardList" resultMap="FightBrickGameMap">
+	SELECT a.nick_name,b.present_name,CONVERT(VARCHAR(10),b.draw_time,120) create_time FROM fightbrickgame_score_tb a
+	INNER JOIN (SELECT present_name,account,draw_time FROM hd_send_present_log
+					WHERE activity_id=#{activityId}) b 
+	ON a.openid=b.account 
+	WHERE CONVERT(date,a.create_time)=CONVERT(date,b.draw_time) AND b.draw_time<![CDATA[<]]>#{hdEnd}
+	ORDER BY b.draw_time DESC
+	</select>
+	
+	<select id="getHighScore" resultType="int">
+		SELECT MAX(high_score) high_score FROM fightbrickgame_score_tb WHERE openid=#{openid}
+	</select>
+	
+	<select id="getRankByOpenId" resultMap="FightBrickGameMap">
+		SELECT openid,latest_score,high_score INTO #temp1 FROM fightbrickgame_score_tb WHERE openid=#{openid} AND create_time BETWEEN CONVERT(date,GETDATE()) AND CONVERT(date,DATEADD(DAY, 1, GETDATE()))
+
+		SELECT openid,ROW_NUMBER() OVER(ORDER BY high_score DESC,update_time ASC) rank INTO #temp2 FROM fightbrickgame_score_tb WHERE create_time BETWEEN CONVERT(date,GETDATE()) AND CONVERT(date,DATEADD(DAY, 1, GETDATE()))
+		
+		SELECT a.latest_score,a.high_score,b.rank FROM #temp1 a JOIN #temp2 b ON a.openid=b.openid
+	</select>
+	
+	<select id="getHighTop" resultType="int">
+		SELECT MIN(history_rank) history_rank FROM fightbrickgame_score_tb WHERE openid=#{openid}
+	</select>
+
+	<select id="getList" resultMap="FightBrickGameMap">
+		SELECT code,openid,nick_name,latest_score,high_score,history_rank rank,update_time INTO #temp FROM fightbrickgame_score_tb
+		<where>
+			<if test="keyword!=''">
+				AND (openid like '%${keyword}%' OR nick_name like '%${keyword}%')
+			</if>
+			<if test="beginTime!=''">
+				AND update_time <![CDATA[>=]]>
+				#{beginTime}
+			</if>
+			<if test="endTime!=''">
+				AND update_time <![CDATA[<=]]>
+				#{endTime}
+			</if>
+		</where>
+		SELECT * FROM(
+			SELECT a.*,b.history_score,ROW_NUMBER() OVER(ORDER BY a.update_time DESC) number FROM #temp a
+			INNER JOIN
+			(SELECT openid,MAX(high_score) history_score FROM #temp GROUP BY openid) b
+			ON a.openid=b.openid
+		)a WHERE a.number<![CDATA[>]]>#{startSize} AND a.number<![CDATA[<=]]>#{endSize}
+	</select>
+
+	<select id="getCount" resultType="int">
+		SELECT COUNT(*) FROM fightbrickgame_score_tb
+		<where>
+			<if test="keyword!=''">
+				AND (openid like '%${keyword}%' OR nick_name like '%${keyword}%')
+			</if>
+			<if test="beginTime!=''">
+				AND update_time <![CDATA[>=]]>
+				#{beginTime}
+			</if>
+			<if test="endTime!=''">
+				AND update_time <![CDATA[<=]]>
+				#{endTime}
+			</if>
+		</where>
+	</select>
+
+	<update id="updateYesterdayRank">
+		SELECT openid,ROW_NUMBER() OVER(ORDER BY high_score DESC,update_time ASC) number,update_time,high_score INTO #temp
+		FROM fightbrickgame_score_tb
+		WHERE create_time<![CDATA[>=]]>CONVERT(date,DATEADD(DAY,-1,GETDATE()))
+		AND create_time<![CDATA[<]]>CONVERT(date,GETDATE())
+
+		UPDATE a SET a.history_rank=b.number FROM fightbrickgame_score_tb a,#temp b
+		WHERE a.create_time<![CDATA[>=]]>CONVERT(date,DATEADD(DAY,-1,GETDATE()))
+		AND a.create_time<![CDATA[<]]>CONVERT(date,GETDATE())
+		AND a.openid=b.openid
+	</update>
+	
+	<select id="getGiftList" resultMap="FightBrickGameMap">
+	SELECT account,draw_time,present_name INTO #TEMP FROM hd_send_present_log WHERE activity_id=#{activityId} AND draw_time>#{hdEnd}
+	
+	SELECT a.nick_name,b.present_name,CONVERT(VARCHAR(10),b.draw_time,120)	create_time	FROM(
+		SELECT openid,nick_name FROM fightbrickgame_score_tb 
+		WHERE code IN (SELECT MAX(code) FROM fightbrickgame_score_tb
+					   WHERE openid IN (SELECT openid FROM #TEMP) GROUP BY openid)
+	)a
+	INNER JOIN #TEMP b ON a.openid=b.account ORDER BY b.draw_time DESC
+	</select>
+	<insert id="addShareLog">
+		INSERT INTO hd_share_log(activity_id,openid,login_ip,create_time)
+			VALUES(#{activityId},#{openid},#{ip},GETDATE())
+	</insert>
+</mapper>

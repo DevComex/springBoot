@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.jswsReserve.IReserveMapper">
+	<resultMap type="ReserveBean" id="ReserveBean">
+		<id column="code" property="code" />
+		<result column="phone_num" property="phoneNum" />
+		<result column="reserve_time" property="reserveTime" />
+	</resultMap>
+	
+	<!-- 添加预约信息 -->
+	<insert id="insertReserveInfo" parameterType="ReserveBean">
+		insert into action_jsws_reserve_tb
+		(phone_num,reserve_time)
+		values(#{phoneNum},#{reserveTime})
+	</insert>
+
+	<!-- 查找该手机号码是否已经预约过 -->
+	<select id="getReserveByPhoneNum" resultMap="ReserveBean" parameterType="String">
+		select
+		code,phone_num,reserve_time
+		from
+		action_jsws_reserve_tb
+		where phone_num=#{phoneNum}
+	</select>
+	
+</mapper>

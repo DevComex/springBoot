@@ -1,0 +1,489 @@
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="author" content="Layout:luochongfei" />
+	<title>才艺比拼后台</title>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+	<script type="text/javascript" charset="utf-8">
+		document.write(teheadstr);
+	</script>
+	<script type="text/javascript" charset="utf-8">
+		var bindStatistic = function() {
+			$.ajax
+			({
+				type : "POST",
+				url : "${rc.contextPath}/wdTalent/getStatistic",
+				success:function(data) {
+					if(data.isSuccess) {
+						var voteAccount = data.data.voteAccountNumber;
+						var voteIP = data.data.voteIPNumber;
+						var talentAccount = data.data.talentAccountNumber;
+						var talentIP = data.data.talentIPNumber;
+						$("#statistic").html("参赛人员账号统计："+talentAccount+"</br>"+
+											 "参赛人员IP统计："+talentIP+"</br>"+
+											 "投票人员账号统计："+voteAccount+"</br>"+
+											 "投票人员IP统计："+voteIP+"</br>"
+						);
+					} else {
+						alert('获得统计信息失败!');
+					}
+				}
+			})
+		}
+		var scorePageController = new Object();
+		scorePageController.pageIndex = 1;
+		scorePageController.pageSize = 6;
+		scorePageController.pageMax = 1;
+		scorePageController.search = function() {
+			var searchKey = $("#account").val();
+			var pageIndex = scorePageController.pageIndex;
+			var pageSize = scorePageController.pageSize;
+			$.ajax
+			({
+				type : "POST",
+				url : "${rc.contextPath}/wdTalent/getScoreStatisByAccount",
+				data:{"account":searchKey,"pageNumber":pageIndex,"pageSize":pageSize},
+				success:function(data) {
+					if(data.isSuccess) {
+						scorePageController.pageMax = data.data.total;
+						$("#scorePageSpan").html(scorePageController.pageIndex + "/" + data.data.total);
+						$("#scoreTbodyArea").empty();
+						$.
+						each(data.data.pageData, function(idx, o) {
+							$("#scoreTbodyArea").append("<tr><td>" + o.account + 
+							"</td><td>" + o.score + 
+							"</td><td>" + o.voteTotal + 
+							"</td><td>" + o.passedTotal + 
+							"</td></tr>");
+						});
+					} else {
+						alert('获得统计信息失败!');
+					}
+				}
+			})
+		}
+		var searchScoreNext = function() {
+			if(scorePageController.pageIndex < scorePageController.pageMax) {
+    			scorePageController.pageIndex ++;
+    			scorePageController.search();
+			}
+		}
+		var searchScorePrevious = function() {
+			if(scorePageController.pageIndex > 1) {
+    			scorePageController.pageIndex --;
+    			scorePageController.search();
+			}
+		}
+		
+		var workPageController = new Object();
+		workPageController.pageIndex = 1;
+		workPageController.pageSize = 6;
+		workPageController.pageMax = 1;
+		workPageController.type = 'qianming';
+		workPageController.search = function() {
+			var searchKey = $("#workAccount").val();
+			var pageIndex = workPageController.pageIndex;
+			var pageSize = workPageController.pageSize;
+			var type = workPageController.type;
+			$.ajax
+			({
+				type : "POST",
+				url : "${rc.contextPath}/wdTalent/getWorkStatisByAccount",
+				data:{"account":searchKey,"type":type,"pageNumber":pageIndex,"pageSize":pageSize},
+				success:function(data) {
+					if(data.isSuccess) {
+						workPageController.pageMax = data.data.total;
+						$("#workPageSpan").html(workPageController.pageIndex + "/" + data.data.total);
+						$("#workTbodyArea").empty();
+						$.
+						each(data.data.pageData, function(idx, o) {
+							$("#workTbodyArea").append("<tr><td>" + o.account + 
+							"</td><td>" + o.server + 
+							"</td><td>" + o.character + 
+							"</td><td><img src='" + o.realUrl + "' width='50' height='50' />" +
+							"</td><td>" + o.typeInStr + 
+							"</td><td>" + o.uploadTimeInStr + 
+							"</td><td>" + o.vote + 
+							"</td><td>" + o.rank +
+							"</td></tr>");
+						});
+					} else {
+						alert('获得统计信息失败!');
+					}
+				}
+			})
+		}
+		
+		var searchWorkNext = function() {
+			if(workPageController.pageIndex < workPageController.pageMax) {
+    			workPageController.pageIndex ++;
+    			workPageController.search();
+			}
+		}
+		var searchWorkPrevious = function() {
+			if(workPageController.pageIndex > 1) {
+    			workPageController.pageIndex --;
+    			workPageController.search();
+			}
+		}
+		$(document).ready(function(){
+			bindStatistic();
+			$("#scoreSearchButton").click(scorePageController.search);
+			$("#workSearchButton").click(workPageController.search);
+			scorePageController.search();
+			workPageController.search();
+			
+			$("#work_qm").click(function(){
+				workPageController.type = 'qianming';
+				workPageController.search();
+			});
+			$("#work_sf").click(function(){
+				workPageController.type = 'shufa';
+				workPageController.search();
+			});
+			$("#work_hh").click(function(){
+				workPageController.type = 'huihua';
+				workPageController.search();
+			});
+			$("#work_sg").click(function(){
+				workPageController.type = 'shougong';
+				workPageController.search();
+			});
+			$("#work_cp").click(function(){
+				workPageController.type = 'cosplay';
+				workPageController.search();
+			});
+			
+		});
+	</script>
+	<link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+	<link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet" />
+</head>
+<body>
+	<section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+                        <header class="header bg-white b-b clearfix">
+                            <div class="">
+                                <div class="col-sm-2 m-b-xs">
+                                    <h4 class="m-t bold"></h4>
+                                </div>
+                                <div class="col-sm-2 m-b-xs m-t-sm">
+                                    <div class="input-group">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+						<section id="content">
+							<section class="vbox">
+								<!--<header class="header bg-white b-b clearfix" style="height: 100px;">
+									<div class="row m-t-sm">
+										<div class="col-sm-5 m-b-xs">
+											<div class="input-group  m-r-xs">
+											</div>
+										</div>
+										<div class="col-sm-1 m-b-xs">
+										</div>
+										<div class="col-sm-3 m-b-xs">
+										</div>
+									</div>
+								</header>-->
+								<!--表格主体-->
+								<section class="panel panel-default scrollable padder" style="margin: 0px 0 0 0;">
+									<h3 class="m-t-xs">才艺比拼活动后台</h4>
+									<div class="doc-buttons">
+										<h4 class="m-t-xs">统计信息</h4>
+										<span id='statistic'></span>
+										<h4 class="m-t-xs">积分明细</h4>
+										账号<input type='text' id='account'/>
+										<input type='button' id='scoreSearchButton' value='搜索' class="btn btn-s-md btn-primary"/>
+										<table class="table table-striped m-b-none">
+											<thead>
+												<tr>
+													<th>账号</th>
+													<th>积分</th>
+													<th>投票次数(总)</th>
+													<th>通过作品数量(总)</th>
+												</tr>
+											</thead>
+											<tbody id = 'scoreTbodyArea'>
+											</tbody>
+										</table>
+										<input type='button' onclick='searchScorePrevious()' value='上一页'/><span id='scorePageSpan'></span><input type='button' onclick='searchScoreNext()' value='下一页'/>
+									</div>
+									<div class="doc-buttons">
+										<h4 class="m-t-xs">作品明细</h4>
+										账号<input type='text' id='workAccount'/>
+										<input type='button' id='workSearchButton' value='搜索' class="btn btn-s-md btn-primary"/>
+										<div class="btn-group btn-group-justified">
+											<a id = 'work_qm' class="btn btn-primary" href="#">签名</a> 
+											<a id = 'work_sf' class="btn btn-info" href="#">书法</a> 
+											<a id = 'work_hh' class="btn btn-success" href="#">绘画</a> 
+											<a id = 'work_sg' class="btn btn-primary" href="#">手工</a> 
+											<a id = 'work_cp' class="btn btn-info" href="#">Cosplay</a> 
+										</div>
+										<table class="table table-striped m-b-none">
+											<thead>
+												<tr>
+													<th>参赛者账号</th>
+													<th>参赛者区组</th>
+													<th>参赛者角色</th>
+													<th>作品</th>
+													<th>类别</th>
+													<th>时间</th>
+													<th>票数</th>
+													<th>排名</th>
+												</tr>
+											</thead>
+											<tbody id = 'workTbodyArea'>
+											</tbody>
+										</table>
+										<input type='button' onclick='searchWorkPrevious()' value='上一页'/><span id='workPageSpan'></span><input type='button' onclick='searchWorkNext()' value='下一页'/>
+									</div>
+									<div class="doc-buttons">
+										<a class="btn btn-s-md btn-primary" href="${rc.contextPath}/wdTalent/showPassWorks?type=qianming">作品审核</a>
+									</div>
+									<div class="doc-buttons">
+										<a class="btn btn-s-md btn-primary" href="${rc.contextPath}/wdTalent/showPassComment?type=qianming">评论审核</a>
+									</div>
+								</section>
+							</section>
+                        <!--翻页功能-->
+                        <footer class="footer bg-white b-t">
+                            <div class="row dataTables_wrapper">
+                                <div class="col-sm-6">
+                                    <div class="dataTables_info" id="DataTables_Table_0_info"><a id="totalPage"></a><a id="currentPage"></a></div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_0_paginate">
+                                        <a class="first paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_first">首页</a><a class="previous paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_previous">上一页</a><span id="pageSign"></span><a class="next paginate_button" tabindex="0" id="DataTables_Table_0_next">下一页</a><a class="last paginate_button" tabindex="0" id="DataTables_Table_0_last">末页</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </section>
+                </section>
+				 </section>
+					<!--主体内容 begin-->
+					</section>
+                </section>
+            </section>
+        </section>
+    </section>
+
+    <!--添加网络组件弹层 begin-->
+    <div id="addPop">
+        <div class="row">
+            <div class="col-sm-3 text-right m-t-xs">所属项目集</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">所属项目</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">网络组件名称</div>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">说明</div>
+            <div class="col-sm-8">
+                <textarea cols="30" rows="2" class="form-control"></textarea>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+    </div>
+    <!--添加网络组件弹层 begin-->
+
+    <!--编辑网络组件弹层 begin-->
+    <div id="editPop">
+        <div class="row">
+            <div class="col-sm-3 text-right m-t-xs">所属项目集</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">所属项目</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">网络组件名称</div>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">说明</div>
+            <div class="col-sm-8">
+                <textarea cols="30" rows="2" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+    <!--编辑网络组件弹层 end-->
+
+
+    <script>
+        $(function () {
+            //准备添加网络组件弹层
+            $("#addPop").dialog({
+                //标题【必须，否则为空】
+                title: "添加一个网络组件",
+                autoOpen: false,
+                width: 550,
+                modal: true,
+                btnWrapTextAlign: "right",
+                show: {
+                    effect: "drop",
+                    distance: 300,
+                    direction: "up",
+                    duration: 300
+                },
+                hide: {
+                    effect: "drop",
+                    distance: 100,
+                    direction: "up",
+                    duration: 200
+
+                },
+                buttons: [
+                    {
+                        text: "取消",
+                        click: function () {
+                            $(this).dialog("close");
+                        },
+                        btnCls: "btn btn-default"
+                    },
+                    {
+                        text: "确认",
+                        click: function () {
+                            alert("提交成功！");
+                        },
+                        btnCls: "btn-info btn-s-md"
+                    }
+                ]
+            });
+
+            //准备编辑网络组件弹层
+            $("#editPop").dialog({
+                //标题【必须，否则为空】
+                title: "编辑网络组件",
+                autoOpen: false,
+                width: 550,
+                modal: true,
+                btnWrapTextAlign: "right",
+                show: {
+                    effect: "drop",
+                    distance: 300,
+                    direction: "up",
+                    duration: 300
+                },
+                hide: {
+                    effect: "drop",
+                    distance: 100,
+                    direction: "up",
+                    duration: 200
+
+                },
+                buttons: [
+                    {
+                        text: "取消",
+                        click: function () {
+                            $(this).dialog("close");
+                        },
+                        btnCls: "btn btn-default"
+                    },
+                    {
+                        text: "确认",
+                        click: function () {
+                            alert("提交成功！");
+                        },
+                        btnCls: "btn-info btn-s-md"
+                    }
+                ]
+            });
+
+            //点击开启添加网络组件弹层
+            $("#btn").click(function (event) {
+                $("#addPop").dialog("open");
+                event.preventDefault();
+            });
+
+            //点击开启编辑网络组件弹层
+            $(".js_editNet").click(function (event) {
+                $("#editPop").dialog("open");
+                event.preventDefault();
+            });
+
+        });
+    </script>
+    <script type="text/javascript">
+    	$(function(){
+    	$('.js_Date').datepicker({    
+			format: 'yyyy-mm-dd hh:ii',    
+			autoclose: true,           
+			todayBtn: true,      
+			minView: 0,           
+			startView: 2					
+		}).on('changeDate', function (ev) {        
+			$(".js_Date").datepicker('hide'); 
+		});
+	});
+    </script>
+</body>
+</html>

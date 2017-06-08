@@ -1,0 +1,8 @@
+a:hover{text-decoration:none;}
+.web_wrap { width: 1024px;margin:2% auto;zoom:1; }
+.web_wrap:after { content:""; display:block; clear:both;}
+.imgPage{width: 100%;height: 120px;overflow: hidden;text-align: center;}
+.lastPage{float:left; margin-left:35%;}
+.nextPage{float:right; margin-right:35%;}
+.imgPage a{width: 73px;height: 36px; border: 1px solid #3a99df;line-height: 36px;border-radius: 3px;margin-top: 40px;color: #3a99df;}
+.imgPage a:hover{background-color: #3a99df;color:#fff;cursor: pointer;}

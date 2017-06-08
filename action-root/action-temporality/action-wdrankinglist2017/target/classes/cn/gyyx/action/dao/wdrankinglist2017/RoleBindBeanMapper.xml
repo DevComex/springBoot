@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.wdrankinglist2017.RoleBindBeanMapper">
+	<resultMap id="RoleBindMap"
+		type="cn.gyyx.action.beans.wdrankinglist2017.RoleBindBean">
+		<id column="code" property="code" />
+		<result column="user_id" property="userId" />
+		<result column="account" property="account" />
+		<result column="create_time" property="createTime" />
+		<result column="open_id" property="openId" />
+		<result column="wx_nick" property="wxNick" />
+		<result column="lottery_time" property="lotteryTime" />
+		<result column="refused_count" property="refusedCount" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		code, user_id, account, create_time, open_id, wx_nick,
+		lottery_time,refused_count
+	</sql>
+	<!-- 查询某账号的账号绑定信息 -->
+	<select id="getRoleBindBeanByOpenId" parameterType="string"
+		resultMap="RoleBindMap">
+		select
+		<include refid="Base_Column_List" />
+		from wdrankinglist_role_bind_tb
+		where open_id = #{openId}
+	</select>
+	<!-- 查询某账号的账号绑定信息 -->
+	<select id="getRoleBindBeanByAccount" parameterType="string"
+		resultMap="RoleBindMap">
+		select
+		<include refid="Base_Column_List" />
+		from wdrankinglist_role_bind_tb
+		where account = #{account}
+	</select>
+	<!-- 添加账号绑定信息 -->
+	<insert id="insertRoleBind" parameterType="cn.gyyx.action.beans.wdrankinglist2017.RoleBindBean">
+		insert into
+		wdrankinglist_role_bind_tb
+		(user_id,account,create_time,open_id,wx_nick)
+		values
+		(#{userId},#{account},#{createTime},#{openId},#{wxNick})
+	</insert>
+
+	<!-- OA后台-根据account查询用户绑定信息 -->
+	<select id="getUserBindByAccount" parameterType="string"
+		resultMap="RoleBindMap">
+		select * from wdrankinglist_role_bind_tb
+		where account =
+		#{account}
+	</select>
+
+	<!-- OA后台-宣言审核拒绝后更新用户的被拒绝次数 -->
+	<update id="updateUserRefusedCount">
+		UPDATE
+		wdrankinglist_role_bind_tb
+		SET refused_count =
+		#{refusedCount}
+		WHERE account =
+		#{account}
+	</update>
+
+	<!-- 更新用户抽奖时间 -->
+	<update id="updateUserLotteryTime">
+		UPDATE
+		wdrankinglist_role_bind_tb
+		SET lottery_time =
+		#{lotteryTime}
+		WHERE open_id =
+		#{openId}
+	</update>
+</mapper>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="logImpl" value="STDOUT_LOGGING" />
+	</settings>
+	<!-- 为实体类起别名 -->
+	<typeAliases>
+		<!-- wdinsurance -->
+		<typeAlias alias="InsurerParaBean"
+			type="cn.gyyx.action.beans.insurance.TranferInsurerParaBean" />
+		<typeAlias alias="InsuranceConfigBean"
+			type="cn.gyyx.action.beans.insurance.InsuranceConfigBean" />
+
+		<typeAlias alias="MediaGiftBagBean"
+			type="cn.gyyx.action.beans.giftinterface.MediaGiftBagBean" />
+			
+				<typeAlias alias="OfficialGiftBagBean"
+			type="cn.gyyx.action.beans.giftinterface.OfficialGiftBagBean" />
+	</typeAliases>
+	<environments default="ActionDBV2">
+		<environment id="ActionDBV2">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driverClassName}" />
+				<property name="url" value="${jdbc.ActionDBV2url}" />
+				<property name="username" value="${jdbc.ActionDBV2username}" />
+				<property name="password" value="${jdbc.ActionDBV2password}" />
+			</dataSource>
+		</environment>
+
+		<environment id="ActionDBV2">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driverClassName}" />
+				<property name="url" value="${jdbc.ActionDBV2url}" />
+				<property name="username" value="${jdbc.ActionDBV2username}" />
+				<property name="password" value="${jdbc.ActionDBV2password}" />
+			</dataSource>
+		</environment>
+	</environments>
+
+
+	<mappers>
+		<!-- wdinsurance -->
+		<mapper resource="mapper/wdinsurance/GyyxGoPay.xml" />
+		<!-- activationCode Web API -->
+		<mapper resource="mapper/activationCodeAPI/ActivationCodeMapper.xml" />
+		<mapper resource="mapper/xwbintegrals/turnintegral.xml" />
+		
+		<mapper resource="mapper/mediagift/mediagiftbag.xml" />
+		<mapper resource="mapper/mediagift/officialgiftbag.xml" />
+		
+		<mapper resource="mapper/wdappsign/WdAppSign.xml" />
+		<mapper resource="mapper/wdappsign/WdAppSignLog.xml" />
+		<mapper resource="mapper/wdappsign/WdAppSignSendPrize.xml" />
+		
+	</mappers>
+</configuration>

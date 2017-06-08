@@ -1,0 +1,13 @@
+  </section>
+                </section>
+            </section>
+        </section>
+    </section>
+    <script type="text/javascript" src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/jquery.OASearch.js"></script>
+</body>
+</html>

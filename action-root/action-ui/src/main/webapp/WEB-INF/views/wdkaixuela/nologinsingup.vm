@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>问道1.60门派招生活动</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdwxwebsite/css/nologinsingup.css"/>
+    <script type="text/javascript" src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> <!--光宇统计-->
+    
+    <script  type="text/javascript">
+		var rc="${rc.contextPath}";
+	</script>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7d105ce557c82a9ba8c88fc44d190086";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</head>
+<body>
+	<div id="logo">
+		<img src="http://static.cn114.cn/action/wdwxwebsite/img/logo.jpg" />
+		<h1>活动时间：<span>9月13日12:00-10月7日23:59</span></h1>
+	</div>
+	<div id="main">
+		<div id="page1">
+			<a href="javascript:;" class="loginbtn"><img src="http://static.cn114.cn/action/wdwxwebsite/img/anbg.png"/><span>登&nbsp;&nbsp;录</span></a>
+		</div>
+		<div id="loginpage1">
+			<p class="p5"><label>欢迎您：</label><span class="name"></span><b class="js_quite">注销</b></p>
+			<p>角色名：<span class="role"></span></p>
+			<p class="marg js_bm">报名门派：<span></span><span></span></p>
+			<p class="marg">贡献积分：<span class="js_jf"></span>贡献排名：<span class="js_pm"></span></p>
+		</div>
+		<div id="page1">
+			<h2>来选择要报名的门派吧！</h2>
+			<p>报名门派：<select id="seletmp"><option value="0">金</option><option value="1">木</option><option value="2">水</option><option value="3">火</option><option value="4">土</option></select></p>
+			<p>门派导师：<span id="seletst">文殊天尊</span></p>
+			<p>门派简介：<span id="seletinf">金系由西昆仑玉虚宫的元始天尊建立。随后由五龙山云霄洞文殊广法天尊在中洲大陆广收根骨上乘之人。 金系弟子善于用枪。并精通使敌方遗忘和给己方增加攻击力的技能。</span></p>
+		</div>
+		<div class="form_image cf">
+           	<div class="js_imgList_cont" >
+              <!--<div class="form_image_list js_imgList" data-code="1"><img src="http://static.cn114.cn/action/wdwxwebsite/img/photo.jpg" class="form_button" id="Img1" /><span class="delete">删除</span></div>-->
+           </div>
+            <!--<input  type="button" value="上传" class="form_button" id="js_upBtn"/>-->
+          <img src="http://static.cn114.cn/action/wdwxwebsite/img/photo.jpg" class="form_button" id="js_upBtn">
+        </div>
+        <div id="page1">
+			<a href="javascript:;" class="signupbtn"><img src="http://static.cn114.cn/action/wdwxwebsite/img/anbg.png"/><span>报&nbsp;&nbsp;名</span></a>
+		</div>
+	</div>
+	<div id="footer">
+		<a href="javascript:;" class="on" id="signup">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img1on.jpg" />
+			<b>报名</b>
+		</a>
+		<a href="javascript:;" id="show">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img2.jpg" />
+			<b>展示</b>
+		</a>
+		<a href="javascript:;" id="lottery">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img3.jpg" />
+			<b>抽奖</b>
+		</a>
+		<a href="javascript:;" id="rule">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img4.jpg" />
+			<b>规则</b>
+		</a>
+	</div>
+</body>
+<script src="http://static.cn114.cn/action/wdwxwebsite/js/jquery-1.8.2.min.js"></script>
+<script src="http://static.cn114.cn/action/wdwxwebsite/js/gyyx_wxImgUp.js"></script>
+<script>
+    $(function () {
+        //上传图片
+        wxUpImg({
+            debug: false,
+            game: "wd",
+            btn: "js_upBtn",
+            imgList: ".js_imgList",
+            imgListCon: ".js_imgList_cont",
+            imgListHtml: '<div class="form_image_list js_imgList" data-code="{code}"><img src="{img}" class="imgBor"/><span class="delete js_delete">删除</span></div>',
+            imglistDelBtn: ".js_delete",
+            imgNum: 1  //上传限制最大数量
+        });
+    })
+</script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/introduce.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/gyyx_wxshare.min.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/pubfx.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/loginsingup.js" ></script>
+
+</html>

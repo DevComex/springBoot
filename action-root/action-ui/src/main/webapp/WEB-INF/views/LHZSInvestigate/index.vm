@@ -1,0 +1,290 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>灵魂战神-调查问卷</title>
+<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/LHZSInvestigate/css/style150818.css">
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://actionv2.gyyx.cn/commonSupporter/actionUtil?actionCode=284"></script> 
+<script>
+	$(function(){
+		for(var i=2015;i>=1950;i--){
+			$("#yearMes").append("<option value="+i+">"+i+"</option>");
+		}
+		for(var i=1;i<=12;i++){
+			$("#monthMes").append("<option value="+i+">"+i+"</option>");
+		}
+		$(".btn").click(function(){
+			var sex = $("input[name='sex']:checked").val();
+			var year = $("#yearMes").val();
+			var month = $("#monthMes").val();
+			var birthday = year+'-'+"month";
+			var play = $("input[name='play']:checked").val();
+			var province = $("#province").val();
+			var city = $("#city").val();
+			var channel = "";
+			var quality = "";
+			var overRes = "";
+			var gameName = $("#gameName").val();
+			var playTime = $("input[name='time']:checked").val();
+			var userName = $("#userName").val();
+			var userPhone = $("#userPhone").val();
+			var userEmail = $("#userEmail").val();
+			var userQQ = $("#userQQ").val();
+			$("input[name=gain]").each(function(){
+    			if(this.checked){
+		    		channel = channel + $(this).val() + ";";
+    			}
+			});  
+			$("input[name=quality]").each(function(){
+    			if(this.checked){
+		    		quality = quality + $(this).val() + ";";
+    			}
+			});  
+			$("input[name=reason]").each(function(){
+    			if(this.checked){
+		    		overRes = overRes + $(this).val() + ";";
+    			}
+			});  
+			if(sex==undefined){
+				alert("性别不能为空！");
+				return false;
+			}
+			if(year==undefined){
+				alert("年不能为空！");
+				return false;
+			}
+			if(month==undefined){
+				alert("月不能为空！");
+				return false;
+			}
+			if(province=="1"){
+				alert("省份不能为空！");
+				return false;
+			}
+			if(play==""){
+				alert("请填写您是否玩过灵魂战神！");
+				return false;
+			}
+			if(channel==""){
+				alert("请填写您是通过什么渠道了解的灵魂战神！");
+				return false;
+			}
+			if(quality==""){
+				alert("请填写您看中游戏哪方面品质！");
+				return false;
+			}
+			if(overRes==""){
+				alert("请填写您不玩一款游戏的原因！");
+				return false;
+			}
+			if(gameName==""){
+				alert("请填写您三个月玩过的游戏！");
+        return false;
+			}
+			if(playTime==""){
+				alert("请填写您每天玩网络游戏时间！");
+				return false;
+			}
+			if(userName==""){
+				alert("请填写昵称！");
+				return false;
+			}
+			if(userPhone==""){
+				alert("请填写手机号！");
+				return false;
+			}
+			if(userEmail==""){
+				alert("请填写邮箱！");
+				return false;
+			}
+			if(userQQ==""){
+				alert("请填写QQ号！");
+				return false;
+			}
+			var formData = actionUtil.genOperationData('lhzsInvestigate');
+					formData.sex = sex;
+					formData.birthday = birthday;
+					formData.played = play;
+					formData.province = province;
+					formData.city = city;
+					formData.channel = channel;
+					formData.quality = quality;
+					formData.playTime = playTime;
+					formData.overRes = overRes;
+					formData.gameName = gameName;
+					formData.userName = userName;
+					formData.userPhone = userPhone;
+					formData.userEmail = userEmail;
+					formData.userQQ = userQQ;
+			$.ajax
+			({
+				url:"${rc.contextPath}/commonSupporter/ajaxOperation",
+				type: "GET",
+            	data: { 
+					"data":formData
+			 	},
+            	success: function (d) {
+					if(d.isSuccess){
+						alert("提交成功！！");
+						location.reload();
+					}else{
+						alert("网络不给力，提交失败！！");
+					}
+           		},
+           		error : function(){
+            		alert("网络不给力！！！！");
+            	}
+			});
+		});
+	});
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?eb2054bc8ef3ea01951793e404657c9b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="sm_wrap">
+   <div class="main">
+      <div class="sm_header">
+         <div class="sm_text01">亲爱的玩家，感谢你对《灵魂战神》的支持！我们真诚的希望通过这份问卷，了解这些日子来您对《灵魂战神》的感受和期待，请花上几分钟的时间，告诉我们您的真实想法吧！</div>
+      </div>
+      <div class="sm_box">
+         <h2>本次问卷共计9道题 , 非常感谢您配合！</h2>
+         <div class="sm_pro01">
+            <h3>Q1：您的性别是？</h3>
+            <p><input type="radio" name="sex" value="男">男</p> 
+            <p><input type="radio" name="sex"  value="女">女</p>
+         </div>
+         <div class="sm_pro02">
+            <h3>Q2：您的出生年月是？</h3>
+            <p>
+               <select id="yearMes" >
+               </select>
+               <span>年</span>
+               <select id="monthMes">
+               </select>
+               <span>月</span>
+            </p>
+         </div>
+         <div class="sm_pro03">
+            <h3>Q3：您所在的城市？</h3>
+            <p>
+               <select id="province">
+                   <option value="1">请选择</option>
+                   <option value="北京">北京</option>
+                   <option value="天津">天津</option>
+                   <option value="上海">上海</option>
+                   <option value="重庆">重庆</option>
+                   <option value="河北省">河北省</option>
+                   <option value="河南省">河南省</option>
+                   <option value="云南省">云南省</option>
+                   <option value="辽宁省">辽宁省</option>
+                   <option value="黑龙江省">黑龙江省</option>
+                   <option value="湖南省">湖南省</option>
+                   <option value="安徽省">安徽省</option>
+                   <option value="山东省">山东省</option>
+                   <option value="新疆维吾尔">新疆维吾尔</option>
+                   <option value="江苏省">江苏省</option>
+                   <option value="浙江省">浙江省</option>
+                   <option value="江西省">江西省</option>
+                   <option value="湖北省">湖北省</option>
+                   <option value="广西壮族">广西壮族</option>
+                   <option value="甘肃省">甘肃省</option>
+                   <option value="山西省">山西省</option>
+                   <option value="内蒙古">内蒙古</option>
+                   <option value="陕西省">陕西省</option>
+                   <option value="吉林省">吉林省</option>
+                   <option value="福建省">福建省</option>
+                   <option value="贵州省">贵州省</option>
+                   <option value="广东省">广东省</option>
+                   <option value="青海省">青海省</option>
+                   <option value="西藏">西藏</option>
+                   <option value="四川省">四川省</option>
+                   <option value="宁夏回族">宁夏回族</option>
+                   <option value="海南省">海南省</option>
+                   <option value="台湾">台湾</option>
+                   <option value="香港">香港</option>
+                   <option value="澳门">澳门</option>
+                   </select>
+               <span>省</span>
+               <input type="text" style="width:55px" name="city" id="city" value=""><span>市</span>
+            </p>
+         </div>
+         <div class="sm_pro04">
+            <h3>Q4：您是否玩过《灵魂战神》这款游戏？</h3>
+            <p><input type="radio" name="play" value="yes">玩过</p>
+            <p><input type="radio" name="play" value="no">没玩过</p> 
+         </div>
+         <div class="sm_pro05">
+            <h3>Q5：您从什么渠道得知《灵魂战神》这款游戏的？【多选】</h3>
+            <p>
+               <input type="checkbox" name="gain" value="游戏媒体">游戏媒体（如17173、多玩）&nbsp;&nbsp;
+               <input type="checkbox" name="gain" value="门户网站">门户网站（如新浪、网易）&nbsp;&nbsp;
+               <input type="checkbox" name="gain" value="视频网站">视频网站（如优酷）&nbsp;&nbsp;
+            </p>
+            <p>
+               <input type="checkbox" name="gain" value="搜索引擎">搜索引擎（如百度）&nbsp;&nbsp;
+               <input type="checkbox" name="gain" value="论坛">论坛&nbsp;&nbsp;
+               <input type="checkbox" name="gain" value="网吧">网吧&nbsp;&nbsp;
+               <input type="checkbox" name="gain" value="光宇社区网站">光宇社区网站&nbsp;&nbsp;
+               <input type="checkbox" name="gain" value="朋友推荐">朋友推荐&nbsp;&nbsp;
+               <input type="checkbox" name="gain" value="其他">其他&nbsp;&nbsp;
+            </p>
+         </div>
+         <div class="sm_pro06">
+            <h3>Q6：您最看重游戏哪方面的品质？【多选】</h3>
+            <p>
+               <input type="checkbox" name="quality" value="游戏画面">游戏画面&nbsp;&nbsp;
+               <input type="checkbox" name="quality" value="操作手感">操作手感 &nbsp;&nbsp;
+               <input type="checkbox" name="quality" value="故事情节">故事情节&nbsp;&nbsp;
+               <input type="checkbox" name="quality" value="社交互动">社交互动&nbsp;&nbsp;
+               <input type="checkbox" name="quality" value="副本玩法">副本玩法&nbsp;&nbsp;
+               <input type="checkbox" name="quality" value="玩家对战">玩家对战&nbsp;&nbsp;
+            </p>
+         </div>
+         <div class="sm_pro07">
+            <h3>Q7：您每天在电脑前玩网络游戏的时间约为多少小时？</h3>
+            <p><input type="radio" name="time" value="1">1小时以下</p>
+            <p><input type="radio" name="time" value="2">1-2个小时</p>
+            <p><input type="radio" name="time" value="3">3-4个小时</p>
+            <p><input type="radio" name="time" value="4">4-8个小时</p>
+            <p><input type="radio" name="time" value="5">8小时以上</p>
+         </div>
+         <div class="sm_pro08">
+            <h3>Q8：导致您从一款游戏流失的主要原因是什么？</h3>
+            <p>
+               <input type="checkbox" name="reason" value="游戏太难，不会玩">游戏太难，不会玩&nbsp;&nbsp;
+               <input type="checkbox" name="reason" value="游戏很卡，服务器不稳定">游戏很卡，服务器不稳定&nbsp;&nbsp;
+               <input type="checkbox" name="reason" value="游戏性不足，没意思">游戏性不足，没意思&nbsp;&nbsp;
+            </p>
+            <p>
+               <input type="checkbox" name="reason" value="游戏好友离开了游戏">游戏好友离开了游戏&nbsp;&nbsp;
+               <input type="checkbox" name="reason" value="玩家太少，缺乏人气">玩家太少，缺乏人气 &nbsp;&nbsp;
+               <input type="checkbox" name="reason" value="学习工作太忙，没时间玩">学习工作太忙，没时间玩&nbsp;&nbsp;
+               <input type="checkbox" name="reason" value="其他">其他&nbsp;&nbsp;
+            </p>
+         </div>
+         <div class="sm_pro09">
+            <h3>Q9：您最近三个月玩过的游戏是？</h3>
+            <p><input  type="text" name="game" id="gameName" placeholder="请输入" value=""></p>
+         </div>
+         <div class="sm_text02">感谢您的支持及配合，下面请填写您的个人信息，方便我们跟您联系。我们一定会对信息保密，绝不外泄，请放心填写^_^</div>
+         <div class="sm_pro10">
+            <p><label>您的姓名或昵称：</label><span><input type="text" name="user" id="userName" placeholder="请输入" value=""></span></p>
+            <p><label>您的手机号码：</label><span><input type="text" name="tel" id="userPhone" placeholder="请输入" value=""></span></p>
+            <p><label>您的常用邮箱：</label><span><input type="text" name="mailbox" id="userEmail" placeholder="请输入" value=""></span></p>
+            <p><label>您的QQ号码：</label><span><input type="text" name="qq" id="userQQ" placeholder="请输入" value=""></span></p>
+            <p><input type="button" class="btn" id="submitButton"></p>
+         </div>
+      </div>
+   </div>
+</div>
+</body>
+</html>

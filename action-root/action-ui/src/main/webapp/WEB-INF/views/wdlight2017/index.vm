@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>点亮2017</title>
+         <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+        <script src="http://static.cn114.cn/action/light2017/js/index.js"></script>
+        <link type="text/css" href="http://static.cn114.cn/action/light2017/css/light2017.css" rel="stylesheet"/>
+        <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+
+	</head>
+	<script  type="text/javascript">
+        var rc = "${rc.contextPath}";
+ 	</script>
+ 	
+	<body>
+          <div class="public_nav_top">
+                <script type="text/javascript">Showtop();</script>
+           </div>
+
+        <!-- 漂浮 -->
+        <div class="floatBox">
+            
+             <a href="#wishBox" class="heart"></a>
+	     	 <div class="more" style="display:block;">
+	            <!--  <a href="http://wd.gyyx.cn/News/NewsDetail_New.aspx?NewsID=79160" target="_blank">更多"2017"精彩活动</a>-->
+	      	 </div>
+            
+        </div>
+       <div class="lightBox">
+           <div class="wid1000">
+           <div class="lightNav">
+               <ul class="lightNavUl">
+                   <li><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank" class="actie">进入官网</a>|</li>
+                   <li><a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>|</li>
+                   <li><a href="http://pay.gyyx.cn/gamepay/paygold?gameId=2" target="_blank">充值中心</a>|</li>
+                   <li><a href="http://account.gyyx.cn/Member/Register" target="_blank">账号注册</a>|</li>
+                   <li><a href="http://wd.gyyx.cn/News/NewsDetail_New.aspx?NewsID=79170" target="_blank">领取礼包</a>|</li>  
+                   <li><a href="http://wd.gyyx.cn/Reserve/NewServer.html" target="_blank">新服预约</a></li>  
+               </ul>
+           </div>
+           <!-- 点灯区 -->
+           <div class="lightLine">
+               <div class="lightShow">
+                   <ul class="km_wrap js_light">
+                            <li class="js_level_1 li_01 li_01_per_0" data-code="1" popYst="" lightFlag=""></li>
+                            <li class="js_level_2 li_02 li_02_per_0" data-code="2" popYst="" lightFlag=""></li>
+                            <li class="js_level_3 li_03 li_03_per_0" data-code="3" popYst="" lightFlag=""></li>
+                            <li class="js_level_4 li_04 li_04_per_0" data-code="4" popYst="" lightFlag=""></li>
+                    </ul>
+               </div>
+           </div>
+           <!-- 内容区 -->
+           <a name="wishBox"></a>
+            <div class="mainLight">
+                <div class="leftBox">
+                    <!-- 登录，绑定角色，选区确认，我的积分 -->
+                    <div class="messageBox">
+                        <!-- 登录 -->
+                        <div class="sign js_login_wrap" style="display:block;">
+                            <p>许愿前请先<a href="javascript:;" class="loginBtn js_loginBtn">登录</a>哦！</p>
+                        </div>
+                        <!-- 绑定角色 -->
+                        <div class="binding">
+                            <p style="overflow:hidden;"><span class="account js_accountName">欢迎您：</span><a href="javascript:;" class="passSign js_Loginout">退出登录</a></p>
+                            <div class="role">
+                                <label>选择您要绑定的角色</label>
+                                 <select class="js_roleList">
+                                   <!-- <option>选择角色</option>
+                                    <option>角色1名称角色1名称</option>
+                                    <option>第三层</option>
+                                    <option>第四层</option>-->
+                                </select>
+                            </div>  
+                            <a href="javascript:;" class="bindingBtn js_bindRoleBtn">确定</a>                                    
+                        </div>
+                        <!-- 选区确认 -->
+                        <div class="pace js_unbindRole">
+                            <p style="overflow:hidden;"><span class="account js_accountName">欢迎您：</span><a href="javascript:;" class="passSign js_Loginout">退出登录</a></p>
+                            <p class="words">许愿前请先选择您的角色信息，许愿后不可修改，请认真选择</p>
+                            <div class="paceChange">
+                            <div class="paceChangeBox" style="float: left;"></div>
+                                <!--  <select id="sel_blocklist">
+			                        <option value="0">请选择区组</option>
+			                        <option value="3">双线</option>
+			                    </select>
+                                <select id="sel_serverlist">
+                                    <option value="0">请选择服务器</option>
+                                    <option value="311">2017</option>
+                                </select>-->
+
+                                <span><label>验证码</label>
+                                    <input id="captchaInput" value="" type="text" maxlength="5"><img src="http://api.gyyx.cn/Captcha/CreateVJ.ashx" id="yzmImg" class="Captcha js_captcha" alt="验证码"/></span>
+
+                            </div>
+                            <a href="javascript:;" class="gainRole" id="js_upRole">获取角色</a>
+                        </div>
+                        <!-- 我的积分 -->
+                        <div class="integral js_bindRole">
+                            <p style="overflow:hidden;padding-bottom:10px;"><span class="account js_accountName">欢迎您：</span><span class="js_roleName"></span><a href="javascript:;" class="passSign js_Loginout">退出登录</a></p>
+                            <h2>游戏活跃度积分：<span class="js_integral_game"></span></h2>
+                            <a href="javascript:;" class="js_myWish">查询我许下的愿望&gt;&gt;</a>
+                            <a href="javascript:;" class="js_myGift js_myPrize">查询我所获得的奖励&gt;&gt;</a>
+                            <a href="javascript:;" class="js_mypace">修改地址&gt;&gt;</a>
+                        </div>
+                    </div>
+                    <!-- 许愿区 -->
+                    <form class="wishForm">
+                        <textarea id="wishContent" class="wish_textarea" placeholder="请输入您的愿望（16字内哦！）"></textarea>
+                        <div class="wish_level">
+                    	    <label>我要在这层许愿：</label>
+                    	    <select class="js_prizelevel" id="wishLevel" name="wishLevel">
+                               <!-- <option value="4">第4层</option>
+                                <option value="3">第3层</option>
+                                <option value="2">第2层</option>
+                                <option value="1">第1层</option>-->
+                    	    </select>
+                        </div>
+                        <a class="submit_btn js_wishBtn" data-bind="">立即许愿</a>
+                    </form>
+
+                </div>
+                <div class="rightBox">
+                    <div class="prize_info">
+                        <h2 class="prize_all_counts js_all_counts">中奖数量：0</h2>
+                        <div class="prize_list_con">
+                            <ul class="prize_list js_all_prize">
+                                <!-- 中奖信息 -->
+                                <!--<li><span>04-17   11:03</span>恭喜<em>2014</em>的<em>問道奕楓</em>在第<em>5</em>层许愿获得了<em>5000银元宝</em></li>
+                                <li><span>04-17   11:03</span>恭喜<em>2014</em>的<em>問道奕楓</em>在第<em>5</em>层许愿获得了<em>5000银元宝</em></li>
+                                <li><span>04-17   11:03</span>恭喜<em>2014</em>的<em>問道奕楓</em>在第<em>5</em>层许愿获得了<em>5000银元宝</em></li>
+                                <li><span>04-17   11:03</span>恭喜<em>2014</em>的<em>問道奕楓</em>在第<em>5</em>层许愿获得了<em>5000银元宝</em></li>
+                                <li><span>04-17   11:03</span>恭喜<em>2014</em>的<em>問道奕楓</em>在第<em>5</em>层许愿获得了<em>5000银元宝</em></li>
+                                <li><span>04-17   11:03</span>恭喜<em>2014</em>的<em>問道奕楓</em>在第<em>5</em>层许愿获得了<em>5000银元宝</em></li>
+                                <li><span>04-17   11:03</span>恭喜<em>2014</em>的<em>問道奕楓</em>在第<em>5</em>层许愿获得了<em>5000银元宝</em></li>
+                                <li><span>04-17   11:03</span>恭喜<em>2014</em>的<em>問道奕楓</em>在第<em>5</em>层许愿获得了<em>5000银元宝</em></li>
+                                <li><span>04-17   11:03</span>恭喜<em>2014</em>的<em>問道奕楓</em>在第<em>5</em>层许愿获得了<em>5000银元宝</em></li>
+                                <li><span>04-17   11:03</span>恭喜<em>2014</em>的<em>問道奕楓</em>在第<em>5</em>层许愿获得了<em>5000银元宝</em></li>-->
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 规则区 -->
+             <div class="ruleBox">
+               <h3 class="rule">活动规则</h3>
+               <div class="padL43">
+               <h4>如何获取积分</h4>
+               <p>游戏内活动积分：在活动期间，玩家在游戏内完成日常任务可以获得积分，日常活动项目包括：助人为乐、帮派日常挑战、副本系统、驱除邪灵、八仙梦境、探索世界、通天塔、悬赏任务、答题任务、师门任务。每种活动每天最多可获得2积分~</p>
+               <h4>如何“点亮孔明灯”</h4>
+               <p>玩家在本页面可进行许愿，召集小伙伴一起将孔明灯点亮后在孔明灯中抽奖100%会获得奖励哦（获得奖池中的随机一个奖励）！每次许愿都会消耗积分，在越高层的孔明灯进行许愿消耗的积分就越多，奖励也更好哦，玩家每次许愿的内容不可以超过16个字哦，我们会尽快审核大家的愿望，通过审核的愿望将会显示在孔明灯内哟。</p>
+               <h4>如何进行许愿抽奖</h4>
+               <p>孔明灯只能依次被点亮，在该层未被完全点亮之前在该层的第一次许愿消耗积分较少，完全点亮后第一次在该层许愿就要消耗更多的积分啦。所有玩家在同层孔明灯进行多次许愿的时候，需要消耗的积分会越来越多哦。</p>
+               <h4>如何获得奖励</h4>
+               <p>玩家抽取到的称号、铭牌、银元宝奖励会直接发放到游戏中。其他奖励则需等到活动结束后统一发放~获得游戏内奖励的玩家可在收到系统邮箱提示后前往“南极仙翁”处领取。其他奖励会在活动结束后统一发放~其中实物奖励将发送至玩家所填写的地址中，宠物奖励将发至玩家参与活动绑定的角色中（称号效果是会覆盖的）。</p>
+               <p class="yellow">温馨提示<br>玩家用鼠标停留在孔明灯上的时候就可以看见孔明灯中的奖励啦，点击孔明灯还可以看见大家许下的愿望哦~(部分奖池奖励种类较多，仅显示部分)玩家在游戏内获取的积分每小时会更新一次~</p>
+            </div>
+               <h3 class="rule2">活动限制</h3>
+               <div class="padL43">
+                   <p>玩家绑定角色后才可进行许愿；绑定角色不可更改~；<br />
+                   一个角色只能由一个帐号绑定参与活动，如若角色在交易前已绑定参与此活动则无法再次绑定该角色参与活动；<br />
+获得实物奖励的玩家需要认真填写自己的收件地址，如果因为地址填写问题导致奖励无法发放，则视为玩家放弃奖励~；</p>
+                   <p>注：本活动最终解释权由光宇在线科技有限责任公司所有</p>
+               </div>
+           </div>
+            
+          
+            <!-- 许愿池奖品定位展示 -->
+	<div class="js_prize_show prize_show prize_show_01 hide">
+                <h2>第一层奖品</h2>
+                <ul>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_ch.jpg" alt="奖品"><h4>称号（限时）</h4></li>
+                </ul>
+            </div>
+    <div class="js_prize_show prize_show prize_show_02 hide">
+                <h2>第二层奖品</h2>
+                <ul>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_mp.jpg" alt="奖品"><h4>铭牌（限时）</h4></li>
+                	<li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_yb5000.jpg" alt="奖品"><h4>3000银元宝</h4></li>
+                </ul>
+            </div>
+    <div class="js_prize_show prize_show prize_show_03 hide">
+                <h2>第三层奖品</h2>
+                <ul>
+                	<li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_mp.jpg" alt="奖品"><h4>铭牌（限时）</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_yb5000.jpg" alt="奖品"><h4>5000银元宝</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_ddj.png" alt="奖品"><h4>蛋蛋鸡</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_T.jpg" alt="奖品"><h4>问道T恤</h4></li>
+                    <li style="display: block; margin-left: 40px;"><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_ch.jpg" alt="奖品"><h4>称号（限时）</h4></li>
+                </ul>
+            </div>
+    <div class="js_prize_show prize_show prize_show_04 hide">
+                <h2>第四层奖品</h2>
+                <ul>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_yb8000.jpg" alt="奖品"><h4>8000银元宝</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/Iphone7.png" alt="奖品"><h4>IPHONE 7</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_bz.jpg" alt="奖品"><h4>威威虎 U型枕</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_ch.jpg" alt="奖品"><h4>称号（限时）</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_mp.jpg" alt="奖品"><h4>铭牌（限时）</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_zjddj.png" alt="奖品"><h4>至尊蛋蛋鸡</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_yb10000.jpg" alt="奖品"><h4>10000银元宝</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/jnb.png" alt="奖品"><h4>十周年纪念币</h4></li>
+                </ul>
+            </div>
+        
+         <!-- 尚未登录，请先登录 -->
+            <div class="prize_pop tip_pop hide">
+                <div class="prize_con">
+                    <h2>您还未登录，许愿前请先<span>登录</span>！</h2>
+                </div>
+                <div class="buttons">
+                    <input class="submit_btn" type="button">
+                </div>
+            </div>
+
+         <!-- 积分不够，提示去游戏中获取积分 -->
+            <div class="prize_pop tip_pop hide">
+                <div class="prize_con">
+                    <h2>尊敬的玩家，您的积分不足，快去游戏中获取积分吧！</h2>
+                </div>
+                <div class="buttons">
+                    <!--<input class="submit_btn" type="button">-->
+                    <input class="quite_btn js_submitBtn" type="button">
+                </div>
+            </div>
+        
+         <!-- 恭喜您，许愿成功！ -->
+            <div class="prize_pop tip_pop tip_text_left_pop hide">
+                <div class="prize_con">
+                    <h2><span>恭喜您，许愿成功！</span></h2>
+                    <h2>您可以在“查询我许下的愿望”中查看该愿望！同时也可以<span>通过鼠标点击奖池</span>查看该奖池中其他玩家的愿望哦！</h2>
+                </div>
+            </div>
+
+         <!-- 此层未被点亮，暂时不可以许愿！ -->
+            <div class="prize_pop tip_pop tip_text_left_pop hide">
+                <div class="prize_con">
+                    <h2><span>尊敬的玩家:</span></h2>
+                    <h2>该许愿池还未被点亮，快去许愿吧！</h2>
+                </div>
+            </div>
+
+    </div>
+ </div>
+     
+        <!-- 积分不够，提示去游戏中获取积分 --> 
+        <div class="pop" style="display:none;">
+            <div class="pop_con">
+                 <div class="prize_pop tip_pop tip_text_left_pop" id="js_jifenNO">
+                <div class="prize_con">
+                    <h2>尊敬的玩家，您的积分不足，快去游戏中获取积分吧！</h2>
+                </div>
+                <div class="buttons">
+                     <input class="submit_btn js_nojifen_Btn" id="" type="button">
+                </div>
+            </div>
+            </div>
+            <div class="mask"></div>
+        </div>
+         <!-- 恭喜您，许愿成功！ --> 
+        <div class="pop" style="display:none;">
+            <div class="pop_con">
+                 <div class="prize_pop tip_pop tip_text_left_pop" id="js_wishTrue">
+                <div class="prize_con" style="padding: 50px 63px 30px;">
+                    <h2><span>恭喜您，许愿成功！</span></h2>
+                    <h2>您可以在“查询我许下的愿望”中查看该愿望！同时也可以<span>通过鼠标点击奖池</span>查看该奖池中其他玩家的愿望哦！</h2>
+                </div>
+                <div class="buttons">
+                     <input class="submit_btn js_wishTrue_Btn" id="js_wishTrue_Btn" type="button">
+                </div>
+            </div>
+            </div>
+            <div class="mask"></div>
+        </div>
+     <!-- 此层未被点亮,快去许愿吧 --> 
+        <div class="pop" style="display:none;">
+            <div class="pop_con">
+                <div class="close"></div>
+                 <div class="prize_pop tip_pop tip_text_left_pop" id="js_nowishThis">
+                <div class="prize_con">
+                    <h2><span>尊敬的玩家:</span></h2>
+                    <h2>该许愿池还未被点亮，快去许愿吧！</h2>
+                </div>
+                <div class="buttons">
+                     <input class="submit_btn js_noWish_confirm" id="js_nowishBtn" type="button">
+                </div>
+            </div>
+            </div>
+            <div class="mask"></div>
+        </div>
+        
+        <!-- 未绑定角色或区组 --> 
+        <div class="pop" style="display:none;">
+            <div class="pop_con">
+                <div class="close"></div>
+                 <div class="prize_pop tip_pop tip_text_left_pop" id="js_jueseNo">
+                <div class="prize_con">
+                    <h2><span>尊敬的玩家:</span></h2>
+                    <h2>您还没有绑定区组或角色，快去绑定后许愿吧！</h2>
+                </div>
+            </div>
+            </div>
+            <div class="mask"></div>
+        </div>
+          <!-- 绑定角色或区组 --> 
+        <div class="pop" style="display:none;">
+            <div class="pop_con">
+                <div class="close"></div>
+                 <div class="prize_pop tip_pop tip_text_left_pop" id="js_jueseYes">
+                <div class="prize_con">
+                    <h2><span>尊敬的玩家:</span></h2>
+                    <h2>角色绑定成功，快去许愿吧！</h2>
+                </div>
+                <div class="buttons">
+                     <input class="submit_btn" id="js_jueseYesBtn" type="button">
+                </div>
+            </div>
+            </div>
+            <div class="mask"></div>
+        </div>
+         
+       <!-- 该层有多少人许愿 --> 
+        <div class="pop" style="display:none;">
+            <div class="pop_con">
+                <div class="close"></div>
+                <div id="js_wishList" class="wish_show">
+                <h1>该层已有<span class="js_personCount">9059</span>人许愿！</h1>
+                <div class="wish_con">
+	                <ul class="js_wish_cont">
+                        <li><h2>来自“心碎づ獨舞”愿望：</h2><p>我希望一只九尾狐</p></li>
+                        <li><h2>来自“心碎づ獨舞”愿望：</h2><p>我希望一只九尾狐</p></li>
+                        <li><h2>来自“心碎づ獨舞”愿望：</h2><p>我希望一只九尾狐</p></li>
+                        <li><h2>来自“心碎づ獨舞”愿望：</h2><p>我希望一只九尾狐</p></li>
+	                </ul>
+                </div>
+                <div class="js_prev prev"></div>
+                <div class="js_next next"></div>
+            </div>
+            </div>
+            <div class="mask"></div>
+        </div>
+
+        <!-- 我的许愿列表 -->
+        <div class="pop" style="display: none;">
+            <div class="pop_con">
+                <div class="close"></div>
+                <div id="js_myWish_pop" class="prize_pop tip_pop">
+                    <ul class="js_myWish_listCont">
+                   		 <li>
+	                        <span class="count">1.</span>
+	                        <div class="wish"><h2>第一层许愿:</h2>
+								<div class="wistListpull js_wistListpull01">
+								</div>
+						   </div>
+					   </li>
+					    <li>
+	                        <span class="count">2.</span>
+	                        <div class="wish"><h2>第二层许愿:</h2>
+								<div class="wistListpull js_wistListpull02">
+								</div>
+						   </div>
+					   </li>
+					    <li>
+	                        <span class="count">3.</span>
+	                        <div class="wish"><h2>第三层许愿:</h2>
+								<div class="wistListpull js_wistListpull03">
+								</div>
+						   </div>
+					   </li>
+					    <li>
+	                        <span class="count">4.</span>
+	                        <div class="wish"><h2>第四层许愿:</h2>
+								<div class="wistListpull js_wistListpull04">
+								</div>
+						   </div>
+					   </li>
+                    </ul>
+                </div>
+          </div>
+        <div class="mask"></div>
+      </div>
+        
+        <!-- 我的获奖信息 -->
+        <div class="pop" style="display: none;">
+            <div class="pop_con">
+                <div class="close"></div>
+                <div id="js_myPrize_pop" class="prize_pop tip_pop">
+                    <div class="listContScroll">
+                        <ul class="js_myPrize_listCont">
+                        </ul>
+                   </div>
+                 </div>
+            </div>
+            <div class="mask"></div>
+        </div>
+        
+        <!-- 尊敬的玩家，您还没有许过愿呢，快去许愿吧！ -->
+        <div class="pop" style="display: none;">
+            <div class="pop_con">
+                <div class="close"></div>
+                <div class="prize_pop tip_pop" id="js_noWish_pop">
+                        <div class="prize_con">
+                            <h2>尊敬的玩家，您还没有许过愿呢，快去许愿吧！</h2>
+                        </div>
+                        <div class="buttons">
+                            <input class="submit_btn js_noWish_confirm" id="js_noWish_confirm" type="button">
+                        </div>
+                 </div>
+            </div>
+            <div class="mask"></div>
+        </div>
+        
+        <!-- 尊敬的玩家，您还没有获得过奖品呢，许愿可以增加获奖几率哦！ -->
+        <div class="pop" style="display: none;">
+            <div class="pop_con"><div class="close"></div>
+                <div class="prize_pop tip_pop" id="js_noPrize_pop">
+                <div class="prize_con">
+                    <h2>尊敬的玩家，您还没有获得过奖品呢，许愿可以增加获奖几率哦！</h2>
+                </div>
+                <div class="buttons">
+                    <input class="submit_btn js_noPrize_confirm" id="js_noPrize_confirm" type="button">
+                </div>
+            </div>
+
+            </div>
+            <div class="mask"></div>
+
+        </div>
+        
+        <!-- 本次许愿将会消耗积分：999 -->
+        <div class="pop" style="display: none;"><div class="pop_con" style="width: 443px; height: 269px; margin-left: -221.5px; margin-top: -134.5px;"><div class="close"></div><div class="prize_pop tip_pop" id="js_countConsume_pop">
+                <div class="prize_con">
+                    <h2>本次许愿将会消耗积分：<span class="js_countConsume">99999</span></h2>
+                    <h2>您确定许愿吗？</h2>
+                </div>
+                <div class="buttons">
+                    <input class="submit_btn js_wishSubmit" type="button">
+                    <input class="quite_btn js_wishQuite" type="button">
+                </div>
+            </div></div><div class="mask"></div></div>
+        
+        <!-- 实物奖 -->
+        <div class="pop" style="display: none;">
+            <div class="pop_con">
+                <div class="prize_pop real_pop" id="js_realPrize_pop">
+                <div class="prize_con">
+                    <h2 class="js_realPrize">恭喜您中奖：Ipione6</h2>
+                    <p>请填写准确详细的个人信息，以便我们邮寄奖品，包邮哦！</p>
+                    <ul>
+                        <li>
+                            <label>姓　　名：</label>
+                            <input type="text" name="user" id="user" maxlength="10">
+                        </li>
+                        <li>
+                            <label>手机号码：</label>
+                            <input type="text" name="tel" id="tel" maxlength="11">
+                        </li>
+                        <li>
+                            <label>邮寄地址：</label>
+                            <input type="text" name="ads" id="ads" maxlength="50">
+                        </li>
+                    </ul>
+                    <div class="buttons">
+                        <input class="submit_btn js_realPrize_submit" type="button">
+                    </div>
+                </div>
+                <p style="padding-left: 34px;">活动结束后我们会统一邮寄奖品，请耐心等待~~如有疑问请咨询客服：010-82438999</p>
+            </div></div><div class="mask"></div></div>
+       
+         <!-- 虚拟奖品 -->
+        <div class="pop" style="display: none;">
+            <div class="pop_con">
+                <div class="prize_pop virtual_pop" id="js_noRealPrize_pop">
+                <div class="prize_con">
+                    <h2>恭喜您中奖： <span class="js_noRealprize">称号（限时）</span></h2>
+                    <div class="buttons">
+                        <input class="submit_btn js_noRealPrize_confirm" type="button">
+                    </div>
+                </div>
+                <p class="js_prize_tip" style="padding-left: 166px;line-height: 30px;">奖品已经发送到您的游戏中  如有疑问请联系客服：010-82438999</p>
+            </div></div><div class="mask"></div></div>
+        
+        <!-- 公用弹层（修改提示语） --> 
+        <div class="pop" style="display:none;">
+            <div class="pop_con">
+                <div class="close"></div>
+                 <div class="prize_pop tip_pop tip_text_left_pop" id="js_commonPop">
+                <div class="prize_con">
+                    <h2><span>尊敬的玩家:</span></h2>
+                    <h2 class="js_words"></h2>
+                </div>
+                <div class="buttons">
+                      <input class="submit_btn js_nocommon" type="button">
+                 </div>
+            </div>
+            </div>
+            <div class="mask"></div>
+        </div>
+
+      <div id="mask"></div>
+      <div class="lookMessage">
+        		 人气太过火爆，正在排队中...
+      </div>
+         <div class="public_nav_bottom">
+              <script type="text/javascript">ShowBottom()</script>
+         </div>
+        
+        <script src="http://static.cn114.cn/action/light2017/js/index2.js"></script>
+        <script>
+        alert("谢谢参与，活动已结束！")
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+         </body>
+         
+</html>

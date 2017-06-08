@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.wd.wanjia.cartoon.dao.WanwdCategoryMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.wd.wanjia.cartoon.beans.WanwdCategory" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="content_module_type" property="contentModuleType" jdbcType="TINYINT" />
+    <result column="name" property="name" jdbcType="NVARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="INTEGER" />
+    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+    <result column="gameid" property="gameid" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, content_module_type, name, parent_id, is_delete, gameid
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_category_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wanwd_category_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdCategory" >
+    insert into wanwd_category_tb (code, content_module_type, name, 
+      parent_id, is_delete, gameid
+      )
+    values (#{code,jdbcType=INTEGER}, #{contentModuleType,jdbcType=TINYINT}, #{name,jdbcType=NVARCHAR}, 
+      #{parentId,jdbcType=INTEGER}, #{isDelete,jdbcType=BIT}, #{gameid,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdCategory" >
+    insert into wanwd_category_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="contentModuleType != null" >
+        content_module_type,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="parentId != null" >
+        parent_id,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="gameid != null" >
+        gameid,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="contentModuleType != null" >
+        #{contentModuleType,jdbcType=TINYINT},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="parentId != null" >
+        #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="gameid != null" >
+        #{gameid,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdCategory" >
+    update wanwd_category_tb
+    <set >
+      <if test="contentModuleType != null" >
+        content_module_type = #{contentModuleType,jdbcType=TINYINT},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=NVARCHAR},
+      </if>
+      <if test="parentId != null" >
+        parent_id = #{parentId,jdbcType=INTEGER},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="gameid != null" >
+        gameid = #{gameid,jdbcType=INTEGER},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdCategory" >
+    update wanwd_category_tb
+    set content_module_type = #{contentModuleType,jdbcType=TINYINT},
+      name = #{name,jdbcType=NVARCHAR},
+      parent_id = #{parentId,jdbcType=INTEGER},
+      is_delete = #{isDelete,jdbcType=BIT},
+      gameid = #{gameid,jdbcType=INTEGER}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 查询当前parentId对应的详细的分类信息 -->
+  <select id="selectByParentId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_category_tb
+   	parent_id = #{parentId,jdbcType=INTEGER}
+  </select>
+   <!-- 查询所有分类名 -->
+  <select id="selectAllCategoryName" resultMap="BaseResultMap" >
+    SELECT 
+ 	<include refid="Base_Column_List" />
+ 	FROM wanwd_category_tb where is_delete =0 and content_module_type=4 and is_delete=0 and gameid=2
+  </select>
+</mapper>

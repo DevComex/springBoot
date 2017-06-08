@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.wechatvideo.WeChatVideoVoteLogBeanMapper">
+	<resultMap id="BaseResultMap"
+		type="cn.gyyx.action.beans.wechatvideo.WeChatVideoVoteLogBean">
+		<id column="code" property="code" jdbcType="INTEGER" />
+		<result column="video_id" property="videoId" jdbcType="INTEGER" />
+		<result column="user_id" property="userId" jdbcType="INTEGER" />
+		<result column="vote_date" property="voteDate" jdbcType="TIMESTAMP" />
+		<result column="ip" property="ip" jdbcType="VARCHAR" />
+		<result column="vote_source" property="voteSource" jdbcType="VARCHAR" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		code, video_id, user_id, vote_date, ip, vote_source
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from wechatvideo_vote_log_tb
+		where code = #{code,jdbcType=INTEGER}
+	</select>
+
+	<select id="selectTodayVoteLogByVideoId" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from wechatvideo_vote_log_tb
+		where
+		user_id = #{userId} and
+		video_id=#{videoId} and
+		vote_date>=convert(varchar(10),getdate(),120)
+		and
+		vote_date &lt; convert(varchar(10),dateadd(d,1,Getdate()),120)
+
+	</select>
+
+	<insert id="insert"
+		parameterType="cn.gyyx.action.beans.wechatvideo.WeChatVideoVoteLogBean">
+		insert into wechatvideo_vote_log_tb (code, video_id,
+		user_id,
+		vote_date, ip, vote_source
+		)
+		values (#{code,jdbcType=INTEGER},
+		#{videoId,jdbcType=INTEGER},
+		#{userId,jdbcType=INTEGER},
+		#{voteDate,jdbcType=TIMESTAMP}, #{ip,jdbcType=VARCHAR},
+		#{voteSource,jdbcType=VARCHAR}
+		)
+	</insert>
+	<insert id="insertSelective"
+		parameterType="cn.gyyx.action.beans.wechatvideo.WeChatVideoVoteLogBean">
+		insert into wechatvideo_vote_log_tb
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="code != null">
+				code,
+			</if>
+			<if test="videoId != null">
+				video_id,
+			</if>
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="voteDate != null">
+				vote_date,
+			</if>
+			<if test="ip != null">
+				ip,
+			</if>
+			<if test="voteSource != null">
+				vote_source,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="code != null">
+				#{code,jdbcType=INTEGER},
+			</if>
+			<if test="videoId != null">
+				#{videoId,jdbcType=CHAR},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=INTEGER},
+			</if>
+			<if test="voteDate != null">
+				#{voteDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="ip != null">
+				#{ip,jdbcType=VARCHAR},
+			</if>
+			<if test="voteSource != null">
+				#{voteSource,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="cn.gyyx.action.beans.wechatvideo.WeChatVideoVoteLogBean">
+		update wechatvideo_vote_log_tb
+		<set>
+			<if test="videoId != null">
+				video_id = #{videoId,jdbcType=INTEGER},
+			</if>
+			<if test="userId != null">
+				user_id = #{userId,jdbcType=INTEGER},
+			</if>
+			<if test="voteDate != null">
+				vote_date = #{voteDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="ip != null">
+				ip = #{ip,jdbcType=VARCHAR},
+			</if>
+			<if test="voteSource != null">
+				vote_source = #{voteSource,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where code = #{code,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="cn.gyyx.action.beans.wechatvideo.WeChatVideoVoteLogBean">
+		update wechatvideo_vote_log_tb
+		set video_id =
+		#{videoId,jdbcType=INTEGER},
+		user_id = #{userId,jdbcType=INTEGER},
+		vote_date = #{voteDate,jdbcType=TIMESTAMP},
+		ip =
+		#{ip,jdbcType=VARCHAR},
+		vote_source = #{voteSource,jdbcType=VARCHAR}
+		where code = #{code,jdbcType=INTEGER}
+	</update>
+</mapper>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.cadet.ITask">
+	<resultMap id="TaskBeanMap" type="TaskBean">
+		<result property="code" column="code" />
+		<result property="reportCode" column="report_code" />
+		
+		<result property="taskName" column="task_name" />
+		<result property="startTime" column="task_start" />
+		<result property="endTime" column="task_end" />
+		<result property="status" column="task_status" />
+		<result property="reason" column="task_reason" />
+		<result property="score" column="task_score" />
+		<result property="guideCode" column="guide_code"/>
+		<result property="type" column="task_type"/>
+	</resultMap>
+	<select id="getTasksByReportCode" parameterType="Integer" resultMap="TaskBeanMap">
+		select * from cadet_task_tb where report_code = #{code}
+	</select>
+	<insert id="addTask" parameterType="TaskBean">
+		insert into cadet_task_tb (report_code,task_name,task_start,task_end,task_status,task_reason,task_type) 
+		values (#{reportCode},#{taskName},#{startTime},#{endTime},#{status},#{reason},#{type})
+	</insert>
+	<update id="updateTask" parameterType="TaskBean">
+		update cadet_task_tb
+		set 
+		task_name = #{taskName},
+		task_start = #{startTime},
+		task_end = #{endTime},
+		task_status = #{status},
+		task_reason = #{reason},
+		task_type = #{type}
+		where code = #{code}
+	</update>
+	<update id="giveScoreToTask" parameterType="TaskBean">
+		update cadet_task_tb
+		set 
+		guide_code = #{guideCode},
+		task_score = #{score}
+		where
+		code = #{taskCode}
+	</update>
+</mapper>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wechat.IWeChatCountMapper">
+	<resultMap type="WeChatCountBean" id="WeChatCountMap">
+		<id column="code" property="code" />
+		<result column="count_type" property="countType" />
+		<result column="nick_name" property="nickName" />
+		<result column="action_code" property="actionCode" />
+		<result column="count_time" property="countTime" />
+		<result column="partake_time" property="partakeTime" />
+		<result column="S1" property="S1" />
+		<result column="S2" property="S2" />
+		<result column="S3" property="S3" />
+		<result column="S4" property="S4" />
+		<result column="S5" property="S5" />
+		<result column="S6" property="S6" />
+	</resultMap>
+
+	<insert id="addAccessCount" parameterType="WeChatCountBean">
+		INSERT INTO [dbo].[wechat_count_tb]
+		           ([count_type]
+		           ,[nick_name]
+		           ,[action_code]
+		           ,[count_time]
+		           ,[partake_time]
+		           ,[S1]
+		           ,[S2]
+		           ,[S3]
+		           ,[S4]
+		           ,[S5]
+		           ,[S6])
+		     VALUES
+		           (#{countType}
+		           ,#{nickName}
+		           ,#{actionCode}
+		           ,#{countTime}
+		           ,#{partakeTime}
+		           ,#{S1}
+		           ,#{S2}
+		           ,#{S3}
+		           ,#{S4}
+		           ,#{S5}
+		           ,#{S6})
+	</insert>
+	
+	<select id="selectDayCountByType" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM [dbo].[wechat_count_tb] WHERE [count_type] = #{0} and [nick_name] = #{1} and DATEDIFF( d ,#{2} ,[count_time])=0 and DATEDIFF( m ,#{2} ,[count_time])=0 and DATEDIFF( yyyy ,#{2} ,[count_time])=0
+	</select>
+</mapper>

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Layout:luochongfei" />
+    <title>审核列表</title>
+
+    <link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+	
+	<script src="${rc.contextPath}/resources/script/swfupload.js" type="text/javascript"></script>
+    <script src="${rc.contextPath}/resources/script/SWFInitialize.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/SWFInitializes.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/videoHandlers.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/VideoUpload.js" type="text/javascript" ></script>
+	
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet" />
+	<script>
+	  var changeImg = function(url){
+       		$("#checkImg").attr("src",url);
+       	}
+      
+    </script>
+    <script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+	</script>
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+						<section id="content">
+                    <section class="vbox">
+						<header class="header bg-white b-b clearfix">
+                           
+                        </header>
+                        <!--顶部标题导航 end-->
+		
+                        <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <div class="m-b-md">
+                            </div>
+                            
+							 <h4 >审核列表</h4>
+							
+                                
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            
+                                       <tr>
+                                       
+                                                    	<th width="20"></th>
+                                                        
+                                                        <th width="20">参与人编号</th>
+                                                        <th width="20">图片</th>
+														<th width="20">图片详情</th>
+														<th width="20">通过</th>
+														<th width="20">不通过</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="js_tbody">
+													#set($i = 1)
+													#foreach($bean in $list)
+														#if($i<=10)
+                                                        <tr>
+                                                            <td></td>
+                                                           
+                                                            <td>$!bean.accountCode</td>
+    														<td><img src="$!{bean.faceTempUrl}" style="width:50px;height:50px;"/></td>
+    																 <td><a data-toggle="modal" href="#seepic" onclick="changeImg('${bean.faceTempUrl}');" data-title="点击查看" class="btn btn-xs btn-danger imgUrl js_add_opt" data-original-title="" title=""><i class="fa fa-eye"></i></a></td>
+    														 
+    														
+    									
+																	<td><a data-toggle="tooltip" data-title="通过" href="../looklottery/passImg?pageIndex=$!{pageBean.pageIndex}&code=$!{bean.code}" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-check-square">通过</i></a></td>
+															  
+															  
+															 
+																	<td><a data-toggle="tooltip" data-title="不通过" href="../looklottery/unpassImg?pageIndex=$!{pageBean.pageIndex}&code=$!{bean.code}" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-check-square">不通过</i></a></td>
+															 
+    														
+															  
+    												
+                                                        </tr>
+														#set($i = $i +1)
+														#end
+													#end
+                                        </tbody>
+                                    </table>
+									
+                                </div>
+                                
+                            </section>
+                            
+                            <!--翻页功能-->
+                        <footer class="footer bg-white b-t">
+                            <div class="row dataTables_wrapper">
+                                <div class="col-sm-6">
+                                    <div class="dataTables_info" id="DataTables_Table_0_info">共 $!pageBean.totalRecords 条</div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_0_paginate">
+                                        <a class="first paginate_button" tabindex="0" id="DataTables_Table_0_first">首页</a>
+										<a class="previous paginate_button" tabindex="0" id="DataTables_Table_0_previous">上一页</a>
+										<span>
+											
+											 $!pageBean.pageIndex / $!pageBean.totalPages 
+											 <input type="hidden" id="hiddenURL" value="$!url" />
+										</span>
+										<a class="next paginate_button" tabindex="0" id="DataTables_Table_0_next">下一页</a>
+										<a class="last paginate_button" tabindex="0" id="DataTables_Table_0_last">末页</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                        <script>
+                        
+							$(function(){
+							
+								$("#missionType1").change(function(){
+									if($("#missionType1").val() == "签到"){
+										$("#addSignDisplay").show();
+										$("#addUploadDisplay").hide();
+									}else if($("#missionType1").val() == "视频" || $("#missionType1").val() == "服装" || $("#missionType1").val() == "建议"){
+										$("#addSignDisplay").hide();
+										$("#addUploadDisplay").show();
+									}else{
+										$("#addSignDisplay").hide();
+										$("#addUploadDisplay").hide();
+									}
+								})
+								
+								$("#missionType4").change(function(){
+									if($("#missionType4").val() == "签到"){
+										$("#updateSignDisplay").show();
+										$("#updateUploadDisplay").hide();
+									}else if($("#missionType4").val() == "视频" || $("#missionType4").val() == "服装" || $("#missionType4").val() == "建议"){
+										$("#updateSignDisplay").hide();
+										$("#updateUploadDisplay").show();
+									}else{
+										$("#updateSignDisplay").hide();
+										$("#updateUploadDisplay").hide();
+									}
+								})
+							
+								var pagePrevious = $!pageBean.isHavePrePage;
+								var pageNext = $!pageBean.isHaveNextPage;
+								var url = $("#hiddenURL").val();
+								var collectionCode = "$!collectionCode";
+								if(!pagePrevious){
+									$("#DataTables_Table_0_previous").addClass("paginate_button_disabled");
+									$("#DataTables_Table_0_first").addClass("paginate_button_disabled");
+								}
+								if(!pageNext){
+									$("#DataTables_Table_0_next").addClass("paginate_button_disabled");
+									$("#DataTables_Table_0_last").addClass("paginate_button_disabled");
+								}
+								$("#DataTables_Table_0_previous").click(function(){
+									if(pagePrevious){
+										var page = $!pageBean.pageIndex -1;
+										var recommendTags =  '$!pageBean.recommendTags';
+										var missionType =  '$!pageBean.missionType';
+										var missionCloseStatus ='$!pageBean.missionCloseStatus';
+											window.location.href="showImgCheck?pageIndex="+page;
+										
+									}	
+								})
+								$("#DataTables_Table_0_next").click(function(){
+									if(pageNext){
+										var page = $!pageBean.pageIndex + 1;
+										
+											var recommendTags =  '$!pageBean.recommendTags';
+										var missionType =  '$!pageBean.missionType';
+										var missionCloseStatus ='$!pageBean.missionCloseStatus';
+											window.location.href="showImgCheck?pageIndex="+page;
+										
+									}
+								})
+								$("#DataTables_Table_0_first").click(function(){
+									if(pagePrevious){
+										var page = 1;
+										var recommendTags =  '$!pageBean.recommendTags';
+										var missionType =  '$!pageBean.missionType';
+										var missionCloseStatus ='$!pageBean.missionCloseStatus';
+											window.location.href="showImgCheck?pageIndex="+page;
+											
+										
+									}
+								})
+								$("#DataTables_Table_0_last").click(function(){
+									if(pageNext){
+										var page = $!pageBean.totalPages;
+										
+										var recommendTags =  '$!pageBean.recommendTags';
+										var missionType =  '$!pageBean.missionType';
+										var missionCloseStatus ='$!pageBean.missionCloseStatus';
+											window.location.href="showImgCheck?pageIndex="+page;
+										
+									}
+								})
+								
+
+							
+							
+							
+					$(".js_add_askForSubmit").click(function(){
+
+        				var missionName = $("#missionName1").val();
+        				
+        				var missionState = $("#missionState1").val();
+        				var missionCredits = $("#missionCredits1").val();
+        				
+        				
+        				var missionType = $("#missionType1").val();
+        				var recommendTags = $("#recommendTags1").val();
+        				var uploadNum = $("#uploadNum1").val();
+        				var SignNum = $("#SignNum1").val();
+						
+        				var valS = $.trim(uploadNum);
+        				var valS1 = $.trim(SignNum);
+        				var valS2 = $.trim(missionCredits);
+						//图片
+						var missionUrl = $("#prizePhoto").val();
+        				//Jquery绑定Form
+        				$("#missionName").val(missionName);
+        				$("#missionState").val(missionState);
+        				$("#missionCredits").val(missionCredits);
+        				$("#missionType2").val(missionType);
+        				$("#recommendTags2").val(recommendTags);
+        				$("#uploadNum").val(uploadNum);
+        				$("#SignNum").val(SignNum);
+        				//图片
+        				$("#missionUrl").val(missionUrl);
+        				
+        				if(missionName == ""){
+        					alert("请填写任务名称!");
+        				}else if(missionCredits == ""){
+        					alert("积分必须填写!");
+        				}else if(missionType == ""){
+        					alert("请选择类别!");
+        				}else if(recommendTags == ""){
+        					alert("请选择推荐!");
+        				}else if(valS == ""){
+        					alert("长传次数不能为空!");
+        				}else if(valS1 == ""){
+        					alert("签到次数不能为空!");
+        				}else if(isNaN(valS)){
+        					alert("长传次数只能为数字!");
+        				}else if(isNaN(valS1)){
+        					alert("签到次数只能为数字!");
+        				}else if(valS2 == ""){
+        					alert("积分不能为空!");
+        				}else if(isNaN(valS2)){
+        					alert("积分只能为数字!");
+        				}else if(missionUrl == ""){
+							alert("请上传图片!");
+						}else{
+							$.ajax({
+								url:'getPubMissionInfo',
+								type:'get',
+								data:{r:Math.random()},
+								dataType:'json',
+								success:function(data){
+									if(data != null){
+										if(recommendTags == "1" && data.recommendTags == "1"){
+											alert("推荐任务已经达到上限！");
+    									}else{
+                            				$("#taskForm").attr("action","addTask");
+                        					$("#taskForm").submit();
+    									}
+									}else{
+										$("#taskForm").attr("action","addTask");
+                        				$("#taskForm").submit();
+									}
+								}
+							})
+        				}
+					
+				})
+				
+				
+				$(".js_update_askForSubmit").click(function(){
+
+        				var missionName = $("#missionName4").val();
+        				
+        				var missionState = $("#missionState4").val();
+        				var missionCredits = $("#missionCredits4").val();
+        				
+        				
+        				var missionType = $("#missionType4").val();
+        				var recommendTags = $("#recommendTags4").val();
+        				var uploadNum = $("#uploadNum4").val();
+        				var SignNum = $("#SignNum4").val();
+						//图片
+						var missionUrl = $("#prizePhotoU").val();
+						
+        				var valS = $.trim(uploadNum);
+        				var valS1 = $.trim(SignNum);
+        				var valS2 = $.trim(missionCredits);
+        				//Jquery绑定Form
+        				$("#missionName6").val(missionName);
+        				$("#missionState6").val(missionState);
+        				$("#missionCredits6").val(missionCredits);
+        				$("#missionType6").val(missionType);
+        				$("#recommendTags6").val(recommendTags);
+        				$("#uploadNum6").val(uploadNum);
+        				$("#SignNum6").val(SignNum);
+						
+						if(missionUrl == ""){
+							
+						}else{
+							$("#missionUrl6").val(missionUrl);
+						}
+        				
+						
+        				
+        				if(missionName == ""){
+        					alert("请填写任务名称!");
+        				}else if(missionCredits == ""){
+        					alert("积分必须填写!");
+        				}else if(missionType == ""){
+        					alert("请选择类别!");
+        				}else if(recommendTags == ""){
+        					alert("请选择推荐!");
+        				}else if(valS == ""){
+        					alert("长传次数不能为空!");
+        				}else if(valS1 == ""){
+        					alert("签到次数不能为空!");
+        				}else if(isNaN(valS)){
+        					alert("长传次数只能为数字!");
+        				}else if(isNaN(valS1)){
+        					alert("签到次数只能为数字!");
+        				}else if(valS2 == ""){
+        					alert("积分不能为空!");
+        				}else if(isNaN(valS2)){
+        					alert("积分只能为数字!");
+        				}else{
+						
+							$.ajax({
+								url:'getPubMissionInfo',
+								type:'get',
+								data:{r:Math.random()},
+								dataType:'json',
+								success:function(data){
+									if(data != null){
+										if(recommendTags == "1" && data.code != $("#code").val()){
+											alert("推荐任务已经达到上限！");
+    									}else{
+                            				$("#taskForm1").attr("action","updateMission");
+                							$("#taskForm1").submit();
+    									}
+									}else{
+										$("#taskForm1").attr("action","updateMission");
+                						$("#taskForm1").submit();
+									}
+									
+								}
+							})
+            				
+        				}
+        					
+        			})
+					
+					
+					$(".js_edit_project").click(function(){
+
+						var code = $(this).attr("code");
+						$("#code").val(code);
+						$.ajax({
+							url:'getMission',
+							type:'get',
+							data:{code:code,r:Math.random()},
+							dataType:'json',
+							success:function(d){
+                    				$("#missionName4").val(d.missionName);
+                    				$("#missionState4").val(d.missionState);
+                    				$("#missionCredits4").val(d.missionCredits);
+                    				$("#missionType4").val(d.missionType);
+                    				$("#recommendTags4").val(d.recommendTags);
+                    				$("#uploadNum4").val(d.uploadNum);
+                    				$("#SignNum4").val(d.signNum);
+                    				$("#missionCloseStatus6").val(d.missionCloseStatus);
+									$("#missionUrl6").val(d.missionUrl);
+									//图片
+									$(".titleimgs_add").attr("src",d.missionUrl)
+									
+									if(d.missionType == "签到"){
+										$("#updateSignDisplay").show();
+										$("#updateUploadDisplay").hide();
+									}else if(d.missionType == "视频" || d.missionType == "服装" || d.missionType == "建议"){
+										$("#updateSignDisplay").hide();
+										$("#updateUploadDisplay").show();
+									}else{
+										$("#updateSignDisplay").hide();
+										$("#updateUploadDisplay").hide();
+									}
+							}
+						})
+						
+						
+							
+					})							
+										
+							$(".js_clkupimg").click(function(){
+                				$("#SWFUpload_0").trigger("click");
+                			});	
+								
+							})
+		
+						</script>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+						<!--翻页功能-->
+						<br />
+						<br />
+                       
+                    </section>
+                    
+                        <!-- -----------------------------------------------添加弹层开始---------------------------------------------- -->
+                        <div class="modal fade" id="seepic">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">查看图片</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <section class="panel bg-dark">
+                                                <div class="carousel slide carousel-fade panel-body" id="c-fade">
+                                                    <div class="carousel-inner js_con">
+                                                        <div class="divopt" style="display:block;">
+                                                            <img id="checkImg" src="" style="width: 100%;">
+                                                          	
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" style="text-align: center;">
+                                        <button class="btn btn-info btn-s-md" type="button" id="js_editPorSubmit" style="display: none;">确定</button>
+                                        <button data-dismiss="modal" class="btn btn-default close_js_Msg" type="button">返回</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- -----------------------------------------------添加弹层结束---------------------------------------------- -->
+              <!--编辑域名弹层 begin-->
+              
+              <form class="form-horizontal" id="taskForm" method="post">
+								
+					<input type="hidden" id="missionName" name="missionName" value="" />
+					
+					<input type="hidden" id="missionState" name="missionState" value="" />
+					<input type="hidden" id="missionCredits" name="missionCredits" value="" />
+					<input type="hidden" id="missionType2" name="missionType" value="" />
+					
+					<input type="hidden" id="recommendTags2" name="recommendTags" value="" />
+					<input type="hidden" id="uploadNum" name="uploadNum" value="" />
+					
+					
+					<input type="hidden" id="SignNum" name="SignNum" value="" />
+					
+					<input type="hidden" id="missionUrl" name="missionUrl" value="" />
+				</form>
+				
+							
+				<form class="form-horizontal" id="taskForm1" method="post">
+					
+					<input type="hidden" id="code" name="code" value="" />
+					<input type="hidden" id="missionName6" name="missionName" value="" />
+					
+					<input type="hidden" id="missionState6" name="missionState" value="" />
+					<input type="hidden" id="missionCredits6" name="missionCredits" value="" />
+					<input type="hidden" id="missionType6" name="missionType" value="" />
+					
+					<input type="hidden" id="recommendTags6" name="recommendTags" value="" />
+					<input type="hidden" id="uploadNum6" name="uploadNum" value="" />
+					
+					
+					<input type="hidden" id="SignNum6" name="SignNum" value="" />
+					
+					<input type="hidden" id="missionUrl6" name="missionUrl" value="" />
+					
+					<input type="hidden" id="missionCloseStatus6" name="missionCloseStatus" value="" />
+				</form>
+              
+                 <div class="modal fade" id="addTask">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h6 class="modal-title">增加</h6>
+                            </div>
+                            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+                            <div class="modal-body">
+                                <form id="add_askForForm" class="form-horizontal" method="post">
+                					
+                					<div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">任务名称：</label>
+                                        <div class="col-sm-6">
+                							<input id="missionName1" name="missionName1" class="form-control" style="width:350px;" maxlength="300"/>
+                                       </div>
+                                    </div>
+									
+									<div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">图片链接：</label>
+                
+                                        <div class="col-sm-6 uploadimg">
+                                        
+                                        
+                                        <input type="button" id="btnUpload" class="upload" onclick="swfu.selectFile(); this.blur(); " value="上传视频截图" />
+                                        <input type="hidden" id="hid_addImgUrl" name="hid_addImgUrl" />
+                                        <input type="hidden" id="hid_addthumbImgUrl" name="hid_addthumbImgUrl" />
+                                        
+                                        <span style="width:80%; display: block; text-align: left;"><img class="titleimgs_add" id="addImg" src="${rc.contextPath}/resources/images/testimg01.jpg" width=300 height=200 ></span>             
+                                        
+                                            <input id="prizePhoto" name="missionUrl1" class="form-control" style="width:350px;" value="" maxlength="300" type="hidden"/>
+                                        </div>
+                                    </div>
+                                                    
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">任务说明：</label>
+                                        <div class="col-sm-6">
+                							<input id="missionState1" name="missionState1" class="form-control" style="width:350px;" maxlength="300"/>
+                                       </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">任务积分：</label>
+                                        <div class="col-sm-6">
+                							<input id="missionCredits1" name="missionCredits1" class="form-control" style="width:350px;" maxlength="300"/>
+                                       </div>
+                                    </div>
+                                    
+                                     <div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">任务类型：</label>
+                                        <div class="col-sm-6">
+                							<select class="form-control input-sm" id="missionType1">
+                                                <option value=''>请选择</option>
+                                                <option value="签到">签到</option>
+                                                <option value="视频">视频</option>
+                                                <option value="服装">服装</option>
+                                                <option value="建议">建议</option>
+                                            </select>
+                                       </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">是否推荐：</label>
+                                        <div class="col-sm-6">
+                							<select class="form-control input-sm" id="recommendTags1">
+                                                <option value=''>请选择</option>
+                                                <option value="0">否</option>
+                                                <option value="1">是</option>
+                                            </select>
+                                       </div>
+                                    </div>
+                                    
+                                    <div class="form-group" style="display:none" id="addSignDisplay">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">签到数量：</label>
+                                        <div class="col-sm-6">
+                							<input id="SignNum1" name="SignNum1" value="1" class="form-control" style="width:350px;" maxlength="300"/>
+                                       </div>
+                                    </div>
+                                    
+                                    <div class="form-group" style="display:none" id="addUploadDisplay">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">上传数量：</label>
+                                        <div class="col-sm-6">
+                							<input id="uploadNum1" name="uploadNum1" value="1" class="form-control" style="width:350px;" maxlength="300"/>
+                                       </div>
+                                    </div>
+                                 
+                					<div class="modal-footer">
+                                    	<button type="button"  class="btn btn-info js_add_askForSubmit">确定</button>
+                                        <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">返回</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                	
+                    <!-- /.modal-dialog -->
+                </div>
+	
+                <!--编辑域名弹层 end-->
+              <div class="modal fade" id="updateTask">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h6 class="modal-title">编辑</h6>
+                        </div>
+                        <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+                        <div class="modal-body">
+                            <form id="add_askForForm" class="form-horizontal" method="post">
+            					
+            					<div class="form-group">
+                                    <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">任务名称：</label>
+                                    <div class="col-sm-6">
+            							<input id="missionName4" name="missionName4" class="form-control" style="width:350px;" maxlength="300"/>
+                                   </div>
+                                </div>
+								
+								<div class="form-group">
+                                    <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">图片链接：</label>
+            
+                                    <div class="col-sm-6">
+                                     <input type="button" id="btnUploads" class="upload" onclick="swfus.selectFile(); this.blur(); " value="上传视频截图" />
+                                    <span style="width:80%; display: block; text-align: left;"><img class="titleimgs_add" id="addImgs" src="${rc.contextPath}/resources/images/testimg01.jpg" width=300 height=200 ></span>
+                                        <input id="prizePhotoU" name="missionUrl4" class="form-control" style="width:350px;" value="" maxlength="300" type="hidden"/>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">任务说明：</label>
+                                    <div class="col-sm-6">
+            							<input id="missionState4" name="missionState4" class="form-control" style="width:350px;" maxlength="300"/>
+                                   </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">任务积分：</label>
+                                    <div class="col-sm-6">
+            							<input id="missionCredits4" name="missionCredits4" class="form-control" style="width:350px;" maxlength="300"/>
+                                   </div>
+                                </div>
+                                
+                                 <div class="form-group">
+                                    <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">任务类型：</label>
+                                    <div class="col-sm-6">
+            							<select class="form-control input-sm" id="missionType4">
+                                            <option value=''>请选择</option>
+                                            <option value="签到">签到</option>
+                                            <option value="视频">视频</option>
+                                            <option value="服装">服装</option>
+                                            <option value="建议">建议</option>
+                                        </select>
+                                   </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">是否推荐：</label>
+                                    <div class="col-sm-6">
+            							<select class="form-control input-sm" id="recommendTags4">
+                                            <option value=''>请选择</option>
+                                            <option value="0">否</option>
+                                            <option value="1">是</option>
+                                        </select>
+                                   </div>
+                                </div>
+                                
+                                <div class="form-group" id="updateSignDisplay">
+                                    <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">签到数量：</label>
+                                    <div class="col-sm-6">
+            							<input id="SignNum4" name="SignNum4" value="1" class="form-control" style="width:350px;" maxlength="300"/>
+                                   </div>
+                                </div>
+                                
+                                <div class="form-group" id="updateUploadDisplay">
+                                    <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">上传数量：</label>
+                                    <div class="col-sm-6">
+            							<input id="uploadNum4" name="uploadNum4" value="1" class="form-control" style="width:350px;" maxlength="300"/>
+                                   </div>
+                                </div>
+                             
+            					<div class="modal-footer">
+                                	<button type="button"  class="btn btn-info js_update_askForSubmit">确定</button>
+                                    <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">返回</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+            	
+                <!-- /.modal-dialog -->
+            </div>
+            	
+    <!--编辑域名弹层 end-->
+ </section>
+            </section>
+        </section>
+    </section>
+
+</body>
+</html>

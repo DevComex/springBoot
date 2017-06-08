@@ -1,0 +1,159 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道-天下第一宠票选活动</title>
+<link href="http://${codeServer2}/action/wdNo1Vote/css/wd141201.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+<style type="text/css">
+.cjlist li.selected {background-color:#ea0000;}
+</style>
+<script type="text/javascript">
+var rc="${rc.contextPath}";
+
+</script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdNo1Vote/js/LotteryServer.js" charset="UTF-8"></script>
+</head>
+
+<body>
+<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+<div class="wbg">
+    <div class="sbg">
+      <div class="main">
+      
+      
+        <!--left-->
+        <div class="mleft">
+          <ul class="nav">
+          	<li><a href="${rc.contextPath}/wdno1pet/" class="a01"></a></li>
+          	<li><a href="${rc.contextPath}/wdno1pet/showPets" class="a02"></a></li>
+          	<li><a href="${rc.contextPath}/wdno1pet/showUpload" class="a03"></a></li>
+          	<li class = "on"><a href="${rc.contextPath}/wdno1pet/showLottery" class="a04"></a></li>
+          </ul>
+          <ul class="tip">
+          	<li><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="new">进入官网</a></li>
+          	<li><a href="http://account.gyyx.cn/Member/Register" target="new">账号注册</a></li>
+          	<li><a href="http://pay.gyyx.cn/" target="new">充值中心</a></li>
+          	<li><a href="http://wd.gyyx.cn/download/" target="new">下载游戏</a></li>
+          </ul>
+        </div>
+        <!--left end-->
+        
+        
+        <!--right-->
+        <div class="mright">
+           <div class="rtop">
+              <div class="rtxt">道途风云灵兽相伴，宠物是我们在问道游戏中必不可少的伙伴，值问道1.55新版本火爆上线，特征选<br/>“天下第一宠”，心爱的宠物晒一晒，看看谁是真正的天下无双！</div>
+              <div class="rtime"><span class="sp01">投稿时间：2014年12月25日起</span><span class="sp02">投票时间：2015年1月5日—1月12日</span></div>
+           </div>
+           <div class="box">
+              <div class="cjtxt"><p id="loginbar">抽奖需要先<a  onclick="alertFn(null,null,true)">[登录]</a></p><br/>
+                <span>我的服务器</span><select id = "channel" name = "channel">
+					        <option value="4">请选择服务器</option>
+                            <option value ="3">双线</option>
+                            <option value ="1">网通</option>
+                            <option value ="2">电信</option>
+						</select> 
+					  
+<select id = "serverID" name = "serverID">
+                            					<option>请选择服务器</option>			
+													</select>
+</div></p>
+              <div class="cjbox" id="lottery">
+                 <ul class="cjlist">
+                 	<li class="img01" id="dzp0" ><img src="http://${codeServer2}/action/wdNo1Vote/images/wd_img11.jpg" width="62" height="62"><span>谢谢参与</span></li>
+                 	<li class="img01" id="dzp1" ><img src="http://${codeServer2}/action/wdNo1Vote/images/wd_img03.jpg" width="62" height="62"><span>红米手机</span></li>
+                    <li class="img01" id="dzp2" ><img src="http://${codeServer2}/action/wdNo1Vote/images/wd_img04.jpg" width="62" height="62"><span>威威虎抱枕</span></li>
+                    <li class="img01" id="dzp3" ><img src="http://${codeServer2}/action/wdNo1Vote/images/wd_img05.jpg" width="62" height="62"><span>典藏大礼盒</span></li>
+                    <li class="img01" id="dzp4" ><img src="http://${codeServer2}/action/wdNo1Vote/images/wd_img10.jpg" width="62" height="62"><span>多彩T15键盘 </span></li>
+                    <li class="img01 pr" id="dzp11"><img src="http://${codeServer2}/action/wdNo1Vote/images/wd_img07.jpg" width="62" height="62"><span>海尔音响</span></li>
+                    <li class="img01" id="dzp5" ><img src="http://${codeServer2}/action/wdNo1Vote/images/wd_img08.jpg" width="62" height="62"><span>鼠标</span></li>
+                    <li class="img01" id="dzp10" ><img src="http://${codeServer2}/action/wdNo1Vote/images/wd_img09.jpg" width="62" height="62"><span>问道t恤</span></li>
+                    <li class="img01" id="dzp9" ><img src="http://${codeServer2}/action/wdNo1Vote/images/wd_img01.jpg" width="62" height="62"><span>千足金手链</span></li>
+                    <li class="img01" id="dzp8" ><img src="http://${codeServer2}/action/wdNo1Vote/images/wd_img12.jpg" width="62" height="62"><span>10000银元宝</span></li>
+                    <li class="img01" id="dzp7"><img src="http://${codeServer2}/action/wdNo1Vote/images/wd_img06.jpg" width="62" height="62"><span>问道钱包</span></li>
+                    <li class="img01" id="dzp6" ><img src="http://${codeServer2}/action/wdNo1Vote/images/wd_img11.jpg" width="62" height="62"><span>谢谢参与</span></li>
+                 </ul>
+                <div id="lotteryBtn" class="cjbox_btn">
+					<a  class="js_btnStart" text="go">立即抽奖</a>
+					<p>活动期间参加比赛上传图片和累计投票超过10的玩家可进行抽奖</p></div>
+              </div>
+              <h3 class="tit"><span>01</span>活动时间</h3>
+              <div class="box04">
+抽奖时间为：
+              1月15日12：00—1月25日23：59</div>
+              <h3 class="tit mt30"><span>02</span>活动奖励</h3>
+              <div class="box04">活动期间参加比赛上传合格图片和累计投票超过10的玩家可进行抽奖（刷票账号将取消抽奖资格），以官方发布的可抽奖账号公告为准，奖励包括金手链、典藏大礼盒、小米手机、周边等丰富大奖等你拿！</div>
+              <h3 class="tit mt30"><span>03</span>活动说明</h3>
+              <div class="box04">
+                <ul>
+                  <li>1、每个账号只有1次抽奖机会，活动期间若未抽奖则视为放弃抽奖资格和奖品；
+                  </li>
+                  <li>2、中奖玩家收货信息须如实填写，若信息有误或不填写导致奖品无法发出将视为放弃奖品；
+                  </li>
+                  <li>3、本次活动奖品不可退换；
+                  </li>
+                  <li>4、活动结束后我们将进行统一奖品发货。
+                  </li>
+                  
+                </ul>
+              </div>
+               
+          </div>        
+        </div>
+        <!--right end-->
+        
+        
+        
+      </div>
+    </div>
+</div>
+
+
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom("231c35");</script>
+</div>
+<!--弹层-->
+<div class="tcbox" id="js_dialogbox">
+  <h2 class="tctit">奖品收货信息填写</h2>
+  <div class="con">
+    <div class="formdiv">
+	 <p class="js_successtip" style="text-align:center;">
+      </p>
+      <p>
+        <label>奖品收件人姓名：</label>
+        <input name="input" type="text" id="txtRecName">
+      </p>
+      <p>
+        <label>收件人联系电话：</label>
+        <input name="input" type="text" id="txtMobPhoneNumber">
+      </p>
+      <p>
+        <label>奖品收货人地址：</label>
+        <input name="input" type="text" id="txtAddress">
+        </p>
+     </p>
+      <p class="btnp"><input name="" type="button" class="btn01" id="btn_subRecInfo"><input name="" type="button" class="btn02" id="btn_reset"></p>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript" src="http://static.cn114.cn/action/wdNo1Vote/js/jquery-ui-1.8.16.custom.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdNo1Vote/js/Lotterywd.js" charset="UTF-8"></script>
+<link href="http://${codeServer2}/action/wdNo1Vote/css/jquery-ui-1.8.13.custom.css" rel="stylesheet" type="text/css"> 
+<script type="text/javascript" src="http://static.cn114.cn/action/wdNo1Vote/js/LotteryIndex.js" charset="UTF-8"></script>
+<script src="http://www.gyyx.cn/inc/gyyx_statistics.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+
+</body>
+</html>
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 

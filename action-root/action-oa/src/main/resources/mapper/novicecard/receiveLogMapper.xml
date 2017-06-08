@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.novicecard.IReceiveLogMapper">
+	
+	<resultMap type="cn.gyyx.action.beans.novicecard.NoviceOaBean" id="NoviceOaBeanMap">
+		<result column="account" property="account" />
+		<result column="serverName" property="serverName" />
+		<result column="giftPackageName" property="giftPackageName" />
+		<result column="cardNo" property="cardNo" />
+		<result column="type" property="type" />
+		<result column="receiveTime" property="receiveTime" />
+		<result column="sendToGameTime" property="sendToGameTime" />
+		<result column="sendToGameResponse" property="sendToGameResponse" />
+		<result column="serverId" property="serverId" />
+		<result column="activityId" property="activityId" />
+		<result column="areaName" property="areaName" />
+	</resultMap>
+	
+    <select id="getReceiveLogByAccountAndTimeAndLikeGiftPageName" resultMap="NoviceOaBeanMap"> 
+    	select * from (select account as account,present_type as giftPackageName,
+		      server_name as serverName,'' as cardNo,'官网' as type,
+		      convert(VARCHAR(19),draw_time,120) as receiveTime
+		from hd_send_present_log a where account = #{account} and present_type like '%'+ #{hdType} +'%'
+		<if test="timeStr!= null and timeStr!= '' ">     
+            	and convert(varchar(10), draw_time, 23) = #{timeStr}      
+        </if>
+		union all
+		
+		select account as account,a.virtual_Item as giftPackageName,
+		      (select top 1 n.server_name from novice_card_server n where n.server_id = a.server_id) as serverName
+		      ,card_no as cardNo,'媒体' as type,
+		      convert(VARCHAR(19),create_time,120) as receiveTime
+		from novice_card_receive_log a where account = #{account} and virtual_Item like '%'+ #{hdType} +'%'
+		<if test="timeStr!= null and timeStr!= '' ">     
+            	and convert(varchar(10), create_time, 23) = #{timeStr}      
+        </if> ) c order by receiveTime asc
+    </select>
+    
+    <select id="getSendToGameLogByAccountAndTimeAndLikeGiftPageName" resultMap="NoviceOaBeanMap"> 
+    	select account as account,
+			convert(VARCHAR(19),create_time,120) as sendToGameTime  ,
+			response as sendToGameResponse,
+			virtual_item as giftPackageName
+	   from hd_send_virtual_item_log 
+	   where account = #{account} and virtual_item like '%'+ #{hdType} +'%'
+		<if test="timeStr!= null and timeStr!= '' ">     
+            	and convert(varchar(10), create_time, 23) = #{timeStr}      
+        </if> order by create_time asc
+    </select>
+    
+    <select id="getNoviceServerList" resultMap="NoviceOaBeanMap"> 
+    	select code as code ,server_id as serverId,server_name as serverName,
+		     (case when area_id = 3 then '双线' when area_id=1 then '网通' 
+			 when area_id='2' then '电信' end) as areaName,batch_no as activityId from novice_card_server
+		where batch_no = #{batchNo}    
+    </select>
+    <!-- union all
+		
+		select server_id as serverId,server_name as serverName,
+		     (case when net_type_code = 3 then '双线' when net_type_code=1 then '网通' 
+			 when net_type_code='2' then '电信' end) as areaName,activity_id as activityId,'官网' as type from action_server_config_tb
+    	where activity_id = #{activityId}  -->
+    
+    <select id="getNoviceReceiveCountByMonthAndLikeGiftPackage" resultType="java.util.Map">
+		select a.time as time ,a.count as count1,b.count as count2 from (
+			select CONVERT(varchar(10), draw_time, 21) as time,cast(count(code) as varchar) as count from hd_send_present_log where convert(varchar(7), draw_time, 23) = #{month} and server_id= #{serverId} and present_type like '%'+ #{hdType} +'%'
+			group by CONVERT(varchar(10), draw_time, 21) 
+		) a 
+		full join 
+		(
+			select CONVERT(varchar(10), create_time, 21) as time,cast(count(code) as varchar) as count from novice_card_receive_log where convert(varchar(7), create_time, 23) = #{month} and server_id= #{serverId} and virtual_Item like '%'+ #{hdType} +'%'
+			group by CONVERT(varchar(10), create_time, 21)
+		) b 
+		on a.time = b.time
+	</select>
+	
+	<delete id="deleteNoviceCardServer">
+		delete from novice_card_server where code = #{code}  
+	</delete>
+	
+	<delete id="deleteActionServerConfig">
+		delete from action_server_config_tb where code = #{code}  
+	</delete>
+	
+	<select id="getNoviceCardServerCountByCodeAndBatchNo" resultType="int"> 
+    	select count(1) from novice_card_server
+		where server_id = #{serverId} and batch_no = #{batchNo}
+    </select>
+    
+    <insert id="insertNoviceCardServer">
+		insert into novice_card_server
+		(game_id,server_id,server_name,state,area_id,batch_no)
+		values
+		('2',#{serverId},#{serverName},'1',#{areaCode},#{batchNo})
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+

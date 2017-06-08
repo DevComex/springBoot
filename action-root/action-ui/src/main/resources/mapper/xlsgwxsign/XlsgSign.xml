@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xlsgwxsign.IXlsgSignMapper">
+	<resultMap type="cn.gyyx.action.beans.xlsgwxsign.XlsgSign" id="XLSGWxSignBeanMap">
+		<id column="code" property="code" />
+		<result column="open_id" property="openId" />
+		<result column="last_sign_date" property="lastSignDate" />
+		<result column="sign_number" property="signNumber" />
+		<result column="last_month_sign_number" property="lastMonthSignNumber" />
+		<result column="last_month_update_time" property="lastMonthUpdateTime" />
+	</resultMap>
+	
+	<!-- 根据条件获得签到主表记录 -->
+	<select id="getSign" parameterType="cn.gyyx.action.beans.xlsgwxsign.XlsgSign" resultMap="XLSGWxSignBeanMap">
+		select 
+			top 1 * 
+		from
+			xlsg_wx_sign_tb
+		where 
+			open_id = #{openId}      
+        	<if test="signDateStr!= null and signDateStr!= '' ">     
+            	and CONVERT(varchar(100), last_sign_date, 23) = #{signDateStr}      
+        	</if>
+	</select>
+	
+	<!-- 获得用户最近签到的日期 -->
+	<select id="getRecentSign" parameterType="cn.gyyx.action.beans.xlsgwxsign.XlsgSign" resultMap="XLSGWxSignBeanMap">
+		select 
+			top 1 * 
+		from
+			xlsg_wx_sign_tb
+		where 
+			open_id = #{openId}      
+        order by last_sign_date desc
+	</select>
+	
+	<!-- 插入签到主表记录 -->
+	<insert id="insertSign" parameterType="cn.gyyx.action.beans.xlsgwxsign.XlsgSign" useGeneratedKeys="true" keyProperty="code">
+		insert into xlsg_wx_sign_tb (
+			open_id
+		   ,last_sign_date
+		   ,sign_number)
+		values(
+		    #{openId}
+		   ,#{lastSignDate}
+		   ,#{signNumber})
+	</insert>
+	
+	<!-- 更新签到主表记录 -->     
+	<update id="updateSign" parameterType="cn.gyyx.action.beans.xlsgwxsign.XlsgSign">     
+	    update xlsg_wx_sign_tb      
+	    <set>     
+	        <if test="lastSignDate!=null and lastSignDate!='' ">     
+	            last_sign_date = #{lastSignDate},      
+	        </if>  
+	        <if test="signNumber!=null ">     
+	            sign_number = #{signNumber},      
+	        </if>  
+	    </set>     
+	    where open_id = #{openId}
+	</update>   
+	
+	<!-- 每月1号更新连续签到为0 -->     
+	<update id="updateSignZero">     
+	    update xlsg_wx_sign_tb   
+	    set sign_number = 0,
+	    	last_month_sign_number = sign_number,
+	    	last_month_update_time = getdate()   
+	</update>   
+	
+</mapper>

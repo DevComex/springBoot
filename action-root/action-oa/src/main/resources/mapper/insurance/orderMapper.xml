@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper pageNum.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.insurance.IOrderMapper">
+	<resultMap type="OrderBean" id="OrderBean">
+		<id column="code" property="code" />
+		<result column="order_num" property="orderNum" />
+		<result column="gyyx_order_num" property="gyyxOrderNum" />
+		<result column="name" property="name" />
+		<result column="phone" property="phone" />
+		<result column="order_type" property="orderType" />
+		<result column="picture_url" property="pictureUrl" />
+		<result column="account" property="account" />
+		<result column="server_group" property="serverGroup" />
+		<result column="server_name" property="serverName" />
+		<result column="level" property="level" />
+		<result column="protection" property="protection" />
+		<result column="circle" property="circle" />
+		<result column="creat_time" property="creatTime" />
+		<result column="pay_time" property="payTime" />
+		<result column="valid_time" property="validTime" />
+		<result column="status" property="status" />
+		<result column="reparation" property="reparation" />
+		<result column="ip" property="ip" />
+		<result column="game_name" property="gameName" />
+		<result column="role_name" property="roleName" />
+		<result column="role_id" property="roleId" />
+	</resultMap>
+	<select id="selectBycode">
+	  select * from wd_insurance_order_tb where code = #{code}
+	</select>
+	<select id="selectByOrderNum" parameterType="String" resultMap="OrderBean">
+	  select * from wd_insurance_order_tb where order_num=#{orderNum}
+	</select>
+	<update id="updateOrderStatus" parameterType="String">
+	update wd_insurance_order_tb set status=#{0} where order_num=#{1}
+	</update>
+	<select id="selectOrderByCondition"  resultMap="OrderBean" resultType="list" parameterType="MyOrderParameterBean">
+	  select top (#{num}) * 
+		from [wd_insurance_order_tb] 
+		WHERE game_name=#{gameName} 
+		<if test="account != null and account != '' ">
+    		<![CDATA[ and account = #{account} ]]>
+		</if> 
+		<if test="status != null and status != '' ">
+    		<![CDATA[ and status = #{status} ]]>
+		</if>
+		<if test="orderNum != null and orderNum != '' ">
+    		<![CDATA[ and orderNum = #{orderNum} ]]>
+		</if>
+		<if
+			test="startTime != null and endTime != null and startTime != '' and endTime != ''">
+    		<![CDATA[  and creat_time between #{startTime} and #{endTime} ]]>
+		</if>
+		and code NOT in
+		(
+		select top (#{num}*(#{pageNum}-1)) code from
+		[wd_insurance_order_tb]
+		WHERE game_name=#{gameName} 
+		<if test="account != null and account != '' ">
+    		<![CDATA[ and account = #{account} ]]>
+		</if> 
+		<if test="status != null and status != '' ">
+    		<![CDATA[  and status = #{status} ]]>
+		</if>
+		<if test="orderNum != null and orderNum != '' ">
+    		<![CDATA[ and orderNum = #{orderNum} ]]>
+		</if>
+		<if
+			test="startTime != null and endTime != null and startTime != '' and endTime != ''">
+    		<![CDATA[  and creat_time between #{startTime} and #{endTime} ]]>
+		</if>
+		ORDER by code
+		)
+		ORDER by code
+	</select>
+	<select id="selectOrderByConditionExcel"  resultMap="OrderBean" resultType="list" parameterType="MyOrderParameterBean">
+	  select  * 
+		from [wd_insurance_order_tb] 
+		WHERE game_name=#{gameName} 
+		<if test="account != null and account != '' ">
+    		<![CDATA[ and account = #{account} ]]>
+		</if> 
+		<if test="status != null and status != '' ">
+    		<![CDATA[ and status = #{status} ]]>
+		</if>
+		<if test="orderNum != null and orderNum != '' ">
+    		<![CDATA[ and orderNum = #{orderNum} ]]>
+		</if>
+		<if
+			test="startTime != null and endTime != null and startTime != '' and endTime != ''">
+    		<![CDATA[  and creat_time between #{startTime} and #{endTime} ]]>
+		</if>
+		ORDER by code
+	</select>
+	<select id="selcetCountByCondition" resultType="Integer"
+		parameterType="MyOrderParameterBean">
+		select count(*)
+		from [wd_insurance_order_tb]
+		WHERE game_name=#{gameName} 
+		<if test="account != null and account != '' ">
+    		<![CDATA[ and account = #{account} ]]>
+		</if> 
+		<if test="status != null and status != '' ">
+    		<![CDATA[ and status = #{status} ]]>
+		</if>
+		<if
+			test="startTime != null and endTime != null and startTime != '' and endTime != ''">
+    		<![CDATA[  and creat_time between #{startTime} and #{endTime} ]]>
+		</if>
+	</select>
+
+	<insert id="addOrder" parameterType="MyOrderParameterBean">
+		insert into
+		wd_insurance_order_tb
+		(order_num,gyyx_order_num,name,phone,order_type,picture_url,account,server_group,server_name,level,
+		protection,circle,reparation,ip,role_name,game_name)
+		values
+		(#{orderNum},#{gyyxOrderNum},#{name},#{phone},#{orderType},#{pictureUrl},#{account},#{serverGroup},#{serverName},#{level},
+		#{protection},#{circle},#{reparation},#{ip},#{roleName},#{gameName})
+
+
+	</insert>
+	<select id="selectProtectionSUM" resultType="Float" parameterType="MyOrderParameterBean">
+	  select SUM(protection) from [wd_insurance_order_tb] where status != 'nopay' and status != 'failpay' 
+	  <if test="startTime != null and endTime != null">
+    		<![CDATA[  and creat_time between #{startTime} and #{endTime} ]]>
+		</if>
+	</select>
+
+
+</mapper>

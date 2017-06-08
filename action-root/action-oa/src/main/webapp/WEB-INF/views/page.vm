@@ -1,0 +1,62 @@
+<div class="table-responsive">
+	<table class="table table-striped m-b-none">
+		<form    method="post"   >
+			<thead>
+				<tr>
+					<th width="20">
+						<input type="checkbox">
+					</th>
+					<th>用户ID</th>
+					<th>图片ID</th>
+					<th>图片CODE</th>
+					<th>图片状态</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+    <tbody>										
+           #foreach ( $!{li} in $!{imgInfo} )
+                <tr>
+                    <td>
+                        <input type="checkbox" name="passImgBox" value="${li.imgCode}">
+                    </td>
+                        <td>$li.userCode</td>
+						<td>$li.imgCode</td>
+                        <!--<td><img src="$li.tempUrl" alt="天下第一宠" height="300" width="200" /></td>-->
+						<td>$li.imgFeature</td>
+                        <td>$li.imgStatus</td>
+                        <td>
+						#if ($li.imgStatus.equals("checked"))
+							<a class="btn btn-xs btn-info js_editRole" data-toggle="tooltip" data-title="取消通过" style="height:22px;width:60px"  title="" onclick="canclePassImgI('${li.imgCode}')" >取消审核</a>
+						#elseif ($li.imgStatus.equals("uncheck"))
+                            <a class="btn btn-xs btn-info js_editRole" data-toggle="tooltip" data-title="通过审核" style="height:22px;width:40px"  title="" onclick="passImgX('${li.imgCode}')" >审核</a>
+                        #else
+                            <a class="btn btn-xs btn-info js_editRole" data-toggle="tooltip" data-title="通过审核" style="height:22px;width:40px"  title="" onclick="passImgX('${li.imgCode}')" >审核</a>
+                        #end
+						</td>
+                </tr>
+		   #end
+		   <!--<input  id="passAll"  name="passAll" type="button" value="提交全部" class="btn btn-s-md btn-info btn-rounded" onclick="passAll()">-->
+    </tbody>
+        </form>
+	</table>
+	<input type="hidden" id="sumInfoNum" name="sumInfoNum" value="${sumInfoNum}">
+	<input type="hidden" id="maxPage" name="maxPage" value="${maxPage}">
+	<input type="hidden" id="nowPage" name="nowPage" value="${nowPage}">
+</div>
+<div class="row dataTables_wrapper">
+	<div class="col-sm-6">
+		<div id="maxPage" class="dataTables_info">共$!{sumInfoNum}条</div>
+			<input type="hidden" id="maxPageInfo" name="maxPageInfo" value="$!{maxPage}"/>
+            <input type="hidden" id="nowpageNew" name="nowPageNew" value="${nowPage}">
+		</div>
+		<!--<div class="col-sm-6">-->
+		<div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers">
+			<a id="DataTables_Table_0_first" class="first paginate_button paginate_button_disabled" tabindex="0" onclick="homePage()" >首页</a>
+			#foreach( ${lip} in ${pageNum} )
+				<a id="nowPageNum" name="nowPageNum"  class="paginate_button" tabindex="0" onclick="jumpPage('${lip}')" >${lip}</a>
+			#end
+			<a id="imgLastPage" name="imgLastPage" class="last paginate_button" tabindex="0" onclick="lastPage()" >末页</a>									
+		</div>
+	</div>								
+</div>
+

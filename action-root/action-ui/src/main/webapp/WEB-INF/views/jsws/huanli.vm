@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>绝世武神-签到抽奖活动</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/jswstower/css/js151013.css" />
+    <script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+	<script src="${rc.contextPath}/commonSupporter/actionUtil?actionCode=279"></script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="js_wrap">
+        <div class="main">
+            <!--左侧-->
+            <div class="js_left">
+                <div class="js_return"><a href="http://jswsol.gyyx.cn/Home/index.shtml">返回官网</a></div>
+                <div class="js_item">
+                    <ul>
+                        <li><a href="${rc.contextPath}/commonS/index" class="a01">修炼塔介绍</a></li>
+                        <li><a href="${rc.contextPath}/commonS/jifen" class="a02">我的武道积分</a></li>
+                        <li><a href="${rc.contextPath}/commonS/xiulian" class="a03">武道修炼</a></li>
+                        <li class="on"><a href="${rc.contextPath}/commonS/huanli" class="a04">武道积分换礼</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--右侧-->
+            <div class="js_right">
+                <div class="js_box">
+                    <div class="js_ad">广告语</div>
+					<!--抢激活码-->
+            <div class="js_jhm"><a href="${rc.contextPath}/commonS/huanli">抢激活码</a></div>
+                    <!--登录前-->
+                    <div class="js_login js_loginBefore" style="display: none;">
+                        <p>尊敬的玩家，您好！  请先：<a href="javascript:;" class="js_login">登录</a></p>
+                    </div>
+                    <!--登录后-->
+                    <div class="js_login js_loginAfter clear" style="display: block;">
+                        <div class="js_info">
+                            <p>
+                                <strong>昵称</strong><br />
+                                
+                            </p>
+                            <a href="#">退出登录</a>
+                        </div>
+                        <ul class="js_detail clear">
+                            <li><strong>我的武道积分</strong><br />
+                                分</li>
+                            <li><strong>已用武道积分</strong><br />
+                                分</li>
+                            <li><strong>已连续签到</strong><br />
+                                分</li>
+                        </ul>
+                    </div>
+                    <div class="js_cont04">
+                        <h2 class="js_h01">积分兑换</h2>
+                        <div class="cont04_d01 clear">
+                            <div class="d01_pic">
+                                <img src="http://static.cn114.cn/action/jswstower/images/js151013_pic01.jpg" />
+                            </div>
+                            <div class="d01_txt">
+                                <h3>积分兑换  VIP测试资格 限量领取</h3>
+                                <p><strong>消耗积分：</strong>50</p>
+                                <p><strong>兑换时间：</strong>X月X日正式开启</p>
+                                <p class="js_issign"></p>
+								<a href="javascript:;" class="d01_btn js_ischange">确定</a>
+                            </div>
+                        </div>
+                        <h2 class="js_h02">武者福利 幸运大转盘 </h2>
+                        <p><strong>消耗积分：</strong>200</p>
+                        <p><strong>抽奖时间：</strong>X月X日—X月X日</p>
+                        <div class="js_zpbg">
+                            <a class="start" href="javascript:void(0);" id="js_start" style="text-indent: -4000px;"  data-state="yes">go</a>
+                            <div class="js_img zp0" id="dzp0"></div>
+                            <div class="js_img zp1" id="dzp1"></div>
+                            <div class="js_img zp2" id="dzp2"></div>
+                            <div class="js_img zp3" id="dzp3"></div>
+                            <div class="js_img zp4" id="dzp4"></div>
+                            <div class="js_img zp5" id="dzp5"></div>
+                        </div>
+                        <p><strong>恭喜以下武者中奖</strong></p>
+                        <div class="prize_box">
+                            <h4>恭喜中奖</h4>
+                            <div class="prize_cont prizeconts">
+                                <div class="prite_txt">
+                                   <ul id="js_tbody" style="height:154px;overflow:hidden">
+								   <li><span class="lileft">ba***7</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">tb***6</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">hl***x</span><span class="liright">Kindle电子阅读器</span></li>
+								   <li><span class="lileft">hu***n</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">ni***u</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">xi***4</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">je***e</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">qq***8</span><span class="liright">50元话费充值卡</span></li>
+								   <li><span class="lileft">po***3</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">zj***0</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">ji***8</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">wo***u</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">my***7</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">en***e</span><span class="liright">50元话费充值卡</span></li>
+								   <li><span class="lileft">bo***8</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">wo***1</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">qq***5</span><span class="liright">50元京东购物卡</span></li>
+								   <li><span class="lileft">we***0</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">ng***1</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">el***8</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--滚动条遮罩层-->
+            <div class="js_mask"></div>
+        </div>
+    </div>
+    <!--弹层：恭喜中奖-->
+    <div class="tc tc01 js_tcstprize" id="virtualPrize" style="display:none;">
+        <a href="#" class="close js_tcclose js_getjf"></a>
+        <h3 class="tc_tit js_tczjtitle">恭喜中奖</h3>
+        <div class="tc_cont">
+            <p><span class="js_tcgxzj">恭喜您，中奖：</span></p>
+            <p><i class="js_prizes">Kindle电子阅读器</i></p>
+            <a href="#" class="btn js_tcclose js_getjf">确定</a>
+        </div>
+    </div>
+    <!--弹层：积分兑换-->
+    <div class="tc tc02 js_tcchange" style="display: none;">
+        <a href="#" class="close js_tcclose"></a>
+        <h3 class="tc_tit">积分兑换</h3>
+        <div class="tc_cont">
+            <p><span>恭喜您，兑换成功！</span></p>
+            <p>您的激活码为：<i class="js_jhmcode"></i>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="copy js_copy">复制</a></p>
+            <a href="#" class="btn js_tcclose">确定</a>
+        </div>
+    </div>
+    <!--公用底部-->
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+    <!--弹层：遮罩层-->
+    <div class="pop_mask"></div>
+</body>
+<script type="text/javascript" src="http://static.cn114.cn/action/jswstower/js/ymscrollbar.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/jswstower/js/scrolltext.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/jswstower/js/js151013.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/jswstower/js/Lottery.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".js_wrap").Wdhlinfo();
+    });
+    //滚动
+//滚动
+    var scrollup = new ScrollText("js_tbody");
+        scrollup.LineHeight = 25;        //单排文字滚动的高度
+        scrollup.Amount = 1;            //注意:子模块(LineHeight)一定要能整除Amount.
+        scrollup.Delay = 20;           //延时
+        scrollup.Start();             //文字自动滚动
+        scrollup.Direction = "up";   //默认设置为文字向上滚动
+</script>
+</html>

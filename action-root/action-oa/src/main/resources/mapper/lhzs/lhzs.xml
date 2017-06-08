@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lhzs.oa.activityCode.ILHZSendPresentLogMapper">
+	<!-- 激活-产品 -->
+	<select id="getActivationProduct" parameterType="String" resultType="int">
+		select count(l.code)
+		from activity_code_channel c right join game_activation_code l on c.activity_code=l.activation_code
+		where 
+			  l.status=2 
+		  and c.channel=1  
+<![CDATA[ and l.activation_time>#{0} ]]>
+<![CDATA[ and l.activation_time<#{1} ]]>
+	</select>
+	<!-- 激活-市场 -->
+	<select id="getActivationMarket" parameterType="String" resultType="int">
+		select count(l.code)
+		from activity_code_channel c right join game_activation_code l on c.activity_code=l.activation_code
+		where 
+			    l.status=2 
+		    and c.channel=2  
+  <![CDATA[ and l.activation_time>#{0} ]]>
+  <![CDATA[ and l.activation_time<#{1} ]]>
+	</select>
+	<!-- 发放-产品 （发放未激活） -->
+	<select id="getSendMarket" parameterType="String" resultType="int">
+    	select count(l.code)
+		from hd_send_present_log l 
+		where 
+			l.activity_id=278 
+		and l.present_type='noRealPrize' 
+		and l.present_name='灵魂战神激活码' 
+<![CDATA[ and l.draw_time>#{0} ]]>
+<![CDATA[ and l.draw_time<#{1} ]]>
+	</select>
+	<!-- 发放-产品 （当天发放激活） -->
+	<select id="getSendMarket2" parameterType="String" resultType="int">
+		select count(l.code)
+		from activity_code_channel c right join hd_send_present_log l on l.present_name = c.activity_code
+		where 
+			c.channel=1 
+		and l.activity_id=278 
+		and l.available=1 
+		and l.present_type='noRealPrize' 
+<![CDATA[ and l.draw_time>#{0} ]]>
+<![CDATA[ and l.draw_time<#{1} ]]>
+	</select>
+	<!-- 导数据 -->
+	<update id="insertActivationCode" statementType="CALLABLE" parameterMap="para">
+		<![CDATA[   
+         {
+        	call lhzs_insert_activtion_code
+         	   (
+         	  	#{num, mode=IN, jdbcType=INTEGER},
+         	  	#{channel, mode=IN, jdbcType=INTEGER},
+         	  	#{channelStr, mode=IN, jdbcType=VARCHAR},
+         	  	#{cardType, mode=IN, jdbcType=VARCHAR},
+         	  	#{status, mode=IN, jdbcType=INTEGER},
+         	  	#{gameId, mode=IN, jdbcType=INTEGER},
+         	  	#{desc, mode=IN, jdbcType=VARCHAR},
+         	  	#{actionCode, mode=IN, jdbcType=INTEGER},
+          		#{errorMes, mode=OUT, jdbcType=VARCHAR}
+          		)
+          }
+        ]]>
+	</update>
+	<parameterMap id="para" type="map">
+		<parameter property="num" jdbcType="INTEGER" mode="IN" />
+		<parameter property="channel" jdbcType="INTEGER" mode="IN" />
+		<parameter property="channelStr" jdbcType="VARCHAR" mode="IN" />
+		<parameter property="cardType" jdbcType="VARCHAR" mode="IN" />
+		<parameter property="status" jdbcType="INTEGER" mode="IN" />
+		<parameter property="gameId" jdbcType="INTEGER" mode="IN" />
+		<parameter property="actionCode" jdbcType="INTEGER" mode="IN" />
+		<parameter property="errorMes" jdbcType="VARCHAR" mode="OUT" />
+	</parameterMap>
+	<!-- 查找所有渠道与描述  -->
+	<select id="searchActivityChannel" resultMap="ActivityChannelBean" resultType="List">
+	    select channel,channel_des
+  		from activity_code_channel
+  	    group by channel,channel_des
+	</select>
+	<!-- 获取市场激活的详细信息 -->
+	<select id="getActivityMarketDetailed" resultType="List" resultMap="UserMesBean">
+		select 
+			l.activation_time as 'activation_time' 
+		   ,l.user_id as 'user_id'
+		   ,l.activation_code as activation_code
+		   ,c.code as code
+		from activity_code_channel c right join game_activation_code l on c.activity_code=l.activation_code
+		where 
+			  l.status=2 and c.channel=2  
+<![CDATA[ and l.activation_time>#{0} ]]>
+<![CDATA[ and l.activation_time<#{1} ]]>
+		order by c.code 
+	</select>
+	<!-- 通过Code区分市场激活详细信息 -->
+	<select id="getActivityMarketDetailedToCode" resultType="List" resultMap="UserMesBean">
+		select 
+			l.activation_time as 'activation_time' 
+		   ,l.user_id as 'user_id'
+		   ,l.activation_code as activation_code
+		   ,c.code as code
+		from activity_code_channel c right join game_activation_code l on c.activity_code=l.activation_code
+		where 
+			  l.status=2 and c.channel=2  
+<![CDATA[ and l.activation_time>#{0} ]]>
+<![CDATA[ and l.activation_time<#{1} ]]>
+<![CDATA[ and c.code>#{2} ]]>
+<![CDATA[ and c.code<#{3} ]]>
+		order by c.code 
+	</select>
+	<resultMap type="UserMesBean" id="UserMesBean">
+		<id column="code" property="code" />
+		<result column="activation_code" property="activationCode" />
+		<result column="activation_time" property="activationTime" />
+		<result column="user_id" property="userId" />
+	</resultMap>
+	<resultMap type="ActivityChannelBean" id="ActivityChannelBean">
+		<id column="code" property="code" />
+		<result column="action_code" property="actionCode" />
+		<result column="activity_code" property="activityCode" />
+		<result column="channel" property="channel" />
+		<result column="channel_des" property="channelDes" />
+	</resultMap>
+</mapper>

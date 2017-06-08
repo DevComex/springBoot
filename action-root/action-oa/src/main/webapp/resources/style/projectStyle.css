@@ -1,0 +1,22 @@
+﻿/*字体配置*/
+@font-face{
+    font-family:'FontAwesome';
+    src:url('fontawesome-webfont.eot?v=4.0.3');
+    src:url('fontawesome-webfont.eot?#iefix&v=4.0.3') format('embedded-opentype'),url('fontawesome-webfont.woff?v=4.0.3') format('woff'),url('fontawesome-webfont.ttf?v=4.0.3') format('truetype'),url('fontawesome-webfont.svg?v=4.0.3#fontawesomeregular') format('svg');
+    font-weight:normal;
+    font-style:normal
+}
+
+/*项目系统独立扩展样式*/
+.pad-t-xs{padding-top:5px;}
+.pad-l-p8{padding-left:8%;}
+#content th,#content td{padding:12px 15px 8px;}
+span.required { display: block;  color: #f00; margin-left: -20px; margin-top: 10px;  font-family: Verdana; font-size:14px;}
+.filter_letter{padding:0 20px; cursor:default;}
+.filter_letter a{padding:6px; cursor:default;}
+.filter_letter a:hover,.filter_letter a.cur{background:#4cc0c1; color:#fff; border-radius:2px;}
+.row .domain_sel{height:200px;}
+.row .dmselbtn{padding-left:0;}
+.row .dmselbtn input{width:50px;}
+.domain_ullist{padding:0; list-style:none;}
+.domain_ullist li{padding:2px 0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}

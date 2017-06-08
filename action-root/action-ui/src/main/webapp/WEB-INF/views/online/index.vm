@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>光宇币兑换</title>
+<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/online/css/cs150907.css">
+	<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+	<script  type="text/javascript">
+        var rc = "${rc.contextPath}";
+	 </script>
+</head>
+<body>
+	<div class="wrap">
+		<div class="main">
+			<div class="cs_top">
+				<div class="cs_left">
+					<p>再次向曾经陪伴过《创世》的朋友们道声珍重。<br />没有你们的大力支持、热情参与，也就没有《创世》的这段美好回忆。希望大家能够一如既往的支持和关注光宇旗下各大类型的优秀产品，我们也盛情邀请您的光临！</p>
+				</div>
+				<div class="cs_right">
+    					<h2>剩余元宝返还查询</h2>
+    					<p class="cs_form"><label>社区账号：</label><input id="accountString" name="account" type="text" /><span id="tipSpan"></span></p>
+    					<p class="cs_form"><label>验 证  码：</label><input class="inp_yzm" type="text" name="code" id="codeString"/><img salt="验证码" title="看不清楚,请点击." src="http://api.gyyx.cn/Captcha/CreateVJ.ashx" id="captcha_image" width="88" height="30" /></p>
+    					<p class="cs_form" id="errorTip" style="color:red;margin-left:40%"></p>
+    					<p class="cs_txt">账号内剩余金元宝将按照100金元宝对应1光宇币的比例返还到您的光宇社区账号中，不足1光宇币的部分按照1光宇币计算</p>
+    					<a class="cs_btn">申请返还</a>
+    					<p class="cs_txt">光宇游戏将持续为大家奉献更多更好玩的精品网游，分别只是为再次的相聚，我们竭诚以待，将一如既往的为您提供最优质的服务。</p>
+				</div>
+			</div>
+			<div class="cs_link"><a href="http://wd.gyyx.cn/" target="_blank">问道</a><a href="http://58.gyyx.cn/" target="_blank">炫舞吧</a><a href="http://tssj.gyyx.cn/" target="_blank">天书</a><a href="http://wj.gyyx.cn/" target="_blank">万界</a><a href="http://7j.gyyx.cn/" target="_blank">七剑</a><a href="http://fy.gyyx.cn/" target="_blank">风云</a></div>
+		</div>
+	</div>
+    <!-- 弹出层 -->
+    <div class="cs_tcc" id="maskBox">
+    	<div class="tcc_con">
+    		<p id="boxMessage"></p>
+    		<a href="javascript:;" class="tcc_btn"></a>
+    	</div>
+    	<a class="colse" href="javascript:;"></a>
+    </div>
+	<script type="text/javascript" src="http://static.cn114.cn/action/online/js/csOnline.js"></script>
+</body>
+</html>

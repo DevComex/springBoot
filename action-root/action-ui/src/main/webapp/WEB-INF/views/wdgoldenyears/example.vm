@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<title>流金岁月</title>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "//hm.baidu.com/hm.js?173b64e286515817f56f3bf619589e17";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>	
+		<style>
+			html, body {position: relative;height: 100%;overflow: hidden;}
+			body {margin: 0;padding: 0;}
+			img{width:100%;height:100%;border:none;}
+			.swiper-container {width: 100%;height: 100%;}
+			.swiper-slide{position:relative;}
+			.musicwrap{position:fixed;top:2rem;right:2rem;background:url(http://static.cn114.cn/action/wdgoldenyears/images/musicicon.png) no-repeat;background-size:contain;width:2rem;height:2rem;z-index:10;}
+			.pause{background-image:url(http://static.cn114.cn/action/wdgoldenyears/images/musicicon2.png);}
+			.next{position:absolute;bottom:2rem;left:50%;width:2.1875rem;height:1.75rem;margin-left:-1rem;}
+			.jumpbg{position:absolute;bottom:2rem;left:50%;width:85%;height:2rem;margin-left:-42.5%;color:#fff;line-height:2rem;text-decoration:none;text-align:center;background-color:#000;opacity:0.4;border-radius: 0.5rem;}
+			.jump{position:absolute;bottom:2rem;left:50%;width:85%;height:2rem;margin-left:-42.5%;color:#fff;line-height:2rem;text-decoration:none;text-align:center;border-radius: 0.5rem;}
+    		</style>
+	</head>
+	<body>
+		<div id="musicWrap" class="musicwrap">
+			<audio id="playMusic" src="http://static.cn114.cn/action/wdgoldenyears/music/1.mp3"  loop="loop" autoplay="autoplay" >
+			</audio>
+		</div>
+		<div class="swiper-container">
+			<div class="swiper-wrapper">
+				<div class="swiper-slide"><img src="http://static.cn114.cn/action/wdgoldenyears/images/example1.jpg" /><a class="next" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/nexticon.png" /></a></div>
+				<div class="swiper-slide"><img src="http://static.cn114.cn/action/wdgoldenyears/images/example2.jpg" /><a class="next" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/nexticon.png" /></a></div>
+				<div class="swiper-slide"><img src="http://static.cn114.cn/action/wdgoldenyears/images/example3.jpg" /><a class="next" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/nexticon.png" /></a></div>
+				<div class="swiper-slide"><img src="http://static.cn114.cn/action/wdgoldenyears/images/example4.jpg" /><span class="jumpbg"></span><a class="jump" href="">点击进入，投票或创建我的流金岁月</a></div>
+			</div>
+		</div>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/jquery-1.8.2.min.js"></script>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/gyyx_wxshare.min.js"></script>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/swiper.js"></script>
+		<script>
+			/*从url获取参数*/
+			function getQuery(name, str) {
+			    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"),
+			        r = !str ? window.location.search.substr(1).match(reg) : str.substr(1).match(reg);
+			    if (r != null) {
+			        return unescape(r[2]);
+			    }
+			    return null;
+			}
+			//绑定链接
+			function bindLink(targetLink, pageName, para){
+				// targetLink = $(".class");
+				// pageName = "index.html";
+				// para = {"OpenId":"", "times":"", "sign":"", "form":""}
+				var par = decodeURIComponent(window.location.search);
+				var href = "http://actionv2.gyyx.cn/GoldenYears/"+pageName+"?";
+				for(var name in para){
+					var value= getQuery(name, par) != null ? getQuery(name, par) : para[name];
+					href += name +"=" +value +"&";
+				}
+				href = href.substring(0, href.length-1);
+				targetLink.attr("href", href);
+			}
+
+			
+			$(function(){
+				var swiper = new Swiper('.swiper-container', {
+					direction: 'vertical'
+				});
+				$(".next").click(function(){
+					swiper.slideNext();
+					return false;
+				});
+				var music = document.getElementById("playMusic");
+				$("#musicWrap").click(function(){
+					if($(this).hasClass("pause")){
+						$(this).removeClass("pause");
+						music.play();
+					}else{
+						$(this).addClass("pause");
+						music.pause();
+					}
+				});
+				$(".jump").attr("href","http://actionv2.gyyx.cn/GoldenYears/index"+decodeURIComponent(window.location.search));
+				
+				
+				//微信分享
+				var par = decodeURIComponent(window.location.search);
+				var hdName = "流金岁月", OpenId = getQuery("OpenId", par);
+				wxShare({
+					debug: false,
+					game: "wd",
+					title: '十年问道，不忘初心，十周年嘉年华疯狂来袭，快快来关注“问道”送祝福吧！',
+					desc: '十年问道，不忘初心，十周年嘉年华疯狂来袭，快快来关注“问道”送祝福吧！',
+					link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc0f025a1feb5c567&redirect_uri=http%3a%2f%2faction.gyyx.cn%2fWebAuthorize%2fWeiXinAuth.ashx&response_type=code&scope=snsapi_base&state=351#wechat_redirect',
+					imgUrl: "http://action.gyyx.cn/subway/images/share_pic.jpg",
+					trigger: function () {},
+					success: function () {
+						alert("分享成功！");
+						//Ajax("http://action.gyyx.cn/WDWeiXinWishVideo/AddShareLog?hdName=" + hdName + "&OpenId=" + OpenId, "GET", function (d) {
+						//		if (d.IsSuccess) {} else {}
+						//});
+					},
+					cancel: function () {
+						alert("分享失败")
+					}
+				});
+				
+
+			});
+							
+
+		</script>
+	</body>
+</html>

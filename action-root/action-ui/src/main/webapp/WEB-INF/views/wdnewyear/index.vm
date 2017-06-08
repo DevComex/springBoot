@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>问道 拜年</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdnewyear/css/swiper.css"/>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wdnewyear/css/style.css" />
+    <script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?136b9a1c1fb428aa7a301683f617c64e";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+<body>
+   
+	<!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+            	<img src="http://static.cn114.cn/action/wdnewyear/img/pg1.jpg" />
+            	<div class="content">
+            		<div class="videos">
+            			<iframe class="video_iframe vv" frameborder="0" allowfullscreen="" scrolling="no" src="https://v.qq.com/iframe/player.html?vid=l13027u6gzw&amp;auto=0&amp;encryptVer=6.0&amp;platform=60401&amp;cKey=v7H8Ss6o3moqm5iC09LOCTPpIp6ZPhqr1BMrGCqZ262hvD86wowkQUOot58F5RUR" style="margin: 0px; padding: 0px; max-width: 100%; display: block; z-index: 1; overflow: hidden; box-sizing: border-box !important; word-wrap: break-word !important; "></iframe>
+            			
+            			<!--<video src="http://mp.weixin.qq.com/mp/video?__biz=MjM5ODgyMTMxNA==&mid=402876590&sn=acdc2ae81217eae1dc3b9c3e12c0386d&vid=l13027u6gzw&idx=1&scene=1#wechat_redirect" autoplay="autoplay"  controls="controls"  id="tsvideo"></video>
+            			
+            			<img src="img/btn.png" class="bb"/>-->
+            			<!--<iframe height="498" width=“510” src="http://player.youku.com/embed/XMTQ1NTk5NDY2OA==" frameborder=0 allowfullscreen></iframe>-->
+            		</div>
+            		<div class="start sbn">
+            			<img src="http://static.cn114.cn/action/wdnewyear/img/start.jpg" />
+            		</div>
+            	</div>
+            </div>
+            <div class="swiper-slide">
+            	<img src="http://static.cn114.cn/action/wdnewyear/img/bg1.png" class="page2" uid="1"/>
+            	<div class="content">
+            		<div class="jiyu">
+            			<img src="http://static.cn114.cn/action/wdnewyear/img/jy.png"/>
+            			<textarea class="cont"  maxlength="50">请填写您的新年寄语~</textarea>
+            		</div>
+            		<div class="more">
+            			<img src="http://static.cn114.cn/action/wdnewyear/img/lbtn.png" class="lbtn"/>
+            			<p>更换背景图</p>
+            			<img src="http://static.cn114.cn/action/wdnewyear/img/rbtn.png" class="rbtn"/>
+            		</div>
+            		<div class="start sfx">
+            			<img src="http://static.cn114.cn/action/wdnewyear/img/bnbtn.png" />
+            		</div>
+            	</div>
+            </div>
+        </div>
+    </div>
+<div class="zzc">
+	<img src="http://static.cn114.cn/action/wdnewyear/img/zzc.png" />
+</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdnewyear/js/zepto.js" ></script>
+<script src="http://static.cn114.cn/action/wdnewyear/js/swiper.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdnewyear/js/gyyx_wxshare.min.js" ></script>
+<script>
+	var swiper = new Swiper('.swiper-container', {
+		paginationClickable: true,
+	    direction: 'vertical',
+	    onSlideChangeEnd: function(swiper){
+	        var index = swiper.activeIndex;
+		    navS(index);
+	    },
+	    onTouchStart: function(swiper,even){
+	      swiper.lockSwipes();
+	    }
+	});
+	$(".sbn").on("tap",function(){
+		swiper.unlockSwipes();
+    	swiper.slideTo(1, 500, false);//切换到第2个slide，速度为1秒
+    	
+        var geturl = "http://actionv2.gyyx.cn/wechatCount/ajaxBackstageCount?countType=newyearJoin";
+        $("body").append("<img src=" + geturl + " border=0 width=0 height=1 style='display:none;'>");
+    })
+	var i=1;
+	$(".rbtn").on("tap",function(){
+		if(i==4){
+			i=0;
+		}
+		i++;
+		$(".page2").attr({"src":"http://static.cn114.cn/action/wdnewyear/img/bg"+i+".png","uid":i});
+	})
+	$(".lbtn").on("tap",function(){
+		if(i==1){
+			i=5;
+		}
+		i--;
+		$(".page2").attr({"src":"http://static.cn114.cn/action/wdnewyear/img/bg"+i+".png","uid":i});
+	})
+	function trim(str){
+		return  str.replace(/\s+/g,""); 
+	}
+	$(".cont").focus(function(){
+		if( $(".cont").val()=="请填写您的新年寄语~"){
+			$(".cont").val("");
+		}
+	}) 
+	$(".cont").blur(function(){
+	
+		if( $(".cont").val()==""){
+			$(".cont").val("请填写您的新年寄语~");
+		}
+		$(".cont").text(trim($(".cont").val()))
+		
+	}) 
+	$(".zzc").on("tap",function(){
+		$(".zzc").hide();
+	})
+	var txt,id;
+	$(".sfx").on("tap",function(){
+		if( trim($(".cont").val()).length==0 ||  trim($(".cont").val())=="请填写您的新年寄语~"){
+			alert("请填写新年寄语！")
+		}else{
+			$(".zzc").show();
+		}
+		txt = $(".cont").val();
+		id = $(".page2").attr("uid");
+		/*微信分享*/
+	    wxShare({
+		    debug: false,
+		    game: "wd",
+		    title: "红包与奖品齐飞，好运和祝福同享，《问道》携手孙茜百万豪礼拜大年",
+		    desc: "红包与奖品齐飞，好运和祝福同享，《问道》携手孙茜百万豪礼拜大年",
+		    link: "http://actionv2.gyyx.cn/wdnewyear/share?content="+txt+"&num="+ id,
+		    imgUrl: "http://static.cn114.cn/action/wdnewyear/img/stitle.jpg",
+		    success: function () {
+		    	$(".zzc").hide();
+		        var geturl = "http://actionv2.gyyx.cn/wechatCount/ajaxBackstageCount?countType=newyearShare";
+		        $("body").append("<img src=" + geturl + " border=0 width=0 height=1 style='display:none;'>");
+		        window.location.href="http://b.fanso2o.com/Common/Activity?storeId=567ba3773c306b2d50235d2f";       
+		    },
+		    cancel: function () {
+		        //alert("取消了分享:(");
+		    }
+		});
+	})
+	
+	//console.log($(".page2").attr("uid"));
+	
+	
+
+
+	
+</script>
+
+
+
+</body>
+</html>

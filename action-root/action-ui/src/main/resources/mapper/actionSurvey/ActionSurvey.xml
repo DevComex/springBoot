@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.actionSurvey.IActionSurveyInfoBeanMapper">
+	<resultMap id="IActionSurveyInfoBeanMapper" type="cn.gyyx.action.beans.actionsurvey.ActionSurveyInfoBean">
+		<id column="code" property="code" />
+		<result column="action_code" property="actionCode" />
+		<result column="sex" property="sex" />
+		<result column="birthday" property="birthday" />
+		<result column="city" property="city" />
+		<result column="source" property="source" />
+		<result column="quality" property="quality" />
+		<result column="time" property="time" />
+		<result column="recently_game" property="recentlyGame" />
+		<result column="loss_reason" property="lossReason" />
+		<result column="phone_num" property="phoneNum" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
+
+	<!-- 插入调查问卷信息 -->
+	<insert id="insertSurveyInfoBean" parameterType="cn.gyyx.action.beans.actionsurvey.ActionSurveyInfoBean">
+		insert into
+		action_servey_tb (
+		action_code
+		,sex
+		,birthday
+		,city
+		,source
+		,quality
+		,time
+		,recently_game
+		,loss_reason
+		,phone_num
+		,create_time)
+		values(
+		#{actionCode}
+		, #{sex}
+		,#{birthday}
+		,#{city}
+		,#{source}
+		,#{quality}
+		,#{time}
+		,#{recentlyGame}
+		,#{lossReason}
+		,#{phoneNum}
+		,#{createTime})
+	</insert>
+
+	<!-- 查询是否提交过调查问卷 -->
+	<select id="getInfoByPhoneNum" resultMap="IActionSurveyInfoBeanMapper" resultType="cn.gyyx.action.beans.actionsurvey.ActionSurveyInfoBean"
+		parameterType="cn.gyyx.action.beans.actionsurvey.ActionSurveyInfoBean">
+		select * from
+		action_servey_tb
+		where
+		phone_num = #{phoneNum}
+	</select>
+</mapper>

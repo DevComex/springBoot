@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>个人中心</title>
+    <script type="text/javascript">
+        var rc = "${rc.contextPath}";
+    </script>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/xuanwuba/css/xwb150619.css" type="text/css" />
+    <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=xuanwuba" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.ajax
+			({
+			    url: 'getUserLoginAccount',
+			    type: "get",
+			    data: { r: Math.random() },
+			    dataType: "json",
+			    async: false,
+			    success: function (d) {
+			        if (d.isSuccess) {
+			            $(".js_act").html(d.data);
+			        }
+			    }
+			});
+            $(".js_getifon").click(function () {
+                $.ajax
+				({
+				    url: 'updateInfo',
+				    type: "get",
+				    data: {
+				        serverName: $(".js_serlist").find("option:selected").text(),
+				        serverId: $(".js_serlist").val(),
+				        roleSex: $(".js_sex").val(),
+				        netType: $(".js_nettype").val(),
+				        r: Math.random()
+				    },
+				    dataType: "json",
+				    success: function (d) {
+				        getInfo()
+				    }
+				});
+            });
+            function getserlist(serverName) {
+                $.ajax
+				({
+				    url: 'getXWBServer',
+				    type: "get",
+				    data: {
+				        domainNum: serverName,
+				        r: Math.random()
+				    },
+				    dataType: "json",
+				    success: function (d) {
+				        var serlist = "";
+				        if (d.length > 0) {
+				            for (var i = 0; i < d.length; i++) {
+				                serlist += '<option value="' + d[i].Code + '">' + d[i].ServerName + '</option>';
+				            }
+				        }
+				        $(".js_serlist").html(serlist);
+				        getInfo();
+				    }
+				});
+            }
+            getserlist("1");
+            $(".js_nettype").change(function () {
+                getserlist($(this).val());
+            });
+            function getInfo() {
+                $.ajax
+				({
+				    url: 'getInfo ',
+				    type: "get",
+				    data: {
+				        serverName: $(".js_serlist").find("option:selected").text(),
+				        serverId: $(".js_serlist").val(),
+				        roleSex: $(".js_sex").val(),
+				        netType: $(".js_nettype").val(),
+				        r: Math.random()
+				    },
+				    dataType: "json",
+				    success: function (d) {
+				        if (d.isSuccess) {
+				            $(".js_bindser").html(d.data.serverName);
+				            var roleSex = "";
+				            if (d.data.roleSex == "男") {
+				                roleSex = "帅哥"
+				            } else {
+				                roleSex = "美女"
+				            }
+				            $(".js_bindsex").html(roleSex)
+				        }
+				    }
+				});
+            };
+            checkLogin({
+                success: function (d) {
+                    $(".js_isloginshow").show();
+                    $(".js_isloginhide").hide();
+                },
+                failed: function () {
+                    $(".js_isloginshow").hide();
+                    $(".js_isloginhide").show();
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="s_wrap">
+        <div class="s_wrap01">
+            <div class="s_wrapFooter">
+                <div class="smain">
+                    <div class="header">
+                        <div class="s_nav">
+                            <a href="http://xwb.gyyx.cn/" target="_blank">进入官网</a>|<a href="http://xwb.gyyx.cn/Download/index.shtml" target="_blank">下载游戏</a>|<a href="http://bbs.gyyx.cn/forum.php?gid=167" target="_blank">进入论坛</a>|<a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" target="_blank">兑换充值</a>
+                        </div>
+                        <div class="s_left">
+                            <div class="part_login" style="display: none;">
+                                <div class="login">
+                                    <!--登录前-->
+                                    <a href="javascript:;" class="login_btn js_alertlogin_a">登录</a>
+                                    <p>还没有光宇通行证?<a href="http://account.gyyx.cn/Member/Register" target="_blank">点此注册</a></p>
+                                </div>
+                                <!--登录前-->
+                                <div class="success_sign" style="display: none;" id="userSuccess">
+                                    <!--登录后-->
+                                    <h3><span>
+                                        <img src="http://static.cn114.cn/action/xuanwuba/images/xwb150619_qd_pic01.png"></span><p id="loginbar" class="red">
+                                            登录超时<br />
+                                            <a href="javascript:;" class="info_mli_a js_Logout">退出</a>
+                                        </p>
+                                    </h3>
+                                    <p>玩家区组：<i class="red">未选择</i></p>
+                                    <p>性别：<i class="red">未选择</i></p>
+                                    <p><span class="sp01">积分：<i class="red">0</i></span></p>
+                                    <p>累计签到天数：<i class="red">0天</i></p>
+                                </div>
+                                <!--登录后-->
+                            </div>
+                            <div class="s_div s_btn">
+                                <a href="../xuanwuba/signIndex" class="registerBtn "><span class="ico01">签到</span></a>
+                                <a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" class="a02" target="_blank"><span class="ico02">充值</span></a>
+                            </div>
+                        </div>
+                        <a href="index" class="goHome">返回首页</a>
+                    </div>
+                    <div class="s_cont">
+
+                        <h3 class="s_tit">个人中心<span></span></h3>
+						<div class="s_txt">
+                            <p><span>1</span>进行积分抽奖和积分兑换时需完善个人中心的资料才能准确的发放到游戏中。</p>
+                            <p><span>2</span>还可用于查看发布过舞吧征集素材的审核状况，积分信息、中奖信息、兑换信息、以及评论信息等。</p>
+                        </div>
+                        <!--个人中心 已登录-->
+                        <div class="perBox jfBg js_isloginshow mt20">
+                            <div class="perInfo">
+                                <img src="http://static.cn114.cn/action/xuanwuba/images/per_img01.png"><p>您好，(<span class="js_act"></span>)<a href="#" class="js_Logout">退出</a></p>
+                            </div>
+                            <div class="perInfor">
+                                <div class="s_div">
+                                    <select class="sele01 js_nettype">
+                                        <option value="1">网通</option>
+                                        <option value="2">电信</option>
+                                        <option value="3">双线</option>
+                                    </select>
+                                    <select class="sele02 js_serlist">
+                                        <option>请选择服务器</option>
+                                    </select>
+                                    <select class="sele03 js_sex">
+                                        <option value="男">男</option>
+                                        <option value="女">女</option>
+                                    </select>
+                                    <a href="javascript:;" class="js_getifon">提交信息</a>
+                                </div>
+                                <ul>
+                                    <li>玩家区组：<span class="js_bindser">未选择</span></li>
+                                    <li>性别：<span class="js_bindsex">未选择</span></li>
+                                    <li>积分：<span class="js_jf">0</span></li>
+                                    <li>累计签到天数：<span class="js_sign">0天</span></li>
+                                    <li class="perLilast">您当前还可以完成 $!count 个任务<a href="taskShow">去完成GO</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!--个人中心 未登录-->
+                        <div class="perBox jfBg js_isloginhide mt20">
+                            <div class="perInfor nopd">
+                                <a href="javascript:;" class="login_btn js_alertlogin_a">登录</a>
+                                <p>还没有光宇通行证?<a target="_blank" href="http://account.gyyx.cn/Member/Register">点此注册</a></p>
+                            </div>
+                        </div>
+
+                        <div class="perLeft mt20">
+                            <ul>
+                                <li><a href="videoShow" style="color: white">视频发布</a></li>
+                                <li><a href="clothingShow" style="color: white">服装发布</a></li>
+                                <li class="on"><a href="suggestShow" style="color: #e74a76">建议发布</a></li>
+                                <li><a href="drawShow" style="color: white">中奖信息</a></li>
+                                <li><a href="convertShow" style="color: white">兑换信息</a></li>
+                                <li class="last"><a href="commentsShow" style="color: white">我的评论</a></li>
+                            </ul>
+
+                        </div>
+                        <div class="perRight mt20">
+                            <ul class="perVideo jfBg" id="js_tbSzList">
+                            </ul>
+                            <div id="DataTables_Table_0_info" class="dataTables_info"></div>
+                            <div class="page" style="width: 848px; margin: 5px 0 0 0;">
+                                <div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pfNav">
+        <ul>
+            <li><a href="signIndex">每日签到</a></li>
+            <li><a href="taskShow">舞吧任务</a></li>
+            <li><a href="lotteryIndex">舞吧奖励</a></li>
+            <li><a href="collectIndex">舞吧征集</a></li>
+            <li class="on"><a href="videoShow">个人中心</a></li>
+        </ul>
+        <a class="zj_gotop" href="#"></a>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/ymcore.min.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/gyyxEffect.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/xwb150623.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/jquery.ajaxpage-2.2.js"></script>
+    <script type="text/javascript">
+        function page(pageon) {
+            $("#js_tbSzList").ajaxPage({
+                url: "userUploadShowPageJSON",
+                pageObj: $("#DataTables_Table_0_paginate"),
+                pageIndex: pageon,
+                pageSize: 12,
+                curPageCls: "paginate_active",
+                pageInfo: {
+                    obj: $("#DataTables_Table_0_info"),
+                    content: "共{allCount}条  当前第{pageIndex}/{allPage}页"
+                },
+                paramObj: {
+                    materialType: "建议"
+                },
+                dataFn: function (data, $this) {
+                    var dataHtml = "", dCont = data.list;
+                    if (dCont && dCont.length > 0 && dCont[0]) {
+                        for (var i = 0; i < dCont.length; i++) {
+                            if (dCont[i].isChecked == "已通过") {
+                                dataHtml += '<li><h3><p><a href="suggest?materialCode=' + dCont[i].materialCode + '">' + dCont[i].materialName + '</a></p></h3><p class="perP01"><span class="pass"><i></i>' + dCont[i].isChecked + '</span>';
+                            } else if (dCont[i].isChecked == '未审核') {
+                                dataHtml += '<li><h3><p><a>' + dCont[i].materialName + '</a></p></h3><p class="perP01"><span class="wait"><i></i>' + dCont[i].isChecked + '</span>';
+                            } else if (dCont[i].isChecked == '未通过') {
+                                dataHtml += '<li><h3><p><a>' + dCont[i].materialName + '</a></p></h3><p class="perP01"><span class="noby"><i></i>' + dCont[i].isChecked + '</span>';
+                            } else {
+                                dataHtml += '<li><h3><p><a>' + dCont[i].materialName + '</a></p></h3><p class="perP01"><span class="noby"><i></i>' + dCont[i].isChecked + '</span>'
+                            }
+                            dataHtml += '<span class="get"><i></i>获积分 ' + dCont[i].credits + '</span><span class="time">' + dCont[i].uploadTimeStr + '</span></p></li>'
+                        }
+                        $("#js_tbSzList").empty().html(dataHtml);
+                        return dataHtml;
+                    } else if (dCont == null) {
+                    
+                     checkLogin({
+                            success: function (d) {
+                                dataHtml += ' <li class="perUp"><h3><a href="suggestCollect"><i></i><div>快去发布建议吧!</div></a></h3></li>';
+                                $("#js_tbSzList").empty().html(dataHtml);
+                            },
+                            failed: function () {
+                                dataHtml += ' <li class="perUp"><h3><a href="javascript" onclick="alertFn(null, null, true);return false;"><i></i><div>快去发布建议吧!</div></a></h3></li>';
+                                $("#js_tbSzList").empty().html(dataHtml);
+                            }
+                        });
+                    } else {
+                        alert("页码超出范围")
+                        for (var i = 0; i < $(".page a").length; i++) {
+                            if ($(".page a").eq(i).hasClass("paginate_active")) {
+                                page($(".page a").eq(i).text())
+                            }
+                        }
+                    }
+                }
+            });
+        };
+        page(1)
+        $(".js_gopages").die("click").live("click", function () {
+            var reg = /^[0-9]*[1-9][0-9]*$/;
+            if (!reg.test($.trim($(".js_pageipt").val()))) {
+                alert("必须为大于0的整数");
+            } else {
+                page($(".js_pageipt").val())
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!-- 左侧浮动窗口 -->
+ <div class="float_bg" style="display:block;">
+     <div>
+         <a class="float_index" href="${rc.contextPath}/wd10yearcoser/index">首页</a>
+     </div>
+     <div>
+        
+        <a class="float_COS" href="${rc.contextPath}/wd10yearcoser/resourceslist?type=COS_PIC">COS</a>
+     </div>
+     <div >
+       
+    <a class="float_Picture" href="${rc.contextPath}/wd10yearcoser/resourceslist?type=HANDPAINTED">同人画</a>
+     </div>
+     <div >
+     
+     <a class="float_Musiic" href="${rc.contextPath}/wd10yearcoser/resourceslist?type=MUSIC">音乐</a>
+     </div>
+     <div  >
+        
+        <a class="float_Screen" href="${rc.contextPath}/wd10yearcoser/resourceslist?type=VIDEO">视频</a>
+     </div>
+     <div>
+         <a class="float_QR_Code"></a>
+         <span  class="float_QR_span">光宇游戏COS团</span>
+     </div>
+</div>

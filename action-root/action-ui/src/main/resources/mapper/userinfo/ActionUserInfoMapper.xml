@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.userinfo.mapper.IActionUserInfoMapper">
+	
+	<select id="select" parameterType="cn.gyyx.action.beans.userinfo.po.ActionUserInfoPO"
+			resultType="cn.gyyx.action.beans.userinfo.po.ActionUserInfoPO">
+		select *
+		  from action_user_info_tb
+		 where activityId = #{activityId}
+		<if test="userId != null">
+			and userId = #{userId}
+		</if>
+	</select>
+	
+	<select id="selectUserInfo" parameterType="cn.gyyx.action.beans.userinfo.po.ActionUserInfoPO"
+			resultType="cn.gyyx.action.beans.userinfo.vo.UserInfoAndQualificationVO">
+		select ui.activityId, ui.userId, ui.userNick, ui.serverId, ui.serverName,
+		       ui.roleId, ui.roleName, q.lotteryScore as userScore
+		  from action_user_info_tb ui, action_qualification_tb q
+         where ui.activityId = q.activityId 
+           and ui.userId = q.userId
+           and ui.activityId = #{activityId}
+           and ui.userId = #{userId}
+	</select>
+	
+	<update id="update" parameterType="cn.gyyx.action.beans.userinfo.po.ActionUserInfoPO">
+		update action_user_info_tb
+   		<set>
+   			<if test="userNick != null">userNick = #{userNick},</if>
+			<if test="userEmail != null">userEmail = #{userEmail},</if>
+			<if test="userQq != null">userQq = #{userQq},</if>
+			<if test="gameId != null">gameId = #{gameId},</if>
+			<if test="serverId != null">serverId = #{serverId},</if>
+			<if test="serverName != null">serverName = #{serverName},</if>
+			<if test="roleId != null">roleId = #{roleId},</if>
+			<if test="roleName != null">roleName = #{roleName},</if>
+			<if test="roleLevel != null">roleLevel = #{roleLevel},</if>
+			<if test="roleProficiency != null">roleProficiency = #{roleProficiency},</if>
+			<if test="ip != null">ip = #{ip},</if>
+			<if test="source != null">source = #{source},</if>
+			<if test="modifyAt != null">modifyAt = #{modifyAt},</if>
+			<if test="remark != null">remark = #{remark},</if>
+   		</set> 
+		where activityId = #{activityId}
+		  and userId = #{userId}
+	</update>
+	
+	<insert id="insert" parameterType="cn.gyyx.action.beans.userinfo.po.ActionUserInfoPO">
+		insert into action_user_info_tb
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="activityId != null">activityId,</if>
+			<if test="userId != null">userId,</if>
+			<if test="userNick != null">userNick,</if>
+			<if test="userEmail != null">userEmail,</if>
+			<if test="userQq != null">userQq,</if>
+			<if test="gameId != null">gameId,</if>
+			<if test="serverId != null">serverId,</if>
+			<if test="serverName != null">serverName,</if>
+			<if test="roleId != null">roleId,</if>
+			<if test="roleName != null">roleName,</if>
+			<if test="roleLevel != null">roleLevel,</if>
+			<if test="roleProficiency != null">roleProficiency,</if>
+			<if test="ip != null">ip,</if>
+			<if test="source != null">source,</if>
+			<if test="createAt != null">createAt,</if>
+			<if test="modifyAt != null">modifyAt,</if>
+			<if test="remark != null">remark,</if>
+		</trim>
+			values
+			<trim prefix="(" suffix=")" suffixOverrides=",">
+				<if test="activityId != null">#{activityId},</if>
+				<if test="userId != null">#{userId},</if>
+				<if test="userNick != null">#{userNick},</if>
+				<if test="userEmail != null">#{userEmail},</if>
+				<if test="userQq != null">#{userQq},</if>
+				<if test="gameId != null">#{gameId},</if>
+				<if test="serverId != null">#{serverId},</if>
+				<if test="serverName != null">#{serverName},</if>
+				<if test="roleId != null">#{roleId},</if>
+				<if test="roleName != null">#{roleName},</if>
+				<if test="roleLevel != null">#{roleLevel},</if>
+				<if test="roleProficiency != null">#{roleProficiency},</if>
+				<if test="ip != null">#{ip},</if>
+				<if test="source != null">#{source},</if>
+				<if test="createAt != null">#{createAt},</if>
+				<if test="modifyAt != null">#{modifyAt},</if>
+				<if test="remark != null">#{remark},</if>
+			</trim>
+	</insert>
+</mapper>

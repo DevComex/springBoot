@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>终极酷跑礼包领取</title>
+<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/CJKPPresent/css/run151019.css">
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+ <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		//签到成功和失败弹窗
+	    function popLayer(stringMessage){
+	        $("#js_dialogbox").show();
+	        $("#boxMessage").text(stringMessage);
+	       	closeBtn();
+	    };
+	    function popLayer2(stringMessage){
+	        $("#js_dialogbox2").show();
+	        $("#boxMessage2").text(stringMessage);
+	       	closeBtn();
+	    };
+	    //关闭
+	     function closeBtn() {
+	        $(".close").unbind('click').click(function () {
+	            $(".tcc_box").css("display", "none");
+	            $("#boxMessage").text("");
+	        });
+	    }
+		 $.
+		 ajax({
+            url: "http://reg.gyyx.cn/Login/Status",
+            type: "GET",
+            dataType: "jsonp",
+            jsonp: "jsoncallback",
+            data: { r: Math.random() },
+            success: function (d) {
+               if(d.IsLogin == false){
+                   $(".login_fail").replaceWith("<p class='login_fail'>请使用通行证<a onclick='javascrpit:alertFn(null,null,true);'>登录</a></p>");  
+               }else{
+                   $.
+				   ajax({
+                        url: "${rc.contextPath}/JSWS/index",
+                        type: "GET",
+                        success: function () {
+                        	if("$!{indexResultM.isSuccess}"=="true"){
+								$(".login_fail").replaceWith("<p class='login_fail'>亲爱的玩家您好："+d.Account+" <br/><a class='js_check'>点击查看我的礼包码</a></p>");
+                        	}else if("$!{indexResultM.message}"=="existed"){
+                        		$(".login_fail").replaceWith("<p class='login_fail'>亲爱的玩家您好："+d.Account+" <br/><a class='js_check'>点击查看我的礼包码</a></p>");
+                        	}else if("$!{indexResultM.message}"=="noPrizes"){
+								$(".login_fail").replaceWith("<p class='login_fail'>亲爱的玩家您好："+d.Account+" <br/><a>礼包码都已经被抢光了！！</a></p>");
+                        	}else{
+                        		popLayer2("$!{indexResultM.data}");
+                        	}
+                        },
+                        error: function(){
+                        	alert("亲！网络状况不佳..请稍后再试!!");
+                        }
+                   });
+               }
+            },
+            error: function (d, e) {
+                alert("亲！网络状况不佳..请稍后再试!!");
+            }
+        });
+        $(".js_check").live("click",function(){
+        	var data = "$!{indexResultM.data}".split(";")[1].split(":")[1];
+        	popLayer(data);
+        });
+        $(".inp02").click(function(){
+        	var phoneMes =  $(".inp01").val();
+        	$.
+			ajax({
+            url: "http://reg.gyyx.cn/Login/Status",
+            type: "GET",
+            dataType: "jsonp",
+            jsonp: "jsoncallback",
+            data: { r: Math.random() },
+            success: function (d) {
+               if(d.IsLogin == false){
+				   $.
+				   ajax({
+				       url: "${rc.contextPath}/CJKP/independent",
+				       type: "GET",
+				       data: { "phone": phoneMes },
+				       success:function(d){
+				       		if(d.isSuccess==true){
+				       	  		popLayer(d.data.split(";")[1].split(":")[1]);
+				       		}else if(d.message=="existed"){
+				       			popLayer(d.data.split(";")[1].split(":")[1]);
+				       		}else if(d.message=="phoneWrong"){
+				       			popLayer2("您的手机号输入有误！");
+				       		}else{
+				       			popLayer2(d.data);				       		
+				       		}
+				       },
+				       error:function(){
+				           alert("亲！网络状况不佳..请稍后再试!!");
+				       }
+				   });
+               }else{
+				   alert("您已登录..可以直接领取礼包咯！！");
+               }
+            },
+            error: function (d, e) {
+                alert("亲！网络状况不佳..请稍后再试!!");
+            }
+        	});
+        });
+        	if ( window.clipboardData ) {  
+                $('#copyCode').click(function() {  
+                    window.clipboardData.setData("Text", $("#boxMessage").text());  
+                    alert("复制成功！");  
+                });  
+            } else { 
+            	 $("#copyCode").click(function(){  
+                    alert("亲！您的浏览器不支持复制功能");
+                });  
+            }  
+	})
+</script>
+</head>
+<body>
+<div class="public_nav_top">
+	<script type="text/javascript"> Showtop();</script>
+</div>
+
+	<div class="wrap">
+		<div class="main">
+			<div class="mode">
+				<p class="login_fail">请使用通行证<a onclick="javascrpit:alertFn(null,null,true);">登录</a></p>
+				<p class="phone"><input class="inp01" type="text" name="phone" placeholder="请输入您的手机号码" value="" /><input class="inp02" type="button" value=" " /></p>
+			</div>
+			<div class="mes">
+				<h2>礼包兑换说明：</h2>
+				<p><em>1</em><span>本页面内的活动礼包码，每个游戏账号仅有一次领取兑换机会，重复使用无效</span></p>
+				<p><em>2</em><span>玩家可选择填写手机号或登录光宇游戏通行证，这两种方法中的任意一种来领取礼包码</span></p>
+				<p><em>3</em><span>领取成功后，在游戏主界面右侧点击“礼包”按钮，输入兑换码点击“确定”即可领取礼包</span></p>
+				<p class="tip"><em ></em><span>但请注意，获得物品必须联网哦！</span></p>
+			</div>
+		</div>
+	</div>
+	<!-- 弹出层 --> 
+	<div class="tcc_box" id="js_dialogbox">
+		<a class="close">关闭</a>
+		<h2>福利礼包</h2>
+		<div class="con_box">
+			<p class="tcc_p01">您的礼包码为<br> <span id="boxMessage">网络不给力..稍后再过来哟！！</span><a id="copyCode">复制</a></p>
+			<p class="tcc_p02">请牢记您的礼包码</p>
+		</div>
+	</div>
+	<div class="tcc_box" id="js_dialogbox2">
+		<a class="close">关闭</a>
+		<h2>出问题了！</h2>
+		<div class="con_box">
+			<p class="tcc_p01"><span id="boxMessage2">网络不给力..稍后再过来哟！！</span></p>
+		</div>
+	</div>
+	
+<div class="public_nav_bottom">
+	<script type="text/javascript"> ShowBottom();</script>
+</div>
+</body>
+</html>

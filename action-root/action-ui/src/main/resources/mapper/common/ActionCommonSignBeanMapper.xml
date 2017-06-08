@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.common.ISignMapper">
+	<!-- Bean Map 映射 -->
+	<resultMap type="cn.gyyx.action.beans.common.ActionCommonSignBean" id="ActionCommonSignBeanMapper">
+		<id column="code" property="code" />
+		<result column="action_code" property="actionCode" />
+		<result column="last_sign_date" property="lastSignDate" />
+		<result column="sign_number" property="signNumber" />
+		<result column="account" property="account" />
+		<result column="continuousCount" property="continuousCount" />
+	</resultMap>
+	
+	<!-- 根据条件获得签到主表记录 -->
+	<select id="getSign" parameterType="cn.gyyx.action.beans.common.ActionCommonSignBean" resultType="cn.gyyx.action.beans.common.ActionCommonSignBean"
+	resultMap="ActionCommonSignBeanMapper">
+		select 
+			top 1 * 
+		from
+			common_sign_tb
+		where 
+			1=1 
+			<if test="account!= null and account!= '' ">     
+            	and account = #{account}      
+        	</if>
+        	<if test="signDateStr!= null and signDateStr!= '' ">     
+            	and CONVERT(varchar(100), last_sign_date, 23) = #{signDateStr}      
+        	</if>
+	</select>
+	
+	<!-- 获得用户最近签到的日期 -->
+	<select id="getRecentSign" parameterType="cn.gyyx.action.beans.common.ActionCommonSignBean" resultMap="ActionCommonSignBeanMapper">
+		select 
+			top 1 * 
+		from
+			common_sign_tb
+		where action_code=#{actionCode}
+			<if test="account!= null and account!= '' ">     
+            	and account = #{account}      
+        	</if>
+        order by last_sign_date 
+	</select>
+	
+	<!-- 插入签到主表记录 -->
+	<insert id="insertSign" parameterType="cn.gyyx.action.beans.common.ActionCommonSignBean" useGeneratedKeys="true" keyProperty="code">
+		insert into common_sign_tb (
+			account
+			,action_code
+		   ,last_sign_date
+		   ,sign_number
+		   ,continuousCount)
+		values(
+		    #{account}
+		    ,#{actionCode}
+		   ,#{lastSignDate}
+		   ,#{signNumber}
+		   ,#{continuousCount})
+	</insert>
+	
+	<!-- 更新签到主表记录 -->     
+	<update id="updateSign" parameterType="cn.gyyx.action.beans.common.ActionCommonSignBean">     
+	    update common_sign_tb      
+	    <set>     
+	        <if test="lastSignDate!=null and lastSignDate!='' ">     
+	            last_sign_date = #{lastSignDate},      
+	        </if>  
+	        <if test="signNumber!=null ">     
+	            sign_number =sign_number+#{signNumber},      
+	        </if>  
+	        <if test="continuousCount!=null ">     
+	            continuousCount =#{continuousCount},      
+	        </if>  
+	    </set>     
+	    where account = #{account} and action_code=#{actionCode}
+	</update>   
+
+</mapper>

@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>问道寻找基友</title>
+		<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdlookfriends/css/index.css"/>
+		<script  type="text/javascript">
+	    	var rc = "${rc.contextPath}";
+	 	</script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdlookfriends/js/jquery-1.8.2.min.js"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+		<script type="text/javascript" src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> <!--光宇统计-->
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+ 			 hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+ 			 var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+	<body>
+		<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+		<div id="wd_top_login">
+			<div class="wd_top_main">
+				<div class="wd_top_nav">
+					<a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank"><i class="gw"></i>问道官网</a>|<a href="http://wd.gyyx.cn/download/index.aspx" target="_blank">游戏下载</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://pay.gyyx.cn/" target="_blank">账号充值</a>|<a href="http://wd.gyyx.cn/News/NewsDetail_New.aspx?NewsID=79170" target="_blank">领取礼包</a>|<a href="http://wd.gyyx.cn/Reserve/NewServer.html" target="_blank">预约新服</a>
+				</div>
+				<div class="wd_top_data">2016年12月30日12:00-2017年2月9日12:00</div>
+				<!--登录按钮-->
+				<div class="wd_top_login">
+				</div>
+			</div>
+		</div>
+		<div id="wd_main">
+			<div class="main">
+				<div class="wd_main_more">
+					<div class="scroll">
+						<div class="scrollbox">
+							<ul id="js_scrollList1">
+							</ul>
+						</div>
+					</div>
+					<a class="tipbg160" href="teamList">查看更多队伍</a>
+				</div>
+				<div class="swiper-container scroll">
+				    <div class="swiper-wrapper scrollbox" id="swiper-wrapper">
+				    	<ul id="js_scrollList2">
+						</ul>
+				    </div>
+				</div>
+				<a id="lj"></a>
+				<div class="wd_prize" id="wd_prize">
+					<div class="left">
+						<div class="left_zu">
+							<p class="p1"><span>五人</span>组队完成</p>
+							<p class="p2 topp2">
+								<a href="javascript:;" class="a1 tx1"></a>
+								<span>称号“<b>激情四射</b>”</span>
+								<a href="javascript:;" class="a2 tipbg74" data_id="0">领取</a>
+							</p>
+						</div>
+						<div class="left_zu left_zu1 border height">
+							<p class="p1 ph">队伍平均等级达到<span>80</span>级</p>
+							<div>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx2"></a>
+									<span>松树铭牌</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="1">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx3"></a>
+									<span>天神护佑×1</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="2">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx4"></a>
+									<span>超级仙风散×1</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="3">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx5"></a>
+									<span>抽奖机会×1</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="4">领取</a>
+								</p>
+							</div>
+						</div>
+						<div class="left_zu border height">
+							<p class="p1 ph">队伍平均等级达到<span>100</span>级</p>
+							<div>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx3"></a>
+									<span>天神护佑×2</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="5">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx11"></a>
+									<span>特效仙风散×1</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="6">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx12"></a>
+									<span>五雷令×1</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="7">领取</a>
+								</p>
+							</div>
+						</div>
+						<div class="left_zu height">
+							<p class="p1 ph">队伍平均等级达到<span>120</span>级</p>
+							<div>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx13"></a>
+									<span>修为丹×5</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="8">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx3"></a>
+									<span>天神佑护×2</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="9">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx11"></a>
+									<span>特效仙风散×2</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="10">领取</a>
+								</p>
+							</div>
+						</div>
+						<div class="left_zu left_zu1 border height">
+							<p class="p1 ph">队伍平均道行达到<span>1000</span>年</p>
+							<div>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx3"></a>
+									<span>天神护佑×1</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="11">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx13"></a>
+									<span>修为丹×2</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="12">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx5"></a>
+									<span>抽奖机会×1</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="13">领取</a>
+								</p>
+							</div>
+						</div>
+						<div class="left_zu border">
+							<p class="p1">队伍平均道行达到<span>2000</span>年</p>
+							<p class="p2">
+								<a href="javascript:;" class="a1 tx3"></a>
+								<span>天神护佑×2</span>
+								<a href="javascript:;" class="a2 tipbg74" data_id="14">领取</a>
+							</p>
+							<p class="p2">
+								<a href="javascript:;" class="a1 tx13"></a>
+								<span>修为丹×5</span>
+								<a href="javascript:;" class="a2 tipbg74" data_id="15">领取</a>
+							</p>
+						</div>
+						<div class="left_zu">
+							<p class="p1">队伍平均道行达到<span>3000</span>年</p>
+							<p class="p2">
+								<a href="javascript:;" class="a1 tx16"></a>
+								<span>5000银元宝</span>
+								<a href="javascript:;" class="a2 tipbg74" data_id="16">领取</a>
+							</p>
+							<p class="p2">
+								<a href="javascript:;" class="a1 tx8"></a>
+								<span>技能觉醒符印</span>
+								<a href="javascript:;" class="a2 tipbg74" data_id="17">领取</a>
+							</p>
+						</div>
+					</div>
+					<div class="right">
+						<div class="left_zu">
+							<p class="p1 pt">
+								<b><span>参与</span>活动</b>
+								<b>(发起组队或加入队伍)</b>
+							</p>
+							<p class="p2">
+								<a href="javascript:;" class="a1 tx5"></a>
+								<span>抽奖机会×1</span>
+								<a href="javascript:;" class="a2 tipbg74" data_id="18">领取</a>
+							</p>
+						</div>
+						<div class="left_zu left_zu1 border">
+							<p class="p1">个人等级达到<span>80</span>级</p>
+							<p class="p2">
+								<a href="javascript:;" class="a1 tx4"></a>
+								<span>超级仙风散×1</span>
+								<a href="javascript:;" class="a2 tipbg74" data_id="19">领取</a>
+							</p>
+							<p class="p2">
+								<a href="javascript:;" class="a1 tx9"></a>
+								<span>金蝉脱壳×1</span>
+								<a href="javascript:;" class="a2 tipbg74" data_id="20">领取</a>
+							</p>
+						</div>
+						<div class="left_zu border height">
+							<p class="p1 ph">个人等级达到<span>100</span>级</p>
+							<div>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx11"></a>
+									<span>特效仙风散×1</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="21">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx7"></a>
+									<span>火眼金睛×1</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="22">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx5"></a>
+									<span>抽奖机会×1</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="23">领取</a>
+								</p>
+							</div>
+						</div>
+						<div class="left_zu height">
+							<p class="p1 ph">个人等级达到<span>120</span>级</p>
+							<div>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx13"></a>
+									<span>修为丹×2</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="24">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx14"></a>
+									<span>易经洗髓丹×2</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="25">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx5"></a>
+									<span>抽奖机会×1</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="26">领取</a>
+								</p>
+							</div>
+						</div>
+						<div class="left_zu left_zu1 border">
+							<p class="p1">个人道行达到<span>1000</span>年</p>
+							<p class="p2">
+								<a href="javascript:;" class="a1 tx10"></a>
+								<span>如意战斗令×2</span>
+								<a href="javascript:;" class="a2 tipbg74" data_id="27">领取</a>
+							</p>
+						</div>
+						<div class="left_zu border">
+							<p class="p1">个人道行达到<span>2000</span>年</p>
+							<p class="p2">
+								<a href="javascript:;" class="a1 tx15"></a>
+								<span>紫气鸿蒙×2</span>
+								<a href="javascript:;" class="a2 tipbg74" data_id="28">领取</a>
+							</p>
+							<p class="p2">
+								<a href="javascript:;" class="a1 tx5"></a>
+								<span>抽奖机会×1</span>
+								<a href="javascript:;" class="a2 tipbg74" data_id="29">领取</a>
+							</p>
+						</div>
+						<div class="left_zu border">
+							<p class="p1">个人道行达到<span>3000</span>年</p>
+							<p class="p2">
+								<a href="javascript:;" class="a1 tx6"></a>
+								<span>高级驯兽诀</span>
+								<a href="javascript:;" class="a2 tipbg74" data_id="30">领取</a>
+							</p>
+							<p class="p2">
+								<a href="javascript:;" class="a1 tx5"></a>
+								<span>抽奖机会×1</span>
+								<a href="javascript:;" class="a2 tipbg74" data_id="31">领取</a>
+							</p>
+						</div>
+						<div class="left_zu border height">
+							<p class="p1 ph">个人道行达到<span>4000</span>年</p>
+							<div>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx16"></a>
+									<span>10000银元宝</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="32">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx8"></a>
+									<span>技能觉醒符印</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="33">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx5"></a>
+									<span>抽奖机会×1</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="34">领取</a>
+								</p>
+							</div>
+						</div>
+						<div class="left_zu height">
+							<p class="p1 ph">个人道行达到<span>5000</span>年</p>
+							<div>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx16"></a>
+									<span>30000银元宝</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="35">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx8"></a>
+									<span>技能觉醒符印</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="36">领取</a>
+								</p>
+								<p class="p2">
+									<a href="javascript:;" class="a1 tx5"></a>
+									<span>抽奖机会×1</span>
+									<a href="javascript:;" class="a2 tipbg74" data_id="37">领取</a>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="wd_lottery">
+					<div class="wd_lottery_left">
+						<div class="cjcon">
+							<div class="img01 jp" id="dzp0"><span></span></div>
+							<div class="img01 jp" id="dzp1"><span></span></div>
+							<div class="img01 jp" id="dzp2"><span></span></div>
+							<div class="img01 jp" id="dzp3"><span></span></div>
+							<div class="img01 jp" id="dzp4"><span></span></div>
+							<div class="img01 jp" id="dzp11"><span></span></div>
+							<div class="start">
+								<a href="javascript:;" id="btnStart" text="go">剩余抽奖次数：<b class="js_wd_cjnum"></b></a>
+							</div>
+							<div class="img01 jp" id="dzp5"><span></span></div>
+							<div class="img01 jp" id="dzp10"><span></span></div>
+							<div class="img01 jp" id="dzp9"><span></span></div>
+							<div class="img01 jp" id="dzp8"><span></span></div>
+							<div class="img01 jp" id="dzp7"><span></span></div>
+							<div class="img01 jp" id="dzp6"><span></span></div>
+						</div>
+					</div>
+					<div class="wd_lottery_right">
+						<p>
+							<a class="tipbg183 js_checkmyvote" href="javascript:;">查询中奖记录</a>
+							<a class="tipbg183 js_updateAdd" href="javascript:;">修改中奖地址</a>
+						</p>
+						<div class="scroll">
+							<div class="scrollbox" id="mqcon_v">
+								<ul id="js_scrollList3">
+									
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<ul class="wd_lottery_role">
+					<li><span>1</span>玩家符合要求后可在上方领取奖励处领取对应的抽奖机会。</li>
+					<li><span>2</span>虚拟奖励将会发至玩家参与活动时绑定的区组角色中，实物奖励将会发至所填写的地址中。</li>
+					<li><span>3</span>官方将会采用技术手段查询刷奖行为，一经发现则取消奖励。</li>
+					<li>注：活动最终解释权由光宇在线科技有限责任公司所有。</li>
+				</ul>
+			</div>
+		</div>
+		<!--漂浮-->
+		<div class="wd_piao">
+			<a href="teamList" class="jr"></a>
+			<a href="teamDetail" class="wd"></a>
+			<a href="#lj" class="lj"></a>
+			<a class="js_hdgz gz" href="javascript:;"></a>
+			<a target="_blank" href="http://wd.gyyx.cn/News/NewsDetail_New.aspx?NewsID=79160" class="gd"></a>
+		</div>
+		<!--活动规则-->
+		<div class="wd_tc" id="wd_tc_gz">
+			<div class="wd_tc_gz">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<ul>
+					<li>活动时间：2016年12月30日12：00-2017年2月6日12：00</li>
+					<li>领取奖励与抽奖时间：2016年12月30日12：00-2017年2月9日12：00</li>
+					<li><h1>活动简介</h1></li>
+					<li>年度数字服“2017”来了！1月6日12：00开服！叫上基友们一起冲刺新服还有好礼送呦~</li>
+					<li><h1>活动规则</h1></li>
+					<li><span>1</span>此活动只针对新服“2017”的玩家开放。参与活动登录时，第一次需要绑定角色，绑定后不可更改。</li>
+					<li class="tip">注：一个角色只能由一个帐号绑定参与活动，如若角色在交易前已绑定参与此活动则无法再次绑定该角色参与活动。</li>
+					<li><span>2</span>玩家可以选择发起组队或者加入别人的队伍，但是每位玩家只能在一个队伍中。</li>
+					<li class="tip">发起组队规则:</li>
+					<li class="tip">1）发起组队的玩家需填写新服宣言，语言必须文明。审核通过的新服宣言将会在前台展示，不通过的则会显示默认新服宣言。宣言提交之后不可更改。</li>
+					<li class="tip">2）发起组队的玩家在队伍中没有队员的情况下还可以向其他的队伍发出加入的申请，申请通过之后该玩家担任队长的队伍自动解散。</li>
+					<li class="tip">3）队长通过其他玩家加入队伍申请后之前发出的申请默认取消。</li>
+					<li class="tip">4）队长同意其他玩家的加入队伍申请之后不可撤销。</li>
+					<li class="tip">申请加入队伍规则：</li>
+					<li class="tip">1）加入队伍需填写新服宣言，语言必须文明。审核通过的新服宣言将会在前台展示，不通过的则会显示默认新服宣言。宣言提交之后不可更改。</li>
+					<li class="tip">2）玩家在没有加入队伍时可以向多个队伍发出申请，但不得超过20次。</li>
+					<li class="tip">3）队长通过申请后，其他队伍队长不可再进行通过。队员也不可退出队伍。</li>
+					<li><span>3</span>玩家队伍满足五人后，队伍平均等级、道行达到一定程度可在页面上领取奖励。</li>
+					<li><span>4</span>玩家在队伍中，同时个人等级、道行达到一定程度也可在页面上领取奖励。</li>
+					<li class="tip">注：本页面的等级、道行情况相对于游戏内实际情况稍有延迟，请各位玩家耐心等候。</li>
+					<li><span>5</span>每位玩家只能有一个帐号参与活动。活动结束后，将会进行核实。如有违反，则只发放所获得奖励总价值最高帐号下的奖励。</li>
+					<li class="tip">注：活动最终解释权由光宇在线科技有限责任公司所有。</li>
+				</ul>
+			</div>
+		</div>
+		<!--查看中奖记录-->
+		<div class="wd_tc" id="wd_tc_zj">
+			<div class="wd_tc_zj">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<ul>
+					<li><span>1</span>iphone</li>
+					<li><span>2</span>iphone</li>
+					<li><span>3</span>iphone</li>
+				</ul>
+			</div>
+		</div>
+		<!--实物奖-->
+		<div class="wd_tc" id="wd_tc_swj">
+			<div class="wd_tc_swj">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<h1>iphones</h1>
+				<p>请填写联系方式：</p>
+				<p><label>姓名：</label><input type="text" class="js_Name" /></p>
+				<p><label>电话：</label><input type="text" class="js_tel" /></p>
+				<p class="p0"><label>地址：</label><textarea class="js_Address"></textarea></p>
+				<a class="tipbg270 js_subAddress" href="javascript:;">确  定</a>
+				<b>注：活动奖品将在活动结束后由《问道》官方统一寄送，请保持电话畅通。</b>
+			</div>
+		</div>
+		<!--虚拟奖-->
+		<div class="wd_tc" id="wd_tc_xnj">
+			<div class="wd_tc_xnj">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<h1>iphonesi</h1>
+			</div>
+		</div>
+		<!--修改中奖地址-->
+		<div class="wd_tc" id="wd_tc_zgdz">
+			<div class="wd_tc_zgdz">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<p>请填写联系方式：</p>
+				<p><label>姓名：</label><input type="text" class="js_Name" /></p>
+				<p><label>电话：</label><input type="text" class="js_tel" /></p>
+				<p class="p0"><label>地址：</label><textarea class="js_Address"></textarea></p>
+				<a class="tipbg270 js_subAddress" href="javascript:;">确  定</a>
+				<b>注：活动奖品将在活动结束后由《问道》官方统一寄送，请保持电话畅通。</b>
+			</div>
+		</div> 
+		<!--我的入队申请-->
+		<div class="wd_tc" id="wd_tc_wdsq">
+			<div class="wd_tc_wdsq">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<h1>您还可申请：<span></span>次</h1>
+				<ul class="ul1">
+					<li>队长</li>
+					<li>等级</li>
+					<li>道行</li>
+					<li class="li3">队长新服宣言</li>
+					<li></li>
+				</ul>
+				<div class="myapplylist">
+				</div>
+			</div>
+		</div>
+		<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+	</body>
+
+<script type="text/javascript" src="http://static.cn114.cn/action/wdlookfriends/js/Lotterywd.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdlookfriends/js/login.js" ></script>
+</html>

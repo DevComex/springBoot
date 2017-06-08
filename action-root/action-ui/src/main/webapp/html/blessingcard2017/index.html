@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>问道祝福卡-首页</title>
+	<link rel="stylesheet" href="http://static.cn114.cn/action/wdblessingcard2017/css/index.css">
+	<script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+	<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript" charset="UTF-8"></script>
+	<script src="http://static.cn114.cn/action/wdblessingcard2017/js/lotteryRace.js" type="text/javascript" charset="UTF-8"></script>
+	<script src="http://static.cn114.cn/action/wdblessingcard2017/js/marquee.js"></script>
+	<script src="http://static.cn114.cn/action/wdblessingcard2017/js/qrcode.js"></script>
+	<script src="http://static.cn114.cn/action/wdblessingcard2017/js/common.js" type="text/javascript" charset="UTF-8"></script>
+
+	<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+
+
+</head>
+
+<body>
+	<div class="public_nav_top">
+		<script type="text/javascript">
+			Showtop();
+		</script>
+	</div>
+
+	<div class="body">
+		<div class="topNav">
+			<a href="http://wd.gyyx.cn/" target="_blank">进去官网</a>
+			<a href="http://wd.gyyx.cn/download/" target="_blank">游戏下载</a>
+			<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>
+			<a href="http://pay.gyyx.cn/gamepay/paygold?gameId=2" target="_blank">账号充值</a>
+		</div>
+		<div class="actionTime">
+			活动时间：2017年3月20日12：00-2017年4月23日23：59
+		</div>
+		<div class="map_box">
+			<ul>
+				<li class="brad_2006"></li>
+				<li class="brad_2007"></li>
+				<li class="brad_2008"></li>
+				<li class="brad_2009"></li>
+				<li class="brad_2010"></li>
+				<li class="brad_2011"></li>
+				<li class="brad_2012"></li>
+				<li class="brad_2013"></li>
+				<li class="brad_2014"></li>
+				<li class="brad_2015"></li>
+				<li class="brad_2016"></li>
+				<li class="brad_2017"></li>
+			</ul>
+			<div class="hover_card">
+				<div class="card_con">
+					<dl class="clearfix">
+						<dt><img src="http://static.cn114.cn/action/wdblessingcard2017/images/touxiang.png" alt=""></dt>
+						<dd class="role">角色名称</dd>
+						<dd>避暑山庄</dd>
+					</dl>
+					<p>10年问道老司机</p>
+					<div class="zfy_msg">
+						人生最精彩的不是成功的那一瞬间，而是回头看，那段漆黑看似没有尽头、苦苦摸索的过程。其实，我只是很在意，在意在我所在意的人的心里在哪个位置。
+					</div>
+					<div class="zan_box clearfix">
+						<a href="javascript:;" class="js_zanBtn"><img src="http://static.cn114.cn/action/wdblessingcard2017/images/shixin.png" /></a>
+						<a href=" javascript:; ">0</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="login_prize_box clearfix">
+			<div class="login_box">
+				<div class="login_before" style="display: none;">
+					<a href="javascript:alertFn(null,null,true);" class="js_login">登录参与活动</a>
+				</div>
+
+				<div class="login_after">
+					<div class="accout_info">欢迎您：<span class="js_accout"></span>
+						<a href="javascript:;" class="js_out_login">退出</a>
+					</div>
+					<div class="bind_info">
+						<div class="info_con"></div>
+						<div>
+							<a href="javascript:;" class="js_lottery_info">中奖信息</a>
+							<a href="javascript:;" class="js_edit_address">修改地址</a>
+						</div>
+					</div>
+					<div class="js_sever_box" style="display: none1;">
+						<p class="clearfix">
+							<span>选择区服：</span>
+							<select name="nettype" id="nettype">
+									<option value="0">请选择区组</option>
+									<option value="1">网通</option>
+									<option value="2">电信</option>
+									<option value="3">双线</option>
+								</select>
+							<select name="server" id="server">
+									<option value="0">请选择服务器</option>
+								</select>
+						</p>
+						<p class="clearfix">
+							<span>验证码：</span>
+							<input type="text" maxlength="5" placeholder="请输入验证码" class="captcha" name="captcha">
+							<img src="http://api.gyyx.cn/Captcha/CreateVJ.ashx" alt="" class="js_captcha_img" />
+							<button class="js_get_role">确定</button>
+						</p>
+					</div>
+
+					<div class="js_role_box" style="display: none;">
+						<span>选择角色：</span>
+						<select name="role" id="role">
+								<option value="">请选择角色</option>
+							</select>
+						<button class="js_bind_role">确定</button>
+					</div>
+				</div>
+
+			</div>
+			<div class="prize_info">
+				<div class="info_box scroll">
+				</div>
+			</div>
+		</div>
+
+		<div class="zfk_box">
+			<div class="zfk_nav">
+				<a href="list" class="more">查看所有卡片&nbsp;></a>
+				<ul class="clearfix js_zfk">
+					<li class="on" data-type="老司机中的战斗机">老司机中的战斗机</li>
+					<li data-type="问道老司机">问道老司机</li>
+					<li data-type="准老司机">准老司机</li>
+					<li data-type="新手司机">新手司机</li>
+				</ul>
+			</div>
+			<div class="zfk_con">
+				<ul class="clearfix">
+
+				</ul>
+			</div>
+		</div>
+		<div class="lottery_box clearfix">
+			<div class="lottery_left">
+				<p>抽奖次数不够啦？<button class="js_starGame">玩个小游戏</button>获取更多抽奖次数！！</p>
+				<div class="lottery_area">
+					<ul>
+						<li id="cjx0" class="js_cjBox">
+							<img src="http://static.cn114.cn/action/wdblessingcard2017/images/0.png" alt="" />
+							<p>iphone7</p>
+						</li>
+
+						<li id="cjx1" class="js_cjBox">
+							<img src="http://static.cn114.cn/action/wdblessingcard2017/images/1.png" alt="" />
+							<p>iphone6s</p>
+						</li>
+
+						<li id="cjx2" class="js_cjBox">
+							<img src="http://static.cn114.cn/action/wdblessingcard2017/images/2.png" alt="" />
+							<p>红米note3</p>
+						</li>
+
+						<li id="cjx3" class="js_cjBox">
+							<img src="http://static.cn114.cn/action/wdblessingcard2017/images/3.png" alt="" />
+							<p>太极熊银币</p>
+						</li>
+
+						<li id="cjx4" class="js_cjBox">
+							<img src="http://static.cn114.cn/action/wdblessingcard2017/images/4.png" alt="" />
+							<p>8000银元宝</p>
+						</li>
+
+						<li id="cjx11" class="js_cjBox">
+							<img src="http://static.cn114.cn/action/wdblessingcard2017/images/11.png" alt="" />
+							<p>花朵铭牌</p>
+						</li>
+
+						<li class="cj_slot">
+							<p></p>
+						</li>
+
+						<li id="cjx5" class="js_cjBox">
+							<img src="http://static.cn114.cn/action/wdblessingcard2017/images/5.png" alt="" />
+							<p>问道T恤</p>
+						</li>
+
+						<li id="cjx10" class="js_cjBox">
+							<img src="http://static.cn114.cn/action/wdblessingcard2017/images/10.png" alt="" />
+							<p>五雷令</p>
+						</li>
+
+						<li id="cjx9" class="js_cjBox">
+							<img src="http://static.cn114.cn/action/wdblessingcard2017/images/9.png" alt="" />
+							<p>3000银元宝</p>
+						</li>
+
+						<li id="cjx8" class="js_cjBox">
+							<img src="http://static.cn114.cn/action/wdblessingcard2017/images/8.png" alt="" />
+							<p>平板包</p>
+						</li>
+						<li id="cjx7" class="js_cjBox">
+							<img src="http://static.cn114.cn/action/wdblessingcard2017/images/7.png" alt="" />
+							<p>威威虎U型枕</p>
+						</li>
+						<li id="cjx6" class="js_cjBox">
+							<img src="http://static.cn114.cn/action/wdblessingcard2017/images/6.png" alt="" />
+							<p>5000银元宝</p>
+						</li>
+					</ul>
+					<div class="lottery_btn js_prizeBtn" data-status="go">
+						抽奖
+						<p>剩余抽奖次数：<span class="js_lottery_num">0</span></p>
+					</div>
+				</div>
+			</div>
+			<div class="lottery_right">
+				<fieldset class="lottery_info">
+					<legend>获奖信息</legend>
+					<table border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<th width="33.333%">服务器</th>
+							<th width="33.333%">角色</th>
+							<th width="33.333%">奖品</th>
+						</tr>
+					</table>
+					<div class="scroll2">
+					</div>
+				</fieldset>
+
+				<fieldset class="lottery_rule">
+					<legend>获奖规则</legend>
+					<ol>
+						<li>卡片内容审核通过的道友可在审核通过一分钟后可获得抽奖机会，抽奖机会数量由账号的注册时间决定。</li>
+						<li>虚拟物品奖励将会发至玩家参与活动时绑定的区组角色中，实物奖励将会在活动结束后统一发至所填写的地址。</li>
+						<li>官方将会采用技术手段查询刷奖行为，一经发现则取消奖励。</li>
+						<li style="color:red;">注：活动最终解释权由光宇在线科技有限责任公司所有。</li>
+					</ol>
+				</fieldset>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="sidebarNav ">
+		<ul>
+			<li class="line_h89 on ">
+				<a href="javascript:;">活动首页</a>
+			</li>
+			<li>
+				<a href="list">查看<br>所有卡片</a>
+			</li>
+			<li>
+				<a href="personManage">我的<br>祝福卡片</a>
+			</li>
+			<li class="line_h89 ">
+				<a href="javascript:;" class="js_rule_btn">活动规则</a>
+			</li>
+			<li>
+				<a href="http://wd.gyyx.cn/News/NewsDetail_New.aspx?NewsID=79298" target="_blank">更多11周年<br>福利活动</a>
+			</li>
+		</ul>
+		<p>
+			<img src="http://static.cn114.cn/action/wdblessingcard2017/images/cebianEWM.png " alt=" ">
+		</p>
+	</div>
+
+	<div class="blackBox" style="display: none;"></div>
+	<div class="alert_box" style="display: none;">
+		<div class="alertCon alertCon_rule" style="display: none;">
+			<img src="http://static.cn114.cn/action/wdblessingcard2017/images/alertBg1.png" alt="" />
+			<a href="javascript:;" class="js_close"></a>
+			<div class="cons rule_con ">
+				<ul>
+					<li class="clearfix"><span>1</span>
+						<p>参与活动需绑定角色，绑定后不可更改。注：此活动不对“内测专区”玩家开放，且一个角色只能由一个帐号绑定参与活动，如若角色在交易前已绑定参与此活动则无法再次绑定该角色参与活动。</p>
+					</li>
+					<li class="clearfix"><span>2</span>
+						<p>各位道友前往“我的祝福卡片”页面可生成专属祝福卡片，卡片背景由账号注册时间决定，卡片提交之后需审核通过才可在页面显示。</p>
+					</li>
+					<li class="clearfix"><span>3</span>
+						<p>每个卡片都有专属的二维码，使用手机扫一扫之后即可在手机上查看卡片内容，还可分享至朋友圈哟~ </p>
+					</li>
+					<li class="clearfix">
+						<span>4</span>
+						<p>卡片内容审核通过的道友可在审核通过一分钟后可获得抽奖机会，审核通过一分钟后还可在活动页面领取对称号奖励。抽奖机会与称号奖励根据参与活动的账号注册时间确定。<br />注：抽奖机会与称号奖励仅根据账号的注册时间确定，不以绑定角色的创建时间确定。<br />具体对应规则如下：</p>
+					</li>
+						<li>
+						<table cellpadding="0" cellspacing="0" border="0">
+								<tr>
+									<th>注册年份（注册时间）</th>
+									<th>抽奖机会</th>
+									<th>称号</th>
+								</tr>
+								<tr>
+									<td>11年（2006年及以前）</td>
+									<td>11</td>
+									<td>老司机中的战斗机</td>
+								</tr>
+								<tr>
+									<td>10年（2007年）</td>
+									<td>10</td>
+									<td>老司机中的战斗机</td>
+								</tr>
+								<tr>
+									<td>9年（2008年）</td>
+									<td>9</td>
+									<td>老司机中的战斗机</td>
+								</tr>
+								<tr>
+									<td>8年（2009年）</td>
+									<td>8</td>
+									<td>问道老司机</td>
+								</tr>
+								<tr>
+									<td>7年（2010年）</td>
+									<td>7</td>
+									<td>问道老司机</td>
+								</tr>
+								<tr>
+									<td>6年（2011年）</td>
+									<td>6</td>
+									<td>问道老司机</td>
+								</tr>
+								<tr>
+									<td>5年（2012年）</td>
+									<td>5</td>
+									<td>准老司机</td>
+								</tr>
+								<tr>
+									<td>4年（2013年）</td>
+									<td>4</td>
+									<td>准老司机</td>
+								</tr>
+								<tr>
+									<td>3年（2014年）</td>
+									<td>3</td>
+									<td>准老司机</td>
+								</tr>
+								<tr>
+									<td>2年（2015年）</td>
+									<td>2</td>
+									<td>新手上路</td>
+								</tr>
+								<tr>
+									<td>1年（2016，2017年）</td>
+									<td>1</td>
+									<td>新手上路</td>
+								</tr>
+								
+						</table>
+					</li>
+					<li class="clearfix"><span>5</span>
+						<p>活动期间参与小游戏拼图成功3次还可额外获得1次抽奖机会。活动期间总共只可获得一次抽奖机会。</li>
+					<li class="clearfix"><span>6</span>
+						<p>活动期间每位道友可在活动页面对卡片点赞100次，获赞高的玩家无奖励。</p>
+					</li>
+					<li class="clearfix"><span>7</span>
+						<p>每位玩家只能有一个帐号参与活动。活动结束后，将会进行核实。如有违反，则只发放所获得奖励总价值最高帐号下的奖励。</p>
+					</li>
+
+					<li class="clearfix">
+						<p style="color: red;">注：活动最终解释权由光宇在线科技有限责任公司所有。</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="alertCon alertCon_winningRecord" style="display: none;">
+			<img src="http://static.cn114.cn/action/wdblessingcard2017/images/alertBg2.png" alt="" />
+			<a href="javascript:;" class="js_close"></a>
+			<div class="cons winningRecord_con">
+				<ul>
+					
+				</ul>
+			</div>
+		</div>
+
+		<div class="alertCon alertCon_winningEntity" style="display: none;">
+			<img src="http://static.cn114.cn/action/wdblessingcard2017/images/alertBg3.png" alt="" />
+			<a href="javascript:;" class="js_close"></a>
+			<div class="cons winningEntity_con formCon">
+				<h3>iPhone 7</h3>
+				<p class="tip">请填写联系方式：</p>
+				<p class="clearfix">
+					<lable>姓名：</lable><input type="text" name="name" maxlength="10" /></p>
+				<p class="clearfix">
+					<lable>电话：</lable><input type="text" name="phone" maxlength="11" /></p>
+				<p class="clearfix">
+					<lable>地址：</lable><input type="text" name="address" maxlength="30" /></p>
+				<p class="clearfix"><input type="button" value="确定" class="addSubBtn" /></p>
+				<p class="tip">注：活动奖品将在活动结束后由《问道》官方统一寄出，请保持电话畅通。</p>
+			</div>
+		</div>
+
+		<div class="alertCon alertCon_winningVirtual" style="display: none;">
+			<img src="http://static.cn114.cn/action/wdblessingcard2017/images/alertBg4.png" alt="" />
+			<a href="javascript:;" class="js_close"></a>
+			<div class="cons winningVirtual_con">
+				<h3></h3>
+			</div>
+		</div>
+
+		<div class="alertCon alertCon_notWinning" style="display: none;">
+			<img src="http://static.cn114.cn/action/wdblessingcard2017/images/alertBg5.png" alt="" />
+			<a href="javascript:;" class="js_close"></a>
+			<div class="notWinning_con">
+				<img src="http://static.cn114.cn/action/wdblessingcard2017/images/crying_face.png" alt="" />
+				<h3>很遗憾未中奖</h3>
+			</div>
+		</div>
+
+		<div class="alertCon alertCon_editAdd" style="display: none;">
+			<img src="http://static.cn114.cn/action/wdblessingcard2017/images/alertBg6.png" alt="" />
+			<a href="javascript:;" class="js_close"></a>
+			<div class="cons editAdd_con formCon">
+				<h3 style="color: transparent;">-</h3>
+				<p class="tip">请填写联系方式：</p>
+				<p class="clearfix">
+					<lable>姓名：</lable><input type="text" name="name" maxlength="10" /></p>
+				<p class="clearfix">
+					<lable>电话：</lable><input type="text" name="phone" maxlength="11" /></p>
+				<p class="clearfix">
+					<lable>地址：</lable><input type="text" name="address" maxlength="30" /></p>
+				<p class="clearfix"><input type="button" value="确定" class="editSubBtn" /></p>
+				<p class="tip">注：活动奖品将在活动结束后由《问道》官方统一寄出，请保持电话畅通。</p>
+			</div>
+		</div>
+
+		<div class="alertCon alertCon_games" style="display: none;">
+			<img src="http://static.cn114.cn/action/wdblessingcard2017/images/alertBg7.png" alt="" />
+			<a href="javascript:;" class="js_close"></a>
+			<div class="games_con">
+				<div class="con_details">
+					<div class="con_big_img" id="b">
+						<div class="top_slider_btn" id="n"></div>
+					</div>
+					<p class="js_reload"><img src="http://static.cn114.cn/action/wdblessingcard2017/images/reload_ico.png" alt="" />看不清？点击刷新图片</p>
+					<p class="silde_box" style="display: none;">按住左边滑块，拖动完成上方拼图</p>
+					<p class="return_box"><span>拼图成功：</span><i class="js_succ" style="font-style: normal;"><em class="js_game_time">0</em>秒的速度超过了<em class="js_game_rank">0</em>%的玩家</i></p>
+					<p class="SliderBtn" style="display: none;" id="t"></p>
+				</div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="public_nav_bottom">
+		<script type="text/javascript">
+			ShowBottom()
+		</script>
+	</div>
+
+	<script src="http://static.cn114.cn/action/wdblessingcard2017/js/index.js "></script>
+
+	<script>
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</body>
+
+</html>

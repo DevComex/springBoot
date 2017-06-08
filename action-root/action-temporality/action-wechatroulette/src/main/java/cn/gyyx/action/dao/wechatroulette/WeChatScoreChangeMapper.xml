@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wechatroulette.WeChatScoreChangeMapper">
+	<resultMap type="cn.gyyx.action.beans.common.ActionWXjifenChangeLogBean"
+		id="BaseResultMap">
+		<id column="code" property="code" />
+		<result column="action_code" property="actionCode" />
+		<result column="openid" property="openId" />
+		<result column="jifen" property="jifen" />
+		<result column="change_time" property="changeTime" />
+		<result column="change_type" property="changeType" />
+		<result column="remark" property="remark" />
+	</resultMap>
+	<!-- 插入一条记录 -->
+	<insert id="insertReduceJfLog"
+		parameterType="cn.gyyx.action.beans.common.ActionWXjifenChangeLogBean">
+		insert into action_wxjifenchangelog_tb
+		(action_code,openid,jifen,change_type,change_time,remark)
+		values
+		(#{actionCode},#{openId},#{jifen},#{changeType},#{changeTime},#{remark});
+	</insert>
+</mapper>

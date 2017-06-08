@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+		<meta name="format-detection" content="telephone=no" />
+		<title>驯龙三国微信分享</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wdxlsg/css/index.css" />
+		<script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdxlsg/js/gyyx_wxshare.min.js"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdxlsg/js/index.js"></script>
+	</head>
+	<body>
+		<div  class="share_main">
+			<img src="http://static.cn114.cn/action/wdxlsg/images/shareImg.png"/>
+		</div>
+		<div class="dia_modal_nouse js_nouse" style="display:none;">请在竖屏使用！</div>
+	</body>
+</html>

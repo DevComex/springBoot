@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.chsactivationcode.IActivityConfigMapper">
+	<resultMap type="HdInfo" id="ActivityConfigBean">
+		<result column="code" property="code" />
+		<result column="hd_name" property="hdName" />
+		<result column="hd_start" property="hdStart" />
+		<result column="hd_end" property="hdEnd" />
+		<result column="is_delete" property="isDelete" />
+		<result column="game_id" property="gameId" />
+		<result column="paras" property="paras" />
+		<result column="hd_link" property="hdLink" />
+	</resultMap>
+
+	<!-- 根据活动code查询活动信息 -->
+	<select id="getHdInfo" resultMap="ActivityConfigBean">
+		select * from
+		hd_config_tb
+		where code = #{actionCode}
+	</select>
+	
+	<!-- 修改 -->
+	<update id="updateHdTime">		
+		update hd_config_tb
+		set hd_start = #{hdStartTime}, hd_end=#{hdEndTime}
+		where code = #{actionCode}
+	</update>
+</mapper>

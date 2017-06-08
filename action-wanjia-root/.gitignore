@@ -1,0 +1,95 @@
+### Windows ###
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+
+### Eclipse ###
+*.pydevproject
+*.project
+.project
+.metadata
+.recommenders
+.gradle
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+*.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+# sbteclipse plugin
+.target
+
+# TeXlipse plugin
+.texlipse
+
+
+### Java ###
+*.class
+*.classpath
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+
+### Maven ###
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+/Servers
+/RemoteSystemsTempFiles
+
+### sonar ###
+.sonar/
+
+### IDEA ###
+*.iml
+.idea/
+action-root/Servers/Pivotal tc Server Developer Edition v3.1-config/catalina.policy
+action-root/Servers/Pivotal tc Server Developer Edition v3.1-config/catalina.properties
+action-root/Servers/Pivotal tc Server Developer Edition v3.1-config/context.xml
+action-root/Servers/Pivotal tc Server Developer Edition v3.1-config/jmxremote.access
+action-root/Servers/Pivotal tc Server Developer Edition v3.1-config/jmxremote.password
+action-root/Servers/Pivotal tc Server Developer Edition v3.1-config/server.xml
+action-root/Servers/Pivotal tc Server Developer Edition v3.1-config/tomcat-users.xml
+action-root/Servers/Pivotal tc Server Developer Edition v3.1-config/web.xml

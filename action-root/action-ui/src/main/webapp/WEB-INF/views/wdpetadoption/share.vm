@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>《灵魂战神》-新闻详细</title>
+    <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://static.cn114.cn/action/WDPetAdoption/js/share.js"></script>
+</head>
+<body>
+    <div class="content">
+       <div class="share-con">
+                <a title="分享到新浪微博" href="javascript:void(0);"><span class="xinlang">33</span></a>
+            </div>
+
+        <div class="txt">
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 2012光宇游戏再掀狂热游戏浪潮，推出火爆仙侠大作《神仙道》。<font color="#ff0000">双线4服将于3月28日（星期三）11点开启！</font></p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="javascript:void(0);" class="Qzone">e3rr</a>  光宇游戏《神仙道》官方网站：<a href="http://sxd.gyyx.cn/"><font color="#ff0000">http://sxd.gyyx.cn/</font></a><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 光宇游戏《神仙道》交流论坛：<a href="http://webbbs.gyyx.cn/forum.php?gid=36"><font color="#ff0000">http://webbbs.gyyx.cn/forum.php?gid=36</font></a><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 光宇游戏《神仙道》新手卡领取：<a href="http://sxd.gyyx.cn/NewCard/NewCardList.aspx"><font color="#ff0000">http://sxd.gyyx.cn/NewCard/NewCardList.aspx</font></a></p>
+            <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 《神仙道》是一款横版RPG类型的仙侠题材的网页游戏，在游戏中，玩家将自身融入一个仙侠的世界，一路斩妖除魔，经历众多冒险关卡，享受与各种妖魔鬼怪的战斗带来的打击刺激，游戏玩的就是惊险，游戏玩的就是剧情。让我们一起&#8220;修仙求道，猎命改运&#8221;。</p>
+        </div>
+        <!-- 一键分享描述内容截取 start-->
+        <div id="fenxiang"></div>
+
+    </div>
+
+
+
+</body>
+</html>

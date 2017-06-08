@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.IOprateRecordsMapper">
+	<resultMap type="Record" id="Record">
+		<id column="code" property="code" />
+		<result column="oprator" property="oprator" />
+		<result column="oprate_time" property="oprateTime" />
+		<result column="account" property="account" />
+		<result column="credit_gived" property="creditGived" />
+		<result column="material_code" property="materialCode" />
+		<result column="reset_flag" property="resetFlag" />	
+	</resultMap>
+	
+  <!-- 条件查询操作记录 -->
+  <select id="getRecords" parameterType="Record" resultMap="Record">
+  	select TOP 10 *  from xuanwuba_oprate_records_tb 
+		where 
+		(code NOT IN 
+		(SELECT TOP 
+		(10*(#{page}-1)) 
+		code 
+		FROM 
+		xuanwuba_oprate_records_tb where 1=1 
+		<if test="time != null and time != ''">
+		<![CDATA[
+					and datediff(dd,#{time},oprate_time)=0
+		]]>
+		</if>
+		<if test="account != null and account != ''">
+		<![CDATA[
+					and account like CONCAT('%','${account}','%') 
+		]]>
+		</if>
+		<if test="materialCode != null and materialCode != ''">
+		<![CDATA[
+					and material_code = #{materialCode}
+		]]>
+		</if>
+		order by code desc
+		)) 
+		<if test="time != null and time != ''">
+		<![CDATA[
+					and datediff(dd,#{time},oprate_time)=0
+		]]>
+		</if>
+		<if test="account != null and account != ''">
+		<![CDATA[
+					and account like CONCAT('%','${account}','%') 
+		]]>
+		</if>
+		<if test="materialCode != null and materialCode != ''">
+		<![CDATA[
+					and material_code = #{materialCode}
+		]]>
+		</if>
+		order by code desc
+  </select>
+  
+  <!-- 查询所有操作记录条数 -->
+  <select id="getRecordsTotal" parameterType="Record" resultType="int">
+  	select count(*) from xuanwuba_oprate_records_tb where 1=1 
+		<if test="time != null and time != ''">
+		<![CDATA[
+					and datediff(dd,#{time},oprate_time)=0
+		]]>
+		</if>
+		<if test="account != null and account != ''">
+		<![CDATA[
+					and account like CONCAT('%','${account}','%') 
+		]]>
+		</if>
+		<if test="materialCode != null and materialCode != ''">
+		<![CDATA[
+					and material_code = #{materialCode}
+		]]>
+		</if>
+  </select>
+
+  
+  <!-- 增加任务信息 -->
+	<insert id="addRecord" parameterType="MissionBean">
+		insert into xuanwuba_oprate_records_tb  
+		(oprator,oprate_time,account,credit_gived,material_code) 
+		values(#{oprator},#{oprateTime},#{account},#{creditGived},#{materialCode})
+	</insert>
+
+	<!-- 添加重置标识 -->
+	<update id="setResetFlag" parameterType="Integer">
+		update xuanwuba_oprate_records_tb set reset_flag = 1 where material_code = #{materialCode}
+	</update>
+</mapper>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="expires" content="0">
+		<meta http-equiv="pragma" content="no-cache">
+		<meta http-equiv="cache-control" content="no-cache">
+    	<title>2017新服冲榜活动</title>
+    	<link href="http://qibao.gyyx.cn/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+    	<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdcf2017/css/wd0706.css"/>
+    	
+    	<script  type="text/javascript">
+	        var rc = "${rc.contextPath}";
+		</script>
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?014bc65b681811e7b0735550bd909fe8";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>	
+
+				
+	</head>
+	<body>
+	<header class="header">
+		<img src="http://static.cn114.cn/action/wdcf2017/img/details_up.jpg" alt="">
+			<p class="js_jf"><label>当前剩余积分：</label>
+			<span id="integral"></span></p>
+	</header>
+		<div id="fxpage">
+
+			<dl class="information">
+				<dt>
+					 <img src="" id="infoUrl" account=""/>
+				</dt>
+				<dd>
+					<p><label>微&nbsp;信&nbsp;号&nbsp;&nbsp;：</label><span id="wxNum"></span></p>
+					<p><label>角&nbsp;色&nbsp;名&nbsp;&nbsp;：</label><span id="joleName"></span></p>
+					<p><label>当前等级：</label><span id="rank"></span></p>
+					<p><label>当前道行：</label><span id="years"></span></p>
+					<p><label>当前分享：</label><span id="share"></span></p>
+				</dd>
+			</dl>
+			<ul class="decoration">
+				<li>
+					<label>兴趣爱好：</label>
+					<span id="interest"></span>
+				</li>
+				<li>
+					<label>新服宣言：</label>
+					<span id="declaration"></span>
+				</li>
+				<li>
+					<label>审核状态：</label>
+					<span id="status"></span>
+				</li>
+				<!--<li class="js_jf">
+					<label>当前剩余积分：</label>
+					<span id="integral"></span>
+				</li>-->
+			</ul>
+			<a href="javascript:;" id="go_index">进入主页</a>
+			<a href="javascript:;"id="fx">分享</a>
+
+
+		</div>
+	<footer class="foot">
+		<img src="http://static.cn114.cn/action/wdcf2017/img/details_d.jpg" alt="">
+	</footer>
+		<div id="footer">
+			<a href="javascript:;" id="phPage">
+				<img src="http://static.cn114.cn/action/wdcf2017/img/pm.png" />
+				<b>排行</b>
+			</a>
+			<a href="javascript:;" class="on" id="bmPage">
+				<img src="http://static.cn114.cn/action/wdcf2017/img/bmon.png" />
+				<b>报名</b>
+			</a>
+		
+			<a href="javascript:;" id="jfPage">
+				<img src="http://static.cn114.cn/action/wdcf2017/img/jf.png" />
+				<b>积分兑换</b>
+			</a>
+		</div>
+		
+		<!-- <div class="zztc" style="display: none;" id="bmhFx">
+			<div class="tc tc1" >
+				<img src="http://static.cn114.cn/action/wdcf2017/img/tc1.jpg" />
+				<div class="cont">
+					<h1>您已成功将信息分享至朋友圈，目前您共获得<span></span>积分！</h1>
+					<p>道姐提示：积分可用于积分兑换和积分抽奖哦！</p>
+					<a class="close">我知道了</a>
+				</div>
+			</div>
+		</div>
+		<div class="zztc"  style="display: none;" id="ubmhFx">
+			<div class="tc tc2">
+				<img src="http://static.cn114.cn/action/wdcf2017/img/tc2.jpg" />
+				<div class="cont">
+					<h1>您已成功将信息分享至朋友圈，由于您未报名活动所以不能获得任何奖励哦~</h1>
+					<p>道姐提示：分享成功后可以获得活动积分，积分可用于积分兑换和积分抽奖哦！</p>
+					<a class="close">我知道了</a>
+				</div>
+			</div>
+		</div> -->
+		<div class="zztc" id="gztc"  style="display: none;">
+			<div class="tc4">
+				<img src="http://static.cn114.cn/action/wdcf2017/img/ewm.png" class="img1"/>
+				<img src="http://static.cn114.cn/action/wdcf2017/img/know.png" class="close img2"/>
+			</div>
+		</div>
+		<div class="zztc1"><img src="http://static.cn114.cn/action/wdcf2017/img/zzbg.png"/></div>
+	 <div class="alert_box">
+               <div class="alert_msg">亲，请竖屏观看哦~~</div>
+      </div>
+	</body>
+<script src="http://static.cn114.cn/action/wdcf2017/js/jquery-1.8.2.min.js"></script>
+<script src="http://static.cn114.cn/action/wdcf2017/js/gyyx_wxshare.min.js"></script>
+
+<script type="text/javascript" src="http://static.cn114.cn/action/wdcf2017/js/publicnav.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdcf2017/js/fxinfo.js" ></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?37fefadc61d0187120e56bf257d1f6a2";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>	
+</html>

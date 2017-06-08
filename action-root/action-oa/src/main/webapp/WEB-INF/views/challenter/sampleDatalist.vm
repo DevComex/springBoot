@@ -1,0 +1,402 @@
+#parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script>
+	
+	function lengXz(ob,length){
+		var chain= /.*[\u4e00-\u9fa5]+.*$/;
+		//默认长为0
+        var allL = 0;
+        //初始中文长度
+        var s = 0;
+        for (var i = 0; i < $.trim(ob).length; i++) {
+
+            if (chain.test($.trim(ob).charAt(i))) {
+                s++;
+            }
+            //英文个数总长
+            var chi = $.trim(ob).length - s;
+            //总长
+            allL = chi + s * 2;
+        }
+        if(allL > 20){
+        	return true;
+        }
+        return false;
+	};
+
+	$(function(){
+		$("#liveRankBtn").click(function(){
+			 var f = true;
+			 $("#div1 input[type=text]").each(function(){
+				 if($(this).attr("name") == 'player'){
+					 if(!$(this).val()){
+						 f = false;
+						 $(this).focus();
+						 alert("玩家不能为空！");
+						 return false;
+					 }
+					 if(lengXz($.trim($(this).val()), 20)){
+						f = false;
+						$(this).focus();
+						alert("玩家长度不能大于20个字符！");
+						return false;
+					 }
+				 } 
+				 if($(this).attr("name") == 'liveCount'){
+					 if(!$(this).val()){
+						 f = false;
+						 alert("直播场数不能为空！");
+						 return false;
+					 }
+					 if(lengXz($.trim($(this).val()), 6)){
+							f = false;
+							$(this).focus();
+							alert("直播场数长度不能大于6个字符！");
+							return false;
+					 }
+				 } 
+				 if($(this).attr("name") == 'channel'){
+					 if(!$(this).val()){
+						 f = false;
+						 $(this).focus();
+						 alert("频道不能为空！");
+						 return false;
+					 }
+					 if(lengXz($.trim($(this).val()), 20)){
+							f = false;
+							$(this).focus();
+							alert("频道长度不能大于20个字符！");
+							return false;
+					 }
+				 } 
+				 if($(this).attr("name") == 'winCount'){
+					 if(!$(this).val()){
+						 f = false;
+						 $(this).focus();
+						 alert("胜出场数不能为空！");
+						 return false;
+					 }
+					 if(lengXz($.trim($(this).val()), 6)){
+							f = false;
+							$(this).focus();
+							alert("胜出场数长度不能大于6个字符！");
+							return false;
+					 }
+				 } 
+			 });
+			 
+			 if(f){
+				 $.ajax({
+		            type:"post",
+		            url:"${rc.contextPath}/challenteroa/saveLiveRank",
+		            data:$("#form1").serialize(),
+		            success:function(d){
+		                alert(d.message);       
+		            },
+		            error: function(){
+		                alert("网络异常");
+		            } 
+		         }); 
+			 }
+		});
+		
+		$("#deathLifeBtn").click(function(){
+			var f = true;
+			 $("#div2 input[type=text]").each(function(){
+				 if($(this).attr("name") == 'player'){
+					 if(!$(this).val()){
+						 f = false;
+						 $(this).focus();
+						 alert("玩家角色名称不能为空！");
+						 return false;
+					 }
+					 if(lengXz($.trim($(this).val()), 20)){
+							f = false;
+							$(this).focus();
+							alert("玩家角色长度不能大于20个字符！");
+							return false;
+					 }
+				 } 
+				 if($(this).attr("name") == 'attendCount'){
+					 if(!$(this).val()){
+						 f = false;
+						 $(this).focus();
+						 alert("参与场数不能为空！");
+						 return false;
+					 }
+					 if(lengXz($.trim($(this).val()), 6)){
+							f = false;
+							$(this).focus();
+							alert("参与场数长度不能大于6个字符！");
+							return false;
+					 }
+				 } 
+				 if($(this).attr("name") == 'winCount'){
+					 if(!$(this).val()){
+						 f = false;
+						 $(this).focus();
+						 alert("获胜场数不能为空！");
+						 return false;
+					 }
+					 if(lengXz($.trim($(this).val()), 6)){
+							f = false;
+							$(this).focus();
+							alert("获胜场数长度不能大于16个字符！");
+							return false;
+					 }
+				 } 
+			 });
+			 if(f){
+				 $.ajax({
+		            type:"post",
+		            url:"${rc.contextPath}/challenteroa/saveDeathLifeRank",
+		            data:$("#form2").serialize(),
+		            success:function(d){
+		                alert(d.message);       
+		            },
+		            error: function(){
+		                alert("网络异常");
+		            } 
+		         }); 
+			 }
+		});
+		
+		$("#liveTimeBtn").click(function(){
+			 var f = true;
+			 var reg = /^\d{4}-\d{2}-\d{2}\s*\d{2}:\d{2}$/;
+			 $("#div3 input[type=text]").each(function(){
+				 if($(this).attr("name") == 'liveTime'){
+					 if(!$(this).val()){
+						 f = false;
+						 $(this).focus();
+						 alert("时间不能为空！");
+						 return false;
+					 }
+					  if(!reg.test($.trim($(this).val()))){
+						f = false;
+						 $(this).focus();
+						alert("时间格式不正确,应为YYYY-MM-DD HH:MM");
+						return false;
+					 } 
+				 } 
+				 if($(this).attr("name") == 'playerA'){
+					 if(!$(this).val()){
+						 f = false;
+						 $(this).focus();
+						 alert("玩家A不能为空！");
+						 return false;
+					 }
+					 if(lengXz($.trim($(this).val()), 20)){
+							f = false;
+							alert("玩家A长度不能大于20个字符!");
+							return false;
+					 }
+				 } 
+				 if($(this).attr("name") == 'playerB'){
+					 if(!$(this).val()){
+						 f = false;
+						 $(this).focus();
+						 alert("玩家B不能为空！");
+						 return false;
+					 }
+					 if(lengXz($.trim($(this).val()), 20)){
+							f = false;
+							$(this).focus();
+							alert("玩家B长度不能大于20个字符!");
+							return false;
+					 }
+				 } 
+				 if($(this).attr("name") == 'liveRadio'){
+					 if(!$(this).val()){
+						 f = false;
+						 $(this).focus();
+						 alert("频道不能为空！");
+						 return false;
+					 }
+					 if(lengXz($.trim($(this).val()), 20)){
+							f = false;
+							$(this).focus();
+							alert("频道长度不能大于20个字符!");
+							return false;
+					 }
+				 } 
+			 });
+			 if(f){
+				 $.ajax({
+		            type:"post",
+		            url:"${rc.contextPath}/challenteroa/saveliveTimeRank",
+		            data:$("#form3").serialize(),
+		            success:function(d){
+		                alert(d.message);       
+		            },
+		            error: function(){
+		                alert("网络异常");
+		            } 
+		         }); 
+			 }
+		});
+	});
+</script>
+<style>
+  .table th, .table td { 
+		text-align: center; 
+	}
+</style>
+<!--标题-->
+<header class="header bg-white b-b clearfix">
+    <div class="col-sm-2 m-t-xs">
+        <h4>排行榜配置</h4>
+    </div>
+</header>
+<!-- 查询表单 -->
+<section class="scrollable padder">
+    <!--数据表格  begin -->
+    <section class="panel panel-success">
+       <header class="panel-heading">
+            <h4 class="form_validate_title">直播场数排行</h4>
+       </header>
+       <!-- <p class="m-t-sm m-b-none"></p> -->
+       <div class="table-responsive"  id="div1">
+            <table class="table table-striped m-b-none">
+                <thead>
+                    <tr>
+                    	<th>序号</th>
+                        <th>玩家</th>
+                        <th>直播场数</th>
+                        <th>频道</th>
+                        <th>胜出场数</th>
+                    </tr>
+                </thead>
+                <tbody id="">
+                	<form id="form1">
+	                	#set($liveRankListSize = $!{liveRankList.size()})
+	                	#foreach( $elem in $!{liveRankList})
+						    <tr>
+		                    	<td>$!{velocityCount}</td>
+		                        <td><input name="player" type="text" class="form-control" data-type="text" value="$!{elem.player}"></td>
+		                        <td><input name="liveCount" type="text" class="form-control" data-type="text" value="$!{elem.liveCount}"></td>
+		                        <td><input name="channel" type="text" class="form-control" data-type="text" value="$!{elem.channel}"></td>
+		                        <td><input name="winCount" type="text" class="form-control" data-type="text" value="$!{elem.winCount}"></td>
+	                    	</tr>
+						#end
+						#set($b = 5 - $!{liveRankList.size()}) 
+						#if($!b >  0)  
+                     		#foreach( $elem in [1..$b])
+								#set($c = $!{velocityCount} + $!{liveRankListSize}) 
+								<tr>
+			                    	<td>$!{c}</td>
+			                        <td><input name="player" type="text" class="form-control" data-type="text" value=""></td>
+			                        <td><input name="liveCount" type="text" class="form-control" data-type="text" value=""></td>
+			                        <td><input name="channel" type="text" class="form-control" data-type="text" value=""></td>
+			                        <td><input name="winCount" type="text" class="form-control" data-type="text" value=""></td>
+		                    	</tr>
+						    #end
+                        #end
+						
+					</form>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-footer">
+        	<button id="liveRankBtn" class="btn btn-success">保存</button>
+        </div>
+    </section>
+    
+    <section class="panel panel-success">
+       <header class="panel-heading">
+            <h4 class="form_validate_title">生死斗排行榜</h4>
+       </header>
+       <!-- <p class="m-t-sm m-b-none"></p> -->
+       <div class="table-responsive" id="div2">
+            <table class="table table-striped m-b-none">
+                <thead>
+                    <tr>
+                    	<th>序号</th>
+                    	<th>玩家角色名称</th>
+                        <th>参与场数</th>
+                        <th>获胜场数</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<form id="form2">
+	                	#set($deathLifeRankListSize = $!{deathLifeRankList.size()})
+	                	#foreach( $elem in $!{deathLifeRankList})
+						    <tr>
+		                    	<td>$!{velocityCount}</td>
+		                        <td><input name="player" type="text" class="form-control" data-type="text" value="$!{elem.player}"></td>
+		                        <td><input name="attendCount" type="text" class="form-control" data-type="text" value="$!{elem.attendCount}"></td>
+		                        <td><input name="winCount" type="text" class="form-control" data-type="text" value="$!{elem.winCount}"></td>
+	                    	</tr>
+						#end
+						#set($b = 5 - $!{deathLifeRankList.size()}) 
+						#if($!b >  0)  
+							#foreach( $elem in [1..$b])
+								#set($c = $!{velocityCount} + $!{deathLifeRankListSize}) 
+								<tr>
+			                    	<td>$!{c}</td>
+			                        <td><input name="player" type="text" class="form-control" data-type="text" value=""></td>
+			                        <td><input name="attendCount" type="text" class="form-control" data-type="text" value=""></td>
+			                        <td><input name="winCount" type="text" class="form-control" data-type="text" value=""></td>
+		                    	</tr>
+							#end
+						#end
+					</form>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-footer">
+        	<button id="deathLifeBtn" class="btn btn-success">保存</button>
+        </div>
+    </section>
+    
+    <section class="panel panel-success">
+       <header class="panel-heading">
+            <h4 class="form_validate_title">直播时间排行榜</h4>
+       </header>
+       <!-- <p class="m-t-sm m-b-none"></p> -->
+       <div class="table-responsive" id="div3">
+            <table class="table table-striped m-b-none">
+                <thead>
+                    <tr>
+                    	<th>序号</th>
+                    	<th>时间</th>
+                    	<th>对战玩家A</th>
+                    	<th>对战玩家B</th>
+                        <th>频道</th>
+                    </tr>
+                </thead>
+                <tbody>
+                	<form id="form3">
+	                	#set($liveTimeRankListSize = $!{liveTimeRankList.size()})
+	                	#foreach( $elem in $!{liveTimeRankList})
+						    <tr>
+		                    	<td>$!{velocityCount}</td>
+		                        <td><input name="liveTime" type="text" class="form-control" data-type="text" value="$!{elem.liveTime}"></td>
+		                        <td><input name="playerA" type="text" class="form-control" data-type="text" value="$!{elem.playerA}"></td>
+		                        <td><input name="playerB" type="text" class="form-control" data-type="text" value="$!{elem.playerB}"></td>
+		                        <td><input name="liveRadio" type="text" class="form-control" data-type="text" value="$!{elem.liveRadio}"></td>
+	                    	</tr>
+						#end
+						#set($b = 5 - $!{liveTimeRankList.size()}) 
+						#if($!b >  0)  
+							#foreach( $elem in [1..$b])
+								#set($c = $!{velocityCount} + $!{liveTimeRankListSize}) 
+								<tr>
+			                    	<td>$!{c}</td>
+			                        <td><input name="liveTime" type="text" class="form-control" data-type="text" value=""></td>
+			                        <td><input name="playerA" type="text" class="form-control" data-type="text" value=""></td>
+			                        <td><input name="playerB" type="text" class="form-control" data-type="text" value=""></td>
+			                        <td><input name="liveRadio" type="text" class="form-control" data-type="text" value=""></td>
+		                    	</tr>
+							#end
+						#end
+					</form>
+                </tbody>
+            </table>
+        </div>
+        <div class="panel-footer">
+        	<button id="liveTimeBtn" class="btn btn-success">保存</button>
+        </div>
+    </section>
+</section>
+ #parse("/shared/footer.vm")

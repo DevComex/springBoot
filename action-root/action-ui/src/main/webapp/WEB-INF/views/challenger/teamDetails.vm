@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>《问道》挑战“新世界”活动</title>
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/png.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/common.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/share.js"></script>
+<link href="http://static.cn114.cn/action/challenger/css/reset.css" rel="stylesheet" /> 
+<link href="http://static.cn114.cn/action/challenger/css/popup.css" rel="stylesheet" /> 
+<link href="http://static.cn114.cn/action/challenger/css/index.css" rel="stylesheet" />  <!--首页小导航分享 -->
+<link href="http://static.cn114.cn/action/challenger/css/commonTop.css" rel="stylesheet" />  <!-- 公用head -->
+<link href="http://static.cn114.cn/action/challenger/css/myTeam.css" rel="stylesheet" />  <!--我的队伍页（队员） -->
+ 
+</head>
+<script>
+var rc="${rc.contextPath}";
+$(function(){
+	$(".navList").find("a").removeClass("active");
+	$("#navList_team").addClass("active");
+});
+</script>
+<body>
+    <!-- 社区公用头部-->
+      <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+	#parse("challenger/challengerHeader.vm")
+	
+    <!--  自己的内容页面  -->
+    <div class="background">
+			<div class="teamBox">
+				<div class="teamName">
+					<p>队伍详情信息</p>
+				</div>
+				<div class="teamInfo">
+                    <p class="nor">队长：<span>$!teamInfo.roleName</span></p>
+                    <p class="nor">目标：<span>$!teamInfo.target</span></p>
+                    <p class="nor">宣言：<span>$!teamInfo.declaration</span></p>
+                    <p class="nor">成员：<span>$!teamInfo.teamMember</span></p>
+				</div>
+			</div>
+		</div>
+   
+    <!--  自己的内容页面  -->
+  
+
+
+
+    <!-- 社区公用底部 -->
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+ </div>
+
+    #parse("challenger/challengerLogin.vm")
+</body>
+</html>

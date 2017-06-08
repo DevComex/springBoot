@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>IDO漫展图片上传</title>
+        <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    </head>
+    <body>
+        <select class="code" name="">
+            <option value="1">图1</option>
+            <option value="2">图2</option>
+            <option value="3">图3</option>
+            <option value="4">图4</option>
+            <option value="5">图5</option>
+            <option value="6">图6</option>
+            <option value="7">图7</option>
+            <option value="8">图8</option>
+            <option value="9">图9</option>
+            <option value="10">图10</option>
+        </select>
+        <input type="text" name="name" value="" class="imgUrl">
+        <input type="button" name="name" value="上传" class="uploadImg">
+        <script  type="text/javascript">
+		    var rc = "${rc.contextPath}";
+	    </script>
+        <script type="text/javascript">
+        
+            $(".uploadImg").click(function(){
+                $.ajax({
+                    type:"get", // 逗号
+                    url:rc + "/OaWDManZhan/uploadImage",
+                    data:{
+                        imageId : $(".code option:selected").val(),
+                        imageUrl : $(".imgUrl").val(),
+                        r : Math.random()
+                    },
+                    success:function(d){
+                        if(d.isSuccess){
+                            alert(d.message);
+                        }else{
+                            alert(d.message);
+                        }
+                    }
+                })
+            })
+        </script>
+         
+    </body>
+</html>

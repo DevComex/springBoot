@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.IMaterialAuditMapper">
+	<resultMap type="MaterialAuditBean" id="MaterialAuditMap">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="server_name" property="serverName" />
+		<result column="material_name" property="materialName" />
+		<result column="material_type" property="materialType" />
+		<result column="is_checked" property="isChecked" />
+		<result column="credits" property="credits" />
+		<result column="comment_got" property="commentGot" />
+		<result column="praise_got" property="praiseGot" />
+		
+		<result column="net_type" property="netType" />
+		<result column="is_show" property="isShow" />
+		<result column="material_code" property="materialCode" />
+		<result column="upload_time" property="uploadTime" />
+		
+		<result column="with_best" property="withBest" />
+		
+		<!-- 图片  begin  -->
+		<result column="temp_url" property="tempUrl" />
+		<result column="img_feature" property="imgFeature" />
+		<result column="img_width" property="imgWidth" />
+		<result column="img_height" property="imgHeight" />
+		<!-- 图片  end  -->
+		
+		
+		<!-- new -->
+		<result column="content" property="content" />
+		<result column="material_profile" property="materialProfile" />
+		<result column="material_picture" property="materialPicture" />
+		
+		<result column="common_num" property="commonNum" />
+		<result column="praise_num" property="praiseNum" />
+		
+		<result column="material_link" property="materialLink" />
+		<result column="material_cate" property="materialCate" />
+	</resultMap>
+	
+	<!-- 分页查询素材 -->
+	<select id="getMaterialAuditByPage" parameterType="java.util.Map" resultMap="MaterialAuditMap">
+		<![CDATA[
+			select TOP (#{page.pageSize}) *  from xuanwuba_material_audit_new_tb 
+			where 
+			(code NOT IN 
+				(SELECT TOP (#{page.pageSize}*(#{page.pageNo}-1)) code FROM xuanwuba_material_audit_new_tb 
+					where '1'='1'
+		]]>
+		<if test="materialAudit.materialType != null and materialAudit.materialType != ''">
+		<![CDATA[
+					and  material_type=#{materialAudit.materialType}
+		]]>
+		</if>
+		<if test="materialAudit.isChecked != null and materialAudit.isChecked != ''">
+		<![CDATA[
+					and is_checked=#{materialAudit.isChecked} 
+		]]>
+		</if>
+		<if test="materialAudit.isShow != null">
+		<![CDATA[
+					and is_show=#{materialAudit.isShow} 
+		]]>
+		</if>
+		<if test="materialAudit.uploadTimeStr != null and materialAudit.uploadTimeStr != ''">
+		<![CDATA[
+					and DATEDIFF( d ,#{materialAudit.uploadTimeStr} ,[upload_time])=0 and DATEDIFF( m ,#{materialAudit.uploadTimeStr} ,[upload_time])=0 and DATEDIFF( yyyy ,#{materialAudit.uploadTimeStr} ,[upload_time])=0
+		]]>
+		</if>
+		<if test="materialAudit.account != null and materialAudit.account != ''">
+		<![CDATA[
+					and account like CONCAT('%','${materialAudit.account}','%' ) 
+		]]>
+		</if>
+		<if test="materialAudit.materialName != null and materialAudit.materialName != ''">
+		<![CDATA[
+					and material_name like CONCAT('%','${materialAudit.materialName}','%' ) 
+		]]>
+		</if>
+		<![CDATA[
+       			 ORDER BY code desc )
+       		)
+       	]]>
+       	<if test="materialAudit.materialType != null and materialAudit.materialType != ''">
+		<![CDATA[
+					and  material_type=#{materialAudit.materialType}
+		]]>
+		</if>
+		<if test="materialAudit.isChecked != null and materialAudit.isChecked != ''">
+		<![CDATA[
+					and is_checked=#{materialAudit.isChecked} 
+		]]>
+		</if>
+		<if test="materialAudit.isShow != null">
+		<![CDATA[
+					and is_show=#{materialAudit.isShow} 
+		]]>
+		</if>
+		<if test="materialAudit.uploadTimeStr != null and materialAudit.uploadTimeStr != ''">
+		<![CDATA[
+					and DATEDIFF( d ,#{materialAudit.uploadTimeStr} ,[upload_time])=0 and DATEDIFF( m ,#{materialAudit.uploadTimeStr} ,[upload_time])=0 and DATEDIFF( yyyy ,#{materialAudit.uploadTimeStr} ,[upload_time])=0
+		]]>
+		</if>
+		<if test="materialAudit.account != null and materialAudit.account != ''">
+		<![CDATA[
+					and account like CONCAT('%','${materialAudit.account}','%' ) 
+		]]>
+		</if>
+		<if test="materialAudit.materialName != null and materialAudit.materialName != ''">
+		<![CDATA[
+					and material_name like CONCAT('%','${materialAudit.materialName}','%' ) 
+		]]>
+		</if>
+		<![CDATA[
+			ORDER BY code desc
+		]]>
+	</select>
+	<!-- 查询素材数量 -->
+	<select id="getMaterialAuditCount" parameterType="MaterialAuditBean" resultType="Integer">
+		<![CDATA[
+			select count(*) from xuanwuba_material_audit_new_tb where '1'='1'
+		]]>
+		<if test="materialType != null and materialType != ''">
+		<![CDATA[
+					and  material_type=#{materialType}
+		]]>
+		</if>
+		<if test="isChecked != null and isChecked != ''">
+		<![CDATA[
+					and is_checked=#{isChecked} 
+		]]>
+		</if>
+		<if test="isShow != null">
+		<![CDATA[
+					and is_show=#{isShow} 
+		]]>
+		</if>
+		<if test="uploadTimeStr != null and uploadTimeStr != ''">
+		<![CDATA[
+					and DATEDIFF( d ,#{uploadTimeStr} ,[upload_time])=0 and DATEDIFF( m ,#{uploadTimeStr} ,[upload_time])=0 and DATEDIFF( yyyy ,#{uploadTimeStr} ,[upload_time])=0
+		]]>
+		</if>
+		<if test="account != null and account != ''">
+		<![CDATA[
+					and account like CONCAT('%','${account}','%' ) 
+		]]>
+		</if>
+		<if test="materialName != null and materialName != ''">
+		<![CDATA[
+					and material_name like CONCAT('%','${materialName}','%' ) 
+		]]>
+		</if>
+	</select>
+	<!-- 修改审核状态 -->
+	<update id="updateIsChecked">
+		update xuanwuba_material_audit_new_tb set is_checked=#{checkedStatus} where code=#{code}
+	</update>
+	<!-- 重置首页显示状态 -->
+	<update id="resetIsShow">
+		update xuanwuba_material_audit_new_tb set is_show = 0
+	</update>
+	<!-- 修改首页显示状态 -->
+	<update id="updateIsShow" parameterType="Integer">
+		update xuanwuba_material_audit_new_tb set is_show = 1 where code = #{code}
+	</update>
+	
+	
+	<!-- 2015-10-21 根据code查素材信息 -->
+	<select id="getMaterialInfoByCode" parameterType="Integer" resultMap="MaterialAuditMap">
+		select a.code,a.account,a.material_code,a.upload_time,b.material_name,b.material_type,b.material_profile,b.material_picture,b.material_link,b.material_cate,b.temp_url,b.img_feature,b.img_width,b.img_height from xuanwuba_material_audit_new_tb a left join xuanwuba_material_info_tb b on a.material_code = b.code where a.code = #{code}
+	</select>
+	
+	<!-- 评论 -->
+	<update id="updateCommentNum" parameterType="Integer">
+		update xuanwuba_material_audit_new_tb set comment_got = comment_got + #{0} where material_code = #{1}
+	</update>
+	
+	<!-- 积分 -->
+	<update id="updateCreditsNum" parameterType="Integer">
+		update xuanwuba_material_audit_new_tb set credits = credits + #{0} where code = #{1}
+	</update>
+	
+	<!-- 根据code查询显示首页状态 -->
+	<select id="getShowStatusByCode" parameterType="Integer" resultType="Integer">
+		select is_show from xuanwuba_material_audit_new_tb where code = #{code}
+	</select>
+	
+	<!-- 查询所有显示的素材 -->
+	<select id="getShowMaterialInfo" resultMap="MaterialAuditMap">
+		select * from xuanwuba_material_audit_new_tb where is_show = 1
+	</select>
+	
+	<!-- 修改是否有最佳评论标志  -->
+	<update id="setBestFlag" parameterType="Integer">
+		update xuanwuba_material_audit_new_tb set with_best = 1 where material_code = #{materialCode}
+	</update>
+	
+	<!-- 重置是否有最佳评论标志  -->
+	<update id="resetBestFlag" parameterType="Integer">
+		update xuanwuba_material_audit_new_tb set with_best = 0 where material_code = #{materialCode}
+	</update>
+</mapper>

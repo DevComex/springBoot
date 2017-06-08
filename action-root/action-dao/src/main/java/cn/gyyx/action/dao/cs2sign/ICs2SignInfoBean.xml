@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.cs2sign.ICs2SignInfoBean">
+	<resultMap type="cn.gyyx.action.beans.cs2sign.Cs2SignInfoBean" id="Cs2SignInfoBeanMap">
+		<id column="code" property="code" />
+		<result column="sign_last" property="signLast" />
+		<result column="sign_continuity" property="signContinuity" />
+		<result column="account" property="account" />
+		<result column="user_code" property="userCode" />
+	</resultMap>
+	<insert id="insertCs2SignInfoBean" useGeneratedKeys="true" keyProperty="code" parameterType="cn.gyyx.action.beans.cs2sign.Cs2SignInfoBean">
+		insert into cs2_sign_info
+		(sign_last,sign_continuity,account,user_code)
+		values
+		(#{signLast},#{signContinuity},#{account},#{userCode})
+	</insert>
+	
+	
+	
+	<select id="selectCs2SignInfoCountByAccount" resultType="int">
+		select COUNT(code) from cs2_sign_info where account = #{account}
+	</select>
+	<select id="selectCs2SignInfoBeanByAccount" resultMap="Cs2SignInfoBeanMap">
+		select * from cs2_sign_info where account = #{account}
+	</select>
+	<update id="updateCs2SignInfo">
+		update cs2_sign_info set sign_last = #{date},sign_continuity = #{continuity} where account = #{account}
+	</update>
+</mapper>

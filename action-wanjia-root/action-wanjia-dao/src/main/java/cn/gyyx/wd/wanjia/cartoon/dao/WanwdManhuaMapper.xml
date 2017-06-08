@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.wd.wanjia.cartoon.dao.WanwdManhuaMapper">
+	<resultMap id="BaseResultMap" type="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhua">
+		<id column="code" property="code" jdbcType="INTEGER" />
+		<result column="title" property="title" jdbcType="VARCHAR" />
+		<result column="context" property="context" jdbcType="VARCHAR" />
+		<result column="author_name" property="authorName" jdbcType="VARCHAR" />
+		<result column="author_account" property="authorAccount"
+			jdbcType="VARCHAR" />
+		<result column="author_id" property="authorId" jdbcType="INTEGER" />
+		<result column="category_code" property="categoryCode"
+			jdbcType="INTEGER" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+		<result column="is_closed" property="isClosed" jdbcType="INTEGER" />
+		<result column="order_num" property="ordernum" jdbcType="INTEGER" />
+		<result column="read_count" property="readCount" jdbcType="INTEGER" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		code, title, context, author_name, author_account,
+		author_id,
+		category_code, create_time,
+		update_time, is_closed,
+		order_num,read_count
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from wanwd_manhua_tb
+		where code = #{code,jdbcType=INTEGER}
+	</select>
+	<select id="selectManhuaListCount"  resultType="int"
+		parameterType="java.lang.Integer">
+SELECT COUNT(*) FROM
+(
+SELECT   
+ROW_NUMBER() OVER (
+	ORDER BY m.code desc
+) as rank,
+m.code,m.title,m.author_id,m.author_name,m.context,c.name,b.book_name,b.book_num ,b.code bcode,p.code pcode,p.page_picture_url,p.page_picture_num
+,p.create_time,co.sourcenum
+from wanwd_manhua_tb m
+LEFT JOIN (
+SELECT MAX(b.code) bcode,b.manhua_code mcode FROM wanwd_manhua_chapter_tb b WHERE b.review_status = 'SUCCESS' AND b.is_delete =0  GROUP BY b.manhua_code
+) bb ON bb.mcode=m.code
+LEFT JOIN wanwd_manhua_chapter_tb b ON bb.bcode=b.code
+LEFT JOIN wanwd_manhua_page_tb p ON p.book_code =bb.bcode
+LEFT JOIN wanwd_category_tb c ON c.code = m.category_code
+LEFT JOIN (
+SELECT COUNT(sources_code) sourcenum ,sources_code  FROM wanwd_collect_tb co WHERE co.sources_type=4 AND co.is_delete=0  GROUP BY co.sources_code
+) co ON co.sources_code =m.code
+WHERE p.page_picture_num = 0  AND   p.is_delete =0
+<if test="categoryCode!=null">
+AND m.category_code=#{categoryCode}
+</if>
+
+)t
+	</select>
+	
+	
+	<select id="selectManhuaList" resultType="java.util.Map"
+		parameterType="map">
+		SELECT * FROM
+(
+SELECT   
+ROW_NUMBER() OVER (
+ORDER BY 
+<if test="num!=null">
+	m.read_count DESC
+</if>
+<if test="time!=null">
+	p.create_time DESC
+</if>
+) as rank,
+m.code,m.title,m.author_id,m.author_name,m.context,c.name,b.book_name,b.book_num ,b.code bcode,p.code pcode,
+replace(p.page_picture_url ,'-small','') page_picture_url,p.page_picture_num
+,p.create_time,co.sourcenum,m.read_count
+from wanwd_manhua_tb m
+LEFT JOIN (
+SELECT MAX(b.code) bcode,b.manhua_code mcode FROM wanwd_manhua_chapter_tb b WHERE b.review_status = 'SUCCESS'  AND b.is_delete =0  GROUP BY b.manhua_code
+) bb ON bb.mcode=m.code
+LEFT JOIN wanwd_manhua_chapter_tb b ON bb.bcode=b.code
+LEFT JOIN wanwd_manhua_page_tb p ON p.book_code =bb.bcode
+LEFT JOIN wanwd_category_tb c ON c.code = m.category_code
+LEFT JOIN (
+SELECT COUNT(sources_code) sourcenum ,sources_code  FROM wanwd_collect_tb co WHERE co.sources_type=4 AND co.is_delete=0  GROUP BY co.sources_code
+) co ON co.sources_code =m.code
+WHERE p.page_picture_num = 0 AND   p.is_delete =0
+<if test="categoryCode!=null">
+AND m.category_code=#{categoryCode}
+</if>
+)t WHERE t.rank BETWEEN #{start} AND #{end} 
+		 
+
+	</select>
+	<!--  右侧栏-->
+	<select id="selectRightList" resultType="java.util.Map"
+		parameterType="string">
+	
+SELECT TOP 8 m.code,m.title,m.author_id,m.author_name,m.context,m.read_count
+,b.book_name,b.book_num ,b.code bcode
+,p.code pcode,replace(p.page_picture_url ,'-small','') page_picture_url,p.page_picture_num,p.create_time
+,r.display_order
+ FROM wanwd_manhua_tb m
+LEFT JOIN (
+SELECT MAX(b.code) bcode,b.manhua_code mcode FROM wanwd_manhua_chapter_tb b
+ GROUP BY b.manhua_code
+) bb ON bb.mcode=m.code
+LEFT JOIN wanwd_manhua_chapter_tb b ON bb.bcode=b.code
+LEFT JOIN wanwd_manhua_page_tb p ON p.book_code =bb.bcode
+LEFT JOIN wanwd_recommend_tb r ON r.content_id=m.code
+WHERE r.location_id=#{location} AND r.is_delete =0 AND r.is_display =1 and p.page_picture_num = 0 AND p.is_delete =0
+ORDER BY r.display_order
+	</select>
+
+	<select id="selectCountByUid" resultType="int" parameterType="java.lang.Integer">
+		SELECT COUNT(*) FROM (
+		select
+		ROW_NUMBER() OVER (ORDER BY m.code desc)
+		as rank,
+		m.title,m.code,b.book_name,b.book_num,replace(p.page_picture_url ,'-small','') page_picture_url,c.creater_time,user_id,P.page_picture_num,p.code
+		pcode
+		from wanwd_manhua_tb m
+		LEFT JOIN wanwd_collect_tb c on
+		c.sources_code =m.code 
+		LEFT JOIN (
+		SELECT
+		MAX(b.code) bcode,b.manhua_code mcode FROM wanwd_manhua_chapter_tb b
+		WHERE b.review_status = 'SUCCESS'  AND b.is_delete =0  GROUP BY b.manhua_code
+		) bb ON
+		bb.mcode=m.code
+		LEFT JOIN wanwd_manhua_chapter_tb b ON b.code=bb.bcode
+
+		LEFT JOIN wanwd_manhua_page_tb P ON P.book_code = b.code AND
+		p.page_picture_num = 0
+
+		where c.user_id = #{userId,jdbcType=INTEGER} AND
+		b.review_status =
+		'SUCCESS' and c.sources_type=4 AND c.is_delete=0 AND   P.is_delete =0
+		) AS t
+	</select>
+
+
+	<select id="selectByUserId" resultType="java.util.Map"
+		parameterType="map">
+		SELECT * FROM (
+		select
+		ROW_NUMBER() OVER (ORDER BY c.creater_time
+		desc) as rank,
+		m.title,m.code,b.book_name,b.book_num,replace(p.page_picture_url ,'-small','') page_picture_url,c.creater_time,user_id,P.page_picture_num,p.code
+		pcode
+		from wanwd_manhua_tb m
+		LEFT JOIN wanwd_collect_tb c on
+		c.sources_code =m.code
+		LEFT JOIN (
+		SELECT
+		MAX(b.code) bcode,b.manhua_code mcode FROM wanwd_manhua_chapter_tb b
+		WHERE b.review_status = 'SUCCESS'  AND b.is_delete =0  GROUP BY b.manhua_code
+		) bb ON
+		bb.mcode=m.code
+		LEFT JOIN wanwd_manhua_chapter_tb b ON b.code=bb.bcode
+
+		LEFT JOIN wanwd_manhua_page_tb P ON P.book_code = b.code AND
+		p.page_picture_num = 0
+
+		where c.user_id = #{userId,jdbcType=INTEGER} AND
+		b.review_status =
+		'SUCCESS' and c.sources_type=4 AND c.is_delete=0 AND   P.is_delete =0
+		) AS t WHERE t.rank between #{start} and
+		#{end} ORDER BY
+		t.[creater_time] desc
+
+	</select>
+
+
+
+
+
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		wanwd_manhua_tb
+		where code = #{code,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhua">
+		insert into wanwd_manhua_tb
+		(code, title, context,
+		author_name, author_account, author_id,
+		category_code, create_time, update_time,
+		is_closed)
+		values
+		(#{code,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR},
+		#{context,jdbcType=VARCHAR},
+		#{authorName,jdbcType=VARCHAR},
+		#{authorAccount,jdbcType=VARCHAR}, #{authorId,jdbcType=INTEGER},
+		#{categoryCode,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
+		#{updateTime,jdbcType=TIMESTAMP},
+		#{isClosed,jdbcType=INTEGER})
+	</insert>
+	<insert id="insertSelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhua">
+		insert into wanwd_manhua_tb
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="code != null">
+				code,
+			</if>
+			<if test="title != null">
+				title,
+			</if>
+			<if test="context != null">
+				context,
+			</if>
+			<if test="authorName != null">
+				author_name,
+			</if>
+			<if test="authorAccount != null">
+				author_account,
+			</if>
+			<if test="authorId != null">
+				author_id,
+			</if>
+			<if test="categoryCode != null">
+				category_code,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="updateTime != null">
+				update_time,
+			</if>
+			<if test="isClosed != null">
+				is_closed,
+			</if>
+			 
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="code != null">
+				#{code,jdbcType=INTEGER},
+			</if>
+			<if test="title != null">
+				#{title,jdbcType=VARCHAR},
+			</if>
+			<if test="context != null">
+				#{context,jdbcType=VARCHAR},
+			</if>
+			<if test="authorName != null">
+				#{authorName,jdbcType=VARCHAR},
+			</if>
+			<if test="authorAccount != null">
+				#{authorAccount,jdbcType=VARCHAR},
+			</if>
+			<if test="authorId != null">
+				#{authorId,jdbcType=INTEGER},
+			</if>
+			<if test="categoryCode != null">
+				#{categoryCode,jdbcType=INTEGER},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateTime != null">
+				#{updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isClosed != null">
+				#{isClosed,jdbcType=INTEGER}
+			</if>
+			 
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhua">
+		update wanwd_manhua_tb
+		<set>
+			<if test="title != null">
+				title = #{title,jdbcType=VARCHAR},
+			</if>
+			<if test="context != null">
+				context = #{context,jdbcType=VARCHAR},
+			</if>
+			<if test="authorName != null">
+				author_name = #{authorName,jdbcType=VARCHAR},
+			</if>
+			<if test="authorAccount != null">
+				author_account = #{authorAccount,jdbcType=VARCHAR},
+			</if>
+			<if test="authorId != null">
+				author_id = #{authorId,jdbcType=INTEGER},
+			</if>
+			<if test="categoryCode != null">
+				category_code = #{categoryCode,jdbcType=INTEGER},
+			</if>
+			<if test="createTime != null">
+				create_time = #{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="updateTime != null">
+				update_time = #{updateTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="isClosed != null">
+				is_closed = #{isClosed,jdbcType=INTEGER}
+			</if>
+			 
+		</set>
+		where code = #{code,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhua">
+		update
+		wanwd_manhua_tb
+		set title = #{title,jdbcType=VARCHAR},
+		context =
+		#{context,jdbcType=VARCHAR},
+		author_name =
+		#{authorName,jdbcType=VARCHAR},
+		author_account =
+		#{authorAccount,jdbcType=VARCHAR},
+		author_id =
+		#{authorId,jdbcType=INTEGER},
+		category_code =
+		#{categoryCode,jdbcType=INTEGER},
+		create_time =
+		#{createTime,jdbcType=TIMESTAMP},
+		update_time =
+		#{updateTime,jdbcType=TIMESTAMP},
+		is_closed =
+		#{isClosed,jdbcType=INTEGER}
+		 
+		where code = #{code,jdbcType=INTEGER}
+	</update>
+	
+	<!-- 漫画上传查询当前作者的所有未完结的漫画 -->
+	<select id="selectManhuaUnfinishedByAuthorId" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from wanwd_manhua_tb
+		where author_id = #{authorId,jdbcType=INTEGER} 
+		and is_closed=0
+	</select>
+	<!-- 漫画上传查询漫画名为XXX的漫画 -->
+	<select id="selectManhuaByTitle" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select
+		<include refid="Base_Column_List" />
+		from wanwd_manhua_tb
+		where title = #{title} 
+	</select>
+	<!-- 插入新漫画 返回code -->
+	<select id="insertReturnCode" resultType="java.lang.Integer"
+		parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhua">
+		INSERT INTO wanwd_manhua_tb ( [title], [context], [author_name], [author_account],
+		[author_id], [category_code], [create_time], [is_closed] )
+		output inserted.code
+		VALUES(
+			#{title,jdbcType=VARCHAR},
+			#{context,jdbcType=VARCHAR},
+			#{authorName,jdbcType=VARCHAR},
+			#{authorAccount,jdbcType=VARCHAR}, #{authorId,jdbcType=INTEGER},
+			#{categoryCode,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP},
+			#{isClosed,jdbcType=INTEGER}
+		)
+	</select>
+	<update id="updateReadCountPlusOne" parameterType="java.lang.Integer">
+		UPDATE wanwd_manhua_tb SET read_count=read_count+1 WHERE code=#{code,jdbcType=INTEGER}
+	</update>
+	
+	<!-- 查询作者被推荐的漫画 -->
+	<select id="selectRecommendManHua" resultType="java.util.Map"
+		parameterType="java.util.Map">
+	SELECT
+		*
+	FROM
+		(
+			SELECT
+				ROW_NUMBER () OVER (ORDER BY r.create_time DESC) AS rank,
+				m.author_id,
+				m.title,
+				replace(p.page_picture_url ,'-small','') page_picture_url,
+				m.context,
+				c.review_status,
+				r.create_time,
+				1 AS isRecommemd
+			FROM
+				wanwd_recommend_tb r
+			JOIN wanwd_manhua_tb m ON m.code = r.content_id
+			JOIN wanwd_manhua_chapter_tb c ON c.manhua_code = m.code
+			JOIN wanwd_manhua_page_tb p ON p.book_code = c.code
+			WHERE
+				m.author_id = #{userId,jdbcType=INTEGER}
+			AND p.is_delete = 0
+			AND p.page_picture_num = 0
+			AND r.is_delete = 0
+			AND r.content_type = #{resourceType,jdbcType=INTEGER}
+			AND c.book_num = (
+				SELECT
+					MAX (book_num)
+				FROM
+					wanwd_manhua_chapter_tb
+				WHERE
+					manhua_code = m.code AND review_status='SUCCESS' 
+			)
+		) t
+	WHERE
+		t.rank BETWEEN #{start,jdbcType=INTEGER}
+	AND #{end,jdbcType=INTEGER}
+	ORDER BY
+		t.create_time DESC
+	</select>
+	<!-- 查询作者被推荐的漫画总数 -->
+	<select id="selectRecommendManHuaTotalSize" resultType="java.lang.Integer"
+		parameterType="java.util.Map">
+	SELECT
+		COUNT(*) total
+	FROM
+		wanwd_recommend_tb r
+	JOIN wanwd_manhua_tb m ON m.code = r.content_id
+	JOIN wanwd_manhua_chapter_tb c ON c.manhua_code = m.code
+	JOIN wanwd_manhua_page_tb p ON p.book_code = c.code
+	WHERE
+		m.author_id = #{userId,jdbcType=INTEGER}
+	AND p.is_delete = 0
+	AND p.page_picture_num = 0
+	AND r.is_delete = 0
+	AND r.content_type = #{resourceType,jdbcType=INTEGER}
+	AND c.book_num = (
+		SELECT
+			MAX (book_num)
+		FROM
+			wanwd_manhua_chapter_tb
+		WHERE
+			manhua_code = m.code AND review_status='SUCCESS' 
+	)
+	</select>
+	<!-- 查询用户收藏的ManHua -->
+	<select id="selectUserCollection" resultType="java.util.Map"
+		parameterType="map">
+		SELECT * FROM (
+		select
+		ROW_NUMBER() OVER (ORDER BY c.creater_time
+		desc) as rank,
+		m.title,m.code,b.book_name,b.book_num,replace(p.page_picture_url ,'-small','') page_picture_url,c.creater_time,user_id,P.page_picture_num,p.code
+		pcode
+		from wanwd_manhua_tb m
+		LEFT JOIN wanwd_collect_tb c on
+		c.sources_code =m.code
+		LEFT JOIN (
+		SELECT
+		MAX(b.code) bcode,b.manhua_code mcode FROM wanwd_manhua_chapter_tb b
+		WHERE b.review_status = 'SUCCESS' AND b.is_delete=0  GROUP BY b.manhua_code
+		) bb ON
+		bb.mcode=m.code
+		LEFT JOIN wanwd_manhua_chapter_tb b ON b.code=bb.bcode
+
+		LEFT JOIN wanwd_manhua_page_tb P ON P.book_code = b.code AND
+		p.page_picture_num = 0  AND p.is_delete=0
+
+		where c.user_id = #{userId,jdbcType=INTEGER} AND
+		b.review_status =
+		'SUCCESS' AND b.is_delete=0 and c.sources_type=#{resourceType,jdbcType=INTEGER} AND c.is_delete=0
+		) AS t WHERE t.rank between #{start} and
+		#{end} ORDER BY
+		t.[creater_time] desc
+
+	</select>
+	<!-- 查询用户收藏的ManHua总数量 -->
+	<select id="selectUserCollectionTotalSize" resultType="int" parameterType="java.lang.Integer">
+		
+	select
+	 COUNT(*) AS total
+	from wanwd_manhua_tb m
+	LEFT JOIN wanwd_collect_tb c on
+	c.sources_code =m.code 
+	LEFT JOIN (
+	SELECT
+	MAX(b.code) bcode,b.manhua_code mcode FROM wanwd_manhua_chapter_tb b
+	WHERE b.review_status = 'SUCCESS' AND b.is_delete=0 GROUP BY b.manhua_code
+	) bb ON
+	bb.mcode=m.code
+	LEFT JOIN wanwd_manhua_chapter_tb b ON b.code=bb.bcode
+
+	LEFT JOIN wanwd_manhua_page_tb P ON P.book_code = b.code AND
+	p.page_picture_num = 0 AND p.is_delete=0
+
+	where c.user_id = #{userId,jdbcType=INTEGER} AND
+	b.review_status =
+	'SUCCESS' and c.sources_type=#{resourceType,jdbcType=INTEGER} AND c.is_delete=0 AND b.is_delete=0
+		
+	</select>
+	<!-- 查询浏览页漫画基本信息 bymanhuacode -->
+	<select id="selectManhuaInfo" resultType="java.util.Map" parameterType="java.lang.Integer">
+		
+	SELECT
+	TOP 1
+		m.code AS manhuaCode,
+		m.title,
+		m.context,
+		m.author_name AS author,
+		replace(p.page_picture_url ,'-small','') AS pic,
+		c.code
+	FROM
+		wanwd_manhua_tb m
+	JOIN wanwd_manhua_chapter_tb c ON m.code = c.manhua_code
+	JOIN wanwd_manhua_page_tb p ON c.code = p.book_code
+	WHERE
+		p.is_delete = 0
+	AND p.page_picture_num = 0 AND
+	c.is_delete = 0
+		AND c.review_status = 'SUCCESS'
+	AND m.code=#{code,jdbcType=INTEGER}
+	ORDER BY c.book_num DESC
+		
+	</select>
+	
+
+</mapper>

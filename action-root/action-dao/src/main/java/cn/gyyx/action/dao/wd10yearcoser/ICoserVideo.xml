@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wd10yearcoser.ICoserVideo">
+	<resultMap type="cn.gyyx.action.beans.wd10yearcoser.CoserOfficialVideo" id="CoserVideoMap">
+		<result column="code" property="code" />
+		<result column="works_name" property="worksName" />
+		<result column="works_url" property="worksUrl" />
+		<result column="works_pic" property="worksPic" />
+		<result column="content" property="content" />
+		<result column="is_top" property="isTop" />
+		<result column="create_time" property="createTime" />
+		<result column="commend_time" property="commendTime" />
+		<result column="favorite_num" property="favoriteNum" />
+		<result column="click_num" property="clickNum" />
+	</resultMap>
+
+	<insert id="insert" parameterType="cn.gyyx.action.beans.wd10yearcoser.CoserOfficialVideo"
+		useGeneratedKeys="true" keyProperty="code">
+		INSERT INTO 
+			wd_tenyears_coser_official_video_tb
+		 ( [works_name],[works_url],[works_pic], [content], [is_top], [create_time], [commend_time]) 
+		 VALUES (#{worksName},#{worksUrl},#{worksPic}, #{content}, #{isTop}, #{createTime}, #{commendTime})
+	</insert>
+	
+	
+	<delete id="delete">
+		delete from wd_tenyears_coser_official_video_tb
+		where code = #{code}
+	</delete>
+	
+	<update id="cancleLastTop">
+		update wd_tenyears_coser_official_video_tb 
+		set is_top = 'N',commend_time=null
+		where is_top = 'Y' and code not in (
+			select top 3 code from wd_tenyears_coser_official_video_tb where is_top='Y' order by commend_time desc
+		)
+	</update>
+	
+	<update id="update" parameterType="cn.gyyx.action.beans.wd10yearcoser.CoserOfficialVideo">
+		update wd_tenyears_coser_official_video_tb 
+		<set>
+			<if test="worksName!= null and worksName!= '' ">
+				works_name = #{worksName}, 
+			</if>
+			<if test="worksUrl!= null and worksUrl!= '' ">
+				works_url = #{worksUrl}, 
+			</if>
+			<if test="worksPic!= null and worksPic!= '' ">
+				works_pic = #{worksPic}, 
+			</if>
+			<if test="content!= null and content!= '' ">
+				content = #{content}, 
+			</if>
+			<if test="isTop!= null and isTop!= '' ">
+				is_top = #{isTop}, 
+			</if>
+			<if test="commendTime!= null and commendTime!= '' ">
+				commend_time = #{commendTime}, 
+			</if>
+			<if test="favoriteNum!= null and favoriteNum!= '' ">
+				favorite_num = #{favoriteNum}, 
+			</if>
+			<if test="clickNum!= null and clickNum!= '' ">
+				click_num = #{clickNum}, 
+			</if>
+		</set>
+		where code = #{code}
+	</update>
+	
+	<!--分页总数量 -->
+	<select id="getVideoCount" resultType="java.lang.Integer">
+		select count(1) from wd_tenyears_coser_official_video_tb where 1=1 
+		<if test="isTop!= null and isTop!= '' ">
+			and is_top = #{isTop}
+		</if>
+		<if test="worksName!= null and worksName!= '' ">
+			and works_name LIKE '%${worksName}%'
+		</if>
+	</select>
+	
+	<!--分页显示 -->
+	<select id="getVideoListPaging"
+		resultMap="CoserVideoMap">
+		select 
+			TOP (#{pageSize})  
+			A.*
+		from (
+			SELECT 
+				TOP (#{pageSize}*#{pageIndex})
+			    ROW_NUMBER() OVER (ORDER BY is_top desc,a.create_time desc) AS row_num,a.*
+			FROM wd_tenyears_coser_official_video_tb a
+			where 1=1  
+			<if test="isTop!= null and isTop!= '' ">
+				and is_top = #{isTop}
+			</if>
+			<if test="worksName!= null and worksName!= '' ">
+				and works_name LIKE '%${worksName}%'
+			</if>
+			order by is_top desc,a.commend_time desc,a.create_time desc
+		) A
+		WHERE
+		 row_num >
+		(#{pageSize}*(#{pageIndex}-1))
+	</select>
+	
+	<select id="getCoserOfficialVideo" parameterType="int"
+		resultMap="CoserVideoMap">
+		select top 1 * from
+		wd_tenyears_coser_official_video_tb
+		where code = #{code}
+	</select>
+	
+	<select id="videoFrontTopList" parameterType="int"
+		resultMap="CoserVideoMap">
+		select top 3   * from
+		wd_tenyears_coser_official_video_tb
+		where is_top = 'Y' order by commend_time desc
+	</select>
+	
+	<select id="getVideoFrontListPaging"
+		resultMap="CoserVideoMap">
+		select 
+			TOP (#{pageSize})  
+			A.*
+		from (
+			SELECT 
+				TOP (#{pageSize}*#{pageIndex})
+			    ROW_NUMBER() OVER (ORDER BY is_top desc,a.create_time desc) AS row_num,a.*
+			FROM wd_tenyears_coser_official_video_tb a
+			where 1=1 
+			<if test="isTop!= null and isTop!= '' ">
+				and is_top = #{isTop}
+			</if> 
+			<if test="worksName!= null and worksName!= '' ">
+				and works_name LIKE '%${worksName}%'
+			</if>
+			order by a.create_time desc
+		) A
+		WHERE row_num >
+		(#{pageSize}*(#{pageIndex}-1))
+	</select>
+	
+	<select id="getVideoFrontCount" 
+		resultType="java.lang.Integer">
+		select top 1 * from
+		wd_tenyears_coser_official_video_tb
+	</select>
+	
+</mapper>

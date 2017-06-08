@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.wd.wanjia.cartoon.dao.WanwdManhuaGoodMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaGood" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="manhua_code" property="manhuaCode" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_account" property="userAccount" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, manhua_code, user_id, user_account, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_manhua_good_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wanwd_manhua_good_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaGood" >
+    insert into wanwd_manhua_good_tb (code, manhua_code, user_id, 
+      user_account, create_time)
+    values (#{code,jdbcType=INTEGER}, #{manhuaCode,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, 
+      #{userAccount,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaGood" >
+    insert into wanwd_manhua_good_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="manhuaCode != null" >
+        manhua_code,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userAccount != null" >
+        user_account,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="manhuaCode != null" >
+        #{manhuaCode,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userAccount != null" >
+        #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaGood" >
+    update wanwd_manhua_good_tb
+    <set >
+      <if test="manhuaCode != null" >
+        manhua_code = #{manhuaCode,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userAccount != null" >
+        user_account = #{userAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaGood" >
+    update wanwd_manhua_good_tb
+    set manhua_code = #{manhuaCode,jdbcType=INTEGER},
+      user_id = #{userId,jdbcType=INTEGER},
+      user_account = #{userAccount,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  
+   <!-- 查询某漫画的点赞数 -->
+  <select id="getCountByManhuaCode" resultType="java.lang.Integer" parameterType="java.lang.Integer">
+  SELECT COUNT(*) num FROM wanwd_manhua_good_tb WHERE manhua_code=#{manhuaCode,jdbcType=INTEGER}
+  </select>
+  <!-- 查询当前用户是否对当前漫画点赞 0未点 1点赞 其他：数据错乱-->
+  <select id="getGoodStatus" resultType="java.lang.Integer" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaGood">
+	SELECT
+		COUNT (*) goodStatus
+	FROM
+		wanwd_manhua_good_tb
+	WHERE
+		user_id = #{userId,jdbcType=INTEGER}
+	AND manhua_code =  #{manhuaCode,jdbcType=INTEGER}
+  </select>
+ 
+  
+</mapper>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+
+	<head lang="en">
+		<meta charset="UTF-8">
+		<title>问道之旅报名</title>
+		
+		<script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript" charset="UTF-8"></script>
+
+		<!-- 上传图片-->
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdtravelentry/js/swfupload.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdtravelentry/js/SWFInitialize.js" charset="UTF-8"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdtravelentry/js/Handlers.js" charset="UTF-8"></script>
+
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdtravelentry/js/index.js" charset="UTF-8"></script>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wdtravelentry/css/css160701.css" />
+		<script type="text/javascript" charset="utf-8">
+			var rc="${rc.contextPath}";
+	    </script>
+	</head>
+
+	<body>
+		<div class="public_nav_top">
+			<script type="text/javascript">
+				Showtop();
+				alert("活动已经结束");
+			</script>
+		</div>
+		<div class="wrap">
+			<div class="main">
+				 <div class="nav">
+				 	<a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|
+				 	<a href="http://pay.gyyx.cn" target="_blank">充值中心</a>|
+				 	<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|
+				 	<a href="http://wd.gyyx.cn/download/" target="_blank">下载游戏</a>
+				 </div>
+
+				<div class="info">
+					<p class="beforeLogin"><span class="please">请您先：</span><a href="javascript:;" class="js_alertlogin_a " id="chLogin">登录</a></p>
+					<form class="loginForm" style="display: none;" data-isLogin="0">
+
+						<span class="welcome">欢迎您：</span>
+						<span id="nickname"></span>
+						<a href="javascript:;" class="quit js_Logout">退出登录</a>
+						<div class="serverBox" style="display: inline-block;">
+							<label for="zone">选择区组：</label>
+							<select name="" id="daqu">
+		                    <option value="0">请选择区组</option>
+		                    <option value="1">网通</option>
+		                    <option value="2">电信</option>
+		                    <option value="3">双线</option>
+		                </select>
+
+							<label for="zone">选择服务器：</label>
+							<select name="" id="qufu">
+		                    <option value="0">请选择服务器</option>
+		                </select>
+							<input type="text" maxlength="5" placeholder="请输入验证码" class="yzmInput" />
+							<img src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=98468657487" class="yzmImg" width="90" height="30" />
+
+							<input type="button" class="subInfo js_getRole" value="确定">
+						</div>
+
+						<div class="roleBox" style="display: inline-block;display: none;">
+							<label for="role">选择角色：</label>
+							<select name="" id="role">
+	                    <option value="角色">角色</option>
+	                </select>
+							<input type="button" class="subInfo js_bindRole" value="确定">
+						</div>
+						<div class="roleinfo">
+							<label for="">已绑定角色：</label>
+							<span></span>
+						</div>
+
+					</form>
+				</div>
+				<div class="content">
+					<div class="left">
+						<h4>我要报名</h4>
+						<form action=""  class="form_box" id="form_box">
+
+							<dl class="inArea">
+								<dd class="req"><label>真实姓名：</label><input type="text" class="text js_name" name="realName" maxlength="5" /></dd>
+								<dd class="req"><label>年&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;龄：</label><input type="text" name="age" maxlength="2" class="text js_num" /></dd>
+								<dd class="req"><label>性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：</label>
+									<input type="radio" value="0" name="gender" id="men" checked/><label for="men" class="mar">男</label>
+									<input type="radio" value="1" name="gender" id="women"><label for="women">女</label>
+								</dd>
+								<dd class="req"><label>现实职业：</label><input type="text" class="text js_china" name="occupation" maxlength="10" /></dd>
+								<dd class="req"><label>所在省市：</label><input type="text" class="text js_china" name="address" maxlength="20" /></dd>
+								<dd class="req">
+									<label>7月16日、17日是否有时间：</label>
+									<input type="radio" value="1" name="freeFlag" id="fYes" checked/><label for="fYes" class="mar">是</label>
+									<input type="radio" value="0" name="freeFlag" id="fNo" /><label for="fNo">否</label>
+								</dd>
+								<dd class="req"><label>手&nbsp;&nbsp;机&nbsp;&nbsp;号：</label><input type="text" class="text js_num" name="phone" maxlength="11" /></dd>
+								<dd class="req"><label>Q&nbsp;&nbsp;&nbsp;Q&nbsp;&nbsp;号：</label><input type="text" class="text js_num" name="qq" maxlength="20" /></dd>
+								<dd>
+									<label>您平时的兴趣爱好？有什么特长才艺？</label>
+									<textarea name="specialty" id="talent" maxlength="50"></textarea>
+								</dd>
+								<dd>
+									<label>您平时喜欢的pk活动？</label>
+									<textarea name="eventLiked" id="activity" maxlength="100"></textarea>
+								</dd>
+								<dd>
+									<label>您想去年中pk大服吗？原因？</label>
+									<textarea name="serverLiked" id="reasonOfZone" maxlength="100"></textarea>
+								</dd>
+								<dd>
+									<label>您和《问道》之间有什么特殊的故事？</label>
+									<textarea name="interest" id="hobby" maxlength="200"></textarea>
+								</dd>
+								<dd>
+									<label>请写出自荐理由</label>
+									<textarea name="reason"  id="volunteered" maxlength="200"></textarea>
+								</dd>
+								<dt>其他区组角色等级信息</dt>
+								<input type="hidden" name="imageUrl" />
+								<dd><label>区&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;组：</label><input type="text" class="text" name="otherServer" maxlength="4" /></dd>
+								<dd><label>角&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;色：</label><input type="text" class="text" name="otherRole" maxlength="12" /></dd>
+								<dd><label>等&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级：</label><input type="text" class="text js_num" name="otherLevel" maxlength="3" /></dd>
+								<div class="buttonBox">
+									<dd>
+										<input type="reset" value="重填" class="res js_res" />
+										<input type="button" value="提交" class="sub js_sub" />
+									</dd>
+									<dd style="padding:0 20px 14px 26px;">
+										<p class="ps">注：同一账号仅能提交一次报名信息，提交后不可更改。请仔细核对。</p>
+									</dd>
+								</div>
+
+							</dl>
+						</form>
+					</div>
+					<div class="right">
+						<div class="uploadArea">
+							<div id="divFileProgressContainer"></div>
+							<!--<div class="upl"></div>-->
+							<div class="upl">
+								<span class="uploadimg">
+                            <input type="button" id="btnUpload" class="upload" onclick=" swfu.selectFile(); this.blur(); " value="上传图片" />
+                            <input type="hidden" id="hid_addImgUrl" name="hid_addImgUrl" /><input type="hidden" id="hid_addthumbImgUrl" name="hid_addthumbImgUrl" />
+					    </span>
+							</div>
+						</div>
+						<h4>报名时间：</h4>
+						<div class="rule">
+							<p><i>1</i> 7月8日至7月13日</p>
+							<p style="color: red;">
+								注：因需要预定机票或车票等原因，报名期间会尽早选出10位PK赛玩家与两位解说，选出后报名即结束，各位道友抓紧时间早报名机会更大。
+							</p>
+						</div>
+						
+						<h4>报名规则：</h4>
+						<div class="rule">
+							<p><i>1</i>玩家在此页面报名信息提交之后不可更改，请各位道友核对好报名信息再提交。</p>
+							<p><i>2</i>玩家报名后将筛选出十位玩家与两位解说参加于7月17日在北京开展的线下PK活动</p>
+							<p><i>3</i>参与活动的玩家需在7月16日到达北京，如未到则视为放弃比赛资格。 </p>
+							<p><i>4</i>玩家活动期间的吃住以及往返机票将由活动方提供。 </p>
+							<p><i>5</i>获选之后工作人员将根据玩家所填信息与玩家联系，沟通后续活动细节。 </p>
+						</div>
+						
+						
+						<h4>活动流程：</h4>
+						<div class="rule">
+							<p><i>1</i>玩家在报名页面填写报名信息并提交成功。 </p>
+							<p><i>2</i>工作人员选出十位玩家参与年中大服线下pk活动 </p>
+							<p><i>3</i>工作人员联系玩家核对报名信息，沟通活动细节。 </p>
+							<p><i>4</i>7月17日，年中大服线下pk活动展开。现场pk将分为两队，队伍人员将由参赛玩家抽签决定。pk分为1v1、3v3、5v5，积分高的队伍获胜。</p>
+						</div>
+						
+						<h4>活动奖励：</h4>
+						<div class="rule">
+							<p>获胜队伍：每人10000元现金奖励</p>
+							<p>另一队伍：每人5000元现金奖励</p>
+							<p>比赛解说：每人5000元现金奖励</p>
+							
+							<p style="color: #666; font-size: 14px;padding-bottom: 0;color: red;">注：参与活动登录时，第一次需要绑定区组，绑定后不可更改。</p>
+							<strong>活动最终解释权由光宇在线科技有限责任公司所有。</strong>
+							<div class="brComer"></div>
+						</div>
+						
+						
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="pf" style="position: fixed; display: block; top: 300px;"><a href="#">我要报名</a><a href="http://wd.gyyx.cn/huodong/nzhd2016/wdzl/index.html" target="_blank" class="top">返回首页</a></div>
+		<div class="public_nav_bottom">
+			<script type="text/javascript">
+				ShowBottom()
+			</script>
+		</div>
+
+	</body>
+
+</html>

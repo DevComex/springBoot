@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.newyear.IWholeQuestionMapper">
+  	 <select id="selectQuestionType" resultType="String" parameterType="Integer">
+		select whole_question_type from whole_question_tb where whole_question_code=#{num}
+	</select>
+    <update id="addAnswer"> 
+          UPDATE whole_question_tb SET whole_question_true=#{choice} WHERE whole_question_code = #{num}
+     </update>
+  	<insert id="insertQuestion" parameterType="WholeQuestionBean"  >    
+     
+    INSERT INTO  whole_question_tb(whole_question_starttime,whole_question_endtime,whole_question_title,whole_question_choice,whole_question_type) VALUES (#{wholeQuestionStartTime},#{wholeQuestionEndTime},#{wholeQuestionTitle},#{wholeQuestionChoice},#{wholeQuestionType})
+      
+     </insert>
+     <delete id="deleteQuestion" parameterType="Integer">    
+      delete from whole_question_tb where whole_question_code=#{wholeQuestionCode}
+     </delete> 
+     <update id="updateQuestion" parameterType="WholeQuestionBean"> 
+         UPDATE whole_question_tb SET whole_question_starttime=#{wholeQuestionStartTime},whole_question_endtime=#{wholeQuestionEndTime},whole_question_title=#{wholeQuestionTitle},whole_question_choice=#{wholeQuestionChoice},whole_question_type=#{wholeQuestionType} WHERE whole_question_code =#{wholeQuestionCode}
+     </update>
+     
+     <select id="selectQuestion" resultType="java.util.List" resultMap="UserQuestionMap">
+		select [whole_question_code]
+     		  ,[whole_question_starttime]
+      	      ,[whole_question_endtime]
+    	 	  ,[whole_question_title]
+    	 	  ,[whole_question_choice]
+     	 	  ,[whole_question_type]
+     	 	  ,[whole_question_true] 
+     	from   whole_question_tb 
+     	where #{currentTime} between whole_question_starttime and whole_question_endtime
+	</select>
+	<select id="selectXZQuestion" resultType="java.util.List" resultMap="UserQuestionMap">
+		select [whole_question_code]
+     		  ,[whole_question_starttime]
+      	      ,[whole_question_endtime]
+    	 	  ,[whole_question_title]
+    	 	  ,[whole_question_choice]
+     	 	  ,[whole_question_type]
+     	 	  ,[whole_question_true] 
+     	from   whole_question_tb 
+     	where #{currentTime} between whole_question_starttime and whole_question_endtime
+     	 and whole_question_type = 'xz' and whole_question_true is not null
+	</select>
+	<select id="selectOtherQuestion" resultType="java.util.List" resultMap="UserQuestionMap">
+	<![CDATA[
+		select [whole_question_code]
+     		  ,[whole_question_starttime]
+      	      ,[whole_question_endtime]
+    	 	  ,[whole_question_title]
+    	 	  ,[whole_question_choice]
+     	 	  ,[whole_question_type]
+     	 	  ,[whole_question_true] 
+     	from   whole_question_tb 
+     	where #{currentTime} between whole_question_starttime and whole_question_endtime
+     	 and whole_question_type <> 'xz'
+     	 ]]>
+	</select>
+	 <select id="selectRight" resultType="String" >
+		select whole_question_true from whole_question_tb where whole_question_code=#{num}
+	</select>
+	<select id="selectAllQuestion" resultType="java.util.List" resultMap="UserQuestionMap">
+		SELECT	 [whole_question_code]
+				,[whole_question_starttime]
+      			,[whole_question_endtime]
+      			,[whole_question_title]
+     			,[whole_question_choice]
+     			,[whole_question_type]
+     			,[whole_question_true] 
+  		FROM whole_question_tb
+	</select>
+	<select id="selectQuestionByCode" parameterType="Integer" resultType="WholeQuestionBean" resultMap="UserQuestionMap">
+		SELECT	 [whole_question_starttime]
+      			,[whole_question_endtime]
+      			,[whole_question_title]
+     			,[whole_question_choice]
+     			,[whole_question_type]
+  		FROM whole_question_tb WHERE whole_question_code = #{wholeQuestionCode}
+	</select>
+     <resultMap id="UserQuestionMap" type="WholeQuestionBean">
+		<result property="wholeQuestionCode" column="whole_question_code" />
+		<result property="wholeQuestionStartTime" column="whole_question_starttime" />
+		<result property="wholeQuestionEndTime" column="whole_question_endtime" />
+		<result property="wholeQuestionTitle" column="whole_question_title" />
+			<result property="wholeQuestionChoice" column="whole_question_choice" />
+		<result property="wholeQuestionType" column="whole_question_type" />
+		<result property="wholeQuestionTrue" column="whole_question_true" />
+
+	</resultMap>
+</mapper>

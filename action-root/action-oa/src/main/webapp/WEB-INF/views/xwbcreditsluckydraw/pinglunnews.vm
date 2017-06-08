@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Layout:luochongfei" />
+    <title>评论列表</title>
+
+    <link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+	<script type="text/javascript" src="${rc.contextPath}/resources/script/My97DatePicker/WdatePicker.js"></script>
+	
+	<script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+    <link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet" />
+	<script >
+		$(function(){
+		
+			var m = '$!materialType';
+			$("#materialTypeSelect").val(m);
+			
+			var i = '$!isBest';
+			$("#isBestSelect").val(i)
+		
+			$('.mess').click(function(){
+    				if($(this).find(".tip").text() == "查看详细" && $(this).find(".key").text()=="隐藏"){
+    					$(this).find(".hidd").show();
+						$(this).find(".key").text("显示");
+						
+    				}else if($(this).find(".tip").text() == "查看详细" && $(this).find(".key").text()=="显示"){
+    					$(this).find(".hidd").hide();
+						$(this).find(".key").text("隐藏");
+    				}else{
+					
+					}
+                
+            });
+
+
+		})
+    </script>
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+						<section id="content">
+                    <section class="vbox">
+						<header class="header bg-white b-b clearfix">
+                            <div class="row m-t-sm">   
+								<form action="searchComments" method="get">
+                                <div class="col-sm-2 m-b-xs">
+                                    <div class="input-group">
+                                        <input type="text" class="input-sm form-control" value="$!acc" name="commentAccount" placeholder="评论者账号">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 m-b-xs">
+                                    <div class="input-group">
+										<select class="input-sm form-control" name="materialType" id="materialTypeSelect" style="width: 160px">
+											<option value="">请选择素材类型</option>
+                                            <option value="视频">视频</option>
+                                            <option value="服装">服装</option>
+                                            <option value="建议">建议</option>
+                                        </select>
+                                    </div>
+                                </div>
+								<div class="col-sm-2 m-b-xs">
+                                    <div class="input-group">
+                                        <input type="text" class="input-sm form-control" value="$!materialName" name="materialName" placeholder="素材名称">
+                                    </div>
+                                </div>  
+								<div class="col-sm-1 m-b-xs">
+                                    <div class="input-group">
+                                        <input type="text" class="input-sm form-control" value="$!materialCode" name="materialCode" placeholder="素材编号">
+                                    </div>
+                                </div> 
+								<div class="col-sm-2 m-b-xs">
+                                    <div class="input-group">
+                                        <input type="text" class="input-sm form-control js_Day" value="$!commentDateStr" name="commentDateStr" readonly placeholder="评论时间">
+                                    </div>
+                                </div> 
+								<div class="col-sm-2 m-b-xs">
+                                    <div class="input-group">
+										<select class="input-sm form-control" name="isBest" id="isBestSelect" style="width: 160px">
+											<option value="">请选择最佳状态</option>
+                                            <option value="1">是</option>
+                                            <option value="0">否</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 m-b-xs">
+                                    <span class="input-group-btn">
+                                        <input class="btn btn-sm btn-info" value="筛选" type="submit"/>
+                                    </span>
+                                </div>
+								</form>
+                            </div>
+                        </header>
+                        <!--顶部标题导航 end-->
+
+                        <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <div class="m-b-md">
+                            </div>
+							 <h4 >评论消息列表</h4>
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" style=" height: 850px">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            <tr>
+                                                <th>评论者</th>
+												<th>评论内容</th>
+												<th>针对素材编号</th>
+												<th>针对素材名称</th>
+                                                <th>针对素材类型</th>
+												<th>评论者IP</th>
+                                                <th>评论时间</th>
+                                                <th style="width:180px">操作</th>  
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+											#foreach($param in $!commentsList)
+                                            <tr>
+                                                <td>$!param.commentAccount</td>
+                                                <td class="mess">
+													#if($!param.contentSub)
+														<font class="messCon">$!param.contentSub</font>
+														<font class="tip" color="red">查看详细</font>
+													#else
+														$!param.content
+													#end
+													<p style="word-break: break-all;display:none;margin-top:15px" class="hidd">$!param.content</p>
+													<font style="display:none" class="key">隐藏</font>
+												</td>
+												<td>$!param.materialCode</td>
+                                                <td>$!param.materialName</td>
+												<td>$!param.materialType</td>
+                                                <td>$!param.ipAddress</td>
+												<td>$!param.commentDateStr</td>
+                                                <td>
+													#if($!param.isBest == 1)
+														
+													#else
+														<a title="设为最佳" class="btn btn-xs btn-danger js_top" code="$!param.code" materialCode="$!param.materialCode" href="javascript:void(0)" data-title="设为最佳" data-toggle="tooltip">
+    														<i class="fa fa-plus"> 设为最佳</i>
+        												</a>
+													#end
+    												<a title="删除" class="btn btn-xs btn-success js_delete" code="$!param.code"  href="javascript:void(0)" data-title="删除" data-toggle="tooltip">
+    														<i class="fa fa-minus-square"> 删除</i>
+    												</a>
+												</td>   
+                                            </tr>
+											#end
+                                        </tbody>
+                                    </table>
+									<script>
+								$(function(){
+									$(".js_delete").click(function(){
+										if(confirm("确定删除？")){
+											$.ajax
+    										({
+    											type:"post",
+    											url: "deleteComments",
+    											data:{
+    												"code":$(this).attr("code")
+    											},
+    											success:function(msg){
+    												if(msg == 1){
+    													alert("删除成功！");
+    													location.reload();
+    												}
+    											}
+    										});
+										}
+										
+									});
+									
+									
+									$(".js_top").click(function(){
+										if(confirm("确定要设置为最佳评论？")){
+											$.ajax
+    										({
+    											type:"post",
+    											url: "setBestCommon",
+    											data:{
+													"materialCode":$(this).attr("materialCode"),
+    												"code":$(this).attr("code")
+    											},
+    											success:function(msg){
+    												if(msg == 1){
+    													alert("设置成功！");
+    													location.reload();
+    												}
+    											}
+    										});
+										}
+										
+									});
+								});
+							
+									</script>
+                                </div>
+                            </section>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+						<!--翻页功能-->
+						<br />
+						<br />
+                        <footer class="footer bg-white b-t">
+                            <div class="row dataTables_wrapper">
+                                <div class="col-sm-2">
+                                    <div class="dataTables_info" id="DataTables_Table_0_info">共$!{page.totalRecords}条 
+										
+									</div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_0_paginate">
+										#if(${page.pageNo} == $!{page.topPage})
+                                        <a class="first paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_first">首页</a>
+										<a class="previous paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_previous">上一页</a>
+										#else
+										<a href="$!{url}&pageNum=$!{page.topPage}" class="first paginate_button" tabindex="0" id="DataTables_Table_0_first">首页</a>
+										<a href="$!{url}&pageNum=$!{page.previousPageNo}" class="previous paginate_button" tabindex="0" id="DataTables_Table_0_previous">上一页</a>
+										#end
+										<span>
+											$!{page.pageNo}/$!{page.totalPages}
+											
+										</span>
+										#if(${page.pageNo} == $!{page.bottomPageNo})
+										<a class="next paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_next">下一页</a>
+										<a class="last paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_last">末页</a>
+										#else
+										<a href="$!{url}&pageNum=$!{page.nextPageNo}" class="next paginate_button" tabindex="0" id="DataTables_Table_0_next">下一页</a>
+										<a href="$!{url}&pageNum=$!{page.bottomPageNo}" class="last paginate_button" tabindex="0" id="DataTables_Table_0_last">末页</a>	
+										#end
+										<input type="hidden" id="goPageMax" value="$!{page.totalPages}" />
+										&nbsp;&nbsp;&nbsp;&nbsp;页码：
+										<input type="text" id="goPageNum" value="" style="width:50px"/>
+										<a class="last paginate_button" tabindex="0" id="goPage">Go</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+<script>
+	$(function(){
+		$("#goPage").click(function(){
+			var max = parseInt($("#goPageMax").val());
+			var index = parseInt($.trim($("#goPageNum").val()));
+			if(index == ""){
+				alert("请输入页码!");
+			}else if(isNaN(index)){
+				alert("页码只能为数字!");
+			}else if(index <= 0){
+				alert("页码只能为正整数!");
+			}else if(index > max){
+				alert("超出页码范围!");
+			}else{
+				window.location.href="$!{url}&pageNum="+index;
+			}
+		})
+	})
+</script>
+<script type="text/javascript">
+    $(function () {
+		$(".js_Day").datepicker({
+            format: 'yyyy-mm-dd',
+            startView: 2,   //默认打开是年试图
+            autoclose: true,  //选择后自动关闭
+            todayBtn: true,  //选择今天的按钮
+            minView: 2   //只能选到年试图  （0 代表能选到分钟、1 代表能选到小时、2 代表能选到日 ）
+        })
+	})	
+	</script>
+</body>
+</html>

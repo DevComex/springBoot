@@ -1,0 +1,250 @@
+ #parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/swfupload.js"
+	type="text/javascript"></script>
+<script src="${rc.contextPath}/resources/script/SWFInitialize.js"
+	type="text/javascript" charset="GB2312"></script>
+<script src="${rc.contextPath}/resources/script/videoHandlers.js"
+	type="text/javascript" charset="GB2312"></script>
+<script src="${rc.contextPath}/resources/script/VideoUpload.js"
+	type="text/javascript"></script>
+<script>
+	var commit_flag = 0;
+	$(function() {
+		
+		$(".edit").click(function() {
+			var code = $(this).parents(".xxx:eq(0)").attr("data-i");
+			$("#code").val(code);
+			$.ajax({
+				url: "/wd10yearcoser/getImgNotice/" + code,
+				type:'GET',
+				data:{code:code,r:Math.random()},
+				dataType:'json',
+				success:function(data){
+					if(data.isSuccess){
+						data = data.data;
+						if(data){
+							$("#code").val(data.code);
+							$("#title").val(data.title);
+							$("#url").val(data.url);
+							$("#hid_addImgUrl").val(data.picUrl);
+							$("#addImg").attr("src",data.picUrl);
+						}else {
+							$("#title").val("");
+							$("#url").val("");
+							$("#hid_addImgUrl").val("");
+							$("#addImg").removeAttr("src");
+						}
+					} else {
+						alert(data.message);
+					}
+				},
+				error : function() {
+					alert("获取信息失败!");
+				}
+			});
+		});
+		$("#save").click(function() {
+			var code = $("#code").val();
+			var title = $("#title").val();
+			var url = $("#url").val();
+			var hid_addImgUrl = $("#hid_addImgUrl").val();
+			if ($.trim(code) == "") {
+				alert("编号不能为空!");
+				return false;
+			}
+			if ($.trim(title) == "") {
+				alert("公告内容不能为空!");
+				return false;
+			}
+			if ($.trim(title).length > 200) {
+				alert("公告内容长度不能大于200!");
+				return false;
+			}
+			if ($.trim(url) == "") {
+				alert("图片链接地址不能为空!");
+				return false;
+			}
+			if ($.trim(url).length > 200) {
+				alert("图片链接地址长度不能大于200!");
+				return false;
+			}
+			if ($.trim(hid_addImgUrl) == "") {
+				alert("请选择图片上传!");
+				return false;
+			}
+			if (commit_flag) {
+				console.log("不要重复提交");
+				return false;
+			}
+			commit_flag = 1;
+			$.ajax({
+				url : '/wd10yearcoser/saveImgNotice',
+				type : 'post',
+				data : {
+					code : code,
+					title : title,
+					url : url,
+					picUrl : hid_addImgUrl,
+					r : Math.random()
+				},
+				dataType : 'json',
+				complete : function() {
+					commit_flag = 0;
+				},
+				success : function(data) {
+					if (data.isSuccess) {
+						alert("保存成功!");
+						location.href = location.href;
+					} else {
+						alert(data.message);
+					}
+				},
+				error : function() {
+					alert("网络连接超时!");
+				}
+			});
+		});
+	});
+</script>
+<style>
+</style>
+<!--标题-->
+<header class="header bg-white b-b clearfix">
+	<div class="col-sm-12 m-t-xs">
+		<h4>同人活动-修改图片轮播公告</h4>
+	</div>
+</header>
+<!-- 查询表单 -->
+<section class="scrollable padder" style="overflow: scroll; top: 72px;"
+	id="scrollable_one">
+	<div class="row" >
+	#set($listSize = $!{list.size()})
+	#foreach( $elem in $!{list})
+		<div class="col-sm-4 xxx" data-i="$!{velocityCount}">
+			<section class="panel panel-default">
+				<header class="panel-heading font-bold">公告$!{velocityCount}</header>
+				<div class="panel-body">
+					<form class="bs-example form-horizontal">
+						<div class="form-group">
+							<label class="col-lg-3 control-label">内容：</label>
+							<label class="col-lg-8 control-label" style="text-align:left;word-break: break-all;">$!{elem.title}</label>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-3 control-label">链接：</label>
+							<label class="col-lg-8 control-label" style="text-align:left;word-break: break-all;">$!{elem.url}</label>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-3 control-label">图片：</label>
+							<div class="col-sm-9">
+								<img src="$!{elem.picUrl}" style="width:100px;height:100px;cursor:pointer;"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<div class="col-sm-9">
+								<button type="button" class="btn btn-success btn-s-xs edit" href="#modModal"
+                                       data-toggle="modal">编辑</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+	#end
+	#set($b = 4 - $!{list.size()}) 
+	#if($!b >  0)  
+	    #foreach( $elem in [1..$b])
+		#set($c = $!{velocityCount} + $!{listSize}) 
+		<div class="col-sm-4 xxx" data-i="$!{c}">
+			<section class="panel panel-default">
+				<header class="panel-heading font-bold">公告$!{c}</header>
+				<div class="panel-body">
+					<form class="bs-example form-horizontal">
+						<div class="form-group">
+							<label class="col-lg-3 control-label">内容：</label>
+							<label class="col-lg-8 control-label"></label>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-3 control-label">链接：</label>
+							<div class="col-lg-8">
+								<span name="url"></span>
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-lg-3 control-label">图片：</label>
+							<div class="col-sm-9">
+								<img id="picUrl" style="width:100px;height:100px;cursor:pointer;"/>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<div class="col-sm-9">
+								<button type="button" class="btn btn-success btn-s-xs edit" href="#modModal"
+                                       data-toggle="modal">编辑</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</section>
+		</div>
+		#end
+    #end                	
+	</div>
+	
+	<div class="modal fade" id="modModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+        	<form id="mod_form" class="form-horizontal" method="post">
+	            <div class="modal-header">
+	                <button type="button" id="js_modal_add_form_close" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title">
+		             	<i class="fa fa-pencil"></i>
+		                <span>修改</span>
+		            </h4>
+	            </div>
+	            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+	            <div class="modal-body" style="padding:5px;">
+                	<input type="hidden" id="code" name="code" value=""/>
+                    <div class="form-group">
+                        <label class="col-lg-3 control-label">公告内容：</label>
+						<div class="col-lg-8">
+							<input type="text" class="form-control" id="title" name="title" value="">
+						</div>
+                    </div>
+                    <div class="form-group">
+						<label class="col-lg-3 control-label">图片链接地址：</label>
+						<div class="col-lg-8">
+							<input type="text" class="form-control" id="url" name="url" value="">
+							<br/>
+	                        <span style="color:red;">务必以http或者https开头</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">上传图片：</label>
+						<div class="col-sm-9">
+							<input type="button" id="btnUpload" class="upload" onclick="swfu.selectFile(); this.blur(); " value="上传视频截图" />
+                               <input type="hidden" id="hid_addImgUrl" name="picUrl" value="$!picUrl"/>
+                               <input type="hidden" id="hid_addthumbImgUrl" name="hid_addthumbImgUrl" />
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-3"></div>
+						<div class="col-sm-9">
+							<img id="addImg"
+							 class="titleimgs_add" style="width:100px;height:100px;cursor:pointer;"/>
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-3"></div>
+						<div class="col-sm-9">
+							<button id="save" type="button" class="btn btn-success btn-s-xs">保存</button>
+						</div>
+					</div>
+	            </div>    
+            </form>
+        </div>
+    </div>
+   </div>
+</section>
+#parse("/shared/footer.vm")

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+    <title>光宇社招</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/positionApply/css/fxPage01.css"/>
+</head>
+<body style="background: #1d75d4;">
+	<div class="warp">
+		<img src="http://static.cn114.cn/action/positionApply/img01/fxbg.jpg" class="top"/>
+		<div class="main">
+			<img src="http://static.cn114.cn/action/positionApply/img01/fxt.jpg"/>
+			<div class="content">
+				<h2 class="zwName"></h2>
+				<h3>岗位职责</h3>
+				<div class="zzContent">
+					<!--<p>1、负责U3D回合制手游项目开发；</p>
+					<p>2、游戏逻辑程序填写，游戏系统框架设计；</p>
+					<p>3、各项交互功能开发和实现。</p>-->
+				</div>
+				<h3>任职资格</h3>
+				<div class="zg">
+					<!--<p>1、熟悉U3D引擎架构设计；</p>
+					<p>2、熟悉c#、js开发脚本；</p>
+					<p>3、有U3D独立开发经验，管理过5人以上客户端程序团队，5年以上网络游戏开发经验。</p>-->
+				</div>
+				<a href="http://gyyx.m.zhiye.com/JobAd/Info?adid=$num" class="btn sq" id="sq">在线申请职位</a>
+				<a href="${rc.contextPath}/position/index?a=1" class="btn look">查看全部职位</a>
+			</div>
+			<div class="conW">
+				<h1>投递简历</h1>
+				<p>※简历及作品请发送至：</p>
+				<p>gyyxhr01@gyyx.cn</p>
+				<p>(邮件中请注明应聘职位)</p>
+				<h1>公司福利</h1>
+				<h6>1、完善的薪酬体系；</h6>
+				<h6>2、五险一金+商业保险+意外伤害；</h6>
+				<h6>3、午餐、晚餐、生日会，各种吃吃吃；</h6>
+				<h6>4、部门旅游、健康体检、节日礼物，一个都不能少；</h6>
+				<h6>5、还有各种气质单身美女等你来解救！</h6>
+				<h1>公司介绍</h1>
+				<p>光宇游戏自2004年6月成立以来，始终坚持“用游戏，让生活更快乐”的理念，为玩家提供优质的游戏产品、纯粹的游戏乐趣。目前光宇已拥有3亿注册用户，年营收超10亿，集研发、运营、发行于一体，产品横跨端游、手游、页游三大平台，是国内十大网络游戏厂商之一。旗下拥有《问道》、《灵魂战神》、《炫舞吧》、《幻想传说》、《最萌英雄》、《龙与精灵》等诸多人气大作，以及千万级优质IP改编新游《绝世武神》，广受玩家喜爱，问道更是同类游戏的领衔者，创造百万在线的神话！</p>
+			</div>
+			<img src="http://static.cn114.cn/action/positionApply/img01/erwei.jpg" class="bottom" />
+		</div>
+	</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/zepto.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/gyyx_wxshare.min.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/allstyle01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/content01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/fx01.js" ></script>
+
+</body>
+</html>

@@ -1,0 +1,598 @@
+
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>光宇办公平台</title>
+    <script>document.domain = 'gyyx.cn';</script>
+    <script type="text/javascript" charset="utf-8">
+        var rc="";
+    </script>
+    <link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://static.cn114.cn/action/wdWxSZF/js/ajaxupload.3.9.js" type="text/javascript"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <link href="/resources/Contents/css/font.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <style>
+        .js_alert{position:absolute;top:0px;left:0px;width:100%;z-index:9999;text-align: center; font-size:18px;}
+        .col-lg-0-96 { width:8%; }
+        .col-lg-1-44 { width:12%; }
+    </style>
+</head>
+<body>
+<section class="vbox">
+    <!--视频上传-->
+    <div class="uploadFile">
+        <span id="doc"><input type="hidden" disabled="disabled" /></span>
+        <input type="hidden" id="hidFileName" />
+        <input type="hidden" id="videoUrlName" />
+        <!--<input type="button" id="btnDeleteFile" value="删除" />-->
+    </div>
+    <!-- template_top -->
+    <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+    <!-- js_template_left begins -->
+    <section>
+        <section class="hbox stretch">
+            <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+            <!--js_template_right-->
+            <section id="content" style="width:100%;">
+                <section class="vbox">
+
+                    <script src="/resources/script/jquery-1.8.2.min.js"></script>
+                    <script src="/resources/script/jquery.ajaxpage-2.2.js"></script>
+                    <script src="/resources/script/swfupload.js"
+                            type="text/javascript"></script>
+                    <script src="/resources/script/SWFInitialize.js"
+                            type="text/javascript" charset="GB2312"></script>
+                    <script src="/resources/script/videoHandlers.js"
+                            type="text/javascript" charset="GB2312"></script>
+                    <script src="/resources/script/VideoUpload.js"
+                            type="text/javascript"></script>
+                    <style>
+                        .table td {
+                            word-wrap: break-word;
+                            vertical-align: middle !important;
+                        }
+
+                        #main_region th, #content td {
+                            padding: 5px 5px 5px;
+                            text-align:center;
+                        }
+
+                        .table td img {
+                            width: 100%;
+                            max-height:40px;
+                        }
+
+                        textarea {
+                            border-color: #d9d9d9;
+                        }
+
+                        *{
+                            outline:none;
+                        }
+
+                        .form_valid_mess {width: 212px;height: 48px;position: absolute;display:none;z-index:9000;}
+                        .form_valid_mess >div {width: 212px;height: 48px;position: relative;}
+                        .form_valid_mess .form_valid_flag01 {display: block;width: 60px;height: 13px;background: url(../resources/images/tip.gif) no-repeat;position: absolute;top: 0px;z-index: 10;left: 0px;}
+                        .form_valid_mess .form_valid_con01 {width: 210px;border: 1px solid #ffd4d4;background: #fdefed;position: absolute;top: 12px;z-index: 9px;}
+                        .form_valid_mess .form_valid_con01 p {width: 180px;margin: 0 auto;line-height: 35px;color: 000;text-align: left;word-wrap:break-word;}
+
+                    </style>
+                    <script>
+                        //视频上传
+                        var doc = document.getElementById("doc");
+                        var hidFileName = document.getElementById("hidFileName");
+                        var videoUrlName = document.getElementById("videoUrlName");
+                        function g_AjxUploadFile(btn, doc, hidPut,dataCodeId) {
+
+                            var button = btn, interval;
+                            new AjaxUpload(button, {
+                                action:'http://up.gyyx.cn/File/UploadToServer.ashx?group=vedio',
+                                type: "POST",
+                                data: {
+                                    r: Math.random()
+                                },
+                                secureuri: false,
+                                name: 'file',
+                                onSubmit: function (file, ext) {
+                                    if (!(ext && /^(mp4|mov|avi|mpg-1|mpg-2|mpg-4|ASF|wmv|mov|dat|mpg|ram|ra|rm)$/.test(ext))) {
+                                        alert("您上传的视频格式不对，请重新选择！");
+                                        return false;
+                                    }
+                                },
+                                onComplete: function (file, response,idso) {
+                                    //var obj = eval('('+ $("#ValumsAjaxUpload0").contents().find("body").html() +')');
+                                    //console.log("视频"+idso);
+                                    console.log(idso)
+                                    var sp=idso.length,
+                                            po=parseInt(idso.slice(16,sp))-1,
+                                            lastP="iframe[name=ValumsAjaxUpload"+po+"]",
+                                            response=$(lastP).contents().find("body").html(),
+                                            lasetResponse=eval("(" + response + ")");
+
+                                    if(lasetResponse.Message==null){
+                                        videoUrlName.value = lasetResponse.Url;
+                                        
+//                                        doc.innerHTML = "<a href='" + g_AjxTempDir + response + "' target='_blank' id='fiV'>" + file + "</a>";
+                                        $.ajax({
+                                            url: "/wechatvideo/upload/manual",
+                                            type: "POST",
+                                            dataType: "json",
+                                            data:{
+                                                videoid:parseInt(dataCodeId),
+                                                videoaddress:$("#videoUrlName").val()
+                                            },
+                                            success: function (d) {
+                                                
+                                               alert(d.message);
+                                                location=location;
+                                            },
+                                            error:function(){
+                                                alert("异常错误，请重试！");
+                                            }
+                                        });
+                                    }else{
+                                        alert("上传失败，请重新尝试！");
+                                    }
+                                }
+                            });
+                        };
+                        function checkWorks(obj){
+                            var code = $(obj).parent("td").attr("data_code");
+                            var  verifyStatus= 0;
+                            if($(obj).hasClass("pass")){
+                                verifyStatus = 1;
+                            }else if($(obj).hasClass("unpass")){
+                                verifyStatus = -1;
+                            }
+                            $.ajax({
+                                url: rc+"/wechatvideo/audit",
+                                type: "POST",
+                                data: {
+                                    r: Math.random(),
+                                    videoId: code,
+                                    status: verifyStatus
+                                },
+                                dataType: "json",
+                                success: function (d) {
+                                    if (d.isSuccess) {
+                                        alert(d.message);
+                                        getlist();
+                                    }else{
+                                        alert(d.message);
+                                    }
+                                }
+                            });
+                        };
+                      
+                      
+                        function batchCheck(obj){
+
+                            var verifyStatus = 0;
+                            if($(obj).hasClass("batchPass")){
+                                verifyStatus = 1;
+                            }else if($(obj).hasClass("batchUnPass")){
+                                verifyStatus = -1;
+                            }
+                            var codes = [];
+                            $("input[name=checkRadio]:checked").each(function(){
+                                codes.push($(this).parent().parent().find("td:last").attr("data_code"));
+                            });
+                            if(codes.length == 0){
+                                alert("请选择行！");
+                                return;
+                            }
+                            $.ajax({
+                                url: rc+"/wechatvideo/batchaudit",
+                                type: "POST",
+                                data: {
+                                    r: Math.random(),
+                                    videoIds:codes.join(";"),
+                                    status: verifyStatus
+                                },
+                                dataType: "json",
+                                success: function (d) {
+                                    if (d.isSuccess) {
+                                        alert(d.message);
+                                        getlist();
+                                    }else{
+                                        alert(d.message);
+                                    }
+                                }
+                            });
+                        }
+
+                        function formatJsonDateStr(jsonDateStr) {
+                            var date = new Date(parseInt(jsonDateStr));
+                            var dateStr = [];
+                            dateStr.push(date.getFullYear());
+                            dateStr.push('-'
+                                    + ((Number(date.getMonth()) + 1)>9 ? (Number(date.getMonth()) + 1) : ("0"+(Number(date.getMonth()) + 1))));
+                            dateStr.push('-' + (date.getDate()>9?date.getDate():("0"+date.getDate())));
+                            dateStr.push(' ' + (date.getHours()>9?date.getHours():("0"+date.getHours())));
+                            dateStr.push(':' + (date.getMinutes()>9?date.getMinutes():("0"+date.getMinutes())));
+                            dateStr.push(':' + (date.getSeconds()>9?date.getSeconds():("0"+date.getSeconds())));
+                            return dateStr.join('');
+                        }
+
+
+                        function demo1_close(){
+                            $("#content div.mask").hide();
+                            $("#content div#demo1").hide();
+                        }
+
+                        function getlist() {
+                            $("#js_tbSzList").ajaxPage({
+                                url: rc+"/wechatvideo/getvideolist",//接口
+                                pageObj: $("#DataTables_Table_0_paginate"),
+                                type:"post",
+                                pageIndex: 1,
+                                pageSize: 10,
+                                curPageCls: "paginate_active",
+                                pageInfo: {
+                                    obj: $("#DataTables_Table_0_info"),
+                                    content: "共{allCount}条  当前第{pageIndex}/{allPage}页"
+                                },
+                                paramObj: {
+                                    beginTime:$("#beginTimeStr").val(),
+                                    endTime:$("#endTimeStr").val(),
+                                    keyword:$("#keyword").val(),
+                                    verifyStatus:$("#verifyStatus").val()
+                                },
+                                dataFn: function (data, $this) {
+                                    var dataHtml = "",dataHtmlmain ="", dCont = data.data;//获取返回数据
+                                    if (dCont && dCont.length && dCont[0]) {
+                                        for (var i = 0; i < dCont.length; i++) {
+
+                                            dataHtml += ''
+                                                    + '<tr><td><input name="checkRadio" type="checkbox"/></td>'
+                                                    +'  <td>' + (i+1) + '</td>'
+                                                    +'  <td>' + dCont[i].account + '</td>'
+                                                    +'  <td>' + dCont[i].serverName + '</td>'
+                                                    +'  <td>' + dCont[i].wechatAccount + '</td>'
+                                                    +'  <td>' + dCont[i].videoName + '</td>'
+                                                    +'  <td><a alt="" href="'+ dCont[i].videoAddress +'">查看</a></td>';
+                                            dataHtml+='<td>' +(dCont[i].uploadTime==null ? "null" : formatJsonDateStr(dCont[i].uploadTime)) + '</td>' ;
+                                            dataHtml+= '<td style="text-align:center;"><span class="label ';
+                                            var status = dCont[i].videoStatus;
+                                            var statusStr = "待审核";
+                                            var statusColor = "label-default";
+                                            var mp4Url=(dCont[i].videoAddress).toLocaleLowerCase();
+                                            if(status == '1'){
+                                                statusStr = "审核通过";
+                                                statusColor= "bg-success";
+                                            }
+                                            if(status == '-1'){
+                                                statusStr = "审核拒绝";
+                                                statusColor= "bg-danger";
+                                            }
+                                            dataHtml+= statusColor+'">' + statusStr + '</span></td>' ;
+                                            dataHtml+='<td>' + (dCont[i].auditor==null || dCont[i].auditor=="" ? "--" : dCont[i].auditor) + '</td>';
+                                            dataHtml+='<td>' + (dCont[i].auditTime==null || dCont[i].auditTime=="" ? "--" : formatJsonDateStr(dCont[i].auditTime)) + '</td>' ;
+                                            if(status == '0'){
+                                                if(mp4Url.indexOf(".mp4")<0){
+                                                    dataHtml +='<td data_code="' + dCont[i].code + '"><a href="javascript:;"  class="spSc pass btn btn-xs btn-success">上传</a>';
+                                                    dataHtml +=' <span style="margin:0 5px;">|</span><a href="javascript:;" onclick="checkWorks(this);" class="unpass btn btn-xs btn-danger">拒绝</a>';
+                                                    dataHtml +=' <span style="margin:0 5px;">|</span><a href="javascript:;" onclick="checkWorks(this);" class="pass btn btn-xs btn-success ajaxUpload">通过</a></td>';
+                                                }else{
+                                                    dataHtml +='<td data_code="' + dCont[i].code + '"><a href="javascript:;" onclick="checkWorks(this);" class="pass btn btn-xs btn-success">通过</a>';
+                                                    dataHtml +=' <span style="margin:0 5px;">|</span><a href="javascript:;" onclick="checkWorks(this);" class="unpass btn btn-xs btn-danger">拒绝</a></td>';
+                                                }
+                                            }
+                                            if(status == '1'){
+                                                if(mp4Url.indexOf(".mp4")<0){
+                                                    dataHtml +='<td data_code="' + dCont[i].code + '">';
+                                                    dataHtml +='<a href="javascript:;" class="spSc unpass btn btn-xs btn-danger">上传</a>';
+                                                    dataHtml +=' <span style="margin:0 5px;">|</span><a href="javascript:;" onclick="checkWorks(this);" class="unpass btn btn-xs btn-success">拒绝</a></td>';
+                                                }else{
+                                                    dataHtml +='<td data_code="' + dCont[i].code + '">';
+                                                    dataHtml +='<a href="javascript:;" onclick="checkWorks(this);" class="unpass btn btn-xs btn-danger">拒绝</a></td>';
+                                                }
+
+                                            }
+
+                                            if(status == '-1'){
+                                                if(mp4Url.indexOf(".mp4")<0){
+                                                    dataHtml +='<td data_code="' + dCont[i].code + '"><a href="javascript:;"  class="spSc pass btn btn-xs btn-success">上传</a>';
+                                                    dataHtml +=' <span style="margin:0 5px;">|</span><a href="javascript:;" onclick="checkWorks(this);" class="pass btn btn-xs btn-success">通过</a></td>';
+                                                }else{
+                                                    dataHtml +='<td data_code="' + dCont[i].code + '"><a href="javascript:;" onclick="checkWorks(this);" class="pass btn btn-xs btn-success">通过</a>';
+                                                    dataHtml +='</td>';
+                                                }
+
+                                            }
+
+                                            dataHtml += '</tr>';
+                                        }
+                                        $("#js_tbSzList").empty().html(dataHtml);
+                                        setTimeout(function(){
+                                         for(var i=0;i<$(".spSc").length;i++){
+                          console.log($(".spSc").length)  
+                            var _this=$(".spSc").eq(i);
+                            var data_codeID=$(_this).parents("td").attr("data_code");
+                          
+                            //初始化视频上传
+                            g_AjxUploadFile(_this, doc, hidFileName,data_codeID);
+                            };
+                                        },1000)
+                                        $("body").delegate(".details","mouseover",function(){
+                                            var _val = $(this).attr('data-i');
+                                            var _x = $(this).offset().left-$("#nav").width()+$(this).width()/2;
+                                            var _y = $(this).offset().top-40;
+                                            _y = _y + 14;
+                                            _x = _x - 22;
+                                            $(".form_valid_mess").css({
+                                                display: 'block',
+                                                left: _x + 'px',
+                                                top:_y  + "px"
+                                            });
+                                            $(".form_valid_con01 p").html(_val);
+                                        });
+                                        $("body").delegate(".details","mouseout",function(){
+                                            $(".form_valid_mess").css('display', 'none');
+                                        });
+
+                                        return dataHtml;
+                                    } else {
+                                        // alert(data.message)
+                                        $("#js_tbSzList").empty()
+                                        $("#scrollable_one").hide();
+                                    }
+                                }
+                            });
+                        }
+
+                        $(function() {
+                       
+                           
+                            
+                            var curDate = '${curDate}';
+                            //$("#beginTimeStr").val(curDate);
+                            //$("#endTimeStr").val(curDate);
+                            $("#beginTimeStr").datepicker({
+                                format: 'yyyy-mm-dd',
+                                startView: 2,
+                                autoclose: true,
+                                todayBtn: true,
+                                minView: 2
+                            }).on('changeDate', function (ev) {
+                                var AddStartTime = $(this).val();
+                                $("#beginTimeStr").blur();
+                                $("#beginTimeStr").datepicker('hide');
+                            });
+                            $("#endTimeStr").datepicker({
+                                format: 'yyyy-mm-dd',
+                                startView: 2,
+                                autoclose: true,
+                                todayBtn: true,
+                                minView: 2
+                            }).on('changeDate', function (ev) {
+                                $("#endTimeStr").blur();
+                                $("#endTimeStr").datepicker('hide');
+                            });
+
+                            $("#search").click(function(){
+                                getlist();
+                            });
+                            $(".batchPass,.batchUnPass").click(function(){
+                                batchCheck(this);
+                            });
+
+                            /* $("#checkType").change(function(){
+                             var v = $(this).val();
+                             if(v){
+                             $("#isShow").val("");
+                             }
+                             }); */
+
+                            getlist();
+                        });
+                    </script>
+
+
+                    <section class="vbox">
+                        <section>
+                            <section class="hbox stretch">
+
+                                <section id="content">
+                                    <div class="form_valid_mess" style="display:none;">
+                                        <div>
+                                            <span class="form_valid_flag01"></span>
+                                            <div class="form_valid_con01">
+                                                <p></p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mask" style="display: none;position: fixed;left: 0;top: 0;background: #000;opacity: 0.5;filter: alpha(opacity=50);width: 100%;height: 100%;z-index: 2000"></div>
+
+
+                                    <section class="vbox js_template_right">
+                                        <!--顶部标题导航 begin-->
+                                        <header class="header bg-white b-b clearfix">
+                                            <h4 class="doc-buttons pull-left" style="margin-top: 16px">问道周年视频祝福活动</h4>
+
+                        <span class="doc-buttons pull-left"> <select
+                                id="verifyStatus" style="margin-top: 10px; margin-left: 10px;"
+                                class="input-sm">
+                            <option value="">全部</option>
+                            <option value="0">待审核</option>
+                            <option value="1">审核通过</option>
+                            <option value="-1">审核不通过</option>
+                        </select>
+                        </span>
+                        <span class="doc-buttons pull-left"><input type="text"
+                                                                   class="input-sm form-control"
+                                                                   style="display: inline-block; width: 160px; margin-top: 10px; margin-left: 10px;"
+                                                                   placeholder="账号、视频名称" id="keyword" name="keyword" /> <input type="text"
+                                                                                                                               class="input-sm form-control"
+                                                                                                                               style="display: inline-block; width: 160px; margin-top: 10px; margin-left: 10px;"
+                                                                                                                               placeholder="创建开始时间" id="beginTimeStr" name="beginTimeStr" /> <input
+                                type="text" class="input-sm form-control"
+                                style="display: inline-block; width: 160px;" placeholder="创建结束时间"
+                                id="endTimeStr" name="endTimeStr" />
+                        </span> <span class="doc-buttons pull-left"> <a id="search"
+                                                                        class="btn btn-sm btn-info"
+                                                                        style="margin-top: 10px; margin-left: 10px"
+                                                                        href="javascript:void(0);"><i class="fa fa-search"></i>搜索</a>
+                        </span> <span class="doc-buttons pull-left"> <a
+                                                class="btn btn-sm btn-info batchPass"
+                                                style="margin-top: 10px; margin-left: 10px"
+                                                href="javascript:void(0);"><i class="fa fa-search"></i>批量通过</a>
+                        </span><span class="doc-buttons pull-left"> <a
+                                                class="btn btn-sm btn-info batchUnPass"
+                                                style="margin-top: 10px; margin-left: 10px"
+                                                href="javascript:void(0);"><i class="fa fa-search"></i>批量拒绝</a>
+                        </span>
+                                        </header>
+                                        <!--顶部标题导航 end-->
+
+                                        <!--主体内容 begin-->
+                                        <section class="scrollable padder">
+                                            <div class="m-b-md"></div>
+                                            <!--数据表格  begin -->
+                                            <section class="panel panel-default" id="main_region">
+                                                <div class="table-responsive">
+                                                    <table class="table table-striped m-b-none"
+                                                           style="table-layout: fixed;">
+                                                        <thead>
+                                                        <tr>
+                                                            <th width="2%"><input id="checkall" type="checkbox"/></th>
+                                                            <th width="5%">序号</th>
+                                                            <th width="15%">账号</th>
+                                                            <th width="10%">区组</th>
+                                                            <th width="10%">微信名称</th>
+                                                            <th width="15%" >视频名称</th>
+                                                            <th width="8%" >视频内容</th>
+                                                            <th width="15%">上传时间</th>
+                                                            <th width="10%">审核状态</th>
+                                                            <th style="text-align: center;" width="6%">审核人</th>
+                                                            <th width="15%">审核时间</th>
+                                                            <th width="20%">操作</th>
+                                                        </tr>
+                                                        </thead>
+                                                        <tbody id="js_tbSzList">
+
+                                                        </tbody>
+                                                    </table>
+                                                    <!-- 分页 -->
+                                                    <div class="row dataTables_wrapper"
+                                                         style="margin-right: 0px; margin-left: 0px;">
+                                                        <footer class="footer bg-white b-t">
+                                                            <div class="row dataTables_wrapper">
+                                                                <div class="col-sm-6">
+                                                                    <div id="DataTables_Table_0_info" class="dataTables_info"></div>
+                                                                </div>
+                                                                <div class="col-sm-6">
+                                                                    <div id="DataTables_Table_0_paginate"
+                                                                         class="dataTables_paginate paging_full_numbers"></div>
+                                                                </div>
+                                                            </div>
+                                                        </footer>
+                                                    </div>
+                                                    <!--分页 -->
+                                                </div>
+                                            </section>
+                                        </section>
+                                    </section>
+                                </section>
+
+                                <!-- 轮播js -->
+                                <script type="text/javascript">
+                                    var demo1Left =  ($(".scrollable").width()-$("#demo1").width())/2;
+                                    $("#demo1").css({left:demo1Left,top:80});
+                                    var index = 0;
+
+                                    $('.link').on('click', function(event) {
+                                        var elm = $(event.target);
+                                        doMove(elm.attr('id'));
+                                        return false;
+                                    });
+
+                                    function changeBtn(i){
+                                        var blist = $('.btn_list ul');
+                                        blist.find('li').eq(i).addClass('on').siblings().removeClass('on');
+                                    }
+
+                                    function addBtn(){
+                                        var ulist = $('.img_list ul');
+                                        var list = ulist.find('li');
+                                        var blist = $('.btn_list ul').empty();
+                                        for (var i = 0; i < list.length; i++) {
+                                            var imgsrc = $(list[i]).find('img').attr('src');
+                                            var listCon = '<li><img src="'+imgsrc+'""></li>';
+                                            $(listCon).appendTo(blist);
+                                            //隐藏button中的数字
+                                            //list.css('text-indent', '10000px');
+                                        };
+                                        blist.find('li').first().addClass('on');
+                                        blist.find('li').click(function(event) {
+                                            var _index = $(this).index();
+                                            doMove(_index);
+                                        });
+                                    }
+
+                                    function doMove(direction){
+                                        var ulist = $('.img_list ul');
+                                        var list = ulist.find('li');
+                                        var llength = list.length;//li的个数，用来做边缘判断
+                                        var lwidth = $(list[0]).width();//每个li的长度，ul每次移动的距离
+                                        var uwidth = llength * lwidth;//ul的总宽度
+                                        //向右按钮
+                                        if (direction =="toRight") {
+                                            if(index == llength -1){
+                                                //alert("向右已经到头了!");
+                                                return false;
+                                            }
+                                            index++;
+                                            if ( index< llength) {
+                                                uwidth = lwidth *index;
+                                                //ulist.css('left',-uwidth);
+                                                ulist.animate({left: -uwidth}, "slow");
+                                            }else{
+                                                ulist.css('left','0px');
+                                                index = 0;
+                                            };
+                                            //向左按钮
+                                        }else if(direction =="toLeft"){
+                                            if(index <=0){
+                                                //alert("向左已经到头了!");
+                                                return false;
+                                            }
+                                            index--;
+                                            if ( index < 0) {
+                                                index = llength - 1;
+                                            }
+                                            uwidth = lwidth *index;
+                                            //ulist.css('left',-uwidth);
+                                            ulist.animate({left: -uwidth}, "slow");
+                                        }else{
+                                            index = direction;
+                                            uwidth = lwidth *index;
+                                            ulist.animate({left: -uwidth}, "slow");
+                                        };
+                                        changeBtn(index);
+                                    }
+                                </script>
+
+                            </section>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <script type="text/javascript" src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+            <script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+            <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+            <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+            <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+            <script src="http://oa.gyyx.cn/Script/jquery.OASearch.js"></script>
+</body>
+</html>

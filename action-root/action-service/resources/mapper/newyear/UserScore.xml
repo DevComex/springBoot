@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.newyear.IUserScoreMapper">
+	<insert id="insertUserDate" parameterType="UserScoreBean">
+		INSERT INTO
+		user_score_tb(user_score_name,user_score_month,user_score_grade,user_score_can_use)
+		VALUES
+		(#{userScoreName},#{userScoreMonth},#{userScoreGrade},#{userScoreCanUse})
+	</insert>
+	<update id="updateScore" parameterType="String">
+		UPDATE user_score_tb SET
+		user_score_grade=user_score_grade+1
+		,user_score_can_use=user_score_can_use+1
+		WHERE user_score_name =
+		#{userScoreName}
+	</update>
+	<update id="updateCanUse" parameterType="ChipLogBean">
+		UPDATE user_score_tb SET
+		user_score_can_use=user_score_can_use-#{userChipNum}
+		WHERE user_score_name = #{userChipName}
+	</update>
+
+	<select id="selectUserName" resultType="java.util.List">
+		select user_score_name
+		from user_score_tb where user_score_grade>#{userScoreGrade}
+	</select>
+	<select id="selectUserScore" resultMap="UserScoreMap"
+		parameterType="String">
+		select [user_score_name]
+		,[user_score_month]
+		,[user_score_grade]
+		,[user_score_can_use]
+		from user_score_tb
+		where
+		user_score_name=#{userScoreName}
+	</select>
+	<select id="selectCanUse" resultType="Integer" parameterType="String">
+		select user_score_can_use
+		from user_score_tb where user_score_name =
+		#{userScoreName}
+	</select>
+	<select id="getCanUseScore" resultType="Integer" parameterType="String">
+		select user_score_can_use from user_score_tb where user_score_name =
+		#{userScoreName}
+	</select>
+
+	<resultMap id="UserScoreMap" type="UserScoreBean">
+		<result property="userScoreCode" column="user_score_code" />
+		<result property="userScoreName" column="user_score_name" />
+		<result property="userScoreMonth" column="user_score_month" />
+		<result property="userScoreGrade" column="user_score_grade" />
+		<result property="userScoreCanUse" column="user_score_can_use" />
+	</resultMap>
+</mapper>

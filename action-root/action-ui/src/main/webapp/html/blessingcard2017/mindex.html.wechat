@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>问道祝福卡-首页</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<link rel="stylesheet" href="http://static.cn114.cn/action/wdblessingcard2017/css/mindex.css">
+	<script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+	<script src="http://static.cn114.cn/action/wdblessingcard2017/js/mindex.js"></script>
+	<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+</head>
+
+<body>
+
+	<div class="index">
+	<img src="http://static.cn114.cn/action/wdblessingcard2017/images/indexBg.jpg" alt="" />
+	<div class="index_connet">
+		<p>一起奋斗了
+			<select name="" id="year">
+					<option value="11">11</option>
+					<option value="10">10</option>
+					<option value="9">9</option>
+					<option value="8">8</option>
+					<option value="7">7</option>
+					<option value="6">6</option>
+					<option value="5">5</option>
+					<option value="4">4</option>
+					<option value="3">3</option>
+					<option value="2">2</option>
+					<option value="1">1</option>
+				</select> 年的道友
+		</p>
+		<botton class="index_btn">
+			<img src="http://static.cn114.cn/action/wdblessingcard2017/images/indexBtn01.png" />
+		</botton>
+	</div>
+
+	</div>
+	
+	<script>
+		/*百度统计*/
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</body>
+
+</html>

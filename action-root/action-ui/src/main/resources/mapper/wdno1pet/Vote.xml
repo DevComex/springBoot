@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdno1pet.IVote">
+	<!-- 投票的映射 -->
+	<resultMap type="Vote" id="voteItemMap">
+		<id column="vote_code" property="voteCode" />
+		<result column="user_code" property="userCode" />
+		<result column="pet_code" property="petCode" />
+		<result column="vote_ip" property="voteIp" />
+		<result column="vote_date" property="voteTime" />
+	</resultMap>
+	
+    <!-- 查询用户是否符合给某邹品投票的条件-->
+    <select id="SelectVoteQualification" resultMap="voteItemMap">
+    select 
+    vote_code,user_code,pet_code,vote_ip,vote_date 
+    from  wdno1_vote_tb
+    where 
+    user_code=#{voteBean.userCode} 
+    and
+     pet_code=#{voteBean.petCode} 
+    and
+    year(vote_date)=#{voteYear} and month(vote_date)=#{voteMonth} and day(vote_date)=#{voteDay}
+    
+    
+    </select>
+    <!-- 插入一条抽奖记录 -->
+    <insert id="insertVote" useGeneratedKeys="true"
+		keyProperty="voteCode" >
+    insert into 
+    wdno1_vote_tb
+    (user_code,pet_code,vote_ip)
+    values
+    (#{userCode},#{petCode},#{voteIp})
+    
+    
+    </insert>
+    
+
+	<!-- 获取最近的投票列表 -->
+	<select id="getVoteUserCodes" resultType="java.util.List"
+	resultMap="voteItemMap">
+		SELECT TOP ${limit} *
+		FROM wdno1_vote_tb
+		WHERE
+		pet_code = ${pCode}
+		ORDER BY vote_date DESC
+	</select>
+	
+	<!-- 通过投票记录ID查询投票的时间 -->
+	<select id="selectTimestampByVoteCode" resultType="java.sql.Timestamp">
+	select vote_date
+	from wdno1_vote_tb
+	where
+	vote_code = ${voteCode}
+	</select>
+</mapper>

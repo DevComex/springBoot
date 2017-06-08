@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.supporter.IMainTb">
+	<insert id="addMainForm" useGeneratedKeys="true" keyProperty="code"
+		parameterType="java.util.Map">
+		insert into common_main_tb
+		(action_code,type,account_code,account,ip_addr,upload_date,upload_sqldate,display,json_str)
+		values
+		(#{action_code},#{type},#{account_code},#{account},#{ip_addr},#{upload_date},#{upload_sqldate},#{display},#{json_str})
+	</insert>
+	<insert id="addSearchMap" useGeneratedKeys="true" keyProperty="code"
+		parameterType="java.util.Map">
+		insert into common_search_tb
+		(main_code,s1,s2,s3,s4,s5,s6,s7,i1,i2,i3,i4)
+		values
+		(#{main_code},#{s1},#{s2},#{s3},#{s4},#{s5},#{s6},#{s7},#{i1},#{i2},#{i3},#{i4})
+	</insert>
+	<update id="updateMainForm" parameterType="java.util.Map">
+		update common_main_tb
+		set
+		display = #{display},
+		json_str = #{json_str}
+		where code = #{code}
+	</update>
+	<update id="updateSearchForm" parameterType="java.util.Map">
+		update
+		common_search_tb
+		set
+		i1 = #{i1},
+		i2 = #{i2},
+		i3 = #{i3},
+		i4 = #{i4},
+		s1 = #{s1},
+		s2 = #{s2},
+		s3 =
+		#{s3},
+		s4 = #{s4},
+		s4 = #{s5},
+		s4 = #{s6},
+		s4 = #{s7}
+		where main_code =
+		#{main_code}
+	</update>
+	<select id="queryMainForm" resultType="java.util.Map">
+		<choose>
+			<when test="usePaging == true">
+				select common_main_tb.*,
+				common_search_tb.s1,
+				common_search_tb.s2,
+				common_search_tb.s3,
+				common_search_tb.s4,
+				common_search_tb.s5,
+				common_search_tb.s6,
+				common_search_tb.s7,
+				common_search_tb.i1,
+				common_search_tb.i2,
+				common_search_tb.i3,
+				common_search_tb.i4,
+				t.m from
+				(
+				select common_main_tb.code,common_search_tb.main_code,
+				<choose>
+					<when test="ascColum != null">
+						ROW_NUMBER() OVER (ORDER BY ${ascColum} asc) as m
+					</when>
+					<otherwise>
+						<choose>
+							<when test="descColum != null">
+								ROW_NUMBER() OVER (ORDER BY ${descColum} desc) as
+								m
+							</when>
+							<otherwise>
+								ROW_NUMBER() OVER (ORDER BY common_main_tb.code asc)
+								as m
+							</otherwise>
+						</choose>
+					</otherwise>
+				</choose>
+				from common_main_tb
+				left join common_search_tb on common_main_tb.code
+				= common_search_tb.main_code
+				where 1 = 1
+				${whereCondition}
+				) as t
+				left join common_main_tb
+				on t.code = common_main_tb.code
+				left join common_search_tb
+				on t.code = common_search_tb.main_code
+				where t.m between (((${pageNum} - 1)*${pageSize}) + 1) and
+				((${pageNum})*${pageSize})
+			</when>
+			<otherwise>
+				select
+				<if test="useTop == true">
+					top ${top}
+				</if>
+				common_main_tb.*,
+				common_search_tb.s1,
+				common_search_tb.s2,
+				common_search_tb.s3,
+				common_search_tb.s4,
+				common_search_tb.s5,
+				common_search_tb.s6,
+				common_search_tb.s7,
+				common_search_tb.i1,
+				common_search_tb.i2,
+				common_search_tb.i3,
+				common_search_tb.i4
+				from common_main_tb
+				left join common_search_tb
+				on common_main_tb.code = common_search_tb.main_code
+				where 1 = 1
+				${whereCondition}
+				<choose>
+					<when test="randomize == true">
+						ORDER BY newid()
+					</when>
+					<otherwise>
+						<choose>
+							<when test="ascColum != null">
+								ORDER BY ${ascColum} asc
+							</when>
+							<otherwise>
+								<choose>
+									<when test="descColum != null">
+										ORDER BY ${descColum} desc
+									</when>
+									<otherwise>
+										ORDER BY common_main_tb.code asc
+									</otherwise>
+								</choose>
+							</otherwise>
+						</choose>
+					</otherwise>
+				</choose>
+			</otherwise>
+		</choose>
+	</select>
+	<select id="queryMainFormNum" resultType="java.lang.Integer">
+		<choose>
+			<when test="usePaging == true">
+				select count(common_main_tb.code) from
+				(
+				select common_main_tb.code,common_search_tb.main_code,
+				<choose>
+					<when test="ascColum != null">
+						ROW_NUMBER() OVER (ORDER BY ${ascColum} asc) as m
+					</when>
+					<otherwise>
+						<choose>
+							<when test="descColum != null">
+								ROW_NUMBER() OVER (ORDER BY ${descColum} desc) as
+								m
+							</when>
+							<otherwise>
+								ROW_NUMBER() OVER (ORDER BY common_main_tb.code asc)
+								as m
+							</otherwise>
+						</choose>
+					</otherwise>
+				</choose>
+				from common_main_tb
+				left join common_search_tb on common_main_tb.code
+				= common_search_tb.main_code
+				where 1 = 1
+				${whereCondition}
+				) as t
+				left join common_main_tb
+				on t.code = common_main_tb.code
+				left join common_search_tb
+				on t.code = common_search_tb.main_code
+				where t.m between (((${pageNum} - 1)*${pageSize}) + 1) and
+				((${pageNum})*${pageSize})
+			</when>
+			<otherwise>
+				select count(common_main_tb.code)
+				from common_main_tb
+				left join common_search_tb
+				on common_main_tb.code = common_search_tb.main_code
+				where 1 = 1
+				${whereCondition}
+			</otherwise>
+		</choose>
+	</select>
+</mapper>

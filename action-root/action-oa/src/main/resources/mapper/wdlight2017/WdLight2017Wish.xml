@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdlight2017.WishBeanMapper">
+	<resultMap type="cn.gyyx.action.beans.wdlight2017.ValidWishBean"
+		id="ValidWishBean">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="server_name" property="serverName" />
+		<result column="role_name" property="roleName" />
+		<result column="content" property="content" />
+		<result column="level" property="level" />
+		<result column="status" property="status" />
+		<result column="score" property="score" />
+		<result column="consume_score" property="consumeScore" />
+	</resultMap>
+	
+	<resultMap id="BaseResultMap" type="cn.gyyx.action.beans.wdlight2017.LightOaBean">
+		<id column="code" property="code" jdbcType="INTEGER" />
+		<result column="action_code" property="actionCode" jdbcType="INTEGER" />
+		<result column="level" property="level" jdbcType="INTEGER" />
+		<result column="limit_num" property="limitNum" jdbcType="INTEGER" />
+		<result column="light_type" property="lightType" jdbcType="INTEGER" />
+		<result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />	
+		<result column="peopleNum" property="peopleNum" jdbcType="INTEGER" />	
+	</resultMap>
+	
+
+    
+	<select id="getValidWishBean" resultMap="ValidWishBean">
+		SELECT TOP (#{pageNum})
+		*
+		FROM (
+		SELECT row_number() over(order by a.create_time desc) as row,
+		a.code,account,a.server_name,a.role_name,content,a.level,a.status,(b.score-b.consume_score)
+		as score
+		FROM
+		wd_light2017_userinfo_tb b LEFT JOIN wd_light2017_wish_tb
+		a
+		ON
+		a.user_id=b.user_id
+		WHERE status=#{status}
+		)v
+		WHERE v.row >
+		(#{page}-1) *
+		#{pageNum}
+	</select>
+
+	<update id="modifyWishStatusByCode">
+		update
+		wd_light2017_wish_tb
+		set status = #{status}
+		where
+		code = #{code}
+	</update>
+
+	<select id="getWishCount" resultType="int">
+		SELECT count(1)
+		FROM
+		wd_light2017_wish_tb
+		WHERE status=#{status}
+	</select>
+
+	<update id="modifyLightLimitNum">
+		update
+		wd_light2017_light_tb
+		set 
+		limit_num =#{limitNum}
+		where
+		level = #{level}
+	</update>
+
+	<select id="getLightLevel" resultMap="BaseResultMap">
+		SELECT *
+		FROM
+		wd_light2017_light_tb wish LEFT JOIN 
+		(SELECT  level,count(1) AS peopleNum
+		FROM 
+	    (SELECT DISTINCT user_id,level  FROM wd_light2017_wish_tb) a 
+	    GROUP BY LEVEL
+	    ) count
+	    ON  
+	    wish.level=count.level 
+	</select>
+		
+</mapper>

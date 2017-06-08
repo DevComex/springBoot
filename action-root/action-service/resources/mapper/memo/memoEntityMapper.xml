@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.memo.IMemoEntityMapper">
+
+   <!-- 查找某人分享日程 -->
+     <select id="selectPersonMemo" resultType="java.util.List" resultMap="MemoEntity">
+		select memo_entity.memo_code as memoCode
+     		  ,[memo_title]
+      	      ,[memo_start_time]
+    	 	  ,[memo_end_time]
+    	 	  ,[user_code]
+     	 	  ,memo_entity.memo_delete_mark as memoDeleteMark
+     	 	
+     	from   memo_entity,share_memo 
+     	where user_code = #{userCode} and memo_entity.memo_delete_mark = 0 and  share_memo.to_user_code=#{toUserCode} and memo_entity.memo_code=share_memo.memo_code and share_memo.memo_delete_mark = 0
+	</select>
+	   <!-- 查询所有分享给自己的日程 -->
+     <select id="selectOtherMemo" resultType="java.util.List" resultMap="MemoEntity">
+		select memo_entity.memo_code as memoCode
+     		  ,[memo_title]
+      	      ,[memo_start_time]
+    	 	  ,[memo_end_time]
+    	 	  ,[user_code]
+     	 	  ,memo_entity.memo_delete_mark as memoDeleteMark
+     	 	
+     	from   memo_entity,share_memo 
+     	where   memo_entity.memo_delete_mark = 0  and share_memo.to_user_code=#{toUserCode} and memo_entity.memo_code=share_memo.memo_code and share_memo.memo_delete_mark = 0
+	</select>
+     <!-- 查找自己日程 -->
+     
+	<select id="selectMyMemo" resultType="java.util.List" resultMap="MemoEntity">
+
+		select [memo_code]
+		,[memo_title]
+		,[memo_start_time]
+		,[memo_end_time]
+		,[user_code]
+		,[memo_delete_mark]
+
+		from memo_entity 
+		where user_code =
+		#{userCode} and memo_delete_mark = 0
+	</select>
+	<!-- 更新 memo_entity表  跟新某条备忘信息 -->
+	<update id="updateMemoEntity" parameterType="MemoEntity">
+		update memo_entity 
+		set memo_title=#{memoTitle},
+			memo_start_time=#{memoStartTime},
+			memo_end_time=#{memoEndTime},
+			memo_share_mark=#{memoShareMark} 
+		where 
+			memo_code=#{memoCode}
+	</update>
+	<!-- 删除某条备忘（跟新修改） -->
+	<update id="delteMemoEntity" parameterType="int">
+		update memo_entity 
+		set memo_delete_mark=1,
+			memo_share_mark=1 
+		where memo_code=#{memoCode}
+	</update>
+
+	<!-- 增加日程 -->
+	<insert id="insertMemo" parameterType="MemoEntity" keyProperty="memoCode">
+		insert into [memo_entity] 
+
+		(memo_title,memo_start_time,memo_end_time,user_code,memo_delete_mark,memo_share_mark) 
+		values
+		(#{memoTitle},#{memoStartTime},#{memoEndTime},#{userCode},#{memoDeleteMark},#{memoShareMark});
+		<selectKey keyProperty="memoCode" resultType="int" order="AFTER">
+    	  SELECT @@IDENTITY
+	  	</selectKey> 
+	</insert>
+	<!-- 通过memo_code查询一条信息为在修改和删除时，显示给用户 -->
+	<select id="selectOneMemo" parameterType="int" resultMap="MemoEntity">
+		select  memo_code,
+				memo_title,
+				memo_start_time,
+				memo_end_time,
+				user_code,
+				memo_delete_mark,
+				memo_share_mark
+		from memo_entity 
+		where memo_code=#{memoCode}
+	</select>
+	<resultMap id="MemoEntity" type="MemoEntity">
+		<result property="memoCode" column="memo_code" />
+		<result property="memoTitle" column="memo_title" />
+		<result property="memoStartTime" column="memo_start_time" />
+		<result property="memoEndTime" column="memo_end_time" />
+		<result property="userCode" column="user_code" />
+		<result property="memoDeleteMark" column="memo_delete_mark" />
+		<result property="memoShareMark" column="memo_share_mark" />
+	</resultMap>
+
+</mapper>

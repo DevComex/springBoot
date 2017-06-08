@@ -1,0 +1,1152 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>舞吧征集</title>
+    <script type="text/javascript">
+        var rc = "${rc.contextPath}";
+    </script>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/xuanwuba/css/xwb150619.css" type="text/css" />
+    <script src="http://static.cn114.cn/action/xuanwuba/js/jquery.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=xuanwuba" type="text/javascript"></script>
+    <script type="text/javascript">
+        // var list = $!showList;
+        $(function () {
+            //var videoList = "";
+            //var videoFlag = 0;
+            //var photoList = "";
+            //var photoFlag = 0;
+            //var suggestList = "";
+            //var suggestFlag = 0;
+            //for (var i = 0; i < list.length; i++) {
+            //    var opt = "";
+                //if (d[i].content == null) {
+
+
+                //    if (d[i].materialType == "视频") {
+                //        if (videoFlag == 0) {
+                //            if (d[i].commonNum == null) {
+                //                if (d[i].praiseNum == null) {
+                //                    videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                //                                   '<div class="xwb_txt" style="width:235px;">' +
+                //                                       '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                       '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                   '</div>' +
+                //                               '</li>';
+                //                } else {
+                //                    videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                //                                    '<div class="xwb_txt" style="width:235px;">' +
+                //                                        '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                        '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                    '</div>' +
+                //                                '</li>';
+                //                }
+                //            } else {
+                //                if (d[i].praiseNum == null) {
+                //                    videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                //                                   '<div class="xwb_txt" style="width:235px;">' +
+                //                                       '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                       '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                   '</div>' +
+                //                               '</li>';
+                //                } else {
+                //                    videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                //                                    '<div class="xwb_txt" style="width:235px;">' +
+                //                                        '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                        '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                    '</div>' +
+                //                                '</li>';
+                //                }
+                //            }
+                //            videoFlag++;
+                //        } else {
+                //            if (d[i].commonNum == null) {
+                //                if (d[i].praiseNum == null) {
+                //                    videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                //                                   '<div class="xwb_txt" style="width:235px;">' +
+                //                                       '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                       '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                   '</div>' +
+                //                               '</li>';
+                //                } else {
+                //                    videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                //                                    '<div class="xwb_txt" style="width:235px;">' +
+                //                                        '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                        '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                    '</div>' +
+                //                                '</li>';
+                //                }
+                //            } else {
+                //                if (d[i].praiseNum == null) {
+                //                    videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                //                                   '<div class="xwb_txt" style="width:235px;">' +
+                //                                       '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                       '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                   '</div>' +
+                //                               '</li>';
+                //                } else {
+                //                    videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                //                                    '<div class="xwb_txt" style="width:235px;">' +
+                //                                        '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                        '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                    '</div>' +
+                //                                '</li>';
+                //                }
+                //            }
+                //            videoFlag++;
+                //        }
+                //    } else if (d[i].materialType == "服装") {
+                //        if (photoFlag == 0) {
+                //            if (d[i].commonNum == null) {
+                //                if (d[i].praiseNum == null) {
+                //                    photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                               '<div class="xwb_txt" style="width:184px">' +
+                //                                   '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                                '<div class="xwb_txt" style="width:184px">' +
+                //                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            } else {
+                //                if (d[i].praiseNum == null) {
+                //                    photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                               '<div class="xwb_txt" style="width:184px">' +
+                //                                   '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                                '<div class="xwb_txt" style="width:184px">' +
+                //                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            }
+                //            photoFlag++;
+                //        } else {
+                //            if (d[i].commonNum == null) {
+                //                if (d[i].praiseNum == null) {
+                //                    photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                               '<div class="xwb_txt" style="width:184px">' +
+                //                                   '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                                '<div class="xwb_txt" style="width:184px">' +
+                //                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            } else {
+                //                if (d[i].praiseNum == null) {
+                //                    photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                               '<div class="xwb_txt" style="width:184px">' +
+                //                                   '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                                '<div class="xwb_txt" style="width:184px">' +
+                //                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            }
+                //            photoFlag++;
+                //        }
+                //    } else if (d[i].materialType == "建议") {
+                //        if (suggestFlag == 0 || suggestFlag == 3) {
+                //            if (d[i].commonNum == null) {
+                //                if (d[i].praiseNum == null) {
+                //                    suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                               '<div class="xwb_txt">' +
+                //                                   '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                                '<div class="xwb_txt">' +
+                //                                    '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            } else {
+                //                if (d[i].praiseNum == null) {
+                //                    suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                               '<div class="xwb_txt">' +
+                //                                   '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                                '<div class="xwb_txt">' +
+                //                                    '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            }
+
+
+
+                //            suggestFlag++;
+                //        } else {
+                //            if (d[i].commonNum == null) {
+                //                if (d[i].praiseNum == null) {
+                //                    suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                               '<div class="xwb_txt">' +
+                //                                   '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                                '<div class="xwb_txt">' +
+                //                                    '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            } else {
+                //                if (d[i].praiseNum == null) {
+                //                    suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                               '<div class="xwb_txt">' +
+                //                                   '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                                '<div class="xwb_txt">' +
+                //                                    '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            }
+                //            suggestFlag++;
+                //        }
+                //    } else {
+
+                //    }
+                //} else {
+
+
+
+                //    if (d[i].materialType == "视频") {
+                //        if (videoFlag == 0) {
+
+                //            if (d[i].commonNum == null) {
+                //                if (d[i].praiseNum == null) {
+                //                    videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                //                               '<div class="xwb_txt" style="width:235px">' +
+                //                                   '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                //                                '<div class="xwb_txt" style="width:235px">' +
+                //                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            } else {
+                //                if (d[i].praiseNum == null) {
+                //                    videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                //                               '<div class="xwb_txt" style="width:235px">' +
+                //                                   '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                //                                '<div class="xwb_txt" style="width:235px">' +
+                //                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            }
+
+
+
+                //            videoFlag++;
+                //        } else {
+
+                //            if (d[i].commonNum == null) {
+                //                if (d[i].praiseNum == null) {
+                //                    videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                //                               '<div class="xwb_txt" style="width:235px">' +
+                //                                   '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                //                                '<div class="xwb_txt" style="width:235px">' +
+                //                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            } else {
+                //                if (d[i].praiseNum == null) {
+                //                    videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                //                               '<div class="xwb_txt" style="width:235px">' +
+                //                                   '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                //                                '<div class="xwb_txt" style="width:235px">' +
+                //                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            }
+
+
+                //            videoFlag++;
+                //        }
+                //    } else if (d[i].materialType == "服装") {
+                //        if (photoFlag == 0) {
+
+                //            if (d[i].commonNum == null) {
+                //                if (d[i].praiseNum == null) {
+                //                    photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                                '<div class="xwb_txt" style="width:184px">' +
+                //                                    '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                } else {
+                //                    photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                                '<div class="xwb_txt" style="width:184px">' +
+                //                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            } else {
+                //                if (d[i].praiseNum == null) {
+                //                    photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                               '<div class="xwb_txt" style="width:184px">' +
+                //                                   '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                                '<div class="xwb_txt" style="width:184px">' +
+                //                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            }
+
+                //            photoFlag++;
+                //        } else {
+                //            if (d[i].commonNum == null) {
+                //                if (d[i].praiseNum == null) {
+                //                    photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                                '<div class="xwb_txt" style="width:184px">' +
+                //                                    '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                } else {
+                //                    photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                                '<div class="xwb_txt" style="width:184px">' +
+                //                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            } else {
+                //                if (d[i].praiseNum == null) {
+                //                    photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                               '<div class="xwb_txt" style="width:184px">' +
+                //                                   '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                //                                '<div class="xwb_txt" style="width:184px">' +
+                //                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            }
+                //            photoFlag++;
+                //        }
+                //    } else if (d[i].materialType == "建议") {
+                //        if (suggestFlag == 0 || suggestFlag == 3) {
+
+                //            if (d[i].commonNum == null) {
+                //                if (d[i].praiseNum == null) {
+                //                    suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                                '<div class="xwb_txt">' +
+                //                                    '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                } else {
+                //                    suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                                '<div class="xwb_txt">' +
+                //                                    '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            } else {
+                //                if (d[i].praiseNum == null) {
+                //                    suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                               '<div class="xwb_txt">' +
+                //                                   '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                                '<div class="xwb_txt">' +
+                //                                    '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            }
+
+                //            suggestFlag++;
+                //        } else {
+                //            if (d[i].commonNum == null) {
+                //                if (d[i].praiseNum == null) {
+                //                    suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                                '<div class="xwb_txt">' +
+                //                                    '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                } else {
+                //                    suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                                '<div class="xwb_txt">' +
+                //                                    '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            } else {
+                //                if (d[i].praiseNum == null) {
+                //                    suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                               '<div class="xwb_txt">' +
+                //                                   '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                   '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                               '</div>' +
+                //                           '</li>';
+                //                } else {
+                //                    suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                //                                '<div class="xwb_txt">' +
+                //                                    '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                //                                    '<p class="xwb_p02"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                //                                '</div>' +
+                //                            '</li>';
+                //                }
+                //            }
+                //            suggestFlag++;
+                //        }
+                //    } else {
+
+                //    }
+                //}
+            //}
+
+            //$(".zj_videoShow").empty().append(videoList);
+            //$(".zj_picShow").empty().append(photoList);
+            //$(".zj_notice1").empty().append(suggestList);
+
+
+            function getvidiolist() {
+                $.ajax
+                    ({
+                        url: "collectIndexTopShow",
+                        type: 'get',
+                        data: { materialType: "视频", topNum: 4, r: Math.random() },
+                        dataType: 'json',
+                        success: function (d) {
+                            var videoList = "";
+                            var videoFlag = 0;
+                            for (var i = 0; i < d.length; i++) {
+                                if (d[i].content == null) {
+                                    if (videoFlag == 0) {
+                                        if (d[i].commonNum == null) {
+                                            if (d[i].praiseNum == null) {
+                                                videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                                                               '<div class="xwb_txt" style="width:235px;">' +
+                                                                   '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                                   '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                               '</div>' +
+                                                           '</li>';
+                                            } else {
+                                                videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                                                                '<div class="xwb_txt" style="width:235px;">' +
+                                                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                                    '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                                '</div>' +
+                                                            '</li>';
+                                            }
+                                        } else {
+                                            if (d[i].praiseNum == null) {
+                                                videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                                                               '<div class="xwb_txt" style="width:235px;">' +
+                                                                   '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                                   '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                               '</div>' +
+                                                           '</li>';
+                                            } else {
+                                                videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                                                                '<div class="xwb_txt" style="width:235px;">' +
+                                                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                                    '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                                '</div>' +
+                                                            '</li>';
+                                            }
+                                        }
+                                        videoFlag++;
+                                    } else {
+                                        if (d[i].commonNum == null) {
+                                            if (d[i].praiseNum == null) {
+                                                videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                                                               '<div class="xwb_txt" style="width:235px;">' +
+                                                                   '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                                   '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                               '</div>' +
+                                                           '</li>';
+                                            } else {
+                                                videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                                                                '<div class="xwb_txt" style="width:235px;">' +
+                                                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                                    '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                                '</div>' +
+                                                            '</li>';
+                                            }
+                                        } else {
+                                            if (d[i].praiseNum == null) {
+                                                videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                                                               '<div class="xwb_txt" style="width:235px;">' +
+                                                                   '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                                   '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                               '</div>' +
+                                                           '</li>';
+                                            } else {
+                                                videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150 ><div class="mb"></div></a>' +
+                                                                '<div class="xwb_txt" style="width:235px;">' +
+                                                                    '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                                    '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                                '</div>' +
+                                                            '</li>';
+                                            }
+                                        }
+                                        videoFlag++;
+                                    }
+                                } else {
+                                    if (videoFlag == 0) {
+                                        if (d[i].commonNum == null) {
+                                            if (d[i].praiseNum == null) {
+                                                videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                                                           '<div class="xwb_txt" style="width:235px">' +
+                                                               '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                               '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                           '</div>' +
+                                                       '</li>';
+                                            } else {
+                                                videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                                                            '<div class="xwb_txt" style="width:235px">' +
+                                                                '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                                '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                            '</div>' +
+                                                        '</li>';
+                                            }
+                                        } else {
+                                            if (d[i].praiseNum == null) {
+                                                videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                                                           '<div class="xwb_txt" style="width:235px">' +
+                                                               '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                               '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                           '</div>' +
+                                                       '</li>';
+                                            } else {
+                                                videoList += '<li class="nopl"><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                                                            '<div class="xwb_txt" style="width:235px">' +
+                                                                '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                                '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                            '</div>' +
+                                                        '</li>';
+                                            }
+                                        }
+                                        videoFlag++;
+                                    } else {
+
+                                        if (d[i].commonNum == null) {
+                                            if (d[i].praiseNum == null) {
+                                                videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                                                           '<div class="xwb_txt" style="width:235px">' +
+                                                               '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                               '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                           '</div>' +
+                                                       '</li>';
+                                            } else {
+                                                videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                                                            '<div class="xwb_txt" style="width:235px">' +
+                                                                '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                                '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                            '</div>' +
+                                                        '</li>';
+                                            }
+                                        } else {
+                                            if (d[i].praiseNum == null) {
+                                                videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                                                           '<div class="xwb_txt" style="width:235px">' +
+                                                               '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                               '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                           '</div>' +
+                                                       '</li>';
+                                            } else {
+                                                videoList += '<li><a href="video?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=235 height=150><div class="mb"></div></a>' +
+                                                            '<div class="xwb_txt" style="width:235px">' +
+                                                                '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn1" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                                '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                            '</div>' +
+                                                        '</li>';
+                                            }
+                                        }
+
+
+                                        videoFlag++;
+                                    }
+                                }
+                               
+                            }
+                            $(".zj_videoShow").empty().html(videoList);
+                        },
+                        error: function () {
+                            alert("网络错误，请稍后重试!");
+                        }
+                    })
+            };
+            function getphotolist() {
+                $.ajax
+                 ({
+                     url: "collectIndexTopShow",
+                     type: 'get',
+                     data: { materialType: "服装", topNum: 5, r: Math.random() },
+                     dataType: 'json',
+                     success: function (d) {
+                         var photoList = "";
+                         var photoFlag = 0;
+                         for (var i = 0; i < d.length; i++) {
+                             if (d[i].content == null) {
+                                 if (photoFlag == 0) {
+                                     if (d[i].commonNum == null) {
+                                         if (d[i].praiseNum == null) {
+                                             photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                        '<div class="xwb_txt" style="width:184px">' +
+                                                            '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                            '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                        '</div>' +
+                                                    '</li>';
+                                         } else {
+                                             photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                         '<div class="xwb_txt" style="width:184px">' +
+                                                             '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     } else {
+                                         if (d[i].praiseNum == null) {
+                                             photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                        '<div class="xwb_txt" style="width:184px">' +
+                                                            '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                            '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                        '</div>' +
+                                                    '</li>';
+                                         } else {
+                                             photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                         '<div class="xwb_txt" style="width:184px">' +
+                                                             '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     }
+                                     photoFlag++;
+                                 } else {
+                                     if (d[i].commonNum == null) {
+                                         if (d[i].praiseNum == null) {
+                                             photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                        '<div class="xwb_txt" style="width:184px">' +
+                                                            '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                            '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                        '</div>' +
+                                                    '</li>';
+                                         } else {
+                                             photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                         '<div class="xwb_txt" style="width:184px">' +
+                                                             '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     } else {
+                                         if (d[i].praiseNum == null) {
+                                             photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                        '<div class="xwb_txt" style="width:184px">' +
+                                                            '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                            '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                        '</div>' +
+                                                    '</li>';
+                                         } else {
+                                             photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                         '<div class="xwb_txt" style="width:184px">' +
+                                                             '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     }
+                                     photoFlag++;
+                                 }
+                             } else {
+                                 if (photoFlag == 0) {
+
+                                     if (d[i].commonNum == null) {
+                                         if (d[i].praiseNum == null) {
+                                             photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                         '<div class="xwb_txt" style="width:184px">' +
+                                                             '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         } else {
+                                             photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                         '<div class="xwb_txt" style="width:184px">' +
+                                                             '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     } else {
+                                         if (d[i].praiseNum == null) {
+                                             photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                        '<div class="xwb_txt" style="width:184px">' +
+                                                            '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                            '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                        '</div>' +
+                                                    '</li>';
+                                         } else {
+                                             photoList += '<li class="nopl"><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                         '<div class="xwb_txt" style="width:184px">' +
+                                                             '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     }
+
+                                     photoFlag++;
+                                 } else {
+                                     if (d[i].commonNum == null) {
+                                         if (d[i].praiseNum == null) {
+                                             photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                         '<div class="xwb_txt" style="width:184px">' +
+                                                             '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         } else {
+                                             photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                         '<div class="xwb_txt" style="width:184px">' +
+                                                             '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     } else {
+                                         if (d[i].praiseNum == null) {
+                                             photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                        '<div class="xwb_txt" style="width:184px">' +
+                                                            '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                            '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                        '</div>' +
+                                                    '</li>';
+                                         } else {
+                                             photoList += '<li><a href="photo?materialCode=' + d[i].materialCode + '"><img src="' + d[i].materialPicture + '" width=184 height=220 ></a>' +
+                                                         '<div class="xwb_txt" style="width:184px">' +
+                                                             '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn2" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     }
+                                     photoFlag++;
+                                 }
+                             }
+                             
+                         }
+                         $(".zj_picShow").empty().html(photoList);
+                     },
+                     error: function () {
+                         alert("网络错误，请稍后重试!");
+                     }
+                 })
+            };
+            function getsuggestlist() {
+                $.ajax
+                 ({
+                     url: "collectIndexTopShow",
+                     type: 'get',
+                     data: { materialType: "建议", topNum: 6, r: Math.random() },
+                     dataType: 'json',
+                     success: function (d) {
+                         var suggestList = "";
+                         var suggestFlag = 0;
+                         for (var i = 0; i < d.length; i++) {
+                             if (d[i].content == null) {
+                                 if (suggestFlag == 0 || suggestFlag == 3) {
+                                     if (d[i].commonNum == null) {
+                                         if (d[i].praiseNum == null) {
+                                             suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                        '<div class="xwb_txt">' +
+                                                            '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                            '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                        '</div>' +
+                                                    '</li>';
+                                         } else {
+                                             suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                         '<div class="xwb_txt">' +
+                                                             '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     } else {
+                                         if (d[i].praiseNum == null) {
+                                             suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                        '<div class="xwb_txt">' +
+                                                            '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                            '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                        '</div>' +
+                                                    '</li>';
+                                         } else {
+                                             suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                         '<div class="xwb_txt">' +
+                                                             '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     }
+
+
+
+                                     suggestFlag++;
+                                 } else {
+                                     if (d[i].commonNum == null) {
+                                         if (d[i].praiseNum == null) {
+                                             suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                        '<div class="xwb_txt">' +
+                                                            '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                            '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                        '</div>' +
+                                                    '</li>';
+                                         } else {
+                                             suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                         '<div class="xwb_txt">' +
+                                                             '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     } else {
+                                         if (d[i].praiseNum == null) {
+                                             suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                        '<div class="xwb_txt">' +
+                                                            '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                            '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                        '</div>' +
+                                                    '</li>';
+                                         } else {
+                                             suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                         '<div class="xwb_txt">' +
+                                                             '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     }
+                                     suggestFlag++;
+                                 }
+                             } else {
+                                 if (suggestFlag == 0 || suggestFlag == 3) {
+
+                                     if (d[i].commonNum == null) {
+                                         if (d[i].praiseNum == null) {
+                                             suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                         '<div class="xwb_txt">' +
+                                                             '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         } else {
+                                             suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                         '<div class="xwb_txt">' +
+                                                             '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     } else {
+                                         if (d[i].praiseNum == null) {
+                                             suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                        '<div class="xwb_txt">' +
+                                                            '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                            '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                        '</div>' +
+                                                    '</li>';
+                                         } else {
+                                             suggestList += '<li class="noml"><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                         '<div class="xwb_txt">' +
+                                                             '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     }
+
+                                     suggestFlag++;
+                                 } else {
+                                     if (d[i].commonNum == null) {
+                                         if (d[i].praiseNum == null) {
+                                             suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                         '<div class="xwb_txt">' +
+                                                             '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         } else {
+                                             suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                         '<div class="xwb_txt">' +
+                                                             '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     } else {
+                                         if (d[i].praiseNum == null) {
+                                             suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                        '<div class="xwb_txt">' +
+                                                            '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                            '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                        '</div>' +
+                                                    '</li>';
+                                         } else {
+                                             suggestList += '<li><a href="suggest?materialCode=' + d[i].materialCode + '"><i>' + d[i].materialName + '：</i>' + d[i].materialProfile + '</a>' +
+                                                         '<div class="xwb_txt">' +
+                                                             '<p class="xwb_p01" style="width:256px"><span class="xwb_sp01 on1"><i class="praise_btnt" materialCode="' + d[i].materialCode + '"></i>' + d[i].praiseGot + '<b class="txt_ico"></b></span><span class="xwb_sp02 on2"><i class="comment_btn3" materialCode="' + d[i].materialCode + '"></i>' + d[i].commentGot + '</span></p>' +
+                                                             '<p class="xwb_p02" style="color:blue"><strong>最佳评论：</strong>' + d[i].content + '</p>' +
+                                                         '</div>' +
+                                                     '</li>';
+                                         }
+                                     }
+                                     suggestFlag++;
+                                 }
+                             }
+                            
+                         }
+                         $(".zj_notice1").empty().html(suggestList);
+                     },
+                     error: function () {
+                         alert("网络错误，请稍后重试!");
+                     }
+                 })
+            };
+            getvidiolist();
+            getphotolist();
+            getsuggestlist();
+
+            $(".praise_btnt").die().live("click", function () {
+                var $this = $(this);
+                checkLogin({
+                    success: function (d) {
+                        if ($this.parent(".xwb_sp01").hasClass("on1")) {
+                            //$this.next(".txt_ico").empty().html("-1").show();
+                        } else {
+                            //$this.next(".txt_ico").empty().html("+1").show();
+                        }
+                        var materialCode = $this.attr("materialCode");
+                        $.ajax
+                        ({
+                            url: 'praise',
+                            type: 'get',
+                            data: { materialCode: materialCode, r: Math.random() },
+                            dataType: 'json',
+                            success: function (d) {
+                                if (d.isSuccess) {
+                                    getvidiolist();
+                                    getphotolist();
+                                    getsuggestlist();
+                                }
+                            }
+                        })
+                    },
+                    failed: function () {
+                        alertFn(null, null, true)
+                    }
+                });
+            })
+
+
+            $(".comment_btn1").die().live("click",function () {
+                window.location.href = "video?materialCode=" + $(this).attr("materialCode");
+            })
+            $(".comment_btn2").die().live("click",function () {
+                window.location.href = "photo?materialCode=" + $(this).attr("materialCode");
+            })
+            $(".comment_btn3").die().live("click",function () {
+                window.location.href = "suggest?materialCode=" + $(this).attr("materialCode");
+            })
+        })
+    </script>
+    <script>
+        $(function () {
+            $(".xwb_sp01 on").hover(function () {
+                $(".praise_btnt").css("background", "url(http://static.cn114.cn/action/xuanwuba/images/ico_love_on.png)");
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="s_wrap">
+        <div class="s_wrap01">
+            <div class="s_wrapFooter">
+                <div class="smain">
+                    <div class="header">
+                        <div class="s_nav">
+                            <a href="http://xwb.gyyx.cn/" target="_blank">进入官网</a>|<a href="http://xwb.gyyx.cn/Download/index.shtml" target="_blank">下载游戏</a>|<a href="http://bbs.gyyx.cn/forum.php?gid=167" target="_blank">进入论坛</a>|<a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" target="_blank">兑换充值</a>
+                        </div>
+                        <div class="s_left">
+                            <div class="part_login">
+
+                                <div class="login">
+                                    <!--登录前-->
+                                    <a href="javascript:;" class="login_btn js_alertlogin_a">登录</a>
+
+                                    <p>还没有光宇通行证?<a href="http://account.gyyx.cn/Member/Register" target="_blank">点此注册</a></p>
+                                </div>
+                                <!--登录前-->
+                                <div class="success_sign" style="display: none;" id="userSuccess">
+                                    <!--登录后-->
+                                    <h3><span>
+                                        <img src="http://static.cn114.cn/action/xuanwuba/images/xwb150619_qd_pic01.png"></span><p id="loginbar" class="red">
+                                            登录超时<br />
+                                            <a href="javascript:;" class="info_mli_a js_Logout">退出</a>
+                                        </p>
+                                    </h3>
+                                    <p>玩家区组：<i class="red">未选择</i></p>
+                                    <p>性别：<i class="red">未选择</i></p>
+                                    <p><span class="sp01">积分：<i class="red">0</i></span></p>
+                                    <p>累计签到天数：<i class="red">0天</i></p>
+                                </div>
+                                <!--登录后-->
+                            </div>
+                            <div class="s_div s_btn">
+                                <a href="../xuanwuba/signIndex" class="registerBtn "><span class="ico01">签到</span></a>
+                                <a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" class="a02" target="_blank"><span class="ico02">充值</span></a>
+                            </div>
+                        </div>
+                        <a href="index" class="goHome">返回首页</a>
+                    </div>
+                    <div class="s_cont">
+                        <h3 class="s_tit">舞吧征集<span></span></h3>
+                        <div class="s_txt">
+                            <p><span>1</span>活动期间内，提交视频、服装征集、舞吧建议，通过审核的玩家将获得积分奖励。</p>
+                            <p><span>2</span>舞吧征集素材根据审核标准，还有机会展示到活动首页上，并发放额外的积分奖励。</p>
+                            <p><span>3</span>同时，还可将素材分享到空间、微博、朋友圈等，让您的朋友共同分享您的快乐。</p>
+                        </div>
+
+                        <div class="s_box">
+                            <ul class="zj_tit">
+                                <li class="nopl"><a href="videoList" class="a01">视频征集</a></li>
+                                <li><a href="photoList" class="a02">服装征集</a></li>
+                                <li><a href="suggestList" class="a03">建议征集</a></li>
+                            </ul>
+                            <div class="zj_box">
+                                <h3 class="zj_tit01"><span>视频展示</span><a href="videoCollect" class="xwb_btn">我要上传</a><a href="videoList" class="zj_more">更多></a></h3>
+                                <ul class="zj_videoShow">
+                                </ul>
+                            </div>
+                            <div class="zj_box zj_box01">
+                                <h3 class="zj_tit01"><span>服装展示</span><a href="photoCollect" class="xwb_btn">我要上传</a><a href="photoList" class="zj_more">更多></a></h3>
+                                <ul class="zj_picShow">
+                                </ul>
+                            </div>
+                            <div class="zj_box zj_box01">
+                                <h3 class="zj_tit01"><span>建议展示</span><a href="suggestCollect" class="xwb_btn">我要提交</a><a href="suggestList" class="zj_more">更多></a></h3>
+                                <ul class="zj_notice1">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="zj_gotop" href="#"></a>
+                    <!--返回顶部-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pfNav">
+        <ul>
+            <li><a href="signIndex">每日签到</a></li>
+            <li><a href="taskShow">舞吧任务</a></li>
+            <li><a href="lotteryIndex">舞吧奖励</a></li>
+            <li class="on"><a href="collectIndex">舞吧征集</a></li>
+            <li><a href="videoShow">个人中心</a></li>
+        </ul>
+        <a href="#" class="goTop">top</a>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div>
+    <script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/ymcore.min.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/xwb150623.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/gyyxEffect.js"></script>
+</body>
+</html>

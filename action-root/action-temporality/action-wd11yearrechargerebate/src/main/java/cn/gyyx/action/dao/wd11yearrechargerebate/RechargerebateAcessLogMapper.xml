@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.wd11yearrechargerebate.RechargerebateAcessLogMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.action.beans.wd11yearrechargerebate.RechargerebateAcessLog" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="account" property="account" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="result" property="result" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.gyyx.action.beans.wd11yearrechargerebate.RechargerebateAcessLogWithBLOBs" extends="BaseResultMap" >
+    <result column="bindapp_result" property="bindappResult" jdbcType="LONGVARCHAR" />
+    <result column="recharge10_result" property="recharge10Result" jdbcType="LONGVARCHAR" />
+    <result column="level60_result" property="level60Result" jdbcType="LONGVARCHAR" />
+    <result column="history_recharge_result" property="historyRechargeResult" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, account, user_id, create_time, result
+  </sql>
+  <sql id="Blob_Column_List" >
+    bindapp_result, recharge10_result, level60_result, history_recharge_result
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from wd11yearrechargerebate_acess_log
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+ 
+  <insert id="insert" useGeneratedKeys="true"
+		keyProperty="code"  parameterType="cn.gyyx.action.beans.wd11yearrechargerebate.RechargerebateAcessLogWithBLOBs" >
+    insert into wd11yearrechargerebate_acess_log (account, user_id, 
+      create_time, result, bindapp_result, 
+      recharge10_result, level60_result, 
+      history_recharge_result)
+    values (jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{result,jdbcType=VARCHAR}, #{bindappResult,jdbcType=LONGVARCHAR}, 
+      #{recharge10Result,jdbcType=LONGVARCHAR}, #{level60Result,jdbcType=LONGVARCHAR}, 
+      #{historyRechargeResult,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" useGeneratedKeys="true"
+		keyProperty="code"  parameterType="cn.gyyx.action.beans.wd11yearrechargerebate.RechargerebateAcessLogWithBLOBs" >
+    insert into wd11yearrechargerebate_acess_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="account != null" >
+        account,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="result != null" >
+        result,
+      </if>
+      <if test="bindappResult != null" >
+        bindapp_result,
+      </if>
+      <if test="recharge10Result != null" >
+        recharge10_result,
+      </if>
+      <if test="level60Result != null" >
+        level60_result,
+      </if>
+      <if test="historyRechargeResult != null" >
+        history_recharge_result,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="account != null" >
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="result != null" >
+        #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="bindappResult != null" >
+        #{bindappResult,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="recharge10Result != null" >
+        #{recharge10Result,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="level60Result != null" >
+        #{level60Result,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="historyRechargeResult != null" >
+        #{historyRechargeResult,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.action.beans.wd11yearrechargerebate.RechargerebateAcessLogWithBLOBs" >
+    update wd11yearrechargerebate_acess_log
+    <set >
+      <if test="account != null" >
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="result != null" >
+        result = #{result,jdbcType=VARCHAR},
+      </if>
+      <if test="bindappResult != null" >
+        bindapp_result = #{bindappResult,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="recharge10Result != null" >
+        recharge10_result = #{recharge10Result,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="level60Result != null" >
+        level60_result = #{level60Result,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="historyRechargeResult != null" >
+        history_recharge_result = #{historyRechargeResult,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.gyyx.action.beans.wd11yearrechargerebate.RechargerebateAcessLogWithBLOBs" >
+    update wd11yearrechargerebate_acess_log
+    set account = #{account,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      result = #{result,jdbcType=VARCHAR},
+      bindapp_result = #{bindappResult,jdbcType=LONGVARCHAR},
+      recharge10_result = #{recharge10Result,jdbcType=LONGVARCHAR},
+      level60_result = #{level60Result,jdbcType=LONGVARCHAR},
+      history_recharge_result = #{historyRechargeResult,jdbcType=LONGVARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.action.beans.wd11yearrechargerebate.RechargerebateAcessLog" >
+    update wd11yearrechargerebate_acess_log
+    set account = #{account,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      result = #{result,jdbcType=VARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+</mapper>

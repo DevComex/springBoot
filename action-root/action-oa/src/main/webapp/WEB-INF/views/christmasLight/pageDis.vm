@@ -1,0 +1,53 @@
+<div class="table-responsive" >
+	<table class="table table-striped m-b-none">
+		<form action="" method="post">
+		<thead>
+			<tr>
+                <th>评论内容</th>
+                <th>状态</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            
+                 #foreach ( $!{li} in $!{listDis} ) 
+                 <tr>
+                     <td>$li.comment</td>
+                     <td>$li.status</td>
+                     <td>
+						#if( $li.status.equals("checked") )
+							<a class="btn btn-xs btn-info js_editRole" data-toggle="tooltip" data-title="通过审核" style="height:22px;width:58px"   onclick="cancelDis('${li.code}')" >删除</a>
+						#elseif ( $li.status.equals("uncheck") )
+							 <a class="btn btn-xs btn-info js_editRole" data-toggle="tooltip" data-title="通过审核" style="height:22px;width:40px"  title="" onclick="passDis('${li.code}')" >审核</a>
+							 <a class="btn btn-xs btn-info js_editRole" data-toggle="tooltip" data-title="通过审核" style="height:22px;width:58px"   onclick="cancelDis('${li.code}')" >删除</a>
+						#else
+							 <a class="btn btn-xs btn-info js_editRole" data-toggle="tooltip" data-title="通过审核" style="height:22px;width:40px"  title="" onclick="passDis('${li.code}')" >审核</a>
+							 <a class="btn btn-xs btn-info js_editRole" data-toggle="tooltip" data-title="通过审核" style="height:22px;width:58px"   onclick="cancelDis('${li.code}')" >删除</a>
+						#end
+                     </td>
+                </tr>
+                #end
+            
+        </tbody>
+		</form>
+     </table>
+</div>
+<div class="row dataTables_wrapper">
+	<div class="col-sm-6">
+		<div id="DataTables_Table_0_info" class="dataTables_info">共$!{sumDisNum}条</div>
+			<input type="hidden" id="nowpageNew" name="nowpageNew" value="${nowpageNew}">
+			<input type="hidden" id="sumPageNum" name="sumPageNum" value="${sumPageNum}">
+        </div>
+        <div class="col-sm-6">
+            <div href="" id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers">
+                <a id="DataTables_Table_0_first" class="first paginate_button paginate_button_disabled" tabindex="0" onclick="homePage()" >首页</a>
+                      #foreach( ${lip} in ${pageNum} )        
+                           <span>
+                                 <a  class="paginate_button" tabindex="0" onclick="pageJump('${lip}')" >${lip}</a>
+                           </span> 
+                      #end
+               <a  name="disLastpage" class="last paginate_button" tabindex="0" onclick="lastPage()" >末页</a>
+            </div>
+		</div>
+</div>

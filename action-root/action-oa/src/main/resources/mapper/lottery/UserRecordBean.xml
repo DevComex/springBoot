@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.IUserRecord">
+	<resultMap type="UserRecordBean" id="UserRecordBeanMap">
+		<id column="code" property="code" />
+		<result column="user_code" property="userCode" />
+		<result column="user_account" property="userAccount" />
+		<result column="time" property="time" />
+		<result column="action_code" property="actionCode" />
+		<result column="type" property="type" />
+		<result column="ip" property="ip" />
+	</resultMap>
+
+	<insert id="addUserRecordBean">
+	insert into action_record_tb
+	(user_code,user_account,action_code,time,type,ip)
+	values
+	(#{userCode},#{userAccount},#{actionCode},#{time},#{type},#{ip})
+	</insert>
+	
+	
+	<select id="getUserRecordBeanByTime" resultMap="UserRecordBeanMap">
+	
+	select * from
+	action_record_tb
+	where
+	time=#{time}
+	and
+	user_code=#{userCode}
+	and
+	action_code=#{actionCode}
+	and
+	type=#{type}
+	</select>
+	
+	<select id="getUserRecordBeanByIp" resultMap="UserRecordBeanMap">
+	
+	select * from
+	action_record_tb
+	where
+	ip=#{ip}
+	and
+	action_code=#{actionCode}
+	and
+	type=#{type}
+	</select>
+
+</mapper>

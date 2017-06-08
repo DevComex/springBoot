@@ -1,0 +1,418 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>问道-2015全民PK火热来袭 我就是预言帝</title>
+	<script type="text/javascript" charset="utf-8">
+		var rc="${rc.contextPath}";
+    </script>
+<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/predicable/css/wd150910.css">
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/predicable/js/scrolltext.js"></script><!--文字上下滚动-->
+<script src="http://static.cn114.cn/action/predicable/js/getjs.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+$(".noOpen").click(function(){
+alert("活动尚未开启，敬请期待！")
+});
+var captchas="http://api.gyyx.cn/Captcha/CreateVJ.ashx";
+ //刷新验证码
+            $(".Captcha").attr("src", captchas + "?r=" + Math.random());
+            $(".Captcha").click(function () {
+                $(".Captcha").attr("src", captchas + "?r=" + Math.random());
+            })
+
+
+});
+</script>
+ <script>
+        function limitLength(value, byteLength, title, attribute) {
+            var newvalue = value.replace(/[^\x00-\xff]/g, "**");
+            var length = newvalue.length;
+
+            //当填写的字节数小于设置的字节数 
+            if (length * 1 <= byteLength * 1) {
+                return;
+            }
+            var limitDate = newvalue.substr(0, byteLength);
+            var count = 0;
+            var limitvalue = "";
+            for (var i = 0; i < limitDate.length; i++) {
+                var flat = limitDate.substr(i, 1);
+                if (flat == "*") {
+                    count++;
+                }
+            }
+            var size = 0;
+            var istar = newvalue.substr(byteLength * 1 - 1, 1);//校验点是否为“×” 
+
+            //if 基点是×; 判断在基点内有×为偶数还是奇数  
+            if (count % 2 == 0) {
+                //当为偶数时 
+                size = count / 2 + (byteLength * 1 - count);
+                limitvalue = value.substr(0, size);
+            } else {
+                //当为奇数时 
+                size = (count - 1) / 2 + (byteLength * 1 - count);
+                limitvalue = value.substr(0, size);
+            }
+            //alert(title + "最大输入" + byteLength + "个字节（相当于" + byteLength / 2 + "个汉字）！");
+            document.getElementById(attribute).value = limitvalue;
+            return;
+        }
+    </script>
+    <script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+    </script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wd_bg">
+        <div class="wd_wrap">
+            <div class="main">
+                <div class="wd_nav">
+                    <a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+                </div>
+                <div class="wd_time">
+                   	<span class="hd_time">活动时间：<strong>2015</strong>年<strong>11</strong>月<strong>13</strong>日-<strong>2015</strong>年<strong>11</strong>月<strong>26</strong>日</span>
+				<span class="cj_time">抽奖时间：<strong>2015</strong>年<strong>11</strong>月<strong>30</strong>日-<strong>2015</strong>年<strong>12</strong>月<strong>6</strong>日</span>
+                </div>
+                <!-- 头部完 -->
+                <div class="wd_tab">
+                    <ul class="tab_menu">
+					<li><a class="menu01" href="writingInfo">参赛作品 </a></li>
+					<li><a class="menu02" href="rule">活动规则</a></li>
+					<li class="on"><a class="menu03" href="partake">我要参赛</a></li>
+					<li ><a class="menu04 " href="lottery">参与抽奖</a></li>
+				</ul>
+                    <div class="tab_con">
+                        <!-- 我要参赛-->
+                        <div class="tab_list" style="display: block">
+                            <div class="wdcs_step">
+                                <h2 class="wdcs_h01">01活动奖励</h2>
+                                <p>（1）预测时，将自己预测的搭配选好，可提交预览，没有问题即可上传提交。</p>
+                                <p>（2）每种搭配只能被预测一次，所以先预测先得，之后玩家只可对该种搭配投支持票。</p>
+                                <p>（3）每个账号只能进行2次搭配预测。</p>
+                                <p>（4）选项分单选和多选。</p>
+                                <p>
+                                    （5）本次活动，以决赛中定胜负的轮次为准。<br>
+                                    &nbsp;<strong>&nbsp;例如：</strong>决赛5局3胜，A队vsB队。A队在第三轮战胜B队，取得冠军，则本活动以第三轮为准，预测A队某个队员当时战斗的搭配组合；若在第四轮才取得3局胜利，获得冠军，则本活动以第四轮为准，以此类推。
+                                </p>
+                                <p>
+                                    （6）只对冠军成员战斗时装带上的武器、套装、娃娃等信息进行预测，其他在包裹中的，未参战的不算（宠物除外，需预测其领取的全部宠物）。<br>
+                                    &nbsp;&nbsp;<strong>例如：</strong>冠军队伍中的一员，第五轮决胜负的战斗中，娃娃领取了金、木两个，但是只有金娃娃在本轮战斗中参战了，则本活动预测以搭配金娃娃为命中的，选木娃娃则是猜测错误；玩家此战斗中装带的是木套装，而包裹中也有一金套装，则本活动预测以木套装为命中的，其他的均为猜测错误的，其他选项以此类推。（宠物例外，玩家身上有什么宠物，就按照什么宠物来判定）
+                                </p>
+                            </div>
+                            <div class="wdcs_step">
+                                <h2 class="wdcs_h02">02上传作品</h2>
+						 <p class="login_p js_loginbar"></p>
+                                <div class="wdcs_service">
+                                    <label>选择大区</label>
+                                    <select id="ddlNetType" name="netType">
+                                        <option value="-1">请选择大区</option>
+                                        <option value="3" data-codes="双线">双线</option>
+                                        <option value="1" data-codes="网通">网通</option>
+                                        <option value="2" data-codes="电信">电信</option>
+                                    </select>
+                                    <label>服务器</label>
+                                    <select class="group" name="serverId" id="ddlGameServer">
+                                        <option value="-1">请选择服务器</option>
+                                    </select>
+								</div>
+								<div class="wdcs_services">
+                                    <label>角色名称</label>
+                                    <input type="text" class="js_roleName" value="" id="explain" name="explain"  onkeyup="limitLength(value,12,'错误提示:','explain')">
+									<label>验证码</label>
+										<input class="captchaInput" id="captchaInput" value="" type="text" maxlength="5" >
+                                            <img class="Captcha" width="100" height="40" src="#" alt="验证码" />
+                                </div>
+                                <div class="wdcs_select js_profession">
+                                    <h3>选择职业</h3>
+                                  <ul id="zhiye" class="wdcs_ul">
+                                        <li>
+                                            <input type="radio" name="job" checked="true" value="金" js-data="http://static.cn114.cn/action/predicable/images/wdzp_pic11.jpg, http://static.cn114.cn/action/predicable/images/wdzp_pic12.jpg" class="js_jin">金</li>
+                                        <li>
+                                            <input type="radio" name="job" value="木" js-data="http://static.cn114.cn/action/predicable/images/wdzp_pic20.jpg, http://static.cn114.cn/action/predicable/images/wdzp_pic13.jpg" class="js_mu">木</li>
+                                        <li>
+                                            <input type="radio" name="job" value="水" js-data="http://static.cn114.cn/action/predicable/images/wdzp_pic21.jpg, http://static.cn114.cn/action/predicable/images/wdzp_pic22.jpg"class="js_shui">水</li>
+                                        <li>
+                                            <input type="radio" name="job" value="火" js-data="http://static.cn114.cn/action/predicable/images/wdzp_pic08.jpg, http://static.cn114.cn/action/predicable/images/wdzp_pic09.jpg"class="js_huo">火</li>
+                                        <li>
+                                            <input type="radio" name="job" value="土" js-data="http://static.cn114.cn/action/predicable/images/wdzp_pic23.jpg, http://static.cn114.cn/action/predicable/images/wdzp_pic24.jpg"class="js_tu">土</li>
+                                        <li>
+                                            <input type="radio" name="job" value="刀客" js-data="http://static.cn114.cn/action/predicable/images/daokenan.jpg, http://static.cn114.cn/action/predicable/images/daokenv.jpg"class="js_daoke">刀客</li>
+                                        <li>
+                                            <input type="radio" name="job" value="灵兽" js-data="http://static.cn114.cn/action/predicable/images/wdzp_pic18.jpg, http://static.cn114.cn/action/predicable/images/wdzp_pic19.jpg"class="js_lingshou">灵兽</li>
+                                        <li>
+                                            <input type="radio" name="job" value="蛟龙" js-data="http://static.cn114.cn/action/predicable/images/wdzp_pic01.jpg, http://static.cn114.cn/action/predicable/images/wdzp_pic10.jpg" class="js_jiaolong">蛟龙</li>
+                                        <li>
+                                            <input type="radio" name="job" value="凤翅" js-data="http://static.cn114.cn/action/predicable/images/wdzp_pic04.jpg, http://static.cn114.cn/action/predicable/images/wdzp_pic05.jpg"class="js_fengchi">凤翅</li>
+                                        <li>
+                                            <input type="radio" name="job" value="荒蛮" js-data="http://static.cn114.cn/action/predicable/images/wdzp_pic06.jpg, http://static.cn114.cn/action/predicable/images/wdzp_pic017.jpg" class="js_huangman">荒蛮</li>
+                                    </ul>
+                                </div>
+                                <div class="wdcs_select">
+                                    <h3>选择头像<span>（该条仅供显示使用，不记为预测内容）</span></h3>
+                                    <ul class="wdcs_ul02 js_person" id="selPerson">
+                                        <li>
+                                            <input type="radio" name="face" value="boy"><div>
+                                                <img src="http://static.cn114.cn/action/predicable/images/wdzp_pic11.jpg" height="80" width="80"></div>
+                                        </li>
+                                        <li>
+                                            <input type="radio" name="face" value="girl"><div>
+                                                <img src="http://static.cn114.cn/action/predicable/images/wdzp_pic12.jpg" height="80" width="80"></div>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="wdcs_select js_attr">
+                                    <h3>选择属性加点 (可多选)</h3>
+                                  <ul class="wdcs_ul" id="selAttr">
+                                        <li>
+                                            <input type="checkbox" name="attri" value="体质">体质</li>
+                                        <li>
+                                            <input type="checkbox" name="attri" value="灵力">灵力</li>
+                                        <li>
+                                            <input type="checkbox" name="attri" value="力量">力量</li>
+                                        <li>
+                                            <input type="checkbox" name="attri" value="敏捷">敏捷</li>
+                                    </ul>
+                                </div>
+                                <div class="wdcs_select js_xiangxing">
+                                    <h3>选择相性加点 (可多选)</h3>
+                                    <ul class="wdcs_ul" id="selXiangxing">
+                                         <li>
+                                            <input type="checkbox" name="xiangxing" value="金相">金相</li>
+                                        <li>
+                                            <input type="checkbox" name="xiangxing" value="木相">木相</li>
+                                        <li>
+                                            <input type="checkbox" name="xiangxing" value="水相">水相</li>
+                                        <li>
+                                            <input type="checkbox" name="xiangxing" value="火相">火相</li>
+                                        <li>
+                                            <input type="checkbox" name="xiangxing" value="土相">土相</li>
+                                    </ul>
+                                </div>
+                                <div class="wdcs_select js_suit">
+                                    <h3>选择套装</h3>
+                                     <ul class="wdcs_ul" id="selSuit">
+                                       <li>
+                                            <input type="radio" name="suit" value="金套">金套</li>
+                                        <li>
+                                            <input type="radio" name="suit" value="木套">木套</li>
+                                        <li>
+                                            <input type="radio" name="suit" value="水套">水套</li>
+                                        <li>
+                                            <input type="radio" name="suit" value="火套">火套</li>
+                                        <li>
+                                            <input type="radio" name="suit" value="土套">土套</li>
+                                        <li>
+                                            <input type="radio" name="suit" value="非套装">非套装</li>
+                                    </ul>
+                                </div>
+                                <div class="wdcs_select js_magic">
+                                    <h3>选择法宝</h3>
+                                    <ul class="wdcs_ul" id="selMagic">
+                                        <li>
+                                            <input type="radio" name="magic" value="番天印">番天印</li>
+                                        <li>
+                                            <input type="radio" name="magic" value="阴阳镜">阴阳镜</li>
+                                        <li>
+                                            <input type="radio" name="magic" value="定海珠">定海珠</li>
+                                        <li>
+                                            <input type="radio" name="magic" value="混元金斗">混元金斗</li>
+                                        <li>
+                                            <input type="radio" name="magic" value="金蛟剪">金蛟剪</li>
+                                        <li>
+                                            <input type="radio" name="magic" value="九龙神火罩">九龙神火罩</li>
+                                        <li>
+                                            <input type="radio" name="magic" value="卸甲金葫">卸甲金葫</li>
+                                    </ul>
+                                </div>
+                                <div class="wdcs_select">
+                                    <h3>选择宠物<span>（可多选，最多三个）</span></h3>
+                                   <ul class="wdcs_ul js_pets" id="selPets">
+                                      <li>
+                                            <input type="checkbox" name="pet" value="玄武">玄武</li>
+                                        <li>
+                                            <input type="checkbox" name="pet" value="朱雀">朱雀</li>
+                                        <li>
+                                            <input type="checkbox" name="pet" value="疆良">疆良</li>
+                                        <li>
+                                            <input type="checkbox" name="pet" value="东山神灵">东山神灵</li>
+                                        <li>
+                                            <input type="checkbox" name="pet" value="九尾狐">九尾狐</li>
+                                        <li>
+                                            <input type="checkbox" name="pet" value="勾陈">勾陈</li>
+                                        <li>
+                                            <input type="checkbox" name="pet" value="穷奇">穷奇</li>
+                                        <li>
+                                            <input type="checkbox" name="pet" value="蓐收">蓐收</li>
+                                        <li>
+                                            <input type="checkbox" name="pet" value="句芒">句芒</li>
+                                        <li>
+                                            <input type="checkbox" name="pet" value="玄冥">玄冥</li>
+                                        <li>
+                                            <input type="checkbox" name="pet" value="祝融">祝融</li>
+                                        <li>
+                                            <input type="checkbox" name="pet" value="后土">后土</li>
+                                    </ul>
+                                </div>
+                                <div class="wdcs_select js_baby">
+                                    <h3>选择娃娃</h3>
+                                      <ul class="wdcs_ul" id="selBaby">
+                                       <li>
+                                            <input type="radio" name="baby" value="云霄洞娃娃">云霄洞娃娃</li>
+                                        <li>
+                                            <input type="radio" name="baby" value="玉柱洞娃娃">玉柱洞娃娃</li>
+                                        <li>
+                                            <input type="radio" name="baby" value="斗阙宫娃娃">斗阙宫娃娃</li>
+                                        <li>
+                                            <input type="radio" name="baby" value="金光洞娃娃">金光洞娃娃</li>
+                                        <li>
+                                            <input type="radio" name="baby" value="白骨洞娃娃">白骨洞娃娃</li>
+                                    </ul>
+                                </div>
+                                <div class="wdcs_select">
+                                    <h3>选择天书<span>（可多选，最多三个）</span></h3>
+                                      <ul class="wdcs_ul" id="selBook">
+                                        <li>
+                                            <input type="checkbox" name="book" value="夙愿-震爆">夙愿-震爆</li>
+                                        <li>
+                                            <input type="checkbox" name="book" value="夙愿-魔爆">夙愿-魔爆</li>
+                                        <li>
+                                            <input type="checkbox" name="book" value="夙愿-圣光">夙愿-圣光</li>
+                                        <li>
+                                            <input type="checkbox" name="book" value="出阵-灵慧">出阵-灵慧</li>
+                                        <li>
+                                            <input type="checkbox" name="book" value="出阵-治愈">出阵-治愈</li>
+                                        <li>
+                                            <input type="checkbox" name="book" value="出阵-福泽">出阵-福泽</li>
+                                        <li>
+                                            <input type="checkbox" name="book" value="光环-战歌">光环-战歌</li>
+                                        <li>
+                                            <input type="checkbox" name="book" value="光环-强击">光环-强击</li>
+                                        <li>
+                                            <input type="checkbox" name="book" value="光环-专注">光环-专注</li>
+                                        <li>
+                                            <input type="checkbox" name="book" value="光环-极速">光环-极速</li>
+                                    </ul>
+                                </div>
+                                <div class="wdcs_btn js_create">
+                                    <input type="button"><input type="hidden" value="" class="js_hidval"><p>生成</p>
+                                </div>
+                                <div class="wdcs_view" style="display: none;">
+                                    <h3 class="js_ceshi">预览</h3>
+                                    <div class="wdcs_showBox">
+                                    <div class="wdcs_show ">
+                                        <div class="wdcs_div01">
+                                            <img class="js_viewBig" src="http://static.cn114.cn/action/predicable/images/wdcs150910_people.jpg" width="165" height="165"></div>
+                                        <div class="wdcs_div02">
+                                            <img class="js_viewSmall01" src="" width="35" height="35"></div>
+                                        <div class="wdcs_div03">
+                                            <img class="js_viewSmall02" src="" width="35" height="35"></div>
+                                        <div class="wdcs_div04" >
+                                            <img class="js_viewSmall03" src="" width="35" height="35" ></div>
+                                        <div class="wdcs_div05">法宝：<span class="js_viewMagic">XXXX</span></div>
+                                        <div class="wdcs_div06">套装：<span class="js_viewSuit">XXXX</span></div>
+                                        <div class="wdcs_div07">娃娃：<span class="js_viewBaby">XXXX</span></div>
+                                    </div>
+									<div class="wdcs_show "> 
+                                        <div class="wdcs_div08">职业：<span class="js_viewJob">XXXX</span></div>
+                                        <div class="wdcs_div09">属性点：<span class="js_viewSxd">XXXX</span></div>
+                                        <div class="wdcs_div10">相性点：<span class="js_viewXxd">XXXX</span></div>
+                                        <div class="wdcs_div11">宠物：<span class="js_viewPet">XXXX</span></div>
+                                        <div class="wdcs_div12">天书：<span class="js_viewBook">XXXX</span></div>
+                                    </div>
+                                    </div>
+                                    <div class="wdcs_upload js_upload">
+                                        <input type="button"><p>确定上传</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- 切换内容完 -->
+            </div>
+        </div>
+    </div>
+    <!--我要参赛弹层-->
+    <div class="js_WinUpload" style="display: none;">
+        <div class="wd_tc js_UploadCon pop_con">
+            <a class="wd_close js_UploadClose" href="javascript:">关闭</a>
+            <div class="tc_cont">
+                <p>上传成功！</p>
+            </div>
+        </div>
+        <div class="pop_mask"></div>
+    </div>
+    <!--参与抽奖弹层-->
+    <div class="wd_tc" style="display: none;">
+        <a class="wd_close" href="javascript:">关闭</a>
+        <div class="tc_cont">
+            <p>恭喜您获得了“xxxx”</p>
+        </div>
+    </div>
+
+    <!--参赛作品弹层-->
+    <div class="js_support" style="display: none;">
+        <div class="wd_tc js_supportCon pop_con">
+            <a class="wd_close js_supportClose" href="javascript:">关闭</a>
+            <div class="tc_cont">
+                <p>您已成功支持该预测！</p>
+            </div>
+        </div>
+        <div class="pop_mask"></div>
+    </div>
+    <!--参赛作品弹层-->
+<div class="js_WinDiscuss" style="display:none ;">
+        <div class="wd_tc">
+            <a class="wd_close" href="javascript:">关闭</a>
+            <div class="tc_cont tc_cont04">
+                <p>您评论的内容里含有敏感成分！ </p>
+                <p>请重新确认评论内容后提交！</p>
+            </div>
+        </div>
+		 <div class="pop_mask"></div>
+    </div>
+	    <!--备选弹层-->
+   <div class="js_beixuan" style="display: none;">
+       <div class="wd_tc pop_con js_beixuanCon" >
+            <a class="wd_close js_beixuanClose" href="javascript:">关闭</a>
+            <div class="tc_cont" style="padding:25px 10px 24px">
+                <p style="font-size:27px;">该种预测已经有人上传啦，您是否要将其加入“我的备选”中？</p>
+                <p><span class="upload_confirm js_confirm">我要添加</span><span class="upload_confirm js_beixuanClose" >先不添加</span></p>
+            </div>
+        </div>
+		 <div class="pop_mask"></div>
+   </div>
+    <!--加入我的备选-->
+    <div class="js_jionBeixuan" style="display: none;">
+        <div class="wd_tc js_jionBeixuanCon pop_con">
+            <a class="wd_close js_jionBeixuanClose" href="javascript:">关闭</a>
+            <div class="tc_cont">
+                <p style="font-size:26px;">您已成功添加该预测到“我的备选”中！</p>
+            </div>
+        </div>
+        <div class="pop_mask"></div>
+    </div>
+    <!--备选失败-->
+    <div class="js_failBeixuan" style="display: none;">
+        <div class="wd_tc js_failBeixuanCon pop_con">
+            <a class="wd_close js_failBeixuanClose" href="javascript:">关闭</a>
+            <div class="tc_cont">
+                <p>您已成功支持该预测！</p>
+            </div>
+        </div>
+        <div class="pop_mask"></div>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div>
+</body>
+</html>

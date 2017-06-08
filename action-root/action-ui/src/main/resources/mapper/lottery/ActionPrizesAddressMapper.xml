@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.mapper.IActionPrizesAddressMapper">
+	
+	<select id="getDataList" parameterType="cn.gyyx.action.beans.lottery.po.ActionPrizesAddressPO"
+			resultType="cn.gyyx.action.beans.lottery.po.ActionPrizesAddressPO">
+		select *
+		  from action_prizes_address_tb
+		 where activityId = #{activityId}
+		<if test="userCode != null">
+	       and userCode = #{userCode}
+	 	</if>
+	 	<if test="userId != null">
+	       and userId = #{userId}
+	 	</if>
+	</select>
+	
+	<insert id="postData" parameterType="cn.gyyx.action.beans.lottery.po.ActionPrizesAddressPO">
+		insert into action_prizes_address_tb 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			activityId, userCode, userId, userName, userPhone, userAddress, createAt, modifyAt,
+			<if test="userEmail != null">userEmail,</if>
+			<if test="remark != null">remark,</if>
+		</trim>
+			values
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			#{activityId}, #{userCode}, #{userId}, #{userName}, #{userPhone}, #{userAddress}, #{createAt}, #{modifyAt},
+			<if test="userEmail != null">#{userEmail},</if>
+			<if test="remark != null">#{remark},</if>
+		</trim>	
+	</insert>
+	
+	<update id="putData" parameterType="cn.gyyx.action.beans.lottery.po.ActionPrizesAddressPO">
+		update action_prizes_address_tb
+		<set>
+			<if test="userName != null">userName =#{userName},</if>
+			<if test="userPhone != null">userPhone =#{userPhone},</if>
+			<if test="userAddress != null">userAddress =#{userAddress},</if>
+			<if test="userEmail != null">userEmail =#{userEmail},</if>
+			<if test="remark != null">remark =#{remark},</if>
+			<if test="modifyAt != null">modifyAt =#{modifyAt},</if>
+		</set>
+		 where activityId = #{activityId}
+		<if test="userCode != null">
+	       and userCode = #{userCode}
+	 	</if>
+	 	<if test="userId != null">
+	       and userId = #{userId}
+	 	</if> 
+	</update>
+	
+	<select id="select" parameterType="cn.gyyx.action.beans.lottery.po.ActionPrizesAddressPO"
+			resultType="cn.gyyx.action.beans.lottery.po.ActionPrizesAddressPO">
+		select *
+		  from action_prizes_address_tb
+		 where activityId = #{activityId}
+		   and activityType = #{activityType}
+		<if test="userCode != null">
+	       and userCode = #{userCode}
+	 	</if>
+	 	<if test="userId != null">
+	       and userId = #{userId}
+	 	</if>
+	</select>
+	
+	<insert id="insert" parameterType="cn.gyyx.action.beans.lottery.po.ActionPrizesAddressPO">
+		insert into action_prizes_address_tb 
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			activityType, activityId, userCode, userId, userName, 
+			userPhone, userEmail, userAddress, remark, createAt, 
+			modifyAt, qq, zipCode
+		</trim>
+			values
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			#{activityType}, #{activityId}, #{userCode}, #{userId}, #{userName}, 
+			#{userPhone}, #{userEmail}, #{userAddress}, #{remark}, #{createAt}, 
+			#{modifyAt}, #{qq}, #{zipCode}
+		</trim>	
+	</insert>
+	
+	<update id="update" parameterType="cn.gyyx.action.beans.lottery.po.ActionPrizesAddressPO">
+		update action_prizes_address_tb
+		<set>
+			<if test="userName != null">userName =#{userName},</if>
+			<if test="userPhone != null">userPhone =#{userPhone},</if>
+			<if test="userEmail != null">userEmail =#{userEmail},</if>
+			<if test="userAddress != null">userAddress =#{userAddress},</if>
+			<if test="remark != null">remark =#{remark},</if>
+			<if test="modifyAt != null">modifyAt =#{modifyAt},</if>
+			<if test="qq != null">qq =#{qq},</if>
+			<if test="zipCode != null">zipCode =#{zipCode},</if>
+		</set>
+		 where activityId = #{activityId}
+		   and activityType = #{activityType}
+		<if test="userCode != null">
+	       and userCode = #{userCode}
+	 	</if>
+	 	<if test="userId != null">
+	       and userId = #{userId}
+	 	</if> 
+	</update>
+</mapper>

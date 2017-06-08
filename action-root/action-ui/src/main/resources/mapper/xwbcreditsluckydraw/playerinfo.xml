@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.IPlayerinfoMapper">
+	<resultMap type="Player" id="Player">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="user_id" property="userId" />
+		<result column="server_name" property="serverName" />
+		<result column="role_sex" property="roleSex" />
+		<result column="net_type" property="netType" />
+		<result column="server_id" property="serverId" />
+	</resultMap>
+	
+  <!-- 查询所有玩家信息 -->
+  <select id="getPlayers" resultMap="Player">
+	select * from xuanwuba_playerinfo_new_tb
+  </select>
+
+  
+  <!-- 增加玩家信息 -->
+	<insert id="addPlayer" parameterType="Player">
+		insert into xuanwuba_playerinfo_new_tb  
+		(account,user_id,server_name,role_sex,net_type,server_id) 
+		values(#{account},#{userId},#{serverName},#{roleSex},#{netType},#{serverId})
+	</insert>
+
+  <!-- 查询所有玩家信息的数量 -->
+  <select id="getTotal" resultType="int">
+	select count(*) from xuanwuba_playerinfo_new_tb
+  </select>
+  
+  <!-- 根据页数查询玩家信息 -->
+  <select id="getPlayerByPage" resultMap="Player" parameterType="int">
+	select TOP 10 *  from xuanwuba_playerinfo_new_tb 
+		where 
+		(code NOT IN 
+		(SELECT TOP 
+		(10*(#{page}-1)) 
+		code 
+		FROM 
+		xuanwuba_playerinfo_new_tb 
+		)) 
+  </select>
+  
+  <!-- 根据区服查询所有玩家信息的数量 -->
+  <select id="getTotalByServer" resultType="int" parameterType="Player">
+	select count(*) from xuanwuba_playerinfo_new_tb where server=#{server} and net_type=#{netType}
+  </select>
+  
+   <!-- 根据页数和区服查询玩家信息 -->
+  <select id="getPlayerByPageAndNetType" resultMap="Player" parameterType="Player">
+	select TOP 10 *  from xuanwuba_playerinfo_new_tb 
+		where 
+		(code NOT IN 
+		(SELECT TOP 
+		(10*(#{page}-1)) 
+		code 
+		FROM 
+		xuanwuba_playerinfo_new_tb 
+		where server=#{server} and net_type=#{netType} 
+		)) and server=#{server} and net_type=#{netType} 
+  </select>
+	<select id="getSexByAccount" parameterType="String" resultType="String">
+		select role_sex from xuanwuba_playerinfo_new_tb where account = #{account}
+	</select>
+  <select id="selectInfoByAccount" parameterType="String" resultMap="Player">
+ 	 select * from xuanwuba_playerinfo_new_tb where account=#{account}
+  </select>
+  <update id="updateplayerinfo" parameterType="Player">
+ 	
+		  update xuanwuba_playerinfo_new_tb set [server_name]=#{serverName},[role_sex]=#{roleSex},[net_type]=#{netType},[server_id]=#{serverId} where account=#{account}
+	
+  </update>
+</mapper>

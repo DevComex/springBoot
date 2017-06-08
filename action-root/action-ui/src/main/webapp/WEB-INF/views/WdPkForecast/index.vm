@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>问道-2016全民PK赛战果预测</title>
+	<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdpkforecast/css/wd161011.css">
+	<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+	<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+	<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+	<script type="text/javascript" src="http://static.cn114.cn/action/wdpkforecast/js/scrollFn.js"></script>	
+	<script type="text/javascript" src="http://static.cn114.cn/action/wdpkforecast/js/login.js"></script>
+	<script  type="text/javascript">
+		    var rc="${rc.contextPath}";
+	</script>
+	<script type="text/javascript" src="http://static.cn114.cn/action/wdpkforecast/js/script.js"></script>	
+	</head>
+
+	<body>
+	<div class="public_nav_top"><script type="text/javascript">Showtop();</script>
+	</div>
+	<div class="wd_bg">
+			<div class="wd_top">
+				<div class="wd_bottom">
+					<div class="main">
+						<!--导航-->
+						<div class="wd_nav">
+							<a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+						</div>
+
+
+						<!--活动时间-->
+						<div class="wd_time">活动时间： 10月27日0:00-11月25日23:59</div>
+						<!--登陆框 start-->
+						<div class="wd_login">
+							<!--登陆前-->
+							<div class="login_before login_box" style="display:block;">
+								<a href="javascript:;" class="login_pk">登录</a>
+							</div>
+							<!--登陆后-->
+							<div class="login_after login_box" style="display:none;">
+								<div class="login_left"><img src="http://static.cn114.cn/action/wdpkforecast/images/wd161011_loginbf.png" width="79" height="79"></div>
+								<div class="login_right">
+									<select id="ddlNetType" name="netType">
+										<option value="-1">请选择大区</option>
+										<option value="3">双线</option>
+										<option value="1">网通</option>
+										<option value="2">电信</option>
+									</select>
+									<select  class="group" name="serverId" id="ddlGameServer">
+										<option>请选择服务器</option>
+									</select>
+									<input class="captchaInput" id="captchaInput" value="" type="text" maxlength="5">
+									<img class="Captcha" width="110" height="26" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=0.6718032911203768" alt="验证码">
+									<a href="javascript:" class="new">刷新</a>
+									<a href="javascript:" class="getRoles  js_getRoles">&gt;&gt;获取角色&lt;&lt;</a>
+									<select id="joine" style="display: none;"><option>角色：</option></select>
+									<a href="javascript:" class="bindRoles  js_bindrole" style="display: none;">&gt;&gt;绑定角色&lt;&lt;</a>
+								</div>
+							</div>
+							<!--获取角色后-->
+							<div class="login_role login_box" style="display:none;">
+								<div class="login_left"><img src="http://static.cn114.cn/action/wdpkforecast/images/wd161011_loginbf.png" width="79" height="79"></div>
+								<div class="login_right">
+									<p><span>&nbsp;&nbsp;欢迎您：<b class="nameText">ab***cd</b></span>
+										<a href="javascript:;" class="back js_Logout">退出登录</a>
+									</p>
+									<p><span class="roleName">不忘初心-美猴王悟空</span>
+										<a href="javascript:;" class="see js_checkMyInfo">&gt;&gt;查看我的投注信息&lt;&lt;</a>
+									</p>
+								</div>
+							</div>
+						</div>
+						<!--登陆框 end-->
+						<!--我要预测 start-->
+						<div class="wd_forecast" id="yc">
+							<ul class="forecast_ul">
+								<li class="on" data-type="1">
+									<a href="javascript:;" class="a01">第一阶段</a>
+								</li>
+								<li data-type="2">
+									<a href="javascript:;" class="a02">第二阶段</a>
+								</li>
+								<li data-type="3">
+									<a href="javascript:;" class="a03">第三阶段</a>
+								</li>
+								<li data-type="4">
+									<a href="javascript:;" class="a04">第四阶段</a>
+								</li>
+							</ul>
+							<div class="forecast_box">
+								<!--第一阶段-->
+								<div class="forecast_list" type=1>
+									<h2>选择预测的区组：</h2>
+									<div class="forecast_select clear">
+										<select id="firstStepType">
+											<option value="-1">请选择大区</option>
+											<option value="3">双线</option>
+											<option value="1">网通</option>
+											<option value="2">电信</option>
+										</select>
+										<select id="firstStepServer">
+											<option value="-1">请选择服务器</option>
+										</select>
+										
+									</div>
+									<h2>说明：</h2>
+									<div class="forecast_txt">
+										<p>1.第一阶段活动时间为：10月27日0:00- 11月7日18:00</p>
+										<p>2.活动期间每位玩家预测内容为128强选手最多的区组，每位玩家有20次投票机会，最多可选择五个区组。</p>
+									</div>
+									<a href="javascript:;" class="forecast_btn js_forecastBtn1">我要预测</a>
+								</div>
+								<!--第二阶段-->
+								<div class="forecast_list" type=2>
+									<h2>选择预测的队伍：</h2>
+									<div class="forecast_select clear">
+										<select id="secondStepType">
+											<option value="">请选择大区</option>
+										
+										</select>
+										<select id="secondStepServer">
+											<option value="">请选择服务器</option>
+										
+										</select>
+										<select id="secondLeaderRole">
+											<option value="">队长角色名</option>
+									
+										</select>
+
+									</div>
+									<h2>说明：</h2>
+									<div class="forecast_txt">
+										<p>1.第二阶段活动时间为：11月8日0:00- 11月11日18:00</p>
+										<p>2.活动期间每位玩家预测内容为32强队伍，每位玩家将有20票，最多可选择五个队伍投票。</p>
+										<p>3.全民pk赛战果请见专题页面 <a href="http://wd.gyyx.cn/huodong/qmpk2016/zgkb.html" target="_blank">点击查看详情 </a> </p>
+									</div>
+									<a href="javascript:;" class="forecast_btn js_forecastBtn2">我要预测</a>
+								</div>
+								<!--第三阶段-->
+								<div class="forecast_list" type=3>
+									<h2>选择预测的队伍</h2>
+									<div class="forecast_select clear">
+										<select id="thirdStepType">
+											<option value="">请选择大区</option>
+										
+										</select>
+										<select id="thirdStepServer">
+											<option value="">请选择服务器</option>
+										
+										</select>
+										<select id="thirdLeaderRole">
+											<option value="">队长角色名</option>
+									
+										</select>
+
+									</div>
+									<h2>说明：</h2>
+									<div class="forecast_txt">
+										<p>1.第三阶段活动时间为：11月12日0:00- 11月13日18:00</p>
+										<p>2.活动期间每位玩家预测内容为4强队伍，每位玩家将有10票，最多可选择两个队伍投票。</p>
+										<p>3.全民pk赛战果请见专题页面 <a href="http://wd.gyyx.cn/huodong/qmpk2016/zgkb.html" target="_blank">点击查看详情 </a></p>
+										<p>4.本阶段结果以11月13日的8进4比赛结果为准。如有因玩家线下决赛而导致排名变化，也不影响本阶段结果。</p>
+										
+									</div>
+									<a href="javascript:;" class="forecast_btn js_forecastBtn3">我要预测</a>
+								</div>
+								<!--第四阶段-->
+								<div class="forecast_list" type=4>
+									<h2>选择预测的队伍</h2>
+									<div class="forecast_select forecast_select04 clear">
+										<p class="four_pk"><input type="radio" name="ss"><strong></strong>队胜利</p>
+
+									</div>
+									<h2>说明：</h2>
+									<div class="forecast_txt">
+										<p>1.第四阶段活动时间为：11月14日0:00- 11月19日23:59</p>
+										<p>2.活动期间每位玩家预测内容为冠军队伍，每位玩家将有10票，只可选择一个队伍投票。</p>
+										<p>3.全民pk赛战果请见专题页面 <a href="http://wd.gyyx.cn/huodong/qmpk2016/zgkb.html" target="_blank">点击查看详情 </a></p>
+										<p>4.本阶段的预测队伍名单将会根据最新四强名单变化。如玩家所投注的队伍无法参加线下决赛导致排名变化则视为未投中，所投票数不会退回，也不可重新选择队伍投票。请各位玩家谨慎投注。</p>
+									</div>
+									<a href="javascript:;" class="forecast_btn js_forecastBtn4">我要预测</a>
+								</div>
+							</div>
+						</div>
+						<!--我要预测 end-->
+						<!--提交评论 start-->
+						<div class="wd_comment">
+							<div class="comment_box">
+								<div class="comment_mask" id="js_scrollList">
+									<ul class="comment_target" >
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>
+										<li></li>									
+									</ul>
+								</div>
+								<div class="comment_bar">
+									<div class="comment_up"></div>
+									<div class="comment_track">
+										<div class="comment_thumb"></div>
+									</div>
+									<div class="comment_down"></div>
+								</div>
+							</div>
+							<div class="comment_txt">
+								<label>评论：</label>
+								<input type="text" name="comment"  class="js_commentcon" maxlength="50">
+							</div>
+							<div class="comment_btn" id="js_commentsub">
+								<input type="button">
+							</div>
+						</div>
+						<!--提交评论 end-->
+						<!--活动规则 start-->
+						<div class="wd_rule" id="rule">
+							<h2>活动规则</h2>
+							<p class="rule_time">预测时间：10月27日0:00-11月19日23:59 </p>
+							<p class="rule_time">抽奖时间：11月8日0:00-11月25日23:59 </p>
+							<h3>活动规则</h3>
+							<p>
+								<i>1.</i>本次活动为全民PK赛战果预测活动，预测共分为四个阶段。
+								<ul class="ul_roles">
+								<li>1) 10月27日0：00-11月7日18：00预测哪个区组的128强选手最多，每位玩家将有20票 ，最多可选择五个区组投票。</li>
+								<li>2) 11月8日0：00-11月11日18：00预测32强队伍，每位玩家将有20票，最多可选择五个队伍投票。</li>
+								<li>3) 11月12日0：00 -11月13日18：00预测4强队伍，每位玩家将有10票，最多可选择两个队伍投票。<br>注：本阶段结果以11月13日的8进4比赛结果为准。如有因玩家线下决赛而导致排名变化，也不影响本阶段结果。</li>
+								<li>4) 11月14日0：00-11月19日23：59预测冠军队伍，每位玩家将有10票，只能选择一个队伍投票。<br>注: 本阶段的预测队伍名单将会根据最新四强名单变化。如玩家所投注的队伍无法参加线下决赛导致排名变化则视为未投中，所投票数不会退回，也不可重新选择队伍投票。请各位玩家谨慎投注。</li>
+								<li>注：每一阶段开始时，之前所有阶段的未投注票数将会清零。</li>
+								</ul>
+							</p>
+							<p><i>2.</i>玩家每投中五票可获得大奖池抽奖机会一次，每投五次（除去投中的次数）能获得小奖池的抽奖机会一个。投中票数与投注但未中票数将会累加。
+例如:A玩家在第一阶段预测中了6票，未预测中7票。在第二阶段预测中了6票，未预测中4票。则A玩家获得2次大奖池抽奖机会，2次小奖池抽奖机会。<br>注：前三个阶段的零散票数将在第四阶段结束后统一累计。（零散票数为玩家每阶段所投中票数或未投中票数除以5所得的余数。）</p>
+							<p><i>3.</i>全民pk赛战果请见专题页面 . <a href="http://wd.gyyx.cn/huodong/qmpk2016/zgkb.html" target="_blank">点击查看详情</a></p>
+							<p><i>4.</i>玩家参与活动需绑定区组角色，绑定之后不可更改。</p>
+							<p><i>5.</i>活动期间，玩家无需登录即可在本页面进行评论，评论审核通过后将会在页面上显示。</p>
+							<p><i>6.</i>除铭牌以外的奖励均会在抽奖结束后统一发放。</p>
+							<p><i>7.</i>每位玩家只能有一个帐号参与活动。活动结束后，将会进行核实。如有违反，则只发放所获得奖励总价值最高帐号下的奖励。</p>
+							<p><i>8.</i>活动期间玩家可更改地址。请各位玩家注意抽奖结束时间，结束后地址将不可更改，逾期不给予处理。</p>
+							<p><i>9.</i>由于玩家原因造成快递无法派送的（包括但不限于地址填写不完整、拒收快递），不予以补发。</p>
+							<p>注：活动最终解释权由光宇在线科技有限责任公司所有。</p>
+						</div>
+						<!--活动规则 end-->
+					</div>
+				</div>
+			</div>
+	</div>
+	
+	<!--漂浮-->
+	<div class="wd_pf">
+			<ul>
+				<li>
+					<a href="#yc" class="a01">我要预测</a>
+				</li>
+				<li>
+					<a href="lottery" target="_blank" class="a02 js_cj">我要抽奖</a>
+				</li>
+				<li>
+					<a href="#rule" class="a03">活动规则</a>
+				</li>
+				<li>
+					<a href="#" target="_blank" class="a04 morePk">更多全新pk赛精彩活动</a>
+				</li>
+			</ul>
+	</div>
+	<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+	<!--弹层 投注信息-->
+	<div class="mask"></div>
+	<div class="tc tc01">
+			<a href="javascript:;" class="close"></a>
+			<div class="tcBox">
+			     <div class="tcTitle"></div>
+				<ul class="tcTable">
+					
+				</ul>
+				<a href="javascript:;" class="tcBtn js_conformInfo">确认</a>
+			</div>
+	</div>
+	
+	<!--弹层 确认投注-->
+	<div class="mask"></div>
+	<div class="tc tc02">
+			<a href="javascript:;" class="close"></a>
+			<div class="tcBox">
+				<div class="tcDiv">
+					<span>您所拥有的票数：</span>
+					<p><strong>36</strong></p>
+				</div>
+				<div class="tcDiv">
+					<span>您所选择的投注对象：</span>
+					<p><b class="serverLeader">服务器名-队长角色名</b></p>
+				</div>
+				<div class="tcDiv">
+					<span>您本次投注的票数：</span>
+					<div class="tcRadio">
+						<p><input name="ticket" class="voteVal" id="voteVal" style="height:25px;line-height:25px;" type="number"></p>
+					</div>
+				</div>
+				<a href="javascript:" class="tcBtn js_confirmVote" style="margin: -1px 36px 28px;">确认投注</a>
+			</div>
+	</div>
+	
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?ff24a997c8016cac12d6ede5af0c4237";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+alert("谢谢参与，活动已结束！");
+</script>
+	</body>
+</html>

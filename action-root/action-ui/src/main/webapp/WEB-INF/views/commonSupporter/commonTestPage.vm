@@ -1,0 +1,76 @@
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+		<!-- <script src="http://static.cn114.cn/action/wdschoolopen/js/jquery-1.8.3.min.js"></script> -->
+		<script src="http://actionv2.gyyx.cn:8080/action-ui/commonSupporter/actionUtil.js?actionCode=279"></script>
+		<script src="http://actionv2.gyyx.cn:8080/action-ui/commonSupporter/actionUtil.js?actionCode=282"></script>
+		<script src="http://actionv2.gyyx.cn:8080/action-ui/commonSupporter/actionUtil?actionCode=283"></script>
+		<script>
+			var ajaxOperation = function(data){
+				$.
+				ajax({
+						url: "http://actionv2.gyyx.cn:8080/action-ui/commonSupporter/ajaxOperation",
+						type: "POST",
+						data: {"data":data},
+						dataType: "JSON",
+						success: function (d) {
+							console.log(d);
+						}
+					});//ajax end
+			}
+			
+			$(document).ready(function(){
+				$("#btn1").click(function(){
+					var formData = actionUtil.genOperationData('getUserMain');
+					ajaxOperation(formData);
+				});
+				$("#btn2").click(function(){
+					var formData = actionUtil.genOperationData('userMain');
+					ajaxOperation(formData);
+				});
+				$("#btn3").click(function(){
+					var formData = actionUtil.genOperationData('updateAnswer');
+					formData.answers = 'AABCB';
+					ajaxOperation(formData);
+				});
+				$("#btn4").click(function(){
+					var formData = actionUtil.genOperationData('updatePrize');
+					ajaxOperation(formData);
+				});
+				$("#btn5").click(function(){
+					var formData = actionUtil.genOperationData('updateAddress');
+					formData.address = '北京北京盈创动力大厦光宇游戏';
+					ajaxOperation(formData);
+				});
+				$("#btn25").click(function(){
+					var formData = actionUtil.genOperationData('bug');
+
+					ajaxOperation(formData);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+		<br />
+		<br />
+		<br />
+		<input type='button' value='查询用户信息' id='btn1'/><br />
+		<input type='button' value='插入用户信息' id='btn2'/><br />
+		<input type='button' value='答题' id='btn3'/><br />
+		<input type='button' value='抽奖' id='btn4'/><br />
+		<input type='button' value='更改地址' id='btn5'/><br />
+		
+		<br />
+		<br />
+		<input type='button' value='灵魂战神BUG' id='btn25'/><br />
+		<br />
+		<br />
+		<br />
+		<br />
+		<br />
+		
+	</body>
+</html>

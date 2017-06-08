@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.IComment">
+	<resultMap type="CommentBean" id="CommentBean">
+		<id column="code" property="code" />
+		<result column="action_code" property="actionCode" />
+		<result column="form_code" property="formCode" />
+		<result column="nick_name" property="nickName" />
+		<result column="comment" property="comment" />
+		<result column="status" property="status" />
+		<result column="upload_date" property="uploadDate" />
+	</resultMap>
+	<insert id="addComment" useGeneratedKeys="true" keyProperty="code"
+		parameterType="CommentBean">
+		insert into action_common_comment
+		(action_code,form_code,nick_name,comment,status)
+		values
+		(#{actionCode},#{formCode},#{nickName},#{comment},#{status})
+	</insert>
+
+	<select id="getCommentBeansByStatus" resultMap="CommentBean"
+		resultType="java.util.List">
+		select * from action_common_comment
+		where status = #{status}
+		and
+		action_code=#{actionCode}
+		order by code
+		desc
+	</select>
+	<update id="setCommentStatusByCode">
+		update action_common_comment
+		set status=#{status}
+		where
+		code=#{code}
+	</update>
+
+	<delete id="removeCommentByCode">
+		delete from action_common_comment
+		where
+		code=#{code}
+	</delete>
+	<select id="getCountComment" resultType="int">
+		select count(code) from
+		action_common_comment
+		where
+		action_code=#{actionCode}
+	</select>
+
+	<select id="getCommentsByTop" resultMap="CommentBean"
+		resultType="java.util.List">
+		select TOP ${num} * from action_common_comment
+		where
+		action_code=#{actionCode}
+		order by code
+		ASC
+	</select>
+	
+	<select id="getCommentsByTopNoRepeat"  resultMap="CommentBean"
+		resultType="java.util.List">
+		select TOP ${num} * from action_common_comment
+		where
+		action_code=#{actionCode}
+		order by code
+		ASC
+		</select>
+
+	<select id="getCommentsByAccount" resultMap="CommentBean"
+		resultType="java.util.List">
+		select * from action_common_comment
+		where nick_name =
+		#{account}
+		and
+		action_code=#{actionCode}
+		order by code
+		desc
+
+	</select>
+	
+	<select id="getCountCommentNorepeat" resultType="int" >
+	   select count(distinct nick_name) from
+		action_common_comment
+		where
+		action_code=#{actionCode}
+	
+	</select>
+</mapper>

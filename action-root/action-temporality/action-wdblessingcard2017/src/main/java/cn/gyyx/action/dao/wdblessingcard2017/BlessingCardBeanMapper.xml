@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.wdblessingcard2017.BlessingCardBeanMapper">
+
+	<!-- getBlessingCardListByTitle 用到 -->
+	<resultMap id="BaseResultMap"
+		type="cn.gyyx.action.beans.wdblessingcard2017.BlessingCardBean">
+		<id column="code" property="code" jdbcType="INTEGER" />
+		<result column="account" property="account" jdbcType="VARCHAR" />
+		<result column="content" property="content" jdbcType="NCHAR" />
+		<result column="role_name" property="roleName" jdbcType="CHAR" />
+		<result column="server_name" property="serverName" jdbcType="NVARCHAR" />
+		<result column="verify_status" property="verifyStatus"/>
+		<result column="verify_time" property="verifyTime" jdbcType="TIMESTAMP" />
+		<result column="verify_admin" property="verifyAdmin" jdbcType="NVARCHAR" />
+		<result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+		<result column="upvote_num" property="upvoteNum" jdbcType="INTEGER" />
+		<result column="avatar" property="avatar" jdbcType="VARCHAR" />
+	</resultMap>
+	<!-- 用于前台显示的字段 -->
+	<sql id="Show_Column_list">
+		code, account, content, role_name, server_name, create_time, upvote_num,
+		avatar,verify_status, verify_time
+	</sql>
+
+	<!-- OA-所需要查询的字段 -->
+	<sql id="Show_Column_List_Oa">
+		code, account, content, role_name, server_name, create_time, upvote_num,
+		avatar, verify_status, verify_time, verify_admin
+	</sql>
+
+	<!-- 根据编号查询祝福卡 -->
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Show_Column_list" />
+		from wdblessingcard_blessing_card_tb
+		where code = #{code,jdbcType=INTEGER}
+	</select>
+
+	<!-- OA-根据编号查询祝福卡 -->
+	<select id="selectByPrimaryKeyOa" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Show_Column_List_Oa" />
+		from wdblessingcard_blessing_card_tb
+		where code = #{code,jdbcType=INTEGER}
+	</select>
+
+	<!-- 添加祝福卡 -->
+	<insert id="insertSelective"
+		parameterType="cn.gyyx.action.beans.wdblessingcard2017.BlessingCardBean">
+		insert into wdblessingcard_blessing_card_tb
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="account != null">
+				account,
+			</if>
+			<if test="content != null">
+				content,
+			</if>
+			<if test="roleName != null">
+				role_name,
+			</if>
+			<if test="serverName != null">
+				server_name,
+			</if>
+			<if test="verifyStatus != null">
+				verify_status,
+			</if>
+			<if test="verifyTime != null">
+				verify_time,
+			</if>
+			<if test="verifyAdmin != null">
+				verify_admin,
+			</if>
+			<if test="createTime != null">
+				create_time,
+			</if>
+			<if test="upvoteNum != null">
+				upvote_num,
+			</if>
+			<if test="avatar != null">
+				avatar,
+			</if>
+			<if test="title != null">
+				title,
+			</if>
+			<if test="registerYear != null">
+				register_year,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="userId != null">
+				#{userId,jdbcType=INTEGER},
+			</if>
+			<if test="account != null">
+				#{account,jdbcType=VARCHAR},
+			</if>
+			<if test="content != null">
+				#{content,jdbcType=NCHAR},
+			</if>
+			<if test="roleName != null">
+				#{roleName,jdbcType=CHAR},
+			</if>
+			<if test="serverName != null">
+				#{serverName,jdbcType=NVARCHAR},
+			</if>
+			<if test="verifyStatus != null">
+				#{verifyStatus,jdbcType=TINYINT},
+			</if>
+			<if test="verifyTime != null">
+				#{verifyTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="verifyAdmin != null">
+				#{verifyAdmin,jdbcType=NVARCHAR},
+			</if>
+			<if test="createTime != null">
+				#{createTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="upvoteNum != null">
+				#{upvoteNum,jdbcType=INTEGER},
+			</if>
+			<if test="avatar != null">
+				#{avatar,jdbcType=VARCHAR},
+			</if>
+			<if test="title != null">
+				#{title},
+			</if>
+			<if test="registerYear != null">
+				#{registerYear},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- OA后台-查询祝福卡列表 -->
+	<select id="getBlessingCardList" resultMap="BaseResultMap">
+		select top 10 *, a.row_num
+		from(
+		SELECT ROW_NUMBER() OVER ( ORDER BY
+		create_time DESC ) AS row_num ,
+		*
+		FROM wdblessingcard_blessing_card_tb
+		where 1=1
+
+		<if test="beginTime!= null and beginTime!= '' ">
+                    <![CDATA[ and create_time >=  #{beginTime} ]]>
+		</if>
+		<if test="endTime!= null and endTime!= '' ">
+                    <![CDATA[ and create_time <=  #{endTime} ]]>
+		</if>
+		<if test="account!= null and account!= '' ">
+                    <![CDATA[ and account like  '%${account}%' ]]>
+		</if>
+		<if test="verifyStatus!= null and verifyStatus!= '' ">
+                    <![CDATA[ and verify_status =  #{verifyStatus} ]]>
+		</if>
+		) a
+		where
+		a.row_num > 10 * (#{pageNo} -1)
+	</select>
+
+	<!-- OA后台-查询祝福语列表总数 -->
+	<select id="getBlessingCardCount" resultType="java.lang.Integer">
+		select count(*)
+		from
+		wdblessingcard_blessing_card_tb
+		where 1=1
+		<if test="beginTime!= null and beginTime!= '' ">
+            <![CDATA[  and create_time >=  #{beginTime} ]]>
+		</if>
+		<if test="endTime!= null and endTime!= '' ">
+            <![CDATA[ and create_time <=  #{endTime} ]]>
+		</if>
+		<if test="account!= null and account!= '' ">
+                    <![CDATA[ and account like  '%${account}%' ]]>
+		</if>
+		<if test="verifyStatus!= null and verifyStatus!= '' ">
+            <![CDATA[ and verify_status =  #{verifyStatus} ]]>
+		</if>
+	</select>
+
+	<!-- OA后台-审核祝福卡 -->
+	<update id="verifyBlessingCard">
+		update wdblessingcard_blessing_card_tb
+		set
+		verify_status=#{verifyStatus},
+		verify_admin=#{verifyAdmin},
+		verify_time=#{verifyTime}
+		where
+		code=#{code}
+	</update>
+	<!-- 根据称号统计祝福卡数量 -->
+	<select id="getVerifyedBlessingCardCount" resultType="java.lang.Integer">
+		select count(1)
+		from wdblessingcard_blessing_card_tb
+		where 1=1
+		<if test="title !=null and title !=''">
+    		<![CDATA[  AND title = #{title} ]]>
+		</if>
+		<if test="verifyStatus!= null and verifyStatus!= '' ">
+            <![CDATA[ AND verify_status =  #{verifyStatus} ]]>
+		</if>
+		<if test="registerYearFrom != null">
+        	<![CDATA[ AND register_year >=  #{registerYearFrom} ]]>
+		</if>
+		<if test="registerYearEnd != null">
+        	<![CDATA[ AND register_year <=  #{registerYearEnd} ]]>
+		</if>
+        <if test="roleName != null">
+            <![CDATA[ AND role_name  like '%${roleName}%' ]]>
+        </if>
+		<if test="registerYear != null">
+        	<![CDATA[ AND register_year = #{registerYear} ]]>
+		</if>
+	</select>
+	<!-- 根据称号查询祝福卡列表 -->
+	<select id="getVerifyedBlessingCardPaging" resultMap="BaseResultMap">
+		select top ${size} *, a.row_num
+		from(
+		SELECT ROW_NUMBER() OVER
+		<!-- 排序 -->
+		<if test="orderBy != null and orderBy == 'createTime' ">
+			( ORDER BY create_time DESC )
+		</if>
+		<if test="orderBy != null and orderBy == 'upvoteNum' ">
+			( ORDER BY upvote_num DESC )
+		</if>
+		AS row_num ,
+		code,content,role_name,title,server_name,upvote_num,avatar
+		FROM
+		wdblessingcard_blessing_card_tb
+		where 1=1
+		<if test="title !=null and title !=''">
+    		<![CDATA[  AND title = #{title} ]]>
+		</if>
+		<if test="verifyStatus!= null and verifyStatus!= '' ">
+            <![CDATA[ AND verify_status =  #{verifyStatus} ]]>
+		</if>
+		<if test="registerYearFrom != null">
+        	<![CDATA[ AND register_year >=  #{registerYearFrom} ]]>
+		</if>
+		<if test="registerYearEnd != null">
+        	<![CDATA[ AND register_year <=  #{registerYearEnd} ]]>
+		</if>
+		<if test="roleName != null">
+        	<![CDATA[ AND role_name  like '%${roleName}%' ]]>
+		</if>
+		<if test="registerYear != null">
+        	<![CDATA[ AND register_year = #{registerYear} ]]>
+		</if>
+		) a
+		where
+		a.row_num > ${size} * (#{page} -1)
+	</select>
+
+	<!-- 通过账号查询祝福卡 -->
+	<select id="getBlessingCardByAccount" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Show_Column_list" />
+		from wdblessingcard_blessing_card_tb
+		where account = #{account}
+	</select>
+	<!-- 更新祝福卡的赞数(专用) -->
+	<update id="updateUpvoteNum"
+		parameterType="cn.gyyx.action.beans.wdblessingcard2017.BlessingCardBean">
+		update wdblessingcard_blessing_card_tb
+		set upvote_num = #{upvoteNum}
+		where code = #{code}
+	</update>
+	<!-- 用户更新祝福卡信息 -->
+	<update id="updateBlessingCard"
+		parameterType="cn.gyyx.action.beans.wdblessingcard2017.BlessingCardBean">
+		update wdblessingcard_blessing_card_tb
+		<set>
+			content = #{content}
+			<if test="avatar != null">
+				, avatar = #{avatar}
+			</if>
+			, verify_status = 0
+		</set>
+		where code = #{code}
+	</update>
+
+	<!-- 插入点赞记录 -->
+	<insert id="insertUpvoteLog" useGeneratedKeys="true"
+		keyProperty="code" parameterType="cn.gyyx.action.beans.wdblessingcard2017.UpvoteLogBean">
+		insert into
+		wdblessingcard_upvote_log_tb
+		(blessing_card_code,account,ip,vote_date,vote_source)
+		values
+		(#{blessingCardCode},#{account},#{ip},getdate(),#{voteSource})
+	</insert>
+
+	<!-- 根据账号获取当天的点赞数 -->
+	<select id="getVoteCountByAccount" resultType="int">
+		select COUNT(*)
+		from wdblessingcard_upvote_log_tb where
+		vote_date &gt;=
+		convert(char(10),GETDATE(),120) AND vote_date &lt;
+		dateadd(day,1,cast(convert(char(10),GETDATE(),120) as datetime)) and
+		account = #{account}
+	</select>
+
+	<!-- OA后台-获取系统发出的总抽奖次数 -->
+	<select id="getSystemLotteryTimes" resultType="int">
+		SELECT
+		SUM(lottery_times) FROM wdblessingcard_role_bind_tb
+	</select>
+
+	<!-- OA后台-获取玩家的总抽奖次数 -->
+	<select id="getUsersLotteryTimes" resultType="int">
+		SELECT
+		SUM(lottery_times-remaining_times) FROM wdblessingcard_role_bind_tb
+	</select>
+</mapper>

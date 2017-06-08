@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.wd.wanjia.cartoon.dao.WanwdPictureTbMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.wd.wanjia.cartoon.beans.WanwdPictureTb" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="picture_name" property="pictureName" jdbcType="NVARCHAR" />
+    <result column="brief" property="brief" jdbcType="NVARCHAR" />
+    <result column="picture" property="picture" jdbcType="VARCHAR" />
+    <result column="picture_small" property="pictureSmall" jdbcType="VARCHAR" />
+    <result column="albums_code" property="albumsCode" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, picture_name, brief, picture, picture_small, albums_code
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_picture_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wanwd_picture_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdPictureTb" >
+    insert into wanwd_picture_tb (code, picture_name, brief, 
+      picture, picture_small, albums_code
+      )
+    values (#{code,jdbcType=INTEGER}, #{pictureName,jdbcType=NVARCHAR}, #{brief,jdbcType=NVARCHAR}, 
+      #{picture,jdbcType=VARCHAR}, #{pictureSmall,jdbcType=VARCHAR}, #{albumsCode,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdPictureTb" >
+    insert into wanwd_picture_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="pictureName != null" >
+        picture_name,
+      </if>
+      <if test="brief != null" >
+        brief,
+      </if>
+      <if test="picture != null" >
+        picture,
+      </if>
+      <if test="pictureSmall != null" >
+        picture_small,
+      </if>
+      <if test="albumsCode != null" >
+        albums_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="pictureName != null" >
+        #{pictureName,jdbcType=NVARCHAR},
+      </if>
+      <if test="brief != null" >
+        #{brief,jdbcType=NVARCHAR},
+      </if>
+      <if test="picture != null" >
+        #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureSmall != null" >
+        #{pictureSmall,jdbcType=VARCHAR},
+      </if>
+      <if test="albumsCode != null" >
+        #{albumsCode,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdPictureTb" >
+    update wanwd_picture_tb
+    <set >
+      <if test="pictureName != null" >
+        picture_name = #{pictureName,jdbcType=NVARCHAR},
+      </if>
+      <if test="brief != null" >
+        brief = #{brief,jdbcType=NVARCHAR},
+      </if>
+      <if test="picture != null" >
+        picture = #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="pictureSmall != null" >
+        picture_small = #{pictureSmall,jdbcType=VARCHAR},
+      </if>
+      <if test="albumsCode != null" >
+        albums_code = #{albumsCode,jdbcType=INTEGER},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdPictureTb" >
+    update wanwd_picture_tb
+    set picture_name = #{pictureName,jdbcType=NVARCHAR},
+      brief = #{brief,jdbcType=NVARCHAR},
+      picture = #{picture,jdbcType=VARCHAR},
+      picture_small = #{pictureSmall,jdbcType=VARCHAR},
+      albums_code = #{albumsCode,jdbcType=INTEGER}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+</mapper>

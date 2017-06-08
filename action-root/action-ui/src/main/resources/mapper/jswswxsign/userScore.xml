@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.jswswxsign.IUserScoreMapper">
+	<!-- Bean Map 映射 -->
+	<resultMap type="JSWSWxSignUserScoreBean" id="JSWSWxSignUserScoreBeanMap">
+		<id column="code" property="code" />
+		<result column="open_id" property="openId" />
+		<result column="cur_intergral" property="curIntergral" />
+		<result column="last_month_intergral" property="lastMonthIntergral" />
+		<result column="job_last_update_time" property="jobLastUpdateTime" />
+	</resultMap>
+	
+	<!-- 根据条件获得用户积分记录 -->
+	<select id="getUserScore" parameterType="JSWSWxSignUserScoreBean" resultMap="JSWSWxSignUserScoreBeanMap">
+		select 
+			top 1 * 
+		from
+			jsws_wx_sign_user_score_tb
+		where 
+			1=1 
+			<if test="openId!= null and openId!= '' ">     
+            	and open_id = #{openId}      
+        	</if>
+	</select>
+	
+	<!-- 插入用户积分记录 -->
+	<insert id="insertUserScore" parameterType="JSWSWxSignUserScoreBean">
+		insert into jsws_wx_sign_user_score_tb (
+			open_id
+		   ,cur_intergral)
+		values(
+		    #{openId}
+		   ,#{curIntergral})
+	</insert>
+	
+	<!-- 更新用户积分记录 -->     
+	<update id="updateUserScore" parameterType="JSWSWxSignUserScoreBean">     
+	    update jsws_wx_sign_user_score_tb      
+	    <set>     
+	        <if test="curIntergral!=null">     
+	            cur_intergral = #{curIntergral},      
+	        </if> 
+	    </set>     
+	    where open_id = #{openId}
+	</update>  
+	
+	<!-- 更新用户积分记录 -->     
+	<update id="updateUserScoreZero">     
+	    update jsws_wx_sign_user_score_tb      
+	    set cur_intergral = 0,
+	    	last_month_intergral = cur_intergral,
+	    	job_last_update_time = getdate()
+	</update>    
+	
+</mapper>

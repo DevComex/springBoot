@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.IGoodsGetMapper">
+	<resultMap type="GoodsGetBean" id="GoodsGetMap">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="domain" property="domain"/>
+		<result column="server" property="server" />
+		<result column="role_name" property="roleName" />
+		<result column="goods_code" property="goodsCode" />
+		<result column="get_way" property="getWay" />
+		<result column="exchange_date" property="exchangeDate" />
+		<result column="goods_name" property="goodsName" />
+		<result column="goods_pic" property="goodsPic" />
+		<result column="goods_state" property="goodsState" />
+		<result column="credits_cost" property="creditsCost" />
+		<result column="price" property="price" />
+	</resultMap>
+	
+	<insert id="addGoodsGet" parameterType="GoodsGetBean">
+		insert into xuanwuba_goodsget_tb (account,server,role_name,goods_code,get_way,exchange_date,domain) 
+		values(#{account},#{server},#{roleName},#{goodsCode},#{getWay},#{exchangeDate},#{domain})
+	</insert>
+	<select id="getGoodsGetByUser" parameterType="String" resultMap="GoodsGetMap">
+	SELECT *
+  FROM xuanwuba_goodsget_tb where account = #{account}  order by exchange_date desc
+	</select>
+	<!-- 获取中奖或积分兑换记录 分页-->
+	<select id="getGoodsGetByPage" parameterType="java.util.Map" resultMap="GoodsGetMap">
+		<![CDATA[
+			select TOP (#{page.pageSize}) *  from xuanwuba_goodsget_tb 
+			where 
+			(code NOT IN 
+				(SELECT TOP (#{page.pageSize}*(#{page.pageNo}-1)) code FROM xuanwuba_goodsget_tb 
+					where '1'='1'
+		]]>
+		<if test="goodsGet.account != null and goodsGet.account != ''">
+		<![CDATA[
+					and account like CONCAT('%','${goodsGet.account}','%' ) 
+		]]>
+		</if>
+		<if test="goodsGet.domain != null and goodsGet.domain != ''">
+		<![CDATA[
+					and domain=#{goodsGet.domain}
+		]]>
+		</if>
+		<if test="goodsGet.server != null and goodsGet.server != ''">
+		<![CDATA[
+					and server=#{goodsGet.server}
+		]]>
+		</if>
+		<if test="goodsGet.roleName != null and goodsGet.roleName != ''">
+		<![CDATA[
+					and role_name like CONCAT('%','${goodsGet.roleName}','%' ) 
+		]]>
+		</if>
+		<if test="goodsGet.exchangeDate != null">
+		<![CDATA[
+					and exchange_date=#{goodsGet.exchangeDate}
+		]]>
+		</if>
+		<![CDATA[
+       			 ORDER BY code desc )
+       		)
+       	]]>
+       	<if test="goodsGet.account != null and goodsGet.account != ''">
+		<![CDATA[
+					and account like CONCAT('%','${goodsGet.account}','%' ) 
+		]]>
+		</if>
+		<if test="goodsGet.domain != null and goodsGet.domain != ''">
+		<![CDATA[
+					and domain=#{goodsGet.domain}
+		]]>
+		</if>
+		<if test="goodsGet.server != null and goodsGet.server != ''">
+		<![CDATA[
+					and server=#{goodsGet.server}
+		]]>
+		</if>
+		<if test="goodsGet.roleName != null and goodsGet.roleName != ''">
+		<![CDATA[
+					and role_name like CONCAT('%','${goodsGet.roleName}','%' ) 
+		]]>
+		</if>
+		<if test="goodsGet.exchangeDate != null">
+		<![CDATA[
+					and exchange_date=#{goodsGet.exchangeDate}
+		]]>
+		</if>
+       	<![CDATA[
+			ORDER BY code desc
+		]]>
+	</select>
+	<!-- 查询中奖或积分兑换的记录总条数 -->
+	<select id="getGoodsGetCount" parameterType="GoodsGetBean" resultType="Integer">
+		<![CDATA[
+			select count(*) from xuanwuba_goodsget_tb where '1'='1'
+		]]>
+		<if test="account != null and account != ''">
+		<![CDATA[
+					and account like CONCAT('%','${account}','%' ) 
+		]]>
+		</if>
+		<if test="domain != null and domain != ''">
+		<![CDATA[
+					and domain=#{domain}
+		]]>
+		</if>
+		<if test="server != null and server != ''">
+		<![CDATA[
+					and server=#{server}
+		]]>
+		</if>
+		<if test="roleName != null and roleName != ''">
+		<![CDATA[
+					and role_name like CONCAT('%','${roleName}','%' ) 
+		]]>
+		</if>
+		<if test="exchangeDate != null">
+		<![CDATA[
+					and exchange_date=#{exchangeDate}
+		]]>
+		</if>
+	</select>
+		<select id="getGoodsRecord"  resultMap="GoodsGetMap">
+		SELECT *
+  FROM xuanwuba_goodsget_tb a  left  join xuanwuba_goodsinfo_tb b  on a.goods_code = b.code 
+	</select>
+		<select id="getGoodsUserRecord" parameterType="String" resultMap="GoodsGetMap">
+		SELECT *
+  FROM xuanwuba_goodsget_tb a  left  join xuanwuba_goodsinfo_tb b  on a.goods_code = b.code where account = #{account}
+	</select>
+			<select id="getGoodsRecordTop"  resultMap="GoodsGetMap">
+		SELECT top 50 *
+  FROM xuanwuba_goodsget_tb a  left  join xuanwuba_goodsinfo_tb b  on a.goods_code = b.code 
+	</select>
+</mapper>

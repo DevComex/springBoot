@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.positionApply.IApplyInfo">
+
+	<resultMap type="ApplyInfoBean" id="ApplyInfoMap">
+		<id column="code" property="code" />
+		<result column="name" property="name" />
+		<result column="phone" property="phone" />
+		<result column="qq" property="qq" />
+		<result column="sex" property="sex" />
+		<result column="introducer" property="introducer" />
+		<result column="introducer_email" property="introducerEmail" />
+		<result column="position" property="position" />
+		<result column="creat_time" property="creatTime" />
+	</resultMap>
+	<insert id="addInfo">
+		insert into position_apply_info_tb
+		(name,phone,qq,sex,introducer,introducer_email,position)
+		values
+		(#{name},#{phone},#{qq},#{sex},#{introducer},#{introducerEmail},#{position})
+	</insert>
+	<select id="getApplyInfoPostion" resultType="String">
+		select position from
+		position_apply_info_tb
+		group by position
+
+	</select>
+	<select id="getAllApplyInfoBeans" resultType="java.util.List"
+		resultMap="ApplyInfoMap">
+
+		select * from position_apply_info_tb
+	</select>
+	<select id="getApplyInfoByCode" resultMap="ApplyInfoMap">
+		select * from
+		position_apply_info_tb
+		where
+		code=#{code}
+	</select>
+	<delete id="removeApplyInfoByCode">
+		delete from
+		position_apply_info_tb
+		where
+		code=#{code}
+	</delete>
+<select id="getApplyInfoByNameAndPhone" resultMap="ApplyInfoMap">
+		select * from
+		position_apply_info_tb
+		where
+		name=#{name}
+		and
+		phone=#{phone}
+		and
+		position=#{position}
+	</select>
+</mapper>

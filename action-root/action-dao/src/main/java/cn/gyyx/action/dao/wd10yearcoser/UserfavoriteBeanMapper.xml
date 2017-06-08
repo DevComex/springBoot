@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.wd10yearcoser.UserfavoriteBeanMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.action.beans.wd10yearcoser.UserfavoriteBean" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="user_code" property="userCode" jdbcType="INTEGER" />
+    <result column="resource_code" property="resourceCode" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="source_code" property="sourceCode" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    code, user_code, resource_code, create_time, source_code, type
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.gyyx.action.beans.wd10yearcoser.UserfavoriteBeanExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from wd_tenyears_coser_userfavorite_tb
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wd_tenyears_coser_userfavorite_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wd_tenyears_coser_userfavorite_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.gyyx.action.beans.wd10yearcoser.UserfavoriteBeanExample" >
+    delete from wd_tenyears_coser_userfavorite_tb
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.gyyx.action.beans.wd10yearcoser.UserfavoriteBean" >
+    insert into wd_tenyears_coser_userfavorite_tb (code, user_code, resource_code, 
+      create_time, source_code, type
+      )
+    values (#{code,jdbcType=INTEGER}, #{userCode,jdbcType=INTEGER}, #{resourceCode,jdbcType=INTEGER}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{sourceCode,jdbcType=INTEGER}, #{type,jdbcType=BIT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gyyx.action.beans.wd10yearcoser.UserfavoriteBean" >
+    insert into wd_tenyears_coser_userfavorite_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="userCode != null" >
+        user_code,
+      </if>
+      <if test="resourceCode != null" >
+        resource_code,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="sourceCode != null" >
+        source_code,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="userCode != null" >
+        #{userCode,jdbcType=INTEGER},
+      </if>
+      <if test="resourceCode != null" >
+        #{resourceCode,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sourceCode != null" >
+        #{sourceCode,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.gyyx.action.beans.wd10yearcoser.UserfavoriteBeanExample" resultType="java.lang.Integer" >
+    select count(*) from wd_tenyears_coser_userfavorite_tb
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update wd_tenyears_coser_userfavorite_tb
+    <set >
+      <if test="record.code != null" >
+        code = #{record.code,jdbcType=INTEGER},
+      </if>
+      <if test="record.userCode != null" >
+        user_code = #{record.userCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.resourceCode != null" >
+        resource_code = #{record.resourceCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.sourceCode != null" >
+        source_code = #{record.sourceCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update wd_tenyears_coser_userfavorite_tb
+    set code = #{record.code,jdbcType=INTEGER},
+      user_code = #{record.userCode,jdbcType=INTEGER},
+      resource_code = #{record.resourceCode,jdbcType=INTEGER},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      source_code = #{record.sourceCode,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.action.beans.wd10yearcoser.UserfavoriteBean" >
+    update wd_tenyears_coser_userfavorite_tb
+    <set >
+      <if test="userCode != null" >
+        user_code = #{userCode,jdbcType=INTEGER},
+      </if>
+      <if test="resourceCode != null" >
+        resource_code = #{resourceCode,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="sourceCode != null" >
+        source_code = #{sourceCode,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=BIT},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.action.beans.wd10yearcoser.UserfavoriteBean" >
+    update wd_tenyears_coser_userfavorite_tb
+    set user_code = #{userCode,jdbcType=INTEGER},
+      resource_code = #{resourceCode,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      source_code = #{sourceCode,jdbcType=INTEGER},
+      type = #{type,jdbcType=BIT}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+</mapper>

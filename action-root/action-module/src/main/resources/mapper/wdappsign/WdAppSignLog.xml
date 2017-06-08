@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdsigned.IWdAppSignLogMapper">
+	<resultMap type="cn.gyyx.action.beans.wdsigned.WdAppSignedLogBean" id="WdAppSignedLogBeanMap">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="server_name" property="serverName" />
+		<result column="server_id" property="serverId" />
+		<result column="batch" property="batch" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
+	
+	<insert id="insert" parameterType="cn.gyyx.action.beans.wdsigned.WdAppSignedLogBean"
+		useGeneratedKeys="true" keyProperty="code">
+		insert into action_app_wd_signed_log (
+		account
+		,server_name
+		,server_id
+		,batch
+		,create_time)
+		values(
+		#{account}
+		,#{serverName}
+		,#{serverId}
+		,#{batch}
+		,#{createTime})
+	</insert>
+
+	<select id="getTodaySignLog" 
+		resultMap="WdAppSignedLogBeanMap">
+		select
+		top 1 *
+		from
+		action_app_wd_signed_log
+		where
+		account = #{account} 
+		and CONVERT(varchar(10), create_time, 23) = #{today}
+		and server_id=#{serverId}
+		and batch=#{batch}
+	</select>
+	
+	<select id="getSignHistoryDate" resultType="java.lang.String">
+		select CONVERT(varchar(10), create_time, 23) 
+		from
+		action_app_wd_signed_log
+		where account = #{account}
+		and server_id=#{serverId}
+		and batch=#{batch}
+		group by CONVERT(varchar(10), create_time, 23)
+	</select>
+	
+	<select id="getSignCountByAccount" resultType="int">
+		select count(1)
+		from
+		action_app_wd_signed_log
+		where account = #{account}
+		and server_id=#{serverId}
+		and batch=#{batch}
+	</select>
+
+	
+</mapper>

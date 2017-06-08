@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <title>绝世武神积分兑换活动</title>
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/jswsChangePrize/css/style.css"/>
+    <script  type="text/javascript">
+        var rc = "${rc.contextPath}";
+	</script>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?3c8341b62c0ef4d03ac6669535564000";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+    </script>
+</head>
+<body>
+<section class="wrap">
+    <img src="http://static.cn114.cn/action/jswsChangePrize/images/bg.jpg"/>
+    <a class="count_30 js_prize" data-code="redBag"></a>
+    <a class="count_100 js_prize" data-code="qqVip"></a>
+    <a class="count_500 js_prize" data-code="mouseMat"></a>
+    <a class="count_2000 js_prize" data-code="keyboard"></a>
+    <a class="count_5000 js_prize" data-code="miNote"></a>
+    <div class="form_wrap js_pop" style="display:none;">
+        <p class="forms">
+            <label>手机号：</label>
+            <input type="text" class="input_phone js_phone" data-code="" placeholder="请输入手机号" maxlength="11"/>
+            <input type="button" class="input_button js_submit" value="确定"/>
+            <input type="button" class="input_button quite js_quite" value="取消"/>
+            <input type="hidden" id="openId" value='$openId'/>
+            <input type="hidden" id="prizeId" value=''/>
+        </p>
+        <div class="mask"></div>
+    </div>
+</section>
+<script  type="text/javascript" src="http://static.cn114.cn/action/jswsChangePrize/js/index.js"></script>
+</body>
+</html>

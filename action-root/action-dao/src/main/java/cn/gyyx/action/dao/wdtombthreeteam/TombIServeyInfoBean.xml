@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdtombthreeteam.TombIServeyInfoBean">
+    <resultMap type="cn.gyyx.action.beans.wdtombthreeteam.TombServeyInfoBean" id="ServeyInfoBeanMap">
+        <id column="code" property="code"/>
+        <result column="reserve_code" property="reserveCode"/>
+        <result column="action_Code" property="actionCode" />
+        <result column="sex" property="sex"/>
+        <result column="age" property="age"/>
+        <result column="city" property="city"/>
+        <result column="job" property="job"/>
+        <result column="phone_model" property="phoneModel"/>
+        <result column="await_content" property="awaitContent"/>
+        <result column="spokesman" property="spokesman"/>
+        <result column="message_channel" property="messageChannel"/>
+        <result column="exchange_channel" property="exchangeChannel"/>
+        <result column="game_information" property="gameInformation"/>
+        <result column="favorite_experience" property="favoriteExperience"/>
+        <result column="email" property="email"/>
+        <result column="qq_num" property="qqNum"/>
+        <result column="create_time" property="createTime"/>
+        <result column="disposition" property="disposition"/>
+    </resultMap>
+    <insert id="addServeyInfoBean" useGeneratedKeys="true" keyProperty="code"
+            parameterType="cn.gyyx.action.beans.wdtombthreeteam.TombServeyInfoBean">
+        insert wd_tombthreeteam_servey_tb(reserve_code,action_Code, sex, age, city, job, phone_model, await_content, spokesman, message_channel, exchange_channel, game_information, favorite_experience, email, qq_num, create_time,disposition)
+        values(#{reserveCode},#{actionCode},#{sex},#{age},#{city},#{job},#{phoneModel},#{awaitContent},#{spokesman},#{messageChannel},#{exchangeChannel},#{gameInformation},#{favoriteExperience},#{email},#{qqNum},GETDATE(),#{disposition})
+    </insert>
+
+    <select id="selectByReserveCode" parameterType="int" resultMap="ServeyInfoBeanMap">
+        select * from wd_tombthreeteam_servey_tb where reserve_code=#{reserveCode}
+    </select>
+</mapper>

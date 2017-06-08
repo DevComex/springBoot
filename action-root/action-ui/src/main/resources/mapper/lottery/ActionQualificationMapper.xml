@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.mapper.IActionQualificationMapper">
+
+	<select id="selectByUseridAndActivityid" parameterType="cn.gyyx.action.beans.lottery.po.ActionQualificationPO" 
+			resultType="cn.gyyx.action.beans.lottery.po.ActionQualificationPO">
+		select * 
+		  from action_qualification_tb
+		 where 1=1
+		   and userId = #{userId}
+		   and activityId = #{activityId}
+	</select>
+	
+	<update id="updateLottery" parameterType="cn.gyyx.action.beans.lottery.po.ActionQualificationPO">
+	  update action_qualification_tb set lotteryCount=lotteryCount+1 , modifyAt = #{modifyAt} 
+	  where userId=#{userId} and activityId=#{activityId};
+	</update>
+	
+	<update id="updateMustWin" parameterType="cn.gyyx.action.beans.lottery.po.ActionQualificationPO">
+	  update action_qualification_tb set mustWinCount=mustWinCount+1 , modifyAt = #{modifyAt} 
+	  where userId=#{userId} and activityId=#{activityId};	
+	</update>
+	
+	<insert id="insertLottery"  parameterType="cn.gyyx.action.beans.lottery.po.ActionQualificationPO">
+	insert into action_qualification_tb (userId,activityId,lotteryCount,mustWinCount,modifyAt,createAt,lotteryScore) 
+	values (#{userId},#{activityId},0,0,#{modifyAt},#{createAt},0);
+	</insert>
+	
+	<update id="putLotteryCountMinusOne" parameterType="cn.gyyx.action.beans.lottery.po.ActionQualificationPO">
+		update action_qualification_tb
+		   set lotteryCount = lotteryCount - 1
+		 where userId = #{userId} 
+		   and activityId = #{activityId}
+		   and lotteryCount > 0
+	</update>
+	
+	<update id="putMustWinCountMinusOne" parameterType="cn.gyyx.action.beans.lottery.po.ActionQualificationPO">
+		update action_qualification_tb
+		   set mustWinCount = mustWinCount - 1
+		 where userId = #{userId} 
+		   and activityId = #{activityId}
+		   and mustWinCount > 0
+	</update>
+	<!-- 减少抽奖机会By 抽奖机会创建的某一天 -->
+	<update id="putLotteryCountMinusOneByDate" parameterType="cn.gyyx.action.beans.lottery.po.ActionQualificationPO">
+		update action_qualification_tb
+		   set lotteryCount = lotteryCount - 1
+		 where userId = #{userId} 
+		   and activityId = #{activityId}
+		   and convert(char(10),createAt,23)=convert(char(10),#{createAt},23)
+		   and lotteryCount > 0
+	</update>
+	<!-- 初始化抽奖机会  通用型 -->
+	<insert id="InitializeLottery"  parameterType="cn.gyyx.action.beans.lottery.po.ActionQualificationPO">
+	insert into action_qualification_tb (userId,activityId,lotteryCount,mustWinCount,modifyAt,createAt) 
+	values (#{userId},#{activityId},#{lotteryCount},#{mustWinCount},#{modifyAt},#{createAt});
+	
+	</insert>
+	
+	<!-- 查询抽奖机会by 某天-->
+    <select id="selectByUseridAndActivityidAndCreateDate" parameterType="cn.gyyx.action.beans.lottery.po.ActionQualificationPO" 
+			resultType="cn.gyyx.action.beans.lottery.po.ActionQualificationPO">
+		select * 
+		  from action_qualification_tb
+		 where 1=1
+		   and userId = #{userId}
+		   and activityId = #{activityId}
+		   and (createAt between cast(convert(varchar(10),#{createAt},120)+' 00:00:00' as datetime) and cast(convert(varchar(10),#{createAt},120)+' 23:59:59.999' as datetime))
+	</select>
+	
+	<update id="minusLotteryScore" parameterType="cn.gyyx.action.beans.lottery.po.ActionQualificationPO">
+		update action_qualification_tb
+		   set lotteryScore = lotteryScore - #{lotteryScore}
+		 where userId = #{userId} 
+		   and activityId = #{activityId}
+		   and lotteryScore > 0
+	</update>
+	
+	<update id="addLotteryScore" parameterType="cn.gyyx.action.beans.lottery.po.ActionQualificationPO">
+		update action_qualification_tb
+		   set lotteryScore = lotteryScore + #{lotteryScore}
+		 where userId = #{userId} 
+		   and activityId = #{activityId}
+	</update>
+	
+</mapper>

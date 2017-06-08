@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>《盗墓三番队》概念站</title>
+    <meta name="keywords" content="光宇游戏，手游大作，盗墓三番队，概念站" />
+    <meta name="description" content="光宇游戏，盗墓三番队。" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wdThreeTeam/wap/css/stylev2.css"/>
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+        <script  type="text/javascript">
+		var rc = "${rc.contextPath}";
+	 </script>
+	 <script>
+        if (navigator.platform.indexOf('Win32') != -1 || navigator.platform.indexOf('Win64') != -1 || navigator.platform.indexOf('MacPPC') != -1|| navigator.platform.indexOf('MacIntel') != -1) {
+			window.location.href = rc+"/tombThreeTeam/index"+window.location.search;
+
+        } else {
+            //shouji
+            
+        }
+    </script>
+    <script>
+		var _hmt = _hmt || [];
+		(function() {
+	 	 var hm = document.createElement("script");
+	 	 hm.src = "//hm.baidu.com/hm.js?a4512bc168297f768fa284396d62f1cf";
+	  	var s = document.getElementsByTagName("script")[0]; 
+	 	 s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</head>
+<body>
+    <section class="wrap">
+        <div class="order_con">
+            <div class="order_01">
+                <div class="form_con">
+                    <h2>Step 01</h2>
+                    <select class="js_system">
+                        <option value="Android">安卓手机</option>
+                        <option value="IOS">苹果手机</option>
+                    </select>
+                    <input type="text" class="js_phone" placeholder="请输入手机号码" maxlength="11"/>
+                    <div class="checkcodes">
+                        <input type="text" placeholder="请输入右侧验证码" maxlength="5" class="js_captcha"/>
+                        <img src="http://api.gyyx.cn/Captcha/CreateVJ.ashx" class="js_captchaimg" />
+                        <a class="js_changeCaptcha">换一换</a>
+                    </div>
+                    <input class="button js_sendMessage" type="button" value="获取短信验证码"/>
+                </div>
+            </div>
+            <div class="order_01">
+                <div class="form_con">
+                    <h2>Step 02</h2>
+                    <input type="text" maxlength="5" class="js_captchaP" placeholder="请输入您收到的短信验证码"/>
+                    <input class="button js_orderBtn" type="button" value="完成预约"/>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="pop_inner" id="orderBig">
+        <h2 class="js_title"></h2>
+        <h3>您已获得 寻宝精英绝版称号</h3>
+        <h4>y63hc4</h4>
+        <a class="button js_question_url">填写问卷赢大奖</a>
+        <a class="button js_prize_url" style="display:none;">去参加转盘抽奖</a>
+        <img src="http://static.cn114.cn/action/wdThreeTeam/wap/images/prize_info.png"/>
+    </div>
+    <div class="pop_inner pop_inner_02" id="orderSmall">
+        <h2 class="js_title"></h2>
+        <h3>您已获得 寻宝精英绝版称号</h3>
+        <h4>y63hc4</h4>
+        <a class="button js_vote_url">盗娘投票获取积分</a>
+    </div>
+    <div class="v_h_tips" style="display:none;">要使用竖屏访问哦！</div>
+	<script type="text/javascript" src="http://static.cn114.cn/action/wdThreeTeam/wap/js/indexv2.js"></script>
+</body>
+</html>

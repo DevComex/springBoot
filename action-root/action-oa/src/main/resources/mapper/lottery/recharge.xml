@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.IRecharge">
+<resultMap type="RechargeBean" id="RechargeMap">
+		<id column="code" property="code" />
+		<result column="card_code" property="cardCode" />
+		<result column="user_code" property="userCode" />
+		<result column="action_code" property="actionCode" />
+		<result column="type" property="type" />
+	</resultMap>
+	
+	<select id="getRechargeCount" parameterType="RechargeBean" resultType="Integer">
+		SELECT COUNT(*) FROM action_recharge_tb WHERE action_code = #{actionCode} AND type = #{type}
+	</select>
+	
+	<select id="getRechargeCountNoUse" parameterType="RechargeBean" resultType="Integer">
+		SELECT COUNT(*) FROM action_recharge_tb WHERE action_code = #{actionCode} AND type = #{type} AND user_code = 0
+	</select>
+				
+	<insert id="addRechargeInfo" parameterType="RechargeBean">
+		INSERT INTO action_recharge_tb (card_code,user_code,action_code,type) VALUES (#{cardCode},#{userCode},#{actionCode},#{type})
+	</insert>
+
+	<update id="updateRecharge">
+	update action_recharge_tb
+	set user_code=#{userCode}
+		where
+		code=(
+		select top 1 code
+		from
+		action_recharge_tb
+		with(TABLOCKX)
+		where
+		action_code=#{actionCode}
+		and
+		user_code=0
+		and
+		type=#{type}
+		order by code
+		)
+	</update>
+	<select id="getCardCode" resultType="String">
+	select top 1 card_code
+	from
+	action_recharge_tb
+	where
+	user_code=#{userCode}
+	and
+	action_code=#{actionCode}
+	order by code desc
+	</select>
+</mapper>

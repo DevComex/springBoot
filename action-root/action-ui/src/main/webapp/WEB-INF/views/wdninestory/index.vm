@@ -1,0 +1,315 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>问道-九年风云道道道 名人名事名区革新票选</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdninestory/css/wd_150310.css">
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            
+            $.ajax
+			({
+			    url: "${rc.contextPath}/wdninestory/getInfo",
+			    data: { r: Math.random() },
+			    dataType: "json",
+			    type: "POST",
+			    success: function (d) {
+			        if (d.isSuccess) {
+			            getTotal(d);
+			        } else {
+			            alert(d.message);
+			        } // issuccess
+			    }
+			})
+
+
+            //获取每个类型投票总数
+            var totalVote = {};
+            function getTotal(_con) {
+                $.ajax
+				({
+				    url: "${rc.contextPath}/wdninestory/getTotal",
+				    data: { r: Math.random() },
+				    dataType: "json",
+				    type: "GET",
+				    success: function (d) {
+				        for (var i = 0; i < d.data.length; i++) {
+				            totalVote[d.data[i].type] = d.data[i].totalNumber;
+				        }
+				        GenerateContent(_con);
+				    }
+				})
+            }
+
+            //生成每个类目下的 内容
+            function GenerateContent(d) {
+                var $con = $("#content dl"),
+                      votewidth,
+                      len = $con.length;
+                for (var j = 0; j < d.data.length; j++) {
+                    if (totalVote[d.data[j].type] == 0) {
+                        votewidth = "20px";
+                    } else {
+                        votewidth = parseInt((d.data[j].voteNumber / totalVote[d.data[j].type]) * 100 + 20) + "px";
+                    }
+
+                    //根据type 查找 内容插入页面
+                    for (var m = 0; m < len; m++) {
+                        if ($con.eq(m).attr("data-type") == d.data[j].type) {
+						var link="";
+						  if(d.data[j].storyLink!=""){
+						  	if(d.data[j].type=="people"){
+								link=  '<a href="' + d.data[j].storyLink + '"  target="_black">【点击查看Ta的故事】</a>';
+							}else{
+								link='<a href="' + d.data[j].storyLink + '"  target="_black">【点击查看】</a>'
+							}
+						  	
+						  }
+						var dhtml="";
+							if(d.data[j].type=="people"){
+								//九大名人
+                   				dhtml = "" +
+                                '<dt><img src="' + d.data[j].imageLink + '" width="365" height="249"></dt>' +
+                                '<dd>' +
+                                '<h3>名人角色名：' + d.data[j].roleName + '</h3>' +
+                                ' <p>所在服务器：' + d.data[j].server + '</p>' +
+                                ' <p>名人事迹：<span>' + d.data[j].storyName + '</span>' + link + '</p>' +
+                                '<p>文章作者：' + d.data[j].author + '</p>' +
+                                '<p>当前票数：<i class="voteWidth" style=" width:' + votewidth + ' ; ">' + d.data[j].voteNumber + '</i></p>' +
+                                '<a data-code="' + d.data[j].code + '" class="supportBtn">投票支持</a>' +
+                                '</dd>';
+							}else if(d.data[j].type=="location"){
+								dhtml = "" +
+                                '<dt><img src="' + d.data[j].imageLink + '" width="365" height="249"></dt>' +
+                                '  <dd>' +
+                                '     <h3>现区服名：' + d.data[j].roleName + '</h3>' +
+                                '     <p>服务器名：' + d.data[j].server + '</p>' +
+                               '      <p>区服战绩：<span>' + d.data[j].storyName + '</span> ' + link + '</p>' +
+                               '      <p>文章作者：' + d.data[j].author + '</p>' +
+                               '      <p>当前票数：<i class="voteWidth" style=" width:' + votewidth + ' ; ">' + d.data[j].voteNumber + '</i></p>' +
+                               '      <a data-code="' + d.data[j].code + '" class="supportBtn">投票支持</a>' +
+                               '   </dd>' ;
+								
+							}else if(d.data[j].type=="story"){
+									dhtml = "" +
+                                    '<dt><img src="' + d.data[j].imageLink + '" width="365" height="249"></dt>'+
+                                      '<dd>'+
+                                         '<h3>事件名称：' + d.data[j].server + '</h3>'+
+                                         '<p>事件时间：' + d.data[j].roleName+ '</p>'+
+                                         '<p>事件简介：<span>' + d.data[j].storyName + '</span> ' + link + '</p>'+
+                                         '<p>文章作者：' + d.data[j].author + '</p>'+
+                                         '<p>当前票数：<i class="voteWidth" style=" width:' + votewidth + ' ; ">' + d.data[j].voteNumber + '</i></p>'+
+                                        ' <a data-code="' + d.data[j].code + '" class="supportBtn">投票支持</a>'+
+                                      ' </dd>';
+							}else if(d.data[j].type=="time"){
+								dhtml = "" +
+                                    '<dt><img src="' + d.data[j].imageLink + '" width="365" height="249"></dt>'+
+                                      '<dd>'+
+                                         '<h3>革新内容：' + d.data[j].server + '</h3>'+
+                                         '<p>更新影响：' + d.data[j].roleName + '</p>'+
+                                         '<p>革新说明：<span>' + d.data[j].storyName + '</span> ' + link + '</p>'+
+                                         '<p>文章作者：' + d.data[j].author + '</p>'+
+                                         '<p>当前票数：<i class="voteWidth" style=" width:' + votewidth + ' ; ">' + d.data[j].voteNumber + '</i></p>'+
+                                         '<a data-code="' + d.data[j].code + '" class="supportBtn">投票支持</a>'+
+                                     ' </dd>';
+							}else if(d.data[j].type=="battle"){
+									dhtml = "" +
+                                    '<dt><img src="' + d.data[j].imageLink + '" width="365" height="249"></dt>' +
+                                      '<dd>' +
+                                        ' <h3>战役说明：' + d.data[j].server + '</h3>' +
+                                         '<p>战役时间：' + d.data[j].roleName + '</p>' +
+                                        ' <p>战役对阵：<span>' + d.data[j].storyName + '</span> ' + link + '</p>' +
+                                         '<p>文章作者：' + d.data[j].author + '</p>' +
+                                         '<p>当前票数：<i class="voteWidth" style=" width:' + votewidth + ' ; ">' + d.data[j].voteNumber + '</i></p>' +
+                                         '<a data-code="' + d.data[j].code + '" class="supportBtn">投票支持</a>' +
+                                      '</dd>';
+							}else if(d.data[j].type=="hot"){
+								dhtml = "" +
+                                '<dt><img src="' + d.data[j].imageLink + '" width="365" height="249"></dt>' +
+                                  '<dd>' +
+                                     '<h3>事件名称：' + d.data[j].server + '</h3>' +
+                                     '<p>事件时间：' + d.data[j].roleName + '</p>' +
+                                     '<p>名人事迹：<span>' + d.data[j].storyName + '</span> ' + link + '</p>' +
+                                    ' <p>文章作者：' + d.data[j].author + '</p>' +
+                                     '<p>当前票数：<i class="voteWidth" style=" width:' + votewidth + ' ; ">' + d.data[j].voteNumber + '</i></p>' +
+                                     '<a data-code="' + d.data[j].code + '" class="supportBtn">投票支持</a>' +
+                                  '</dd>';
+							}
+                            $con.eq(m).append(dhtml);
+                        }
+                    }
+                }
+                //添加投票支持事件
+                $(".supportBtn").click(function () {
+                    ClickVote($(this).attr("data-code"), $(this).parents("dl").attr("data-type"), $(this));
+                });
+            }
+
+            //点击投票
+            function ClickVote(_code, _type, _this) {
+                $.
+				getJSON("http://reg.gyyx.cn/Login/status?jsoncallback=?", { r: function () { return Math.random(); } }, function (d) {
+				    if (d.IsLogin) {
+				        $.
+                        ajax({
+                            url: "${rc.contextPath}/wdninestory/vote",
+                            data: { r: Math.random(), code: _code, type: _type },
+                            dataType: "json",
+                            type: "GET",
+                            success: function (d) {
+                                alert(d.message);
+                                if (d.isSuccess) {
+                                    var num = parseInt(_this.parents("dd").find(".voteWidth").html());
+                                    _this.parents("dd").find(".voteWidth").empty().html(parseInt(num + 1));
+
+                                }
+                            }
+                        })//end ajax
+
+				    } else {
+				        var prstatus = $(".top_bg_red").attr("data-status");
+				        if (prstatus == "true") {
+				            $(".top_bg_red").attr("data-status", "false");
+				        }
+				        alertFn(null, null, true);
+				        return false;
+				    }
+				});
+
+            }
+
+            isLoginDisUser();
+            //登录后显示用户名
+            function isLoginDisUser(isDisplay) {
+                $
+                .ajax({
+                    url: "http://reg.gyyx.cn/Login/Status",
+                    type: "GET",
+                    dataType: "jsonp",
+                    jsonp: "jsoncallback",
+                    data: { r: Math.random() },
+                    success: function (d) {
+                        if (d.IsLogin == true) {
+                            if (isDisplay == "no") {
+                                return 1;
+                            } else {
+                                $("#loginbar").html("欢迎回来：<strong>" + d.Account + "</strong> <a href='javascript:;'  style='color:#E9C189'  class='js_Loginout' onclick=''>退出</a>")
+                                $(".js_Loginout").die("click").live("click", function () {
+                                    $
+                                    .ajax({
+                                        url: "http://reg.gyyx.cn/Login/LogoutJsonp",
+                                        type: "GET",
+                                        dataType: "jsonp",
+                                        jsonp: "jsoncallback",
+                                        data: { r: Math.random() },
+                                        success: function (d) {
+                                            if (d.IsSuccess) {
+                                                window.location.href = window.location.href;
+                                            }
+                                            else {
+                                                alert(d.Message);
+                                            }
+                                        }
+                                    });
+                                    return false;
+                                });
+                            }
+                        } else {
+                            return false;
+                        }
+                    }
+                });
+            }
+
+
+
+
+        })
+    </script>
+    <script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+    </script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wrap">
+        <div class="main">
+            <div class="nav">
+                <ul>
+                    <li><a href="http://wd.gyyx.cn/index_wd_v5.htm">进入官网</a></li>
+                    <li><a href="http://wanwd.gyyx.cn/">玩家天地</a></li>
+                    <li><a href="http://wd.gyyx.cn/download/">游戏下载</a></li>
+                    <li><a href="http://account.gyyx.cn/Member/Register">账号注册</a></li>
+                    <li><a href="http://wd.gyyx.cn/huodong/2014jhhd/index.html">关注问道</a></li>
+                </ul>
+            </div>
+            <div class="time">2015年3月25日-2015年3月30日</div>
+            <div class="vote">
+                <p id="loginbar">领取请您先：<a class="loga" onclick="alertFn(null,null,true)">登录</a></p>
+                <h3>票选说明</h3>
+                <p>1、周年历史盘点专题内容将从玩家周年主题投稿中提炼，以下为官方稿件管理编辑选出优秀稿件整合出的名人名事名区，各类票选前9名将载入周年历史专题</p>
+                <p>2、票选时每个账号和每个IP一天内只能对同一个作品投1票</p>
+                <p>3、投票账号和投稿玩家在活动结束后可在活动结束后进行抽奖，丰富的周边和元宝等你拿哟~！抽奖活动于票选结束后开启！</p>
+            </div>
+            <div class="tabBox">
+                <ul class="tabList">
+                    <li><a href="javascript:;" hidefocus="true">九大名人</a></li>
+                    <li><a href="javascript:;" hidefocus="true">九大名区</a></li>
+                    <li><a href="javascript:;" hidefocus="true">九大名事</a></li>
+                    <li><a href="javascript:;" hidefocus="true">九大革新时代</a></li>
+                    <li><a href="javascript:;" hidefocus="true">九大战役</a></li>
+                    <li><a href="javascript:;" hidefocus="true">2014盘点热门</a></li>
+                </ul>
+                <div class="content" id="content">
+                    <div class="conBox">
+                        <dl data-type="people">
+                            <!--<dt><img src="images/wd_150310_role.jpg" width="365" height="249"></dt>
+                  <dd>
+                     <h3>名人角色名：小奈特°</h3>
+                     <p>所在服务器：聚宝内测</p>
+                     <p>名人事迹：<span>那个在我们心里的小小奈特</span> <a href="">【点击查看Ta的故事】</a></p>
+                     <p>文章作者：小奈特</p>
+                     <p>当前票数：<i>123456</i></p>
+                     <a href="#" class="supportBtn">投票支持</a>
+                  </dd>-->
+                        </dl>
+                    </div>
+                    <div class="conBox">
+                        <dl data-type="location"></dl>
+                    </div>
+                    <div class="conBox">
+                        <dl data-type="story"></dl>
+                    </div>
+                    <div class="conBox">
+                        <dl data-type="time"></dl>
+                    </div>
+                    <div class="conBox">
+                        <dl data-type="battle"></dl>
+                    </div>
+                    <div class="conBox">
+                        <dl data-type="hot"></dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdninestory/js/ymcore.js"></script>
+    <script type="text/javascript">
+        YM.UI.Tab({
+            container: 'div.tabBox',
+            animated: 'fade',
+            bind: 'click',
+            index: 0,
+            time: 0
+        });
+    </script>
+</body>
+</html>

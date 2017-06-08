@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.insurance.IOrderParameterMapper">
+
+	<resultMap type="OrderParameterBean" id="OrderParameterBeanMap">
+		<id column="code" property="code" />
+		<result column="type" property="type" />
+		<result column="circle" property="circle" />
+		<result column="odds" property="odds" />
+		<result column="upper" property="upper" />
+		<result column="lower" property="lower" />
+		<result column="default_amount" property="defaultAmount" />
+		<result column="circle_name" property="circleName" />
+		<result column="is_delete" property="isDelete" />
+	</resultMap>
+	<select id="selectBycode" parameterType="Integer"  resultMap="OrderParameterBeanMap">
+		select * from wd_insurance_order_parameter_tb where code = #{code} and is_delete=0
+	</select>
+	<select id="getAllOrderParameterBeans" resultMap="OrderParameterBeanMap" resultType="java.util.List">
+		select * from
+        wd_insurance_order_parameter_tb where is_delete=0
+	</select>
+	<insert id="addOrderParameter" parameterType="OrderParameterBean">
+	insert into wd_insurance_order_parameter_tb
+	([type]
+      ,[circle]
+      ,[odds]
+      ,[upper]
+      ,[lower]
+      ,[default_amount]
+      ,[circle_name]) values 
+      (#{type}
+      ,#{circle}
+      ,#{odds}
+      ,#{upper}
+      ,#{lower}
+      ,#{defaultAmount}
+      ,#{circleName})
+	</insert>
+	<update id="updateIsDelete" parameterType="Integer">
+	update wd_insurance_order_parameter_tb set is_delete = 1 where code = #{code} and is_delete=0
+	</update>
+	<update id="updateByCode" parameterType="OrderParameterBean">
+	update wd_insurance_order_parameter_tb 
+	set [type] = #{type}
+      ,[circle] = #{circle}
+      ,[odds] = #{odds}
+      ,[upper] = #{upper}
+      ,[lower] = #{lower}
+      ,[default_amount] = #{defaultAmount}
+      ,[circle_name] = #{circleName} 
+      where code = #{code} and is_delete=0
+	</update>
+</mapper>

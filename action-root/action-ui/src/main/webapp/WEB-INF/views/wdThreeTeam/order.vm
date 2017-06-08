@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>《盗墓三番队》概念站</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdThreeTeam/css/order.css"/>
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script  type="text/javascript">
+		var rc = "${rc.contextPath}";
+	 </script>
+	     <script>
+        if (navigator.platform.indexOf('Win32') != -1 || navigator.platform.indexOf('Win64') != -1 || navigator.platform.indexOf('MacPPC') != -1|| navigator.platform.indexOf('MacIntel') != -1) {
+
+
+        } else {
+            //shouji
+            window.location.href = rc+"/tombThreeTeam/mobile/index"+window.location.search;
+        }
+    </script>
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?0019f64d50195cea17a020f655152618";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</head>
+<body>
+<div class="public_nav_top">
+    <script type="text/javascript">Showtop();</script>
+</div>
+<div class="wrap">
+    <div class="main">
+        <a href="$returnIndex" class="back_link">返回概念站</a>
+        <div class="content">
+            <h2>Step .01</h2>
+            <select class="js_system">
+                <option value="Android">安卓手机</option>
+                <option value="IOS">苹果手机</option>
+            </select>
+            <label class="clear">请输入手机号码</label>
+            <div class="inp clear">
+                <input type="text" class="js_phone" value="" maxlength="11"/>
+                <span class="phone_err"></span>
+            </div>
+            <label class="clear">请输入右侧验证码</label>
+            <div class="inp clear">
+                <input type="text" class="js_captcha" value="" maxlength="5"/>
+                <img class="js_captchaimg" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=" width="120" height="42"/>
+                <a class="js_captchaimg">换一张</a>
+                <span class="siCaptcha_err"></span>
+            </div>
+            <div class="inp btn_con clear">
+                <input class="submit_btn js_sendMessage" type="button" value="获取短信验证码"/>
+                <span class="send_err"></span>
+            </div>
+            <h2 class="clear">Step .02</h2>
+            <label class="clear">请输入您收到的短信验证码</label>
+            <div class="inp clear">
+                <input type="text" class="js_captchaP" value="" maxlength="5"/>
+                <span class="phoneCaptcha_err"></span>
+            </div>
+            <div class="inp btn_con">
+                <input class="submit_btn js_orderBtn"  type="button" value="完成预约"/>
+            </div>
+            <div class="qrcode">
+                <img src="http://static.cn114.cn/action/wdThreeTeam/images/order/qrcode.jpg" width="339" height="334"/>
+                <p>公众号搜索：盗娘俱乐部</p>
+                <p>扫一扫关注我们，获取更多资讯</p>
+            </div>
+        </div>
+		<!--弹层-->
+        <div class="pop_in big_pop" id="bigPop">
+            <div class="title js_title"></div>
+            <div class="prize_tip">您已获得 寻宝精英绝版称号</div>
+            <div class="codes js_code">y63hc4</div>
+            <div class="pop_btn js_popBtns">
+                <a class="answer_btn"></a>
+                <a class="prize_btn" style="display:none;"></a>
+            </div>
+        </div>
+        <div class="pop_in small_pop" id="smallPop">
+        	<div class="title js_title"><h3>您已完成过预约</h3></div>
+            <div class="prize_tip">您已获得 寻宝精英绝版称号</div>
+            <div class="codes js_code">y63hc4</div>
+            <div class="pop_btn js_popBtns">
+                <a class="vote_btn"></a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom()</script>
+</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdThreeTeam/js/orderPc.js"></script>
+</body>
+</html>

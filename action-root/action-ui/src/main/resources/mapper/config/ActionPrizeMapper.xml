@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.config.mapper.IActionPrizeMapper">
+
+	<select id="getDataList" parameterType="java.lang.Integer" resultType="cn.gyyx.action.beans.config.po.ActionPrizePO">
+		select *
+		  from action_prize_tb
+		 where action_code = #{code} 
+	</select>
+</mapper>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wechat.IWeiXinRecharge">
+<resultMap type="WeiXinRechargeBean" id="WeiXinRechargeMap">
+		<id column="code" property="code" />
+		<result column="code" property="code" />
+		<result column="card_code" property="cardCode" />
+		<result column="open_id" property="openId" />
+		<result column="action_code" property="actionCode" />
+		<result column="type" property="type" />
+	</resultMap>
+
+	<update id="updateRecharge">
+	update action_recharge_wechat_tb
+	set open_id=#{openId}
+		where
+		code=(
+		select top 1 code
+		from
+		action_recharge_wechat_tb
+		with(TABLOCKX)
+		where
+		action_code=#{actionCode}
+		and
+		open_id='0'
+		and
+		type=#{type}
+		order by code
+		)
+	</update>
+	<select id="getCardCode" resultType="String">
+	select top 1 card_code
+	from
+	action_recharge_wechat_tb
+	where
+	open_id=#{openId}
+	and
+	action_code=#{actionCode}
+	and
+    type=#{type}
+	order by code desc
+	</select>
+	<select id="getLibaoCode" resultType="String">
+	select top 1 card_code
+	from
+	action_recharge_wechat_tb
+	where
+	open_id=#{openId}
+	and
+	action_code=#{actionCode}
+	and
+    type=#{type}
+	order by code desc
+	</select>
+	<select id="seltectCardCode" resultType="String">
+	select top 1 card_code
+	from
+	action_recharge_wechat_tb
+	where
+	open_id=#{openId}
+	and
+	action_code=#{actionCode}
+	order by code desc
+	</select>
+</mapper>

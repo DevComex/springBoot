@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>“十年”手游悬念站</title>
+    <meta name="keywords" content="光宇游戏，手游大作，十年手游悬念站，悬念站" />
+    <meta name="description" content="光宇游戏，十年手游悬念站，饮冰十年，寄情南派。" />
+    <meta name="format-detection" content="telephone=no">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wdlostcity/wap/source/style.css" />
+    <script  type="text/javascript">
+    	var rc = "${rc.contextPath}";
+ 	</script>
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+    <script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?31b991250dc15aaf429c6100d033678d";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<script>
+	    if (navigator.platform.indexOf('Win32') != -1 || navigator.platform.indexOf('Win64') != -1 || navigator.platform.indexOf('MacPPC') != -1) {
+	       
+	    	window.location.href = rc+"/tombWildCity/index"+window.location.search;
+	    } else {
+	        //shouji
+	    }
+	</script>
+</head>
+<body>
+    <section class="wrap02">
+        <div class="question_con">
+            <div class="question" type="single" id="sex">
+                <a class="errors" id="0">请选择您的答案哟！</a>
+                <h3>1、请问您的性别是？</h3>
+                <ul>
+                    <li>我是男生</li>
+                    <li>我是女生</li>
+                </ul>
+            </div>
+            <div class="question" type="single" id="age">
+                <a class="errors" id="1">请选择您的答案哟！</a>
+                <h3>2、请问您的年龄是？</h3>
+                <ul>
+                    <li>0~18岁</li>
+                    <li>18~25岁</li>
+                    <li>26岁~35岁</li>
+                    <li>35岁以上</li>
+                </ul>
+            </div>
+            <div class="question" type="selects">
+                <a class="errors" id="2">请选择您的答案哟！</a>
+                <h3>3、您的居住城市是（下拉框选择）？</h3>
+                <select id="province">
+                    <option value="0">省</option>
+                </select>
+                <select id="city">
+                    <option value="0">市</option>
+                </select>
+            </div>
+            <div class="question" type="single" id="job">
+                <div class="errors" id="3">请填写您的答案哟！</div>
+                <h3>4、您的职业是？</h3>
+                <ul>
+                    <li>学生</li>
+                    <li>上班族</li>
+                    <li>自由职业</li>
+                    <li>其他</li>
+                </ul>
+            </div>
+            <div class="question" type="inputs" id="phoneModel">
+                <div class="errors" id="4">请填写您的答案哟！</div>
+                <h3>5、您的手机型号是？</h3>
+                <input type="text" name="defaults" placeholder="请具体到型号，如：小米4" maxlength="50"/>
+            </div>
+            <div class="question" type="complex" id="awaitContent">
+                <div class="errors" id="5">请选择您的答案哟！</div>
+                <h3>6、如果有一款盗墓背景的手游，你最希望是哪种类型？（多选）</h3>
+                <ul>
+                    <li>动作打击</li>
+                    <li>热血日漫</li>
+                    <li>Q版</li>
+                    <li>角色扮演</li>
+                    <li>卡牌</li>
+                    <li>冒险探索</li>
+                </ul>
+                <input type="text" placeholder="其他，请详细说明" maxlength="50"/>
+            </div>
+            <div class="question" type="single" id="spokesman">
+                <div class="errors" id="6">请选择您的答案哟！</div>
+                <h3>7、如果这款游戏有代言，您最希望是？</h3>
+                <ul>
+                    <li>影视明星(例如：李易峰)</li>
+                    <li>虚拟人设（例如：初音未来）</li>
+                    <li>表情红人（例如：金馆长）</li>
+                    <li>热血教官（例如：松冈修造）</li>
+                    <li>日本明星（例如：小栗旬）</li>
+                </ul>
+            </div>
+            <div class="question" type="single" id="messageChannel">
+                <div class="errors" id="7">请选择您的答案哟！</div>
+                <h3>8、您从哪里获取游戏相关信息？</h3>
+                <ul>
+                    <li>媒体/广告</li>
+                    <li>社交平台</li>
+                    <li>朋友推荐</li>
+                    <li>应用商店排行榜</li>
+                </ul>
+            </div>
+            <div class="question" type="complex" id="exchangeChannel">
+                <div class="errors" id="8">请选择您的答案哟！</div>
+                <h3>9、您习惯在哪里与人交流游戏心得？ （多选）</h3>
+                <ul>
+                    <li>贴吧</li>
+                    <li>论坛</li>
+                    <li>微博</li>
+                    <li>微信</li>
+                    <li>QQ</li>
+                    <li>哔哩哔哩</li>
+                </ul>
+                <input type="text" placeholder="其他，请详细说明" maxlength="50"/>
+            </div>
+            <div class="question" type="single" id="gameInformation">
+                <div class="errors" id="9">请选择您的答案哟！</div>
+                <h3>10、您最想了解游戏中哪方面的资讯？</h3>
+                <ul>
+                    <li>战斗玩法</li>
+                    <li>剧情发展</li>
+                    <li>画面品质</li>
+                    <li>正版授权</li>
+                    <li>攻略评测</li>
+                </ul>
+            </div>
+            <div class="question" type="complex" id="favoriteExperience">
+                <div class="errors" id="10">请选择您的答案哟！</div>
+                <h3>11、在您之前的游戏体验中，您觉得最有趣的是？（多选）</h3>
+                <ul>
+                    <li>体验游戏精美画质，看看风景</li>
+                    <li>与好友或者公会成员聊天</li>
+                    <li>与其他队友组队，相互协作作战</li>
+                    <li>单人挑战，提高技巧与战力，推进关卡</li>
+                    <li>体验游戏剧情做日常副本</li>
+                </ul>
+                <input type="text" placeholder="其他，请详细说明" maxlength="50"/>
+            </div>
+            <div class="question" type="complex" id="disposition">
+                <div class="errors" id="11">请选择您的答案哟！</div>
+                <h3>12、您觉得以下最适合您的是？（多选）</h3>
+                <ul>
+                    <li>宅</li>
+                    <li>呆</li>
+                    <li>腹黑</li>
+                    <li>腐</li>
+                    <li>毒舌</li>
+                    <li>萌</li>
+                    <li>傲</li>
+                    <li>燃</li>
+                    <li>弱气</li>
+                    <li>女王</li>
+                </ul>
+                <input type="text" placeholder="其他，请详细说明" maxlength="50"/>
+            </div>
+            <div class="question" type="inputs">
+                <h3>● 以下信息将作为官方发放激活码的必要依据，请认真填写有效信息</h3>
+                <div class="errors" id="12">邮箱为必填项哟！</div>
+                <input type="text" name="email" placeholder="邮箱" maxlength="50"/>
+            </div>
+            <div class="question" type="inputs">
+                <div class="errors" id="13">QQ为必填项哟！</div>
+                <input type="text" name="qq" placeholder="QQ" maxlength="15"/>
+            </div>
+            <div class="btn">
+                <!--<input type="button" class="question_btn" value="提交问卷"/>-->
+                <a href="" id="submitBtn" class="question_btn" data-submit="true">提交问卷</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="pop_inner prize_con" id="rotate">
+        <h3>祝您中奖！</h3>
+        <h4>感谢您参与我们的调研，</h4>
+        <h4>您可以点击抽取奖励，有机会获得<span>黄金礼包！</span></h4>
+        <div class="prize">
+            <img src="http://static.cn114.cn/action/wdlostcity/wap/images/pan.png" id="rotateImg"/>
+            <input type="button" class="prize_btn js_prizeBtn"/>
+        </div>
+    </div>
+    <div class="pop_inner order prize_succ" id="prize_success">
+        <h2>恭喜您中奖</h2>
+        <img class="js_packageImg" src="http://static.cn114.cn/action/wdlostcity/wap/images/huangjinlibao.png"/>
+        <h4 class="js_package">白金礼包</h4>
+        <h5>3级随机宝石*1、法宝精华*30、金币100000</h5>
+        <img class="qucode" src="http://static.cn114.cn/action/wdlostcity/wap/images/qrcode.png"/>
+        <h3>请妥善保管礼包码</h3>
+        <h3 class="js_packageCode">XXXX-XXXX-XXXX-XXXX</h3>
+        <a class="order_btn js_iKnow">知道了</a>
+    </div>
+    <div class="pop_inner order prize_fail" id="prize_fail">
+        <h2>很遗憾没有中奖</h2>
+        <h3>感谢您的支持</h3>
+        <a class="order_btn">确定</a>
+    </div>
+
+    <div class="v_h_tips">要使用竖屏访问哦！</div>
+    <script type="text/javascript" src="http://static.cn114.cn/action/cs2Survey/js/city.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdlostcity/wap/source/js/awardRotate.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdlostcity/wap/source/js/index.js"></script>
+</body>
+</html>

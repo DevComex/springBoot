@@ -1,0 +1,207 @@
+#parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/jquery.ajaxpage-2.2.js"></script>
+<style>
+.table td {
+	word-wrap: break-word;
+	vertical-align: middle !important;
+}
+
+.panel .table td, .panel .table th {
+	padding-left: 5px;
+	padding-right: 5px;
+	text-align:center;
+}
+
+.table td img {
+	width: 100%;
+	max-height: 40px;
+}
+
+textarea {
+	border-color: #d9d9d9;
+}
+
+tr:hover td{
+	background-color: #DFF0D8 !important;
+}
+
+* {
+	outline: none;
+}
+</style>
+<script>
+	function getlist() {
+		var account = $.trim($("#account").val());
+		if(!account){
+			alert("请输入账号!");
+			return false;
+		}
+		var timeStr = $.trim($("#timeStr").val());
+		var hdType = $.trim($("#hdType").val());
+		$.ajax({
+			url:'/wd/novice/receiveDataList',
+			type:'POST',
+			data:{account:account,timeStr:timeStr,hdType:hdType,r:Math.random()},
+			dataType:'json',
+			beforeSend:function(){
+				$("#search").html("正在查询,请稍后").attr("disabled",true);
+			},
+			complete:function(){
+				$("#search").html("<i class='fa fa-search'></i>搜索").attr("disabled",false);
+			},
+			success:function(data){
+				var dataHtml1 = "<tr><td colspan='7' style='color:red'>暂无记录!</td></tr>";
+				var dataHtml2 = "<tr><td colspan='6' style='color:red'>暂无记录!</td></tr>";
+				if(!data.isSuccess){
+					alert(data.message);
+					return;
+				}
+				data = data.data;
+				var receiveList = data.receiveList;
+				var toGameList = data.toGameList;
+	            if (receiveList && receiveList.length !=0) {
+	            	  dataHtml1 ="";
+	                  for (var i = 0; i < receiveList.length; i++) {
+	                	  dataHtml1 += '<tr>' 
+	                           +'  <td style="text-align:center;">' + (i+1) + '</td>' 
+	                           +'  <td style="text-align:left;">' + receiveList[i].account + '</td>' 
+	                           +'  <td style="text-align:left;">' + receiveList[i].receiveTime + '</td>' 
+	                           +'  <td style="text-align:left;">' + receiveList[i].serverName + '</td>' 
+	                           +'  <td style="text-align:left;">' + receiveList[i].giftPackageName + '</td>' 
+	                           +'  <td style="text-align:left;">' + receiveList[i].cardNo + '</td>' 
+	                           +'  <td style="text-align:left;">' + receiveList[i].type + '</td>' 
+	                      dataHtml1 += '</td></tr>';
+	                  }
+				}
+	            if (toGameList && toGameList.length !=0) {
+	            	dataHtml2 ="";
+	                  for (var i = 0; i < toGameList.length; i++) {
+	                	  dataHtml2 += '<tr>' 
+	                           +'  <td style="text-align:center;">' + (i+1) + '</td>' 
+	                           +'  <td style="text-align:left;">' + toGameList[i].account + '</td>' 
+	                           +'  <td style="text-align:left;">' + toGameList[i].sendToGameTime + '</td>' 
+	                           //+'  <td style="text-align:left;">' + toGameList[i].serverName + '</td>' 
+	                           +'  <td style="text-align:left;">' + toGameList[i].giftPackageName + '</td>' 
+	                           +'  <td style="text-align:left;">' + toGameList[i].sendToGameResponse + '</td>' 
+	                      dataHtml2 += '</td></tr>';
+	                  }
+				}
+	            $("#receive_list tbody").empty().html(dataHtml1);
+	            $("#sendtogame_list tbody").empty().html(dataHtml2);
+			},
+			error:function(){
+				alert("网络连接超时!");
+			}
+		});
+	}
+
+	$(function() {
+		$("#timeStr").datepicker({
+			format : 'yyyy-mm-dd',
+			startView : 2,
+			autoclose : true,
+			todayBtn : true,
+			minView : 2
+		}).on('changeDate', function(ev) {
+		});
+
+		$("#search").click(function() {
+			getlist();
+		});
+		
+		//getlist();
+	});
+</script>
+
+<section class="vbox">
+	<section>
+		<section class="hbox stretch">
+			<section id="content">
+				<section class="vbox js_template_right">
+					<header class="header bg-white b-b clearfix">
+						<h4 class="doc-buttons pull-left" style="margin-top: 16px">新手卡活动-用户报名信息列表</h4>
+						<span class="doc-buttons pull-left" style="margin-left:40px;"> 
+							<input type="text"
+								 class="input-sm form-control"
+								style="display: inline-block; width: 160px;" placeholder="账号名称"
+								id="account" name="account" />
+							<input type="text"
+								class="input-sm form-control"
+								style="display: inline-block; width: 160px; margin-top: 10px; margin-left: 10px;"
+								placeholder="领取时间" id="timeStr" name="timeStr" /> 
+						</span> 
+						<span class="doc-buttons pull-left"> 
+							<select id="hdType" style="margin-top: 10px; margin-left: 10px;"
+								class="input-sm">
+									<!-- <option value="问道2899元神合一" selected>问道2899元神合一</option> -->
+									<option value="2017" selected>2999"2017"新手礼包</option>
+							</select>
+						</span> 
+						<span class="doc-buttons pull-left"> <button id="search"
+							class="btn btn-sm btn-info"
+							style="margin-top: 10px; margin-left: 10px;width:120px;"
+							onclick="javascript:void(0);"><i class="fa fa-search"></i>搜索</button>
+						</span>
+						<span class="doc-buttons pull-left"> <a
+							class="btn btn-sm btn-info" id="js_add_project"
+							style="margin-top: 10px; margin-left: 10px" href="/wd/novice/index"><i class="fa fa-home"></i>首页</a>
+						</span>
+					</header>
+					<section class="scrollable padder">
+						<div class="m-b-md"></div>
+						<section class="panel panel-success">
+							<header class="panel-heading">
+								<h4>领取记录</h4>
+							</header>
+							<div class="table-responsive">
+									<table class="table table-striped m-b-none" id="receive_list">
+										<thead>
+											<tr>
+												<th style="width: 5%;text-align: center;">序号</th>
+												<th style="width: 10%; text-align: left;">账号名称</th>
+												<th style="width: 15%; text-align: left;">领取时间</th>
+												<th style="width: 10%; text-align: left;">服务器</th>
+												<th style="width: 20%; text-align: left;">礼包名称</th>
+												<th style="width: 10%; text-align: left;">新手卡号</th>
+												<th style="width: 10%; text-align: left;">类型</th>
+											</tr>
+										</thead>
+										<tbody>
+											 <tr>
+												<td colspan="7">请输入账号查询！</td>
+											</tr> 
+										</tbody>
+									</table>
+							</div>
+						</section>
+						
+						<section class="panel panel-success">
+							<header class="panel-heading">
+								<h4>发奖到游戏记录</h4>
+							</header>
+							<div class="table-responsive">
+									<table class="table table-striped m-b-none" id="sendtogame_list">
+										<thead>
+											<tr>
+												<th style="width: 5%;text-align: center;">序号</th>
+												<th style="width: 10%; text-align: left;">账号名称</th>
+												<th style="width: 15%; text-align: left;">发奖时间</th>
+												<!-- <th style="width: 10%; text-align: left;">服务器</th> -->
+												<th style="width: 30%; text-align: left;">礼包名称</th>
+												<th style="width: 40%; text-align: left;">响应结果</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td colspan="7">请输入账号查询！</td>
+											</tr>
+										</tbody>
+									</table>
+							</div>
+						</section>
+					</section>
+					
+				</section>
+			</section>
+			#parse("/shared/footer.vm")

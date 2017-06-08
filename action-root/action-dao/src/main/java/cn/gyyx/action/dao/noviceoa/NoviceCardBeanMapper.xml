@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.noviceoa.NoviceCardBeanMapper">
+	<resultMap id="BaseResultMap" type="cn.gyyx.action.beans.noviceoa.NoviceCardBean">
+		<constructor>
+			<idArg column="code" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="card_num" jdbcType="VARCHAR" javaType="java.lang.String" />
+			<arg column="description" jdbcType="VARCHAR" javaType="java.lang.String" />
+			<arg column="gift_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="status" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="update_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+			<arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+		</constructor>
+	</resultMap>
+	<sql id="Base_Column_List">
+		code, card_num, description, gift_id, status,task_id,
+		update_time,
+		create_time
+	</sql>
+
+	<select id="existTable" parameterType="String" resultType="String">
+		select TABLE_NAME from INFORMATION_SCHEMA.TABLES where
+		TABLE_SCHEMA='activity_db' and TABLE_NAME=#{tableName}
+	</select>
+
+	<insert id="insertBatchCodeSql" parameterType="String">
+		${insertSql}
+	</insert>
+
+	<select id="selectLastNoviceCardNo" parameterType="String" resultType="String">
+		select card_num from ${tbName} order by code desc limit 0,1
+	</select>
+    
+    <select id="getNoviceCardListByTaskId" resultMap="BaseResultMap">
+        select * from ${tbName} where task_id = ${taskId}
+    </select>
+</mapper>

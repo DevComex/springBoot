@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>转转大转盘 好礼缤纷乐</title>
+    <style>
+        html, body, img, a { margin: 0; padding: 0; background: #f2cf1b; }
+        img { border: none; display: block; }
+        a { outline: none; -webkit-tap-highlight-color: rgba(0,0,0,0); -webkit-tap-highlight-color: transparent; }
+        .result_wrap { position: relative; }
+        .result_wrap img { width: 100%; }
+        .js_downbtns { display: block; position: absolute; left: 50%; bottom: 43%; margin: 0 0 0 -19.9%; padding: 6% 0 0; width: 41%; background: none; text-decoration: none; }
+        .js_openweb { width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 1000; display: none; }
+    </style>
+    <script src="http://s.gyyx.cn/lib/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+    </script>
+</head>
+<body>
+    <div class="result_wrap">
+          <img src="http://static.cn114.cn/action/zjkp/lottery/images/coverbg.png" class="js_openweb" />
+        <img src="http://static.cn114.cn/action/zjkp/lottery/images/coverBg.jpg" />
+        <a href="javascript:;" class="pos_c js_downbtns">&nbsp;</a>
+    </div>
+    <script type="text/javascript">
+        $(function () {
+        var geturl = "http://actionv2.gyyx.cn/wechatCount/ajaxBackstageCount?countType=zjjsCoF";
+        $("body").append("<img src=" + geturl + " border=0 width=0 height=1 style='display:none;'>");
+            //判断微信和浏览器
+            function is_weixin() {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            var browser = {
+                versions: function () {
+                    var u = navigator.userAgent, app = navigator.appVersion;
+                    return {
+                        trident: u.indexOf('Trident') > -1,
+                        presto: u.indexOf('Presto') > -1,
+                        webKit: u.indexOf('AppleWebKit') > -1,
+                        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
+                        mobile: !!u.match(/AppleWebKit.*Mobile.*/),
+                        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+                        iPhone: u.indexOf('iPhone') > -1,
+                        iPad: u.indexOf('iPad') > -1,
+                        webApp: u.indexOf('Safari') == -1
+                    }
+                }(),
+                language: (navigator.browserLanguage || navigator.language).toLowerCase()
+            };
+            function init() {
+                if (is_weixin()) {
+                    if (browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) {
+                        //weixin为提示使用浏览器打开的div
+                        $(".js_downbtns").unbind().bind("click", function () {
+                            alert("iOS版本敬请期待");
+                        });
+                    } else {
+                        $(".js_downbtns").click(function () {
+                            $(".js_openweb").show();
+                            $(".js_openweb").unbind().bind("click", function () {
+                                $(this).hide();
+                            });
+                        });
+                    }
+                } else {
+                    if (browser.versions.ios || browser.versions.iPhone || browser.versions.iPad) {
+                        //下载页div
+                        $(".js_downbtns").unbind().bind("click", function () {
+                            alert("iOS版本敬请期待");
+                        });
+                    } else {
+                        window.location = "http://download.gyyx.cn/Default.ashx?typeid=978&netType=1";
+                    }
+                }
+            }
+            init();
+        });
+    </script>
+</body>
+</html>

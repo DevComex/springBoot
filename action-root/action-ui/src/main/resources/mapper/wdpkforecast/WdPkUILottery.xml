@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdpkforecast.IWdPkLotteryMapper">
+	<select id="selectIsAvailable" parameterType="cn.gyyx.action.beans.lottery.po.ActionLotteryLogPO"
+		resultType="cn.gyyx.action.beans.lottery.po.ActionLotteryLogPO">
+		select * from action_lottery_log_tb where (userId=#{userId}
+		or winningIp like '%'+#{winningIp}+'%') and
+		isAvailable=#{isAvailable}
+		and
+		(activityId=400 or activityId =401)
+	</select>
+	<insert id="insertLotteryLog" parameterType="cn.gyyx.action.beans.lottery.po.ActionLotteryLogPO">
+		insert into
+		action_lottery_log_tb
+		(activityType,activityId,userId,prizeType,prizeCode,prizeName,prizeNum,winningAt,winningIp,isAvailable)
+		values
+		(#{activityType},#{activityId},#{userId},#{prizeType},#{prizeCode},#{prizeName},#{prizeNum},#{winningAt},#{winningIp},#{isAvailable});
+
+	</insert>
+
+	<select id="selectUserLotteryInfo" parameterType="String"
+		resultType="cn.gyyx.action.beans.lottery.po.ActionLotteryLogPO">
+		select * from action_lottery_log_tb where userId=#{userId}
+		and (activityId=400 or activityId =401)
+
+
+	</select>
+	<select id="selectAllUserLotteryInfo"
+		resultType="cn.gyyx.action.beans.wdpkforecast.WdPkAllLotteryInfo">
+		select a.roleName,a.serverName,b.prizeName from
+		action_rolebind_tb a left
+		Join action_lottery_log_tb b on
+		a.account=b.userId where b.activityId=#{type}
+	</select>
+
+    <select id="selectUserLotteryInfoBYactioncode" parameterType="cn.gyyx.action.beans.lottery.po.ActionLotteryLogPO"
+		resultType="cn.gyyx.action.beans.lottery.po.ActionLotteryLogPO">
+		select * from action_lottery_log_tb where userId=#{userId}
+		and activityId=#{activityId}
+
+
+	</select>
+	<insert id="insertAllLotteryLog" parameterType="cn.gyyx.action.beans.lottery.po.ActionLotteryLogPO">
+		insert into
+		action_lottery_log_tb
+		(activityType,activityId,gameId,serverId,userId,prizeType,prizeCode,prizeName,prizeNum,winningAt,winningIp,isAvailable)
+		values
+		(#{activityType},#{activityId},#{gameId},#{serverId},#{userId},#{prizeType},#{prizeCode},#{prizeName},#{prizeNum},#{winningAt},#{winningIp},#{isAvailable});
+
+	</insert>
+</mapper>

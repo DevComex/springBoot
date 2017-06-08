@@ -1,0 +1,537 @@
+
+#parse("/shared/top.vm")
+
+<!--标题-->
+<header class="header bg-white b-b clearfix">
+    <div class="col-sm-2 m-t-xs">
+        <h4>作品审核界面</h4>
+    </div>
+</header>
+
+
+<!--列表-->
+<section class="scrollable padder">
+    <div class="m-t-xs"></div>
+    <div class="row m-b-xs">
+                <div class="col-sm-2">
+                    <label style="float: left; margin: 7px 10px 0;">账户</label>
+					<input class = "form-control" placeholder = "账户" style = "float:left;width:120px;" id="account"/>
+              
+                </div>
+                <div class="col-sm-4 m-b-xs">
+                      <label>我的服务器:</label>
+                        <select id="sel_blocklist" ">
+                            <option value="0">请选择区组</option>
+                            <option value="1">网通</option>
+                            <option value="2">电信</option>
+                            <option value="3">双线</option>
+                        </select>
+                        <select id="sel_serverlist" >
+                            <option value="0">请选择服务器</option>
+                        </select>
+                </div>
+                <input type="button"  id="find" class="btn btn-info btn-s-md" value="查询" onclick='find()' />
+    </div>
+    <section class="panel panel-default">
+        <table class="table table-striped m-b-none" id="js_tbLateList">
+
+            <tbody id="js_tbShiftList">
+                <tr>
+                    <td>
+						上传账号
+                    </td>
+                    <td>区组</td>
+                    <td>职业</td>
+                    <td>属性加点（多选）</td>
+                    <td>相性加点（多选）</td>
+                    <td>套装（单选）</td>
+                    <td>法宝（单选）</td>
+                    <td>宠物（可选三只）</td>
+					<td>娃娃（单选）</td>
+					<td>天书（可选三个）</td>
+					<td>支持量</td>
+					<td>支持账号</td>
+					<td>上传时间</td>
+                </tr>
+              #if($flag==1)
+              #foreach ($item in $listtAlternativeSumBean)
+               
+                    <tr>
+                       <td>
+						$item.account
+                    </td>
+                    <td>$item.serverName</td>
+                    <td>$item.occupation</td>
+                    <td>$item.attribute</td>
+                    <td>$item.phase</td>
+                    <td>$item.suit</td>
+                    <td>$item.talisman</td>
+                    <td>$item.pet</td>
+					<td>$item.baby</td>
+					<td>$item.book</td>
+					<td>$item.voteNum</td>
+					<td><a href="#" onclick='showAccount($item.writingCode)' style="color: blue">支持账号详情</a></td>
+					<td>$item.endDateToString()</td>
+                    </tr>
+			  #end
+			  #end
+                #if($flag==0)
+					 <tr>
+                            <td colspan="13">没有相关记录</td>   
+                     </tr>
+				#end
+				 <input name="flag" id="flag" type="hidden"  value='$flag'/ >
+
+            </tbody>
+        </table>
+    </section>
+				<!--翻页功能-->
+ #if($flag==1)
+   <div id="pagenum">
+                                  
+      </div>
+ #end
+</section>
+<script src="http://oa.gyyx.cn/Script/jquery.OASearch.js"></script>
+<script>
+var pageTop=$allpage;
+var pageNum=1;
+var account="";
+var sel_serverlist="";
+$(document).ready(function(){
+    bindServer();
+
+//獲取也碼數
+		var limt=5;
+		if(pageTop<5){
+		limt=pageTop;
+		}
+		//头部
+		  var optHtml = "<footer class='footer bg-white b-t'>"+
+        "<div class='row dataTables_wrapper'>"+
+        "<div class='col-sm-6'>"+
+       "</div>"+
+		"<div class='col-sm-6'>"+
+        "<div class='dataTables_paginate paging_full_numbers' id='DataTables_Table_0_paginate'>";
+		//首页
+		optHtml=optHtml+"<a href='javascript:;' class='first paginate_button' id='firstPage' onclick='toPage(1)'>首页</a>";
+		//上一页
+		optHtml=optHtml+"<a href='javascript:;'class='previous paginate_button'onclick='beforePage()' >上一页</a><span id='pagelista'>";
+		//页码
+		for(var i=1;i<=limt;i++ ){
+		optHtml=optHtml+"<a class='paginate_active' href='javascript:;' onclick=' toPage ("+i+")'>"+i+"</a>";
+		}
+		//下一页
+		optHtml=optHtml+"</span><a href='javascript:;'class='next paginate_button' onclick='nextPage()'>下一页</a>";
+		//末页
+		optHtml=optHtml+"<a href='javascript:;'  class='last paginate_button' onclick='toPage("+pageTop+")'>末页</a>";
+		  $("#pagenum").html(optHtml);
+       });
+		
+		
+		
+function toPage (pageNo) {
+$.
+ajax({
+        url: rc+"/oapredicable/writingInfoList",
+        type: "get",
+        data: {
+		    pageNum:pageNo,
+            r: Math.random()
+        },
+        success: function (result) {
+		pageNum=pageNo;
+		$("#js_tbShiftList").html(result);
+		
+	
+		
+		var stroyString=  $("#info").val();
+		$("#DataTables_Table_0_info").html(stroyString);
+				if(pageTop>5){
+		$("#pagelista").html("");
+		var pagehtml="";
+		var begin=1;
+		var end=pageTop;
+
+		if(pageNum>3){
+		begin=pageNum-2;
+		if(pageNum+2<=pageTop){
+		end=pageNum+2;
+		}
+		}
+		
+		else{
+		end=5;
+		if(pageTop<5){
+		end=pageTop;
+		}
+		}
+		if(end-begin<4){
+		begin=end-4;
+		}
+		for(var i=begin;i<=end;i++ ){
+		pagehtml=pagehtml+"<a class='paginate_active' href='javascript:;' onclick=' toPage ("+i+")'>"+i+"</a>";
+		}
+		$("#pagelista").html(pagehtml);
+		}
+		},
+		error: function (result){
+		alert("获取页码失败");
+		}
+		   }) ;
+} 
+//向上翻页
+function beforePage(){
+if(pageNum==1){
+alert("已经是第一页");
+}
+else{
+var pageNo=pageNum-1;
+$.
+ajax({
+        url: rc+"/oapredicable/writingInfoList",
+        type: "get",
+        data: {
+		    pageNum:pageNo,
+            r: Math.random()
+        },
+        success: function (result) {
+		pageNum=pageNo;
+		$("#js_tbShiftList").html(result);
+	
+	    var stroyString=  $("#info").val();
+		$("#DataTables_Table_0_info").html(stroyString);
+				if(pageTop>5){
+		$("#pagelista").html("");
+		var pagehtml="";
+		var begin=1;
+		var end=pageTop;
+
+		if(pageNum>3){
+		begin=pageNum-2;
+		if(pageNum+2<=pageTop){
+		end=pageNum+2;
+		}
+		}
+		
+		else{
+		end=5;
+		if(pageTop<5){
+		end=pageTop;
+		}
+		}
+		if(end-begin<4){
+		begin=end-4;
+		}
+		for(var i=begin;i<=end;i++ ){
+		pagehtml=pagehtml+"<a class='paginate_active' href='javascript:;' onclick=' toPage ("+i+")'>"+i+"</a>";
+		}
+		$("#pagelista").html(pagehtml);
+		}
+		},
+		error: function (result){
+		alert("获取页码失败");
+		}
+		   }) ;
+
+}
+}
+
+//向下翻页
+function nextPage(){
+if(pageNum==pageTop){
+alert("已经最后一页");
+}
+else{
+var pageNo=pageNum+1;
+$.
+ajax({
+        url: rc+"/oapredicable/writingInfoList",
+        type: "get",
+        data: {
+		    pageNum:pageNo,
+            r: Math.random()
+        },
+        success: function (result) {
+		pageNum=pageNo;
+		$("#js_tbShiftList").html(result);
+			
+			var stroyString=  $("#info").val();
+		$("#DataTables_Table_0_info").html(stroyString);
+				if(pageTop>5){
+		$("#pagelista").html("");
+		var pagehtml="";
+		var begin=1;
+		var end=pageTop;
+
+		if(pageNum>3){
+		begin=pageNum-2;
+		if(pageNum+2<=pageTop){
+		end=pageNum+2;
+		}
+		}
+		
+		else{
+		end=5;
+		if(pageTop<5){
+		end=pageTop;
+		}
+		}
+		if(end-begin<4){
+		begin=end-4;
+		}
+		for(var i=begin;i<=end;i++ ){
+		pagehtml=pagehtml+"<a class='paginate_active' href='javascript:;' onclick=' toPage ("+i+")'>"+i+"</a>";
+		}
+		$("#pagelista").html(pagehtml);
+		}
+		},
+		error: function (result){
+		alert("获取页码失败");
+		}
+		   }) ;
+
+}
+}
+
+	function find(){
+	pageNum=1;
+	account=$("#account").val();
+	sel_serverlist=$("#sel_serverlist").find("option:selected").text();
+	if(sel_serverlist=='请选择服务器')
+	{
+	sel_serverlist="";
+	}
+	$.
+	ajax({
+        url:rc+"/oapredicable/getWritingByFilter",
+        type: "get",
+        data: {
+		serverName:sel_serverlist,
+		account:account,
+            r: Math.random()
+        },
+        success: function (result) {
+		$("#js_tbShiftList").html(result);
+		pageTop=$("#pageAllHidden").val();
+		 var flag=$("#flag").val();
+	   if(flag==0){
+	     $("#pagenum").html("");
+	   }
+	   else{
+		//头部
+		  var optHtml = "<footer class='footer bg-white b-t'>"+
+        "<div class='row dataTables_wrapper'>"+
+        "<div class='col-sm-6'>"+
+       "</div>"+
+		"<div class='col-sm-6'>"+
+        "<div class='dataTables_paginate paging_full_numbers' id='DataTables_Table_0_paginate'>";
+		//首页
+		optHtml=optHtml+"<a href='javascript:;' class='first paginate_button' id='firstPage' onclick='toPageCondition(1)'>首页</a>";
+		//上一页
+		optHtml=optHtml+"<a href='javascript:;'class='previous paginate_button'onclick='beforePageCondition()' >上一页</a><span id='pagelista'>";
+		//页码
+		for(var i=1;i<=result.data;i++ ){
+		optHtml=optHtml+"<a class='paginate_active' href='javascript:;' onclick=' toPageCondition("+i+")'>"+i+"</a>";
+		}
+		//下一页
+		optHtml=optHtml+"</span><a href='javascript:;'class='next paginate_button' onclick='nextPagetoPageCondition()'>下一页</a>";
+		//末页
+		optHtml=optHtml+"<a href='javascript:;'  class='last paginate_button' onclick='toPageCondition("+pageTop+")'>末页</a>";
+		  $("#pagenum").html(optHtml);
+        }
+		}
+	   }) ;
+	  
+
+}
+function toPageCondition (pageNo) {
+$.
+ajax({
+        url: rc+"/oapredicable/getWritingByFilterForPage",
+        type: "get",
+        data: {
+		pageNum:pageNo,
+            r: Math.random()
+        },
+        success: function (result) {
+		pageNum=pageNo;
+		$("#js_tbShiftList").html(result);
+				if(pageTop>5){
+		$("#pagelista").html("");
+		var pagehtml="";
+		var begin=1;
+		var end=pageTop;
+
+		if(pageNum>3){
+		begin=pageNum-2;
+		if(pageNum+2<=pageTop){
+		end=pageNum+2;
+		}
+		}
+		
+		else{
+		end=5;
+		if(pageTop<5){
+		end=pageTop;
+		}
+		}
+		if(end-begin<4){
+		begin=end-4;
+		}
+		for(var i=begin;i<=end;i++ ){
+		pagehtml=pagehtml+"<a class='paginate_active' href='javascript:;' onclick=' toPage ("+i+")'>"+i+"</a>";
+		}
+		$("#pagelista").html(pagehtml);
+		}
+		},
+		error: function (result){
+		alert("获取页码失败");
+		}
+		   }) ;
+		   }
+		   //向上翻页
+function beforePageCondition(){
+if(pageNum==1){
+alert("已经是第一页");
+}
+else{
+var pageNo=pageNum-1;
+$.
+ajax({
+        url:  rc+"/oapredicable/getWritingByFilterForPage",
+        type: "get",
+       data: {
+		pageNum:pageNo,
+            r: Math.random()
+        },
+        success: function (result) {
+		pageNum=pageNo;
+		$("#js_tbShiftList").html(result);
+				if(pageTop>5){
+		$("#pagelista").html("");
+		var pagehtml="";
+		var begin=1;
+		var end=pageTop;
+
+		if(pageNum>3){
+		begin=pageNum-2;
+		if(pageNum+2<=pageTop){
+		end=pageNum+2;
+		}
+		}
+		
+		else{
+		end=5;
+		if(pageTop<5){
+		end=pageTop;
+		}
+		}
+		if(end-begin<4){
+		begin=end-4;
+		}
+		for(var i=begin;i<=end;i++ ){
+		pagehtml=pagehtml+"<a class='paginate_active' href='javascript:;' onclick=' toPage ("+i+")'>"+i+"</a>";
+		}
+		$("#pagelista").html(pagehtml);
+		}
+		},
+		error: function (result){
+		alert("获取页码失败");
+		}
+		   }) ;
+
+}
+}
+
+//向下翻页
+function nextPagetoPageCondition(){
+if(pageNum==pageTop){
+alert("已经最后一页");
+}
+else{
+var pageNo=pageNum+1;
+$.
+ajax({
+        url:  rc+"/oapredicable/getWritingByFilterForPage",
+        type: "get",
+       data: {
+		pageNum:pageNo,
+            r: Math.random()
+        },
+        success: function (result) {
+		pageNum=pageNo;
+		$("#js_tbShiftList").html(result);
+			
+				if(pageTop>5){
+		$("#pagelista").html("");
+		var pagehtml="";
+		var begin=1;
+		var end=pageTop;
+
+		if(pageNum>3){
+		begin=pageNum-2;
+		if(pageNum+2<=pageTop){
+		end=pageNum+2;
+		}
+		}
+		
+		else{
+		end=5;
+		if(pageTop<5){
+		end=pageTop;
+		}
+		}
+		if(end-begin<4){
+		begin=end-4;
+		}
+		for(var i=begin;i<=end;i++ ){
+		pagehtml=pagehtml+"<a class='paginate_active' href='javascript:;' onclick=' toPage ("+i+")'>"+i+"</a>";
+		}
+		$("#pagelista").html(pagehtml);
+		}
+		},
+		error: function (result){
+		alert("获取页码失败");
+		}
+		   }) ;
+
+}
+}
+function showAccount(code){
+
+window.open(rc+"/oapredicable/account?writingCode="+code);     
+}
+function bindServer() {
+    var blockobj = $("#sel_blocklist");
+    blockobj.val(0).change(function () {
+        if ($(this).val() != "0") {
+            $.
+			ajax({
+                url: rc+"/oapredicable/getServers",
+                type: "POST",
+                typeCode: "JSON",
+                data: {
+                    netType: $(this).val(), 
+                    r: Math.random()
+                },
+                success: function (data) {
+                    if (data.isSuccess) {
+                        var optionhtml = "",
+                            arrSer = data.data;
+                        for (var i = 0; l = arrSer.length, i < l; i++) {
+                            optionhtml += "<option value='" + data.data[i].code + "'>" + data.data[i].serverName + "</option>"
+                        }
+                        $("#sel_serverlist").empty().html(optionhtml);
+                    } else {
+                        alert(data.message);
+                    }
+                }
+            });
+        } else {
+            $("#sel_serverlist").empty().html("<option value='0'>请选择服务器</option>");
+        }
+    });
+}
+</script>
+ #parse("/shared/footer.vm")

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>终极酷跑</title>
+<link rel="stylesheet" href="http://static.cn114.cn/action/zjkpLottery/css/run151208.css" />
+<script  type="text/javascript">
+    var rc = "${rc.contextPath}";
+</script>
+<script type="text/javascript" src="http://static.cn114.cn/action/zjkpLottery/js/jquery-1.8.3.min.js"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=xuanwuba" type="text/javascript"></script>
+<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+var _hmt = _hmt || [];
+	(function() {
+ 	 var hm = document.createElement("script");
+ 	 hm.src = "//hm.baidu.com/hm.js?4f81c5d615a18182f234e4e54d70c18a";
+  	var s = document.getElementsByTagName("script")[0]; 
+  	s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+
+</head>
+<body>
+	<div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+	<div class="wrap">
+		<div class="wrapBox">
+			<div class="main">
+				<div class="header">
+					<span class="hdCont">抽奖活动时限：2015.XX.XX-2015.XX.XX</span>
+					<div class="loginBox">
+						<!--登录前-->
+						<div class="login"><a href="javascript:;">账号登陆</a></div>
+						<!--登录后-->
+						<div class="success" style="display: none;"><p class="p01">欢迎您：<b class="uname"></b><a href="javascript:;" class="js_Logout">退出登录</a></p>
+							<p class="p02"><a href="javascript:void(0)" class="myinfo">我的中奖信息</a><a href="javascript:;" class="myadd">完善中奖地址</a></p>
+						</div>
+					</div>
+					<div class="cjBox">
+						<div class="cjList">
+							<a href="javascript:void(0);" class="cjBtn noTxt js_start">抽奖</a>
+							<!--<div class="on"><span class="sp01 js_rotate zhen"></span></div>-->
+							<img class="on sp01 js_rotate zhen" src="http://static.cn114.cn/action/zjkpLottery/images/zhen.png"/>
+							
+							<div><span class="sp02"></span></div>
+							<div><span class="sp03"></span></div>
+							<div><span class="sp04"></span></div>
+							<div><span class="sp05"></span></div>
+							<div><span class="sp06"></span></div>
+						</div>
+						<div class="cjCont">
+							<h3>活动说明</h3>
+							<p>1. 玩家可通过登录光宇通行证每天进行一次抽奖</p>
+							<p>2. 中奖后请完善中奖地址，虚拟奖励可从中奖信息中查询</p>
+							<p>3. 实物奖品将在活动结束后7个工作日内发放</p>
+						</div>
+					</div>
+					<div class="zjList">
+						<div class="zjMenu">
+							<ul class="zjUl alljianginfo" style="width:180px;" >
+								<li><span>ce***an</span><i>纵横币1000个</i></li>
+								<li><span>sd***ds</span><i>U盘</i></li>
+								<li><span>ms***nn</span><i>纵横币1000个</i></li>
+								<li><span>cr***an</span><i>纵横币1000个</i></li>
+								<li><span>re***ui</span><i>50元京东卡</i></li>
+								<li><span>hi***lp</span><i>U盘</i></li>
+								<li><span>s6***56</span><i>游戏礼包</i></li>
+								<li><span>er***10</span><i>纵横币1000个</i></li>
+								<li><span>sh***95</span><i>鼠标垫</i></li>
+								<li><span>ku***00</span><i>50元京东卡</i></li>
+								<li><span>op***hq</span><i>《终极教师2》网剧主角签名照片</i></li>
+								<li><span>bx***x2</span><i>纵横币1000个</i></li>
+								<li><span>ji***a9</span><i>游戏礼包</i></li>
+								<li><span>l0***56</span><i>游戏礼包</i></li>
+								<li><span>zs***57</span><i>纵横币1000个</i></li>
+								<li><span>sd***f9</span><i>《终极教师2》网剧主角签名照片</i></li>
+								<li><span>ui***k3</span><i>U盘</i></li>
+								<li><span>y7***65</span><i>游戏礼包</i></li>
+								<li><span>io***d5</span><i>《终极教师2》网剧主角签名照片</i></li>
+								<li><span>a5***50</span><i>纵横币1000个</i></li>
+								<li><span>ce***an</span><i>纵横币1000个</i></li>
+								<li><span>sd***ds</span><i>U盘</i></li>
+								<li><span>ms***nn</span><i>纵横币1000个</i></li>
+								<li><span>cr***an</span><i>纵横币1000个</i></li>
+								<li><span>re***ui</span><i>50元京东卡</i></li>
+								<li><span>hi***lp</span><i>U盘</i></li>
+								<li><span>s6***56</span><i>游戏礼包</i></li>
+								<li><span>er***10</span><i>纵横币1000个</i></li>
+								<li><span>sh***95</span><i>鼠标垫</i></li>
+								<li><span>ku***00</span><i>50元京东卡</i></li>
+								<li><span>op***hq</span><i>《终极教师2》网剧主角签名照片</i></li>
+								<li><span>bx***x2</span><i>纵横币1000个</i></li>
+								<li><span>ji***a9</span><i>游戏礼包</i></li>
+								<li><span>l0***56</span><i>游戏礼包</i></li>
+								<li><span>zs***57</span><i>纵横币1000个</i></li>
+								<li><span>sd***f9</span><i>《终极教师2》网剧主角签名照片</i></li>
+								<li><span>ui***k3</span><i>U盘</i></li>
+								<li><span>y7***65</span><i>游戏礼包</i></li>
+								<li><span>io***d5</span><i>《终极教师2》网剧主角签名照片</i></li>
+								<li><span>a5***50</span><i>纵横币1000个</i></li>
+							</ul>
+						</div>
+					</div>
+					<div class="ewmBox">
+						<h3 class="ewmTit noTxt">扫描二给码下载</h3>
+						<div class="ewmPart">
+							<div class="ewmPic" style="display: block;"><img src="http://static.cn114.cn/action/zjkpLottery/images/anzhuo.png"></div>
+							<div class="ewmPic"><img src="http://static.cn114.cn/action/zjkpLottery/images/run151209_ewm.jpg"></div>
+							<div class="ewmPic"><img src="http://static.cn114.cn/action/zjkpLottery/images/run151209_ewm.jpg"></div>
+						</div>
+						<ul class="ewmBtn">
+							<li class="on"><a href="#" class="a01 noTxt">安卓下载</a></li>
+							<li><a href="#" class="a02 noTxt">ios官方下载</a></li>
+							<li><a href="#" class="a03 noTxt">ios越狱下载</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="runCont">
+					<h2 class="runTit">名人明星深度品鉴</h2>
+					<div class="runPeop right">
+						<span class="runPic"><a href="javascript:;"><img src="http://static.cn114.cn/action/zjkpLottery/images/liuxiahui.jpg"></a></span>
+						<div class="runTxt">
+							<div class="runTit01">
+								<h3>柳下挥</h3>
+								<span>著名网络作家大神级人物，都市娱乐高人气小说《终极教师》作者</span>
+							</div>
+							<p>为终极教师小说订制的手机游戏，画面和操作都不错，在还原了小说精髓的基础上更加有趣味性和竞技性了，大家快来试试吧！</p>
+						</div>
+					</div>
+					<div class="runPeop left">
+						<span class="runPic"><a href="javascript:;"><img src="http://static.cn114.cn/action/zjkpLottery/images/run151208_pic01.jpg"></a></span>
+						<div class="runTxt">
+							<div class="runTit01">
+								<h3>孙佳奇</h3>
+								<span>终极教师系列游戏代言人&女神校长&萧才人&湖南卫视恋家有方女1号</span>
+							</div>
+							<p>游戏深度植入小说以及网剧的剧情，玩游戏的同时可以再次体验经典剧情和故事，使游戏过程很美妙。</p>
+						</div>
+					</div>
+					<div class="runPeop right">
+						<span class="runPic"><a href="javascript:;"><img src="http://static.cn114.cn/action/zjkpLottery/images/puyongming.jpg"></a></span>
+						<div class="runTxt">
+							<div class="runTit01">
+								<h3>老菩</h3>
+								<span>光宇游戏VP&《终极教师2》出品人</span>
+							</div>
+							<p>终极教师将有一些列游戏面世，每一款都是超越经典的作品，敬请期待！</p>
+						</div>
+					</div>
+					<div class="runPeop left">
+						<span class="runPic"><a href="javascript:;"><img src="http://static.cn114.cn/action/zjkpLottery/images/liufeng.jpg"></a></span>
+						<div class="runTxt">
+							<div class="runTit01">
+								<h3>刘丰</h3>
+								<span>百度文学CEO</span>
+							</div>
+							<p>这是百度小说人气榜上难得一见的好作品，《终极酷跑》革命性的创新玩法让这个IP更加强大。</p>
+						</div>
+					</div>
+					<div class="runPeop right">
+						<span class="runPic"><a href="javascript:;"><img src="http://static.cn114.cn/action/zjkpLottery/images/songlonglong.jpg"></a></span>
+						<div class="runTxt">
+							<div class="runTit01">
+								<h3>宋隆龙</h3>
+								<span>《终极教师2》导演；《武媚娘传奇》执行导演</span>
+							</div>
+							<p>做游戏与做影视一样需要用心，首创的CRPG玩法突破了传统关卡式的酷跑游戏。</p>
+						</div>
+					</div>
+					<div class="runPeop left">
+						<span class="runPic"><a href="javascript:;"><img src="http://static.cn114.cn/action/zjkpLottery/images/mengqinghan.jpg"></a></span>
+						<div class="runTxt">
+							<div class="runTit01">
+								<h3>孟庆翰</h3>
+								<span>金牌制作人</span>
+							</div>
+							<p>创新永远是制作人追求的目标，这款游戏首创的全国互联PK竞技的玩法，是我认为最有说服力的创新。</p>
+						</div>
+					</div>
+					<div class="runPeop right">
+						<span class="runPic"><a href="javascript:;"><img src="http://static.cn114.cn/action/zjkpLottery/images/zhaoxueyan.jpg"></a></span>
+						<div class="runTxt">
+							<div class="runTit01">
+								<h3>赵雪薇</h3>
+								<span>《终极教师2》美女编导</span>
+							</div>
+							<p>听说跑酷和虐友更配哦，这款游戏可以用来虐友的特性和方岩一样贱贱的。</p>
+						</div>
+					</div>
+					<div class="runPeop left">
+						<span class="runPic"><a href="javascript:;"><img src="http://static.cn114.cn/action/zjkpLottery/images/yewenrou.jpg"></a></span>
+						<div class="runTxt">
+							<div class="runTit01">
+								<h3>叶温柔</h3>
+								<span>剧中人物</span>
+							</div>
+							<p>方炎！即使你在《终极酷跑》里逃到天涯海角！我也要把你挫骨扬灰！！！</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	 <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div>
+	<!--中奖游戏礼包-->
+	<div class="runTc libao" style="display: none;">
+		<h3 class="tcTit"><img src="http://static.cn114.cn/action/zjkpLottery/images/run151208_tcTit01.png"></h3>
+		<div class="tcCont">
+			<h4>安卓版游戏礼包</h4>
+			<p>
+			<b></b><i>4563453575</i>
+			</p>
+			<a href="javascript:;" class="tcBtn noTxt js_submit">确定</a>
+		</div>
+	</div>
+	<!--中奖U盘-->
+	<div class="runTc tc02 upan" style="display: none;">
+		<h3 class="tcTit"><img src="http://static.cn114.cn/action/zjkpLottery/images/run151208_tcTit01.png"></h3>
+		<div class="tcCont">
+			<h4>U盘</h4>
+			<div class="tcDiv01">
+				<a href="javascript:;" class="tcBtn noTxt js_submit" >确定</a>
+			</div>
+			<p>请在"<a href="javascript:;" class="myadd">完善中奖地址</a>"处填写您的邮寄地址。</p>
+		</div>
+	</div>
+	<!--完善中奖地址-->
+	<div class="runTc tc03 address" style="display: none;">
+		<a href="javascript:;" class="close"></a>
+		<h3 class="tcTit"><img src="http://static.cn114.cn/action/zjkpLottery/images/run151208_tcTit02.png"></h3>
+		<div class="tcCont">
+			<div class="tcDiv"><label>姓名:</label><input type="text" class="inpTxt" id="uName"></div>
+			<div class="tcDiv"><label>手机:</label><input type="text" class="inpTxt" id="uPhone"></div>
+			<div class="tcDiv"><label>地址:</label><textarea class="inpTxt inp01" id="uAddress"></textarea></div>
+			<div class="tcDiv01">
+				<a href="javascript:;" class="tcBtn noTxt" id="js_submit">确定</a>
+			</div>
+			<p>奖品将在活动结束后统一邮寄，请耐心等待！</p>
+		</div>
+	</div>
+	<!--中奖信息-->
+	<div class="runTc tc04 info" style="display: none;">
+		<a href="javascript:;" class="close"></a>
+		<h3 class="tcTit"><img src="http://static.cn114.cn/action/zjkpLottery/images/run151208_tcTit03.png"></h3>
+		<div class="tcCont">
+			<div class="zjMenu">
+				<div class="zjUl">
+					<ul class="myjianginfo">
+						
+					</ul>
+				</div>
+			</div>
+			<div class="slider"><!--滚动条-->
+	          <div class="arrowUp">&nbsp;</div>
+	          <div class="track">
+	            <div class="thumb">&nbsp;</div>
+	          </div>
+	          <div class="arrowDown">&nbsp;</div>
+	        </div><!--滚动条 end-->
+		</div>
+	</div>
+	<!--活动已结束-->
+	<div class="runTc tc05 end" style="display: none;">
+		<h3 class="tcTit"><img src="http://static.cn114.cn/action/zjkpLottery/images/run151208_tcTit04.png"></h3>
+		<div class="tcCont">
+			<h4>活动已结束</h4>
+			<a href="javascript:;" class="tcBtn noTxt js_submit">确定</a>
+		</div>
+	</div>
+	<!--您今日的抽奖机会已用完-->
+	<div class="runTc tc05 over" style="display: none;">
+		<h3 class="tcTit"><img src="http://static.cn114.cn/action/zjkpLottery/images/run151208_tcTit04.png"></h3>
+		<div class="tcCont">
+			<h4>您今日的抽奖机会已用完</h4>
+			<a href="javascript:;" class="tcBtn noTxt js_submit">确定</a>
+		</div>
+	</div>
+	<!--敬请期待-->
+	<div class="runTc tc05 expect" style="display: none;">
+		<h3 class="tcTit"><img src="http://static.cn114.cn/action/zjkpLottery/images/run151208_tcTit04.png"></h3>
+		<div class="tcCont">
+			<h4>活动尚未开启，敬请期待</h4>
+			<a href="javascript:;" class="tcBtn noTxt js_submit">确定</a>
+		</div>
+	</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/zjkpLottery/js/ymcore.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/zjkpLottery/js/ymscrollbar.min.js"></script>
+<script>
+/*我的中奖信息弹框*/
+	$(".p02").on("click",".myinfo",function(){
+		$(".info").show();
+		$(".myjianginfo").getPrizeList();
+	})
+</script>
+<script src="http://static.cn114.cn/action/zjkpLottery/js/jQueryRotate.2.2.js"></script>
+<script src="http://static.cn114.cn/action/zjkpLottery/js/jquery.easing.min.js"></script>
+<script src="http://static.cn114.cn/action/zjkpLottery/js/index.js"></script>
+<script src="http://static.cn114.cn/action/zjkpLottery/js/jquery.zclip.min.js"></script>
+<script>
+	/*关闭按钮*/
+	$(".address .close").on("click",function(){
+		$(".address").css("display","none");
+	})
+	/*复制功能*/
+	//$('.libao').on("click",".tcCopy",function(){
+		
+	    //$(this).off("click");
+		//$('.tcCopy').zclip( {
+	    //  path : 'http://static.cn114.cn/action/zjkpLottery/js/ZeroClipboard.swf',
+	    //  copy : function() {return $('.libao i').html();},
+	  	//  afterCopy : function() { return false; }
+	    //});
+	//})
+	
+	/*游戏安卓下载*/
+	$(".a01").on("click",function(){
+		$(this).attr("href","http://download.gyyx.cn/Default.ashx?typeid=978&netType=1");
+	})
+	/*游戏IOS官方下载*/
+	$(".a02").on("click",function(){
+		$(".expect h4").html("敬请期待");
+		$(".expect").css("display","block");
+	})
+	/*游戏IOS越狱下载*/
+	$(".a03").on("click",function(){
+		$(".expect h4").html("敬请期待");
+		$(".expect").css("display","block");
+	})
+	/*所有中奖信息*/
+	/*$(".alljianginfo").getAllPrizeList();*/
+	
+	
+	$(".js_submit").on("click",function(){
+		$(this).parents(".runTc").css("display","none");
+	})
+	$(".info").on("click",".close",function(){
+		$(".info").css("display","none");
+	})
+	/*完善中奖地址弹框*/
+	$(".myadd").on("click",function(){
+	    $(".upan").css("display","none");
+		$(".myadd").subInfo();
+	})
+	var times;
+	lunbo();
+	function lunbo(){
+		clearInterval(times);
+		var i=0;
+		times = setInterval(function(){
+			if(i==22){
+				i=0;
+			}
+			$(".alljianginfo").css({
+				"top":-30*i+"px"
+			})
+			i++;
+		},1000);
+		$(".alljianginfo").on("mouseover",function(){
+			clearInterval(times);
+		})
+		$(".alljianginfo").on("mouseleave",function(){
+			clearInterval(times);
+			times = setInterval(function(){
+			//$(".alljianginfo").append($(".alljianginfo li").eq(0));
+			if(i==22){
+				i=0;
+			}
+			$(".alljianginfo").css({
+				"top":-30*i+"px"
+			})
+			i++;
+		},1000);
+		})
+	}
+	
+</script>
+
+<script>
+	$(function () {
+        $(".ewmBtn li").hover(function(){
+        	var i = $(this).index();
+        	$(".ewmPart div").css("display","none");
+        	$(".ewmPart div").eq(i).css("display","block");
+        })
+        $(".js_start").on("click",function(){
+    		$(this).lottry();
+    	});
+    	
+	});
+	
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdtenyearpicture.IScoreLog">
+
+	<resultMap type="WDTenYearScoreLogBean" id="ScoreBeanMap">
+		<id column="code" property="code" />
+		<result column="score" property="score" />
+		<result column="user_code" property="userCode" />
+		<result column="account" property="account" />
+		<result column="hd_code" property="hdCode" />
+		<result column="hd_name" property="hdName" />
+		<result column="creat_time" property="creatTime" />
+
+	</resultMap>
+
+	<insert id="addScoreLog">
+		insert into wd_tenyears_score_log
+		(score,user_code,account,hd_code,hd_name)
+		values
+		(#{score},#{userCode},#{account},#{hdCode},#{hdName})
+
+	</insert>
+	<select id="getScoreLogHdName" resultType="String">
+		select hd_name from
+		wd_tenyears_score_log
+		group by hd_name
+	</select>
+	<select id="getSumScoreByHdNameAndAccount" resultType="int">
+		select
+		sum(score ) from wd_tenyears_score_log
+		where
+		hd_name=#{hdName} and
+		account=#{account}
+	</select>
+</mapper>

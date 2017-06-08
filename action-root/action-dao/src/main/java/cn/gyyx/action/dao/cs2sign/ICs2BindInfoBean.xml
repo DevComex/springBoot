@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.cs2sign.ICs2BindInfoBean">
+	<resultMap type="cn.gyyx.action.beans.cs2sign.Cs2BindInfoBean" id="Cs2BindInfoBeanMap">
+		<id column="code" property="code" />
+		<result column="server" property="server" />
+		<result column="server_ip" property="serverIp" />
+		<result column="server_port" property="serverPort" />
+		<result column="character" property="character" />
+		<result column="account" property="account" />
+	</resultMap>
+	<insert id="insertCs2BindInfoBean" useGeneratedKeys="true" keyProperty="code" parameterType="cn.gyyx.action.beans.cs2sign.Cs2BindInfoBean">
+		insert into cs2_bind_info
+		(server,server_ip,server_port,character,account)
+		values
+		(#{server},#{serverIp},#{serverPort},#{character},#{account})
+	</insert>
+	
+	
+	
+	<select id="selectCs2BindInfoBeanByAccount" resultMap="Cs2BindInfoBeanMap">
+		select * from cs2_bind_info where account = #{account}
+	</select>
+	<select id="selectCs2BindInfoCountByServerAndChar" resultType="int">
+		select COUNT(code) from cs2_bind_info where server = #{server} and character = #{character}
+	</select>
+</mapper>

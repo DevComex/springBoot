@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.IMissionMapper">
+		<resultMap type="MissionBean" id="MissionMap">
+		<id column="code" property="code" />
+		<result column="mission_name" property="missionName" />
+		<result column="mission_state" property="missionState" />
+		<result column="mission_credits" property="missionCredits" />
+		<result column="mission_type" property="missionType" />
+		<result column="mission_publishtime" property="missionPublishTime" />
+		<result column="mission_closetime" property="missionCloseTime" />
+		<result column="mission_closestatus" property="missionCloseStatus" />
+		<result column="recommend_tags" property="recommendTags" />
+		<result column="mission_url" property="missionUrl" />
+		<result column="upload_num" property="uploadNum" />
+		<result column="Sign_num" property="SignNum" />
+		
+	</resultMap>
+	
+  <!-- 查询所有任务信息 -->
+  <select id="getMission" parameterType="int" resultMap="MissionMap">
+  	select TOP 10 *  from xuanwuba_mission_tb 
+		where 
+		(code NOT IN 
+		(SELECT TOP 
+		(10*(#{page}-1)) 
+		code 
+		FROM 
+		xuanwuba_mission_tb 
+		)) 
+  </select>
+  
+  <!-- 查询所有任务信息 -->
+  <select id="getMissionTotal" resultType="int">
+  	select count(*) from xuanwuba_mission_tb 
+  </select>
+
+  
+ <!-- 增加任务信息 -->
+	<insert id="addMission" parameterType="MissionBean">
+		insert into xuanwuba_mission_tb  
+		(mission_name,mission_state,mission_credits,mission_type,mission_publishtime,mission_closetime,mission_closestatus,recommend_tags,mission_url,upload_num,Sign_num) 
+		values(#{missionName},#{missionState},#{missionCredits},#{missionType},#{missionPublishTime},#{missionCloseTime},#{missionCloseStatus},#{recommendTags},#{missionUrl},#{uploadNum},#{SignNum})
+	</insert>
+	  <!-- 编辑任务信息 -->
+ <update id="updateMission" parameterType="MissionBean">
+ 	
+		  update xuanwuba_mission_tb set [mission_name]=#{missionName},[mission_state]=#{missionState},[mission_credits]=#{missionCredits},[mission_type]=#{missionType},[mission_closestatus]=#{missionCloseStatus} ,[recommend_tags]=#{recommendTags},[mission_url]=#{missionUrl},[upload_num]=#{uploadNum},[Sign_num]=#{SignNum} where code=#{code}
+	
+  </update>
+
+   <update id="missionClose" parameterType="MissionBean">
+ 	
+		  update xuanwuba_mission_tb set [mission_closetime]=#{missionCloseTime},[mission_closestatus]=#{missionCloseStatus} where code=#{code}
+	
+  </update>
+    <!-- 模糊查询所有任务信息 -->	
+  <select id="getMissionBy" resultMap="MissionMap" parameterType="NewPageBean">
+  
+  	  		<![CDATA[select TOP (#{pageSize})
+	[code]
+	,[row_num]
+      ,[mission_name]
+      ,[mission_state]
+      ,[mission_credits]
+      ,[mission_type]
+      ,[mission_publishtime]
+      ,[mission_closetime]
+      ,[mission_closestatus]
+      ,[recommend_tags]
+      ,[mission_url]
+      ,[upload_num]
+      ,[Sign_num]
+		from (
+		SELECT ROW_NUMBER() OVER (ORDER BY code DESC) AS
+		row_num,* FROM
+		xuanwuba_mission_tb 
+		) A
+		WHERE row_num
+		> (#{pageSize}*(#{pageIndex}-1))
+        ]]>
+		<if
+			test="missionType!= null and missionType!= ''">
+		<![CDATA[
+					and  mission_type=#{missionType}
+		]]>
+		</if>
+		<if
+			test="missionCloseStatus!= null and missionCloseStatus!= ''">
+		<![CDATA[
+					and  mission_closestatus=#{missionCloseStatus}
+		]]>
+		</if>
+		<if
+			test="recommendTags!= null and recommendTags!= ''">
+		<![CDATA[
+					and  recommend_tags=#{recommendTags}
+		]]>
+		</if>
+		
+		<![CDATA[
+			ORDER BY code desc
+		]]>
+  </select>
+
+    <!-- 模糊查询所有任务信息条数 -->	
+  <select id="getMissionCount" resultType="int" parameterType="NewPageBean">
+  
+  	  		<![CDATA[ select count(*)
+        FROM xuanwuba_mission_tb WHERE code>0 
+        ]]>
+		<if
+			test="missionType!= null and missionType!= ''">
+		<![CDATA[
+					and  mission_type=#{missionType}
+		]]>
+		</if>
+		<if
+			test="missionCloseStatus!= null and missionCloseStatus!= ''">
+		<![CDATA[
+					and  mission_closestatus=#{missionCloseStatus}
+		]]>
+		</if>
+		<if
+			test="recommendTags!= null and recommendTags!= ''">
+		<![CDATA[
+					and  recommend_tags=#{recommendTags}
+		]]>
+		</if>
+		
+		
+  </select>
+	<!-- 根据code查询任务信息 -->
+	<select id="getMissionInfoByCode" parameterType="int" resultMap="MissionMap">
+		select * from xuanwuba_mission_tb where code = #{code} 
+	</select>
+
+	<!-- 查询推荐任务信息 -->
+	<select id="getPubMissionInfo" resultMap="MissionMap">
+		select top 1 * from xuanwuba_mission_tb where recommend_tags = 1
+	</select>
+</mapper>

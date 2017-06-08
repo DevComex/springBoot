@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>问道十一黄金周活动</title>
+    <link href="http://qibao.gyyx.cn/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+	
+   <link rel="stylesheet" href="http://static.cn114.cn/action/nationalday/css/common.css"/>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/nationalday/css/sign_two_k.css"/>
+	<link rel="stylesheet" href="http://static.cn114.cn/action/nationalday/css/login.css"/>
+	 <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+
+    <script  type="text/javascript">
+	    var rc = "${rc.contextPath}";
+	    var footUrl = 1;
+    </script>
+    <script src="http://static.cn114.cn/action/nationalday/js/common.js"></script>
+    <script src="http://static.cn114.cn/action/nationalday/js/sign_two.js"></script>
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?23a40748351463af7ca9bcabebf97927";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+</head>
+<body>
+<!-- header公共部分 -->
+<section class="wrap">
+    <div class="time">活动时间：10月1日-10月7日</div>
+<!-- header公共部分 -->
+    <!-- 签到部分 -->
+	<div class="popup_address hide" id="jifenPop">
+            <div class="popup_prize02">
+                <img id="adress_picture" src="http://static.cn114.cn/action/nationalday/images/iphone6p.png" alt=""/>
+                <h2 class="popup_address_w01" id="jifenPopTip">恭喜您：获得了平板包！</h2>
+                <p >为了保证您可以收到奖励，请谨慎填写收件地址哦~</p>
+
+                <form action="">
+                    <ul class="popup_address_ipt">
+                        <li><label>姓　名</label><input type="text"  id="pointName" maxlength="6" minlength="2" /></li>
+                        <li><label>手机号</label><input type="text"  id="pointNumber"  maxlength="15"/></li>
+                        <li><label>地　址</label><input type="text" id ="pointAddress" maxlength="200"/></li>
+                    </ul>
+                </form>
+                <p class="popup_tel">注意：联系方式提交后不可修改，如有问题请联系客服：010-82438999</p>
+                <button class="popup_address_certain"></button>
+            </div>
+     </div>
+     <div class="popup hide" id="prizeOver">
+            
+            <div class="popup_login">
+                <p class="popup_msg">哦哦，奖品已领完</p>
+                <button class="button_certain_login"></button>
+            </div>
+     </div>
+    <div class="container">
+            <div class="signMark">
+                    <p class="p1"></p>
+                    <p class="p2"></p>
+            </div>
+            <div class="totalMarks">
+                   <div class="getMarks">
+                   	<ul class="getMarksUl">
+                              <li></li>
+                              <li></li>
+                              <li></li>
+                              <li></li>
+                              <li></li>
+                              <li></li>
+                              <li></li>
+                              <li></li>
+                              <li></li>
+
+                   	</ul>
+                   </div>
+            </div>
+            <div class="sign_rules">
+                    <h1>积分规则</h1>
+                    <p><strong>1.</strong>在活动时间内（10月1日-10月7日），玩家可以通过参加活动获得积分，累计一定积分就可以在本页面领取抽奖券啦，最多可以领取7次抽奖券哦！</p>
+                    <p class="sign_mark2"><strong>2.</strong>在积分累积达到300和800的时候，还可以领取平板包和问道T恤！数量有限先到先得哦~</p>
+                    <p class="sign_mark2"><strong>3.</strong>一旦发现玩家有刷积分的行为，将取消玩家的获奖资格。</p>
+                    <p class="sign_mark2"><strong>4.</strong>本活动最终解释权归光宇游戏公司所有。</p>
+            </div>
+    </div>
+    
+    <!--底部导航部分-->
+    #parse("nationalDay/footer.vm")
+    
+    <!-- <div class="notice_img">
+        <div class="img_con" >
+            <img src="../images/show_img02.jpg"/>
+            <div class="img_border02"></div>
+        </div>
+        <textarea></textarea>
+        <input class="notice_btn" type="button"/>
+    </div> -->
+</section>
+<div class="v_h_tips">要使用竖屏访问哦！</div>
+<!-- footer公共部分 -->
+<!--<script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/script.js"></script>-->
+<script src="http://static.cn114.cn/action/nationalday/js/gyyx_wxshare.min.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        //分享
+        wxShare({
+            debug: false,
+            game: "wd",
+            title: '十一去了哪里都来晒晒吧!',
+            desc: '黄金周！不要宅！晒日记！晒照片！签到都能领奖励！',
+            link: "http://actionv2.gyyx.cn/wdnationalshare/sharepage",
+            imgUrl: "http://static.cn114.cn/action/nationalday/images/share.jpg",
+            success: function () {
+            },
+            cancel: function () {
+            }
+        });
+    })
+</script>
+</body>
+</html>

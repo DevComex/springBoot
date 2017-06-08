@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.cadet.IReport">
+	<resultMap id="ReportBeanMap" type="ReportBean">
+		<result property="code" column="code" />
+		<result property="cadetCode" column="cadet_code" />
+		<result property="circleCode" column="circle_code" />
+		<result property="reportTime" column="report_time" />
+	</resultMap>
+	<insert id="addReport" useGeneratedKeys="true" keyProperty="code">
+		insert into cadet_report_tb
+		(cadet_code,circle_code,report_time)
+		values
+		(#{cadetCode},#{circleCode},#{reportTime})
+	</insert>
+	<insert id="mappingReportGuide">
+		insert into cadet_report_guide_tb
+		(report_code,guide_code)
+		values
+		(#{reportCode},#{guideCode})
+	</insert>
+	<!-- select count of the report by cadetCode -->
+	<select id="getReportNotEvalueByGuide" resultMap="ReportBeanMap">
+		select cadet_report_tb.* from cadet_report_tb 
+		join cadet_report_guide_tb on cadet_report_tb.code = cadet_report_guide_tb.report_code
+		join cadet_guide_tb on cadet_report_guide_tb.guide_code = cadet_guide_tb.code
+		where cadet_guide_tb.guide_name = #{guideName} and cadet_report_tb.code in(
+			select cadet_report_tb.code
+			from cadet_task_tb
+			left join cadet_report_tb
+			on cadet_task_tb.report_code = cadet_report_tb.code
+			where (task_score is null) or (task_score = -1)
+		)
+	</select>
+	<select id="getAllReport" resultMap="ReportBeanMap">
+		select * from cadet_report_tb
+	</select>
+	<select id="selectRepoirtCount"  resultType="int">
+	select count(code)
+	from 
+	cadet_report_tb
+	where
+	cadet_code=#{cadetCode}
+	</select>
+	<select id="getReportById" parameterType="Integer" resultMap="ReportBeanMap">
+		select * from cadet_report_tb
+		where
+		code = #{code}
+	</select>
+
+	<!-- select by cadetCode -->
+	<select id="selectReportByCadetCode" resultMap="ReportBeanMap" resultType="java.util.List">
+	select * from cadet_report_tb
+	where
+	cadet_code=#{cadetCode}
+	</select>
+
+	<select id="getReports" resultMap="ReportBeanMap" resultType="java.util.List">
+		select * from cadet_report_tb
+		left join cadet_circle_tb
+		on cadet_report_tb.circle_code = cadet_circle_tb.code
+		where
+		cadet_circle_tb.circle_year = #{year}
+		and
+		cadet_circle_tb.circle_month = #{month}
+		and
+		cadet_report_tb.cadet_code = #{cadetCode}
+	</select>
+	
+	<!-- get Report Code By Circle -->
+   <select id="getReportCodeByCircle" resultType="Integer">
+   select code 
+   from  cadet_report_tb
+   where
+  cadet_code = #{cadetCode}
+  and 
+  circle_code= #{circle}
+   </select>
+	<delete id="clearMappingGuidesByReportCode" parameterType="Integer">
+		delete from cadet_report_guide_tb where report_code = #{code}
+	</delete>
+</mapper>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wechat.IWeiXinAddressMapper">
+	<resultMap type="WeiXinAddressBean" id="WeiXinAddressMap">
+		<id column="code" property="code" />
+		<result column="open_id" property="openId" />
+		<result column="user_name" property="userName" />
+		<result column="user_phone" property="userPhone" />
+		<result column="user_address" property="userAddress" />
+		<result column="action_code" property="actionCode" />
+			<result column="user_account" property="userAccount" />
+	</resultMap>
+
+	<!-- 根据用户编号查询用户地址信息 -->
+	<select id="selectAddress" resultMap="WeiXinAddressMap" parameterType="String">
+	select top 1
+	code,open_id,user_name,user_phone,user_address,action_code from 
+    action_adressInfo_wechat_tb
+	where open_id=#{openId} 
+	 and
+	 action_code=#{actionCode}
+	</select>
+	
+	<!-- 新增用户地址信息-->
+	<insert id="insertAddress" parameterType="WeiXinAddressBean">
+	  insert action_adressInfo_wechat_tb
+	  (open_id,user_name,user_phone,user_address,action_code,user_account)
+	  values
+	  (#{openId},#{userName},#{userPhone},#{userAddress},#{actionCode},#{userAccount})
+	</insert>
+	
+	<!-- 更改用户地址信息-->
+	<update id="updateAddress" parameterType="WeiXinAddressBean">
+	  update action_adressInfo_wechat_tb 
+	  set user_name=#{userName},
+	  user_phone=#{userPhone},
+	  user_address=#{userAddress} 
+	  where open_id=#{openId}
+	  and
+	  action_code=#{actionCode}
+	</update>
+	
+	<select id="getAllAddressInfoByActionCode" parameterType="WeiXinAddressBean" resultMap="WeiXinAddressMap">
+		select code,open_id,user_name,user_phone,user_address,action_code from 
+    	action_adressInfo_wechat_tb
+		WHERE 1 = 1
+		<if test="actionCode != null and actionCode != ''">
+		<![CDATA[
+					and action_code = #{actionCode}
+		]]>
+		</if>
+		<if test="openId != null and openId != ''">
+		<![CDATA[
+					and open_id = #{openId}
+		]]>
+		</if>
+	</select>
+
+</mapper>

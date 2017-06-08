@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.IPrize">
+	<resultMap type="PrizeBean" id="PrizeMap">
+		<id column="code" property="code" />
+		<result column="chinese" property="chinese" />
+		<result column="english" property="english" />
+		<result column="action_code" property="actionCode" />
+		<result column="isReal" property="isReal" />
+		<result column="num" property="num" />
+		<result column="probability" property="probability" />
+		<result column="number" property="number" />
+		
+	</resultMap>
+	<insert id="insertPrize" useGeneratedKeys="true" keyProperty="code"  parameterType="PrizeBean">
+	  insert action_prize_tb 
+	  (chinese,english,action_code,isReal,num)
+	  values(#{chinese},#{english},#{actionCode},#{isReal},#{num})
+	</insert>
+	<select id="getPrize" resultMap="PrizeMap" resultType="java.util.List">
+		select *
+		from action_prize_tb
+		where
+		action_code=#{actionCode}
+		</select>
+			<select id="getPrizeByNum" resultMap="PrizeMap" parameterType="PrizeBean" resultType="java.util.List">
+		select *
+		from action_prize_tb
+		where
+		action_code=#{actionCode} and num=#{num}
+		</select>
+		<update id="updatePrizeBean" parameterType="PrizeBean">
+ 	
+		  update action_prize_tb set [chinese]=#{chinese},[english]=#{english} where code=#{code}
+	
+  </update>
+  <update id="updatePrizeBeanAll" parameterType="PrizeBean">
+ 	
+		  update action_prize_tb set [chinese]=#{chinese},[english]=#{english},[isReal]=#{isReal},[num]=#{num} where code=#{code}
+	
+  </update>
+  <select id="getPrizeByCode" resultMap="PrizeMap">
+		select * from action_prize_tb
+		where 
+		code=#{code}
+		</select>
+		
+  <select id="getPrizeAll" resultMap="PrizeMap">
+	SELECT * 
+FROM action_prize_tb a  join (select prize_code,sum(probability) probability,sum(number) number from  action_lottery_chance_tb where action_code=#{actionCode} group by prize_code) b on a.code=b.prize_code  where a.action_code=#{actionCode}
+		</select>
+</mapper>

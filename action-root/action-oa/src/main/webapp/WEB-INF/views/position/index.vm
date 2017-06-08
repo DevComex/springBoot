@@ -1,0 +1,43 @@
+
+#parse("/shared/top.vm")
+
+<!--标题-->
+<header class="header bg-white b-b clearfix">
+    <div class="col-sm-2 m-t-xs">
+        <h4>职位招聘后台查看</h4>
+    </div>
+</header>
+
+
+<!--列表-->
+<section class="scrollable padder">
+    <div class="m-t-xs"></div>
+    <div class="row m-b-xs">
+    </div>
+    <section class="panel panel-default">
+		 #foreach($positions in $positionsList)
+         <table class="table table-striped m-b-none" >
+			  <tr>
+    <th colspan="2" scope="col"><div align="left">$positions</div></th>
+  </tr>
+  <tr>
+    <td width="100" >申请人员</td>
+    <td ><div align="left">
+			#set($tempnum=0)
+	 #foreach($ApplyInfoBeans in $listApplyInfoBeans)
+		#if($ApplyInfoBeans.position==$positions)
+			<a href="info?code=$ApplyInfoBeans.code">$ApplyInfoBeans.name</a>、
+			#set($tempnum=$tempnum+1)
+		#end	
+	 #end
+	 </div>
+	</td>
+  </tr>
+  <tr>
+    <td>共 $tempnum 人</td>
+  </tr>
+                                        </table>
+											   #end
+    </section>
+
+ #parse("/shared/footer.vm")

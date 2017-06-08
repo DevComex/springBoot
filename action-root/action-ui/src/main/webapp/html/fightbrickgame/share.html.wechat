@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道补砖块</title>
+<meta name="keywords" content="问道，光宇游戏"/>
+<meta name="description" content="问道补砖块，看谁补的多。"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="full-screen" content="yes"/>
+<meta name="screen-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="360-fullscreen" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" href="http://static.cn114.cn/action/wdwxDZK201703/css/share.min.css">
+<script src="http://s.gyyx.cn/Lib/jqueryModule/jquery-1.12.4.min.js "></script>
+ 	<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+ 	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</head>
+<body>
+    <div class="wrap">
+        <h2 class="js_nikename">“honey”在3月30日的补砖块活动中</h2>
+        <p class="js_highScore">最高积分：*</p>
+        <p class="js_bestRank">最佳排名：第*名！</p>
+        <p>我最6！不服就来超过我啊！</p>
+        <img src="http://static.cn114.cn/action/wdwxDZK201703/res/qrcode.png"/>
+    </div>
+<script src="http://static.cn114.cn/action/wdwxDZK201703/js/common.min.js"></script>
+<script src="http://static.cn114.cn/action/wdwxDZK201703/js/share.min.js"></script>
+</body>
+</html>

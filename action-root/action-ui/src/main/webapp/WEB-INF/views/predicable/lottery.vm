@@ -1,0 +1,174 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道-2015全民PK火热来袭 我就是预言帝</title>
+<script type="text/javascript" charset="utf-8">
+		var rc="${rc.contextPath}";
+    </script>
+<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/predicable/css/wd150910.css">
+<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/predicable/css/jquery-ui-1.8.13.custom.css">
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/predicable/js/scrolltext.js"></script><!--文字上下滚动-->
+<script type="text/javascript">
+var rc="${rc.contextPath}";
+</script>
+<script type="text/javascript">
+$(function(){
+$(".noOpen").click(function(){
+alert("活动尚未开启，敬请期待！")
+});
+});
+</script>
+<script type="text/javascript" charset="utf-8">
+    alert("谢谢参与，活动已结束");
+</script>
+</head>
+<body>
+<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+<div class="wd_bg">
+	<div class="wd_wrap">
+		<div class="main">
+			<div class="wd_nav">
+				<a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+			</div>
+			<div class="wd_time">
+				<span class="hd_time">活动时间：<strong>2015</strong>年<strong>11</strong>月<strong>13</strong>日-<strong>2015</strong>年<strong>11</strong>月<strong>26</strong>日</span>
+				<span class="cj_time">抽奖时间：<strong>2015</strong>年<strong>11</strong>月<strong>30</strong>日-<strong>2015</strong>年<strong>12</strong>月<strong>6</strong>日</span>
+			</div>
+			<!-- 头部完 -->
+			<div class="wd_tab">
+				<ul class="tab_menu">
+					<li><a class="menu01" href="writingInfo">参赛作品 </a></li>
+					<li><a class="menu02" href="rule">活动规则</a></li>
+					<li><a class="menu03" href="partake">我要参赛</a></li>
+					<li class="on"><a class="menu04" href="lottery">参与抽奖</a></li>
+				</ul>
+					<!-- 参与抽奖 -->
+					<div class="tab_list" style="display: block">
+						<div class="wdcj_fail">
+							<p class="js_loginbar">抽奖需要先<a class="wdcj_login"> [登录]</a></p>
+							<p class="wdcj_secl">
+								<label>我的服务器</label>
+								<select id="sel_blocklist">
+		                            <option value="0">请选择区组</option>
+		                            <option value="1">网通</option>
+		                            <option value="2">电信</option>
+		                            <option value="3">双线</option>
+		                        </select>
+								<select id="sel_serverlist"><option value="0">请选择服务器</option></select>
+								<a class="js_updateAddress wd151110_address">修改地址</a>
+							</p>
+							<p class="wdcj_prize js_myPresent">我已获得的奖品：
+							#foreach($item in $userInfoBeans)
+								$!item.presentName
+							#end
+							</p>
+						</div>
+						<div class="wdcj_suc" style="display: none;">
+							<p>清风似无影，欢迎您！</p>
+						</div>
+						<div class="wdcj_box">
+							<div class="wdcj_btn">
+								<a href="javascript:;" class="js_btnStart" text="go">抽大奖</a>
+								<p>快点动手抽大奖啦</p>
+							</div>
+							<ul>
+								<li class="wdcj_bg1 img01" id="dzp0">
+									<span><img src="http://static.cn114.cn/action/predicable/images/tananks.jpg" /></span>
+									<p>谢谢参与</p>
+								</li>
+								<li class="wdcj_bg2 img01" id="dzp1">
+								<span><img src="http://static.cn114.cn/action/predicable/images/shirt.jpg" /></span>
+									<p>问道T恤</p>
+								</li>
+								<li class="wdcj_bg3 img01" id="dzp2">
+									
+										<span><img src="http://static.cn114.cn/action/predicable/images/touqian.jpg" /></span>
+									<p>铜钱铭牌</p>
+								</li>
+								<li class="wdcj_bg4 img01" id="dzp3">
+									<span><img src="http://static.cn114.cn/action/predicable/images/pillow.jpg" /></span>
+									<p>威威虎抱枕</p>
+								</li>
+								<li class="wdcj_bg5 img01" id="dzp4">
+										<span><img src="http://static.cn114.cn/action/predicable/images/tananks.jpg" /></span>
+									<p>谢谢参与</p>
+									
+								</li>
+								<li class="wdcj_bg6 img01 wdcj_marg" id="dzp11">
+									<span><img src="http://static.cn114.cn/action/predicable/images/iphone6.jpg" /></span>
+									<p>IPhone6 Plus</p>
+								</li>
+								<li class="wdcj_bg7 img01" id="dzp5">
+										<span><img src="http://static.cn114.cn/action/predicable/images/homgmi.jpg" /></span>
+									<p>红米手机</p>
+									
+								</li>
+								<li class="wdcj_bg8 img01" id="dzp10">
+									<span><img src="http://static.cn114.cn/action/predicable/images/tananks.jpg" /></span>
+									<p>谢谢参与</p>
+								</li>
+								<li class="wdcj_bg9 img01" id="dzp9">
+										<span><img src="http://static.cn114.cn/action/predicable/images/fox.jpg" /></span>
+									<p>九尾狐手办</p>
+								
+								</li>
+								<li class="wdcj_bg10 img01" id="dzp8">
+										<span><img src="http://static.cn114.cn/action/predicable/images/silver.jpg" /></span>
+									<p>银元宝</p>
+								</li>
+								<li class="wdcj_bg11 img01" id="dzp7">
+										<span><img src="http://static.cn114.cn/action/predicable/images/wallet.jpg" /></span>
+									<p>问道钱包</p>
+								</li>
+								<li class="wdcj_bg12 img01" id="dzp6">
+									<span><img src="http://static.cn114.cn/action/predicable/images/tananks.jpg" /></span>
+									<p>谢谢参与</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 切换内容完 -->
+		</div>
+	</div>
+</div>
+<!--20151110新增弹层01-->
+
+<div class="wd151110_con wd151110_tc01" id="js_dialogRealPrize">
+  <p class="js_realPrizeTip">恭喜抽中</p>
+  <p><label>收件姓名</label><input type="text" id="txtRecName" maxlength="12"/></p>
+  <p><label>收件电话</label><input type="text" id="txtMobPhoneNumber"/></p>
+  <p><label class="lab151110">收件地址</label><input type="text" id="txtAddress" maxlength="100"/></p>
+  <div class="wd151110_btn"><input type="button" value="提交" id="btn_subRecInfo" /><input type="button" class="js_reset" value="重置" /></div>
+</div>
+
+<!--20151110新增弹层02-->
+
+<div class="wd151110_con wd151110_tc02" id="js_noname">
+  <p class="js_noTip">您的收件姓名未填写，请填写后提交</p>
+  <div class="wd151110_btn"><input type="button" class="js_iKnow" value="我知道了" /></div>
+</div>
+
+<!--20151110新增弹层03-->
+
+<div class="wd151110_con wd151110_tc03" id="js_noaddress">
+  <p>您的收件地址填写不完整，如提交可能造成奖励无法发出，确定提交吗？</p>
+  <p class="small_font">注：如因玩家收件地址填写不符合要求导致奖励无法发放的，均视为玩家放弃奖励</p>
+  <div class="wd151110_btn"><!--<input type="button" class="js_addressSubmit" value="继续提交" />--><input type="button" class="js_iKnow" value="重新填写" /></div>
+</div>
+
+<!--20151110新增弹层04-->
+<div class="tc_cont" id="js_noReal">
+  <p class="js_noRealPrizeTip">恭喜您获得了“xxxx”</p>
+</div>
+<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+<script src="http://static.cn114.cn/action/predicable/js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+<script src="http://static.cn114.cn/action/predicable/js/lottery.js" type="text/javascript"></script>
+<script src="http://static.cn114.cn/action/predicable/js/lotteryFn.js" type="text/javascript"></script>
+</body>
+</html>

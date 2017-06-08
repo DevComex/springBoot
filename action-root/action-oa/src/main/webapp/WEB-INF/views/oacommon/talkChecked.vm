@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>后台</title>
+	 <script type="text/javascript" charset="utf-8">
+		var rc="${rc.contextPath}";
+    </script>
+    <link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <link href="${rc.contextPath}/resources/Contents/css/font.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <style>
+    .js_alert{position:absolute;top:0px;left:0px;width:100%;z-index:9999;text-align: center; font-size:18px;}
+    .col-lg-0-96 { width:8%; }
+.col-lg-1-44 { width:12%; }
+</style>
+</head>
+<body>
+    <section class="vbox">
+        <!-- template_top -->
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <!-- js_template_left begins -->
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <!--js_template_right-->
+                <section id="content">
+                    <section class="vbox">
+
+    <!--头部功能-->  
+   
+                      <section class="scrollable padder">
+                                    <!--评论审核管理 s-->
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                        
+                                            <tr>
+                                                <th>评论昵称</th>
+                                                <th>评论内容</th>
+                                                <th>状态</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                          #foreach($face in $faces)
+                                            <tr>
+                                                <th>$!{face.nickName}</th>
+                                                <th>$!{face.comment}</th>
+                                                <th>$!{face.status}</th>
+                                                #if($!{face.status}=="审核通过")
+ 									 <th><a data-toggle="tooltip" data-title="删除" href="../oacommon/unpassTalkDelete?code=${face.code}&pageIndex=${pageIndex}" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-times">删除</i></a></th>
+												#end
+												 #if($!{face.status}=="未审核")
+                                                <th><a data-toggle="tooltip" data-title="删除" href="../oacommon/unpassTalkDelete?code=${face.code}&pageIndex=${pageIndex}" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-times">删除</i></a><a data-toggle="tooltip" data-title="审核" href="../oacommon/passTalk?code=${face.code}&pageIndex=${pageIndex}" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-check-square">审核</i></a></th>
+                                           		#end
+                                            </tr>
+                                            #end
+                                        </tbody>
+                                    </table>
+                                    <!--评论审核管理 end-->
+
+                                </div>
+                            </section>
+                            <!--数据表格  end -->
+
+                           <!--翻页功能-->
+                            <footer class="footer bg-white b-t">
+                                <div class="row dataTables_wrapper">
+                                 #set($nextIndex =  ${pageIndex} + 1)
+ 									 #set($preIndex = ${pageIndex} - 1)
+ 									 #if(${count}%10==0)
+ 									  #set($page = ${count}/10)
+									#end
+									 #if(${count}%10!=0)
+ 									  #set($page = ${count}/10 + 1)
+									#end
+									#set($pagee = $page - 1)
+                                    <div class="col-sm-6">
+                                        <div id="Div1" class="dataTables_info">当前显示：第$nextIndex 至 $page 页 总共${count} 条记录</div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="dataTables_paginate paging_full_numbers">
+                                             <input type="hidden" value="$page" id="hiddenTotal">
+                                            <a id="DataTables_Table_0_first" class="first paginate_button">首页</a><a id="DataTables_Table_0_previous" class="next paginate_button" >上一页</a><span><a id="DataTables_Table_0_next"  class="next paginate_button" >下一页</a><a id="DataTables_Table_0_last"  class="last paginate_button" >末页</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+
+    </section>
+
+                        </section>
+                        
+                         
+                        <!--表格主体 end-->
+
+						
+
+                        </section>
+                        <!--表格主体 end-->
+
+                        <!-- -----------------------------------------------添加弹层开始---------------------------------------------- -->
+                        <div class="modal fade" id="seepic">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">查看图片</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <section class="panel bg-dark">
+                                                <div class="carousel slide carousel-fade panel-body" id="c-fade">
+                                                    <div class="carousel-inner js_con">
+                                                        <div class="item active">
+                                                            <img src="" alt="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" style="text-align: center;">
+                                        <button class="btn btn-info btn-s-md" type="button" id="js_editPorSubmit" style="display: none;">确定</button>
+                                        <button data-dismiss="modal" class="btn btn-default close_js_Msg" type="button">返回</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- -----------------------------------------------添加弹层结束---------------------------------------------- -->
+
+
+
+
+  </section>
+  
+                </section>
+                
+            </section>
+            
+        </section>
+        
+    </section>
+    <script type="text/javascript" src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/jquery.OASearch.js"></script>
+    <script>
+    	$(function(){   		
+    		var pagePrevious = $!checkImgDTO.beginPage;
+			var pageNext = $!checkImgDTO.lastPage;
+			if(!pagePrevious){
+				$("#DataTables_Table_0_previous").addClass("paginate_button_disabled");
+				$("#DataTables_Table_0_first").addClass("paginate_button_disabled");
+			}
+			if(!pageNext){
+				$("#DataTables_Table_0_next").addClass("paginate_button_disabled");
+				$("#DataTables_Table_0_last").addClass("paginate_button_disabled");
+			}
+					
+			$("#DataTables_Table_0_previous").click(function(){
+				if(pagePrevious){
+					var page = $!pageIndex - 1;
+					window.location.href="showTalkCheck?pageIndex="+page;
+				}	
+			})
+			$("#DataTables_Table_0_next").click(function(){
+				if(pageNext){
+					var page = $!pageIndex + 1;
+					window.location.href="showTalkCheck?pageIndex="+page;
+				}
+			})
+			$("#DataTables_Table_0_first").click(function(){
+				
+				if(pagePrevious){
+					window.location.href="showTalkCheck?pageIndex="+0;
+				}
+			})
+			$("#DataTables_Table_0_last").click(function(){
+				if(pageNext){
+					var page = $("#hiddenTotal").val()-1;
+					window.location.href="showTalkCheck?pageIndex="+page;
+				}
+			})
+    	})
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.newyear.INameAndIdMapper">
+	
+	<insert id="insertUserRaletion" >
+		INSERT INTO  user_relation_tb (user_name,user_id)   
+    	VALUES (#{userName},#{id})
+	</insert>
+	
+	<select id="selectNameById" parameterType="Integer" resultType="String">
+		SELECT user_name  
+		FROM user_relation_tb  
+		WHERE user_id=#{id}
+	</select>
+	
+</mapper>

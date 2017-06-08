@@ -1,0 +1,63 @@
+﻿@charset "utf-8";
+/* CSS Document */
+/*title*/
+.c_tit{ padding-bottom:25px;height:30px;}
+.font_bg{background:url(../img/wd_font_1.gif); display:inline-block; width:135px;height:30px;}
+.font_tj{ background-position:0 0;}
+.font_headl{ background-position:0 -31px;}
+.font_new{ background-position:0 -62px;}
+.font_ssv{ background-position:0 -93px;}
+.font_xt{ background-position:0 -124px;}
+.font_jcv{ background-position:0 -155px;}
+.font_fc{ background-position:0 -186px;}
+.font_link{ background-position:0 -217px;}
+.font_hdtj{ background-position:0 -248px;}
+.font_govideo { width: 200px;background-position:0 -279px; }
+.font_kf_ls { background-position:0 -310px;}
+.font_kf_bz { background-position:0 -341px;}
+.font_kf_sd { background-position:0 -372px;}
+.font_zz_zb { background-position:0 -403px;}
+.font_pk_jj { width:110px;background-position:0 -434px;}
+.font_yx_rs { background-position:0 -465px;}
+.font_sb_lq { background-position:0 -496px;}
+.font_nr_sx { background-position:0 -527px;}
+.font_ql_cw { background-position:0 -558px;}
+.font_lm_dt { background-position:0 -589px;}
+.font_qr_qs { background-position:0 -620px;}
+.font_jx_sh { background-position:0 -651px;}
+.font_yc_td { background-position:0 -682px;}
+.font_eg_dr { background-position:0 -713px;}
+.font_jd { background-position:0 -745px;width:200px;}
+.newtit{ background:url(../img/wd_titbg01.gif); height:26px; line-height:26px; font-size:14px; color:#1179b0; padding:0 7px; margin-top:20px; font-weight:700;}
+.tit_l{ float:left;}
+.tit_l span{ float:left;}
+.tit_r{ float:right; padding-top:8px;}
+.tit_rbg a{ background:url(../img/wd_icon06.gif) no-repeat 0 50%; padding-left:18px; display:inline-block; height:18px;}
+.tit_rbg a:hover{background:url(../img/wd_icon06h.gif) no-repeat 0 50%; text-decoration:none;}
+.tit_rbg a:hover em{ background:#0077b4;}
+.tit_rbg em{ display:inline-block;background:#1598dc; color:#fff; line-height:18px; width:57px; height:18px; font-size:12px; text-align:center; float:left;}
+.tit_vid a{ background:url(../img/wd_icon07.gif) no-repeat 0 50%;}
+.tit_vid a:hover{ background:url(../img/wd_icon07h.gif) no-repeat 0 50%;}
+
+.tit_upic a{ background:url(../img/wd_icon08.gif) no-repeat 0 50%;}
+.tit_upic a:hover{ background:url(../img/wd_icon08h.gif) no-repeat 0 50%;}
+
+.t_more{ padding:10px 0 0 10px;_padding-top:8px;}
+.t_more,.t_more a{ color:#ff6600;}
+.m_icon,.t_more a:hover{ background: url(../img/wd_moreicon.gif) no-repeat 0 50%; display:inline-block; width:25px; height:10px; font-size:0px; line-height:0px; text-indent:-999px; overflow:hidden;}
+
+/*rewen_tuijian*/
+.tj_icon{ background:url(../img/wd_tjbg.png) no-repeat; width:56px; height:53px; position:absolute; top:0px; left:0px;}
+
+/*video*/
+.video_but{ background:url(../img/wd_videobg.png) no-repeat 0 50%; display:inline-block;height:34px; padding-left:20px;_overflow:hidden;}
+.video_butb{ background:url(../img/wd_videobg2.png) no-repeat 0 50%; display:inline-block; height:40px; padding-left:45px;}
+/*2014-12-02*/
+.font_xg_tj { background-position:0 -775px;}
+.font_search { background-position:0 -806px;}
+.font_wenz { background-position:0 -837px;}
+.font_newxx { background-position:0 -868px;}
+.font_pic { background-position:0 -899px;}
+.font_video { background-position:0 -930px;}
+.font_myjs { background-position:0 -961px;}
+.font_zdnav { background-position:0 -992px;}

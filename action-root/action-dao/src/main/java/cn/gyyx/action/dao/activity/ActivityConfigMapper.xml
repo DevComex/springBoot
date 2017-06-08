@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.activity.ActivityConfigMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.action.beans.activity.ActivityConfigBean" >
+    <constructor >
+      <idArg column="code" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="activity_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="note" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="begin_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="end_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+      <arg column="is_open" jdbcType="BIT" javaType="java.lang.Boolean" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, activity_code, note, begin_time, end_time, is_open
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from activity_config_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="code" parameterType="cn.gyyx.action.beans.activity.ActivityConfigBean" >
+    insert into activity_config_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="activityCode != null" >
+        activity_code,
+      </if>
+      <if test="note != null" >
+        note,
+      </if>
+      <if test="beginTime != null" >
+        begin_time,
+      </if>
+      <if test="endTime != null" >
+        end_time,
+      </if>
+      <if test="isOpen != null" >
+        is_open,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="activityCode != null" >
+        #{activityCode,jdbcType=VARCHAR},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="beginTime != null" >
+        #{beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isOpen != null" >
+        #{isOpen,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByActivityCode" parameterType="cn.gyyx.action.beans.activity.ActivityConfigBean" >
+    update activity_config_tb
+    <set >
+      <if test="note != null" >
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+      <if test="beginTime != null" >
+        begin_time = #{beginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endTime != null" >
+        end_time = #{endTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isOpen != null" >
+        is_open = #{isOpen,jdbcType=BIT},
+      </if>
+    </set>
+    where activity_code = #{activityCode,jdbcType=VARCHAR}
+  </update>
+  <select id="selectBeanByActivityCode" resultMap="BaseResultMap">
+    select code,activity_code,note,begin_time,end_time,is_open from activity_config_tb where  activity_code=#{activity_code}
+  </select>
+</mapper>

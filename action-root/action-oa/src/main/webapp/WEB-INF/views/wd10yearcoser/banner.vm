@@ -1,0 +1,112 @@
+ #parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/swfupload.js" type="text/javascript"></script>
+<script src="${rc.contextPath}/resources/script/SWFInitialize.js" type="text/javascript" charset="GB2312"></script>
+<script src="${rc.contextPath}/resources/script/videoHandlers.js" type="text/javascript" charset="GB2312"></script>
+<script src="${rc.contextPath}/resources/script/VideoUpload.js" type="text/javascript" ></script>
+<script>
+	var commit_flag = 0;
+	$(function(){
+		$("#save").click(function(){
+			var picUrl = $("#picUrl").val();
+			var hid_addImgUrl = $("#hid_addImgUrl").val();
+			
+			if($.trim(picUrl)==""){
+				alert("图片链接地址不能为空!");
+				return false;
+			}
+			if($.trim(picUrl).length >200){
+				alert("图片链接地址长度不能大于200!");
+				return false;
+			}
+			if($.trim(hid_addImgUrl)==""){
+				alert("请选择图片上传!");
+				return false;
+			}
+			if(commit_flag){
+				console.log("不要重复提交");
+				return false;
+			}
+			commit_flag = 1;
+			$.ajax({
+				url:'/wd10yearcoser/save',
+				type:'post',
+				data:{picUrl:picUrl,imgUrl:hid_addImgUrl,r:Math.random()},
+				dataType:'json',
+				complete:function(){
+					commit_flag = 0;
+				},
+				success:function(data){
+					if (data.isSuccess) {
+						alert("保存成功!");
+					}else{
+						alert(data.message);
+					}
+				},
+				error:function(){
+					alert("网络连接超时!");
+				}
+			})
+		});
+	});
+</script>
+<style>
+
+</style>
+<!--标题-->
+<header class="header bg-white b-b clearfix">
+	<div class="col-sm-12 m-t-xs">
+		<h4>同人活动-修改首页导航图片信息</h4>
+	</div>
+</header>
+<!-- 查询表单 -->
+<section class="scrollable padder" style="overflow: scroll; top: 72px;"
+	id="scrollable_one">
+
+	<div class="row">
+		<div class="col-sm-8">
+			<form class="form-horizontal" data-validate="parsley">
+				<section class="panel panel-default">
+					<header class="panel-heading">
+						<strong>修改</strong>
+					</header>
+					<div class="panel-body">
+						<div class="form-group">
+							<label class="col-sm-3 control-label">图片链接地址：</label>
+							<div class="col-sm-9">
+								<input type="text" class="form-control" id="picUrl" name="picUrl" max-length="200" value="$!picUrl"/>
+							</div>
+						</div>
+						<div class="line line-dashed line-lg pull-in"></div>
+						<div class="form-group">
+							<label class="col-sm-3 control-label">上传图片：</label>
+							<div class="col-sm-9">
+								<input type="button" id="btnUpload" class="upload" onclick="swfu.selectFile(); this.blur(); " value="上传视频截图" />
+                                <input type="hidden" id="hid_addImgUrl" name="imgUrl" value="$!imgUrl"/>
+                                <input type="hidden" id="hid_addthumbImgUrl" name="hid_addthumbImgUrl" />
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<div class="col-sm-9">
+								<img id="addImg"
+								#if(${imgUrl})
+									src="${imgUrl}"
+								#end
+								 class="titleimgs_add" style="width:100px;height:100px;cursor:pointer;"/>
+							</div>
+						</div>
+						<div class="line line-dashed line-lg pull-in"></div>
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<div class="col-sm-9">
+								<button id="save" type="button" class="btn btn-success btn-s-xs">保存</button>
+							</div>
+						</div>
+					</div>
+				</section>
+			</form>
+		</div>
+	</div>
+</section>
+#parse("/shared/footer.vm")

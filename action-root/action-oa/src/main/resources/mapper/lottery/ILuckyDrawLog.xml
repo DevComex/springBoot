@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.ILuckyDrawLog">
+	<resultMap type="LuckyDrawLogBean" id="LuckyDrawLogMap">
+		<id column="code" property="code" />
+		<result column="aid" property="actionCode" />
+		<result column="user_id" property="userId" />
+		<result column="account" property="account" />
+		<result column="source" property="source" />
+		<result column="obtain_count" property="drawCount" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
+
+	<insert id="addLuckyDrawLog">
+		insert into lottery_change_log
+		(aid,user_id,account,source,obtain_count)
+		values
+		(#{actionCode},#{userId},#{account},#{source},#{drawCount})
+
+
+	</insert>
+
+
+</mapper>

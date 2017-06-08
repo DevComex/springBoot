@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<title>活动规则</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wdgoldenyears/css/normalize.css" />
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wdgoldenyears/css/main.css" />
+	</head>
+	<body>
+		<header class="header">
+			<img src="http://static.cn114.cn/action/wdgoldenyears/images/headerbg.jpg" />
+			<a class="btn btn_rule" href="#"><img class="btn_1" src="http://static.cn114.cn/action/wdgoldenyears/images/btn1_1.png" /><img class="btn_2" src="http://static.cn114.cn/action/wdgoldenyears/images/btn1_2.png" /></a>
+			<a class="share_btn" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/shareicon.png" /></a>
+		</header>
+		<section class="content actionrule">
+			<h1 class="title2"><img src="http://static.cn114.cn/action/wdgoldenyears/images/title2.png" /></h1>
+			<dl class="rules">
+				<dt>活动时间</dt>
+				<dd>上传参赛时间：4月20日0:00-5月6日23:59</dd>
+				<dt>活动流程</dt>
+				<dd><span>1</span>关注问道微信</dd>
+				<dd><span>2</span>可添加已经PS好的图片、音乐，制作自己的作品并保存，分享，保存后不可再进行编辑更改。（每个微信最多可制作20个作品）</dd>
+				<dd><span>3</span>所有作品上传内容，需文明合法，涉及到不文明突破及视频内容、辱骂他人的、疑似软件推广的、有联系方式的、其他游戏的等等，均不予通过，帐号及微信号也不可重新报名。</dd>
+				<dd><span>4</span>每个微信第一次提交参赛作品时会绑定一个帐号，不可更改。</dd>
+				<dd><span>5</span>每个微信只能参赛三个作品。</dd>
+				<dd><span>6</span>审核通过后，才可在首页查看并投票。</dd>
+				<dd><span>7</span>所有作品，无论是否参赛，都会进行审核，审核通过后，才可查看分享；若不通过，则会被删除，无法进行编辑、查看、分享、参赛等。</dd>
+				<dd><span>8</span>关注问道微信后，玩家可进行投票，票数进行排行，获得奖励。同票数的，先达到该票数的排名靠前。</dd>
+				<dd><span>9</span>每个微信每天最多只能投5票，只能投给5个不同的作品。</dd>
+				<dd><span>10</span>活动所有作品，既表示本人同意光宇游戏公司可用于全球范围内使用宣传等。</dd>
+				<dd><span>11</span>除十周年积分奖励，同一人只能获得一个奖品，获得多个则只发放最高名次奖励。（官方也会通过技术手段进行核查，一经确认获得多个，则也只发放最高名次奖励）。</dd>
+				<dd><span>12</span>严禁刷票，一经发现则取消参赛资格及奖励。</dd>
+				<dd><span>13</span>本活动最终解释权由光宇游戏所有。</dd>
+				<dt>活动奖励</dt>
+				<dd><span>1</span>第1名：Iphone6s plus</dd>
+				<dd><span>2</span>第2名：AIR 2（16G）土豪金版</dd>
+				<dd><span>3</span>第3名：小米4</dd>
+				<dd><span>4</span>第4-6名：红米Note</dd>
+				<dd><span>5</span>第7-15名：威威虎抱枕</dd>
+				<dd><span>6</span>第16-25名：问道钱包</dd>
+				<dd><span>7</span>第26-45名：问道移动电源</dd>
+				<dd><span>8</span>全民参与奖：参赛作品审核通过后，即可获得30十周年积分，最多可获得90积分，十周年积分可用于之后的许愿池、周年积分兑换等活动！</dd>
+			</dl>
+		</section>
+		<footer class="footer">
+			<nav>
+				<ul>
+					<li><a class="alink1" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico1_1.png" />首页</a></li>
+					<li><a class="alink2" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico2_1.png" />制作</a></li>
+					<li><a class="alink3" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico3_1.png" />参赛</a></li>
+					<li class="on"><a class="alink4" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico4_2.png" />规则</a></li>
+				</ul>
+			</nav>
+		</footer>
+		<div class="sharemark"></div>
+		<img class="sharemarkimg" src="http://static.cn114.cn/action/wdgoldenyears/images/share.png" />
+		<div id="popTip" class="pop" style="display:none;">
+			<span class="bg_pop"><img src="http://static.cn114.cn/action/wdgoldenyears/images/popbg.png" /></span>
+			<a class="close_pop" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/close.png" /></a>
+			<div class="cont_pop">
+				<p>十年问道，不忘初心，快快来关注“问道”，制作你自己的问道流金岁月吧！</p>
+				<a class="btn_pop" href="http://mp.weixin.qq.com/s?__biz=MjM5MzgzMTAyMA==&mid=407317913&idx=1&sn=7f6a06c0f55cad72831cc9bfcb5a1587#rd" target="_blank"><img src="http://static.cn114.cn/action/wdgoldenyears/images/btn9.jpg" /></a>
+			</div>
+		</div>
+		<div class="mark" style="display:none;"></div>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/jquery-1.8.2.min.js"></script>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/common.js"></script>
+	</body>
+</html>

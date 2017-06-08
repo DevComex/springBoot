@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<title></title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/novicecardmobile/css/normalize.css" />
+		<link rel="stylesheet" href="http://static.cn114.cn/action/novicecardmobile/css/main.css" />
+		<script  type="text/javascript">
+		var rc = "${rc.contextPath}";
+		</script>
+	</head>
+	<body>
+		<div class="registerpage">
+			<img src="http://static.cn114.cn/action/novicecardmobile/images/page_bg3.jpg" />
+			<div class="logo"><img src="http://static.cn114.cn/action/novicecardmobile/images/logo2.png" /></div>
+			<div class="content_regp">
+				<ul class="registertab">
+					<li class="on">手机注册</li>
+					<li>个性注册</li>
+				</ul>
+				<div class="registercontent">
+					<div class="registerphoneform regitem">
+						<form id="formmima" method="post" action="" class="reg_form_web">
+							<p class="item_p">
+								<span class="phoneico"></span>
+								<input type="text" class="inps phone" id="userName" value="" name="userName" autocomplete="off" maxlength="11" data-olduser="" placeholder="请输入手机号" />
+							</p>
+							<p class="item_p">
+								<span class="yzmico"></span>
+								<input type="text" class="shortinput img_putcode" value=""autocomplete="off" placeholder="请输入验证码" />
+								<img class="yzmimg img_code" src="" />
+							</p>
+							<p class="item_p">
+								<span class="phoneico"></span>
+								<input type="text" class="shortinput code" value="" autocomplete="off" placeholder="请输入手机验证码" />
+								<span class="getyzm send_code">发送验证码</span>
+							</p>
+							<p class="item_p">
+								<span class="pwdico"></span>
+								<input type="password" class="inps password" value="" autocomplete="off" placeholder="请输入密码" />
+							</p>
+							<a id="reg_btn" class="login_btn" href="#">接受协议并注册</a>
+							<p class="xieyi">《光宇通行证用户协议》和《光宇用户保护隐私条款》</p>
+						</form>
+					</div>
+					<div class="registerform regitem">
+						<form id="formmima2" method="post" action="" class="reg_form_web">
+							<p class="item_p">
+								<span class="accountico"></span>
+								<input type="text" class="inps js_Account" id="userName" value="" name="userName" autocomplete="off" maxlength="18" data-olduser="" placeholder="以字母开头" />
+							</p>
+							<p class="item_p">
+								<span class="pwdico"></span>
+								<input type="password" class="inps js_password"  autocomplete="off" placeholder="请输入密码" />
+							</p>
+							<p class="item_p">
+								<span class="yzmico"></span>
+								<input type="text" class="shortinput js_img_putcode" value="" autocomplete="off" placeholder="请输入验证码" />
+								<img class="yzmimg img_code" src="" />
+							</p>							
+							<a id="reg_btn2" class="login_btn" href="#">接受协议并注册</a>
+							<p class="xieyi">《光宇通行证用户协议》和《光宇用户保护隐私条款》</p>
+						</form>
+					</div>
+				</div>
+			</div>			
+		</div>
+		<script src="http://static.cn114.cn/action/novicecardmobile/js/jquery-1.8.2.min.js"></script>
+		<script src="http://static.cn114.cn/action/novicecardmobile/js/register.js"></script>
+		<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+		
+	</body>
+</html>

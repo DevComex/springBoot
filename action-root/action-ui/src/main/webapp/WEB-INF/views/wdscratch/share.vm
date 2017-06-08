@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,width=device-width,user-scalable=no">
+    <title>2016万人新服 孙茜送好礼</title>
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/wdScratch/css/style.css"/>
+    <script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+    </script>
+</head>
+<body>
+    <section class="wrap">
+        <div class="top">
+            <img src="http://static.cn114.cn/action/wdScratch/images/top.jpg"/>
+        </div>
+        <div class="QR_code">
+            <img src="http://static.cn114.cn/action/wdScratch/images/QR_code.jpg"/>
+        </div>
+        <div class="notice">
+            <h3>活动规则</h3>
+            <ul>
+                <li>
+                    <p><i>1</i>活动时间：2015年12月31日-2016年1月8日</p>
+                </li>
+                <li>
+                    <p><i>2</i>奖项设置：</p>
+                    <p>一等奖：神宠人偶</p>
+                    <p>二等奖：30元光宇币</p>
+                    <p>三等奖：10元光宇币</p>
+                    <p>四等奖：1.58新手礼包</p>
+                </li>
+                <li>
+                    <p><i>3</i>每位用户只能参加一次抽奖（除1.58大礼包外）,不能重复参加活动，中奖率为100%。</p>
+                </li>
+                <li>
+                    <p><i>4</i>获得实物奖品的玩家请认真填写联系方式，否则视为自动放弃。</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,285 @@
+.font-icon-right {
+    color: #4cc0c1;
+    margin-right:10px;
+}
+.h-label{
+    float: left;
+    height: 30px;
+    line-height: 30px;
+}
+.input-group{
+    float: left;
+}
+.input-group-btn a{
+    margin-right:20px;
+}
+table.t_table{
+    table-layout: fixed;
+    word-break: break-all;
+    text-align: center;
+
+}
+.t_table th,#table2 th,#table3 th,#table4 th{
+    text-align: center;
+    border: 1px solid #ebebeb;
+}
+#table td,#table2 td,#table3 td,#table4 td{
+    border: 1px solid #ebebeb;
+    vertical-align: middle;
+}
+table.t_table td a{
+    margin-right: 10px;
+}
+#table2 a,#table3 a,#table4 a{
+    color: #1e91ff;
+}
+#table2 .js_newlb{
+    width: 120px;
+    height: 30px;
+    display: block;
+    border: 1px solid gray;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: bolder;
+    border-radius: 5px;
+    color: #2e3e4e;
+}
+#table3 .js_newcard{
+    width: 120px;
+    height: 30px;
+    display: block;
+    border: 1px solid gray;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: bolder;
+    border-radius: 5px;
+    color: #2e3e4e;
+}
+#table .js_newtype{
+    width: 120px;
+    height: 30px;
+    display: block;
+    border: 1px solid gray;
+    text-align: center;
+    line-height: 30px;
+    font-size: 14px;
+    font-weight: bolder;
+    border-radius: 5px;
+    color: #2e3e4e;
+}
+#table4 select,#table4 input{
+    width: 100%;
+    height: 25px;
+}
+
+#newTypeTask .pline{
+    height: 35px;
+    margin: 20px auto 0;
+    overflow: hidden;
+}
+#newTypeTask .pline label{
+    width: 60px;
+    height: 35px;
+    line-height: 35px;
+    float: left;
+}
+#newTypeTask .pline input{
+    width: 294px;
+    height: 35px;
+    float: left;
+    border-radius: 5px;
+    padding-left: 5px;
+    border: 1px solid #d0b9b9;
+}
+#newTypeTask .zhu {
+    text-align: right;
+    color: #c4222e;
+    font-size: 12px;
+}
+
+/**弹层*/
+.u_base {
+    position: relative;
+    z-index: 10;
+}
+.u_base li{
+    height: 40px;
+    border:1px solid #e5e5e5;
+    list-style: none;
+    line-height: 40px;
+    font-size: 16px;
+    text-align: center;
+    background: #fff;
+}
+.u_base li.on{
+    border-bottom: 1px solid transparent;
+}
+.uc{
+    border-top: 1px solid #e5e5e5;
+    height: 450px;
+    position: relative;
+    z-index: 9px;
+    margin-top: -16px;
+}
+.base_d{
+    margin-top: 25px;
+}
+.uc p{
+    margin: 25px 0;
+}
+.uc p select,.uc p>input{
+    width: 177px;
+    height: 34px;
+}
+.uc label{
+    width: 118px;
+    font-size: 14px;
+    text-align: right;
+}
+
+
+/**分页*/
+.page{width: 426px;margin: 0 auto; text-align: center;  margin-top: 50px;}
+.paginate_button{width: 24px;height: 24px;text-align: center;line-height: 24px;background: #fff;margin: 0 2.5px;display: inline-block;border: 1px solid #d9d9d9;}
+.paginate_active{width: 24px;height: 24px;color: #2e3e4e;text-align: center;line-height: 24px;margin: 0 2.5px;display: inline-block;background: #D7D6D6;border: 1px solid #d9d9d9;}
+.first.paginate_button,.last.paginate_button{width: 54px;}
+.paginate_button_disabled{background: #fafafa;color: #ccc;}
+.start,.end{
+    width: 54px;
+}
+
+
+.second select {
+    width: 11%;
+    height: 106px;
+    margin: 0px;
+    outline: none;
+    border: 1px solid #999;
+    margin-top: 31px;
+    position: absolute;
+}
+.second input {
+    width: 167px;
+    outline: none;
+    border: 0pt;
+    position: absolute;
+    line-height: 30px;
+    left: 0;
+    height: 30px;
+    border: 1px solid #999;
+}
+.second ul {
+    position: absolute;
+    top: 27px;
+    border: 1px solid #999;
+    left: 8px;
+    width: 125px;
+    line-height: 16px;
+}
+.ul li{
+    list-style: none;
+    width: 161px;
+    /* left: 15px; */
+    margin-left: -40px;
+    font-family: 微软雅黑;
+    padding-left: 4px;
+}
+.blue {
+    background:#1e91ff;
+}
+#switch{
+    display: inline-block;
+    width: 80px;
+    padding: 0 5px;
+    height: 20px;
+    border-radius: 5px;
+    border: 1px solid gray;
+    position: relative;
+    vertical-align: middle;
+    font-size: 12px;
+    line-height: 19px;
+    text-align: left;
+    font-weight: bold;
+}
+#switch.on{
+    text-align: right;
+}
+#switch_b{
+    position: absolute;
+    display: block;
+    right:0;
+    top: 0;
+    width: 35px;
+    height: 18px;
+    border: 1px solid transparent;
+    background:#4cc0c1;
+    border-radius: 5px;
+    left: 43px;
+    transition: left 0.5s;
+}
+
+#switch.on #switch_b{
+    left: 0;
+    right:43px;
+    transition: left 0.5s;
+}
+.uc #red_font{
+    color: red;
+    font-size: 12px;
+    vertical-align: middle;
+    margin: 0 0 10px;
+}
+#table2 .radio{
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+}
+
+#table2 input.a_inp{
+    width: 40px;
+}
+#table2 input.b_inp{
+    width: 90%;
+}
+#table2 input.c_inp{
+    width: 90%;
+}
+#table3 td>input,#table3 td>.lb_inp{
+    width:100%;
+}
+#table3 td>.lb_inp{
+    height: 24px;
+}
+.uc .black_font{
+    font-size: 14px;
+    vertical-align: middle;
+    margin: 0;
+}
+#table3 td>.dinp{
+    width: 45%;
+}
+#table3 td>.dinp{
+    width: 45%;
+}
+.t_table .dropdown-menu{
+    min-width: 205px;
+}
+.def_lb{
+    display: none;
+}
+#putobj_info p select,#putobj_info p>input{
+    width: 220px;
+}
+select.js_putobjC{
+    width: 25%;
+    height: 34px;
+    margin-right: 5px;
+    border-color: #dadada;
+    background-color: #fafafa;
+    font-size: 14px;
+    color: #989898;
+    border-radius: 4px;
+    vertical-align: middle;
+}

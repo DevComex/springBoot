@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <title>光宇OA系统</title>
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+   <link rel="stylesheet" href="${rc.contextPath}/xwbresources/Contents/css/font.css" type="text/css" cache="false" />
+    <link rel="stylesheet" href="${rc.contextPath}/xwbresources/Script/calendar/bootstrap_calendar.css" type="text/css" cache="false" />
+    <link rel="stylesheet" href="${rc.contextPath}/xwbresources/Contents/css/app.v2.css" type="text/css" />
+    <link href="${rc.contextPath}/xwbresources/Script/datatables/datatables.css" rel="stylesheet" />
+    <link href="${rc.contextPath}/xwbresources/Script/datepicker/datepicker.css" rel="stylesheet" />
+    <script src="${rc.contextPath}/xwbresources/Script/js/jquery.min.js"></script>
+    <!--[if lt IE 9]>
+        <script src="../../Script/ie/html5shiv.js" cache="false"></script>
+        <script src="../../Script/ie/respond.min.js" cache="false"></script>
+        <script src="../../Script/ie/excanvas.js" cache="false"></script>
+    <![endif]-->
+    <style>
+        .fa-20x {
+            font-family: 'Microsoft YaHei';
+            font-size: 20px;
+            line-height: 2em;
+        }
+
+        .fa-10x {
+            font-family: 'Microsoft YaHei';
+            font-size: 18px;
+            line-height: 1em;
+        }
+
+        div.dataTables_wrapper select {
+            width: auto;
+            margin: 0 4px;
+        }
+
+        .navbar-brand .logo {
+            max-height: 30px;
+            border-radius: 3px;
+        }
+
+        table td {
+            word-wrap: break-word;
+        }
+
+        .flleft {
+            float: left;
+            padding-left: 10%;
+        }
+    </style>
+</head>
+<body>
+ <section class="vbox">
+        <!--公用头部  begin-->
+         <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="Section1">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+                        <header class="header bg-white b-b clearfix">
+                            <div class="">
+
+                                <div class="col-sm-2 m-b-xs">
+                                    <h4 class="m-t bold"></h4>
+                                </div>
+                                <div class="col-sm-2 m-b-xs m-t-sm">
+                                    <div class="input-group">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+                        <!--顶部标题导航 end-->
+						
+						
+        <!--公用头部  end-->
+    
+                <section id="content">
+                    <section class="vbox">
+                        <!--头部功能-->
+                        <header class="header bg-white b-b clearfix">
+							
+                          <div class="row m-t-sm">
+							<form action="searchGoodsGet" method="get" id="js_form">
+                                <div class="col-sm-2 m-b-xs">
+                                    <div class="input-group">
+                                        <input type="text" name="account" value="$!account" class="input-sm form-control" placeholder="账号">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 m-b-xs" style="width:110px;">
+                                       <lable style="float:left;margin:6px 0 0 15px;">选择大区：</lable>
+                                </div>                          
+                                <div class="col-sm-2 m-b-xs">                                  
+                                    <div class="input-group">                                       
+                                        <select class="input-sm form-control" name="domain" id="js_domain" style="width: 160px">
+                                            <option value="">大区名称</option>
+											#if($!qu == "1")
+												<option value="1" selected="selected">网通</option>
+											#else
+												<option value="1">网通</option>
+											#end
+											#if($!qu == "2")
+												<option value="2" selected="selected">电信</option>
+											#else
+												<option value="2">电信</option>
+											#end
+											#if($!qu == "3")
+												<option value="3" selected="selected">双线</option>
+											#else
+												<option value="3">双线</option>
+											#end
+                                        </select>
+                                    </div>
+                                </div>
+                               
+                                <div class="col-sm-2 m-b-xs" style="width:130px;">
+                                       <lable style="float:left;margin:6px 0 0 15px;">选择服务器：</lable>
+                                </div>           
+                                <div class="col-sm-2 m-b-xs">
+                                    <div class="input-group">      
+                                        <select class="input-sm form-control" name="server" id="js_server" style="width: 160px">
+                                            
+											#if($server)
+												<option value="$!server" selected="selected" data-first="1">$!server</option>
+											#else
+												<option value="-1">服务器名称</option>
+											#end
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 m-b-xs">
+                                    <div class="input-group">
+                                        <input type="text" name="roleName" value="$!roleName" class="input-sm form-control" placeholder="角色名称">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 m-b-xs">
+                                    <div class="input-group">
+                                        <input type="text" name="strExchangeDate" value="$!exchangeTime" class="input-sm form-control js_startTimeCtr" readonly placeholder="兑换时间">
+                                    </div>
+                                </div>     
+                                <div class="col-sm-1 m-b-xs">
+                                        <input type="submit" class="btn btn-sm btn-info" id="js_form_submit" value="筛选" />
+                                </div>
+							</form>
+                            </div>
+							 <script>
+									$(function(){
+										var serverVal=$("#js_server").val();
+										$("#js_domain").unbind("change").bind("change",function(){
+											var arrayServer = new Array();
+											var isFirstChange=$("#js_server").find("option").eq(0).attr("data-first");
+											$.ajax
+											({
+												type:"post",
+												url: "getXWBServer",
+												data:{
+													"domainNum":$(this).val()
+												},
+												success:function(msg){
+													arrayServer = msg.split("\-");
+													$("#js_server").html("<option value='-1'>服务器名称</option>");
+													for(var i = 0;i<arrayServer.length-1;i++){
+														$("#js_server").append("<option value='"+arrayServer[i]+"'>"+arrayServer[i]+"</option>");
+													}
+													
+													if(isFirstChange){
+														$("#js_server").val(serverVal);
+													}
+												}
+											});
+											
+										});
+										
+										$("#js_domain").change();
+									});
+								</script>
+						
+                        </header>
+                        <!--表格主体-->
+                        <section class="scrollable padder" style="top:72px;">
+                            <div class="m-b-md">
+                            </div>
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" >
+                                <div class="table-responsive">  
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            <tr>
+                                                <th>账号名称</th>
+                                                <th>所在大区</th>
+                                                <th>所在服务器</th>
+                                                <th>角色名称</th>
+                                                <th>兑换日期</th>
+                                                <th>物品编号</th>
+                                                <th>方式（中奖\兑换）</th>
+                                            </tr>
+                                        </thead>
+										#foreach($param in $!goodsGetList)
+                                            <tbody>
+                                                <tr>
+                                                    <td>$param.account</td>
+                                                    <td>$param.domain</td>
+                                                    <td>$param.server</td>
+                                                    <td>$param.roleName</td>
+                                                    <td>$param.strExchangeDate</td>
+                                                    <td>$param.goodsCode</td>
+                                                    <td>$param.getWay</td>
+                                                </tr>
+                                            </tbody>
+										#end
+                                    </table>
+
+                                </div>
+                            </section>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--翻页功能-->
+                        <footer class="footer bg-white b-t">
+                            <div class="row dataTables_wrapper">
+                                <div class="col-sm-6">
+                                    <div class="dataTables_info" id="DataTables_Table_0_info">共$!{page.totalRecords}条 第$!{page.pageNo}/$!{page.totalPages}页</div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_0_paginate">
+										#if(${page.pageNo} == $!{page.topPage})
+                                        <a class="first paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_first">首页</a>
+										<a class="previous paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_previous">上一页</a>
+										#else
+										<a href="$!{url}&pageNum=$!{page.topPage}" class="first paginate_button" tabindex="0" id="DataTables_Table_0_first">首页</a>
+										<a href="$!{url}&pageNum=$!{page.previousPageNo}" class="previous paginate_button" tabindex="0" id="DataTables_Table_0_previous">上一页</a>
+										#end
+										<span>
+											#foreach($param in $!page.pageNumArray)
+												#if($param == $page.pageNo)
+													<a href="$!{url}&pageNum=$param" class="paginate_active" style="background-color:#D1D1D1" tabindex="0">$param</a>
+												#else
+													<a href="$!{url}&pageNum=$param" class="paginate_button" tabindex="0">$param</a>
+												#end
+											#end
+											
+										</span>
+										#if(${page.pageNo} == $!{page.bottomPageNo})
+										<a class="next paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_next">下一页</a>
+										<a class="last paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_last">末页</a>
+										#else
+										<a href="$!{url}&pageNum=$!{page.nextPageNo}" class="next paginate_button" tabindex="0" id="DataTables_Table_0_next">下一页</a>
+										<a href="$!{url}&pageNum=$!{page.bottomPageNo}" class="last paginate_button" tabindex="0" id="DataTables_Table_0_last">末页</a>	
+										#end
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </section>
+                </section>
+                <a href="#" class="hide nav-off-screen-block" data-toggle="class:nav-off-screen" data-target="#nav"></a>
+                <aside class="bg-light lter b-l aside-md hide" id="notes">
+                    <div class="wrapper">Notification</div>
+                </aside>
+            </section>
+        </section>
+    </section>
+            </section>
+     
+     <script src="${rc.contextPath}/xwbresources/Script/app.v2.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            //时间控件--开始
+            $(".js_startTimeCtr").datepicker({
+                format: 'yyyy-mm-dd',
+                startView: 2,   //默认打开是年试图
+                autoclose: true,  //选择后自动关闭
+                todayBtn: true,  //选择今天的按钮
+                minView: 2   //只能选到年试图  （0 代表能选到分钟、1 代表能选到小时、2 代表能选到日 ）
+            })
+            //时间控件--结束
+        });
+    </script>
+    <!-- Bootstrap -->
+    <!-- App -->
+    <script src="${rc.contextPath}/xwbresources/Script/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+    <script src="${rc.contextPath}/xwbresources/Script/charts/easypiechart/jquery.easy-pie-chart.js" cache="false"></script>
+    <script src="${rc.contextPath}/xwbresources/Script/charts/sparkline/jquery.sparkline.min.js" cache="false"></script>
+    <script src="${rc.contextPath}/xwbresources/Script/charts/flot/jquery.flot.min.js" cache="false"></script>
+    <script src="${rc.contextPath}/xwbresources/Script/charts/flot/jquery.flot.tooltip.min.js" cache="false"></script>
+    <script src="${rc.contextPath}/xwbresources/Script/charts/flot/jquery.flot.resize.js" cache="false"></script>
+    <script src="${rc.contextPath}/xwbresources/Script/charts/flot/jquery.flot.grow.js" cache="false"></script>
+    <script src="${rc.contextPath}/xwbresources/Script/charts/flot/demo.js" cache="false"></script>
+    <script src="${rc.contextPath}/xwbresources/Script/calendar/bootstrap_calendar.js" cache="false"></script>
+    <script src="${rc.contextPath}/xwbresources/Script/calendar/demo.js" cache="false"></script>
+    <script src="${rc.contextPath}/xwbresources/Script/sortable/jquery.sortable.js" cache="false"></script>
+	
+
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+	<script type="text/javascript" charset="utf-8">
+	    document.write(teheadstr);
+	</script>
+</body>
+</html>

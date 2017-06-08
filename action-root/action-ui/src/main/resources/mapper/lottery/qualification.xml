@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdninestory.IQualificationMapper">
+	<resultMap type="Qualification" id="Qualification">
+		<id column="code" property="code" />
+		<result column="user_code" property="userCode" />
+		<result column="lottery_time" property="lotteryTime" />
+		<result column="action_code" property="actionCode" />
+	</resultMap>
+	<resultMap type="CommonActionConfigBean" id="ActionConfig">
+		<id column="code" property="code" />
+		<result column="hd_name" property="hdName" />
+		<result column="hd_start" property="hdStartD" />
+		<result column="hd_end" property="hdEndD" />
+		<result column="is_delete" property="isDelete" />
+		<result column="game_id" property="gameId" />
+		<result column="paras" property="paras" />
+		<result column="hd_link" property="hdLink" />
+	</resultMap>
+
+	<!-- 获取活动配置信息 -->
+	<select id="selectActionConfig" resultMap="ActionConfig">
+		select *
+		from hd_config_tb
+		where code=#{actionCode}
+	</select>
+	<!-- 根据用户编号查询用户抽奖资格信息 -->
+	<select id="selectQualification" resultMap="Qualification"
+		parameterType="int">
+		select
+		code,user_code,lottery_time,action_code from
+		wdnine_qualification_tb
+		where user_code=#{userCode}
+	</select>
+
+	<!-- 根据用户编号和活动编号查询用户抽奖资格信息 -->
+	<select id="selectByUserAndAction" resultMap="Qualification"
+		parameterType="map">
+		select
+		code,user_code,lottery_time,action_code from
+		wdnine_qualification_tb
+		where user_code=#{userCode} and
+		action_code=#{actionCode}
+	</select>
+	
+	<!-- 根据用户编号和活动编号查询用户抽奖资格信息 -->
+	<select id="selectLotteryInfoByUserAndAction" resultMap="Qualification">
+		select
+		code,user_code,lottery_time,action_code from
+		wdnine_qualification_tb
+		where user_code=#{userCode} and
+		action_code=#{actionCode}
+	</select>
+	<!-- 更改用户抽奖次数 -->
+	<update id="updateLotteryTime" parameterType="Qualification">
+		update
+		wdnine_qualification_tb set lottery_time=#{lotteryTime} where
+		user_code=#{userCode} and
+		action_code=#{actionCode}
+	</update>
+
+	<!-- 增加用户抽奖资格 问道康师傅抽奖活动 王雷 -->
+	<insert id="insertQualification" parameterType="Qualification">
+		insert into
+		wdnine_qualification_tb
+		(user_code,lottery_time,action_code)
+		values(#{userCode},#{lotteryTime},#{actionCode})
+	</insert>
+
+	<!-- 更改用户抽奖次数 -->
+	<update id="reduceTime">
+		update wdnine_qualification_tb
+		set
+		lottery_time=(lottery_time-1) where user_code=#{userCode} and
+		action_code=#{actionCode}
+	</update>
+	<!-- 增加一次用户抽奖次数 -->
+	<update id="addOneLotteryTime">
+		update wdnine_qualification_tb
+		set
+		lottery_time=(lottery_time+1) where user_code=#{userCode} and
+		action_code=#{actionCode}
+	</update>
+	
+    <!-- 增加2次用户抽奖次数  问道IDO漫展活动-->
+	<update id="addTwoLotteryTime">
+		update wdnine_qualification_tb
+		set
+		lottery_time=(lottery_time+2) where user_code=#{userCode} and
+		action_code=#{actionCode}
+	</update>
+
+	<select id="selectByActionAndPage" resultMap="Qualification"
+		resultType="java.util.List">
+		SELECT
+		TOP
+		${pageSize} *
+		FROM
+		wdnine_qualification_tb
+
+		WHERE
+		(code NOT
+		IN
+		(SELECT
+		TOP
+		(${pageSize}*(${pageNo}-1))
+		code
+		FROM
+		wdnine_qualification_tb
+		where action_code=#{actionCode}
+		order by
+		lottery_time desc
+
+		))
+		and
+		action_code=#{actionCode}
+		order by lottery_time
+		desc
+
+
+	</select>
+	<delete id="removeByActionCode">
+		delete from wdnine_qualification_tb
+		where
+		action_code=#{actionCode}
+
+
+	</delete>
+
+	<update id="setTimes">
+		update wdnine_qualification_tb
+		set
+		lottery_time=(lottery_time+#{time}) where
+		user_code=#{userCode} and
+		action_code=#{actionCode}
+		and
+		lottery_time>=0
+	</update>
+	
+	<!-- 增加用户抽奖资格 问道1.61官网活动 李志海 -->
+	<insert id="addOneLotteryData" >
+		insert into
+		wdnine_qualification_tb
+		(user_code,lottery_time,action_code)
+		values(#{userCode},0,#{actionCode})
+	</insert>
+	
+	<!-- 添加1次抽奖机会 问道2017找基友活动活动 李志海 -->
+	<update id="addLotteryTime">
+		update wdnine_qualification_tb
+		set
+		lottery_time=(lottery_time + 1) where
+		user_code=#{userCode} and
+		action_code=#{actionCode}
+	</update>
+	
+</mapper>

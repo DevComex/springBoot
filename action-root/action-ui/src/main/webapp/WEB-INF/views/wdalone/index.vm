@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道6招教你脱光</title>
+	<link type="text/css" href="http://static.cn114.cn/action/wdalone/css/wd151030.css" rel="stylesheet" />
+	<script src="${rc.contextPath}/commonSupporter/actionUtil?actionCode=283"></script>
+	<script type="text/javascript" src="http://s.gyyx.cn/lib/jquery.js"></script>
+	<script type="text/javascript" src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=action"></script>
+	<script type="text/javascript" src="http://static.cn114.cn/action/wdalone/js/handle.js"></script>
+	<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+	<script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+    </script>
+</head>
+
+<body>
+<div class="wd_wrap">
+	<div class="main">
+		<div class="wd_header">
+			<div class="wd_nav"><a href="http://wd.gyyx.cn">进入官网</a>|<a href="http://pay.gyyx.cn">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register">账号注册</a>|<a href="http://wd.gyyx.cn/download/">下载中心</a></div>
+			<span class="wd_time">11月10日~11月17日</span>
+		</div>
+		<div class="wd_d01 clear">
+			<div class="wd_video"><div id="adplayer_s"></div></div><!--视频-->
+			<div class="wd_info">
+				<!--登录、注册-->
+				<div class="logn_tab">
+					<ul class="logn_menu clear">
+						<li class="on"><a href="javascript:;">登录</a></li>
+						<li><a href="http://account.gyyx.cn/Member/Register">快速注册</a></li>
+					</ul>
+					<div class="logn_tablist">
+						<!--登录-->
+						<div class="logn_cont">
+							<!--<p><input class="inp01" type="text" value="请输入邮箱或者手机号" /></p>
+							<p><input class="inp02" type="text" value="请输入密码" /></p>-->
+							<p class="logn_txt">一年一度的光棍节又到啦！回答5道关于“单身”的问题，就可参加中奖率100%的抽奖活动。还不快快登录来答题！</p>
+							<p><input id="login_btn" class="sub" type="button" value="立即登录" /></p>
+						</div>
+						<!--登录 end-->
+					</div>
+				</div>
+				<!--登录、注册 end-->
+				<!--登录后-->
+				<div class="after_logn"  style="display:none;">
+					<h2></h2>
+					<div id="answered" class="after01" style="display:none;"><!--未参与活动-->
+						<p class="af01_p01">您还有 <span>1</span> 次抽奖机会</p>
+						<p class="af01_p02">参与回答问题后可获得抽奖资格！</p>
+					</div><!--未参与活动 end-->
+					<div id="prize" class="after01" style="display:none;"><!--已参与抽奖-->
+						<p class="af01_p02">您所获的奖品为</p>
+					</div><!--已参与抽奖 end-->
+				</div>
+				<!--登录后 end-->
+			</div>
+		</div>
+		<div class="wd_part01">
+			<h2 class="wd_h2"><strong>趣味</strong>问答</h2>
+			<div class="part01_cont">
+				<h3>第一题</h3>
+				<p></p>
+				<ul class="wd_ans clear">
+					<li></li>
+					<li></li>
+					<li></li>
+					<li></li>
+				</ul>
+				<p class="part01_next"><a href="javascript:;" id="js_question_btn">NEXT</a></p>
+			</div>
+		</div>
+		<div class="wd_part02">
+			<h2 class="wd_h2"><strong>答题</strong>抽奖</h2>
+			<div id="js_cj" class="wd_cj">
+				<ul class="cj_list01 clear">
+					<li class="cj0 def" id="jp_1"></li>
+					<li class="cj1 def" id="jp_2"></li>
+					<li class="cj2 def" id="jp_3"></li>
+					<li class="cj3 def" id="jp_4"></li>
+				</ul>
+				<ul class="cj_list02 clear">
+					<li class="cj4 def" id="jp_10"></li>
+					<li class="cj_start"><a href="javascript:;" id="lottery_btn" class="js_btnStart" text="go"></a></li>
+					<li class="cj5 def" id="jp_5"></li>
+				</ul>
+				<ul class="cj_list01 clear">
+					<li class="cj6 def" id="jp_9"></li>
+					<li class="cj7 def" id="jp_8"></li>
+					<li class="cj8 def" id="jp_7"></li>
+					<li class="cj9 def" id="jp_6"></li>
+				</ul>
+			</div>
+		</div>
+		<div class="wd_part03">
+			<h2 class="wd_h2"><strong>活动</strong>说明</h2>
+			<div class="part03_txt">
+				<p><span>1</span>活动时间为11月10日-11月17日</p>
+				<p><span>2</span>用户登录光宇社区账号后，回答问题即可参与抽奖活动</p>
+				<p><span>3</span>参与抽奖100%获得奖品</p>
+				<p><span>4</span>活动期间，每个光宇帐号最多获得1次抽奖机会</p>
+				<p><span>5</span>实物活动奖品，奖品邮寄地址一经提交后不可修改。实物奖品将由光宇游戏在活动结束后30天以内统一安<br />排寄送，为了确保您的获奖资格，请务必填写正确的个人信息，以免影响发奖</p>
+				<p><span>6</span>本次活动的解释权归光宇游戏所有</p>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+
+
+<!--tanceng-->
+<div id="js_alert" class="wd_tc wd_tc01 alertMsg">
+	<a class="close" href="javascript:;"></a>
+	<h2>答完题啦，快去<span>抽奖</span>吧！</h2>
+</div>
+
+
+<div id="js_alert_01" class="wd_tc wd_tc04 alertMsg">
+	<a class="close" href="javascript:;"></a>
+	<h2>恭喜您获得 <span>卡西欧自拍神器</span></h2>
+	<div class="tc_cont04">
+		<form id="infoForm">
+		<p><label>姓名</label><input type="text" /></p>
+		<p><label>电话</label><input type="text" /></p>
+		<p><label>邮编</label><input type="text" /></p>
+		<p><label>邮寄地址</label><textarea></textarea></p>
+		<p class="tc_btn tc04_btn"><input type="submit" value="确认领取" /></p>
+		</form>
+	</div>
+</div>
+<div id="mask"></div>
+
+<script type="text/javascript" src="http://static.cn114.cn/action/wdalone/js/ymcore.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdalone/js/swfobject.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdalone/js/ymadplayer.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+    var AdPlayer = window.AdPlayer = {
+        adScreenClick : function(){
+            $('#adplayer_s').remove();
+            $('.wd_video').append('<div id="adplayer_s"></div>');
+            setTimeout(function(){
+                AdPlayer.show('http://download.gyyx.cn/Default.ashx?typeid=916^netType=1^file=wd_CG.flv', null, 'false');
+            }, 0);
+        },
+        show: function(videoUrl, coverUrl, adMinMode){
+            adMinMode = adMinMode || 'false';
+            YM.Flash.embedSwf('http://static.cn114.cn/action/wdalone/flash/gyyxplayer_m2.swf', 'adplayer_s', 640, 336, {
+                videoUrl: videoUrl,
+                coverUrl: coverUrl,
+                autoPlay: 0
+                
+            });
+        }
+    };
+    AdPlayer.show('http://download.gyyx.cn/Default.ashx?typeid=938^netType=1^file=1111-asktao.flv', "", 'true');
+});
+</script>
+
+
+</body>
+</html>

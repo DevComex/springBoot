@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.jswswxsign.IExchangeLogMapper">
+	<!-- Bean Map 映射 -->
+	<resultMap type="JSWSWxSignExchangeLogBean" id="JSWSWxSignExchangeLogBeanMap">
+		<id column="code" property="code" />
+		<result column="gid" property="gid" />
+		<result column="open_id" property="openId" />
+		<result column="exange_time" property="exangeTime" />
+		<result column="exange_integral" property="exangeIntegral" />
+		<result column="exange_code" property="exangeCode" />
+	</resultMap>
+	
+	<!-- 获得礼包兑换记录列表 -->
+	<select id="getExchangeLogList" parameterType="JSWSWxSignExchangeLogBean" resultMap="JSWSWxSignExchangeLogBeanMap">
+		select 
+			a.*,b.gitf_name as giftName 
+		from
+			jsws_wx_sign_exchange_log a,jsws_wx_sign_gift_tb b
+		where 
+			1=1 and a.gid = b.code
+			and open_id=#{openId}
+		order by exange_time desc 
+	</select>
+	
+	<!-- 插入礼包兑换记录 -->
+	<insert id="insertExchangeLog" parameterType="JSWSWxSignExchangeLogBean">
+		insert into jsws_wx_sign_exchange_log (
+			gid
+		   ,open_id
+		   ,exange_time
+		   ,exange_integral
+		   ,exange_code)
+		values(
+		    #{gid}
+		   ,#{openId}
+		   ,#{exangeTime}
+		   ,#{exangeIntegral}
+		   ,#{exangeCode})
+	</insert>
+	
+</mapper>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<title>问道祝福卡</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<!-- uc强制竖屏 -->
+	<meta name="screen-orientation" content="portrait">
+	<!-- QQ强制竖屏 -->
+	<meta name="x5-orientation" content="portrait">
+	<!-- UC强制全屏 -->
+	<meta name="full-screen" content="yes">
+	<!-- QQ强制全屏 -->
+	<meta name="x5-fullscreen" content="true">
+	<link rel="stylesheet" href="http://static.cn114.cn/action/wdblessingcard2017/css/swiper.min.css">
+	<link rel="stylesheet" href="http://static.cn114.cn/action/wdblessingcard2017/css/mindex.css">
+	<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+</head>
+
+<body>
+
+	<div class="sharetop">
+		快把这张专属卡片分享给小伙伴吧！
+	</div>
+
+	<div class="details share_con">
+		<div class="details_con">
+
+			<!-- 卡片滑动 start-->
+			<div class="swiper-container">
+				<div class="swiper-wrapper">
+
+					<div class="swiper-slide">
+						<div class="cardBox">
+							<img src="http://static.cn114.cn/action/wdblessingcard2017/images/mingpian1.png" alt="" />
+							<div class="cardBox_con">
+								<div class="toux">
+									<img src="http://static.cn114.cn/action/wdblessingcard2017/images/mToux.png" />
+								</div>
+								<p>角色名：<span class="js_role_name">够大的</span></p>
+								<p>区&nbsp;组：<span class="js_server_name">避暑上线</span></p>
+								<div class="msg">
+									初入问道时初入问道时初入问道时初入问道时初入问道时初入问道时初入问道时初入问道时初入问道时初入问道时初入问道时初入问道时初入问道时初入问道时
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+			<!-- end 卡片滑动 -->
+
+		</div>
+	</div>
+
+	<!-- 底部按钮 start -->
+	<div class="sharebtm">
+		<img src="http://static.cn114.cn/action/wdblessingcard2017/images/shardEwm.png" alt="" />
+	</div>
+	<!-- end 底部按钮  -->
+
+	<script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+	<script src="http://static.cn114.cn/action/wdblessingcard2017/js/share.js"></script>
+	<script>
+		var _hmt = _hmt || [];
+		(function () {
+			var hm = document.createElement("script");
+			hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+			var s = document.getElementsByTagName("script")[0];
+			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</body>
+
+</html>

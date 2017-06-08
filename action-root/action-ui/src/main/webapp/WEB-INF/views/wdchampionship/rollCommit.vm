@@ -1,0 +1,231 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>问道-名人争霸赛</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdchampionship/css/wd_160324.css">
+	<script  type="text/javascript">
+		    var rc = "${rc.contextPath}";
+	</script>
+	<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+</head>
+<body>
+    <!--关注说明部分-->
+    <div class="wd_main">
+        <div class="wd_gz">
+            <div style="padding: 10px 10px 0 67px">
+                <div class="wd_gz">
+                    <div class="tit"></div>
+                    <div id="colee" class="con01_txt">
+                        <div id="colee1">
+                            <ul class="js_scolllist">
+                               <!-- <li>
+                                    <span>┃??┏┃主人公：</span>不错不错。</li>
+                                <li>
+                                    <span>ぇ西索ぇ：</span>为什么西索没有坚持下...</li>
+                                <li>
+                                    <span>武当 红颜家族：</span>武当 加油</li>
+                                <li>
+                                    <span>蓝点颜：</span>狂人</li>
+                                <li>
+                                    <span>济南万小龙：</span>预言名人赛决赛华山2...</li>
+                                <li>
+                                    <span>哭了谁来疼：</span>醉心大叔加油</li>
+                                <li>
+                                    <span>ad：</span>我也要加入高手版</li>
+                                <li>
+                                    <span>各个简直搞笑！：</span>支持就好了！不要黑人...</li>
+                                <li>
+                                    <span>敏人火套没用了：</span>防这么高PK累 又打...</li>
+                                <li>
+                                    <span>652884：</span>雪战到底     血...</li>
+                                <li>
+                                    <span>避暑69：</span>支持醉心！</li>
+                                <li>
+                                    <span>华山加油：</span>华山冠军    加油...</li>
+                                <li>
+                                    <span>aaa：</span>6666</li>
+                                <li>
+                                    <span>風不住：</span>2012三哥加油</li>
+                                <li>
+                                    <span>猜猜我是谁：</span>你好~</li>
+                                <li>
+                                    <span>猜猜我是谁：</span>冠军又会是谁呢？</li>
+                                <li>
+                                    <span>乐山大佛：</span>乐山大佛还不合区打J...</li>
+                                <li>
+                                    <span>全敏水仙：</span>亮瞎了</li>
+                                <li>
+                                    <span>就：</span>好</li>
+                                <li>
+                                    <span>我是冠军：</span>加油啊，第一名人会是...</li>
+                                <li>
+                                    <span>力顶钟山风雨：</span>钟山加油</li>
+                                <li>
+                                    <span>Love梦：</span>名扬天下，加油！百里...</li>
+                                <li>
+                                    <span>三哥铁丝：</span>三哥为什么不把你水号...</li>
+                                <li>
+                                    <span>三哥加油：</span>下次的冠军应该是龙三...</li>
+                                <li>
+                                    <span>..：</span>49怎么不出个世道玩...</li>
+                                <li>
+                                    <span>水容于火：</span>我也要加入高手版</li>
+                                <li>
+                                    <span>硬汉哥：</span>武当雄风加油虽然压力...</li>
+                                <li>
+                                    <span>俄而额：</span>3333</li>
+                                <li>
+                                    <span>ヤ飛雪寒肥灬：</span>好美哦</li>
+                                <li>
+                                    <span>s：</span>第一名人会是谁呢？</li>
+                                <li>
+                                    <span>尼玛：</span>考斯</li>
+                                <li>
+                                    <span>华山论剑：</span>华山论剑冠军</li>
+                                <li>
+                                    <span>紫金城下的：</span>破军V5</li>
+                                <li>
+                                    <span>飞龙杀神：</span>破军参加破军赢 不参...</li>
+                                <li>
+                                    <span>老江：</span>装备牛才是王道</li>
+                                <li>
+                                    <span>幻想中的你：</span>古都是起不来了哎。。...</li>
+                                <li>
+                                    <span>武当：</span>无聊</li>
+                                <li>
+                                    <span>相濡以沫シ溪：</span>倩女幽魂的有吗</li>
+                                <li>
+                                    <span>醉心客：</span>支持你</li>
+                                <li>
+                                    <span>猪猪儿：</span>都是高手</li>
+                                <li>
+                                    <span>黄一凡：</span>香格里拉加油。蕊龙加...</li>
+                                <li>
+                                    <span>黄一凡：</span>香格里拉 加油，，，...</li>
+                                <li>
+                                    <span>的：</span>破游戏看个直播都没有</li>
+                                <li>
+                                    <span>忠义垃圾北古垃圾：</span>大叔卫冕冠军</li>
+                                <li>
+                                    <span>LisngloL：</span>我千里2个队伍进16...</li>
+                                <li>
+                                    <span>混沌一刀：</span>人在混沌心在北古、北...</li>
+                                <li>
+                                    <span>华山★伤心剑：</span>华山加油 紫色加油相...</li>
+                                <li>
+                                    <span>华山威武：</span>都说西索能赢 连4强...</li>
+                                <li>
+                                    <span>期待胜利者：</span>冠军在避暑和华山之间...</li>
+                                <li>
+                                    <span>问道大花痴：</span>真心希望如虎添翼有人...</li>
+                                <li>
+                                    <span>宝韬：</span>宝韬</li>
+                                <li>
+                                    <span>落英缤纷纯洁留：</span>落英加油加油</li>
+                                <li>
+                                    <span>弑天：</span>老区没小号新区没大号...</li>
+                                <li>
+                                    <span>﹏゛季末。：</span>来凑热闹。看土豪散金</li>
+                                <li>
+                                    <span>无悔12356：</span>祝贺你们得第一</li>
+                                <li>
+                                    <span>别有的输：</span>别输了 啊 全压你啦</li>
+                                <li>
+                                    <span>泸沟小女孩：</span>清风，明月加油我支持...</li>
+                                <li>
+                                    <span>华山 紫色：</span>顶 ，干翻所有队伍，...</li>
+                                <li>
+                                    <span>赢呀：</span>无情 晴雪加油呀，和...</li>
+                                <li>
+                                    <span>永远的林海：</span>永远的林海！！！</li>
+                                <li>
+                                    <span>- -：</span>你们觉得8009这样...</li>
+                                <li>
+                                    <span>若枫：</span>避暑加油</li>
+                                <li>
+                                    <span>优顺五金餐具：</span>避暑平均道高点而已装...</li>
+                                <li>
+                                    <span>她说她很美丽：</span>龙儿  露儿  加油...</li>
+                                <li>
+                                    <span>窦佳友：</span>都加油</li>
+                                <li>
+                                    <span>水皇：</span>希望能把全部的视频展...</li>
+                                <li>
+                                    <span>避暑农民79：</span>醉心、战神、灰太狼、...</li>
+                                <li>
+                                    <span>群星雄起：</span>群星得的孩子们，雄起</li>
+                                <li>
+                                    <span>000022：</span>破军参加破军赢   ...</li>
+                                <li>
+                                    <span>江寒月：</span>江寒月怎么没有来</li>
+                                <li>
+                                    <span>03223：</span>拿不到冠军别回华山了</li>
+                                <li>
+                                    <span>3232：</span>2121</li>
+                                <li>
+                                    <span>◇凹◆凸：</span>百里秦川 加油！！！</li>
+                                <li>
+                                    <span>凝眸含笑风月：</span>土豪就是王。农民只能...</li>
+                                <li>
+                                    <span>灬矜持豹紋男：</span>支持大叔 那是必须的...</li>
+                                <li>
+                                    <span>2014道友：</span>力挺醉心大叔不夺冠也...</li>
+                                <li>
+                                    <span>慧剑心魔：</span>醉心客PK从来都不用...</li>
+                                <li>
+                                    <span>水皇第一：</span>闭关这么多月，冠军你...</li>
+                                <li>
+                                    <span>混沌：</span>-- 多多 去了也打...</li>
+                                <li>
+                                    <span>支持醉心客：</span>支持醉心客~，~</li>
+                                <li>
+                                    <span>123：</span>华山必胜...</li>
+                                <li>
+                                    <span>双线霸主2012：</span>支持龙3，干掉紫色，...</li>
+                                <li>
+                                    <span>涌现黑马最大亮点：</span>各区组王者好好准备。</li>
+                                <li>
+                                    <span>YY：</span>8009.完胜</li>
+                                <li>
+                                    <span>K啦啦啦：</span>觉得华山几率挺大</li>
+                                <li>
+                                    <span>支持大叔醉心客：</span>大叔依旧是我们心中的...</li>
+                                <li>
+                                    <span>酒魁：</span>格格我支持你，梦之队...</li>
+                                <li>
+                                    <span>蕊龙加油：</span>我们香格里拉不输给任...</li>
+                                <li>
+                                    <span>华山必胜：</span>紫色   拿不到冠军...</li>
+                                <li>
+                                    <span>呵呵：</span>呵呵 ，，，，我儿子...</li>
+                                <li>
+                                    <span>酒鬼：</span>顶2012</li>
+                                <li>
+                                    <span>酒鬼：</span>我么报名，就上来看看</li>
+                                <li>
+                                    <span>提莫队长：</span>~~~多多会不会参加...</li>
+                                <li>
+                                    <span>傲军：</span>相信华山能赢·</li>
+                                <li>
+                                    <span>罪过：</span>西索队伍全改8的话希...</li>
+                                <li>
+                                    <span>卧龙：</span>今年谁与争风</li>
+                                <li>
+                                    <span>避暑：</span>避暑好样的，醉心客给...</li>
+                                <li>
+                                    <span>海哥粉丝：</span>醉心客，拿个冠军回来...</li>
+                                <li>
+                                    <span>醉心客：</span>支持大叔</li>-->
+                            </ul>
+
+                        </div>
+                        <div id="colee2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdchampionship/js/roll.js"></script>
+</body>
+</html>

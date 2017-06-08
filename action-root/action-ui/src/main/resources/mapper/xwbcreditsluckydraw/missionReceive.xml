@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.IMissionReceiveMapper">
+	<resultMap type="MissionReceiveBean" id="MissionReceiveMap">
+		<id column="code" property="code" />
+		<result column="acount" property="acount" />
+		<result column="complete_status" property="completeStatus" />
+		<result column="mission_code" property="missionCode" />
+		<result column="receive_time" property="receiveTime" />
+		<result column="finish_time" property="finishTime" />
+		<result column="mission_credits" property="missionCredits" />
+		<result column="mission_type" property="missionType" />
+		<result column="count" property="count" />
+		<result column="upload_num" property="uploadNum" />
+		<result column="Sign_num" property="SignNum" />
+		<result column="mission_name" property="missionName" />
+	</resultMap>
+	
+
+	<!-- 检查有没有上传素材的任务 -->
+	<select id="getMissionReceiveByAccountAndType" parameterType="String" resultMap="MissionReceiveMap">
+		select a.* from xuanwuba_mission_receive_new_tb a left join xuanwuba_mission_tb b on a.mission_code = b.code where b.mission_closestatus = 0 and a.acount = #{0} and b.mission_type = #{1} and a.complete_status in ('审核中','未完成')
+	</select>
+	
+	<!-- 根据编号修改完成状态         -->
+	<update id="updateCompleteStatus">
+		update xuanwuba_mission_receive_new_tb set complete_status = #{1},finish_time = #{2} where code = #{0}
+	</update>
+	<!-- 根据编号增加次数        -->
+	<update id="updateCount">
+		update xuanwuba_mission_receive_new_tb set count = #{1} where code = #{0}
+	</update>
+	<select id="getMissionReceiveBycode"  resultMap="MissionReceiveMap">
+		select * from xuanwuba_mission_receive_new_tb where mission_code=#{0} and acount=#{1}
+	</select>
+	<!-- 领取任务 -->
+	<insert id="addMissionReceive" parameterType="MissionReceiveBean">
+		insert into xuanwuba_mission_receive_new_tb  
+		(acount,complete_status,mission_code,receive_time,count) 
+		values(#{acount},#{completeStatus},#{missionCode},#{receiveTime},#{count})
+	</insert>
+	
+	<select id="getMissionReceiveLog" parameterType="MissionReceiveBean" resultMap="MissionReceiveMap">
+		select a.*,b.upload_num,b.Sign_num,b.mission_credits,b.mission_type,b.mission_name 
+		from
+		xuanwuba_mission_receive_new_tb a 
+		left join
+		xuanwuba_mission_tb b 
+		on a.mission_code = b.code 
+		where a.complete_status = '已完成'
+		<if test="acount != null and acount != ''">
+		<![CDATA[
+					and a.acount like CONCAT('%','${acount}','%' ) 
+		]]>
+		</if>
+		<if test="missionType != null and missionType != ''">
+		<![CDATA[
+					and b.mission_type like CONCAT('%','${missionType}','%' ) 
+		]]>
+		</if>
+	</select>
+</mapper>

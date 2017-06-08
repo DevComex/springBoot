@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>舞吧奖励</title>
+    <script type="text/javascript">
+        var rc = "${rc.contextPath}";
+    </script>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/xuanwuba/css/xwb150619.css" type="text/css" />
+    <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=xuanwuba" type="text/javascript"></script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="s_wrap">
+        <div class="s_wrap01">
+            <div class="s_wrapFooter">
+                <div class="smain">
+                    <div class="header">
+                        <div class="s_nav">
+                            <a href="http://xwb.gyyx.cn/" target="_blank">进入官网</a>|<a href="http://xwb.gyyx.cn/Download/index.shtml" target="_blank">下载游戏</a>|<a href="http://bbs.gyyx.cn/forum.php?gid=167" target="_blank">进入论坛</a>|<a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" target="_blank">兑换充值</a>
+                        </div>
+                        <div class="s_left">
+                            <div class="part_login">
+                                <div class="login">
+                                    <!--登录前-->
+                                    <a href="javascript:;" class="login_btn js_alertlogin_a">登录</a>
+                                    <p>还没有光宇通行证?<a href="http://account.gyyx.cn/Member/Register" target="_blank">点此注册</a></p>
+                                </div>
+                                <!--登录前-->
+                                <div class="success_sign" style="display: none;" id="userSuccess">
+                                    <!--登录后-->
+                                    <h3><span>
+                                        <img src="http://static.cn114.cn/action/xuanwuba/images/xwb150619_qd_pic01.png"></span><p id="loginbar" class="red">
+                                            登录超时<br />
+                                            <a href="javascript:;" class="info_mli_a js_Logout">退出</a>
+                                        </p>
+                                    </h3>
+                                    <p>玩家区组：<i class="red">未选择</i></p>
+                                    <p>性别：<i class="red">未选择</i></p>
+                                    <p><span class="sp01">积分：<i class="red">0</i></span></p>
+                                    <p>累计签到天数：<i class="red">0天</i></p>
+                                </div>
+                                <!--登录后-->
+                            </div>
+                            <div class="s_div s_btn">
+                                <a href="../xuanwuba/signIndex" class="registerBtn "><span class="ico01">签到</span></a>
+                                <a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" class="a02" target="_blank"><span class="ico02">充值</span></a>
+                            </div>
+                        </div>
+                        <a href="../xuanwuba/index" class="goHome">返回首页</a>
+                    </div>
+                    <div class="s_cont">
+                        <h3 class="s_tit">舞吧奖励</h3>
+                         <div class="s_txt">
+                            <p><span>1</span>获得的积分可以通过积分抽奖、积分兑换获得海量的道具奖励。</p>
+                            <p><span>2</span>每次抽奖消耗30积分。</p>
+                            <p><span>3</span>积分抽奖的中奖率高达100%。</p>
+                            <p><span>4</span>同时还可以通过积分兑换各类道具。</p>
+                        </div>
+                        <div class="mt20">
+                            <ul class="jfUl">
+                                <li><a style="color: white" href="lotteryIndex">积分抽奖</a></li>
+                                <li class="on"><a style="color: white" href="exchangeIndex">积分兑换</a></li>
+                            </ul>
+                            <h3 class="jfH3 mt20">兑换</h3>
+                            <ul class="jfChange"></ul>
+                        </div>
+                        <div class="jfNote">
+                            <h3 class="jfH3 mt20">兑换记录</h3>
+                            <div class="jfList jfBg">
+                                <ul class="jfTitle">
+                                    <li>兑换记录</li>
+                                    <li>我的兑换记录</li>
+                                </ul>
+                                <div class="jfList01">
+                                    <ul id="js_tbody" style="height: 235px; overflow: hidden">
+                                    </ul>
+                                </div>
+                                <div class="jfList02">
+                                    <ul id="js_tbody1" style="height: 235px; overflow: hidden">
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pfNav">
+        <ul>
+            <li><a href="signIndex">每日签到</a></li>
+            <li><a href="taskShow">舞吧任务</a></li>
+            <li class="on"><a href="lotteryIndex">舞吧奖励</a></li>
+            <li><a href="collectIndex">舞吧征集</a></li>
+            <li><a href="videoShow">个人中心</a></li>
+        </ul>
+        <a href="#" class="goTop">top</a>
+    </div>
+    <!--弹层一-->
+    <div id="popBox" class="popBox" style="display: none;">
+        <div class="tc tc02">
+            <h3>普通兑换<a class="close" href="javascript:;"></a></h3>
+            <p class="imgTwo">
+                <img width="110" height="109" class="imgbig" src="" style="margin-right: 0px;">
+            </p>
+            <p class="imgTwo js_info"></p>
+            <a class="tcbtn js_exhbtn" data-codes="" style="background-position: 0 0;">确认兑换</a>
+        </div>
+    </div>
+    <div id="popBoxs" class="popBox" style="display: none;"><div class="tc"><a class="close" href="javascript:;"></a><span class="tc_icon tc_icon01"></span><p>请到个人中心完善个人信息</p></div></div>
+    <div id="maskBox" class="maskBox" style="display: none;"></div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/ymcore.min.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/xwb150623.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/gyyxEffect.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/scrolltext.js"></script>
+    <script>
+        $(function () {
+            $.ajax
+			({
+                url: rc + '/xuanwubaLottery/getExchangeInfo ',
+                type: "get",
+                data: {
+                    r: Math.random()
+                },
+                dataType: "json",
+                success: function (d) {
+                    if (d.isSuccess) {
+                        var getprizelist = "";
+                        for (var i = 0; i < d.data.length; i++) {
+                            getprizelist += '<li><img src="' + d.data[i].goodsPic + '" width="75" height="63" ><p data-code="' + d.data[i].code + '">' + d.data[i].goodsName + '<br/>' + d.data[i].creditsCost + '积分</p><a href="javascript:;" class="js_exchange">兑换</a><span style="display:none">&nbsp;剩余'+d.data[i].price+'个</span></li>';
+                        }
+                        $(".jfChange").html(getprizelist);
+                        $(".js_exchange").click(function () {
+                            var $this = $(this);
+                            checkLogin({
+                                success: function (d) {
+                                    var sers = $("#userSuccess").find("p").eq(1).find("i").text();
+                                    var sexs = $("#userSuccess").find("p").eq(2).find("i").text();
+                                    if (sers == "未选择" || sexs == "未选择") {
+                                        $("#popBoxs").show();
+                                        $("#maskBox").show();
+                                        $(".js_exhbtn").hide();
+                                    } else {
+                                        $(".imgbig").attr("src", $this.parents("li").find("img").attr("src"));
+                                        $(".js_info").html($this.parents("li").find("p").html());
+										$(".js_info").append($this.parents("li").find("span").html());
+                                        $(".js_exhbtn").attr("data-codes", $this.parents("li").find("p").attr("data-code"));
+                                        $("#popBox").show();
+                                        $("#maskBox").show();
+                                        $(".js_exhbtn").show();
+                                    }
+                                },
+                                failed: function () {
+                                    alertFn(null, null, true)
+                                }
+                            });return false;
+                        });
+                    }else{
+						
+					}
+                }
+            });
+            $(".js_exhbtn").click(function () {
+                var sername = $("#userSuccess").find("p").eq(1).find("i").text();
+                sexs = $("#userSuccess").find("p").eq(2).find("i").text();
+                if (confirm("您的区服是：" + sername + " , 性别是：" + sexs + " , 确定兑换么？")) {
+                    $.ajax
+					({
+                        url: rc + '/xuanwubaLottery/getExchange',
+                        type: "get",
+                        data: {
+                            goodCode: $(".js_exhbtn").attr("data-codes"),
+                            serverName: $("#userSuccess").find("p").eq(1).find("i").text(),
+                            code: $("#userSuccess").find("p").eq(1).attr("data-code"),
+                            r: Math.random()
+                        },
+                        dataType: "json",
+                        success: function (d) {
+                            if (d.isSuccess) {
+                                $(".js_info").html(d.message);
+                                $(".js_exhbtn").hide();
+                            } else {
+                                $(".js_info").html(d.message);
+                                $(".js_exhbtn").hide();
+                            }
+                        }
+                    });
+                } return false;
+            });
+            $.ajax
+			({
+                url: rc + '/xuanwubaLottery/getGoodsAllRecord ',
+                type: "get",
+                data: {
+                    r: Math.random()
+                },
+                dataType: "json",
+                success: function (d) {
+                    if (d.isSuccess) {
+                        var getprizelist = "";
+                        for (var i = 0; i < d.data.length; i++) {
+                            getprizelist += '<li><span>' + d.data[i].account + '</span>' + d.data[i].goodsName + '</li>';
+                        }
+                        $("#js_tbody").html(getprizelist);
+                        if (d.data.length > 11) {
+                            //滚动
+                            var scrollup = new ScrollText("js_tbody");
+                            scrollup.LineHeight = 25;        //单排文字滚动的高度
+                            scrollup.Amount = 1;            //注意:子模块(LineHeight)一定要能整除Amount.
+                            scrollup.Delay = 20;           //延时
+                            scrollup.Start();             //文字自动滚动
+                            scrollup.Direction = "up";   //默认设置为文字向上滚动
+                        }
+                    }
+                }
+            });
+
+
+
+            $.ajax
+			({
+                url: rc + '/xuanwubaLottery/getGoodsUserRecord ',
+                type: "get",
+                data: {
+                    r: Math.random()
+                },
+                dataType: "json",
+                success: function (d) {
+                    if (d.isSuccess) {
+                        var getprizelist = "";
+                        for (var i = 0; i < d.data.length; i++) {
+                            getprizelist += '<li><span>' + d.data[i].strExchangeDate + '</span>' + d.data[i].goodsName + '</li>';
+                        }
+                        $("#js_tbody1").html(getprizelist);
+                        if (d.data.length > 11) {
+                            //滚动
+                            var scrollup = new ScrollText("js_tbody1");
+                            scrollup.LineHeight = 25;        //单排文字滚动的高度
+                            scrollup.Amount = 1;            //注意:子模块(LineHeight)一定要能整除Amount.
+                            scrollup.Delay = 20;           //延时
+                            scrollup.Start();             //文字自动滚动
+                            scrollup.Direction = "up";   //默认设置为文字向上滚动
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

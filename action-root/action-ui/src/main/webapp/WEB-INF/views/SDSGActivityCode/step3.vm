@@ -1,0 +1,55 @@
+
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>《神道三国》官网-抢激活码</title>
+    <script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=webgame"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script  type="text/javascript">
+        var rc = "${rc.contextPath}";
+        var pageNum="3";
+    </script>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/shendaosanguo20161107/css/css.css"/>
+</head>
+<body>
+
+<!--搜索及导航begin-->
+<div class="public_nav_top">
+    <script type="text/javascript">Showtop();</script>
+</div>
+
+<!--logo&搜索 begin-->
+<div class="bg3">
+    <div class="jhm_nav">
+        <div class="main clear">
+            <a href="http://actionv2.gyyx.cn/sdsg/step1Index" ><i>01</i><span><em>STEP</em><br>抢激活码</span></a>
+            <a href="http://actionv2.gyyx.cn/sdsg/step2Index"><i>02</i><span><em>STEP</em><br>激活游戏</span></a>
+            <a href="http://actionv2.gyyx.cn/sdsg/step3Index" class="on"><i>03</i><span><em>STEP</em><br>激活状态</span></a>
+            <a href="javascript:;"><i>04</i><span><em>STEP</em><br>下载游戏</span></a>
+        </div>
+    </div>
+
+    <div class="main3">
+        <div class="game_login2">
+            <!-- 登陆前 -->
+            <div class="game_fail" style="margin-left: 0px;">抽奖前请先 <a href="#" class="game_col" onclick="alertFn(null,null,true); return false;">[登录]</a></div>
+            <!-- 登陆后 -->
+            <div class="game_sucs"  style="margin-left: 0px;display: none; ">欢迎您：<strong>chfff4</strong> <a href="#">[注销]</a></div>
+        </div>
+        <h3>请输入验证码</h3>
+        <div class="yam_box">
+            <input type="text" maxlength="30" class="js_word"/><img class="js_captchaimg" id="captcha_image" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=" width="100" height="50" alt="验证码"/><a href="javascript:;">换一张</a>
+        </div>
+        <button class="js_yanzheng"></button>
+    </div>
+</div>
+
+
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom()</script>
+</div>
+<script src="http://static.cn114.cn/action/shendaosanguo20161107/js/index.js"></script>
+</body>
+</html>

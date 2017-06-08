@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.cadet.IPlan">
+	<resultMap id="PlanBeanMap" type="PlanBean">
+		<result property="code" column="code" />
+		<result property="reportCode" column="report_code" />
+		<result property="planName" column="plan_name" />
+		<result property="startTime" column="plan_start" />
+		<result property="endTime" column="plan_end" />
+		<result property="type" column="plan_type" />
+		<result property="addition" column="plan_add" />
+	</resultMap>
+	<insert id="addPlan" parameterType="PlanBean">
+		insert into cadet_plan_tb
+		(report_code,plan_name,plan_start,plan_end,plan_type,plan_add)
+		values
+		(#{reportCode},#{planName},#{startTime},#{endTime},#{type},#{addition})
+	</insert>
+	<select id="getPlansByReportCode" parameterType="Integer" resultMap="PlanBeanMap">
+		select * from cadet_plan_tb where report_code = #{code}
+	</select>
+	<update id="updatePlan" parameterType="PlanBean">
+		update cadet_plan_tb
+		set 
+		plan_name = #{planName},
+		plan_start = #{startTime},
+		plan_end = #{endTime},
+		plan_type = #{type}
+		where code = #{code}
+	</update>
+</mapper>

@@ -1,0 +1,141 @@
+<html>
+<head>
+<title>问道-天下第一宠票选活动</title>
+<link href="http://$!{codeServer2}/action/wdNo1Vote/css/wd141201.css" rel="stylesheet" type="text/css"> 
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script type="text/javascript" src="http://$!{codeServer2}/action/wdNo1Vote/js/jquery.paginate.js"></script> 
+<link rel="stylesheet" type="text/css" href="http://$!{codeServer2}/action/wdNo1Vote/css/style.css" /> 
+
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+<script type="text/javascript" >
+//用户举报作品
+var petCode=${petInfo.petCode};
+ var userCode=${userInfo.UserId};
+ var rc = "${rc.contextPath}";
+ var  pcount=${pagination.totalPages};
+ var num=${petInfo.voteCount};
+</script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdNo1Vote/js/WDNo1PetDeatil.js" charset="UTF-8"></script>
+
+</head>
+
+<body>
+<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+
+<div class="wbg">
+    <div class="sbg">
+      <div class="main">
+      
+      
+        <!--left-->
+        <div class="mleft">
+          <ul class="nav">
+          	<li><a href="${rc.contextPath}/wdno1pet/" class="a01"></a></li>
+          	<li class = "on"><a href="${rc.contextPath}/wdno1pet/showPets" class="a02"></a></li>
+          	<li><a href="${rc.contextPath}/wdno1pet/showUpload" class="a03"></a></li>
+          	<li><a href="${rc.contextPath}/wdno1pet/showLottery" class="a04"></a></li>
+          </ul>
+          <ul class="tip">
+          	<li><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="new">进入官网</a></li>
+          	<li><a href="http://account.gyyx.cn/Member/Register" target="new">账号注册</a></li>
+          	<li><a href="http://pay.gyyx.cn/" target="new">充值中心</a></li>
+          	<li><a href="http://wd.gyyx.cn/download/" target="new">下载游戏</a></li>
+          </ul>
+        </div>
+        <!--left end-->
+        
+        
+        <!--right-->
+        <div class="mright">
+           <div class="rtop">
+              <div class="rtxt">道途风云灵兽相伴，宠物是我们在问道游戏中必不可少的伙伴，值问道1.55新版本火爆上线，特征选<br/>“天下第一宠”，心爱的宠物晒一晒，看看谁是真正的天下无双！</div>
+              <div class="rtime"><span class="sp01">投稿时间：2014年12月25日起</span><span class="sp02">投票时间：2015年1月5日—1月12日</span></div>
+           </div>
+           <div class="box">
+             <div class="zpd_box">
+               <div class="zpd_top"> 
+                  <div class="zpd_left">
+					<span data-petCode="$!{petInfo.pCode}">作品：</span>
+                    <span title="$!{petInfo.petName}">
+						$!{petInfo.smallPetName}
+            		#if($petInfo.smallPetName.length()<$petInfo.petName.length())
+            			...
+            		#end
+					</span><br/>
+					<span>区组：</span>$!{serverName}<br/>
+					<span>角色名：</span>
+                    <span title="$!{petInfo.characterName}">
+						$!{petInfo.smallCharacterName}
+					#if($petInfo.smallCharacterName.length()<$petInfo.characterName.length())
+            			...
+					#end
+					</span><br/>
+					<span>宠物总成长：</span>$!{petInfo.petGrowth}<br/>
+					<span>当前票数：<em id="numVote">$!{petInfo.voteCount}</em>
+					<a href="#" id="tipster">举报</a></span>
+				  </div>
+                  <div class="zpd_center">
+					<span class="sp01">宠物总成长：$!{petInfo.petGrowth} </span>
+					<span class="sp02">宠物气血：$!{petInfo.petBlood} </span>
+					<span class="sp03">宠物速度：$!{petInfo.petSpeed} </span>
+					<span class="sp04">宠物法攻：$!{petInfo.petMagic} </span>
+					<span class="sp05">宠物物攻：$!{petInfo.petAttack} </span>
+				  </div>
+                  <div class="zpd_right">
+                    <ul>
+                    #foreach($item in $accounts)
+                        <li>$!{item}：这个宠物不错，投一票！！ </li>
+                    #end
+                    </ul>
+                  </div>
+               </div>
+               
+               <div class="box04" >
+                 <img id="petImage" src="$!{petInfo.imgURL}" width="624">
+               </div>
+               <div class="tpbtn"  ><a id="voteFor" >投票支持</a></div>
+               <div class="plbox">
+                 <div class="pl_top">
+                   <p><input name="nickName" id="nickName" type="text" value="昵称" onfocus="if (value =='昵称'){value =''}" onblur="if (value ==''){value='昵称'}"></p>
+                   <p><textarea name="commentContent" id="commentContent" cols="" rows=""></textarea></p>
+                   <p class="plbtn"><input name="commentGo" id="commentGo" type="button" value="提交"></p>
+                 </div>
+                 <div class="pl_bot mt15">
+                    <ul id="CommetsList">
+                    	#foreach($item in $pagination.objects)
+                            <li>
+                            	<div class="pl_info">
+                            		<span class="pl_name">$!{item.nickName}说：</span>
+                            		<span class="pl_time">留言时间：$!{item.commentTime}</span>
+                            	</div>
+                            	<div class="pl_txt">$!{item.commentContent}</div>
+                            </li>
+                        #end
+                    </ul>
+					<div class="page">
+					#if ($pagination.count > 0)
+                        <div id="demo"></div> 
+					#end
+					</div> 
+                 </div>
+               </div>
+               
+               
+               
+             </div>
+           </div>        
+        </div>
+        <!--right end-->
+        
+        
+        
+      </div>
+    </div>
+</div>
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom("231c35");</script>
+</div>
+<script src="http://www.gyyx.cn/inc/gyyx_statistics.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+</body>
+</html>

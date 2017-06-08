@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>[问道]全民pk赛抽奖活动</title>
+    <meta name="keywords" content="问道，全民pk">
+    <meta name="description" content="问道全民pk赛，来就有奖">
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wdallpklottery2016/css/wd160927.css"/>
+    <script  type="text/javascript">
+		var rc = "${rc.contextPath}";
+ 	</script>
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+<div class="wd_wrap">
+    <div class="main">
+        <div class="wd_header">
+            <div class="wd_nav"><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a></div>
+        </div>
+        <div class="wd_logn">
+            <div class="login_befor js_login_befor" style="display: block;">
+                <p class="login_p">抽奖需要先 <a href="javascript:void(0);" onclick="alertFn(null,null,true);">【登录】</a></p>
+            </div>
+            <div class="login_after js_login_after" style="display: none">
+                <p>欢迎&nbsp;<span class="bol js_account">问道的世界</span><a href="javascript:void(0);" class="js_signOutBtn">【退出】</a></p>
+                <p>
+                    <span>我的服务器</span>
+                    <select name="" class="js_net">
+                        <option value="0">请选择区组</option>
+                    </select>
+                    <select name="" class="js_server">
+                        <option value="0">请选择服务器</option>
+                    </select>
+                    <a href="javascript:void(0);" class="hjx js_prizeInfo">【中奖信息】</a>
+                    <a href="javascript:void(0);" class="hjx js_updateAddr">【修改地址】</a>
+                </p>
+            </div>
+        </div>
+        <div class="cj_sec">
+            <div class="cj_list">
+                <ul class="cj_list01">
+                    <li class="js_cjBox" id="cjx0">
+                        <img src="http://static.cn114.cn/action/wdallpklottery2016/images/wd160927_jp00.jpg" class="gift" style="display: inline;">
+                        <span></span>
+                    </li>
+                    <li class="js_cjBox" id="cjx11">
+                        <img src="http://static.cn114.cn/action/wdallpklottery2016/images/wd160927_jp11.jpg" class="gift" style="display: inline;">
+                        <span></span>
+                    </li>
+                    <li class="js_cjBox" id="cjx10">
+                        <img src="http://static.cn114.cn/action/wdallpklottery2016/images/wd160927_jp10.jpg" class="gift" style="display: inline;">
+                        <span></span>
+                    </li>
+                    <li class="js_cjBox" id="cjx9">
+                        <img src="http://static.cn114.cn/action/wdallpklottery2016/images/wd160927_jp09.jpg" class="gift" style="display: inline;">
+                        <span></span>
+                    </li>
+                </ul>
+                <ul class="cj_list02">
+                    <li class="js_cjBox" id="cjx1">
+                        <img src="http://static.cn114.cn/action/wdallpklottery2016/images/wd160927_jp01.jpg" class="gift" style="display: inline;">
+                        <span></span>
+                    </li>
+                    <li class="js_cjBox" id="cjx2">
+                        <img src="http://static.cn114.cn/action/wdallpklottery2016/images/wd160927_jp02.jpg" class="gift" style="display: inline;">
+                        <span></span>
+                    </li>
+                    <li class="star">
+                        <a href="javascript:void(0);" class="star js_prizeBtn" data-status="go">立即抽奖</a>
+                        <div id="js_scroll_top" class="scroll_con">
+	                       <table class="reward_info js_prizeList">
+	                        </table> 
+                        </div>
+                        
+                    </li>
+                    <li class="js_cjBox" id="cjx8">
+                        <img src="http://static.cn114.cn/action/wdallpklottery2016/images/wd160927_jp08.jpg" class="gift" style="display: inline;">
+                        <span></span>
+                    </li>
+                    <li class="js_cjBox" id="cjx7">
+                        <img src="http://static.cn114.cn/action/wdallpklottery2016/images/wd160927_jp07.jpg" class="gift" style="display: inline;">
+                        <span></span>
+                    </li>
+                </ul>
+                <ul class="cj_list03">
+                    <li class="js_cjBox" id="cjx3">
+                        <img src="http://static.cn114.cn/action/wdallpklottery2016/images/wd160927_jp03.jpg" class="gift" style="display: inline;">
+                        <span></span>
+                    </li>
+                    <li class="js_cjBox" id="cjx4">
+                        <img src="http://static.cn114.cn/action/wdallpklottery2016/images/wd160927_jp04.jpg" class="gift" style="display: inline;">
+                        <span></span>
+                    </li>
+                    <li class="js_cjBox" id="cjx5">
+                        <img src="http://static.cn114.cn/action/wdallpklottery2016/images/wd160927_jp05.jpg" class="gift" style="display: inline;">
+                        <span></span>
+                    </li>
+                    <li class="js_cjBox" id="cjx6">
+                        <img src="http://static.cn114.cn/action/wdallpklottery2016/images/wd160927_jp06.jpg" class="gift" style="display: inline;">
+                        <span></span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="timeAndReward">
+            <div class="state">
+                <h4>活动时间</h4>
+                <p>2016年11月21日—11月27日23:59<br/>
+                    <span class="blu">（所有参加第三届全民PK赛并参与比赛战斗的选手<br/>
+                       玩家均可在此页面进行抽奖，一个账号只有一次抽奖<br/>
+                        机会）</span></p>
+            </div>
+            <div class="state">
+                <h4>活动奖励</h4>
+                <p>十周年纪念币、Iphone 7 plus、随机元灵、随机神<br/>
+                    兽、九尾仙狐手办、代代封候吊坠、5000银元宝、<br/>
+                    铜钱铭牌等丰富大奖等你拿！</p>
+            </div>
+        </div>
+        <div class="act_expl">
+            <h4>活动说明</h4>
+            <p><i>1</i>
+               玩家在开启抽奖活动之前必须先进行登录、选择区组；</p>
+            <p><i>2</i>
+                每个账号只有1次抽奖机会，活动期间若未抽奖则视为放弃抽奖资格和奖品；</p>
+            <p><i>3</i>
+                中奖玩家收货信息须如实填写，若信息有误或不填写导致奖品无法发出将视为放弃奖品；</p>
+            <p><i>4</i>
+                本次活动奖品不可退换；</p>
+            <p><i>5</i>
+               活动结束后我们将进行统一奖品发放。虚拟物品奖励（随机元灵、随机神兽、随机变异、银元宝、铭牌）将发至玩家抽奖时选择的区组中，实物奖励将发至玩家在此活动页面中所填写的地址。</p>
+            <p class="notice">注：活动最终解释权由光宇在线科技有限责任公司所有。</p>
+        </div>
+    </div>
+</div>
+<div class="dialog dia1" id="realPop">
+    <h3>收货地址</h3>
+    <a href="javascript:;" class="close"></a>
+    <div class="cont">
+    	<p class="js_prizeNameReal prizeNameReal">恭喜您获得***</p>
+        <p><label>收货人姓名：</label><input type="text" maxlength="10" name="userNames"/></p>
+        <p><label>联系电话：</label><input type="text" maxlength="11" name="phone"/></p>
+        <p><label>收货地址：</label><input type="text" maxlength="100" name="address"/></p>
+        <p><a href="javascript:;" class="sub js_submitBtn">确认提交</a></p>
+    </div>
+</div>
+<div class="dialog dia2" id="virtualPop">
+    <h3>抽奖</h3>
+    <a href="javascript:;" class="close"></a>
+    <div class="cont">
+        <p><strong class="js_prizeName">恭喜你获得***奖励！</strong></p>
+        <p><span class="des">我们将在活动结束7个工作日内统一发放奖励。</span></p>
+        <p><a href="javascript:;" class="sub js_iKnow">确定</a></p>
+    </div>
+</div>
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom()</script>
+</div>
+<script src="http://static.cn114.cn/action/wdallpklottery2016/js/index.js"></script>
+<script src="http://static.cn114.cn/action/wdallpklottery2016/js/function.js"></script>
+</body>
+</html>

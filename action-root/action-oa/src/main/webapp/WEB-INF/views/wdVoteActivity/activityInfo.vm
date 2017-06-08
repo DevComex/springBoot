@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Layout:luochongfei" />
+    <title>活动投票信息列表</title>
+
+    <link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+	
+	<script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+    <link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet" />
+    
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+						<section id="content">
+                    <section class="vbox">
+						<header class="header bg-white b-b clearfix">
+							<div class="col-sm-2 m-b-xs">
+                                    <h4 class="m-t bold"></h4>
+                                </div>
+                                <div class="col-sm-2 m-b-xs m-t-sm">
+                                    <div class="input-group">
+                                        
+                                    </div>
+                                </div>
+                        </header>
+						
+                        <!--顶部标题导航 end-->
+
+                        <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <div class="m-b-md">
+                            </div>
+							<!--头部功能-->
+              				<header class="header bg-white b-b clearfix">
+						        <div class="row m-t-sm">   
+									<form action="extendExcel" method="get">
+										<div class="col-sm-2 m-b-xs">
+						               		<div class="form-group">
+							              		<button class="btn btn-s-md btn-info" type="submit">导出</button>
+							            	</div>
+						            	</div>
+						            </form>
+						        </div>
+						    </header>
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" style="height:750px">
+                                <div class="table-responsive">
+	                                <table class="table table-striped m-b-none">
+	                                    <thead>
+	                                        <tr>
+	                                        	<th></th>
+	                                            <th>活动名称</th>
+	                                            <th>当前票数</th>
+	                                            <th>修改活动票数</th>
+	                                        </tr>
+	                                    </thead>
+	                                    <tbody class="js_tbody">
+											#foreach($!activityBean in $!activityBeans)
+	                                        <tr>
+	                                        	<td><input type="hidden" id="code" value="$!activityBean.code"></td>
+	                                            <td>$!activityBean.activityName</td>
+	                                            <td><input type="text" id="voteNum" value="$!activityBean.voteNum"></td>
+	                                            <td><button class="btn btn-s-md btn-info update-btn" type="submit" >修改</button></td>
+	                                        </tr>
+	                                        #end
+	                                    </tbody>
+	                                </table>
+                                </div>
+                            </section>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+                        <footer class="footer bg-white b-t">
+                            <div class="row dataTables_wrapper">
+                                 
+                            </div>
+                        </footer>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+<script type="text/javascript">
+    $(function () {
+        $(".update-btn").on("click",function(){
+			var code = $(this).parent().parent().find("input[type='hidden']").val();
+			var voteNum = $(this).parent().parent().find("input[type='text']").val();
+			var reg = /^\+?[1-9][0-9]*$/;
+			if(!reg.test(voteNum)){
+				alert("只能输入正整数");
+				return false;
+			}
+			$.ajax({
+				url:"updateVoteNum",
+				type:"GET",
+				data:{
+					"code": code,
+					"voteNum":voteNum
+				},
+				cache:false,
+				dataType:"json",
+				success:function(data){
+					if(data.isSuccess){
+						alert(data.message);
+						window.location.href=window.location.href;
+					}else{
+						alert(data.message);
+					}
+				}
+			});
+		});
+	});
+</script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>新手卡管理</title>
+    <link rel="stylesheet" href="/resources/css/index.css" type="text/css"/>
+    <link rel="stylesheet" href="/resources/css/bootstrap-combobox.css" type="text/css"/>
+    <link rel="stylesheet" href="/resources/css/bootstrap-multiselect.css" type="text/css"/>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="/resources/js/jquery-ui.dialog.min.js"></script>
+    <script src="/resources/js/bootstrap-combobox.js"></script>
+    <script src="/resources/js/bootstrap-multiselect.js"></script>
+    <script type="text/javascript" src="/resources/DatePickers/WdatePicker.js" ></script>
+    <script src="http://oa.gyyx.cn/Script/jquery.OASearch.js" type="text/javascript"></script>
+    <script src="/resources/js/jquery.ajaxpage-2.2.js" type="text/javascript"></script>
+    <script src="/resources/js/type.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+  </script>
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                         <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" style="overflow: scroll;height:100%">
+                                <div id="title" style="margin-left:10px;">
+                                    <h3 class="ly_pro_tit"><b class="font-icon-right">▶</b>类别管理</h3>
+                                </div>
+                                <table border="0" class="table t_table" id="table">
+                                    <thead>
+                                        <th style="border-top: 1px solid #ebebeb;" width="50">编号</th>
+                                        <th style="border-top: 1px solid #ebebeb;" width="100">类别</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                            <td colspan="2"><a class="js_newtype" href="#newTypeTask"  data-toggle="modal">+ 新增</a></td>
+                                        </tr>
+                                    </tfoot>
+                                </table>
+                                <!-- 页码开始 -->
+                                <div class="page" style="width: 656px">
+                                    <div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers"></div>
+                                </div>
+                                <!-- 页码结束 -->
+                                <!-- 编辑新手卡生成弹层 - start -->
+                                <div class="modal fade" id="newTypeTask" >
+                                    <div class="modal-dialog" style="width:400px;">
+                                        <div class="modal-content">
+                                            <div class="modal-header" style="height:60px;">
+                                                <label style="font-size:16px;">类别</label>
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                            </div>
+                                            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+
+                                            <div class="modal-body">
+                                                <form class="form-horizontal">
+                                                    <p class="pline"><label>类别名：</label><input id="js_typeInfo" type="text"/></p>
+                                                    <p class="zhu">*请输入类别名</p>
+                                                    <p class="pline"><label>缩写：</label><input id="js_typePin" type="text"/></p>
+                                                    <p class="zhu">*请输入类别名拼音首字母缩写，如(类别名:商务合作,缩写:swhz)</p>
+                                                    <div class="modal-footer js_footer_button"> 
+                                                        <button type="button" class="btn btn-default js_save">保存</button>
+                                                        <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">返回</button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--end 编辑新手卡生成弹层  -->
+                            </section>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+</body>
+</html> 

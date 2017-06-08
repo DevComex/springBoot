@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.memo.IShareMemoMapper">
+  
+	<!-- 插入日程分享详细标记 -->
+	<insert id="insertShareMemo" parameterType="ShareMemo">
+	  insert into share_memo (memo_code,to_user_code,memo_delete_mark) values(#{memoCode},#{toUserCode},0)
+	</insert>
+	<!-- 查询日程分享 -->
+
+     <select id="selectShareMemo" resultMap="ShareMemo">
+		select [share_code]
+     		  ,[memo_code]
+      	      ,[to_user_code]
+    	 	  ,[memo_delete_mark] 
+     	from   share_memo 
+     	where to_user_code = #{userCode} and memo_delete_mark = 0
+	</select>
+	 <!-- 更新分享人... -->
+	<update id="updateShareMemo" parameterType="ShareMemo">
+		update share_memo 
+		set to_user_code=#{toUserCode} 
+		where memo_code=#{memoCode}
+	</update>
+	<!--  通过memoCode查到所有分享这条备忘的人-->
+	<select id="selectOneShareMemo" parameterType="int" resultType="java.util.List" resultMap="ShareMemo">
+		select  share_code
+				memo_code,
+				to_user_code,
+				memo_delete_mark 
+		from share_memo 
+		where memo_code=#{memoCode} and memo_delete_mark=0
+	</select>
+	<!-- 删除对某人的分享 -->
+	<update id="deleteOneShareMemo" parameterType="int" >
+		update share_memo 
+		set memo_delete_mark=1 
+		where share_code=#{shareCode}
+	</update>
+     <resultMap id="ShareMemo" type="ShareMemo">
+		<id property="shareCode" column="share_code" />
+		<result property="memoCode" column="memo_code" />
+		<result property="toUserCode" column="to_user_code" />
+		<result property="memoDeleteMark" column="memo_delete_mark" />
+	</resultMap>
+</mapper>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/cs2Survey/css/cs160428.css">
+        <link href="http://static.cn114.cn/action/cs2Survey/css/city.css" rel="stylesheet" />
+        <script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>    
+	</head>
+	<body>
+		<div class="wrap">
+			<div class="cs_top">
+				<div class="cs_bottom">
+					<div class="main">
+						<div class="cs_box">
+					<!--第一题-->
+					<div class="cs_pro cs_pro01 js_Gender">
+						<h2>1</h2>
+						<h3>您的性别是？</h3>
+						<p><input type="radio" name="sex" value="男">男</p>
+						<p><input type="radio" name="sex" value="女">女</p>
+					</div>
+					<!--第二题-->
+                     <div class="cs_pro cs_pro02">
+                         <h2>2</h2>
+						 <h3>您的出生年月？</h3>
+                         <p>
+                            <select class="sel_year"></select>
+                            <select class="sel_month"></select>
+      	                 </p>
+
+                     </div>
+
+					<!--第三题-->
+					<div class="cs_pro cs_pro03">
+                        <form>
+                            <h2>3</h2>
+                            <h3>您所在的城市？</h3>
+		                    <select name="province" id="province" class="sel01 js_local js_sheng">
+				                <option value="1" selected="selected">省份</option>
+		                    </select>
+		                    <select name="city" id="city" class="js_city">
+				                <option value="1" selected="selected">市县</option>
+		                    </select>	
+                        </form>
+					</div>
+					<!--第四题-->
+					<div class="cs_pro cs_pro04 js_hear">
+						<h2>4</h2>
+						<h3>您从哪里得知《创世2》这款网游的？ [多选]</h3>
+						<p><input type="checkbox" name="gain" value="游戏媒体">游戏媒体（如17173、多玩）</p>
+                        <p><input type="checkbox" name="gain" value="门户网站">门户网站（如新浪、网易）</p>
+                        <p><input type="checkbox" name="gain" value="视频网站">视频网站（如优酷）</p>
+                        <p><input type="checkbox" name="gain" value="搜索引擎">搜索引擎（如百度）</p>
+                        <p><input type="checkbox" name="gain" value="论坛">论坛</p>
+                        <p><input type="checkbox" name="gain" value="网吧">网吧</p>
+                        <p><input type="checkbox" name="gain" value="光宇社区网站">光宇社区网站</p>
+                        <p><input type="checkbox" name="gain" value="朋友推荐">朋友推荐</p>
+                        <p><input type="checkbox" name="gain" value="其他">其他</p>
+					</div>
+					<!--第五题-->
+					<div class="cs_pro cs_pro05 js_quality">
+						<h2>5</h2>
+						<h3>您最看重游戏哪方面的品质？【多选】</h3>
+						<p><input type="checkbox" name="quality" value="游戏画面">游戏画面</p>
+						<p><input type="checkbox" name="quality" value="操作手感">操作手感</p>
+						<p><input type="checkbox" name="quality" value="故事情节">故事情节</p>
+						<p><input type="checkbox" name="quality" value="社交互动">社交互动</p>
+						<p><input type="checkbox" name="quality" value="副本玩法">副本玩法</p>
+						<p><input type="checkbox" name="quality" value="玩家对战">玩家对战</p>						
+					</div>
+					<!--第六题-->
+					<div class="cs_pro cs_pro06 js_time">
+						<h2>6</h2>
+						<h3>您每天在电脑前玩网络游戏的时间约为多少小时？ [单选]</h3>
+						<p><input type="radio" name="time" value="1-2个小时">1-2个小时</p>
+						<p><input type="radio" name="time" value="3-4个小时">3-4个小时</p>
+						<p><input type="radio" name="time" value="4-8个小时">4-8个小时</p>
+						<p><input type="radio" name="time" value="8小时以上">8小时以上</p>
+					</div>
+					<!--第七题-->
+					<div class="cs_pro cs_pro07">
+						<h2>7</h2>
+						<h3>您最近3个月玩过的游戏是什么？</h3>
+						<p><input type="text" name="game" placeholder="请输入" value="" class="js_lately" maxlength="25"></p>
+					</div>
+					<!--第八题-->
+					<div class="cs_pro cs_pro08 js_reason">
+						<h2>8</h2>
+						<h3>导致您从一款游戏流失的主要原因是什么？[多选]</h3>						
+						<p><input type="checkbox" name="reason" value="游戏太难，不会玩">游戏太难，不会玩</p>
+						<p><input type="checkbox" name="reason" value="游戏很卡，服务器不稳定">游戏很卡，服务器不稳定</p>
+						<p><input type="checkbox" name="reason" value="游戏性不足，没意思">游戏性不足，没意思</p>						
+						<p><input type="checkbox" name="reason" value="朋友离开了">朋友离开了</p>
+						<p><input type="checkbox" name="reason" value="游戏人太少，缺乏人气">游戏人太少，缺乏人气 </p>
+						<p><input type="checkbox" name="reason" value="学习工作太忙，没时间玩">学习工作太忙，没时间玩</p>
+						<p><input type="checkbox" name="reason" value="其他原因">其他原因</p>						
+					</div>
+					<!--手机号-->
+					<div class="cs_text">请输入您的手机号码，我们将会发放激活码到您的手机上，并对您的个人信息进行严格保密，绝不外泄，<br>请放心填写 ^_^ ：<input type="text" class="js_phone" maxlength="11">
+					</div>
+					<!--提交按钮-->
+					<div class="cs_btn"><input type="button" class="js_btn"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        <script src="http://static.cn114.cn/action/cs2Survey/js/index.js" type="text/javascript"></script>
+        <script src="http://static.cn114.cn/action/cs2Survey/js/city.js"></script>
+        <script type="text/javascript" src="http://static.cn114.cn/action/cs2Survey/js/birthday.js"></script>
+        <script>
+            $(function () {
+                $.ms_DatePicker({
+                    YearSelector: ".sel_year",
+                    MonthSelector: ".sel_month"
+                });
+                $.ms_DatePicker();
+            });
+        </script>
+	</body>   
+</html>

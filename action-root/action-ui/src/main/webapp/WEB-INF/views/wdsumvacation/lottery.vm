@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>问道老玩家回归积分抽奖</title>
+    <link href="http://static.cn114.cn/action/wdsumvacation/css/wd_150706.css" rel="stylesheet" type="text/css">
+    <script src="http://s.gyyx.cn/lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js"></script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wrap">
+        <div class="main">
+            <div class="nav"><a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm">进入官网</a>|<a href="http://pay.gyyx.cn/gamepay/paygold?gameId=2" target="_blank">充值中心</a>|<a target="_blank" href="http://account.gyyx.cn/Member/Register">账号注册</a>|<a target="_blank" href="http://wd.gyyx.cn/download/">下载游戏</a></div>
+            <div class="time">8月17日0:00--8月23日23:59</div>
+            <div class="content">
+                <div class="message">
+                    <p id="js_account">&nbsp;抽奖需要先&nbsp;<a href="javascript:;" onclick="alertFn(null,null,true);">登录</a></p>
+                    <p>
+                        &nbsp;我的服务器：
+                        <select id="js_netType">
+                            <option value="">请选择区组</option>
+                            <option value="1">网通</option>
+                            <option value="2">电信</option>
+                            <option value="3">双线</option>
+                        </select>&nbsp;&nbsp;
+                        <select id="js_server">
+                            <option value="">请选择服务器</option>
+                        </select>
+                    </p>
+                    <p id="js_myPrize">&nbsp;</p>
+                </div>
+                <div class="left_box">
+                    <div class="cjcon cj_list">
+                        <ul>
+                            <li class="jp" id="dzp0">
+                                <img src="http://static.cn114.cn/action/wdsumvacation/images/bz.jpg"></li>
+                            <li class="jp" id="dzp11">
+                                <img src="http://static.cn114.cn/action/wdsumvacation/images/dy.jpg"></li>
+                            <li class="jp" id="dzp10">
+                                <img src="http://static.cn114.cn/action/wdsumvacation/images/jl.jpg"></li>
+                            <li class="jp" id="dzp9">
+                                <img src="http://static.cn114.cn/action/wdsumvacation/images/jwsb.jpg"></li>
+                        </ul>
+                        <ul class="cj_list02">
+                            <li class="jp" id="dzp1">
+                                <img src="http://static.cn114.cn/action/wdsumvacation/images/xx.jpg">
+                            <li class="jp" id="dzp2">
+                                <img src="http://static.cn114.cn/action/wdsumvacation/images/pad.jpg"></li>
+                            <li class="ljcj"><a text="go" id="btnStart" href="javascript:;">立即中奖</a></li>
+                            <li class="jp" id="dzp8">
+                                <img src="http://static.cn114.cn/action/wdsumvacation/images/qb.jpg"></li>
+                            <li class="jp" id="dzp7">
+                                <img src="http://static.cn114.cn/action/wdsumvacation/images/sb.jpg"></li>
+                        </ul>
+                        <ul>
+                            <li class="jp" id="dzp3">
+                                <img src="http://static.cn114.cn/action/wdsumvacation/images/sl.jpg"></li>
+                            <li class="jp" id="dzp4">
+                                <img src="http://static.cn114.cn/action/wdsumvacation/images/tx.jpg"></li>
+                            <li class="jp" id="dzp5">
+                                <img src="http://static.cn114.cn/action/wdsumvacation/images/yx.jpg"></li>
+                            <li class="jp" id="dzp6">
+								 <img src="http://static.cn114.cn/action/wdsumvacation/images/lh.jpg"></li>
+                                </li>
+                        </ul>
+                    </div>
+                    <!--<div class="cjcon clear">
+                        <div class="img01 on">
+                            <span class="sp_hover"></span>
+                            <img src="images/cj150706_img.jpg" width="121" height="102" />
+                        </div>
+                        <div class="img01">
+                            <span class="sp_hover"></span>
+                            <img src="images/cj150706_img.jpg" width="121" height="102" />
+                        </div>
+                        <div class="img01">
+                            <span class="sp_hover"></span>
+                            <img src="images/cj150706_img.jpg" width="121" height="102" />
+                        </div>
+                        <div class="img01">
+                            <span class="sp_hover"></span>
+                            <img src="images/cj150706_img.jpg" width="121" height="102" />
+                        </div>
+                        <div class="img02">
+                            <div class="img01">
+                                <span class="sp_hover"></span>
+                                <img src="images/cj150706_img.jpg" width="121" height="102" />
+                            </div>
+                            <div class="img01">
+                                <span class="sp_hover"></span>
+                                <img src="images/cj150706_img.jpg" width="121" height="102" />
+                            </div>
+                        </div>
+                        <div class="start"><a href="javascript:;"></a></div>
+                        <div class="img02">
+                            <div class="img01">
+                                <span class="sp_hover"></span>
+                                <img src="images/cj150706_img.jpg" width="121" height="102" />
+                            </div>
+                            <div class="img01">
+                                <span class="sp_hover"></span>
+                                <img src="images/cj150706_img.jpg" width="121" height="102" />
+                            </div>
+                        </div>
+                        <div class="img01">
+                            <span class="sp_hover"></span>
+                            <img src="images/cj150706_img.jpg" width="121" height="102" />
+                        </div>
+                        <div class="img01">
+                            <span class="sp_hover"></span>
+                            <img src="images/cj150706_img.jpg" width="121" height="102" />
+                        </div>
+                        <div class="img01">
+                            <span class="sp_hover"></span>
+                            <img src="images/cj150706_img.jpg" width="121" height="102" />
+                        </div>
+                        <div class="img01">
+                            <span class="sp_hover"></span>
+                            <img src="images/cj150706_img.jpg" width="121" height="102" />
+                        </div>
+                    </div>-->
+                    <div class="scroll">
+                        <div class="scrollbox" id="mqcon_v">
+                            <ul id="js_scrollList"></ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="right_box">
+                    <h3>活动时间：</h3>
+                    <p>
+                        2015年8月17日00:00—8月23日23:59<br>
+                        7月10日-8月9日各服务器再续问道缘积分排行前10玩家可抽奖
+                    </p>
+                    <h3>活动奖励：</h3>
+                    <p>IPAD ARI、千足金手链、九尾狐手办+福元宝、海尔音响、极智鼠标、威威虎抱枕、问道钱包、问道t恤
+通动力堡垒移动电源、八周年典藏礼盒、小金龙等丰富大奖等你拿！</p>
+                    <h3>活动说明：</h3>
+                    <div class="hd">
+                        <span class="dot">1</span>
+                        <p>玩家在开启转盘活动之前必须先进行登录；</p>
+                    </div>
+                    <div class="hd">
+                        <span class="dot">2</span>
+                        <p>每个账号只有1次抽奖机会，活动期间若未抽奖则视为放弃抽奖资格和奖品；</p>
+                    </div>
+                    <div class="hd">
+                        <span class="dot">3</span><p>中奖玩家收货信息须如实填写，若信息有误或不填写导致奖品无法发出将视为放弃奖品；若信息有误或不填写导致奖品无法发出将视为放弃奖品；</p>
+                    </div>
+                    <div class="hd">
+                        <span class="dot">4</span><p>本次活动奖品不可退换；</p>
+                    </div>
+                    <div class="hd">
+                        <span class="dot">5</span><p>活动结束后我们将进行统一奖品发货。</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- 弹出层 -->
+    <div class="popup_con" style="display: none;" id="js_popAddress">
+        <h2 class="tit" id="js_addressFormTitle">收货地址</h2>
+        <a class="close pop-close" href="javascript:;">关闭</a>
+        <div class="con">
+            <p>
+                <h4 class="tc_h4" id="js_realPrizePanel">恭喜您获得九尾仙狐手办奖励</h4>
+                <span>请填写正确奖励收货地址，活动结束后统一发放奖励~</span><br>
+                活动结束前若未填写或因地址不正确导致无法发放，则默认道友放弃奖励不再发放！
+            </p>
+			<form>
+            <div class="formbox">
+                <p>
+                    <label>收件人姓名</label>
+                    <input type="text" name="userName" maxlength="20" autocomplete="off" />
+                </p>
+                <p>
+                    <label>联系手机</label>
+                    <input type="text" name="userPhone" maxlength="11" autocomplete="off" />
+                </p>
+                <p>
+                    <label>收件地址</label>
+                    <input type="text" name="userAddress" maxlength="80" autocomplete="off" />
+                </p>
+            </div>
+			 <button type="submit" class="tc_btn btn" id="js_sbtnAddress">提交按钮</button>
+            </form>
+        </div>
+    </div>
+    <!--弹层二-->
+    <div class="popup_con prosit" style="display: none;" id="js_popNormalTip">
+        <h2 class="tit">抽奖</h2>
+        <a class="close pop-close" href="javascript:;">关闭</a>
+        <div class="con">
+            <p>
+                <span id="js_panelPrize"></span><br>
+                我们将在活动结束后7个工作日内统一发放奖励。
+            </p>
+        </div>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div>
+
+    <script>
+    alert("活动已经结束");
+    </script>
+    <script src="http://static.cn114.cn/action/wdsumvacation/js/Lotterywd.js"></script>
+    <script src="http://s.gyyx.cn/lib/jquery.bgiframe.js"></script>
+    <script src="http://static.cn114.cn/action/wdsumvacation/js/handle.js"></script>
+    <script>
+        $(function () {
+            nLottery.init();
+            nLottery.resetAddressForm($("#js_popAddress"));
+        });
+    </script>
+</body>
+</html>

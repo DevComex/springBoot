@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>问道十年：青城山封仙盛典</title>
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/wdyaoqinghan/css/wd160701_sw2.css">
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/wdyaoqinghan/css/ystyle.css">
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/wdyaoqinghan/css/yindex.css">
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/lib/jquery.bgiframe.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+    <script>
+        var rc="";
+
+    </script>
+</head>
+<body>
+<div class="public_nav_top" style="display: none;">
+    <script type="text/javascript">Showtop();</script>
+</div>
+    <div   class="searchBan sear01" style="width: 95%;margin-bottom: .3rem;display:none;">
+        <!--<i class="searchIoc"></i>-->
+        <input class="serchInfo" type="text" placeholder="《问道》  封仙大会邀请函">
+    </div>
+<p class="banner">
+<img src="http://static.cn114.cn/action/wdyaoqinghan/yimages/images/mainBg.jpg" alt="">
+</p>
+    <div class="lotteryLb">
+        <div class="lottery dzp ">
+            <a href="javascript:;" id="js_start" class="start" data-state="yes"></a>
+            <div class="js_img dzp0" id="dzp0">
+                <img class="img0" src="http://static.cn114.cn/action/wdyaoqinghan/images/wd160705_img01.png" alt="">
+                <p class="txt">邀请函</p>
+            </div>
+            <div class="js_img dzp1" id="dzp1">
+                <img class="img1" src="http://static.cn114.cn/action/wdyaoqinghan/images/wd160705_img02.png" alt="">
+                <p class="txt">威威虎抱枕</p>
+            </div>
+            <div class="js_img dzp2" id="dzp2">
+                <img class="img2" src="http://static.cn114.cn/action/wdyaoqinghan/images/wd160705_img03.png" alt="">
+                <p class="txt">10光宇币</p>
+            </div>
+            <div class="js_img dzp3" id="dzp3">
+                <img class="img3" src="http://static.cn114.cn/action/wdyaoqinghan/images/wd160705_img04.png" alt="">
+                <p class="txt">iPad pro</p>
+            </div>
+            <div class="js_img dzp4" id="dzp4">
+                <img class="img4" src="http://static.cn114.cn/action/wdyaoqinghan/images/wd160705_img05.png" alt="">
+                <p class="txt">邀请函</p>
+            </div>
+            <div class="js_img dzp5" id="dzp5">
+                <img class="img5" src="http://static.cn114.cn/action/wdyaoqinghan/images/wd160705_img06.png" alt="">
+                <p class="txt">平板电脑包</p>
+            </div>
+            <div class="js_img dzp6" id="dzp6">
+                <img class="img6" src="http://static.cn114.cn/action/wdyaoqinghan/images/wd160705_img07.png" alt="">
+                <p class="txt">30光宇币</p>
+            </div>
+            <div class="js_img dzp7" id="dzp7">  
+                <p class="txt" style='margin-top: 0.45rem;'>谢谢参与</p>
+            </div>
+        </div>
+    </div>
+    <div class="topMain_xu" style="background: none;background-size: 0;">
+        <span class="active_rule">抽奖规则</span>
+        <p class="rulueIns r1">
+            <span class="numIc">1.</span>活动期间，每个光宇账号每次抽奖将消耗10积分，每日抽奖次数不限定；
+        </p>
+        <p class="rulueIns r2">
+            <span class="numIc">2.</span>活动实物奖品将由《问道》官方统一安排联系派送，为了确保您的获奖资格，请务必填写正确的个人信息（姓名，电话，邮箱，QQ、地址）以免影响发奖；
+        </p>
+        <p class="rulueIns r3">
+            <span class="numIc">3.</span>获得邀请函的玩家，为了确保您的获奖资格，请务必填写正确的个人信息（姓名、电话），工作人员将于最迟48小时以内与您联系，活动不收取任何费用；
+        </p>
+        <p class="rulueIns r4">
+            <span class="numIc">4.</span>参与玩家最高报销路费1000元；
+            <br/>
+            若活动报名人数突破10万人，将追加兑换名额；
+        </p>
+        <p class="rulueIns r5">
+            <span class="numIc">5.</span>本次活动的解释权归光宇游戏所有。
+        </p>
+    </div>
+
+    <p class="bottomNav">
+        <a class="yqh" href="windex">
+            <i class="navImg yqhIm"></i>
+            <span class="navTit">邀请函</span>
+        </a>
+        <a class="zjf" href="wqd">
+            <i class="navImg zjfIm"></i>
+            <span class="navTit">赚积分</span>
+        </a>
+        <a class="cj cur" href="wcj">
+            <i class="navImg cjIm"></i>
+            <span class="navTit">抽奖</span>
+        </a>
+        <a class="wd" href="wwd">
+            <i class="navImg wdIm"></i>
+            <span class="navTit">我的</span>
+        </a>
+    </p>
+    <div class="tc tsxx" id="js_yqhISdh_Info" style="display:none">
+        <p class="titInfo1"></p>
+        <p class="know">知道了</p>
+    </div>
+    <!--虚拟奖-->
+    <div class="tc tsxx" id="js_popSuccTip" style="display:none;">
+        <div class="tc_cjtxt">
+            <h3>恭喜你</h3>
+            <div class="panelPrize">获得<span class="js_panelPrize"></span></div>
+            <p class="zjI">卡号 : <span class="dkKh"></span></p>
+            <p class="zjI">密码 : <span class="dkMm"></span></p>
+        </div>
+        <p class="know">知道了</p>
+    </div>
+    <!--实物奖弹层（查看联系方式）-->
+    <div class="tc SuccessDh" id="js_cjSw" style="display:none;">
+        <p class="tit">恭喜您&nbsp;&nbsp;获得<span class="prizeName js_panelPrize" style="display: block;"></span></p>
+        <form class="formInfo" id="js_popCjSw">
+            <p class="inpuLi" >
+                <input type="text" placeholder="姓名" name="userName">
+            </p>
+            <p class="inpuLi">
+
+                <input type="text" placeholder="电话" name="userPhone">
+            </p >
+            <p class="inpuLi">
+
+                <input type="text" placeholder="邮编" name="userYB">
+            </p>
+            <p class="inpuLi">
+                <input type="text" placeholder="地址" name="userAddress">
+            </p>
+            <p class="inpuLiTxt">
+                请填写真实个人信息，工作人员将于最迟48小时以内与您联系，活动不收取任何费用，请注意查收邮箱及电话。
+            </p>
+            <p class="inpuLiTxt inpuLiTxt2" style="display: none;">
+                获得的奖励将在活动结束后统一寄出，请填写联系方式、快递地址等信息，请保证电话畅通。
+            </p>
+            <a class="submitAddr" id="js_cjSubmitAddr" href="javascript:void(0)"></a>
+        </form>
+    </div>
+    <div class="tc SuccessDh" id="js_SuccessDh" style="display:none">
+        <p class="tit">恭喜您！<span class="prizeName" style="display: block;">获得封仙大会邀请函</span></p>
+        <form class="formInfo" id="js_popAddressForm">
+            <p class="inpuLi" >
+                <input type="text" placeholder="姓名" name="userName">
+            </p>
+            <p class="inpuLi">
+
+                <input type="text" placeholder="电话" name="userPhone">
+            </p >
+            <p class="inpuLi">
+
+                <input type="text" placeholder="QQ" name="qq">
+            </p>
+            <p class="inpuLi">
+
+                <input type="text" placeholder="邮箱" name="userEmail">
+            </p>
+            <p class="inpuLi">
+                <input type="text" placeholder="地址" name="userAddress">
+            </p>
+            <p class="inpuLiTxt">
+                请填写真实个人信息，工作人员将于最迟48小时以内与您联系，活动不收取任何费用，请注意查收邮箱及电话。
+            </p>
+            <p class="inpuLiTxt inpuLiTxt2" style="display: none;">
+                获得的奖励将在活动结束后统一寄出，请填写联系方式、快递地址等信息，请保证电话畅通。
+            </p>
+            <a class="submitAddr" id="js_submitAddr" href="javascript:void(0)"></a>
+        </form>
+    </div>
+    <input type="hidden" id="userIntergs" value="">
+    <script src="http://static.cn114.cn/action/wdyaoqinghan/js/Lotterywd.js"></script>
+    <script src="http://static.cn114.cn/action/wdyaoqinghan/js/shandle.js"></script>
+<script>
+    nLottery.pop($("#js_yqhISdh_Info"), {
+        autoOpen: false,
+        closeFn: function () {
+        }
+    });
+    nLottery.pop($("#js_SuccessDh"), {
+        autoOpen: false,
+        closeFn: function () {
+        }
+    });
+    nLottery.pop($("#js_popSuccTip"), {
+        autoOpen: false,
+        closeFn: function () {
+        }
+    });
+    nLottery.pop($("#js_cjSw"), {
+        autoOpen: false,
+        closeFn: function () {
+        }
+    });
+    </script>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?7942ce78f41cd033b02a6366395ba244";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

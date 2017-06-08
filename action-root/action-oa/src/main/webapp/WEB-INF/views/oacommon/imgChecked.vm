@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>后台</title>
+	 <script type="text/javascript" charset="utf-8">
+		var rc="${rc.contextPath}";
+    </script>
+    <link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+        var changeFunction = function(){
+    			var netType = $("#netType").find("option:selected").val();
+    			if(netType == '') {
+		   			$("#serverList").empty().html("<option value='' selected='selected'>请选择</option>");
+    			} else {
+	    			$.ajax
+	    			({
+	    				url:"ajaxGetServerByAreaCode",
+	    				data:{areaCode:netType},
+	    				dataType:"json",
+	    				type:"GET",
+	    				success:function(data){
+	    				
+	    					if(data.isSuccess){
+	    						var server = '$!{checkImgDTO.area}';
+	    						var opt = "";
+	    						for(var i = 0;i<data.data.length;i++){
+	    							if(server != '') {
+	    								if(data.data[i].serverName == server) {
+			    							opt += "<option selected='selected' value="+data.data[i].serverName+">"+data.data[i].serverName+"</option>";
+	    								} else {
+			    							opt += '<option value='+data.data[i].serverName+'>'+data.data[i].serverName+'</option>';
+	    								}
+	    							} else {
+		    							opt += '<option value='+data.data[i].serverName+'>'+data.data[i].serverName+'</option>';
+	    							}
+	    						}
+	    						$("#serverList").empty().html(opt);
+	    						
+	    					}
+	    				}
+	    			})
+    			}
+    		}
+        $(document).ready(function(){
+        	var check = '$!{checkImgDTO.netType}';
+        	if(check != '') {
+	        	$("#netType option").each(function(){
+	   				if($(this).text() === check){
+	     				$(this).attr('selected', 'selected');
+	   				}
+				});
+        	}
+        	    
+        	
+        	var server = '$!{checkImgDTO.area}';
+        	if(server != '') {
+        		changeFunction();
+        	}
+        	var status = '$!{checkImgDTO.status}';
+        	if(status != '') {
+	        	$("#statusSel option").each(function(){
+	   				if($(this).text() === status){
+	     				$(this).attr('selected', 'selected');
+	   				}
+				});
+        	}
+        	$("#netType").change(changeFunction);
+        });
+      
+       var changeImg = function(url,des){
+       		$("#checkImg").attr("src",url);
+       		$("#showdes").html(des); 
+       	}
+      
+    </script>
+    <link href="${rc.contextPath}/resources/Contents/css/font.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <style>
+    .js_alert{position:absolute;top:0px;left:0px;width:100%;z-index:9999;text-align: center; font-size:18px;}
+    .col-lg-0-96 { width:8%; }
+.col-lg-1-44 { width:12%; }
+</style>
+</head>
+<body>
+    <section class="vbox">
+        <!-- template_top -->
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <!-- js_template_left begins -->
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <!--js_template_right-->
+                <section id="content">
+                    <section class="vbox">
+
+  <!--头部功能-->
+                        <header class="header bg-white b-b clearfix">
+                            <div class="row m-t-sm">
+								 <label class="col-lg-1 control-label">区组:</label>
+                                <div class="col-sm-2 m-b-xs">
+                                    <select class="form-control input-sm" id="netType">
+                                        <option value=''>请选择</option>
+                                        <option value="1">网通</option>
+                                        <option value="2">电信</option>
+                                        <option value="3">双线</option>
+                                    </select>
+                                </div>
+                                 <label class="col-lg-1 control-label">服务器:</label>
+                                <div class="col-sm-2 m-b-xs">
+                                    <select class="form-control input-sm" id="serverList">
+                                        <option value=''>请选择</option>
+                                    </select>
+                                </div>
+                                <label class="col-lg-1 control-label">审核状态:</label>
+                                <div class="col-sm-2 m-b-xs">
+                                    <select class="form-control input-sm" id="statusSel">
+                                        <option value=''>请选择</option>
+                                        <option value="审核通过">审核通过</option>
+                                        <option value="未审核">未审核</option>
+                                    </select>
+                                </div>
+                                 <label class="col-lg-1 control-label">账号:</label>
+                                <div class="col-sm-2 m-b-xs">
+                                    <input type="text" id="accountInfo" value='$!{checkImgDTO.account}' >
+                                </div>
+                                <a id="select1" class="btn btn-sm btn-info btn-margin-l-01">查询</a>
+                                <a id="select2" class="btn btn-sm btn-info btn-margin-l-01">导出</a>
+
+                            </div>
+                            
+                        </header>
+
+                        <!--表格主体 start-->
+                        <section class="padder scrollable" style="top: 80px;>
+                            <div class="m-b-md"></div>
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default">
+                                <div class="table-responsive">
+
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            <tr>
+                                                <th>编号</th>
+                                                <th>账号</th>
+                                                <th>区组</th>
+                                                <th>角色名</th>
+                                                <th>作品名</th>
+                                                <th>上传时间</th>
+                                                <th>作品详细</th>
+                                                <th>点赞数</th>
+                                                <th>状态</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                         #foreach($face in $faces)
+                                            <tr>
+                                            <input type="hidden" value="${face.tempUrl}" id="opttempUrl">
+                                            <input type="hidden" value="${face.wdDatingPet.describe}" id="optdescribe">
+                                            <th>${face.code}</th>
+    <th>$!{face.wdDatingPet.account}</th>
+     <th>${face.wdDatingPet.server}</th>
+      <th>${face.wdDatingPet.character}</th>
+       <th>${face.wdDatingPet.petName}</th>
+        <th>$!{face.wdDatingPet.sDate}
+                                               <th><a data-toggle="modal" href="#seepic" onclick="changeImg('${face.tempUrl}','${face.wdDatingPet.describe}');" data-title="点击查看" class="btn btn-xs btn-danger imgUrl js_add_opt" data-original-title="" title=""><i class="fa fa-eye"></i></a></th>
+                                                
+                                                <th>${face.wdDatingPet.admired}</th>
+                                                <th>$!{face.status}</th>
+                                                #if(${face.status}=="未审核")
+ 									   <th><a data-toggle="tooltip" data-title="删除" href="../oacommon/unpassImg?code=$!{face.code}&account=$!{checkImgDTO.account}&pageIndex=$!{checkImgDTO.pageIndex}&netType=$!{checkImgDTO.netType}&area=$!{checkImgDTO.area}&status=$!{checkImgDTO.status}" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-times">删除</i></a><a data-toggle="tooltip" data-title="审核" href="../oacommon/passImg?code=$!{face.code}&account=$!{checkImgDTO.account}&pageIndex=$!{checkImgDTO.pageIndex}&netType=$!{checkImgDTO.netType}&area=$!{checkImgDTO.area}&status=$!{checkImgDTO.status}" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-check-square">审核</i></a></th>
+												#end
+												 #if(${face.status}=="审核通过")
+                                                <th><a data-toggle="tooltip" data-title="删除" href="../oacommon/unpassImg?code=$!{face.code}&account=$!{checkImgDTO.account}&pageIndex=$!{checkImgDTO.pageIndex}&netType=$!{checkImgDTO.netType}&area=$!{checkImgDTO.area}&status=$!{checkImgDTO.status}" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-times">删除</i></a> <a data-toggle="tooltip" data-title="撤销审核" href="../oacommon/pass?code=$!{face.code}&account=$!{checkImgDTO.account}&pageIndex=$!{checkImgDTO.pageIndex}&netType=$!{checkImgDTO.netType}&area=$!{checkImgDTO.area}&status=$!{checkImgDTO.status}" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-rotate-right">撤销审核</i></a></th>
+                                            #end
+                                            </tr>
+                                            #end
+                                        </tbody>
+                                    </table>
+
+                                  
+                                </div>
+                            </section>
+                            <!--数据表格  end -->
+
+                            <!--翻页功能-->
+                            <footer class="footer bg-white b-t">
+                                <div class="row dataTables_wrapper">
+                                    <div class="col-sm-6">
+                                     #set($nextIndex =  ${checkImgDTO.pageIndex} + 1)
+ 									 #set($preIndex = ${checkImgDTO.pageIndex} - 1)
+ 									 #if(${checkImgDTO.count}%10==0)
+ 									  #set($page = ${checkImgDTO.count}/10)
+									#end
+									 #if(${checkImgDTO.count}%10!=0)
+ 									 #set($page = ${checkImgDTO.count}/10 + 1)
+									#end
+									 #if(${page}==0)
+ 									 #set($i = 0)
+									#end
+									 #if(${page}!=0)
+ 									 #set($i = 1)
+									#end
+                                        <div id="Div1" class="dataTables_info">当前显示：第$i 至 ${page} 页 总共 ${checkImgDTO.count}条记录</div>
+                                    </div>
+                                     #if(${page}==0)
+ 									 #set($nextIndex = 0)
+									#end
+                                    <div class="col-sm-6">
+                                        <div class="dataTables_paginate paging_full_numbers">
+                                        <input type="hidden" value="$page" id="hiddenTotal">
+                                            <a id="DataTables_Table_0_first" class="first paginate_button">首页</a>
+                                            <a id="DataTables_Table_0_previous" class="next paginate_button">上一页</a>
+                                            <span>${nextIndex}/${page}</span>
+                                            <a id="DataTables_Table_0_next" class="next paginate_button">下一页</a>
+                                            <a id="DataTables_Table_0_last" tabindex="0" class="last paginate_button">末页</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+
+
+
+                        </section>
+                        <!--表格主体 end-->
+
+                        <!-- -----------------------------------------------添加弹层开始---------------------------------------------- -->
+                        <div class="modal fade" id="seepic">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">查看图片</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <section class="panel bg-dark">
+                                                <div class="carousel slide carousel-fade panel-body" id="c-fade">
+                                                    <div class="carousel-inner js_con">
+                                                        <div class="divopt" style="display:block;">
+                                                            <img id="checkImg" src="" style="width: 100%;">
+                                                          	<span id = "showdes"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" style="text-align: center;">
+                                        <button class="btn btn-info btn-s-md" type="button" id="js_editPorSubmit" style="display: none;">确定</button>
+                                        <button data-dismiss="modal" class="btn btn-default close_js_Msg" type="button">返回</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- -----------------------------------------------添加弹层结束---------------------------------------------- -->
+
+
+
+
+  </section>
+                </section>
+            </section>
+        </section>
+    </section>
+    <script type="text/javascript" src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/jquery.OASearch.js"></script>
+    
+    <script>
+    	$(function(){
+    		var pagePrevious = $!checkImgDTO.beginPage;
+			var pageNext = $!checkImgDTO.lastPage;
+			if(!pagePrevious){
+				$("#DataTables_Table_0_previous").addClass("paginate_button_disabled");
+				$("#DataTables_Table_0_first").addClass("paginate_button_disabled");
+			}
+			if(!pageNext){
+				$("#DataTables_Table_0_next").addClass("paginate_button_disabled");
+				$("#DataTables_Table_0_last").addClass("paginate_button_disabled");
+			}
+			
+			 
+			
+			
+			$("#DataTables_Table_0_previous").click(function(){
+				if(pagePrevious){
+				var account = '$!checkImgDTO.account';
+					var netType =  '$!checkImgDTO.netType';
+					var area =  '$!checkImgDTO.area';
+					var status ='$!checkImgDTO.status';
+					var page = $!checkImgDTO.pageIndex - 1;
+					window.location.href="showImgCheck?pageIndex="+page+"&account="+account+"&netType="+netType+"&area="+area+"&status="+status;
+				}	
+			})
+			$("#DataTables_Table_0_next").click(function(){
+				if(pageNext){
+					var account = '$!checkImgDTO.account';
+					var netType =  '$!checkImgDTO.netType';
+					var area =  '$!checkImgDTO.area';
+					var status ='$!checkImgDTO.status';
+					var page = $!checkImgDTO.pageIndex + 1;
+					window.location.href="showImgCheck?pageIndex="+page+"&account="+account+"&netType="+netType+"&area="+area+"&status="+status;
+				}
+			})
+			$("#DataTables_Table_0_first").click(function(){
+				
+				if(pagePrevious){
+					var account = '$!checkImgDTO.account';
+					var netType =  '$!checkImgDTO.netType';
+					var area =  '$!checkImgDTO.area';
+					var status ='$!checkImgDTO.status';
+					window.location.href="showImgCheck?pageIndex="+0+"&account="+account+"&netType="+netType+"&area="+area+"&status="+status;
+				}
+			})
+			$("#DataTables_Table_0_last").click(function(){
+				if(pageNext){
+					var account = '$!checkImgDTO.account';
+					var netType =  '$!checkImgDTO.netType';
+					var area =  '$!checkImgDTO.area';
+					var status ='$!checkImgDTO.status';
+					var page = $("#hiddenTotal").val()-1;
+					window.location.href="showImgCheck?pageIndex="+page+"&account="+account+"&netType="+netType+"&area="+area+"&status="+status;
+				}
+			})
+				$("#select1").click(function(){
+				if(true){
+					var account = $("#accountInfo").val();
+					var netType = $("#netType").val();
+					var area = $("#serverList").val();
+					var status = $("#statusSel").val();
+					window.location.href="showImgCheck1?account="+account+"&netType="+netType+"&area="+area+"&status="+status;
+					}
+				
+			})
+				$("#select2").click(function(){
+				if(true){
+					var account = $("#accountInfo").val();
+					var netType = $("#netType").val();
+					var area = $("#serverList").val();
+					var status = $("#statusSel").val();
+					window.location.href="exportTaskList?account="+account+"&netType="+netType+"&area="+area+"&status="+status;
+					}
+				
+			})
+			
+			
+    	})
+    </script>
+</body>
+</html>
+

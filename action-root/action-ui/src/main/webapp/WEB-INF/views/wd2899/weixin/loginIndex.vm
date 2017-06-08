@@ -1,0 +1,173 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<title></title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wd2899/weixin/css/normalize.css" />
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wd2899/weixin/css/main.css" />
+		<link href="http://static.cn114.cn/action/wd2899/weixin/css/chinaCaptcha_web.css" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="loginpage">
+			<img src="http://static.cn114.cn/action/wd2899/weixin/images/index_bg.jpg" />
+			<div class="logo"><img src="http://static.cn114.cn/action/wd2899/weixin/images/logo2.png" /></div>
+			<div class="loginform">
+				<form id="formmima" method="post" action="" class="reg_form_web js_login_form">
+					<p class="item_p">
+						<span class="accountico"></span>
+						<input type="text" class="inps js_Account" id="Account" value="" name="Account" autocomplete="off" maxlength="18" data-olduser="" placeholder="请输入账号" />
+					</p>
+					<p class="item_p">
+						<span class="pwdico"></span>
+						<input type="password" class="inps js_Password" id="Password" maxlength="16" value="" name="Password" autocomplete="off" placeholder="请输入密码" />
+					</p>
+					<div class="js_captcha " style="display:none;">
+						<p class="item_p">
+							<span class="yzmico"></span>
+							<input type="text" id="Captcha" name="captcha" value="" class="validCodeVal" placeholder="验证码"   />
+						</p>
+						<p class="easycode">
+							<img class="js_captchaimg" src="" />
+							<a class="changecode">看不清？</a>
+						</p>
+					</div>
+					<div class="chinawrap">				
+						<p class="chinaCaptchaContainer_p01 js_china">
+							<span class="ChinaCaptchaInput_container clearFix">
+								<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+								<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+								<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+								<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+								<em class="chinaCaptchaIcon ChinaCaptchaInput ChinaCaptcha_DeleteBtn js_deleteChinaCaptcha"></em>
+							</span>
+							<i class="chinaCaptchaIcon chinaCaptcha_Tip02 js_checkChinaCaptchaTip default"></i>
+						</p>
+						<p class="chinaCaptchaContainer_p02 js_china">
+							<span class="chinaCaptchaImg chinaCaptchaImg_yes js_refreshChinaCaptcha"></span>
+							<a class="chinaCaptchaChange js_refreshChinaCaptcha">看不清？</a>
+						</p>
+						<p class="chinaCaptchaContainer_p03 js_china">点击框内文字输入上图中汉字相应文字</p>
+						<div class="chinaCaptchaContainer_p02 js_china">
+							<ul class="ChinaCaptchaSelectCon clearFix js_ChinaCaptchaSelect">
+								<li class="chinaCaptchaImg chinaCaptchaImg_0 js_ChinaCaptchaSelect_img" data-code="0"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_1 js_ChinaCaptchaSelect_img" data-code="1"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_2 js_ChinaCaptchaSelect_img" data-code="2"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_3 js_ChinaCaptchaSelect_img" data-code="3"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_4 js_ChinaCaptchaSelect_img" data-code="4"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_5 js_ChinaCaptchaSelect_img" data-code="5"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_6 js_ChinaCaptchaSelect_img" data-code="6"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_7 js_ChinaCaptchaSelect_img" data-code="7"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_8 js_ChinaCaptchaSelect_img" data-code="8"></li>
+							</ul>
+						</div>
+						<p class="chinaCaptchaContainer_p04" style="display:none;">
+							<span class="chinaCaptchaSubmit_Btn js_chinaCaptchaBtn">确定</span>
+						</p>
+					</div>
+					<a id="loginBtn" class="login_btn" href="#">登录</a>
+				</form>
+			</div>
+			
+			
+		</div>
+		<script src="http://static.cn114.cn/action/wd2899/weixin/js/jquery-1.8.2.min.js"></script>
+		<script src="http://static.cn114.cn/action/wd2899/weixin/js/addChinaCaptcha.js"></script>
+		<script src="http://s.gyyx.cn/lib/md5-min.js"></script>
+		<script type="text/javascript">
+			/*从url获取参数*/
+			function getQuery(name, str) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"),
+					r = !str ? window.location.search.substr(1).match(reg) : str.substr(1).match(reg);
+				if (r != null) {
+					return unescape(r[2]);
+				}
+				return null;
+			}
+
+			//返回字符的字节长度
+			function getByteLen(val) {
+				var len = 0;
+				for (var i = 0; i < val.length; i++) {
+					if (val[i].match(/[^\x00-\xff]/ig) != null) {
+						//全角
+						len += 2;
+					}else{
+						len += 1;
+					}
+				}
+				return len;
+			}
+
+			$(function(){		
+
+				var hdName = "活动", 
+					par = decodeURIComponent(window.location.search), 
+					OpenId = getQuery("OpenId", par), 
+					sign = getQuery("sign", par),
+					time = getQuery("time", par),
+					from = getQuery("from", par) ;
+
+				//初始化中文验证码
+				window.chinaCaptcha = new ChinaCaptcha($("#formmima"), {
+					bid: "Vaqrk"
+				});
+				chinaCaptcha.init();
+				ChinaCaptcha.prototype.subFn = submit;
+				function submit() {
+					var $this = $(this);
+					var sdata = "";
+                        		var n = $(".js_login_form").find("input[type!='button']").size();
+                        		$.each($(".js_login_form").find("input[type!='button']"), function (i, d) {
+                            		var _val = $(d).val();
+                            		if ($(d).attr("type") == "password") {
+               					      _val = hex_md5(_val.trim());
+               					    }
+                            		sdata += (i != n - 1 ? "\"" + $(d).attr("name") + "\": \"" + _val + "\", " : " \"" + $(d).attr("name") + "\": \"" + _val + "\" ");
+                       		});
+                        		sdata += ", \"r\": " + Math.random();
+					$.ajax({
+						url: "http://reg.gyyx.cn/login/AsyncOnlyForAccount",//验证账号接口
+						type: "get",
+						dataType: "jsonp",
+						jsonp:"jsoncallback",
+						data: $.parseJSON("{" + sdata + "}"),
+						success: function (d) {
+							if (d.IsLogin) {
+								//登录成功后跳转页面
+								window.location.href = "receiveGiftIndex?userType=login";						
+							} else {
+								alert(d.Message)
+								$('.js_refreshChinaCaptcha').eq(0).trigger('click');
+							}
+						}
+					});
+				}
+
+				$("#loginBtn").on("click", function(){
+					var userName = getByteLen($("#Account").val());  //账号长度
+					var exp = new RegExp("^[\u4e00-\u9fa5]{0,}$");				
+					var $this = $(this);
+
+					if ($.trim($("#Account").val()) == "" || $.trim($("#Account").val()) == null) {
+						alert("您好，您还未填写账号，请进行填写");
+					}else if(exp.test($("#Account").val())){
+						alert("账号格式错误，不允许包含中文");
+					} else if (userName > 16) {
+						alert("您好，账号不能大于16个字符");
+					} else if ($.trim($("#Password").val()) == "" || $.trim($("#Password").val()) == null) {
+						alert("您好，您还未填写密码，请进行填写");
+					} else{
+						$(".js_chinaCaptchaBtn").click();
+						//submit();
+					}
+					return false;
+				});
+			});
+		</script>
+	</body>
+</html>

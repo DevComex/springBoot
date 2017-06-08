@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.newyear.IScoreLogMapper">
+ <insert id="insertScoreLog" parameterType="ScoreLogBean"  >    
+     
+    INSERT INTO  user_score_log(user_score_name,whole_question_code,user_score_point) VALUES (#{userScoreName},#{wholeQuestionCode},#{userScorePoint})
+      
+     </insert> 
+    
+     <select id="selectScoreLog" resultType="java.util.List" resultMap="ScoreLogMap">
+     select 
+      	   [user_score_name]
+      	   ,[whole_question_code]
+      	   ,[user_score_point] 
+     from user_score_log where user_score_name=#{userScoreName}
+	</select>
+   
+   
+   <resultMap id="ScoreLogMap" type="ScoreLogBean">
+		<result property="userScoreName" column="user_score_name" />
+		<result property="wholeQuestionCode" column="whole_question_code" />
+		<result property="userScorePoint" column="user_score_point" />
+	</resultMap>
+</mapper>

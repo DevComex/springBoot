@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.noviceoa.NoviceBatchTypeBeanMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.action.beans.noviceoa.NoviceBatchTypeBean" >
+    <constructor >
+      <idArg column="code" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="batch_type" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="type_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="is_delete" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, batch_type, type_name, is_delete, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from novice_batch_type_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="code" parameterType="cn.gyyx.action.beans.noviceoa.NoviceBatchTypeBean" >
+    insert into novice_batch_type_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="batchType != null" >
+        batch_type,
+      </if>
+      <if test="typeName != null" >
+        type_name,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="batchType != null" >
+        #{batchType,jdbcType=VARCHAR},
+      </if>
+      <if test="typeName != null" >
+        #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="selectList" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from novice_batch_type_tb
+  </select>
+  <select id="selectBeanByBatchType" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from
+    novice_batch_type_tb
+    where batch_type = #{batchType}
+  </select>
+
+</mapper>

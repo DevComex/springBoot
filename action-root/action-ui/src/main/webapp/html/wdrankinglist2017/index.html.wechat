@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>问道周年新服“1心1意”开启！冲榜比拼赢IPHONE7！</title>
+    <link rel="stylesheet" type="text/css"  href="http://static.cn114.cn/action/wdxfcb/css/index.css" />
+    <script type="text/javascript"  src="http://static.cn114.cn/action/wdxfcb/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdxfcb/js/lineFeed.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdxfcb/js/gyyx_wxshare.min.js" ></script>
+    <script type="text/javascript"  src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> <!--光宇统计-->
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="topBG">
+    <img src="http://static.cn114.cn/action/wdxfcb/images/topBG.jpg" width="100%" class="topImg" alt="">
+    <span class="rule"></span>
+    <a class="wybmTop" href="javascript:void(0)">
+        <img class="wybm" src="http://static.cn114.cn/action/wdxfcb/images/wybm.png" alt="" />
+    </a>
+</div>
+<div class="index_main">
+    <div class="marstBox" id="maskId" style="display:none;"></div>
+    <div class="uploadWord tcT">
+        <div class="Tp">
+            <p class="bgTop"><span>恭喜您</span></p>
+            <p class="close"></p>
+            <div class="cont3 tcAl">
+                <p class="gzInfo">
+                    <i class="gzBz">1</i>
+                    <span>本次活动只在“1心1意”新服开启;</span>
+                </p>
+                <p class="gzInfo">
+                    <i class="gzBz">2</i>
+                    <span>本次活动与游戏内“冲榜活动”配套，只有在该活动中报名成功，才可参与游戏内的“冲榜活动”;</span>
+                </p>
+                <p class="gzInfo">
+                    <i class="gzBz">3</i>
+                    <span>本次活动只有关注“问道”微信公众号的玩家才可以进行报名，且报名成功的玩家才有可能获得抽奖资格;</span>
+                </p>
+                <p class="gzInfo">
+                    <i class="gzBz">4</i>
+                    <span>在微信中等级、道行排行数据有延迟，玩家参与“冲榜活动”的角色，在“1心1意”区组的角色名、等级、道行以游戏内数据为准;</span>
+                </p>
+                <p class="gzInfo">
+                    <i class="gzBz">5</i>
+                    <span>排行榜中展示的内容，均为游戏内冲榜活动的奖励展示，奖励只会发放一次;</span>
+                </p>
+                <p class="gzInfo">
+                    <i class="gzBz">6</i>
+                    <span>本活动最终解释权归光宇游戏公司所有，疑问请致电光宇客服:010-82438999。</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="uploadWord">
+        <ul class="videoUploadWord">
+            <li></li>
+        </ul>
+    </div>
+    <div class="index_Bg">
+        <form action="" id="search">
+            <input class="search" id="postPerson" type="text" placeholder=""  maxlength="16"/>
+            <i class="sousuo" id="findBtn"></i>
+        </form>
+        <p class="rank">
+            <a class="newRank cur" href="javascript:void(0)" selectType="latest"></a>
+            <a class="gradeRank" href="javascript:void(0)" selectType="grade"></a>
+            <a class="practRank" href="javascript:void(0)" selectType="daohang"></a>
+        </p>
+        <ul class="vL">
+        </ul>
+        <div class="loading">加载中......</div>
+    </div>
+</div>
+<ul  class="footer">
+    <li class="rank01 f1 f1_cur">
+        <a href="#"></a>
+    </li>
+    <li class="rank02 f2">
+        <a href="#"></a>
+    </li>
+    <li class="rank04 f3">
+        <a href="#"></a>
+    </li>
+</ul>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdxfcb/js/publicnav.js"></script>
+<script>
+    var pageIndex=1,
+            pageCount=4,
+            voff=true,
+            heightLi=false;
+    function pageListVideo(scrollT){
+        var htmlLi="";
+        heightLi=false;
+        if(!voff){
+            return false;
+        }
+        voff=false;
+        $.ajax({
+            url: "/wdrankinglist2017/declarations",
+            type: "GET",
+            dataType: "json",
+            data: {
+                pageIndex:pageIndex,
+                pageSize:4,
+                type:$(".rank .cur").attr("selectType"),
+                key:$("#postPerson").val()
+            },
+            beforeSend:function(){
+                $(".loading").show();
+            },
+            success: function (d) {
+                if (d.isSuccess) {
+                    var datas= d.data.pageData;
+                    if(d.data.pageData.length==0){
+                        return false;
+                    }
+                    pageIndex++;
+                    var datas=d.data.pageData,
+                            curCurrent=$(".rank .cur").attr("selectType"),
+                            grades= 0,
+                            dh=0;
+                    for(var i=0;i< datas.length;i++){
+                        htmlLi+='<a class="ali" href="videodetail?OpenId='+openIdFormat()+'&aopenId='+datas[i].openId+'"><li class="ranksIntro"><span class="civil">NO:'+datas[i].rank+'</span><div class="conts"><p class="conTitle"><img class="detailePeo" src="http://static.cn114.cn/action/wdxfcb/images/shows.png" />';
+                        if(curCurrent=="grade"){
+                            if(datas[i].grade==null){
+                                grades=0;
+                            }else{
+                                grades=datas[i].grade;
+                            }
+                            htmlLi+=  '<span class="typeRanks">('+grades+'级)</span>';
+                        }
+                        if(curCurrent=="daohang"){
+                            if(datas[i].daohang==null){
+                                dh=0;
+                            }else{
+                                var dh=parseInt(datas[i].daohang/360);
+                            }
+
+                            htmlLi+=  '<span class="typeRanks">('+dh+'年)</span>';
+                        }
+                        htmlLi+='</p><i class="typeRank">'+datas[i].element+'</i><img class="userImg" src="'+datas[i].avatar+'" alt=""><p class="userName">'+datas[i].roleName+'</p></div><p class="authinfos"><span class="xq01">兴趣爱好:</span><span class="xq02">'+datas[i].hobby+'</span></p><p class="authinfos"><span class="xq01">新服宣言:</span><span class="xq02">'+datas[i].declaration+'</span> </p></li></a>'
+                    };
+                    $(".vL").append(htmlLi).hide();
+                }
+            },
+            complete:function(){
+                $(".loading").hide();
+                voff=true;
+
+                $(".vL").show();
+                $(window).scrollTop(scrollT);
+                setTimeout(function(){
+                    for(var i=0;i<$(".xq02").length;i++){
+                        var liPW=$(".xq02").eq(0).width()-3;
+                        $(".xq02").eq(i).lineFeed({slStar:1,width:liPW});
+                    };
+                    heightLi=true;
+                },800)
+
+            }
+        });
+    };
+    $(function() {
+        $(window).scroll(function(){
+            if(!heightLi){
+                return false;
+            }
+            var scrollTop = $(window).scrollTop();
+            var windowHeight = $(window).height();
+            var scrollHeight = $(document).height();
+            if (scrollTop + windowHeight == scrollHeight) {
+                if(voff&&pageIndex!=1){
+                    pageListVideo(scrollTop);
+                }
+            }
+        });
+        pageListVideo(0);
+        $("#findBtn").click(function () {
+            var dqS=$(window).scrollTop();
+            pageIndex=1;
+            if ($("#postPerson").val().match(' ')) {
+                alert("输入内容有空格，请核对");
+                return false;
+            }
+            $(".vL").html("");
+            pageListVideo(dqS);
+        });
+        $(".rank a").click(function(){
+            var dqS=$(window).scrollTop();
+            pageIndex=1;
+            $(".vL").html("");
+            $(this).siblings().removeClass("cur").end().addClass("cur");
+            pageListVideo(dqS);
+        });
+//        $(".vL").swipe( {
+//            swipe:function(event, direction, distance, duration, fingerCount) {
+//                console.log(direction)
+//                if(direction=="up"){
+//                    if(voff&&pageIndex!=1){
+//                        var scrollTop = $(window).scrollTop();
+//                        var windowHeight = $(window).height();
+//                        var scrollHeight = $(document).height();
+//                        if (scrollTop + windowHeight == scrollHeight) {
+//                            if(voff&&pageIndex!=1){
+//                                pageListVideo();
+//                            }
+//                        }
+//                    }
+//                };
+//            },
+//        });
+    });
+</script>
+</body>
+</html>

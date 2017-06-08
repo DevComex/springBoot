@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>问道十年：青城山封仙盛典</title>
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/wdyaoqinghan/css/wd160701_sw2.css">
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/wdyaoqinghan/css/ystyle.css">
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/wdyaoqinghan/css/yindex.css">
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/lib/jquery.bgiframe.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+    <script>
+        var rc="";
+
+        </script>
+</head>
+<body>
+<div class="public_nav_top" style="display: none;">
+    <script type="text/javascript">Showtop();</script>
+</div>
+    <div class="searchBan sear01" style="width: 95%;margin-bottom: .3rem;display:none;">
+        <!--<i class="searchIoc"></i>-->
+        <input class="serchInfo" type="text" placeholder="《问道》  封仙大会邀请函">
+    </div>
+<p class="banner">
+<img src="http://static.cn114.cn/action/wdyaoqinghan/yimages/images/mainBg.jpg" >
+</p>
+    <div class="smk6 mk">
+         <p class="qdTit">
+             签到得积分&nbsp;&nbsp;<span class="qdSTit">每日签到可得5积分</span>
+         </p>
+        <div class="mk3_qd">
+            <p class="dataFor">
+                <span class="dataYear">2016</span>
+                <span class="dataDate">11.01-11.10</span>
+                <span class="qiandao" id="js_qiandao"></span>
+            </p>
+            <table id="tableDate" cellspacing="0" cellpadding="0">
+                <thead>
+                <tr>
+                    <th>MON</th>
+                    <th>TUE</th>
+                    <th>WED</th>
+                    <th>THU</th>
+                    <th>FRI</th>
+                    <th>SAT</th>
+                    <th>SUN</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                <tr>
+                    <td></td>
+                    <td relqd="1">01</td>
+                    <td relqd="2">02</td>
+                    <td relqd="3">03</td>
+                    <td relqd="4">04</td>
+                    <td relqd="5">05</td>
+                    <td relqd="6">06</td>
+                </tr>
+                <tr>
+                    <td relqd="7">07</td>
+                    <td relqd="8">08</td>
+                    <td relqd="9">09</td>
+                    <td relqd="10">10</td>
+                    <td ></td>
+                    <td ></td>
+                    <td ></td>
+                </tr>
+                <tr>
+                    <td ></td>
+                    <td ></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="smk7 mk">
+        <p class="qdTit">
+            分享微博得积分&nbsp;&nbsp;<span class="qdSTit">每日转发可得5积分</span>
+        </p>
+        <div class="sureWB">
+            <a style="display: inline-block;" href="http://v.t.sina.com.cn/share/share.php?title=问道十年升仙录 @问道 “封仙盛宴”即将在青城山火爆开启，重金打造封仙仪式。“醉心客、小熊、妖娆”三界道王齐聚首，人气网红亲临现场，COS团新成员等你来撩，现场更有海量大奖任性送。为了神兽我也想去现场，还有道友一起吗？&url=http://actionv2.gyyx.cn/wdyqh/windex&pic=http://static.cn114.cn/action/wdyaoqinghan/images/pic01.jpg&content=utf-8" id="js_weiboShow" target="_blank" class="weiboShow fxBtn"></a>
+            <p class="fxTit">每日可领取一次</p>
+        </div>
+    </div>
+
+    <p class="bottomNav">
+        <a class="yqh" href="windex">
+            <i class="navImg yqhIm"></i>
+            <span class="navTit">邀请函</span>
+        </a>
+        <a class="zjf cur" href="wqd">
+            <i class="navImg zjfIm"></i>
+            <span class="navTit">赚积分</span>
+        </a>
+        <a class="cj" href="wcj">
+            <i class="navImg cjIm"></i>
+            <span class="navTit">抽奖</span>
+        </a>
+        <a class="wd" href="wwd">
+            <i class="navImg wdIm"></i>
+            <span class="navTit">我的</span>
+        </a>
+    </p>
+    <!--提示消息-->
+    <div class="tc tsxx" id="js_yqhISdh_Info" style="display:none">
+        <p class="titInfo1">您已成功兑换</p>
+        <p class="titInfo2">您已成功兑换</p>
+        <p class="know">知道了</p>
+    </div>
+
+    <script src="http://static.cn114.cn/action/wdyaoqinghan/js/shandle.js"></script>
+    <script>
+        nLottery.pop($("#js_yqhISdh_Info"), {
+            autoOpen: false,
+            closeFn: function () {
+            }
+        });
+    </script>
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?769242709aaf4ecb268fcf5295512576";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</body>
+</html>

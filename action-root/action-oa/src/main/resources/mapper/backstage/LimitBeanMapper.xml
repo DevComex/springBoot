@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.backstage.ILimitMapper">
+	<resultMap type="LimitBean" id="LimitBean">
+		<id column="code" property="code" />
+		<result column="action_code" property="actionCode" />
+		<result column="name_string" property="nameString" />
+		<result column="action_name" property="actionName" />
+		<result column="delete_flag" property="deleteFlag" />
+	</resultMap>
+	<insert id="insertLimitBean" useGeneratedKeys="true" keyProperty="code" parameterType="LimitBean" >
+		insert into action_common_limits
+		(action_code,name_string,action_name,delete_flag)
+		values
+		(#{actionCode},#{nameString},#{actionName},#{deleteFlag})
+	</insert>
+	
+	<select id="selectLimitBeanAll" parameterType="NewPageBean" resultMap="LimitBean">
+		select TOP (#{pageSize}) *,[row_num] from ( 
+		SELECT ROW_NUMBER() OVER (ORDER BY code DESC) AS
+		row_num,* FROM
+		 action_common_limits where delete_flag = 0)
+		 A
+		WHERE row_num
+		> (#{pageSize}*(#{pageIndex}-1))
+
+		order by code desc
+	</select>
+		<select id="selectLimitBeanAllCount"  resultType="Integer">
+		select count(*) from (
+		SELECT ROW_NUMBER() OVER (ORDER BY code DESC) AS
+		row_num,* FROM
+		 action_common_limits where delete_flag = 0)
+		 A
+		
+		
+	</select>
+	<select id="selectLimitBeanByCode" parameterType="int" resultMap="LimitBean">
+		select * from action_common_limits
+		where code = #{code}
+	</select>
+	<select id="selectLimitBeanByUser" parameterType="NewPageBean" resultMap="LimitBean">
+
+		SELECT a.code,a.action_code,a.action_name,a.name_string ,[row_num]
+  FROM ( 
+		SELECT ROW_NUMBER() OVER (ORDER BY a.code DESC) AS
+		row_num,a.* FROM action_common_limits a  join action_common_limil_people b on a.code=b.limit_code   where   a.delete_flag=0 and b.delete_flag=0 and b.person_id=#{code}
+		) A
+		WHERE row_num
+		> (#{pageSize}*(#{pageIndex}-1))
+
+		order by a.code desc
+	</select>
+		<select id="selectLimitBeanByUserCount" parameterType="Integer" resultType="Integer">
+
+		SELECT count(*)
+  FROM ( 
+		SELECT ROW_NUMBER() OVER (ORDER BY a.code DESC) AS
+		row_num,a.* FROM action_common_limits a  join action_common_limil_people b on a.code=b.limit_code   where   a.delete_flag=0 and b.delete_flag=0 and b.person_id=#{personId}
+		) A
+		
+	</select>
+	<update id="updateLimitBean" parameterType="LimitBean">
+		update action_common_limits
+		set
+		action_code = #{actionCode},name_string = #{nameString},action_name = #{actionName}
+		where
+		code = #{code}
+	</update>
+		<update id="deleteLimitBean" parameterType="Integer">
+		update action_common_limits
+		set
+		delete_flag = 1
+		where
+		code = #{code}
+	</update>
+</mapper>

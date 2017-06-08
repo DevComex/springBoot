@@ -1,0 +1,175 @@
+#parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/jquery.ajaxpage-2.2.js"></script>
+<style>
+.table td {
+	word-wrap: break-word;
+	vertical-align: middle !important;
+}
+
+#main_region th, #content td {
+	padding: 5px 5px 5px;
+	text-align: center;
+}
+
+.table td img {
+	width: 100%;
+	max-height: 40px;
+}
+
+textarea {
+	border-color: #d9d9d9;
+}
+
+* {
+	outline: none;
+}
+</style>
+<script>
+	function getlist() {
+		$("#js_tbSzList").ajaxPage({
+			url : rc + "/xzq2016/userDataList",//接口
+			pageObj : $("#DataTables_Table_0_paginate"),
+			pageIndex : 1,
+			pageSize : 20,
+			curPageCls : "paginate_active",
+			pageInfo : {
+				obj : $("#DataTables_Table_0_info"),
+				content : "共{allCount}条  当前第{pageIndex}/{allPage}页"
+			},
+			paramObj : {
+				account:$("#account").val(),
+				beginTimeStr:$("#beginTimeStr").val(),
+				endTimeStr:$("#endTimeStr").val()
+			},
+			dataFn : function(data, $this) {
+				var dataHtml = "",dataHtmlmain ="", dCont = data.data;//获取返回数据
+	              if (dCont && dCont.length && dCont[0]) {
+	                  for (var i = 0; i < dCont.length; i++) {
+	                      dataHtml += '<tr>' 
+	                           +'  <td>' + (i+1) + '</td>' 
+	                           +'  <td>' + dCont[i].account + '</td>' 
+	                           +'  <td>' + dCont[i].name + '</td>' 
+	                           +'  <td>' + dCont[i].phone + '</td>' 
+	                           +'  <td style="text-align:left;">' + dCont[i].addr + '</td>' 
+	                           +'  <td>' + dCont[i].totalScore + '</td>' 
+	                           +'  <td>' + dCont[i].curScore + '</td>' 
+	                           +'  <td>' + dCont[i].rankIndex + '</td>' 
+	                           +'  <td>' + dCont[i].createTime + '</td>' 
+	                      dataHtml += '</td></tr>';
+	                  }
+	                  $("#js_tbSzList").empty().html(dataHtml);
+	                  
+	                  return dataHtml;
+				} else {
+					$("#js_tbSzList").empty()
+					$("#scrollable_one").hide();
+				}
+			}
+		});
+	}
+
+	$(function() {
+		$("#beginTimeStr").datepicker({
+			format : 'yyyy-mm-dd',
+			startView : 2,
+			autoclose : true,
+			todayBtn : true,
+			minView : 2
+		}).on('changeDate', function(ev) {
+			var AddStartTime = $(this).val();
+			$("#beginTimeStr").blur();
+			$("#beginTimeStr").datepicker('hide');
+		});
+		$("#endTimeStr").datepicker({
+			format : 'yyyy-mm-dd',
+			startView : 2,
+			autoclose : true,
+			todayBtn : true,
+			minView : 2
+		}).on('changeDate', function(ev) {
+			$("#endTimeStr").blur();
+			$("#endTimeStr").datepicker('hide');
+		});
+
+		$("#search").click(function() {
+			getlist();
+		});
+		
+		getlist();
+	});
+</script>
+
+<section class="vbox">
+	<section>
+		<section class="hbox stretch">
+			<section id="content">
+				<section class="vbox js_template_right">
+					<header class="header bg-white b-b clearfix">
+						<h4 class="doc-buttons pull-left" style="margin-top: 16px">问道2016助力薛之谦活动-用户报名信息列表</h4>
+						<span class="doc-buttons pull-left" style="margin-left:40px;"> 
+							<input type="text"
+								 class="input-sm form-control"
+								style="display: inline-block; width: 160px;" placeholder="账号名称"
+								id="account" name="account" />
+							<input type="text"
+								class="input-sm form-control"
+								style="display: inline-block; width: 160px; margin-top: 10px; margin-left: 10px;"
+								placeholder="报名开始时间" id="beginTimeStr" name="beginTimeStr" /> 
+							<input type="text"
+								 class="input-sm form-control"
+								style="display: inline-block; width: 160px;" placeholder="报名结束时间"
+								id="endTimeStr" name="endTimeStr" />
+						</span> 
+						<span class="doc-buttons pull-left"> <a id="search"
+							class="btn btn-sm btn-info"
+							style="margin-top: 10px; margin-left: 10px"
+							href="javascript:void(0);"><i class="fa fa-search"></i>搜索</a>
+						</span>
+						<span class="doc-buttons pull-left"> <a
+							class="btn btn-sm btn-info" id="js_add_project"
+							style="margin-top: 10px; margin-left: 10px" href="/xzq2016"><i class="fa fa-home"></i>首页</a>
+						</span>
+					</header>
+					<section class="scrollable padder">
+						<div class="m-b-md"></div>
+						<section class="panel panel-default" id="main_region">
+							<div class="table-responsive">
+								<table class="table table-striped m-b-none"
+									style="table-layout: fixed;">
+									<thead>
+										<tr>
+											<th width="5%">序号</th>
+											<th width="10%">账号</th>
+											<th width="10%">姓名</th>
+											<th width="10%">手机号</th>
+											<th style="text-align:left;" width="25%">地址</th>
+											<th width="10%">累计助力战力值</th>
+											<th width="10%">当前剩余战力值</th>
+											<th width="10%">排名</th>
+											<th width="15%">报名时间</th>
+										</tr>
+									</thead>
+									<tbody id="js_tbSzList">
+									</tbody>
+								</table>
+								<div class="row dataTables_wrapper"
+									style="margin-right: 0px; margin-left: 0px;">
+									<footer class="footer bg-white b-t">
+										<div class="row dataTables_wrapper">
+											<div class="col-sm-6">
+												<div id="DataTables_Table_0_info" class="dataTables_info"></div>
+											</div>
+											<div class="col-sm-6">
+												<div id="DataTables_Table_0_paginate"
+													class="dataTables_paginate paging_full_numbers"></div>
+											</div>
+										</div>
+									</footer>
+								</div>
+							</div>
+						</section>
+					</section>
+				</section>
+			</section>
+			#parse("/shared/footer.vm")

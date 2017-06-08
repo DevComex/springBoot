@@ -1,0 +1,152 @@
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+  <title>问道十一黄金周活动--晒照片</title>
+    <link href="http://qibao.gyyx.cn/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+     <link rel="stylesheet" href="http://static.cn114.cn/action/nationalday/css/common.css"/>
+     <link rel="stylesheet" href="http://static.cn114.cn/action/nationalday/css/style.css"/>
+     <script type="text/javascript">
+            var rc ="${rc.contextPath}"
+            var footUrl = 2;
+     </script>
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var types = "picture";
+    </script>
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?4b1867c85eccc01618d1eda93bb60377";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</head>
+<body>
+<!-- header公共部分 -->
+<section class="wrap">
+    <div class="time">活动时间：10月1日-10月7日</div>
+    <!-- header公共部分 -->
+
+    <div id="main" class="main">
+
+        <!-- 晒一晒开始-->
+
+        <div class="tabs_btn">
+            <a class="show_picBtn js_picUrl"></a>
+            <a class="show_wordBtn js_wordUrl"></a>
+        </div>
+      
+        <div class="search_con " >
+            <input class="search_text" type="text" placeholder="请输入关键字搜索" maxlength="50" id="searchText" />
+            <input class="search_btn"p id="searchBtn" data-type="picture" type="button" value=""/>
+        </div>
+        <!-- 晒图片-->
+        <div class="list_wrap">
+            <div class="line01"></div>
+            <div class="list_con" >
+                <ul id="sales_box"></ul>
+               <!-- <ul>
+                     <li>
+                        <div class="img_con">
+                            <img src="../images/show_img.png" />
+                            <div class="img_border"></div>
+                        </div>
+                        <p>标题：<label>我是问道小伙伴</label></p>
+                        <p>角色名：<label>问道的区组</label></p>
+                        <p>区组：<label>双线-穹顶之下</label></p>
+                        <p>日期：<label>10月6日</label></p>
+                    </li>
+                    <li>
+                        <div class="img_con">
+                            <img src="../images/show_img.png" />
+                            <div class="img_border"></div>
+                        </div>
+                        <p>标题：<label>我是问道小伙伴</label></p>
+                        <p>角色名：<label>问道的区组</label></p>
+                        <p>区组：<label>双线-穹顶之下</label></p>
+                        <p>日期：<label>10月6日</label></p>
+                    </li>
+                    <li>
+                        <div class="img_con">
+                            <img src="../images/show_img.png" />
+                            <div class="img_border"></div>
+                        </div>
+                        <p>标题：<label>我是问道小伙伴</label></p>
+                        <p>角色名：<label>问道的区组</label></p>
+                        <p>区组：<label>双线-穹顶之下</label></p>
+                        <p>日期：<label>10月6日</label></p>
+                    </li>
+                    <li>
+                        <div class="img_con">
+                            <img src="../images/show_img.png" />
+                            <div class="img_border"></div>
+                        </div>
+                        <p>标题：<label>我是问道小伙伴</label></p>
+                        <p>角色名：<label>问道的区组</label></p>
+                        <p>区组：<label>双线-穹顶之下</label></p>
+                        <p>日期：<label>10月6日</label></p>
+                    </li>
+                    <li>
+                        <div class="img_con">
+                            <img src="../images/show_img.png" />
+                            <div class="img_border"></div>
+                        </div>
+                        <p>标题：<label>我是问道小伙伴</label></p>
+                        <p>角色名：<label>问道的区组</label></p>
+                        <p>区组：<label>双线-穹顶之下</label></p>
+                        <p>日期：<label>10月6日</label></p>
+                    </li>
+                    <li>
+                        <div class="img_con">
+                            <img src="../images/show_img.png" />
+                            <div class="img_border"></div>
+                        </div>
+                        <p>标题：<label>我是问道小伙伴</label></p>
+                        <p>角色名：<label>问道的区组</label></p>
+                        <p>区组：<label>双线-穹顶之下</label></p>
+                        <p>日期：<label>10月6日</label></p>
+                    </li> 
+                  
+                </ul>-->
+            </div>
+            <div id="lastPage"></div>
+            <div class="line01"></div>
+
+        </div>
+    </div>
+      <!--底部导航部分-->
+           #parse("nationalDay/footer.vm")
+</section>
+<div class="v_h_tips">要使用竖屏访问哦！</div>
+<!-- footer公共部分 -->
+<script type="text/javascript" src="http://static.cn114.cn/action/nationalday/js/common.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/nationalday/js/scrollFn.js"></script> 
+<script type="text/javascript" src="http://static.cn114.cn/action/nationalday/js/script.js"></script>
+<script src="http://static.cn114.cn/action/nationalday/js/gyyx_wxshare.min.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        //分享
+        wxShare({
+            debug: false,
+            game: "wd",
+            title: '十一去了哪里都来晒晒吧!',
+            desc: '黄金周！不要宅！晒日记！晒照片！签到都能领奖励！',
+            link: "http://actionv2.gyyx.cn/wdnationalshare/sharepage",
+            imgUrl: "http://static.cn114.cn/action/nationalday/images/share.jpg",
+            success: function () {
+            },
+            cancel: function () {
+            }
+        });
+    })
+</script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<title>玩家作品</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wdgoldenyears/css/normalize.css" />
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wdgoldenyears/css/main.css" />		
+	</head>
+	<body>
+		<input type="hidden" id="Tokens" value="$!{Tokens}" />
+		<header class="header">
+			<img src="http://static.cn114.cn/action/wdgoldenyears/images/headerbg.jpg" />
+			<a class="btn btn_myworklist" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/btn4_1.png" /></a>
+			<a class="share_btn" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/shareicon.png" /></a>
+		</header>
+		<section class="content">
+			<h1 class="title1"><img src="http://static.cn114.cn/action/wdgoldenyears/images/title1.png" /></h1>
+			<ul id="myWorkList" class="worklist">
+				<!--<li>
+					<a class="img_wl" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/works2.jpg" /></a>
+					<a class="dele" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/close.png" /></a>
+					<a class="upload_btn" href="#" disabled="disabled"><img src="http://static.cn114.cn/action/wdgoldenyears/images/btn5.jpg" /></a>
+				</li>
+				<li>
+					<a class="img_wl" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/works2.jpg" /></a>
+					<a class="uploaded_btn" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/btn6.jpg" /><span class="uploadedcode">编号：9999</span></a>
+				</li>
+				<li>
+					<a class="img_wl" class="nopreview" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/works2.jpg" /><span class="marks_wl"></span><span class="invalidtxt">因内容不文明，<br/>已删除，请重新制作</span></a>
+					<a class="dele" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/close.png" /></a>
+					<a class="invalid_btn" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/btn7.jpg" /></a>					
+				</li>
+				<li>
+					<a class="img_wl" class="nopreview" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/works2.jpg" /><span class="marks_wl"></span></a>
+					<a class="dele" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/close.png" /></a>
+					<a class="auditing_btn" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/btn8.jpg" /></a>
+				</li>-->
+			</ul>
+		</section>
+		<footer class="footer">
+			<nav>
+				<ul>
+					<li><a class="alink1" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico1_1.png" />首页</a></li>
+					<li><a class="alink2" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico2_1.png" />制作</a></li>
+					<li class="on"><a class="alink3" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico3_2.png" />参赛</a></li>
+					<li><a class="alink4" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico4_1.png" />规则</a></li>
+				</ul>
+			</nav>
+		</footer>
+		<div class="sharemark"></div>
+		<img class="sharemarkimg" src="http://static.cn114.cn/action/wdgoldenyears/images/share.png" />
+		<div id="popTip" class="pop" style="display:none;">
+			<span class="bg_pop"><img src="http://static.cn114.cn/action/wdgoldenyears/images/popbg.png" /></span>
+			<a class="close_pop" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/close.png" /></a>
+			<div class="cont_pop">
+				<p>十年问道，不忘初心，快快来关注“问道”，制作你自己的问道流金岁月吧！</p>
+				<a class="btn_pop" href="http://mp.weixin.qq.com/s?__biz=MjM5MzgzMTAyMA==&mid=407317913&idx=1&sn=7f6a06c0f55cad72831cc9bfcb5a1587#rd" target="_blank"><img src="http://static.cn114.cn/action/wdgoldenyears/images/btn9.jpg" /></a>
+			</div>
+		</div>
+		<div class="mark" style="display:none;"></div>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/jquery-1.8.2.min.js"></script>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/gyyx_wxImgUp.js"></script>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/common.js"></script>
+		<script>
+			$(function(){				
+				getMyWorks(showMyWorks);
+			});
+		</script>
+	</body>
+</html>

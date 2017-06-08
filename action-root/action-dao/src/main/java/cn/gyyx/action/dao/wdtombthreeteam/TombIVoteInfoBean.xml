@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdtombthreeteam.TombIVoteInfoBean">
+    <resultMap type="cn.gyyx.action.beans.wdtombthreeteam.TombVoteInfoBean" id="VoteInfoBeanMap">
+        <id column="code" property="code" />
+        <result column="action_Code" property="actionCode" />
+        <result column="votter_phone" property="votterPhone" />
+        <result column="vote_who" property="voteWho" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+    
+    <resultMap type="cn.gyyx.action.beans.wdtombthreeteam.TombLoginInfoBean" id="LoginInfoBeanMap">
+        <id column="code" property="code" />
+        <result column="action_Code" property="actionCode" />
+        <result column="votter_phone" property="votterPhone" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+    <insert id="addVoteInfoBean" useGeneratedKeys="true" keyProperty="code" parameterType="cn.gyyx.action.beans.wdtombthreeteam.TombVoteInfoBean">
+        insert INTO wd_tombthreeteam_vote_tb(action_Code, score,votter_phone, vote_who, create_time)
+        values(#{actionCode},#{score},#{votterPhone},#{voteWho},getdate())
+    </insert>
+
+   <!--  <select id="selectByCode" parameterType="int" resultMap="ReserveInfoBeanMap">
+        select * from wd_tombthreeteam_reserve_tb
+        where code = #{code}
+    </select> -->
+
+    <select id="selectVoteInfoByDate" resultMap="VoteInfoBeanMap">
+        select  * from wd_tombthreeteam_vote_tb
+        where votter_phone=#{votterPhone} and 
+        action_code=#{actionCode}   and
+		CONVERT(varchar(100), create_time, 23)=#{createTime} 
+    </select>
+
+    <select id="selectByVotePhoneAndActionCode" resultMap="VoteInfoBeanMap">
+       	select * from wd_tombthreeteam_vote_tb
+        where votter_phone=#{votterPhone} and 
+        action_code=#{actionCode}  ORDER BY create_time DESC 
+    </select> 
+    
+    <select id="selectByActionCode" resultType="java.util.Map">
+    	select b.vote_who as voteWho,ISNULL(count,0) as count from (SELECT vote_who,count(1) as count from wd_tombthreeteam_vote_tb where action_code=#{actionCode}   group by vote_who) a right JOIN 
+		(
+			select 0  as vote_who UNION
+			select 1  as vote_who UNION
+			select 2  as vote_who UNION
+			select 3  as vote_who UNION
+			select 4  as vote_who UNION
+			select 5  as vote_who UNION
+			select 6  as vote_who UNION
+			select 7  as vote_who UNION
+			select 8  as vote_who UNION
+			select 9  as vote_who 
+		) b
+		on a.vote_who =  b.vote_who 
+    </select> 
+   
+    <select id="selectLoginLog" resultMap="LoginInfoBeanMap">
+       	select * from wd_tombthreeteam_loginlog_tb
+        where votter_phone=#{votterPhone} 
+    </select> 
+
+     <insert id="addLoginInfoBean" useGeneratedKeys="true" keyProperty="code" parameterType="cn.gyyx.action.beans.wdtombthreeteam.TombLoginInfoBean">
+        insert INTO wd_tombthreeteam_loginlog_tb(action_Code, votter_phone, create_time)
+        values(#{actionCode},#{votterPhone},getdate())
+    </insert>
+
+
+</mapper>

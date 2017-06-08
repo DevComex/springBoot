@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.IServerStatusMapper">
+
+	<resultMap type="ServerStatusBean" id="ServerStatusMap">
+		<id column="code" property="code" />
+		<result column="start_time" property="startTime" />
+		<result column="end_time" property="endTime"/>
+		<result column="remarks" property="remarks"/>
+		<result column="close_status" property="closeStatus"/>
+	</resultMap>
+	
+	<insert id="addServerStatusInfo" parameterType="ServerStatusBean">
+
+		INSERT INTO [dbo].[xuanwuba_server_status]
+		           ([start_time]
+		           ,[end_time]
+		           ,[remarks]
+		           ,[close_status])
+		     VALUES
+		           (#{startTime}
+		           ,#{endTime}
+		           ,#{remarks}
+		           ,#{closeStatus})
+
+	</insert>
+	
+	<select id="getAllServerStatusInfoByPage" resultMap="ServerStatusMap" parameterType="int">
+	
+		SELECT TOP 10 [code]
+		      ,[start_time]
+		      ,[end_time]
+		      ,[remarks]
+		      ,[close_status]
+		FROM [dbo].[xuanwuba_server_status]
+		WHERE 
+		([code] NOT IN (
+		
+			SELECT TOP (10*(#{page}-1)) [code] 
+			FROM [dbo].[xuanwuba_server_status]
+			ORDER BY [close_status] ASC , [code] DESC
+			
+		))
+		ORDER BY [close_status] ASC , [code] DESC
+
+	</select>
+	
+	<select id="getAllServerStatusInfo" resultMap="ServerStatusMap">
+
+		SELECT [code]
+		      ,[start_time]
+		      ,[end_time]
+		      ,[remarks]
+		      ,[close_status]
+		  FROM [dbo].[xuanwuba_server_status] ORDER BY [close_status] ASC , [code] DESC
+
+	</select>
+	
+	<select id="getAllOpenServerStatusInfo" resultMap="ServerStatusMap">
+
+		SELECT [code]
+		      ,[start_time]
+		      ,[end_time]
+		      ,[remarks]
+		      ,[close_status]
+		  FROM [dbo].[xuanwuba_server_status] WHERE close_status = 0 ORDER BY [close_status] ASC , [code] DESC
+
+	</select>
+	
+	<select id="getServerStatusInfoByCode" resultMap="ServerStatusMap" parameterType="int">
+
+		SELECT [code]
+		      ,[start_time]
+		      ,[end_time]
+		      ,[remarks]
+		      ,[close_status]
+		  FROM [dbo].[xuanwuba_server_status] WHERE [code] = #{code}
+
+	</select>
+	
+	<update id="modifyServerStatusInfo" parameterType="ServerStatusBean">
+
+		UPDATE [dbo].[xuanwuba_server_status]
+		   SET [start_time] = #{startTime}
+		      ,[end_time] = #{endTime}
+		      ,[remarks] = #{remarks}
+		      ,[close_status] = #{closeStatus}
+		 WHERE [code] = #{code}
+	
+	</update>
+</mapper>

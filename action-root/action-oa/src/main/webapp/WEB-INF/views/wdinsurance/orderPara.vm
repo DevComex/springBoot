@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>订单参数处理</title>
+    <link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet" />
+    <link href="${rc.contextPath}/resources/style/main.css" rel="stylesheet"/>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <script type="text/javascript">
+	function goBack(){
+	var redirectUrl = $("#js_redirectUrl").val();
+	window.location.href=redirectUrl;
+}
+    </script>
+    <link href="/memo/resources/style/jquery-ui.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+                        <header class="header bg-white b-b clearfix">
+                            <div class=" m-b-xs m-t-sm" style="text-align: center;">
+                            </div>
+                        </header>
+                        <!--顶部标题导航 end-->
+
+        <!--主体内容 begin-->
+        <section class="scrollable padder">
+            <div class="m-b-md">
+            </div>
+            <!--数据表格  begin -->
+            <div style="padding: 15px;">
+				<div class="block" style=" padding: 15px; font-size: 18px; background-color: #fff;">
+					<i class="fa fa-bars icon-muted"></i>&nbsp;
+					<small >订单参数处理</small>
+					<span style="position: absolute;right: 150px; font-size: 12px;">
+						<a data-toggle="modal" href="#addInfo" class="btn btn-rounded btn-sm btn-facebook">
+							<i class="fa fa-plus"></i>添加
+						</a>
+					</span>
+				</div>
+            </div>
+            <section class="panel panel-default">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            <tr>
+                                                <th>订单类型</th>
+                                                <th>周期</th>
+                                                <th>费率</th>
+                                                <th>保额下限</th>
+                                                <th>保额上限</th>
+                                                <th>默认保额</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        	#foreach($!{para}  in $!{parameterList})
+                                            <tr>
+                                                <td>${para.type}</td>
+                                                <td>${para.circle}</td>
+                                                <td>${para.odds}</td>
+                                                <td>${para.lower}</td>
+                                                <td>${para.upper}</td>
+                                                <td>${para.defaultAmount}</td>
+                                              	<td>
+                                              		<input type="hidden" name="paraCode" value="$!{para.code}"/>
+                                					<a data-toggle="modal" data-edit="$!{para.code}" data-title="编辑" href="#editInfo" data-appcode="47" data-desc="总经理" class="btn btn-xs btn-info js_editRole paraEdit" data-original-title="编辑" title="">
+                                    					<i class="fa fa-edit"></i>
+                                					</a>
+                                					<a data-toggle="modal" data-delete="$!{para.code}" data-title="删除" href="javascript:void(0)" class="btn btn-xs btn-success paraDelete" data-original-title="" title=""  onclick="editOrder()">
+                                    					<i class="fa fa-minus-square"></i>
+                               						</a>
+                            					</td>
+                            					
+                                            </tr>
+                                            #end
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </section>
+    		<!--数据表格  end -->
+         </section>
+            <!--主体内容 end-->
+
+			
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+    <!-- -----------------------------------------------添加弹层开始---------------------------------------------- -->
+    <div class="modal fade" id="addInfo" > 
+    	<div class="modal-dialog" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">添加保单参数</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="addFormM" class="form-horizontal" id="add_form" action="${rc.contextPath}/wdinsurance/orderParameterAdd" method="post">
+                        <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+						<div class="form-group">
+                            <label class="col-sm-3 control-label">订单类型：</label>
+                            <div class="col-sm-6">
+                            <select name="type" class="form-control collection" id="orderType" style="width: 300px">
+                            	<option value="角色责任险">角色责任险</option>
+                            </select>
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label class="col-sm-3 control-label">周期：</label>
+                            <div class="col-sm-6">
+                                <input id="orderCycle"  name="circle" class="form-control input-sm js_add_memo" maxlength="50" />
+                            </div>
+                            <font color="#A3A3A3">月</font>
+                            <font color="#A3A3A3"></font>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">费率：</label>
+                            <div class="col-sm-6">
+                                <input id="orderPercentage" placeholder="%" name="odds" class="form-control input-sm js_add_memo" maxlength="50" />
+                            </div>
+                            <font color="#A3A3A3">%</font>
+                        </div>
+						<div class="form-group">
+                            <label class="col-sm-3 control-label">保额下限：</label>
+                            <div class="col-sm-6">
+                                <input id="orderLast" placeholder="元" name="lower" class="form-control input-sm js_add_memo" maxlength="50" />
+                            </div>
+                            <font color="#A3A3A3">元</font>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">保额上限：</label>
+                            <div class="col-sm-6">
+                                <input id="orderTop" placeholder="元" name="upper" class="form-control input-sm js_add_memo" maxlength="50" />
+                            </div>
+                            <font color="#A3A3A3">元</font>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">默认保额：</label>
+                            <div class="col-sm-6">
+                                <input id="orderDefault" placeholder="元" name="defaultAmount" class="form-control input-sm js_add_memo" maxlength="50" />
+                            </div>
+							<font color="#A3A3A3">元</font>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">周期中文名</label>
+                            <div class="col-sm-6">
+                                <input id="orderChinDefault" name="circleName" placeholder="例：一个月" class="form-control input-sm js_add_memo" maxlength="50" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div style="margin-left:230px;" id="addShowError">
+                            </div>
+                        </div>
+						<div class="modal-footer">
+                               <button type="button" class="btn btn-info js_submit_btn" id="js_add_submit" >确认</button>
+                               <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">取消</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    	</div>
+    </div>
+    <!-- -----------------------------------------------添加弹层结束---------------------------------------------- -->
+    <!-- -----------------------------------------------修改弹层开始---------------------------------------------- -->
+    <div class="modal fade" id="editInfo" > 
+    	<div class="modal-dialog" >
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">添加保单参数</h4>
+                </div>
+                <div class="modal-body">
+                    <form id="editFormM" class="form-horizontal" id="eddit_form" action="${rc.contextPath}/wdinsurance/orderParameterUpdateSubmit" method="post">
+                        <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+						<div class="form-group">
+                            <label class="col-sm-3 control-label">订单类型：</label>
+                            <div class="col-sm-6">
+                            <select name="type" class="form-control collection" id="orderTypeEdit" style="width: 300px">
+                            	<option value="角色责任险">角色责任险</option>
+                            </select>
+                            </div>
+                        </div>
+						<div class="form-group">
+                            <label class="col-sm-3 control-label">周期：</label>
+                            <div class="col-sm-6">
+                                <input id="orderCycleEdit"  name="circle" class="form-control input-sm js_add_memo" maxlength="50" />
+                            </div>
+                            <font color="#A3A3A3">月</font>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">费率：</label>
+                            <div class="col-sm-6">
+                                <input id="orderPercentageEdit" name="odds" class="form-control input-sm js_add_memo" maxlength="50" />
+                            </div>
+                            <font color="#A3A3A3">%</font>
+                        </div>
+						<div class="form-group">
+                            <label class="col-sm-3 control-label">保额下限：</label>
+                            <div class="col-sm-6">
+                                <input id="orderLastEdit" name="lower" class="form-control input-sm js_add_memo" maxlength="50" />
+                            </div>
+                            <font color="#A3A3A3">元</font>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">保额上限：</label>
+                            <div class="col-sm-6">
+                                <input id="orderTopEdit" name="upper" class="form-control input-sm js_add_memo" maxlength="50" />
+                            </div>
+                            <font color="#A3A3A3">元</font>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">默认保额：</label>
+                            <div class="col-sm-6">
+                                <input id="orderDefaultEdit" name="defaultAmount" class="form-control input-sm js_add_memo" maxlength="50" />
+                            </div>
+							<font color="#A3A3A3">元</font>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">周期名中文名：</label>
+                            <div class="col-sm-6">
+                                <input id="circleChEdit2" name="circleName" class="form-control input-sm js_add_memo" maxlength="50" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div style="margin-left:230px;" id="editShowError">
+                            </div>
+                        </div>
+					   	<input type="hidden" name="code" id="orderCodeEdit" value="">
+						<div class="modal-footer">
+                               <button type="button" class="btn btn-info js_submit_btn" id="js_edit_submit" >确认</button>
+                               <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">取消</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    	</div>
+    </div>
+    <!-- -----------------------------------------------修改弹层结束---------------------------------------------- -->
+    <!-- -----------------------------------------------JS代码开始---------------------------------------------- -->
+    <!-- 删除JS开始 -->
+    <script>
+    	$(".paraDelete").click(function(){
+			var paraCode = $(this).attr("data-delete");
+			window.location.href="${rc.contextPath}/wdinsurance/orderParameterDelete?code="+paraCode;     		
+    	});
+    </script>
+    <!-- 删除JS结束 -->
+    <!-- 编辑JS开始 -->
+    <script>
+    $(".paraEdit").click(function(){
+    	var paraCode = $(this).attr("data-edit");
+    	$.ajax
+		({
+    		url:"${rc.contextPath}/wdinsurance/orderParameterUpdate",
+    		data:{"code":paraCode},
+    		dataType:"json",
+    		type:"get",
+    		success: function( data ){
+				var para = eval(data);
+				$("#orderCodeEdit").val(para.code);
+				$("#orderCycleEdit").val(para.circle); 
+				$("#orderPercentageEdit").val(para.odds); 
+				$("#orderLastEdit").val(para.lower); 
+				$("#orderTopEdit").val(para.upper); 
+				$("#orderDefaultEdit").val(para.defaultAmount);
+				$("#circleChEdit2").val(para.circleName); 
+    		}
+    	})
+    })
+    </script>
+    <!-- 编辑JS结束 -->
+    <!-- 校验JS开始-->
+    <script>
+    	var circle ="";
+    	var percentage = "";
+    	var last = "";
+    	var topA = "";
+    	var defaultA = "";
+    	var chinDefault = "";
+    	function isNullM(a,b){
+    		if(a==""){
+				$("#addShowError").append("<font color='#FF3030'>"+b+"</font>");    			
+    		}
+    	}
+    	$("#orderCycle").blur(function(){
+    		$("#addShowError").empty();
+    		circle = $(this).val();
+    		isNullM($(this).val(),"保单周期不能为空");
+    		if(isNaN($(this).val())){
+    			$("#addShowError").append("<font color='#FF3030'>保单周期只能填纯数字</font>");
+    		}
+    	});
+    	$("#orderPercentage").blur(function(){
+    		$("#addShowError").empty();
+    		percentage = $(this).val();
+    		isNullM($(this).val(),"费率不能为空");
+    		if(isNaN($(this).val())){
+    			$("#addShowError").append("<font color='#FF3030'>费率只能填纯数字</font>");
+    		}
+    	});
+    	$("#orderLast").blur(function(){
+    		$("#addShowError").empty();
+    		last = $(this).val();
+    		isNullM($(this).val(),"保额下限不能为空");
+    		if(isNaN($(this).val())){
+    			$("#addShowError").append("<font color='#FF3030'>保额下限只能填纯数字</font>");
+    		}
+    	});
+    	$("#orderTop").blur(function(){
+    		$("#addShowError").empty();
+    		topA = $(this).val();
+    		isNullM($(this).val(),"保额上限不能为空");
+    		if(isNaN($(this).val())){
+    			$("#addShowError").append("<font color='#FF3030'>保额上限只能填纯数字</font>");
+    		}
+    	});
+    	$("#orderDefault").blur(function(){
+    		$("#addShowError").empty();
+    		defaultA = $(this).val();
+    		isNullM($(this).val(),"默认保额不能为空");
+    		if(isNaN($(this).val())){
+    			$("#addShowError").append("<font color='#FF3030'>默认保额只能填纯数字</font>");
+    		}
+    	});
+    	$("#orderChinDefault").blur(function(){
+    		$("#addShowError").empty();
+    		chinDefault = $(this).val();
+    		isNullM($(this).val(),"周期中文名不能为空");
+    	});
+    	$("#js_add_submit").click(function(){
+    		if(circle==""||isNaN(circle)){
+    			$("#addShowError").empty();
+    			$("#addShowError").append("<font color='#FF3030'>保单周期填写错误</font>");
+    		}
+    		else if(percentage==""||isNaN(percentage)){
+    			$("#addShowError").empty();
+    			$("#addShowError").append("<font color='#FF3030'>费率填写错误</font>");
+    		}
+    		else if(last==""||isNaN(last)){
+    			$("#addShowError").empty();
+    			$("#addShowError").append("<font color='#FF3030'>保额下限填写错误</font>");
+    		}
+    		else if(topA==""||isNaN(topA)){
+    			$("#addShowError").empty();
+    			$("#addShowError").append("<font color='#FF3030'>保额上限填写错误</font>");
+    		}
+    		else if(defaultA==""||isNaN(defaultA)){
+    			$("#addShowError").empty();
+    			$("#addShowError").append("<font color='#FF3030'>默认保额填写错误</font>");
+    		}else if(chinDefault==""){
+				$("#addShowError").empty();
+    			$("#addShowError").append("<font color='#FF3030'>周期中文名填写错误</font>");
+    		}else{
+    			$("#addFormM").submit();
+    		}
+    	});
+    	
+    	
+    	
+    	
+    	
+    	$("#orderCycleEdit").blur(function(){
+    		$("#editShowError").empty();
+    		isNullM($(this).val(),"保单周期不能为空");
+    		if(isNaN($(this).val())){
+    			$("#editShowError").append("<font color='#FF3030'>保单周期只能填纯数字</font>");
+    		}
+    	});
+    	$("#orderPercentageEdit").blur(function(){
+    		$("#editShowError").empty();
+    		isNullM($(this).val(),"费率不能为空");
+    		if(isNaN($(this).val())){
+    			$("#editShowError").append("<font color='#FF3030'>费率只能填纯数字</font>");
+    		}
+    	});
+    	$("#orderLastEdit").blur(function(){
+    		$("#editShowError").empty();
+    		isNullM($(this).val(),"保额下限不能为空");
+    		if(isNaN($(this).val())){
+    			$("#editShowError").append("<font color='#FF3030'>保额下限只能填纯数字</font>");
+    		}
+    	});
+    	$("#orderTopEdit").blur(function(){
+    		$("#editShowError").empty();
+    		isNullM($(this).val(),"保额上限不能为空");
+    		if(isNaN($(this).val())){
+    			$("#editShowError").append("<font color='#FF3030'>保额上限只能填纯数字</font>");
+    		}
+    	});
+    	$("#orderDefaultEdit").blur(function(){
+    		$("#editShowError").empty();
+    		isNullM($(this).val(),"默认保额不能为空");
+    		if(isNaN($(this).val())){
+    			$("#editShowError").append("<font color='#FF3030'>默认保额只能填纯数字</font>");
+    		}
+    	});
+    	$("#circleChEdit2").blur(function(){
+    		$("#editShowError").empty();
+    		isNullM($(this).val(),"周期中文名不能为空");
+    	});
+    		var circle2 = "";
+    		var percentage2 = "";
+    		var last2 = "";
+    		var topA2 = "";
+    		var defaultA2 = "";
+    		var chinDefault2 = "";
+    	$("#js_edit_submit").click(function(){
+    		 circle2 = $("#orderCycleEdit").val();
+    		 percentage2 = $("#orderPercentageEdit").val();
+    		 last2 = $("#orderLastEdit").val();
+    		 topA2 = $("#orderTopEdit").val();
+    		 defaultA2 = $("#orderDefaultEdit").val();
+    		 chinDefault2 = $("#circleChEdit2").val();
+    		if(circle2==""||isNaN(circle2)){
+    			$("#editShowError").empty();
+    			$("#editShowError").append("<font color='#FF3030'>保单周期填写错误</font>");
+    		}
+    		else if(percentage2==""||isNaN(percentage2)){
+    			$("#editShowError").empty();
+    			$("#editShowError").append("<font color='#FF3030'>费率填写错误</font>");
+    		}
+    		else if(last2==""||isNaN(last2)){
+    			$("#editShowError").empty();
+    			$("#editShowError").append("<font color='#FF3030'>保额下限填写错误</font>");
+    		}
+    		else if(topA2==""||isNaN(topA2)){
+    			$("#editShowError").empty();
+    			$("#editShowError").append("<font color='#FF3030'>保额上限填写错误</font>");
+    		}
+    		else if(defaultA2==""||isNaN(defaultA2)){
+    			$("#editShowError").empty();
+    			$("#editShowError").append("<font color='#FF3030'>保额保额填写错误</font>");
+    		}else if(chinDefault2==""){
+    			$("#editShowError").empty();
+    			$("#editShowError").append("<font color='#FF3030'>周期中文名填写错误</font>");
+    		}else{
+    			$("#editFormM").submit();
+    		}
+    	});
+    </script>
+    <!-- 校验JS结束 -->
+    <!-- -----------------------------------------------JS代码结束---------------------------------------------- -->
+    
+    
+    <!--添加网络组件弹层 begin-->
+    <div id="addPop">
+        <div class="row">
+            <div class="col-sm-3 text-right m-t-xs">所属项目集</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">所属项目</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">网络组件名称</div>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">说明</div>
+            <div class="col-sm-8">
+                <textarea cols="30" rows="2" class="form-control"></textarea>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+    </div>
+    <!--添加网络组件弹层 begin-->
+
+    <!--编辑网络组件弹层 begin-->
+    <div id="editPop">
+        <div class="row">
+            <div class="col-sm-3 text-right m-t-xs">所属项目集</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">所属项目</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">网络组件名称</div>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">说明</div>
+            <div class="col-sm-8">
+                <textarea cols="30" rows="2" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+    <!--编辑网络组件弹层 end-->
+ 
+</body>
+</html>

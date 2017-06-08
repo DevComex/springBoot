@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>绝世武神-签到抽奖活动</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/jswstower/css/js151013.css" />
+    <script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+	<script src="${rc.contextPath}/commonSupporter/actionUtil?actionCode=279"></script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="js_wrap">
+        <div class="main">
+            <!--左侧-->
+            <div class="js_left">
+                <div class="js_return"><a href="http://jswsol.gyyx.cn/Home/index.shtml">返回官网</a></div>
+                <div class="js_item">
+                    <ul>
+                        <li><a href="${rc.contextPath}/commonS/index" class="a01">修炼塔介绍</a></li>
+                        <li class="on"><a href="${rc.contextPath}/commonS/jifen" class="a02">我的武道积分</a></li>
+                        <li><a href="${rc.contextPath}/commonS/xiulian" class="a03">武道修炼</a></li>
+                        <li><a href="${rc.contextPath}/commonS/huanli" class="a04">武道积分换礼</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--右侧-->
+            <div class="js_right">
+                <div class="js_box">
+                    <div class="js_ad">广告语</div>
+					<!--抢激活码-->
+            <div class="js_jhm"><a href="${rc.contextPath}/commonS/huanli">抢激活码</a></div>
+                    <!--登录前-->
+                    <div class="js_login js_loginBefore" style="display: none;">
+                        <p>尊敬的玩家，您好！  请先：<a href="javascript:;" class="js_login">登录</a></p>
+                    </div>
+                    <!--登录后-->
+                    <div class="js_login js_loginAfter clear" style="display: block;">
+                        <div class="js_info">
+                            <p>
+                                <strong>昵称</strong><br />
+                                
+                            </p>
+                            <a href="#">退出登录</a>
+                        </div>
+                        <ul class="js_detail clear">
+                            <li><strong>我的武道积分</strong><br />
+                                分</li>
+                            <li><strong>已用武道积分</strong><br />
+                                分</li>
+                            <li><strong>已连续签到</strong><br />
+                                分</li>
+                        </ul>
+                    </div>
+                    <div class="js_cont04 js_cont02 js_myinfo">
+                        <h2 class="js_h03">我的信息</h2>
+                        <div class="js_myinfolist"></div>
+                        <p><strong>您的抽奖奖品为：</strong></p>
+                        <div class="prize_box">
+                            <div class="prize_cont">
+                                <div class="prite_txt">
+                                    <table class="prite_tab">
+                                        <thead>
+                                            <tr height="38">
+                                                <th width="109">序号</th>
+                                                <th width="493">奖品名称</th>
+                                                <th width="370">奖品说明</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="js_tbody"></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <!--滚动条-->
+                            <div class="js_scrollbar">
+                                <div class="arrowUp"></div>
+                                <div class="js_track">
+                                    <div class="js_thumb"></div>
+                                </div>
+                                <div class="arrowDown"></div>
+                            </div>
+                        </div>
+                        <!--滚动条 end-->
+                    </div>
+                </div>
+            </div>
+            <!--滚动条遮罩层-->
+            <div class="js_mask"></div>
+        </div>
+    </div>
+
+    <!--弹层：修改中奖地址-->
+    <div class="tc tc06 js_tcadd" style="display: none;">
+        <a href="#" class="close js_tcclose"></a>
+        <h3 class="tc_tit">修改中奖地址</h3>
+        <div class="tc_cont">
+            <div class="tc_address">
+                <p>
+                    <label>收货人姓名：</label><input type="text" class="isname" maxlength="10"> 
+                    <span class="js_error"></span>
+                </p>
+                <p class="ssq">
+                    <label>省 / 市 / 区：</label><input type="text" class="issheng" maxlength="10"><i>省</i><input type="text" class="isshi" maxlength="20"><i>市</i><input type="text" class="isqu" maxlength="20"><i>区</i>
+                     <span class="js_error"></span>
+                </p>
+                <p class="xxdz">
+                    <label>详 细 地 址：</label><input type="text" class="isxxdz" maxlength="100"> 
+                    <span class="js_error"></span>
+                </p>
+                <p>
+                    <label>邮 政 编 码：</label><input type="text" class="ispost" maxlength="10"> 
+                    <span class="js_error"></span>
+                </p>
+                <p class="sub">
+                    <input type="button" value="提交" class="js_addsubmit">
+                </p>
+                <p><span>请务必填写真实信息，以确保我们将奖励送到您手中</span></p>
+            </div>
+        </div>
+    </div>
+    <!--弹层：手机号码被占用-->
+    <div class="tc tc07" style="display: none;">
+        <a href="#" class="close"></a>
+        <h3 class="tc_tit">修改手机号码</h3>
+        <div class="tc_cont">
+            <p>对不起，您的手机号码已被占用，请重新输入！</p>
+            <a href="#" class="btn">确定</a>
+        </div>
+    </div>
+    <!--弹层：修改手机号码-->
+    <div class="tc tc08 js_tcphone" style="display: none;">
+        <a href="#" class="close js_tcclose"></a>
+        <h3 class="tc_tit">修改手机号码</h3>
+        <div class="tc_cont">
+            <div class="tc_tel">
+                <p>
+                    <label>手机号码：</label><input type="text" class="isphone" maxlength="11">
+                    <span class="js_error"></span>
+                </p>
+                <p class="sub clear">
+                    <input type="button" value="提交" class="js_phonesubmit">
+                </p>
+                <p><span>请务必填写真实信息，以确保我们将奖励送到您手中</span></p>
+            </div>
+        </div>
+    </div>
+    <!--公用底部-->
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+    <!--弹层：遮罩层-->
+    <div class="pop_mask"></div>
+</body>
+<script type="text/javascript" src="http://static.cn114.cn/action/jswstower/js/ymscrollbar.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/jswstower/js/js151013.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".js_myinfo").GetMyinfo();
+    });
+</script>
+</html>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.wdblessingcard2017.LotteryPrizesBeanMapper" >
+	<!-- 用于展示的中奖信息 -->
+	<resultMap type="cn.gyyx.action.beans.wdblessingcard2017.LotteryPrizesBean" id="Show_LotteryPrizes">
+		<id column="prizeName" property="prizeName" />
+		<result column="prizeNum"  property="prizeNum" />
+		<result column="server_code" property="serverCode" />
+		<result column="server_name" property="serverName" />
+		<result column="role_name" property="roleName" />
+	</resultMap>
+	<!-- 用于页面展示时的字段 -->
+	<sql id="Show_Column_List" >
+		userId,prizeName, prizeNum
+	</sql>
+	<!-- 根据用户账号获取中奖信息 -->
+	<select id="getLotteryListByAccount" parameterType="cn.gyyx.action.ui.wdblessingcard2017.QueryBean" resultMap="Show_LotteryPrizes" >
+		select
+		<include refid="Show_Column_List"></include>
+		from action_lottery_log_tb
+		where userId = #{account} AND activityId = #{actionCode}
+	</select>
+	<!-- 获取几条中奖记录，按奖品位置排序 -->
+	<select id="getLotteryList" parameterType="cn.gyyx.action.ui.wdblessingcard2017.QueryBean" resultMap="Show_LotteryPrizes" >
+        select top ${size} a.row_num,a.prizeName,w.server_name,w.role_name
+        from(
+        SELECT ROW_NUMBER() OVER ( ORDER BY
+        ap.num ASC ) AS row_num ,
+        al.userId,al.prizeName, al.prizeNum,ap.num
+        FROM action_lottery_log_tb al left join action_prize_tb ap on al.prizeCode=ap.code
+        where al.activityId = #{actionCode} and al.prizeCode != 0 
+        ) a left join wdblessingcard_role_bind_tb w
+        ON a.userId = w.account  order by a.row_num asc
+	</select>
+	<select id="getUserLotteryCount" resultType="java.lang.Integer" >
+		select count(*)
+		from action_lottery_log_tb
+		where
+		activityId = #{activityId}
+		and (userId = #{account} or winningIp = #{ip})
+		<if test=" prizeCodeList != null and prizeCodeList.size() > 0 ">
+			and prizeCode in
+			<foreach collection="prizeCodeList" item="code" index="index"
+	            open="(" close=")" separator=",">
+	            #{code}
+	        </foreach>
+		</if>
+	</select>
+	<select id="prizeCount" resultType="java.lang.Integer" >
+		select count(*)
+		from action_lottery_log_tb
+		where
+		activityId = #{actionCode}
+		and userId = #{account}
+		<if test="prizeType != null">
+			and prizeType = #{prizeType}
+		</if>
+	</select>
+</mapper>

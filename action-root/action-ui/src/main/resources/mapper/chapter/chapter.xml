@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.chapter.IChapterMapper">
+	<resultMap type="ChapterBean" id="ChapterBean">
+		<result column="chapter_name" property="chapterName" />
+		<result column="order_num" property="orderNum" />
+	</resultMap>
+	
+	<resultMap type="ChapterBean" id="ChapterBean2">
+		<id column="chapter_code" property="chapterCode" />
+		<result column="chapter_name" property="chapterName" />
+		<result column="order_num" property="orderNum" />
+	</resultMap>
+
+	<!-- 插入章节信息 -->
+	<insert id="insertChapter" parameterType="ChapterBean">
+		insert into action_chapter_tb
+		(chapter_code,chapter_name,content,word_num,create_time_str,update_time_str,status)
+		values(#{chapterCode},#{chapterName},#{content},#{wordNum},#{createTimeStr},
+		#{updateTimeStr},#{status})
+	</insert>
+
+	<!-- 通过主键查找章节信息 -->
+	<select id="getChapterByCode" resultMap="ChapterBean">
+		select
+		content,order_num
+		from
+		action_chapter_tb
+		where chapter_code=#{chapterCode}
+	</select>
+
+	<!-- 分页查询所有章节信息 -->
+	<select id="getAllChapterForPage" parameterType="Integer" resultType="List" resultMap="ChapterBean2">		
+		DECLARE @Start INT
+		DECLARE @End INT
+		SELECT @Start=#{0}*(#{1}-1),@End=#{0}* #{1}
+		
+		SELECT chapter_code,chapter_name,order_num
+		FROM (SELECT chapter_code,chapter_name,order_num,
+		ROW_NUMBER() OVER (ORDER BY chapter_code,chapter_name,order_num) AS RowNumber
+		FROM action_chapter_tb) chapterPage
+		WHERE RowNumber &gt; @Start AND RowNumber &lt;= @End
+		ORDER BY chapter_code,chapter_name,order_num
+	</select>
+	
+	<!-- 获取表中记录总数 -->
+	<select id="getCount" parameterType="Integer" resultType="Integer">
+		select count(*) from action_chapter_tb 
+	</select>
+	
+	<!-- 通过orderNum查找章节Code -->
+	<select id="getChapterCode" parameterType="Integer" resultType="Integer">
+		select
+		chapter_code
+		from
+		action_chapter_tb
+		where order_num=#{orderNum}
+	</select>
+	
+</mapper>

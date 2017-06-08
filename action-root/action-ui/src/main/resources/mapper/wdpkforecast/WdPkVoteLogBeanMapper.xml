@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdpkforecast.IWdPkForeCastMapper">
+	<insert id="insertVoteLog" parameterType="cn.gyyx.action.beans.wdpkforecast.WdPkVoteLogBean">
+
+		insert into
+		action_votelog_tb
+		(actionCode,account,userId,type,teams,teamLeader,voteTimes,createAt,win)
+		values
+		(#{actionCode},#{account},#{userId},#{type},#{teams},#{teamLeader},#{voteTimes},#{createAt},#{win})
+		;
+
+	</insert>
+	<select id="selectAllVoteLogByuserId" parameterType="Integer"
+		resultType="cn.gyyx.action.beans.wdpkforecast.WdPkVoteLogBean">
+		select * from action_votelog_tb where userId =#{userId} and
+		actionCode =
+		#{actionCode};
+
+	</select>
+	<update id="updatelotteryTime" parameterType="Integer">
+
+		update
+		wdnine_qualification_tb set lottery_time=lottery_time+#{lottery_time}
+		where
+		user_code=#{user_code} and action_code=#{action_code}
+	</update>
+
+	<select id="selectVoteLogByuserIdAndType" parameterType="Integer"
+		resultType="cn.gyyx.action.beans.wdpkforecast.WdPkVoteLogBean">
+		select * from action_votelog_tb where userId =#{userId} and
+		actionCode =
+		#{actionCode} and type = #{type};
+	</select>
+
+	<select id="selectVoteTeamsByType" parameterType="Integer"
+		resultType="cn.gyyx.action.beans.wdpkforecast.WdPkVoteTeamsBean">
+		select * from action_voteteams_tb where
+		actionCode=#{actionCode} and Type=#{Type} and win =0;
+
+	</select>
+
+	<select id="selectVoteWinTimesByTypeAndUserId" parameterType="Integer"
+		resultType="Integer">
+		select sum(voteTimes) as voteTimes from action_votelog_tb
+		where win=#{win}
+		and userId=#{userId} and actionCode=#{actionCode}
+	</select>
+
+	<insert id="insertVoteOpportunity"
+		parameterType="cn.gyyx.action.beans.wdpkforecast.WdVoteOpportunityBean">
+		insert into action_voteopportunity_tb
+		(actionCode,userId,type,votetimes,createAt) values
+		(#{actionCode},#{userId},#{type},#{votetimes},#{createAt});
+
+	</insert>
+	<select id="selectVoteTimesByUserIdAndType" parameterType="Integer"
+		resultType="Integer">
+		select top 1  votetimes from action_voteopportunity_tb where
+		actionCode=#{actionCode} and
+		userId = #{userId} and type=#{type} order by code
+
+	</select>
+
+	<select id="selectVoteOpportunityBeanByUserIdAndType"
+		parameterType="Integer"
+		resultType="cn.gyyx.action.beans.wdpkforecast.WdVoteOpportunityBean">
+		select top 1 * from action_voteopportunity_tb where
+		actionCode=#{actionCode} and
+		userId = #{userId} and type=#{type} order by code
+
+	</select>
+
+	<update id="deduceVoteTimes"
+		parameterType="cn.gyyx.action.beans.wdpkforecast.WdVoteOpportunityBean">
+		update action_voteopportunity_tb set votetimes
+		=votetimes -#{votetimes}
+		where actionCode=#{actionCode} and
+		userId =
+		#{userId} and type=#{type}
+	</update>
+
+	<select id="selectVoteStatus" resultType="cn.gyyx.action.beans.wdpkforecast.WdPkVoteLogBean">
+		select type, teams
+		,teamLeader,sum(voteTimes) as voteTimes ,win from
+		action_votelog_tb
+		where account =#{account} group by
+		teams,teamLeader,type,win order by
+		type
+	</select>
+
+	<select id="selectVoteExistedTimes" parameterType="Integer"
+		resultType="Integer">
+		select count(1) from (
+		select teams,teamLeader from
+		action_votelog_tb where type=#{type} and userId
+		=#{userId} group by
+		teams,teamLeader) as a
+
+	</select>
+
+	<select id="selectVoteExisted" parameterType="cn.gyyx.action.beans.wdpkforecast.WdPkVoteLogBean"
+		resultType="cn.gyyx.action.beans.wdpkforecast.WdPkVoteLogBean">
+		select * from action_votelog_tb where type=#{type} and userId
+		=#{userId} and teams=#{teams}
+		<if test="teamLeader!=null and teamLeader!=''">
+			and teamLeader =#{teamLeader}
+		</if>
+
+	</select>
+
+	<select id="selectVoteTeamByType" parameterType="Integer"
+		resultType="cn.gyyx.action.beans.wdpkforecast.WdPkVoteTeamsBean">
+
+		select * from action_voteteams_tb where type=#{type}
+	</select>
+
+	<select id="selectBiglotteryByTypeAndWin" parameterType="cn.gyyx.action.beans.wdpkforecast.WdPkVoteLogBean"
+		resultType="cn.gyyx.action.beans.lottery.QualificationBean">
+
+		select userId as userCode,sum(voteTimes) as
+		lotteryTime,actionCode
+		from action_votelog_tb
+		where
+		win=#{win}
+		and actionCode=#{actionCode} and type=#{type} group by
+		userId,actionCode
+
+	</select>
+	<select id="selectSamllLotteryStatusByTypeAndWin" parameterType="Integer"
+		resultType="cn.gyyx.action.beans.lottery.QualificationBean">
+
+		select userId as user_code,sum(voteTimes) as
+		lottery_time,401 as action_code
+		from action_votelog_tb
+		where win=#{win}
+		and actionCode=#{actionCode} and type=#{type} group by
+		userId,actionCode
+
+	</select>
+
+
+	<insert id="insertLottery" parameterType="Integer">
+		insert into wdnine_qualification_tb (user_code,lottery_time,action_code)
+		values(#{user_code},#{lottery_time},#{action_code});
+
+	</insert>
+
+	<select id="selectLottery" parameterType="Integer"
+		resultType="cn.gyyx.action.beans.lottery.QualificationBean">
+		select * from wdnine_qualification_tb where user_code=#{user_code} and
+		action_code=#{action_code}
+	</select>
+
+</mapper>

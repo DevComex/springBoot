@@ -1,0 +1,349 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>《问道》挑战“新世界”活动</title>
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/png.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/common.js"></script><!-- 公用head -->
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/share.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/jquery.ajaxpage-2.2.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/kxbdMarquee.js"></script>
+	<script  type="text/javascript">
+	 		var rc="${rc.contextPath}";
+	    </script>
+<link href="http://static.cn114.cn/action/challenger/css/reset.css" rel="stylesheet" /> 
+<link href="http://static.cn114.cn/action/challenger/css/popup.css" rel="stylesheet" /> <!-- 报名弹层 -->
+<link href="http://static.cn114.cn/action/challenger/css/index.css" rel="stylesheet" />  <!--首页小导航分享 -->
+<link href="http://static.cn114.cn/action/challenger/css/commonTop.css" rel="stylesheet" />  <!-- 公用head -->
+<link href="http://static.cn114.cn/action/challenger/css/style_hjh.css" rel="stylesheet" />  <!-- 公用head -->
+</head>
+<script>
+	$(function(){
+		$(".navList").find("a").removeClass("active");
+		$("#navList_dare").addClass("active");
+	});
+</script>
+<body>
+    <!-- 社区公用头部-->
+      <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+
+   #parse("challenger/challengerHeader.vm")
+
+    <!--  以下是自己的内容页面  -->
+
+    <div class="background">
+      <div class="liveBox">
+        <div class="live">
+          <div class="liveTitLe">
+            <div class="liveHead"><p>直播</p></div>
+            <div class="iWantTo"><a class="wantToLive"></a></div>
+          </div>
+          <div class="body">
+			<ul class="liveTop">
+				<li>时间</li>
+				<li>对战玩家</li>
+				<li>直播频道</li>
+			</ul>
+			<div id="J_listScroll">
+            <ul class="liveContant">
+				   #foreach( $elem in $!listChallenterLiveBeans)
+				<li><p><span class="css_liveTime">$!elem.timeString()</span><span class="css_fighterName"> $!elem.player</span> <span style="color:#ffffff;width:24px;text-align:center;">VS</span><span class="css_fighterName">$!elem.roleName</span><span class="css_fightLiveTv">$!elem.liveRadio</span></p></li>
+			#end
+			</ul>
+			</div>
+          </div>
+        </div>
+        <div class="liveList">
+          <div class="liveListTitle">
+            <p>直播场数排行</p>
+          </div>
+          <div class="Lbody">
+            <table>
+              <tr>
+                <th>玩家</th>
+                <th>直播场数</th>
+                <th>频道</th>
+                <th>胜出场数</th>
+              </tr>
+              #foreach( $elem in $!{liveRankList})
+           		<tr>
+           			<td>$!{elem.player}</td>
+	                <td>$!{elem.liveCount}</td>
+	                <td>$!{elem.channel}</td>
+	                <td>$!{elem.winCount}</td>
+	            </tr>
+			  #end
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="fightBox">
+        <div class="fightFor">
+          <div class="ListTitle">
+            <p>最想挑战的人（排行榜）</p>
+          </div>
+          <div class="wantToFight">
+			 #set($a=0) 
+			 #foreach ($item in $listChallenterInfo)
+			  #set($a=$a+1) 
+            <p><span class="fightHimBest"><span class="num$a"></span>$!item.roleName</span><a class="fightHim" code=$!item.userId></a></p>
+			#end
+          </div>
+        </div>
+        <div class="fightList">
+          <div class="ListTitle">
+            <p>生死斗排行榜</p>
+          </div>
+          <div class="hightList">
+            	#set($len = $!{deathLifeRankList.size()})
+            	#if($!len >  0)  
+            		<table>
+            			#foreach( $elem in $!{deathLifeRankList})
+		            		<tr>
+				                <td><span class="num$!{velocityCount}"></span><span>&nbsp;&nbsp;</span>$!{elem.player}</td>
+				                <td>参与场数：<span class="js_timeNum">$!{elem.attendCount}</span></td>
+				                <td>获胜场数：<span class="js_winNum">$!{elem.winCount}</span></td>
+				            </tr>
+						#end
+            		</table>
+            	#else
+            		<p style="text-align:center;font-size:36px;color:#ffc0a1;">敬请期待!<p>
+            	#end
+          </div>
+        </div>
+      </div>
+      <div class="fighterList">
+        <ul class="js_fighterList">
+          <li>
+            <div class="fighterBox">
+              <div class="fighterTitle">
+                <p>玩家信息</p>
+              </div>
+              <div class="fighterInfo">
+                <p class="figName"><span>玩家角色名称</span></p>
+                <p class="figMsg">曾经角色：<span>路人A</span></p>
+                <p class="figMsg">宣言：吱吱吱吱吱吱吱吱吱吱吱吱</p>
+                <div class="fighteBtnBox">
+                  <p><a class="fighteBtn">挑战他（<span id="js_peopleNum">33</span>人想挑战他）</a></p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="fighterBox">
+              <div class="fighterTitle">
+                <p>玩家信息</p>
+              </div>
+              <div class="fighterInfo">
+                <p class="figName"><span>玩家角色名称</span></p>
+                <p class="figMsg">曾经角色：<span>路人A</span></p>
+                <p class="figMsg">宣言：吱吱吱吱吱吱吱吱吱吱吱吱</p>
+                <div class="fighteBtnBox">
+                  <p><a class="fighteBtn">挑战他（<span id="js_peopleNum">33</span>人想挑战他）</a></p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="fighterBox">
+              <div class="fighterTitle">
+                <p>玩家信息</p>
+              </div>
+              <div class="fighterInfo">
+                <p class="figName"><span>玩家角色名称</span></p>
+                <p class="figMsg">曾经角色：<span>路人A</span></p>
+                <p class="figMsg">宣言：吱吱吱吱吱吱吱吱吱吱吱吱</p>
+                <div class="fighteBtnBox">
+                  <p><a class="fighteBtn">挑战他（<span id="js_peopleNum">33</span>人想挑战他）</a></p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="fighterBox">
+              <div class="fighterTitle">
+                <p>玩家信息</p>
+              </div>
+              <div class="fighterInfo">
+                <p class="figName"><span>玩家角色名称</span></p>
+                <p class="figMsg">曾经角色：<span>路人A</span></p>
+                <p class="figMsg">宣言：吱吱吱吱吱吱吱吱吱吱吱吱</p>
+                <div class="fighteBtnBox">
+                  <p><a class="fighteBtn">挑战他（<span id="js_peopleNum">33</span>人想挑战他）</a></p>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="fighterBox">
+              <div class="fighterTitle">
+                <p>玩家信息</p>
+              </div>
+              <div class="fighterInfo">
+                <p class="figName"><span>玩家角色名称</span></p>
+                <p class="figMsg">曾经角色：<span>路人A</span></p>
+                <p class="figMsg">宣言：吱吱吱吱吱吱吱吱吱吱吱吱</p>
+                <div class="fighteBtnBox">
+                  <p><a class="fighteBtn">挑战他（<span id="js_peopleNum">33</span>人想挑战他）</a></p>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <div class="row dataTables_wrapper pageCut">
+                  <footer class="footer bg-white b-t">
+                      <div class="row dataTables_wrapper">
+                          <div class="col-sm-6">
+                              <div id="DataTables_Table_0_info" class="dataTables_info"></div>
+                          </div>
+                          <div class="col-sm-6">
+                              <div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers"></div>
+                          </div>
+                      </div>
+                  </footer>
+              </div>
+      </div>
+      <div class="rulesBox">
+        <div class="rules">
+          <h3>活动规则</h3>
+          <p><span>1</span>玩家必须通过活动页面报名，不报名的玩家不予发奖。</p>
+          <p><span>2</span>活动期间，玩家游戏内参与 “生死斗”场数（发起挑战与被挑战场数之和）不低于120场，且挑战同一个玩家的重复率不得高于参与场数之和的20%，否则不予评奖。</p>
+          <p><span>3</span>活动期间，禁止恶意刷奖励行为，官方将根据mac地址进行查询，一旦发现刷奖励行为，该地址下的所有账号，不予评奖。</p>
+          <p><span>4</span>同一个账号，只允许获得一个奖励。如果出现同一个账号获得两个奖励的情况，按照高额奖励发放；低额奖励发给该奖项第二的玩家。</p>
+          <p><span>5</span>如果同一奖项出现多个玩家中奖的情况，则首先根据玩家参与的“生死斗”场数（发起挑战与被挑战场数之和）进行排序，参与场数多的玩家胜出。参与场数相同的情况下，再依次根据“等级”、“道行”进行排序，等级相同的情况下，道行高的胜出，若道行排名第一、第二的两位玩家，拥有的道行相差在5年内，则由玩家进行一场“生死斗”决定胜负，胜者获奖。</p>
+          <p><span>6</span>活动中，邀请公会及玩家直播“生死斗”，并在活动结束是对直播中人气最高和直播场数最多的玩家进行发奖。</p>
+          <p><span>7</span>活动的最终解释权归光宇游戏所有。</p>
+        </div>
+		<div>
+			<table class="tb2_reward">
+				<tr>
+					<th rowspan="2">奖项</th>
+					<th colspan="2">奖品</th>
+  				
+					<th rowspan="2">价值(元)</th>
+				</tr>
+				
+				<tr>
+					<th>点卡</th>
+					<th>实物奖励</th>
+				</tr>
+				<tr>
+					<td>战斗力爆表</td>
+					<td>5000点卡</td>
+					<td>iPad Air 2</td>
+					<td>7888元</td>
+				</tr>
+				<tr>
+					<td>实力战五渣</td>
+					<td>5000点卡</td>
+					<td>iPad Air 2</td>
+					<td>7888元</td>
+				</tr>
+				<tr>
+					<td>问道赵日天</td>
+					<td>10000点卡</td>
+					<td>iPhone6s Plus</td>
+					<td>16088元</td>
+				</tr>
+				<tr>
+					<td>问道公敌</td>
+					<td>10000点卡</td>
+					<td>iPhone6s Plus</td>
+					<td>16088元</td>
+				</tr>
+			</table>
+		</div>
+        </div>
+      </div>
+    </div>
+	<div class="temp"></div>
+	<!-- 提示弹层-->
+	<!--<div class="aletBox">
+      <div class="alertContent">
+        <div class="tips">
+          <p>您已申请该队，请等待队长审核</p>
+        </div>
+        <div class="alertBtnBox">
+          <p><a class="sure_hjh"></a></p>
+        </div>
+      </div>
+      <div class="closeBox"><p><a class="close"></a></p></div>
+    </div>
+	<div class="mask"></div>-->
+
+    <!-- 社区公用底部 -->
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+ </div>
+
+   #parse("challenger/challengerLogin.vm")
+
+   <div class="maskPop"></div>
+   <script>
+      $(function(){
+        $(".js_fighterList").ajaxPage({
+          url: rc + "/challenger/challengeinfo/getAllChallenterUserInfoBean",//获取详细信息接口
+          pageObj: $("#DataTables_Table_0_paginate"),
+          pageIndex: 1,//默认起始页为第一页
+          pageSize: 12,//一页12个
+          curPageCls: "paginate_active",
+          pageInfo: {
+                  obj: $("#DataTables_Table_0_info"),
+                  content: ""
+                },
+                paramObj: {},
+                dataFn:function(data,$this){
+                  var dataHtml = "",dCont = data.data;
+                  if(dCont && dCont.length && dCont[0]){
+                    for(var i = 0; i < dCont.length; i++){
+					 var a = wordBreak(dCont[i].declaration);
+                      dataHtml += '' +
+                      '<li>' + 
+                        '<div class="fighterBox">' +
+                          '<div class="fighterTitle">' + 
+                            '<p>玩家信息</p>' + 
+                          '</div>' +
+                          '<div class="fighterInfo">' + 
+                            '<p class="figName"><span>' + dCont[i].roleName + '</span></p>' + 
+                            '<p class="figMsg"><lable>曾经角色：</lable><span>' + dCont[i].oldRole + '</span></p>' +
+                            '<p class="figMsg"><lable>宣言：</lable><span title="' + dCont[i].declaration + '">' + a + '</span></p>' +
+                            '<div class="fighteBtnBox">' +
+                              '<p><a class="fighteBtn" code="' + dCont[i].userId + '">挑战他（<span name="js_peopleNum">' + dCont[i].dareCount + '</span>人想挑战他）</a></p>' + 
+                            '</div>' +
+                          '</div>' +
+                        '</div>' +
+                      '</li>'; 
+                    }
+                    $(".js_fighterList").empty().html(dataHtml);
+                    return dataHtml;
+                  }else{
+                    $(".js_fighterList").empty().html('<p class ="noData">暂无数据，请稍后刷新重试</p>');
+                  }
+                }
+        })
+		$("#J_listScroll").kxbdMarquee({
+        	direction: 'up',
+        	newAmount: 4,
+        	eventA: 'mouseenter',
+        	eventB: 'mouseleave',
+        	scrollDelay: 40
+      	});
+      })
+    </script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/work.js"></script>
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?28e4ba3fda251577bfa66107622a3a0f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+</body>
+</html>

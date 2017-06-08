@@ -1,0 +1,46 @@
+	<tr>
+                    <td>
+						上传账号
+                    </td>
+                    <td>区组</td>
+                    <td>职业</td>
+                    <td>属性加点（多选）</td>
+                    <td>相性加点（多选）</td>
+                    <td>套装（单选）</td>
+                    <td>法宝（单选）</td>
+                    <td>宠物（可选三只）</td>
+					<td>娃娃（单选）</td>
+					<td>天书（可选三个）</td>
+					<td>支持量</td>
+					<td>支持账号</td>
+					<td>上传时间</td>
+                </tr>
+ #if($flag==1)
+              #foreach ($item in $listtAlternativeSumBean)
+               
+                    <tr>
+                       <td>
+						$item.account
+                    </td>
+                    <td>$item.serverName</td>
+                    <td>$item.occupation</td>
+                    <td>$item.attribute</td>
+                    <td>$item.phase</td>
+                    <td>$item.suit</td>
+                    <td>$item.talisman</td>
+                    <td>$item.pet</td>
+					<td>$item.baby</td>
+					<td>$item.book</td>
+					<td>$item.voteNum</td>
+					<td><a href="#" onclick='showAccount($item.writingCode)' style="color: blue">支持账号详情</a></td>
+					<td>$item.endDateToString()</td>
+                    </tr>
+			  #end
+			  #end
+                #if($flag==0)
+					 <tr>
+                            <td colspan="13">没有相关记录</td>   
+                     </tr>
+				#end
+				<input type="hidden"id="pageAllHidden" value="$allpage"/>
+								<input type="hidden"id="flag" value="$flag"/>

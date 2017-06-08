@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+		<title>问道十周年</title>
+		<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdVoteActivity/css/style.css"/>
+		<script  type="text/javascript">
+		    var rc = "${rc.contextPath}";
+		</script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdVoteActivity/js/jquery-1.8.3.min.js" ></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=xuanwuba" type="text/javascript"></script>
+		<script>
+		var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "//hm.baidu.com/hm.js?e8411a7f8deb1c093a8066718fd5ca57";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+	<body>
+		<div class="public_nav_top">
+	        <script type="text/javascript">Showtop();</script>
+	    </div>
+		<div class="head">
+			<div class="log">
+				<img src="http://static.cn114.cn/action/wdVoteActivity/img/logo.png" />
+				<div class="topLink">
+					<a href="http://wd.gyyx.cn/index_wd_v5.htm">进入官网</a>|<a href="http://pay.gyyx.cn/gamepay/paygold?gameId=2">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register">账号注册</a>|<a href="http://wd.gyyx.cn/download/">下载中心</a>
+				</div>
+				<p class="unlogin">参加投票活动前请<a href="javascript:;" id="loginbtn">登录</a></p>
+				<p class="login">欢迎您：<span></span><a href="javascript:;"  class="info_mli_a js_Logout">退出登录</a></p>
+			</div>
+		</div>
+		<div class="action_show">
+			<div class="action_content">
+				<ul class="first_ul"></ul>
+				<ul class="second_ul"></ul>
+			</div>
+		</div>
+		<div class="comment_show">
+			<div class="comment_content">
+				<div class="comment_left">
+					<div class="lt1">
+						<p>选择我的昵称：</p>
+						<div class="lt1_1">
+							<select class="selects">
+								<option>牢头</option>
+								<option>董老头</option>
+								<option>小二哥</option>
+								<option>门派使者</option>
+								<option>试道大会申请人</option>
+								<option>天机老人</option>
+								<option>辛仁皑</option>
+								<option>百晓通</option>
+								<option>念心道人</option>
+								<option>千面怪</option>
+								<option>杨镖头</option>
+								<option>厉巧手</option>
+								<option>管神工</option>
+								<option>夏总兵</option>
+								<option>冯喜来</option>
+								<option>通灵道人</option>
+								<option>乞丐 </option>
+								<option>段铁心</option>
+								<option>杜卜思</option>
+								<option>杂货店老板</option>
+								<option>贾仁和</option>
+								<option>贾师爷</option>
+								<option>南极仙翁</option>
+								<option>夜行人</option>
+								<option>赵老板</option>
+								<option>黄仨儿</option>
+								<option>乐善施</option>
+								<option>卜老板</option>
+								<option>张老板</option>
+								<option>王老板</option>
+								<option>钱老板</option>
+								<option>贾掌柜</option>
+								<option>清净散人</option>
+								<option>灵兽异人</option>
+								<option>船夫</option>
+								<option>车夫</option>
+								<option>客栈老板</option>
+								<option>药店老板</option>
+								<option>钱庄老板 </option>
+								<option>宋辛哲</option>
+								<option>无名钱庄老板</option>
+								<option>无名药铺老板</option>
+								<option>无名杂货店老板</option>
+								<option>无名客栈小二</option>
+								<option>无名武器店老板</option>
+							</select>
+						</div>
+					</div>
+					<p>输入评论内容：</p>
+					<textarea class="txt">请输入您的评论</textarea>
+					<div class="yzm">
+						<p>请输入验证码：</p>
+						<input type="text" class="yzmtext"/>
+						<img alt="验证码" title="看不清楚,请点击." src="http://api.gyyx.cn/Captcha/CreateVJ.ashx" id="captcha_image"/>
+					</div>
+					<div class="sub">
+						<a href="javascript:;" id="submbtn">提交评论</a>
+						<a href="javascript:;" id="resetbtn">重填内容</a>
+					</div>
+				</div>
+				<div class="comment_right">
+					<h1>玩家评论</h1>
+					<div class="runTc">
+						<div class="tcCont">
+							<div class="zjMenu">
+								<div class="zjUl">
+									<ul></ul>
+								</div>
+							</div>
+							<div class="slider"><!--滚动条-->
+					          <div class="arrowUp">&nbsp;</div>
+					          <div class="track">
+					            <div class="thumb">&nbsp;</div>
+					          </div>
+					          <div class="arrowDown">&nbsp;</div>
+					        </div><!--滚动条 end-->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="oral_show">
+			<div>
+				<p>1)活动期间，玩家登录即可参与投票，每个玩家每天可对三个活动各投一票。</p>
+				<p>2)活动结束后，票数排名前三的活动将会在周年庆当周各加开一次。</p>
+				<p>3)玩家每投一票将会获得2个十周年积分，十周年积分，可用于之后的许愿池、积分兑换福利活动。积分兑换互动将会在4月上线，有十周年纪念币、iPhone 6s plus、iPad AIR 2、iPad AIR、小米4等大奖。大家记得积极参加活动获得十周年积分，否则将与大奖失之交臂。<a href="http://wanwd.gyyx.cn/article/15450" style="color:red;">问道十周年纪念币获得攻略：点击进入</a></p>
+				<p>4)严禁刷票，一经发现，则取消参赛资格及奖励。</p>
+				<p>5)玩家无需登录，即可在“我要评论”板块进行评论，评论需文明，否则不予通过。</p>
+				<p>6)活动最终解释权由光宇在线科技有限责任公司所有。</p>
+			</div>
+		</div>
+		<div class="public_nav_bottom">
+	        <script type="text/javascript">ShowBottom();</script>
+	    </div>
+	    <div id="xf">
+	    	<ul>
+	    		<li><a href="javascript:;">十年首庆</a></li>
+	    		<li><a href="javascript:;">嘉年华</a></li>
+	    		<li><a href="javascript:;">更多活动</a></li>
+	    		<li><a href="javascript:;">回到顶部</a></li>
+	    	</ul>
+	    </div>
+	    <div id="tc">
+	    	<div id="tcbg"></div>
+	    	<div id="tk">
+	    		<p>您已经成功为改活动投票，获得x个十周年积分，今日还能为X个活动投票</p>
+	    		<img id="tcbtn" src="http://static.cn114.cn/action/wdVoteActivity/img/tcbtn.png" />
+	    	</div>
+	    </div>
+	</body>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdVoteActivity/js/ymcore.min.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdVoteActivity/js/ymscrollbar.min.js" ></script>
+<script type="text/javascript">
+    
+	//滚动
+	var wdhd_slider = $.
+	YMUIScrollbar({
+		container: '.tcCont',
+		scrollbar: '.slider',
+		arrowUp: '.arrowUp',
+		arrowDown: '.arrowDown',
+		track: '.track',
+		thumb: '.thumb',
+		direction: 'v',
+		calculation: true
+	});
+
+</script>
+
+<script type="text/javascript" src="http://static.cn114.cn/action/wdVoteActivity/js/style.js" ></script>
+</html>

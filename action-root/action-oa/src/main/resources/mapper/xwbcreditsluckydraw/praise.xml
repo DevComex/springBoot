@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.IPraiseMapper">
+	<resultMap type="PraiseBean" id="PraiseBean">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="material_info" property="materialInfo"/>
+		<result column="praise_date" property="praiseDate"/>
+		<result column="is_delete" property="isDelete"/>
+	</resultMap>
+	<insert id="insertPraise" parameterType="PraiseBean">
+	INSERT INTO [dbo].[xuanxuba_praise_tb]
+           ([account]
+           ,[material_info]
+           ,[praise_date]
+           ,[is_delete])
+     VALUES(account
+     		,materialInfo
+     		,praiseDate
+     		,isDelete
+     	   )
+	</insert>
+	
+	<update id="updatePraiseDelete" parameterType="PraiseBean" >
+		update xuanxuba_praise_tb 
+		set is_delete = 1 
+		where code = #{code}
+	</update>
+
+	<select id="selectPraise" parameterType="PraiseBean">
+		select * from xuanxuba_praise_tb
+		where account = #{account} and praise_date between #{startTime} and #{endTime}
+	</select>
+	
+	<select id="selectCountPraise" parameterType="Integer" resultType="Integer">
+		select count(*) from xuanxuba_praise_tb
+		where material_info = #{materialInfo}
+	</select>
+</mapper>

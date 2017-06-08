@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>《问道》挑战“新世界”活动</title>
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/png.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/common.js"></script><!-- 公用head -->
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/share.js"></script>
+<link href="http://static.cn114.cn/action/challenger/css/reset.css" rel="stylesheet" /> 
+<link href="http://static.cn114.cn/action/challenger/css/popup.css" rel="stylesheet" /> <!-- 报名弹层 -->
+<link href="http://static.cn114.cn/action/challenger/css/index.css" rel="stylesheet" />  <!--首页小导航分享 -->
+<link href="http://static.cn114.cn/action/challenger/css/commonTop.css" rel="stylesheet" />  <!-- 公用head -->
+
+</head>
+
+<body>
+    <!-- 社区公用头部-->
+      <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+
+	#parse("challenger/challengerHeader.vm")
+
+    <!--  以下是自己的内容页面  -->
+    <div class="background">
+    <div class="videoShowList">
+    </div>
+     <!-- 分页 -->
+            <div class="row dataTables_wrapper pageCut">
+                <footer class="footer bg-white b-t">
+                    <div class="row dataTables_wrapper">
+                        <div class="col-sm-6">
+                            <div id="DataTables_Table_0_info" class="dataTables_info"></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers"></div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!--分页 -->
+
+</div>
+<link href="http://static.cn114.cn/action/challenger/css/style_nwm.css" rel="stylesheet" /> 
+<link href="http://static.cn114.cn/action/challenger/css/video.css" rel="stylesheet" /><!--视频分页 -->
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/swfobject.min.js"></script><!--视频播放js -->
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/ymadplayer.min.js"></script><!--视频播放js -->
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/jquery.ajaxpage-2.2.js"></script><!--分页js -->
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/work.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/video.js"></script>
+    <script>
+    	$(function(){
+    		$(".navList").find("a").removeClass("active");
+    		$("#navList_dare").addClass("active");
+    		
+    		$(".navTab ul a").removeClass("active");
+    		$(".navTab .js_btn_spwg").addClass("active");
+    	});
+    </script>
+
+
+    <!-- 社区公用底部 -->
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+ </div>
+     #parse("challenger/challengerLogin.vm")
+
+   <div class="maskPop"></div>
+</body>
+</html>

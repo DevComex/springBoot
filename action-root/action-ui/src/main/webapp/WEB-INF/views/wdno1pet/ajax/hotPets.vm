@@ -1,0 +1,14 @@
+#foreach($item in $hotPets)
+<tr>
+    <td width="33">$!{velocityCount}</td>
+    <td class="pet-name" width="166">
+		<a title="$!{item.petName}" href="${rc.contextPath}/wdno1pet/pet/$!{item.petCode}" target="_blank">
+			$!{item.smallPetName}
+		#if($item.smallPetName.length()<$item.petName.length())
+			...
+		#end
+		</a>
+	</td>
+    <td class="vote-count">$!{item.voteCount}票</td>
+</tr>
+#end

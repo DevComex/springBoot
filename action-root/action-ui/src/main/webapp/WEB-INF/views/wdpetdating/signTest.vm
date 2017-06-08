@@ -1,0 +1,132 @@
+<html>
+	<head>
+		<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+		<!-- <script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/upload/handlers.js" charset="UTF-8"></script> -->
+		<!-- <script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/upload/swfupload.js" charset="UTF-8"></script> -->
+		<!-- <script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/upload/uploadSetting.js" charset="UTF-8"></script> -->
+		<script>
+		var rc = "${rc.contextPath}";
+		$(document).ready(function(){
+			$('#bt').click(function(){
+				$.
+				ajax({
+				type : "POST",
+				url : "${rc.contextPath}/wdpetdating/ajaxUpload",
+				data : $("#uploadForm").serialize(),
+					success:function(msg) {
+						if(msg.isSuccess) {
+							alert("添加成功！");
+						} else {
+							alert(msg.message);
+						}
+					}
+				});
+			});
+			$('#btGet').click(function(){
+				$.
+				ajax({
+				type : "POST",
+				url : "${rc.contextPath}/wdpetdating/ajaxGetUserUploadList",
+				data : $("#getForm").serialize(),
+					success:function(msg) {
+						if(msg.isSuccess) {
+							alert("添加成功！");
+						} else {
+							alert(msg.message);
+						}
+					}
+				});
+			});
+			$('#btGetS').click(function(){
+				$.
+				ajax({
+				type : "POST",
+				url : "${rc.contextPath}/wdpetdating/ajaxGetUserUploadByCode",
+				data : $("#getSingleForm").serialize(),
+					success:function(msg) {
+						if(msg.isSuccess) {
+							alert("添加成功！");
+						} else {
+							alert(msg.message);
+						}
+					}
+				});
+			});
+			$('#btAd').click(function(){
+				$.
+				ajax({
+				type : "POST",
+				url : "${rc.contextPath}/wdpetdating/ajaxAdmire",
+				data : $("#admireForm").serialize(),
+					success:function(msg) {
+						if(msg.isSuccess) {
+							alert("添加成功！");
+						} else {
+							alert(msg.message);
+						}
+					}
+				});
+			});
+		});
+		</script>
+	</head>
+	<body>
+		<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+		<br/>
+		<br/>
+		<form id = 'uploadForm'>
+			area<input type="text" name="area"/><br/>
+			server<input type="text" name="server"/><br/>
+			areaCode<input type="text" name="areaCode"/><br/>
+			serverCode<input type="text" name="serverCode"/><br/>
+			character<input type="text" name="character"/><br/>
+			petName<input type="text" name="petName"/><br/>
+			tempUrl<input type="text" name="tempUrl"/><br/>
+			imgWidth<input type="text" name="imgWidth"/><br/>
+			imgHeight<input type="text" name="imgHeight"/><br/>
+			imgFeature<input type="text" name="imgFeature"/><br/>
+			imgType<input type="text" name="imgType"/><br/>
+			<!-- <input type='hidden' name='imgType' id='imgType' value='0'/> -->
+			<!-- <input type='hidden' name='imgWidth' id='imgWidth' value='0'/> -->
+			<!-- <input type='hidden' name='imgHeight' id='imgHeight' value='0'/> -->
+			<!-- <input type='hidden' name='imgFeature' id='imgFeature' value='0'/> -->
+		</form>
+		<!-- <div style = "margin-left:80px;"><div id = "spanButtonPlaceholder" type="button" class="scbtn" value="选择图片"></div></div> -->
+		<!-- <div id="thumbnails" style="padding: 0 0 0 80px;"></div>-->
+		<input type="button" id = 'bt' value = 'uploadTest'/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<form id = 'getForm'>
+			areaCode<input type="text" name="areaCode"/><br/>
+			serverCode<input type="text" name="serverCode"/><br/>
+			queryStr<input type="text" name="queryStr"/><br/>
+			strategy<input type="text" name="strategy"/><br/>
+			pageNum<input type="text" name="pageNum"/><br/>
+		</form>
+		<input type="button" id = 'btGet' value = 'getTest'/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<form id = 'getSingleForm'>
+			areaCode<input type="text" name="areaCode"/><br/>
+			serverCode<input type="text" name="serverCode"/><br/>
+			queryStr<input type="text" name="queryStr"/><br/>
+			strategy<input type="text" name="strategy"/><br/>
+			code<input type="text" name="code"/><br/>
+		</form>
+		<input type="button" id = 'btGetS' value = 'getSTest'/>
+		<br/>
+		<br/>
+		<br/>
+		<br/>
+		<form id = 'admireForm'>
+			code<input type="text" name="code"/><br/>
+		</form>
+		<input type="button" id = 'btAd' value = 'admireTest'/>
+		<!-- <div id="divFileProgressContainer" style="padding: 0px 0 0px 0px; color: Red"></div> -->
+	</body>
+</html>

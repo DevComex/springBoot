@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>《炫舞吧》积分商城</title>
+<link href="http://static.cn114.cn/action/xuanwuba/css/xwb150619.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script  type="text/javascript">
+        var rc = "${rc.contextPath}";
+	 </script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=xuanwuba"></script> 
+</head>
+
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+
+<div class="wrap">
+  <div class="main">
+  	 <div class="nav">
+  	 	 <a href="http://xwb.gyyx.cn/" target="_blank">进入官网</a>|
+     	 <a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" target="_blank">充值中心</a>|
+    	 <a href="http://account.gyyx.cn/Register.aspx" target="_blank">账号注册</a>|
+    	 <a href="http://xwb.gyyx.cn/Download/index.shtml" target="_blank">下载中心</a>
+     </div>
+     <div class="btnTab">
+		<ul class="btnNav">
+			<li class="li01"><a href="signIndex" class="a01">每日签到</a></li>
+			<li class="li02"><a href="taskShow" class="a02">舞吧任务</a></li>
+			<li class="li03"><a href="lotteryIndex" class="a03">舞吧奖励</a></li>
+			<li class="li04"><a href="collectIndex" class="a04">舞吧征集</a></li>
+			<li class="li05"><a href="videoShow" class="a05">个人中心</a></li>
+		</ul>
+         <div class=" btnConShow">
+				<p>亲爱的炫舞吧小伙伴们~ 时光荏苒犹如白驹过隙，弹指间我们已经共同度过6年的时光啦~陪伴才是最长情的告白，为感谢对炫舞吧用情至深的小伙伴们这6年来不离不弃的陪伴，现炫舞吧积分活动正式开启！小伙伴们只要每天在空暇时间参与到积分活动中来就可轻轻松松获得积分啦！积分可用来抽取和兑换海量游戏道具呦~</p>
+			</div>
+		<div class="btnPos">
+			<div class="btnCon">
+			      <span>1</span>活动期间，每位玩家只要每日在活动页面签到即可获得积分。<br/>
+				  <span>2</span>累计签到2天、5天、10天、15天都会获得额外的道具奖励。<br/>
+				  <span>3</span>全月满勤会有额外道具奖励和积分奖励。
+
+			</div>
+			<div class="btnCon">
+				<span>1</span>舞吧任务中心将开启各种积分任务，领取后完成任务即可获得相应的积分奖励。<br/>
+                <span>2</span>还将不定时开放高额的积分任务，只要即时关注就可让伙伴们的积分不再烦恼。
+			</div>
+			<div class="btnCon">
+				  <span>1</span>获得的积分可以通过积分抽奖、积分兑换获得海量的道具奖励。<br/>
+				  <span>2</span>积分抽奖的中奖率高达100%。<br/>
+				  <span>3</span>同时还可以通过积分兑换各类道具。
+			</div>
+			<div class="btnCon">
+			        <span>1</span>活动期间内，提交视频、服装征集、舞吧建议，通过审核的玩家将获得积分奖励。<br/>
+				    <span>2</span>舞吧征集素材根据审核标准，还有机会展示到活动首页上，并发放额外的积分奖励。<br/>
+				    <span>3</span>同时，还可将素材分享到空间、微博、朋友圈等，让您的朋友共同分享您的快乐。
+			</div>
+            <div class="btnCon">
+			        <span>1</span>进行积分抽奖和积分兑换时需完善个人中心的资料才能准确的发放到游戏中。<br/>
+				    <span>2</span>还可用于查看发布过舞吧征集素材的审核状况，积分信息、中奖信息、兑换信息、以及评论信息等。
+			</div>
+		</div>
+	</div>
+     <div class="comment">
+     	<div class="comTab">
+     		<h3>评论最高</h3>
+     		<ul class="conUl">
+     			<li>视频</li>
+     			<li>服装</li>
+     		</ul>
+     		<div class="comBox">
+     			<div class="comCon">
+     			   <ul id="comConvideo"></ul>
+     			</div>
+     			<div class="comCon comCons">
+     			   <ul id="comConDress"></ul>
+     			</div>
+     		</div>
+     	</div>
+     </div>
+  </div>
+</div>	
+<script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/ymcore.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/gyyxEffect.js"></script>
+<!-- 百度统计 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?5c73106b801dfd3e34bc08612dcf33fd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+<div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

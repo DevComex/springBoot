@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>问道-名人争霸赛</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdchampionship/css/wd_160324.css">
+    <script  type="text/javascript">
+		    var rc = "${rc.contextPath}";
+	</script>
+	<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+	<script src="http://static.cn114.cn/action/wdchampionship/js/jquery.ajaxpage-2.0.js"></script>
+    <!--分页代码-->
+    <script type="text/javascript">
+	$(function(){
+        $("#js_tbSzList").ajaxPage({
+            url: rc+"/championship/getComment",
+            pageObj: $("#js_pgInfo"),
+            currentPage: 1,
+            pageSize: 10,
+            curPageCls: "curpage",
+            pageInfo: {
+                obj: "",
+                content: "共{allCount}条  当前第{currentPage}/{allPage}页"
+            },
+            paramObj: {
+                typeOfYear: "6"
+            },
+            dataFn: function (data, $this) {
+                var dataHtml = "", dCont = data.data.list;
+                for (var i = 0; i < dCont.length; i++) {
+                    dataHtml += '' +
+                     '    <p>' + dCont[i].nickName + '于<span class="wd_con_time">' + dCont[i].commentTimeStr + '</span>发表评论</p>' +
+                     '    <p class="content">' + dCont[i].commentContent + '</p>' +
+                    ' </li>';
+                }
+                return dataHtml;
+            }
+        });
+	});
+    </script>
+</head>
+<body>
+    <!--第四部分-->
+    <div class="wd_main messaged">
+        <h3>我要留言</h3>
+        <div class="wd_mcon mes_info mg32">
+            <label class="leb">评论昵称：</label><input type="text" class="username" id="txtNickName" maxlength="8" name="txtNickName"><span class="tips">（名称8个字以内）</span>
+            <p>
+                <label class="leb">评论内容：<span class="js_error">评论和昵称不能为空！</span></label>
+            </p>
+            <p class="texta_w">
+                <textarea class="textArea" id="txtContent" cols="20" rows="2" name="txtContent"></textarea><span class="tips">(输入文字，最多可输入<b class="js_now">15</b>字)</span><span class="js_yzmerror">验证码不能为空！</span>
+            </p>
+            <p>
+                <label class="leb">验 证 码：</label>
+				<input type="text" class="input_w" id="txtCheckCode" name="txtCheckCode" maxlength="5">
+				<img id="tyzm" class="Verification_img" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx" style="border: 0px; height: 40px; cursor: pointer;" title="看不清请点我">
+				<a href="javascript:;" class="js_yzmchange">刷新</a>
+	
+ 				</p>
+            <p class="mesbtn">
+                <a class="tj js_tj">&nbsp;</a>
+                <a class="cz js_cz">&nbsp;</a>
+            </p>
+        </div>
+        <div class="wd_mcon">
+            <div class="wd_yxb">
+                <div class="wd_thead plwdthead wd_sjifo">评论留言</div>
+            </div>
+            <ul class="wd_content" id="js_tbSzList">
+            </ul>
+            <div class="pl_page">
+                <div style="width: 100%; text-align: center; height: auto; font-size: 12px; line-height: 20px; margin: 20px 0 0 0;" id="js_pgInfo">
+               
+				</div>
+            </div>
+        </div>
+    </div>
+	
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdchampionship/js/formsubmit.js"></script>
+	 <script type="text/javascript">
+        $(function () {
+            //下拉分页
+			$("#js_pgInfo").on("change",".js_sel", function () {
+               $("#js_tbSzList").ajaxPage({
+            url: rc+"/championship/getComment",
+            pageObj: $("#js_pgInfo"),
+            currentPage: $(this).find("option:selected").text(),
+            pageSize: 10,
+            curPageCls: "curpage",
+            pageInfo: {
+                obj: "",
+                content: "共{allCount}条  当前第{currentPage}/{allPage}页"
+            },
+            paramObj: {
+                typeOfYear: "6"
+            },
+            dataFn: function (data, $this) {
+                var dataHtml = "", dCont = data.data.list;
+                for (var i = 0; i < dCont.length; i++) {
+                    dataHtml += '' +
+                     '    <p>' + dCont[i].nickName + '于<span class="wd_con_time">' + dCont[i].commentTimeStr + '</span>发表评论</p>' +
+                     '    <p class="content">' + dCont[i].commentContent + '</p>' +
+                    ' </li>';
+                }
+                return dataHtml;
+            }
+        });
+            });
+        });
+    </script>
+</body>
+</html>

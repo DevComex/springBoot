@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>舞吧奖励</title>
+    <script type="text/javascript">
+        var rc = "${rc.contextPath}";
+    </script>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/xuanwuba/css/xwb150619.css" type="text/css" />
+    <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=xuanwuba" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(function () {
+            $.ajax
+			({
+			    url: rc + '/xuanwubaLottery/getPrizeInfoURL ',
+			    type: "get",
+			    data: {
+			        r: Math.random()
+			    },
+			    dataType: "json",
+			    success: function (d) {
+			        if (d.isSuccess) {
+			            var prizelist = "";
+			            for (var i = 0; i < d.data.length; i++) {
+			                 $(".jfSul").find("li").eq(i).find("img").attr("src", d.data[i].pictureUrl)
+			            }
+			            //$(".jfSul").html(prizelist);
+			        }
+			    }
+			});
+
+        });
+    </script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="s_wrap">
+        <div class="s_wrap01">
+            <div class="s_wrapFooter">
+                <div class="smain">
+                    <div class="header">
+                        <div class="s_nav">
+                            <a href="http://xwb.gyyx.cn/" target="_blank">进入官网</a>|<a href="http://xwb.gyyx.cn/Download/index.shtml" target="_blank">下载游戏</a>|<a href="http://bbs.gyyx.cn/forum.php?gid=167" target="_blank">进入论坛</a>|<a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" target="_blank">兑换充值</a>
+                        </div>
+                        <div class="s_left">
+                            <div class="part_login">
+                                <div class="login">
+                                    <!--登录前-->
+                                    <a href="javascript:;" class="login_btn js_alertlogin_a">登录</a>
+                                    <p>还没有光宇通行证?<a href="http://account.gyyx.cn/Member/Register" target="_blank">点此注册</a></p>
+                                </div>
+                                <!--登录前-->
+                                <div class="success_sign" style="display: none;" id="userSuccess">
+                                    <!--登录后-->
+                                    <h3><span>
+                                        <img src="http://static.cn114.cn/action/xuanwuba/images/xwb150619_qd_pic01.png"></span><p id="loginbar" class="red">
+                                            登录超时<br />
+                                            <a href="javascript:;" class="info_mli_a js_Logout">退出</a>
+                                        </p>
+                                    </h3>
+                                    <p>玩家区组：<i class="red">未选择</i></p>
+                                    <p>性别：<i class="red">未选择</i></p>
+                                    <p><span class="sp01">积分：<i class="red">0</i></span></p>
+                                    <p>累计签到天数：<i class="red">0天</i></p>
+                                </div>
+                                <!--登录后-->
+                            </div>
+                            <div class="s_div s_btn">
+                                <a href="../xuanwuba/signIndex" class="registerBtn "><span class="ico01">签到</span></a>
+                                <a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" class="a02" target="_blank"><span class="ico02">充值</span></a>
+                            </div>
+                        </div>
+                        <a href="../xuanwuba/index" class="goHome">返回首页</a>
+                    </div>
+                    <div class="s_cont">
+                        <h3 class="s_tit">舞吧奖励</h3>
+                        <div class="s_txt">
+                            <p><span>1</span>获得的积分可以通过积分抽奖、积分兑换获得海量的道具奖励。</p>
+                            <p><span>2</span>每次抽奖消耗30积分。</p>
+                            <p><span>3</span>积分抽奖的中奖率高达100%。</p>
+                            <p><span>4</span>同时还可以通过积分兑换各类道具。</p>
+                        </div>
+                        <div class="jfBox jfBg">
+                            <ul class="jfUl">
+                                <li class="on"><a style="color: white" href="lotteryIndex">积分抽奖</a></li>
+                                <li><a style="color: white" href="exchangeIndex">积分兑换</a></li>
+                            </ul>
+                            <ul class="jfSul">
+                                <li id="dzp0" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp1" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp2" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp3" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp4" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp5" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp21" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp6" class="jp ml447">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp20" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp7" class="jp ml447">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp19" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp8" class="jp ml447">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp18" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp9" class="jp ml447">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp17" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp10" class="jp ml447">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp16" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp15" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp14" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp13" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp12" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                                <li id="dzp11" class="jp">
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/jf_img01.jpg" /></li>
+                            </ul>
+                            <div class="jfBtn">
+                                <p>100%中奖哦</p>
+                                <a href="javascript:;" id="btnStart" text="go">立即中奖</a>
+                            </div>
+
+                        </div>
+                        <div class="jfNote">
+                            <h3 class="jfH3 mt20">中奖记录</h3>
+                            <div class="jfList jfBg">
+                                <ul class="jfTitle">
+                                    <li>中奖公告</li>
+                                    <li>我的中奖记录</li>
+                                </ul>
+                                <div class="jfList01">
+                                    <div class="prite_txt">
+                                        <ul id="js_tbody" style="height: 235px; overflow: hidden">
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="jfList02">
+                                    <div class="prite_txt1">
+                                        <ul id="js_tbody1" style="height: 235px; overflow: hidden">
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pfNav">
+        <ul>
+            <li><a href="signIndex">每日签到</a></li>
+            <li><a href="taskShow">舞吧任务</a></li>
+            <li class="on"><a href="lotteryIndex">舞吧奖励</a></li>
+            <li><a href="collectIndex">舞吧征集</a></li>
+            <li><a href="videoShow">个人中心</a></li>
+        </ul>
+        <a href="#" class="goTop">top</a>
+    </div>
+    <!--弹层一-->
+    <div id="popBox" class="popBox" style="display: none;">
+        <div class="tc tc02">
+            <h3><span>恭喜您获得</span><a class="close" href="javascript:;"></a></h3>
+            <p class="imgTwo js_getprize"></p>
+        </div>
+    </div>
+    <div id="maskBox" class="maskBox" style="display: none;"></div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div>
+    <script>
+        var NLOTTERY_CONFIG = {
+            //获取我的奖品
+            getMyPrize: rc + "/wdmrzbLottery/getLotteryInfoByUser",
+            //服务器列表
+            serverListUrl: rc + "/wdmrzbLottery/getServers",
+            //抽奖
+            lotteryUrl: rc + "/xuanwubaLottery/getPrize",
+            //滚动信息（其他玩家获取列表）
+            scrollNews: rc + "/wdmrzbLottery/getLotteryInfo"
+        };
+    </script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/ymcore.min.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/xwb150623.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/gyyxEffect.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/Lotterywd.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/handle.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/scrolltext.js"></script>
+    <script>
+        $(function () {
+            nLottery.init();
+        });
+
+        $.ajax
+		({
+		    url: rc + '/xuanwubaLottery/getLotteryInfo ',
+		    type: "get",
+		    data: {
+		        r: Math.random()
+		    },
+		    dataType: "json",
+		    success: function (d) {
+		        if (d.isSuccess) {
+		            var getprizelist = "";
+		            for (var i = 0; i < d.data.length; i++) {
+		                getprizelist += '<li><span>' + d.data[i].account + '</span>' + d.data[i].presentName + '</li>';
+		            }
+		            $("#js_tbody").html(getprizelist);
+		            if (d.data.length > 11) {
+		                //滚动
+		                var scrollup = new ScrollText("js_tbody");
+		                scrollup.LineHeight = 25;        //单排文字滚动的高度
+		                scrollup.Amount = 1;            //注意:子模块(LineHeight)一定要能整除Amount.
+		                scrollup.Delay = 20;           //延时
+		                scrollup.Start();             //文字自动滚动
+		                scrollup.Direction = "up";   //默认设置为文字向上滚动
+		            }
+		        }
+		    }
+		});
+
+
+
+        $.ajax
+		({
+		    url: rc + '/xuanwubaLottery/getLotteryInfoByUser ',
+		    type: "get",
+		    data: {
+		        r: Math.random()
+		    },
+		    dataType: "json",
+		    success: function (d) {
+		        if (d.isSuccess) {
+		            var getprizelist = "";
+		            for (var i = 0; i < d.data.length; i++) {
+		                getprizelist += '<li><span>' + d.data[i].timeStr + '</span>' + d.data[i].presentName + '</li>';
+		            }
+		            $("#js_tbody1").html(getprizelist);
+		            if (d.data.length > 11) {
+		                //滚动
+		                var scrollup = new ScrollText("js_tbody1");
+		                scrollup.LineHeight = 25;        //单排文字滚动的高度
+		                scrollup.Amount = 1;            //注意:子模块(LineHeight)一定要能整除Amount.
+		                scrollup.Delay = 20;           //延时
+		                scrollup.Start();             //文字自动滚动
+		                scrollup.Direction = "up";   //默认设置为文字向上滚动
+		            }
+		        }
+		    }
+		});
+
+    </script>
+</body>
+</html>

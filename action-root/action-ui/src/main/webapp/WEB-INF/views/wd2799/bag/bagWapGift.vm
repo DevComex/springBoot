@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	    <title>问道-官方网站-光宇游戏</title>
+	    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wd2799/bag/css/public.css"/>
+	    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wd2799/bag/css/get_gift.css"/>
+	    <script  type="text/javascript">
+		    var rc = "${rc.contextPath}";
+		</script>
+	</head>
+	<body>
+		<div class="wrap">
+			<!-- 与pc bag公用一个活动名称，用于读取server信息 领取时的活动id和名称配置在后台 -->
+			<input type="hidden" name="hdName" id="hdName" value="问道2799二〇一六新手礼包">
+			<div class="gift_form">
+				<h1>选择服务器</h1>
+				<p class="gift_field">
+					<span>大&nbsp;区</span>
+					<select id="region">
+						<option>请选择大区</option>
+						<option value="3">双线一区</option>
+						<option value="1">网通</option>
+						<option value="2">电信</option>
+					</select>
+				</p>
+				<p class="gift_field">
+					<span>服务器</span>
+					<select id="service">
+						<option>请选择服务器</option>
+						<!--<option>服务器2</option>-->
+					</select>
+				</p>
+				<p class="notice">注意</p>
+				<p class="noticetxt">1、本卡只能用于激活9月16日开启的双线一区“呼风唤雨”及之后开启的新服；</p>
+				<p class="noticetxt">2、激活相应服务器30天之内的账号可以领取；</p>
+				<p class="noticetxt">3、同一服务器内，一个账号只能领取一张卡；</p>
+				<p class="noticetxt">4、领取成功后，玩家在新服达到10级即可在天墉城-南极仙翁处领取礼包；</p>
+				<p class="get_gift">领取礼包</p>
+			</div>
+			<p class="wd_text txt1">搜索公众号：gyyxwd</p>
+			<p class="wd_text">或长按二维码保存至相册，在微信中使用</p>
+			<p class="wd_text"><span>扫一扫-相册-选择二维码图片</span>，即可添加关注</p>
+			<div class="barcode">
+				<img src="http://static.cn114.cn/action/wdregister/img/erwm.jpg" />
+				<p>
+					<a href="http://e.weibo.com/wendaoguanfang">新浪微博</a>
+					<a href="http://e.t.qq.com/wendao2006">腾讯微博</a>
+				</p>
+			</div>
+			<p class="fx"><img src="http://static.cn114.cn/action/wd2799/bag/images/fxj.jpg"/>一键分享好玩的游戏给朋友们</p>
+			<div class="phone_soft_content fx_all">
+				<div id="wxF">
+					<a href="javascript:;"><img src="http://static.cn114.cn/action/wd2799/bag/images/wx.jpg"/></a>
+					<a href="javascript:;">微信好友</a>
+				</div>
+				<div id="wxFa">
+					<a href="javascript:;"><img src="http://static.cn114.cn/action/wd2799/bag/images/pyq.jpg"/></a>
+					<a href="javascript:;">朋友圈</a>
+				</div>
+				<div id="wxXl">
+					<a href="javascript:;"><img src="http://static.cn114.cn/action/wd2799/bag/images/xlwb.jpg"/></a>
+					<a href="javascript:;">新浪微博</a>
+				</div>
+				<div id="wxqq">
+					<a href="javascript:;"><img src="http://static.cn114.cn/action/wd2799/bag/images/qqkj.jpg"/></a>
+					<a href="javascript:;">QQ空间</a>
+				</div>
+			</div>
+			<a id="visit_web" href="http://wd.gyyx.cn">访问电脑版</a>
+		</div>
+		<img id="go_top" src="http://static.cn114.cn/action/wd2799/bag/images/top.jpg" />
+		<img src="http://static.cn114.cn/action/wd2799/bag/images/tc.png" id="js_tance"/>
+	</body>
+<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+<script src="http://static.cn114.cn/action/wd2799/bag/js/registerPage.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wd2799/bag/js/get_gift.js" ></script>
+</html>

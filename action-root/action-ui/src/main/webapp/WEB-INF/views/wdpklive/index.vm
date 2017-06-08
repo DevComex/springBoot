@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>问道全民pk赛</title>
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/wdQuanMingPKBM/css/index.css">
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js"></script>
+    <script>
+        var rc="";
+    </script>
+    <script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+    </script>
+</head>
+<body>
+<div class="public_nav_top" style="display: block;">
+    <script type="text/javascript">Showtop();</script>
+</div>
+  <!--报名时间-->
+<div class="mk mk1">
+   <p class="activeTime">活动时间 : <span>11月08日-11月20日</span></p>
+</div>
+<div class="mk mk2">
+  <div class="contain">
+    <p class="u1 s1">
+        <img src="http://static.cn114.cn/action/wdQuanMingPKBM/images/userLogin.png" class="loginIn btn1" alt="">
+        <span class="info1">
+            报名参与全民PK赛直播，直播人气最高的十支直播队伍将获得道姐亲手送出的【神秘大礼包】
+        </span>
+    </p>
+      <div class="u1 s2" style="display: none;">
+          <img src="http://static.cn114.cn/action/wdQuanMingPKBM/images/userBM.png" class="loginIn btn2" alt="">
+          <p class="info1" style="margin-top: 30px;">欢迎您 : <span class="userNameLogin">maoxiangmin</span></p>
+          <p class="info1 userExit" style="font-size: 20px;color: #e54d2d;">注销登录</p>
+      </div>
+      <div class="u1 s3" style="display: none;">
+          <p class="info1">欢迎您 : <span class="userNameLogin">maoxiangmin</span></p>
+          <p class="info1 userExit" style="font-size: 20px;color: #e54d2d;">注销登录</p>
+          <p class="info1"><span class="sh">报名信息审核中</span> <a class="checkBm" style="color:red;">查看</a></p>
+          <img src="http://static.cn114.cn/action/wdQuanMingPKBM/images/userUpdate.png" class="loginIn btn3" alt="">
+          <img src="http://static.cn114.cn/action/wdQuanMingPKBM/images/userExitBm.png" class="loginIn btn4" alt="">
+      </div>
+      <ul class="pkLive">
+      
+          <li class="liveInfos">
+              <img src="http://static.cn114.cn/action/wdQuanMingPKBM/images/csImg.png" alt="">
+              <div class="infoForLive">
+			      <p class="livesIn"><span>主播</span> : 我不野蛮</p>
+                  <p class="livesIn"><span>直播时间</span> : 2016年11月20日 9:00--18:00</p>
+                  <p class="livesIn" style="float: left;margin-right: 25px;"><span>直播平台</span> : 虎牙</p>
+                  <p class="livesIn"><span>直播频道</span> : 9085</p>
+                  <p class="livesIn liveWZ">本届道皇。直播全民PK赛总决赛现场。</p>
+              </div>
+          </li>
+          <li class="liveInfos">
+              <img src="http://static.cn114.cn/action/wdQuanMingPKBM/images/csImg2.png" alt="">
+              <div class="infoForLive">
+                   <p class="livesIn"><span>主播</span> : 小熊</p>
+                  <p class="livesIn"><span>直播时间</span> : 2016年11月20日 18:00</p>
+                  <p class="livesIn" style="float: left;margin-right: 25px;"><span>直播平台</span> : 虎牙</p>
+                  <p class="livesIn"><span>直播频道</span> : 90085</p>
+                  <p class="livesIn liveWZ">上届道皇。直播参与全民PK赛总决赛。</p>
+              </div>
+          </li>
+      </ul>
+  </div>
+</div>
+<div class="mk mk3">
+    <ul class="contain">
+        <li>
+            <img src="http://static.cn114.cn/action/wdQuanMingPKBM/images/prize1.png" alt="">
+            <span class="prizName">问道点卡</span>
+        </li>
+        <li>
+           <img src="http://static.cn114.cn/action/wdQuanMingPKBM/images/prize5.png" alt="">
+            <span class="prizName">问道T恤(随机)</span>
+        </li>
+        <li>
+          <img src="http://static.cn114.cn/action/wdQuanMingPKBM/images/prize2.png" alt="">
+            <span class="prizName">威威虎抱枕</span>
+        </li>
+        <li>
+   <img src="http://static.cn114.cn/action/wdQuanMingPKBM/images/prize4.png" alt="">
+            <span class="prizName">外设(随机)</span>
+        </li>
+        <li>
+<img src="http://static.cn114.cn/action/wdQuanMingPKBM/images/prize3.png" alt="">
+            <span class="prizName">报名直播神秘大礼</span>
+        </li>
+    </ul>
+</div>
+  <div class="mk mk4">
+      <div class="contain">
+         <ul class="selectDataF">
+             <li style="width: 130px;text-align: left;">战队名称</li>
+             <li style="width: 345px">
+                  <span style="float:left;">直播日期</span>
+                 <select name="" id="selectYear">
+                     <option value="">年月日</option>
+                     <option value="2016,11,07">2016-11-07</option>
+                     <option value="2016,11,08">2016-11-08</option>
+                     <option value="2016,11,09">2016-11-09</option>
+                     <option value="2016,11,10">2016-11-10</option>
+                     <option value="2016,11,11">2016-11-11</option>
+                     <option value="2016,11,12">2016-11-12</option>
+                     <option value="2016,11,13">2016-11-13</option>
+                     <option value="2016,11,14">2016-11-14</option>
+                     <option value="2016,11,15">2016-11-15</option>
+                     <option value="2016,11,16">2016-11-16</option>
+                     <option value="2016,11,17">2016-11-17</option>
+                     <option value="2016,11,18">2016-11-18</option>
+                     <option value="2016,11,19">2016-11-19</option>
+                     <option value="2016,11,20">2016-11-20</option>
+                </select>
+                 <select name="" id="slectTime" style="text-indent: 22px;">
+                     <option value="">时分</option>
+					 <option value="00,00">00:00</option>
+                     <option value="00,30">00:30</option>
+                     <option value="01,00">01:00</option>
+                     <option value="01,30">01:30</option>
+                     <option value="02,00">02:00</option>
+                     <option value="02,30">02:30</option>
+                     <option value="03,00">03:00</option>
+                     <option value="03,30">03:30</option>
+                     <option value="04,00">04:00</option>
+                     <option value="04,30">04:30</option>
+                     <option value="05,00">05:00</option>
+                     <option value="05,30">05:30</option>
+                     <option value="06,00">06:00</option>
+                     <option value="06,30">06:30</option>
+                     <option value="07,00">07:00</option>
+                     <option value="07,30">07:30</option>
+                     <option value="08,00">08:00</option>
+                     <option value="08,30">08:30</option>
+                     <option value="09,00">09:00</option>
+                     <option value="09,30">09:30</option>
+                     <option value="10,00">10:00</option>
+                     <option value="10,30">10:30</option>
+                     <option value="11,00">11:00</option>
+                     <option value="11,30">11:30</option>
+                     <option value="12,00">12:00</option>
+                     <option value="12,30">12:30</option>
+                     <option value="13,00">13:00</option>
+                     <option value="13,30">13:30</option>
+                     <option value="14,00">14:00</option>
+                     <option value="14,30">14:30</option>
+                     <option value="15,00">15:00</option>
+                     <option value="15,30">15:30</option>
+                     <option value="16,00">16:00</option>
+                     <option value="16,30">16:30</option>
+                     <option value="17,00">17:00</option>
+                     <option value="17,30">17:30</option>
+                     <option value="18,00">18:00</option>
+                     <option value="18,30">18:30</option>
+                     <option value="19,00">19:00</option>
+                     <option value="19,30">19:30</option>
+                     <option value="20,00">20:00</option>
+                     <option value="21,30">21:30</option>
+                     <option value="22,00">22:00</option>
+                     <option value="23,30">23:30</option>
+                 </select>
+             </li>
+             <li style="width: 218px">直播平台、 频道</li>
+             <li style="width: 300px;">战队简介</li>
+         </ul>
+          <ul class="zdList">
+              <!--<li>-->
+                  <!--<span class="sp1" >玩家战队名称</span>-->
+                  <!--<span class="sp2">2016年11月11日</span>-->
+                  <!--<p class="sp3"><span class="pt01" >平台名称</span><span class="pt02">频道名称</span></p>-->
+                  <!--<span class="sp4" >简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介简介</span>-->
+              <!--</li>-->
+
+          </ul>
+      </div>
+  </div>
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom()</script>
+</div>
+  <!--取消报名-->
+  <div class="tc1 tc" >
+      <a class="close pop-close" href="#"></a>
+      <p class="tcTxt">您要取消报名么 ?</p>
+      <img src="http://static.cn114.cn/action/wdQuanMingPKBM/images/qxbm.png" class="btn1 tcbtn" alt="">
+      <img src="http://static.cn114.cn/action/wdQuanMingPKBM/images/dcl.png" class="btn2 tcbtn" alt="">
+  </div>
+  <!--报名信息一览-->
+  <div class="tc2 tc" >
+      <a class="close pop-close" href="#"></a>
+      <div class="tcCont">
+          <p class="sign tx">当前状态 : <span class="signState">审核中</span></p>
+          <p class="squadron tx">战队名称 : <span class="squName">战队名称</span></p>
+          <p class="squadron tx"><span style="float: left;color:#666666;">战队简介 :&nbsp;</span><span class="squIntro" style="float: left;width: 345px;">战队简介</span></p>
+          <p class="squadron tx">直播日期 : <span class="liveDate">2016年11月11日 11:30</span></p>
+          <p class="squadron tx">直播平台 : <span class="liveTerrace">直播平台</span></p>
+          <p class="squadron tx">直播频道 : <span class="liveAXN">直播频道</span></p>
+      </div>
+  </div>
+  <!--报名信息填写-->
+  <div class="tc3 tc">
+      <a class="close pop-close" href="#"></a>
+      <div class="tcCont">
+          <p class="squadron tx">战队名称 : <input class="squName" value="" name="teamName" name2="战队名称" maxlength="20"></p>
+          <p class="squadron tx"><span style="float: left;">战队简介 :&nbsp;</span><span class="squIntro" style="float: left;">
+              <textarea name="teamIntroduction" name2="战队简介" id="areaInfo" maxlength="100" ></textarea>
+          </span></p>
+          <p class="squadron tx">直播日期 :
+              <select  id="choMou">
+                  <option value="11">11月</option>
+              </select>
+              <select  id="choDa">
+                  <option value="07">7日</option>
+                  <option value="08">8日</option>
+                  <option value="09">9日</option>
+                  <option value="10">10日</option>
+                  <option value="11">11日</option>
+                  <option value="12">12日</option>
+                  <option value="13">13日</option>
+                  <option value="14">14日</option>
+                  <option value="15">15日</option>
+                  <option value="16">16日</option>
+                  <option value="17">17日</option>
+                  <option value="18">18日</option>
+                  <option value="19">19日</option>
+                  <option value="20">20日</option>
+              </select>
+              <select  id="choHour">
+                    <option value="">时分</option>
+                   <option value="0000">00:00</option>
+                   <option value="0030">00:30</option>
+                   <option value="0100">01:00</option>
+                   <option value="0130">01:30</option>
+                   <option value="0200">02:00</option>
+                   <option value="0230">02:30</option>
+                   <option value="0300">03:00</option>
+                   <option value="0330">03:30</option>
+                   <option value="0400">04:00</option>
+                   <option value="0430">04:30</option>
+                   <option value="0500">05:00</option>
+                   <option value="0530">05:30</option>
+                   <option value="0600">06:00</option>
+                   <option value="0630">06:30</option>
+                   <option value="0700">07:00</option>
+                   <option value="0730">07:30</option>
+                   <option value="0800">08:00</option>
+                   <option value="0830">08:30</option>
+                   <option value="0900">09:00</option>
+                   <option value="0930">09:30</option>
+                   <option value="1000">10:00</option>
+                   <option value="1030">10:30</option>
+                   <option value="1100">11:00</option>
+                   <option value="1130">11:30</option>
+                   <option value="1200">12:00</option>
+                   <option value="1230">12:30</option>
+                   <option value="1300">13:00</option>
+                   <option value="1330">13:30</option>
+                   <option value="1400">14:00</option>
+                   <option value="1430">14:30</option>
+                   <option value="1500">15:00</option>
+                   <option value="1530">15:30</option>
+                   <option value="1600">16:00</option>
+                   <option value="1630">16:30</option>
+                   <option value="1700">17:00</option>
+                   <option value="1730">17:30</option>
+                   <option value="1800">18:00</option>
+                   <option value="1830">18:30</option>
+                   <option value="1900">19:00</option>
+                   <option value="1930">19:30</option>
+                   <option value="2000">20:00</option>
+                   <option value="2130">21:30</option>
+                   <option value="2200">22:00</option>
+                   <option value="2330">23:30</option>
+              </select>
+              <input type="hidden" class="bmTime" name="time" name2="直播日期">
+          </p>
+          <p class="squadron tx">直播平台 : <input class="liveTerrace" name="livePlatform" name2="直播平台" value="" maxlength="12" /></p>
+          <p class="squadron tx">直播频道 : <input class="liveAXN" name="liveChannel" name2="直播频道" value="" maxlength="12"  /></p>
+          <p class="bmBtn"></p>
+      </div>
+  </div>
+  <script src="http://s.gyyx.cn/lib/jquery.bgiframe.js"></script>
+  <script src="http://static.cn114.cn/action/wdQuanMingPKBM/js/handle.js"></script>
+  <script>
+	var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?d5bcb991342154a05aec692100114717";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</body>
+</html>

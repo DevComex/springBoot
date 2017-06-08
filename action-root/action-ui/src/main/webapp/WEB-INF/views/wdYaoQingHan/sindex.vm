@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <meta name="keywords" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <title>问道十年：青城山封仙盛典</title>
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/wdyaoqinghan/css/ystyle.css">
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/wdyaoqinghan/css/yindex.css">
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/lib/jquery.bgiframe.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+
+    <style>
+     body{
+         background: #fcf9ff;
+     }
+    </style>
+</head>
+<body>
+<div class="public_nav_top" style="display: none;">
+    <script type="text/javascript">Showtop();</script>
+</div>
+<div class="topMain">
+    <div class="searchBan"  style="display: none;">
+        <!--<i class="searchIoc"></i>-->
+        <input class="serchInfo" type="text" placeholder="《问道》  封仙大会邀请函">
+    </div>
+    <a href="javascript:void(0)" id="js_convertImg" class="dhyqh"></a>
+</div>
+<div class="topMain_xu">
+    <span class="active_rule">活动规则</span>
+    <p class="rulueIns r1">
+        <span class="numIc">1.</span>邀请函兑换、抽取活动时间：11月1日-11月10日
+        <br>
+        活动举办地点：四川成都青城山
+        <br>
+        活动举办时间：11月12日-13日
+    </p>
+    <p class="rulueIns r2">
+        <span class="numIc">2.</span>玩家可在本页面参与报名，成功报名并绑定角色后，页面将更新玩家的游戏信息，并按照计算公式:本月道行（年）的标道倍数*100的方式计算积分，积分为整数，小数采用四舍五入的方式计算；每位玩家只能有一个账号参与活动，绑定角色之后不可进行更改。
+    </p>
+    <p class="rulueIns r3">
+        <span class="numIc">3.</span>活动期间，每天每个光宇账号可通过签到、微博分享各获得5积分，最多可分别获得50积分。
+    </p>
+    <p class="rulueIns r4">
+        <span class="numIc">4.</span>活动期间，每个光宇账号消耗75积分兑换一张邀请函，兑换数量有限，先到先得；
+    </p>
+    <p class="rulueIns r5">
+        <span class="numIc">5.</span>获得邀请函的玩家，为了确保您的获奖资格，请务必填写正确的个人信息（姓名、电话），工作人员将于最迟48小时以内与您联系；活动不收取任何费用，参与玩家的住宿以及餐饮将由官方统一负责，往返青城山路费将最高报销1000元；
+    </p>
+    <p class="rulueIns r6">
+        <span class="numIc">6.</span>没有满足兑换积分资格的玩家、满足兑换积分资格但名额已全部兑换完毕，未能成功兑换邀请函的玩家，可通过抽奖活动赢取邀请函；此外每个光宇账号每次抽奖将消耗10积分，每日抽奖次数不限定；
+    </p>
+    <p class="rulueIns r7">
+        <span class="numIc">7.</span>若活动报名人数突破10万人，将追加兑换名额；
+    </p>
+    <p class="rulueIns r8">
+        <span class="numIc">8.</span>本次活动的解释权归光宇游戏所有。
+    </p>
+</div>
+
+
+    <p class="bottomNav">
+        <a class="yqh cur" href="windex">
+            <i class="navImg yqhIm"></i>
+            <span class="navTit">邀请函</span>
+        </a>
+        <a class="zjf" href="wqd">
+            <i class="navImg zjfIm"></i>
+            <span class="navTit">赚积分</span>
+        </a>
+        <a class="cj" href="wcj">
+            <i class="navImg cjIm"></i>
+            <span class="navTit">抽奖</span>
+        </a>
+        <a class="wd" href="wwd">
+            <i class="navImg wdIm"></i>
+            <span class="navTit">我的</span>
+        </a>
+    </p>
+
+<!--兑换成功-->
+<div class="tc SuccessDh" id="js_SuccessDh" style="display:none">
+    <p class="tit">恭喜您！<span class="prizeName" style="display: block;">获得封仙大会邀请函</span></p>
+    <form class="formInfo" id="js_popAddressForm">
+        <p class="inpuLi" >
+            <input type="text" placeholder="姓名" name="userName">
+        </p>
+        <p class="inpuLi">
+
+            <input type="text" placeholder="电话" name="userPhone">
+        </p >
+        <p class="inpuLi">
+
+            <input type="text" placeholder="QQ" name="qq">
+        </p>
+        <p class="inpuLi">
+
+            <input type="text" placeholder="邮箱" name="userEmail">
+        </p>
+        <p class="inpuLi">
+            <input type="text" placeholder="地址" name="userAddress">
+        </p>
+        <p class="inpuLiTxt">
+            请填写真实个人信息，工作人员将于最迟48小时以内与您联系，活动不收取任何费用，请注意查收邮箱及电话。
+        </p>
+        <p class="inpuLiTxt inpuLiTxt2" style="display: none;">
+            获得的奖励将在活动结束后统一寄出，请填写联系方式、快递地址等信息，请保证电话畅通。
+        </p>
+        <a class="submitAddr" id="js_submitAddr" href="javascript:void(0)"></a>
+    </form>
+</div>
+<!--提示消息-->
+<div class="tc tsxx" id="js_yqhISdh_Info" style="display:none">
+    <p class="titInfo1">您已成功兑换</p>
+    <p class="titInfo2" style="display: none;">您已成功兑换</p>
+    <p class="know">知道了</p>
+</div>
+<!--积分扣除确认-->
+<div class="tc tsxx" id="js_yqhISdh" style="display:none">
+    <p class="qrjf">您是否确定扣除75积分兑换邀请函</p>
+    <p class="dhBtn">
+        <a class="dhTrue" href="javascript:void(0)" >确认</a>
+        <a class="dhFalse" href="javascript:void(0)">取消</a>
+    </p>
+</div>
+<script src="http://static.cn114.cn/action/wdyaoqinghan/js/gyyx_wxshare.min.js"></script>
+<script src="http://static.cn114.cn/action/wdyaoqinghan/js/shandle.js"></script>
+<script>
+    nLottery.pop($("#js_SuccessDh"), {
+        autoOpen: false,
+        closeFn: function () {
+        }
+    });
+    nLottery.pop($("#js_yqhISdh_Info"), {
+        autoOpen: false,
+        closeFn: function () {
+        }
+    });
+    nLottery.pop($("#js_yqhISdh"), {
+        autoOpen: false,
+        closeFn: function () {
+        }
+    });
+    </script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?0caf56e4cefc63cdebdfdb5a86eb0dc6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+			  
+        wxShare({
+            debug: false,
+            game: "wd",
+            title: "未读消息：您有一封仙道盛宴邀请函",
+            desc: "未读消息：您有一封仙道盛宴邀请函",
+            link: "http://actionv2.gyyx.cn/wdyqh/windex",
+            imgUrl: "http://static.cn114.cn/action/wdyaoqinghan/images/pic01.jpg",
+            success: function () {
+                 alert("分享成功");
+            },
+            cancel: function () {
+                alert("取消了分享");
+            }
+        });
+		</script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="renderer" content="webkit">
+<meta name="apple-touch-fullscreen" content="YES">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragram" content="no-cache">
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<title>error</title>
+<link rel="stylesheet" href="http://static.cn114.cn/action/xlsglibao/css/index.css"> 
+<script type="text/javascript">
+ var rc = "";
+</script>
+ 
+
+</head>
+<body>
+<h1>此页面只能用微信浏览器打开</h1>
+</body>
+  
+</html>
+

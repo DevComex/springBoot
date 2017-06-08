@@ -1,0 +1,61 @@
+<!DOCTYPE>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="renderer" content="webkit">
+<meta name="apple-touch-fullscreen" content="YES">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta http-equiv="Expires" content="-1">
+<meta http-equiv="pragram" content="no-cache">
+<!-- uc强制竖屏 -->
+<meta name="screen-orientation" content="portrait">
+<!-- QQ强制竖屏 -->
+<meta name="x5-orientation" content="portrait">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<title>驯龙三国独家礼包</title>
+<script src="http://static.cn114.cn/action/xlsglibao/js/jquery-1.8.3.min.js" type="text/javascript"></script> 
+<script src="http://static.cn114.cn/action/xlsglibao/js/receive.js" type="text/javascript"></script> 
+<script src="http://static.cn114.cn/action/xlsglibao/js/gyyx_wxshare.min.js" type="text/javascript"></script> 
+<link rel="stylesheet" href="http://static.cn114.cn/action/xlsglibao/css/index.css"> 
+<script type="text/javascript">
+ var rc = "";
+</script>
+ 
+
+</head>
+<body>
+     <div class="xlBox">
+         <a href="javascript:;" id="receiveBtn">一键领取</a>
+     </div>
+    <div id="mask"></div>
+    <!-- 领取成功 -->
+    <div class="receive">
+        <div class="positionBox">
+		<p class="gu" style="position: absolute;top: 12%;"></p>
+            <a href="javascript:;"></a>
+        </div>
+        
+    </div>
+    
+    <!-- 领取失败 -->
+    <div class="receiveNo">
+        <div class="positionBox">
+            <p class="gu"><span>亲爱的玩家~</span><span>恭喜您已成功领取独家礼包！</span></p>
+            <p class="receiveNum"><span>礼包兑换码：</span><span class="num">XXXX</span></p>
+            <p class="copy">请先复制礼包兑换码再关闭此页面</p>
+            <a href="javascript:;"></a>
+        </div>
+    </div>
+
+
+    <div class="alert_mask"></div>
+    <div class="alert_box">
+      <div class="alert_msg">禁止横屏显示</div>
+    </div>
+	
+</body>
+  
+</html>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdpk.IWDPKInfo">
+	<resultMap type="AllPKInfo" id="AllPKInfoMapper">
+		<id column="code" property="code" />
+		<result column="area" property="area" />
+		<result column="account" property="account" />
+		<result column="character_name" property="characterName" />
+		<result column="id_card" property="idCard" />
+		<result column="name" property="name" />
+		<result column="phone_number" property="phoneNumber" />
+		<result column="qq_number" property="qqNumber" />
+		<result column="server" property="server" />
+		<result column="img_url" property="imgUrl" />
+	</resultMap>
+	<select id="getAvailableCount" resultType="java.lang.String">
+		select account from wdpk_user_tb
+	</select>
+	<select id="isAccountExist" parameterType="string" resultType="boolean"> 
+		<![CDATA[ select count(code) from wdpk_info_tb where account=#{account} ]]>
+	</select>
+	<insert id="addWDPKInfoBean" parameterType="AllPKInfo">
+		insert into
+		wdpk_info_tb(area,character_name,id_card,name,phone_number,qq_number,server,account,img_url)
+		values(#{area},#{characterName},#{idCard},#{name},#{phoneNumber},#{qqNumber},#{server},#{account},#{imgUrl})
+	</insert>
+</mapper>

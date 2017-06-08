@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.noviceoa.NoviceBatchBeanMapper">
+    <resultMap id="BaseResultMap" type="cn.gyyx.action.beans.noviceoa.NoviceBatchBean">
+        <constructor>
+            <idArg column="code" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="name" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="game_id" jdbcType="INTEGER" javaType="java.lang.Integer"/>
+            <arg column="batch_type" jdbcType="VARCHAR" javaType="java.lang.String"/>
+            <arg column="is_open" jdbcType="BIT" javaType="java.lang.Boolean"/>
+            <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date"/>
+        </constructor>
+    </resultMap>
+    <sql id="Base_Column_List">
+    code, name, game_id,batch_type, is_open, create_time
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from novice_batch_tb
+        where code = #{code,jdbcType=INTEGER}
+    </select>
+
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="code" parameterType="cn.gyyx.action.beans.noviceoa.NoviceBatchBean">
+        insert into novice_batch_tb
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                name,
+            </if>
+            <if test="gameId != null">
+                game_id,
+            </if>
+            <if test="batchType != null">
+                batch_type,
+            </if>
+            <if test="isOpen != null">
+                is_open,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="gameId != null">
+                #{gameId,jdbcType=INTEGER},
+            </if>
+            <if test="batchType != null">
+                #{batchType,jdbcType=VARCHAR},
+            </if>
+            <if test="isOpen != null">
+                #{isOpen,jdbcType=BIT},
+            </if>
+            <if test="createTime != null">
+                #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.action.beans.noviceoa.NoviceBatchBean">
+        update novice_batch_tb
+        <set>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="gameId != null">
+                game_id = #{gameId,jdbcType=INTEGER},
+            </if>
+            <if test="batchType != null">
+                batch_type = #{batchType,jdbcType=VARCHAR},
+            </if>
+            <if test="isOpen != null">
+                is_open = #{isOpen,jdbcType=BIT},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where code = #{code,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectTotalCount" resultType="java.lang.Integer">
+        select count(1) from novice_batch_tb where batch_type=#{batchType}
+    </select>
+
+    <select id="selectPageList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from novice_batch_tb
+        where game_id=#{game_id} and batch_type=#{batch_type}
+        order by code desc
+        limit #{skip_count},#{select_count}
+    </select>
+
+    <select id="selectBatchList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from novice_batch_tb
+        where game_id=#{game_id} and batch_type=#{batch_type}
+        order by code desc
+    </select>
+
+    <select id="selectByBatchName" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from novice_batch_tb
+        where name = #{batchName}
+    </select>
+</mapper>

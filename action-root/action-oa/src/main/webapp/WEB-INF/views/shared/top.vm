@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>光宇办公平台</title>
+	 <script type="text/javascript" charset="utf-8">
+		var rc="${rc.contextPath}";
+    </script>
+    <link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+    <script type="text/javascript" src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js" charset="utf-8"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <link href="${rc.contextPath}/resources/Contents/css/font.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <style>
+    .js_alert{position:absolute;top:0px;left:0px;width:100%;z-index:9999;text-align: center; font-size:18px;}
+    .col-lg-0-96 { width:8%; }
+.col-lg-1-44 { width:12%; }
+</style>
+</head>
+<body>
+    <section class="vbox">
+        <!-- template_top -->
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <!-- js_template_left begins -->
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <!--js_template_right-->
+                <section id="content" style="width:100%;">
+                    <section class="vbox">
+

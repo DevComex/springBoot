@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+		<title>龙与精灵补偿</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/lyjlcompensate/css/pcIndex.css" />
+	    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+	    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=longyujinglin" type="text/javascript"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/lyjlcompensate/js/pcIndex.js"></script>
+	</head>
+	<body>
+			   
+    <div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+    
+    <div class="main">
+    	<div class="content">
+    		<p class="action_date">活动时间：2016.7.26-2016.8.25</p>
+    		<div class="action_con">
+    			<div class="con_l">
+    				<div class="con_l_tit"><img src="http://static.cn114.cn/action/lyjlcompensate/images/lbth.png" alt="" /></div>
+    				<div class="con_l_con">
+    					<form >
+    						<input type="hidden" name="source" id="source" value="pc" />
+    						<p> 请选择区服：  <select name="daqu" id="daqu">
+    										<option value="">请选择</option>
+    										<option value="android">安卓(android)</option>
+    										<option value="ios">苹果(ios)</option>
+    									</select>
+    						</p>
+    						<p><select name="qufu" id="qufu"><option value="">请选择</option></select></p>
+    						<p>请输入游戏角色名称：<input type="text" name="name" id="name" maxlength="10" /></p>
+    						<p class="yzmBox">
+    							<span>请输入验证码：</span><input type="text" name="captcha" maxlength="5" /><span style="background:#fff;"><img width="130" height="32" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=javacheng7" class="js_yzmImg" alt="" /></span>
+    						</p>
+    						<p class="subBtn"><img src="http://static.cn114.cn/action/lyjlcompensate/images/tjbtn.png" alt="" /></p>
+    					</form>
+    				</div>
+    			</div>
+    			<div class="con_r">
+    				<div class="con_r_tit"><img src="http://static.cn114.cn/action/lyjlcompensate/images/hdsm.png" alt="" /></div>
+    				<div class="con_r_con">
+    					<p>8月25日24:00《龙与精灵》将遗憾告别玩家，为感恩玩家一路的支持与厚爱，我们决定为所有玩家奉上龙魂继承者——《绝世武神》手游价值300元人民币的豪气礼包作为最后补偿。魔龙虽沉睡，但战魂永不磨灭！</p>
+						<ul>
+							<li>
+								<em>1</em><p>凡2016年7月26日之前在《龙与精灵》游戏内注册并且角色等级达到30级及以上的玩家，提供游戏内人物角色名称，即可获取礼包码。</p>
+							</li>
+							<li>
+								<em>2</em><p>礼包码仅可用于光宇游戏发行的<span>《绝世武神》</span>游戏使用。</p>
+							</li>
+							<li>
+								<em>3</em><p>《龙与精灵》账号下可任意选择达标角色进行兑换，每个账号仅可兑换一次。</p>
+							</li>
+							<li>
+								<em>4</em><p>此礼包码价值人民币300元，内容为3000元宝。</p>
+							</li>
+							<li>
+								<em>5</em><p>礼包码激活方法：进入游戏-点击【福利】按钮——进入兑换码界面——输入礼包兑换码——点击兑换即可领取礼包。</p>
+							</li>
+							<li>
+								<em>6</em><p>此礼包码仅限于<span>《绝世武神》“雪月皇城区”</span>使用。</p>
+							</li>
+							<li>
+								<em>7</em><p>活动时间：2016年7月26日至2016年8月25日。</p>
+							</li>						
+						</ul>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
+    
+    <div class="public_nav_bottom"><script type="text/javascript">ShowBottom()</script></div>
+	<div class="alert_bg"></div>
+	<div class="alert_con"><div class="con1"><a href="javascript:;" class="close"></a><p></p></div></div>
+	</body>
+</html>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.wd.wanjia.cartoon.dao.WanwdManhuaPageMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaPage" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="book_code" property="bookCode" jdbcType="INTEGER" />
+    <result column="page_name" property="pageName" jdbcType="VARCHAR" />
+    <result column="page_picture_url" property="pagePictureUrl" jdbcType="VARCHAR" />
+    <result column="page_picture_num" property="pagePictureNum" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, book_code, page_name, page_picture_url, page_picture_num, create_time,is_delete
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_manhua_page_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  
+  <select id="findNewPageByBookCode" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+   select 
+    <include refid="Base_Column_List" />
+    from wanwd_manhua_page_tb
+    where book_code = #{bookCode,jdbcType=INTEGER} AND is_delete =0 AND page_picture_num =0
+  </select>
+  
+  <select id="selectByParentCode" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_manhua_page_tb
+    where book_code = #{parentCode,jdbcType=INTEGER} AND is_delete =0
+  </select>
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wanwd_manhua_page_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaPage" >
+    insert into wanwd_manhua_page_tb (code, book_code, page_name, 
+      page_picture_url, page_picture_num, create_time
+      )
+    values (#{code,jdbcType=INTEGER}, #{bookCode,jdbcType=INTEGER}, #{pageName,jdbcType=VARCHAR}, 
+      #{pagePictureUrl,jdbcType=VARCHAR}, #{pagePictureNum,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaPage" >
+    insert into wanwd_manhua_page_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="bookCode != null" >
+        book_code,
+      </if>
+      <if test="pageName != null" >
+        page_name,
+      </if>
+      <if test="pagePictureUrl != null" >
+        page_picture_url,
+      </if>
+      <if test="pagePictureNum != null" >
+        page_picture_num,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="bookCode != null" >
+        #{bookCode,jdbcType=INTEGER},
+      </if>
+      <if test="pageName != null" >
+        #{pageName,jdbcType=VARCHAR},
+      </if>
+      <if test="pagePictureUrl != null" >
+        #{pagePictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="pagePictureNum != null" >
+        #{pagePictureNum,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaPage" >
+    update wanwd_manhua_page_tb
+    <set >
+      <if test="bookCode != null" >
+        book_code = #{bookCode,jdbcType=INTEGER},
+      </if>
+      <if test="pageName != null" >
+        page_name = #{pageName,jdbcType=VARCHAR},
+      </if>
+      <if test="pagePictureUrl != null" >
+        page_picture_url = #{pagePictureUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="pagePictureNum != null" >
+        page_picture_num = #{pagePictureNum,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaPage" >
+    update wanwd_manhua_page_tb
+    set book_code = #{bookCode,jdbcType=INTEGER},
+      page_name = #{pageName,jdbcType=VARCHAR},
+      page_picture_url = #{pagePictureUrl,jdbcType=VARCHAR},
+      page_picture_num = #{pagePictureNum,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <!-- 插入新漫画图片 -->
+  <insert id="insertPic" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdManhuaPage" >
+    insert into wanwd_manhua_page_tb ( book_code, page_name, 
+      page_picture_url, page_picture_num, create_time
+      )
+    values (#{bookCode,jdbcType=INTEGER}, #{pageName,jdbcType=VARCHAR}, 
+      #{pagePictureUrl,jdbcType=VARCHAR}, #{pagePictureNum,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <!-- 查询漫画的章节页数 -->
+  <select id="selectPageSize" resultType="java.lang.Integer" parameterType="java.lang.Integer"  >
+  SELECT ISNULL(MAX(page_picture_num), 0) maxpage FROM wanwd_manhua_page_tb
+ WHERE is_delete=0 AND book_code=(SELECT book_code FROM wanwd_manhua_page_tb WHERE code=#{code,jdbcType=INTEGER}) 
+  </select>
+  <!-- 查询漫画章节的图片信息，后台审核时 -->
+  <select id="selectPageNumAndUrlByBookCode" resultType="java.util.Map" parameterType="java.lang.Integer"  >
+	SELECT
+		page_picture_num,
+		page_picture_url
+	FROM
+		wanwd_manhua_page_tb
+	WHERE
+		book_code = #{bookCode,jdbcType=INTEGER}
+	AND is_delete = 0
+	ORDER BY page_picture_num
+  </select>
+  <update id="changeIsDelete" parameterType="java.lang.Integer" >
+   UPDATE wanwd_manhua_page_tb SET is_delete=1 WHERE book_code=#{bookCode,jdbcType=INTEGER}
+  </update>
+  
+</mapper>

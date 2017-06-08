@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.exchange.mapper.IActionExchangeMapper">
+	
+	<select id="select" parameterType="cn.gyyx.action.beans.exchange.po.ActionExchangePO" 
+			resultType="cn.gyyx.action.beans.exchange.po.ActionExchangePO">
+		select * 
+		  from action_exchange_tb
+		 where activityId = #{activityId}
+		<if test="activityType != null">
+			and activityType = #{activityType}
+		</if>
+		<if test="itemsId != null">
+			and itemsId = #{itemsId}
+		</if>
+		<if test="itemsName != null">
+			and itemsName = #{itemsName}
+		</if>
+		<if test="itemsType != null">
+			and itemsType = #{itemsType}
+		</if>
+	</select>
+	
+	<update id="updateCount" parameterType="cn.gyyx.action.beans.exchange.po.ActionExchangePO">
+		update action_exchange_tb
+		   set itemsQuantity = itemsQuantity - 1,
+		       modifyAt = #{modifyAt}
+		 where itemsQuantity > 0
+		   and activityId = #{activityId}
+		   and itemsId = #{itemsId}
+		<if test="activityType != null">
+		   and activityType = #{activityType}
+		</if>
+		<if test="itemsType != null">
+		   and itemsType = #{itemsType}
+		</if>
+	</update>
+</mapper>

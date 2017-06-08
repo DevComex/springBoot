@@ -1,0 +1,299 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>《问道》挑战“新世界”活动</title>
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/png.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/common.js"></script><!-- 公用head -->
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/share.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/kxbdMarquee.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/jquery.ajaxpage-2.2.js"></script>
+  <script  type="text/javascript">
+      var rc="${rc.contextPath}";
+      </script>
+<link href="http://static.cn114.cn/action/challenger/css/reset.css" rel="stylesheet" /> 
+<link href="http://static.cn114.cn/action/challenger/css/popup.css" rel="stylesheet" /> <!-- 报名弹层 -->
+<link href="http://static.cn114.cn/action/challenger/css/index.css" rel="stylesheet" />  <!--首页小导航分享 -->
+<link href="http://static.cn114.cn/action/challenger/css/commonTop.css" rel="stylesheet" />  <!-- 公用head -->
+<link href="http://static.cn114.cn/action/challenger/css/style_nwm.css" rel="stylesheet" /> 
+</head>
+<script>
+	$(function(){
+		$(".navList").find("a").removeClass("active");
+		$("#navList_team").addClass("active");
+		
+		$(".navTab ul a").removeClass("active");
+		$(".navTab .joinTeam").addClass("active");
+	});
+	
+</script>
+<body>
+    <!-- 社区公用头部-->
+      <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+	#parse("challenger/challengerHeader.vm")
+
+
+
+    <!--  以下是自己的内容页面  -->
+
+    <div class="background">
+      <div class="teamAndLive">
+        <div class="starTeam">
+          <div class="teamTitle">
+            <h3>明星队伍</h3>
+          </div>
+          <div class="starTeamList">
+            <p><label><span class="num">1</span>瞪谁谁怀孕</label><a class="starTeamInfo"  code="1">队伍信息</a><a class="joinIn" code="1">申请加入</a></p>
+            <p><label><span class="num">2</span>木系小师妹冠军队</label><a class="starTeamInfo" code="2">队伍信息</a><a class="joinIn" code="2">申请加入</a></p>
+            <p><label><span class="num">3</span>啦啦啦水花花</label><a class="starTeamInfo"  code="3">队伍信息</a><a class="joinIn" code="3">申请加入</a></p>
+            <p><label><span class="num">4</span>冬天里的一把火</label><a class="starTeamInfo" code="4">队伍信息</a><a class="joinIn" code="4">申请加入</a></p>
+            <p><label><span class="num">5</span>风雪飞漫天</label><a class="starTeamInfo" code="5">队伍信息</a><a class="joinIn" code="5">申请加入</a></p>
+          </div>
+        </div>
+        <div class="weiboLive">
+          <div class="teamTitle">
+            <h3>微博直播</h3>
+          </div>
+                    <!--滚动开始-->
+          <div class="weiboLiveP">
+            <div class="scollWeiBo" id="J_listScroll">
+              <ul class="pa">
+                <li><img src="http://static.cn114.cn/action/challenger/images/titles/1.png"/><div class="Vbo"> <h3>喝一杯咖啡</h3> <p class="fromWB">7月18日 13:06 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/2.png"/><div class="Vbo"> <h3>道姐嫁我<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 14:26 来自 微博weibo.com</p> <p class="weiBoText">活动好有趣，7.22我在“二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/3.png"/><div class="Vbo"> <h3>尖叫的喵喵<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 14:53 来自 微博weibo.com</p> <p class="weiBoText">PK大服，就是要打架才爽，7.22我在“二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/4.png"/><div class="Vbo"> <h3>静谧的享受时光<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 15:31 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/5.png"/><div class="Vbo"> <h3>七月七日晴Say</h3> <p class="fromWB">7月18日 15:44 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/6.png"/><div class="Vbo"> <h3>傻傻的听水手说<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 16:04 来自 微博weibo.com</p> <p class="weiBoText">召唤队友，为了大奖，拼了！7.22我在“二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/7.png"/><div class="Vbo"> <h3>不知不愠不君子<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 16:42 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/8.png"/><div class="Vbo"> <h3>我会玻璃心<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 17:13 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/9.png"/><div class="Vbo"> <h3>为了忘却的记忆Lydia</h3> <p class="fromWB">7月18日 17:26 来自 微博weibo.com</p> <p class="weiBoText">奖品够多的啊！我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/10.png"/><div class="Vbo"> <h3>每天都是周末哼<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 17:55 来自 微博weibo.com</p> <p class="weiBoText">奖品，我跟队友来了，哈哈哈哈~~~~</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/11.png"/><div class="Vbo"> <h3>路人甲的故事</h3> <p class="fromWB">7月18日 18:09 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/12.png"/><div class="Vbo"> <h3>都别跟我抢静静<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 18:25 来自 微博weibo.com</p> <p class="weiBoText">都是“新世界”的，我要标新立异，生死挑战，够胆来战！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/13.png"/><div class="Vbo"> <h3>长生殿述离别</h3> <p class="fromWB">7月18日 18:46 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/14.png"/><div class="Vbo"> <h3>圈圈要减肥coco<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 18:52 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/15.png"/><div class="Vbo"> <h3>有怪兽缠着我<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 19:24 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/16.png"/><div class="Vbo"> <h3>胭脂泪红尘别</h3> <p class="fromWB">7月18日 19:33 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/17.png"/><div class="Vbo"> <h3>路飞VS佐罗<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 19:36 来自 微博weibo.com</p> <p class="weiBoText">召唤队友，召唤队友，召唤队友，重要的事情说三遍~~~7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/18.png"/><div class="Vbo"> <h3>堕落天使之翼<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 19:45 来自 微博weibo.com</p> <p class="weiBoText">为了那个笔记本，召唤队友，战五渣的不要，战五渣的不要，战五渣的不要。7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/19.png"/><div class="Vbo"> <h3>执笔为你画眉<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 19:51 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/20.png"/><div class="Vbo"> <h3>新月曲如眉<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 20:06 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/21.png"/><div class="Vbo"> <h3>战斗狂颜值爆表<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 20:45 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/22.png"/><div class="Vbo"> <h3>哼都没有我帅<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 21:07 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/23.png"/><div class="Vbo"> <h3>鸟飞千山终归巢<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 22:21来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/24.png"/><div class="Vbo"> <h3>白菜也不便宜<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 23:33 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/25.png"/><div class="Vbo"> <h3>蔓_Mask<i class="icon_approve"></i></h3> <p class="fromWB">7月18日 23:51 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/26.png"/><div class="Vbo"> <h3>安娜有话说<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 02:11 来自 微博weibo.com</p> <p class="weiBoText">外星人我没看错吧？召唤队友，要老手犀利的，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/27.png"/><div class="Vbo"> <h3>放下小鱼干<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 05:33 来自 微博weibo.com</p> <p class="weiBoText">召唤队友，页面内有联系方式，犀利的来， 7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/28.png"/><div class="Vbo"> <h3>黄泉彼岸未可知<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 07:42 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/29.png"/><div class="Vbo"> <h3>蔓越莓蛋糕糕<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 09:21 来自 微博weibo.com</p> <p class="weiBoText">人傻钱多，求队友！队友要犀利，只要你敢带我打世界boss，其他都是小事。</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/30.png"/><div class="Vbo"> <h3>花开花落终不见<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 09:45 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/31.png"/><div class="Vbo"> <h3>风满楼_May<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 11:45 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/32.png"/><div class="Vbo"> <h3>路过遇见转身<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 13:04 来自 微博weibo.com</p> <p class="weiBoText">奖品很好，但是我穷，来个有钱的队友，我带你打boss啊！十年老玩家，无所不知的全能选手，一开组，群内私聊。</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/33.png"/><div class="Vbo"> <h3>简单的生活吼吼<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 13:47 来自 微博weibo.com</p> <p class="weiBoText">十年问道老玩家，犀利选手，回归求队友，已经开组，群里联系。</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/34.png"/><div class="Vbo"> <h3>淺笑如歌<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 13:56 来自 微博weibo.com</p> <p class="weiBoText">别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/35.png"/><div class="Vbo"> <h3>暗香沁心</h3> <p class="fromWB">7月19日 14:09 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/36.png"/><div class="Vbo"> <h3>学会穿白衬衫<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 14:29 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？ </p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/37.png"/><div class="Vbo"> <h3>梅林_Malcolm Merlyn<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 14:56 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/38.png"/><div class="Vbo"> <h3>Dean又活了<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 15:10 来自 微博weibo.com</p> <p class="weiBoText">十年问道老玩家，犀利选手，回归求队友，已经开组，群里联系。</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/39.png"/><div class="Vbo"> <h3>凡阿姨Fay<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 16:37 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/40.png"/><div class="Vbo"> <h3>听说你有翅膀</h3> <p class="fromWB">7月19日 17:26 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/41.png"/><div class="Vbo"> <h3>不想说话想静静<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 18:21 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/42.png"/><div class="Vbo"> <h3>微風甜甜<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 18:47 来自 微博weibo.com</p> <p class="weiBoText">小白求带，奖励你们分，就像有人带我打。我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/43.png"/><div class="Vbo"> <h3>青青子衿心悠悠<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 19:07 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/44.png"/><div class="Vbo"> <h3>高冷的水淼<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 19:24 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/45.png"/><div class="Vbo"> <h3>叫我__蔓薇 <i class="icon_approve"></i></h3> <p class="fromWB">7月19日 19:35 来自 微博weibo.com</p> <p class="weiBoText">召唤队友，队伍已开，页面内有联系方式，犀利的来，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/46.png"/><div class="Vbo"> <h3>嗨我一定见过你<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 19:49 来自 微博weibo.com</p> <p class="weiBoText">队伍已开，冲级快，会搞装备的来，已有靠谱队友一名，保证老玩家，有兴趣的，群内私聊。会有各种问题考你的，准备装老手的考虑好。</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/47.png"/><div class="Vbo"> <h3>会读书_87157<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 20:14 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/48.png"/><div class="Vbo"> <h3>煮酒论颓废<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 20:25 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/49.png"/><div class="Vbo"> <h3>鲛人泣成珠</h3> <p class="fromWB">7月19日 21:36 来自 微博weibo.com</p> <p class="weiBoText">我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约！</p> </div>  </li>
+				<li><img src="http://static.cn114.cn/action/challenger/images/titles/50.png"/><div class="Vbo"> <h3>江南有故事_Norah<i class="icon_approve"></i></h3> <p class="fromWB">7月19日 22:21 来自 微博weibo.com</p> <p class="weiBoText">准备参加活动，没时间多开，找个队伍，要求升级够快，会搞准备，丑拒，就这样~~</p> </div>  </li>
+                
+                
+              </ul>
+            </div>
+          </div>
+          <!--滚动结束-->
+        </div>
+      </div>
+      <a href="#" id="joinTeam"></a>
+      <div class="teamList">
+        <ul class="js_teamList">
+        </ul>
+         <!-- 分页 -->
+            <div class="row dataTables_wrapper pageCut">
+                <footer class="footer bg-white b-t">
+                    <div class="row dataTables_wrapper">
+                        <div class="col-sm-6">
+                            <div id="DataTables_Table_0_info" class="dataTables_info"></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers"></div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!--分页 -->
+      </div>
+      <div class="rulesBox">
+        <div class="rules">
+          <h3>活动规则</h3>
+          <p><span>1</span>参与活动的玩家需提前在活动页面报名，否则不计入活动，不给于奖励。</p>
+          <p><span>2</span>只有新服“二〇一六”的玩家可以参与此次活动。</p>
+          <p><span>3</span>从100级“四象封印”开始，才给予报名玩家对应的挑战等级奖励。评奖时，按照游戏内完成挑战的队伍给予评奖，队伍中的全体成员必须是报名玩家，才视为有效挑战，给予奖励。</p>
+          <p><span>4</span>所有“四象封印”挑战活动，必须在该服玩家等级人数达标，以及封印自动解封前，通过挑战，才给予奖励，否则该等级的奖励不予发放。</p>
+          <p><span>5</span>挑战队伍等级低于当前“四象封印”10级的队伍，可以获得3倍奖励；例如：等级为90级的队伍，挑战100级“四象封印”，以此类推。</p>
+          <p><span>6</span>获得“挑战实力奖”的队伍不再获得对应的“挑战等级奖”。</p>
+          <p><span>7</span>活动的最终解释权归光宇游戏所有。</p>
+        </div>
+        <table class="tbl_reward">
+      	<tr>
+      		<td rowspan="2">等级</td>
+      		<td colspan="2">挑战等级奖</td>
+      		<td colspan="2">挑战实力奖</td>
+      	</tr>
+      	<tr>		
+      		<td>点卡</td>
+      		<td>实物奖励</td>
+      		<td>点卡</td>
+      		<td>实物奖励</td>
+      	</tr>
+      	<tr>
+      		<td>100级</td>		
+      		<td>1500元</td>
+      		<td>——</td>
+      		<td>4500元</td>
+      		<td>——</td>
+      	</tr>
+      	<tr>
+      		<td>110级</td>		
+      		<td>2100元</td>
+      		<td>——</td>
+      		<td>6300元</td>
+      		<td>——</td>
+      	</tr>
+      	<tr>
+      		<td>120级</td>		
+      		<td>3000元</td>
+      		<td>雷蛇鼠标</td>
+      		<td>9000元</td>
+      		<td>小米5</td>
+      	</tr>
+      	<tr>
+      		<td>130级</td>		
+      		<td>6000元</td>
+      		<td>雷蛇键盘</td>
+      		<td>18000元</td>
+      		<td>iPad Air 2</td>
+      	</tr>
+      	<tr>
+      		<td>140级</td>		
+      		<td>10000元</td>
+      		<td>iPhone6s Plus</td>
+      		<td>30000元</td>
+      		<td>外星人笔记本</td>
+      	</tr>
+      </table>
+      </div>
+    </div>
+    <div class="temp"></div>
+    <div class="aletBox_2">
+      <div class="alertContent_2">
+        <h3>队伍名称</h3>
+        <div class="contentP">
+          <p>队长：<span id="js_duiZhang">xxxxx</span></p>
+          <p>成员：<span id="js_teamPeoName">111</span></p>
+          <p>目标：<span id="js_mubiao">你猜猜</span></p>
+          <p>宣言：<span id="js_xuanyan">我哦对你得</span></p>
+        </div>
+        <div class="alertBtnBox_2">
+          <p><a class="morePeople"></a><a class="js_starJoin"></a></p>
+        </div>
+      </div>
+      <div class="closeBox"><p><a class="close"></a></p></div>
+    </div>
+    <div class="mask"></div>
+
+    <!-- 社区公用底部 -->
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+ </div>
+
+     #parse("challenger/challengerLogin.vm")
+
+   <div class="maskPop"></div>
+   <script>
+      $(function(){
+        $(".js_teamList").ajaxPage({
+          url: "/challenger/teamData",//获取详细信息接口
+          pageObj: $("#DataTables_Table_0_paginate"),
+          pageIndex: 1,//默认起始页为第一页
+          pageSize: 12,//一页12个
+          curPageCls: "paginate_active",
+          pageInfo: {
+                  obj: $("#DataTables_Table_0_info"),
+                  content: ""
+                },
+                paramObj: {},
+                dataFn:function(data,$this){
+                  var dataHtml = "",dCont = data.data;
+                  if(dCont && dCont.length && dCont[0]){
+                    for(var i = 0; i < dCont.length; i++){
+                    	var a = wordBreak(dCont[i].teamMember);
+                    	var b = wordBreak(dCont[i].target);
+                    	var c = wordBreak(dCont[i].declaration);
+                      dataHtml += '' +
+                      '<li>' + 
+                        '<div class = "teamBox">' + 
+                          '<div class = "teamBoxTit">' + 
+                            '<div class = "teamName">' + 
+                              '<h3 title="'+dCont[i].teamName+'">' + dCont[i].teamName + '</h3>' +
+                            '</div>' + 
+                            '<div class = "titMore">' + 
+                              '<a href="/challenger/teamDetails/' + dCont[i].code + '" class = "more" code="' + dCont[i].code + '">更多&gt;</a>' +
+                            '</div>' + 
+                          '</div>' + 
+                          '<div class = "teamMsg">' + 
+                            '<p><lable>队长：</lable><span>' + dCont[i].roleName + '</span></p>' + 
+                            '<p><lable>成员：</lable><span title="' + dCont[i].teamMember + '">' + a + '</span></p>' + 
+                            '<p><lable>目标：</lable><span title="' + dCont[i].target + '">' + b + '</span></p>' +
+                            '<p><lable>宣言：</lable><span title="'+ dCont[i].declaration + '">' + c + '</span></p>' +
+                          '</div>' + 
+                          '<div class = "joinBtn">' + 
+                            '<p><a class="joinInBtn" code="' + dCont[i].code + '"><span>申请加入</span><br>（<i>' + dCont[i].applyCount + '</i>人已申请）</a></p>' + 
+                          '</div>' +
+                        '</div>' +
+                      '</li>'; 
+                    }
+                    $(".js_teamList").html(dataHtml);
+                    return dataHtml;
+                  }else{
+                    $(".js_teamList").empty().html('<p class ="noData">暂无数据，请稍后刷新重试</p>');
+                  }
+                }
+        })
+      })
+      $("#J_listScroll").kxbdMarquee({
+        direction: 'up',
+        newAmount: 4,
+        eventA: 'mouseenter',
+        eventB: 'mouseleave',
+        scrollDelay: 40
+      });
+    </script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/work.js"></script>
+     <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?52b2a813ed2990052dbffe4e463d133e";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</body>
+</html>

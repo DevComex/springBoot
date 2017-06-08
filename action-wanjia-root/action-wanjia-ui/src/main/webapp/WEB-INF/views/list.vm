@@ -1,0 +1,308 @@
+<!doctype html>
+    <meta charset="utf-8" />
+    <title>列表页</title>
+    <meta content="问道玩家天地" name="keywords" />
+    <meta content="问道玩家天地" name="description" />
+    <script type="text/javascript" charset="utf-8">
+		var rc="${rc.contextPath}";
+    </script>
+    <link href="${rc.contextPath}/assets/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="${rc.contextPath}/assets/css/icon.css" rel="stylesheet" type="text/css" />
+    <link href="${rc.contextPath}/assets/css/globle.css" rel="stylesheet" type="text/css" />
+    <link href="${rc.contextPath}/assets/css/cartoon.css" rel="stylesheet" type="text/css" />
+    <link href="${rc.contextPath}/assets/css/JavaIcon.css" rel="stylesheet" />
+    <!--<link href="${rc.contextPath}/assets/css/JavaIcon.css" rel="stylesheet" />-->
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/cartoon.js"></script>
+	<script type="text/javascript" src="${rc.contextPath}/assets/js/list.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/jquery.tools.min.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/custom.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/common.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+    
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/jquery.ajaxpagev1.2.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/listPage.js"></script>
+    <link href="${rc.contextPath}/assets/css/JavaIcon.css" rel="stylesheet" />
+    <!--6.29问道玩家天地添加百度统计代码-->
+    <script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?7eb91b062beda588d30290bb847c40aa";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="head h165">
+        <div class="web_wrap wwd_head">
+            <div class="logo clear">
+                <a class="lg_wd pngbg" href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank" title="问道官网"></a><a class="lg_wanwd pngbg" href="http://wanwd.gyyx.cn/" target="_blank" title="问道玩家天地"></a>
+            </div>
+            <div class="search">
+                <form id="js_SearchForm" action="../Home/Search" method="get" target="_blank">
+                    <div class="search_bg">
+                        <input class="text_w" maxlength="50" name="s_KeyWord" type="text" value="" />
+                        <input class="input_s" type="submit" value="搜索" />
+                    </div>
+                </form>
+            </div>
+            <div class="upload_info">
+                <ul>
+                    <li><a class="upload_ie6" href="http://wanwd.gyyx.cn/user/index" target="_blank"><i class="upload_p"></i>用户中心</a></li>
+                    <li><a class="js_upload" href="#"><i class="upload_i"></i>上传<i class="down"></i></a>
+                        <ul class="upload_ls js_upload_ul" style="display: none;">
+                            <li class="up"><a href="#"><i class="pngbg"></i>上&nbsp;传</a> </li>
+                            <li class="gj"><a href="http://wanwd.gyyx.cn/article/upload" target="_blank"><i class="pngbg"></i>上传稿件</a> </li>
+                            <li class="pic"><a href="http://wanwd.gyyx.cn/Picture/Upload" target="_blank"><i class="pngbg"></i>上传图片</a> </li>
+                            <li class="video"><a href="http://wanwd.gyyx.cn/Video/Upload" target="_blank"><i class="pngbg"></i>上传视频</a> </li>
+                            <li class="jl"><a href="http://hd.gyyx.cn/P/WDReporter/wd140214.html" target="_blank"><i class="pngbg"></i>投稿奖励</a> </li>
+                            <li class="cartoon"><a target="_blank" href="http://wanwdv2.gyyx.cn/upload"><i class="pngbg"></i>上传漫画</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav_wrap">
+            <div class="web_wrap">
+                <ul class="nav clear">
+                    <li alt="1" class="icon1"><a href="http://wanwd.gyyx.cn" target="_blank"><i class="pngbg"></i>首页</a> </li>
+                    <li alt="2" class="icon2"><a href="http://wanwd.gyyx.cn/articlelist/Index" target="_blank"><i class="pngbg"></i>图文驿站</a> </li>
+                    <li alt="3" class="icon3"><a href="http://wanwd.gyyx.cn/Picture/Index" target="_blank"><i class="pngbg"></i>秀图专区</a> </li>
+                    <li alt="4" class="icon4"><a href="http://wanwd.gyyx.cn/Video/Index" target="_blank"><i class="pngbg"></i>火爆视频</a> </li>
+                    <li class="icon5 on1" alt="5">
+                        <a target="_blank" href="http://wanwdv2.gyyx.cn/home"><i class="pngbg" style="width:23px;"></i>漫画专区</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="padding-top: 10px;">
+    </div>
+    <!-- end -->
+    <!-- main -->
+    <!--图-->
+    <div class="focus_pic" style="margin-top: -23px;">
+        <div class="web_wrap focus_wrap" style="width:100%;">
+            <div class="scrollablebody" style="width: 1343px;">
+                <div class="scrollableitems">
+                        <div class="current" style="display: block;">
+                            <a target="_blank" href="http://wd.gyyx.cn/huodong/10zn/10qd/index.html" style="display: block; height: 308px; width: 1343px; background: url(http://img.gyyx.cn/wd1/M00/03/04/Cg8RA1SiYgOAKWchAAI29jFBpJ8375.jpg) 50% 0% no-repeat;">
+                            
+                            </a>
+                        </div>
+                </div>
+            </div>
+            <div class="focus_pre prev" style="display: none;"><a class="pngbg"></a></div><!--<div class="focus_pre on1"><a href="#"></a></div>-->
+            <div class="focus_next next" style="display: none;"><a class="pngbg"></a></div><!--<div class="focus_next"><a href="#"></a></div>-->
+        </div>
+    </div>
+    <!--返回顶部-->
+	<img class="js_topBtn" src="${rc.contextPath}/assets/img/top.png" style="width: 40px;margin-right: 5%;border: 1px solid #ddd;margin-bottom: 35%;position: fixed;top: 70%;left: 90%;">
+	
+    <div class="web_wrap">
+        <div id="divFileProgressContainer"></div>
+        <div class="wd_con">
+    	    <div class="box_area con_l">  
+                <div class="cartoonList_right">	
+                    <div class="cartoomTitle" data-type="0" data-code="0">
+                        <h2>漫画列表</h2>
+                        <ul class="js_listActive">
+                            <!--<li class="fist_li"><a href="javascript:;" class="active"  data-code="0">默认</a><span>|</span></li>
+                            <li style="width:80px;"><a href="javascript:;" data-code="">浪漫道图</a><span>|</span></li>
+                            <li><a href="javascript:;" data-code="">热血</a><span>|</span></li>
+                            <li><a href="javascript:;" data-code="">自传</a><span>|</span></li>
+                            <li><a href="javascript:;" data-code="">搞笑</a><span>|</span></li>
+                            <li><a href="javascript:;" data-code="">恐怖</a><span>|</span></li>
+                            <li><a href="javascript:;" data-code="">感情</a><span>|</span></li>
+                            <li><a href="javascript:;" data-code="">其他</a></li>-->
+                        </ul>
+                        <div class="js_type">
+                            <a href="javascript:;" class="on" data-type="0" order="0" >最新</a>
+                            <a href="javascript:;"  data-type="1">最热</a>
+                        </div>
+                    </div>
+                    <div class="cartoomMain">
+                        <ul id="listCartoomMain">
+                           
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--右侧  start-->
+            <div style="overflow:hidden;">
+	            <!--最新力作  start-->
+	            <div class="box_area con_r">
+	        		<div class="worksTitle">
+	                    <a class="js_cartoonNewest newOn" order="35" data-type="0">最新力作</a>
+	                    <a class="js_cartoonHottest" order="36"  data-type="1">浏览排行榜</a>
+	                </div>
+	                <div class="js_NewestMain">
+	                    <!--<div class="js_Newestdiv">
+	                    	<div class="js_name">
+	                        	<span class="newesNumber">1</span>
+	                        	<a class="js_newesName">据说我是王</a>
+	                        </div>
+	                        <div class="js_brief">
+	                            <a><img src="${rc.contextPath}/assets/img/right.jpg" /></a>
+	                            <span class="js_content">简介：善良可爱的薇薇安来到地下时间-乌托邦开始了武器店老板娘的生活薇薇安来到地下时间-乌托时间-乌托邦开薇薇安来到地下时间-乌托邦开安来到地下时间-乌托邦开间-乌托邦开</span>
+	                        </div>
+	                    </div>-->
+	            	</div>
+	            </div>
+	            <!--最新力作  end-->
+	            
+	            <!--道姐推荐  start-->
+	            <div class="box_area con_bottom">
+	            	<div class="js_recommend">
+	                    <a class="js_end newOnBottom" order="37" data-type="0">道姐推荐<br/>(已完结)</a>
+	                    <a class="js_notOver" order="38" data-type="1">道姐推荐<br/>(未完结)</a>
+	                </div>
+	                <div class="js_recommendMain">
+	                    <div class="js_recommendDiv">
+	                    	<div class="js_recommendName">
+	                        	<span class="recommendNumber">1</span>
+	                        	<a class="js_newName">据说我是王</a>
+	                        </div>
+	                        <div class="js_recommendBrief">
+	                            <a><img src="${rc.contextPath}/assets/img/right.jpg" /></a>
+	                            <span class="js_recommendContent">简介：善良可爱的薇薇安来到地下时间-乌乌托邦开始了武-乌乌托邦开始了武-乌托邦开始了武-乌托邦开</span>
+	                        </div>
+	                    </div>
+	                    <div class="js_recommendDiv">
+	                    	<div class="js_recommendName">
+	                        	<span class="recommendNumber">1</span>
+	                        	<a class="js_newName">据说我是王</a>
+	                        </div>
+	                        <div class="js_recommendBrief">
+	                            <a><img src="${rc.contextPath}/assets/img/right.jpg" /></a>
+	                            <span class="js_recommendContent">简介：善良可爱的薇薇安来到地下时间-乌乌托邦开始了武-乌乌托邦开始了武-乌托邦开始了武-乌托邦开</span>
+	                        </div>
+	                    </div>
+	                    <div class="js_recommendDiv">
+	                    	<div class="js_recommendName">
+	                        	<span class="recommendNumber">1</span>
+	                        	<a class="js_newName">据说我是王</a>
+	                        </div>
+	                        <div class="js_recommendBrief">
+	                            <a><img src="${rc.contextPath}/assets/img/right.jpg" /></a>
+	                            <span class="js_recommendContent">简介：善良可爱的薇薇安来到地下时间-乌乌托邦开始了武-乌乌托邦开始了武-乌托邦开始了武-乌托邦开</span>
+	                        </div>
+	                    </div>
+	                    <div class="js_recommendDiv">
+	                    	<div class="js_recommendName">
+	                        	<span class="recommendNumber">1</span>
+	                        	<a class="js_newName">据说我是王</a>
+	                        </div>
+	                        <div class="js_recommendBrief">
+	                            <a><img src="${rc.contextPath}/assets/img/right.jpg" /></a>
+	                            <span class="js_recommendContent">简介：善良可爱的薇薇安来到地下时间-乌乌托邦开始了武-乌乌托邦开始了武-乌托邦开始了武-乌托邦开</span>
+	                        </div>
+	                    </div>
+	                    <div class="js_recommendDiv">
+	                    	<div class="js_recommendName">
+	                        	<span class="recommendNumber">1</span>
+	                        	<a class="js_newName">据说我是王</a>
+	                        </div>
+	                        <div class="js_recommendBrief">
+	                            <a><img src="${rc.contextPath}/assets/img/right.jpg" /></a>
+	                            <span class="js_recommendContent">简介：善良可爱的薇薇安来到地下时间-乌乌托邦开始了武-乌乌托邦开始了武-乌托邦开始了武-乌托邦开</span>
+	                        </div>
+	                    </div>
+	                    <div class="js_recommendDiv">
+	                    	<div class="js_recommendName">
+	                        	<span class="recommendNumber">1</span>
+	                        	<a class="js_newName">据说我是王</a>
+	                        </div>
+	                        <div class="js_recommendBrief">
+	                            <a><img src="${rc.contextPath}/assets/img/right.jpg" /></a>
+	                            <span class="js_recommendContent">简介：善良可爱的薇薇安来到地下时间-乌乌托邦开始了武-乌乌托邦开始了武-乌托邦开始了武-乌托邦开</span>
+	                        </div>
+	                    </div>
+	                    <div class="js_recommendDiv">
+	                    	<div class="js_recommendName">
+	                        	<span class="recommendNumber">1</span>
+	                        	<a class="js_newName">据说我是王</a>
+	                        </div>
+	                        <div class="js_recommendBrief">
+	                            <a><img src="${rc.contextPath}/assets/img/right.jpg" /></a>
+	                            <span class="js_recommendContent">简介：善良可爱的薇薇安来到地下时间-乌乌托邦开始了武-乌乌托邦开始了武-乌托邦开始了武-乌托邦开</span>
+	                        </div>
+	                    </div>
+	                    <div class="js_recommendDiv">
+	                    	<div class="js_recommendName">
+	                        	<span class="recommendNumber">1</span>
+	                        	<a class="js_newName">据说我是王</a>
+	                        </div>
+	                        <div class="js_recommendBrief">
+	                            <a><img src="${rc.contextPath}/assets/img/right.jpg" /></a>
+	                            <span class="js_recommendContent">简介：善良可爱的薇薇安来到地下时间-乌乌托邦开始了武-乌乌托邦开始了武-乌托邦开始了武-乌托邦开</span>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	            <!--道姐推荐  end-->
+	    	</div>
+	    	<!--右侧  end-->
+        </div> 
+        <!-- 分页 -->
+		<div class="listPage">
+			<footer class="">
+		    	<div class="">
+		            <div class="">
+		            	<div id="DataTables_Table_0_paginate" class=""></div>
+		            </div>
+		        </div>
+		     </footer>
+		 </div>
+		 <!-- 分页 -->
+
+        
+        <!--bottom start-->
+        <div style="margin-top:10px;">
+        	<a class="myCollection">我的收藏</a>
+        	<ul class="js_collection">
+        	
+        		<!--<li>
+	                <a href="javascript:;">
+	                    <img src="${rc.contextPath}/assets/img/img/listImg01.jpg" />
+	                </a>
+	                <div class="collectionListFrame">
+	                    <span class="collectionListName">《漫画名称》漫画名称》漫画名称》漫画名称》漫画名称》</span>
+	                    <span class="collectionListChapter">最新章节：第三章漫画名称》漫画名称》漫画名称》</span>
+	                </div>
+	                <a class="js_read">阅读</a>
+	            </li>-->
+	            
+        	</ul>
+        	  
+        </div>
+        <!--bottom end-->
+        
+        <!-- 分页 -->
+		<div class="page">
+			<footer class="">
+		    	<div class="">
+		            <div class="">
+		            	<div id="DataTables_Table_0_paginate_collection" class=""></div>
+		            </div>
+		        </div>
+		     </footer>
+		 </div>
+		 <!-- 分页 -->
+		 
+    </div> 
+       
+    
+    <!-- end -->
+    <div class="linebot">&nbsp;</div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+    
+
+</body>
+</html>

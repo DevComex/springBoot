@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Layout:luochongfei" />
+    <title>主页</title>
+	
+    <link href="/action-oa/resources/style/projectStyle.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="/action-oa/resources/script/jquery-ui.dialog.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+	<script type="text/javascript" charset="utf-8">
+	function goCheckDiscuss(){
+		window.location.href='goCheckDiscuss';
+	}
+	function goCheckImg(){
+		window.location.href='goCheckImg';
+	}
+	</script>
+    <link href="/action-oa/resources/style/jquery-ui.css" rel="stylesheet" />
+	<!-- **********************每页和尾页的点击事件 start*************************************** -->
+	<script type="text/javascript" charset="utf-8">
+	   //取消审核通过
+	   function canclePassImgI( imgCode ) {
+	   	  /*var selS = document.getElementById("serverID");  
+			var selValueS = selS.options[selS.selectedIndex].value;
+		
+			var selC = document.getElementById("channel");
+			var selValueC = selC.options[selC.selectedIndex].value; */
+		
+			var selSt = document.getElementById("imgStatus");
+			var selValueSt = selSt.options[selSt.selectedIndex].value;
+			
+			var nowpageNew = document.getElementById("nowpageNew").value;
+			
+			$.ajax
+			({
+				type:"POST",
+				url:"${rc.contextPath}/checkImg/cancelImg2/"+imgCode,
+				data: {
+					
+					"imgStatus":selValueSt,
+					"nowpageNew":nowpageNew
+				},
+				success:function( data ) {
+					$("#inner").html(data);
+				}
+			});	
+			
+	   
+	   }
+	   
+	   //弹出式审核
+	   function passImgX(imgCode){
+	   		window.open("${rc.contextPath}/checkImg/startCheck/" + imgCode);
+	   }
+	   //通过审查按钮实现的功能，
+	   function  passImgI ( imgCode ) {
+	 
+	   	/*	var selS = document.getElementById("serverID");  
+			var selValueS = selS.options[selS.selectedIndex].value;
+		
+			var selC = document.getElementById("channel");
+			var selValueC = selC.options[selC.selectedIndex].value; */
+		
+			var selSt = document.getElementById("imgStatus");
+			var selValueSt = selSt.options[selSt.selectedIndex].value;
+			
+			var nowpageNew = document.getElementById("nowpageNew").value;
+			$.ajax
+			({
+				type:"POST",
+				url:"${rc.contextPath}/checkImg/passImg2/"+imgCode,
+				data: {
+					
+					"imgStatus":selValueSt,
+					"nowpageNew":nowpageNew
+				},
+				success:function( data ) {
+					$("#inner").html(data);
+				}
+			});	
+	   }  
+	
+	
+	   //通过页码跳转
+	   function jumpPage( nowPage ) {
+	   /*
+			var selS = document.getElementById("serverID");  
+			var selValueS = selS.options[selS.selectedIndex].value;
+			var selC = document.getElementById("channel");
+			var selValueC = selC.options[selC.selectedIndex].value; */
+			var selSt = document.getElementById("imgStatus");
+			var selValueSt = selSt.options[selSt.selectedIndex].value;
+	   		$.ajax ({
+				type:"POST"
+				,url:"${rc.contextPath}/checkImg/selectImgInfo/" + nowPage
+				,data:{
+						
+					   "imgStatus":selValueSt  
+					 }
+				,success:function( data ) {
+							$("#inner").html(data);
+						}
+			});
+	   }
+	   
+	   function lastPage() {
+	   	/*  var selS = document.getElementById("serverID");  
+			var selValueS = selS.options[selS.selectedIndex].value;
+			var selC = document.getElementById("channel");
+			var selValueC = selC.options[selC.selectedIndex].value; */
+			var selSt = document.getElementById("imgStatus");
+			var selValueSt = selSt.options[selSt.selectedIndex].value;
+	   		
+			var maxPage = document.getElementById("maxPageInfo").value;
+			$.ajax
+			({
+				type:"POST"
+				,url:"${rc.contextPath}/checkImg/selectImgInfo/"+maxPage
+				,data:{
+					   "imgStatus":selValueSt   
+					 }
+				,dataType:"html"
+				,success:function( data ){
+					$("#inner").html(data);
+				}
+			});
+	   }
+	   
+	   function homePage() {
+	   	/*	var selS = document.getElementById("serverID");  
+			var selValueS = selS.options[selS.selectedIndex].value;
+			var selC = document.getElementById("channel");
+			var selValueC = selC.options[selC.selectedIndex].value; */
+			var selSt = document.getElementById("imgStatus");
+			var selValueSt = selSt.options[selSt.selectedIndex].value;
+	   		$.ajax
+			({
+				type:"POST"
+				,url:"${rc.contextPath}/checkImg/selectImgInfo/"+"1"
+				,data:{ 
+					   "imgStatus":selValueSt   
+					 }
+				,dataType:"html"
+				,success:function( data ){
+					$("#inner").html(data);
+				}
+			});
+	   }
+	   
+	   
+	/*   function passAll() {
+	   		var selS = document.getElementById("serverID");  
+			var selValueS = selS.options[selS.selectedIndex].value;
+			var selC = document.getElementById("channel");
+			var selValueC = selC.options[selC.selectedIndex].value;
+			var selSt = document.getElementById("imgStatus");
+			var selValueSt = selSt.options[selSt.selectedIndex].value;
+			var nowpageNew = document.getElementById("nowpageNew").value;
+			var str = document.getElementsByName("passImgBox");
+
+			var length = str.length;
+			var boxValue = "";
+			for( i=0;i<length;i++ ) {
+				if(str[i].checked==true) {
+					boxValue +=str[i].value+",";
+				}
+			}
+	   		if( boxValue=="" ){
+				alert("还没进行选择呢...");
+			}
+			$.ajax
+			({
+				type:"POST"
+				,url:"${rc.contextPath}/checkImg/passAll/"+nowpageNew
+				,data:{ 
+						"serverID":selValueS
+					   ,"channel": selValueC
+					   ,"imgStatus":selValueSt   
+					   ,"boxValue":boxValue
+					 }
+				,dataType:"html"
+				,success:function( data ){
+					$("#inner").html(data);
+				}
+			});
+	   } */
+	   
+	 
+	   
+	  
+	$(document).ready( function(){
+	
+	  
+	
+
+	
+			$(function(){
+				$.ajax
+				({
+					url :  "${rc.contextPath}/checkImg/getServers/" + 3,
+					success : function(vmData) {
+						$("#serverID").html(vmData);
+					}
+				});
+			});
+			
+			
+			$("#channel").change(function(){
+				var serverCode = $(this).children('option:selected').val();
+				$.ajax
+				({
+					url :  "${rc.contextPath}/checkImg/getServers/" + serverCode,
+					success : function(vmData) {
+						$("#serverID").html(vmData);
+					}
+				});
+			});
+	});
+    </script>
+	<!-- **************************每页和尾页的点击事件 end*********************************** -->
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+                        <header class="header bg-white b-b clearfix">
+                            <div class="row m-t-sm"> 
+                            <!-- action="${rc.contextPath}/checkImg/checkImgInfo"顶部标签其中的form表单表示的是通过  服务器名字 大区名字 进行查询图片 如果对于某一个任务特别熟悉还可以通过某一个人物名字进行查询-->
+								<form id="topForm"  method="post">
+									<!-- 通过区和服务器查询规定的信息  -->
+							<!--		<div class="col-sm-2 m-b-xs">
+										<div class="input-group">
+											<select id="channel" name="channel" class="input-sm form-control" style="width: 160px">
+												<option value ="3" selected>双线</option>
+												<option value ="1">网通</option>
+												<option value ="2">电信</option>
+											</select>
+										</div>
+									</div>
+									<div class="col-sm-2 m-b-xs">
+										<div class="input-group">
+											<select id = "serverID" name = "serverID" class="input-sm form-control" style="width: 160px">	 
+											</select>
+										</div>
+									</div>  -->
+									<div class="col-sm-2 m-b-xs">
+										<div class="input-group">
+											<select id="imgStatus" name="imgStatus" class="input-sm form-control" style="width: 160px">
+												<option value="uncheck" selected>未审核</option>
+												<option value="checked">审核通过</option>
+												<option value="checkfail">审核未通过</option>
+											</select>
+										</div>
+									</div>
+									<span class="input-group-btn">
+										<input id="selectBut" name="selectBut" class="btn btn-sm btn-default" type="button" value="查询" />
+									</span>
+								</form>   
+                            </div> 
+                        </header>
+                        <!--顶部标题导航 end-->
+                        <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <div class="m-b-md"> </div>
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" id = "inner">
+								<div class="table-responsive">
+	<table class="table table-striped m-b-none">
+		<form    method="post"   >
+			<thead>
+				<tr>
+					<th width="20">
+						<input type="checkbox">
+					</th>
+					<th>用户ID</th>
+					<th>图片ID</th>
+					<th>图片CODE</th>
+					<th>图片状态</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+    <tbody>										
+           #foreach ( $!{li} in $!{imgInfo} )
+                <tr>
+                    <td>
+                        <input type="checkbox" name="passImgBox" value="${li.imgCode}">
+                    </td>
+                        <td>$li.userCode</td>
+						<td>$li.imgCode</td>
+                        <!--<td><img src="$li.tempUrl" alt="天下第一宠" height="300" width="200" /></td>-->
+						<td>$li.imgFeature</td>
+                        <td>$li.imgStatus</td>
+                        <td>
+						#if ($li.imgStatus.equals("checked"))
+							<a class="btn btn-xs btn-info js_editRole" data-toggle="tooltip" data-title="取消通过" style="height:22px;width:60px"  title="" onclick="canclePassImgI('${li.imgCode}')" >取消审核</a>
+						#elseif ($li.imgStatus.equals("uncheck"))
+                            <a class="btn btn-xs btn-info js_editRole" data-toggle="tooltip" data-title="通过审核" style="height:22px;width:40px"  title="" onclick="passImgX('${li.imgCode}')" >审核</a>
+                        #else
+                            <a class="btn btn-xs btn-info js_editRole" data-toggle="tooltip" data-title="通过审核" style="height:22px;width:40px"  title="" onclick="passImgX('${li.imgCode}')" >审核</a>
+                        #end
+						</td>
+                </tr>
+		   #end
+		   <!--<input  id="passAll"  name="passAll" type="button" value="提交全部" class="btn btn-s-md btn-info btn-rounded" onclick="passAll()">-->
+    </tbody>
+        </form>
+	</table>
+	<input type="hidden" id="sumInfoNum" name="sumInfoNum" value="${sumInfoNum}">
+	<input type="hidden" id="maxPage" name="maxPage" value="${maxPage}">
+	<input type="hidden" id="nowPage" name="nowPage" value="${nowPage}">
+</div>
+<div class="row dataTables_wrapper">
+	<div class="col-sm-6">
+		<div id="maxPage" class="dataTables_info">共$!{sumInfoNum}条</div>
+			<input type="hidden" id="maxPageInfo" name="maxPageInfo" value="$!{maxPage}"/>
+            <input type="hidden" id="nowpageNew" name="nowPageNew" value="${nowPage}">
+		</div>
+		<!--<div class="col-sm-6">-->
+		<div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers">
+			<a id="DataTables_Table_0_first" class="first paginate_button paginate_button_disabled" tabindex="0" onclick="homePage()" >首页</a>
+			#foreach( ${lip} in ${pageNum} )
+				<a  id="nowPageNum" name="nowPageNum"  class="paginate_button" tabindex="0" onclick="jumpPage('${lip}')">${lip}</a>
+			#end
+			<a id="imgLastPage" name="imgLastPage" class="last paginate_button" tabindex="0" onclick="lastPage()" >末页</a>									
+		</div>
+	</div>								
+</div>
+
+
+							</section>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+						<!-- 页脚内容begin-->
+						<!--<footer class="footer bg-white b-t">
+						</footer> -->
+						<!-- 页脚内容end-->
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+
+    <!--添加网络组件弹层 begin-->
+    <div id="addPop">
+        <div class="row">
+            <div class="col-sm-3 text-right m-t-xs">所属项目集</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">所属项目</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">网络组件名称</div>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">说明</div>
+            <div class="col-sm-8">
+                <textarea cols="30" rows="2" class="form-control"></textarea>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+    </div>
+    <!--添加网络组件弹层 begin-->
+
+    <!--编辑网络组件弹层 begin-->
+    <div id="editPop">
+        <div class="row">
+            <div class="col-sm-3 text-right m-t-xs">所属项目集</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">所属项目</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">网络组件名称</div>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">说明</div>
+            <div class="col-sm-8">
+                <textarea cols="30" rows="2" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+    <!--编辑网络组件弹层 end-->
+
+    <script>
+        $(function () {
+            //准备添加网络组件弹层
+            $("#addPop").dialog({
+                //标题【必须，否则为空】
+                title: "添加一个网络组件",
+                autoOpen: false,
+                width: 550,
+                modal: true,
+                btnWrapTextAlign: "right",
+                show: {
+                    effect: "drop",
+                    distance: 300,
+                    direction: "up",
+                    duration: 300
+                },
+                hide: {
+                    effect: "drop",
+                    distance: 100,
+                    direction: "up",
+                    duration: 200
+
+                },
+                buttons: [
+                    {
+                        text: "取消",
+                        click: function () {
+                            $(this).dialog("close");
+                        },
+                        btnCls: "btn btn-default"
+                    },
+                    {
+                        text: "确认",
+                        click: function () {
+                            alert("提交成功！");
+                        },
+                        btnCls: "btn-info btn-s-md"
+                    }
+                ]
+            });
+
+            //准备编辑网络组件弹层
+            $("#editPop").dialog({
+                //标题【必须，否则为空】
+                title: "编辑网络组件",
+                autoOpen: false,
+                width: 550,
+                modal: true,
+                btnWrapTextAlign: "right",
+                show: {
+                    effect: "drop",
+                    distance: 300,
+                    direction: "up",
+                    duration: 300
+                },
+                hide: {
+                    effect: "drop",
+                    distance: 100,
+                    direction: "up",
+                    duration: 200
+
+                },
+                buttons: [
+                    {
+                        text: "取消",
+                        click: function () {
+                            $(this).dialog("close");
+                        },
+                        btnCls: "btn btn-default"
+                    },
+                    {
+                        text: "确认",
+                        click: function () {
+                            alert("提交成功！");
+                        },
+                        btnCls: "btn-info btn-s-md"
+                    }
+                ]
+            });
+
+            //点击开启添加网络组件弹层
+            $("#btn").click(function (event) {
+                $("#addPop").dialog("open");
+                event.preventDefault();
+            });
+
+            //点击开启编辑网络组件弹层
+            $(".js_editNet").click(function (event) {
+                $("#editPop").dialog("open");
+                event.preventDefault();
+            });
+
+        });
+		$('#selectBut').click(function(){
+			$.ajax 
+			({
+				type:"POST",
+				url:"${rc.contextPath}/checkImg/selectImgInfo/"+"1",
+				data:$('#topForm').serialize(),
+				success: function(data) {
+                   $("#inner").html(data);
+                }
+			});
+		});
+    </script>
+
+</body>
+</html>

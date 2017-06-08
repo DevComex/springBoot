@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.cadet.ICircle">
+
+<resultMap id="CircleBeanMap" type="CircleBean">
+
+		<result property="code" column="code" />
+		<result property="year" column="circle_year" />
+		<result property="month" column="circle_month" />
+		<result property="week" column="circle_week" />
+		<result property="start" column="circle_start" />
+		<result property="end" column="circle_end" />
+		<result property="isNull" column="circle_isnull" />
+	</resultMap>
+
+<!-- select circle by year -->
+<select id="selectCircleByYear" resultMap="CircleBeanMap" resultType="java.util.List" >
+select code,circle_year,circle_month,circle_week,circle_start,circle_end,circle_isnull
+from
+cadet_circle_tb
+where
+circle_year=#{year}
+
+</select>
+<!-- update start time by code -->
+<update id="updateStartTimeByCode">
+update cadet_circle_tb
+set
+circle_start=#{time}
+where
+code=#{code}
+
+</update>
+<!-- update end time by code  -->
+<update id="updateEndTimeByCode">
+update cadet_circle_tb
+set
+circle_end=#{time}
+where
+code=#{code}
+</update>
+<!-- update isnull by code  -->
+<update id="updateIsNull">
+update cadet_circle_tb
+set
+circle_isnull=#{isNull}
+where
+code=#{code}
+</update>
+
+	<select id="getCircleByCode" parameterType="Integer" resultMap="CircleBeanMap">
+		select * from cadet_circle_tb
+		where code = #{code}
+	</select>
+	<select id="getCirclesInYearAndMonth" resultMap="CircleBeanMap" resultType="java.util.List">
+		select * from cadet_circle_tb
+		where circle_year = #{year}
+		and circle_month = #{month}
+	</select>
+	
+	<insert id="insertCircle">
+	insert into cadet_circle_tb
+	(circle_year,circle_month,circle_week,circle_start,circle_end,circle_isnull)
+	values
+	(#{year},#{month},#{week},#{start},#{end},#{isNull})
+	
+	
+	</insert>
+	
+	<select id="getCirclesInYearNotNull" resultMap="CircleBeanMap" resultType="java.util.List">
+		select * from cadet_circle_tb
+		where circle_year between #{year}-2 and #{year}
+		and circle_isnull= 'no'
+	</select>
+	<select id="getCurrentCircleBean" resultMap="CircleBeanMap">
+		select top 1 * from cadet_circle_tb where GETDATE() >= circle_start   and circle_end >= GETDATE()
+	</select>
+</mapper>

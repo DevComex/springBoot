@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.wdrankinglist2017.DeclarationBeanMapper">
+	<resultMap id="DeclarationMap"
+		type="cn.gyyx.action.beans.wdrankinglist2017.DeclarationBean">
+		<id column="code" property="code" />
+		<result column="user_id" property="userId" />
+		<result column="open_id" property="openId" />
+		<result column="account" property="account" />
+		<result column="role_name" property="roleName" />
+		<result column="avatar" property="avatar" />
+		<result column="declaration" property="declaration" />
+		<result column="wx_nick" property="wxNick" />
+		<result column="hobby" property="hobby" />
+		<result column="grade" property="grade" />
+		<result column="element" property="element" />
+		<result column="daohang" property="daohang" />
+		<result column="status" property="status" />
+		<result column="create_time" property="createTime" />
+		<result column="verify_time" property="verifyTime" />
+		<result column="verify_admin" property="verifyAdmin" />
+		<result column="rank" property="rank" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		code, user_id, account, role_name, avatar,
+		declaration,
+		wx_nick,
+		hobby, grade, element, daohang, status
+	</sql>
+	<!-- 添加宣言 -->
+	<insert id="addDeclaration"
+		parameterType="cn.gyyx.action.beans.wdrankinglist2017.DeclarationBean">
+		insert into wdrankinglist_declaration_tb
+		(user_id,open_id,account,role_name,avatar,declaration,wx_nick,hobby,element,status,create_time)
+		values
+		(#{userId},#{openId},#{account},#{roleName},#{avatar},#{declaration},#{wxNick},#{hobby},#{element},#{status},#{createTime})
+	</insert>
+	<!-- 根据openId查询宣言 -->
+	<select id="getDeclarationByOpenId" parameterType="string"
+		resultMap="DeclarationMap">
+		select
+		<include refid="Base_Column_List" />
+		from wdrankinglist_declaration_tb
+		where open_id = #{openId}
+	</select>
+
+	<!-- OA后台-根据code查询宣言 -->
+	<select id="getDeclarationByCode" parameterType="int" resultMap="DeclarationMap">
+		select * from wdrankinglist_declaration_tb
+		where code = #{code}
+	</select>
+
+	<!-- OA后台-查询宣言列表总数 -->
+	<select id="getDeclarationCount" resultType="java.lang.Integer">
+		select count(*)
+		from
+		wdrankinglist_declaration_tb
+		where 1=1 and (account
+		LIKE '%${key}%' OR wx_nick LIKE '%${key}%')
+		<if test="beginTime!= null and beginTime!= '' ">
+            <![CDATA[  and create_time >=  #{beginTime} ]]>
+		</if>
+		<if test="endTime!= null and endTime!= '' ">
+            <![CDATA[ and create_time <=  #{endTime} ]]>
+		</if>
+		<if test="status!= null and status!= '' ">
+            <![CDATA[ and status =  #{status} ]]>
+		</if>
+	</select>
+
+	<!-- OA后台-查询宣言列表 -->
+	<select id="getDeclarationList" resultMap="DeclarationMap">
+		select top 10 *, a.row_num
+		from(
+		SELECT ROW_NUMBER() OVER ( ORDER BY
+		create_time DESC ) AS row_num ,
+		*
+		FROM wdrankinglist_declaration_tb
+		where 1=1 and (account
+		LIKE '%${key}%' OR wx_nick LIKE
+		'%${key}%')
+
+		<if test="beginTime!= null and beginTime!= '' ">
+                    <![CDATA[ and create_time >=  #{beginTime} ]]>
+		</if>
+		<if test="endTime!= null and endTime!= '' ">
+                    <![CDATA[ and create_time <=  #{endTime} ]]>
+		</if>
+		<if test="status!= null and status!= '' ">
+            <![CDATA[ and status =  #{status} ]]>
+		</if>
+		) a
+		where
+		a.row_num > 10 * (#{pageNo} -1)
+	</select>
+
+	<!-- OA后台-宣言审核 -->
+	<update id="verifyDeclaration">
+		UPDATE wdrankinglist_declaration_tb SET
+		status=#{status},verify_time=#{verifyTime},verify_admin=#{verifyAdmin}
+		WHERE code=#{code}
+	</update>
+
+	<!-- 前台排行页获取宣言数量 -->
+	<select id="getDeclarationsPageCount" resultType="int">
+		select COUNT(*)
+		from wdrankinglist_declaration_tb where status = 1
+		<if test="key != null and key != '' " >
+		and (wx_nick LIKE '%${key}%' OR account LIKE '%${key}%' OR role_name LIKE '%${key}%')
+		</if>
+	</select>
+
+	<!-- 获取宣言列表 -->
+	<select id="getDeclarations" resultMap="DeclarationMap">
+		select * from
+		(select code
+		,[element]
+		,[hobby]
+		, open_id
+		,[declaration]
+		,[avatar]
+		,[wx_nick]
+		,ISNULL([role_name],'无') AS [role_name]
+		,[grade]
+		,[daohang]
+		,[status],
+		ROW_NUMBER() OVER (ORDER BY ${orderBy}) as rank from
+		wdrankinglist_declaration_tb where status = 1 
+		<if test="key != null and key != '' " >
+		and (wx_nick LIKE '%${key}%' OR account LIKE '%${key}%' OR role_name LIKE '%${key}%')
+		</if>
+		) as t where t.rank between ((${pageNumber} - 1) *
+		${pageSize} + 1) and
+		(${pageNumber} * ${pageSize})
+	</select>
+
+	<!-- 更新宣言 -->
+	<update id="updateDeclaration">
+		update
+		wdrankinglist_declaration_tb
+		set declaration = #{declaration},status=#{status}
+		where account =
+		#{account}
+	</update>
+
+</mapper>

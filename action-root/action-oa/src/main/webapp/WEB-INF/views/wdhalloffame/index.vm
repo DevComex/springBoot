@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>名人堂后台</title>
+      <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdhalloffame/css/icon.css">
+      <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdhalloffame/css/easyui.css"> 
+      <script type="text/javascript" src="http://static.cn114.cn/action/wdhalloffame/js/jquery.min.js"></script>
+      <script type="text/javascript" src="http://static.cn114.cn/action/wdhalloffame/js/jquery.easyui.min.js"></script>
+      <script type="text/javascript" src="http://static.cn114.cn/action/wdhalloffame/js/jquery.form.js"></script>
+       <script  type="text/javascript">
+		    var rc = "${rc.contextPath}";
+	    </script>
+	      <script type="text/javascript">  
+            //ajax 方式上传文件操作  
+             $(document).ready(function(){  
+                $('#btn').click(function(){  
+                    if(checkData()){  
+                        $('#form1').form('submit', {    
+                            url:rc+"/halloffame/ajaxUpload.do",           
+                            dataType:"json",
+					        success:function(d){	
+					        	if (typeof(d) == 'string') d= eval('(' + d + ')');		           
+					                if(d.isSuccess){
+					                    alert("成功"); 
+					                }else{
+					                    alert(d.message);
+					                }
+					            }
+                        })
+                    }  
+                });  
+             });  
+               
+             //JS校验form表单信息  
+             function checkData(){  
+                var fileDir = $("#upfile").val();  
+                var suffix = fileDir.substr(fileDir.lastIndexOf("."));  
+                if("" == fileDir){  
+                    alert("选择需要导入的Excel文件！");  
+                    return false;  
+                }  
+                if(".xls" != suffix){  
+                    alert("选择Excel格式的文件导入！");  
+                    return false;  
+                }  
+                return true;  
+             }  
+    </script>
+</head> 
+
+<body>
+	
+	<div>
+	
+	<table>
+		<tr>
+			<td>开始日期:</td>
+			<td>
+				<input id='ndata1' class="easyui-datetimebox" value="10/11/2012 00:00:01" style="width:200px">
+			</td>
+			<td>结束日期:</td>
+			<td>
+				<input id='ndata2' class="easyui-datetimebox" value="10/11/2012 23:59:59" style="width:200px">
+			</td>
+			<td><a href="#" class="easyui-linkbutton" iconCls="icon-ok" style="width:100;height:32px" onclick="calendar();">查询</a></td>
+			<td>QQ号:</td>
+			<td><input id="SearchOne" class="easyui-searchbox" data-options="prompt:'Please Input QQ',searcher:doSearch" style="width:150px"></input></td>
+			<td>账号:</td>
+			<td><input id="SearchTwo" class="easyui-searchbox" data-options="prompt:'Please Input 账号',searcher:doSearch" style="width:150px"></input></td>
+		</tr>
+		
+	</table>
+    <form method="POST" id="form1" enctype="multipart/form-data" >  
+        <table>  
+         <tr>  
+            <td>上传文件: </td>  
+            <td> <input id="upfile" type="file" name="upfile"></td>  
+            <td><input type="button" value="提交" id="btn" name="btn" ></td>  
+         <td>[提交excel表单请使用2003版本 ]</td> 
+         </tr>  
+        </table>    
+    </form>  
+	
+	</div>
+<div>
+
+		<table id="dg" title="名人堂" class="easyui-datagrid" title="Row Editing in DataGrid" style="width:1130px;height:720px"
+			data-options="
+				iconCls: 'icon-edit',			
+				toolbar: '#tb',	
+				onClickRow: onClickRow
+			">
+			
+		<thead>
+			<tr>
+				<th data-options="field:'userName',width:80">用户名</th>
+				<th data-options="field:'severName',width:100">服务器名</th>
+				<th data-options="field:'roleName',width:80">角色名</th>
+				<th data-options="field:'phoneNo',width:120" >电话号码</th>
+				<th data-options="field:'email',width:120">Email</th>
+				<th data-options="field:'qqNo',width:110" >QQ号</th>
+				<th data-options="field:'createTime',width:150">提交时间</th>
+				<th data-options="field:'isMark',width:80,editor:{type:'checkbox',options:{on:'1',off:'0'}}">标记</th>
+				<th data-options="field:'reMark',width:300,editor:'textbox'">备注</th>
+				<th data-options="field:'code',width:0" style=" overflow: hidden;">code</th>
+				</tr>
+		</thead>
+	</table>
+	
+	<div id="tb" style="height:auto" >
+		<a href="javascript:void(0)" class="easyui-linkbutton"  data-options="iconCls:'icon-save',plain:true" onclick="accept()">确认编辑</a>
+		<a href="javascript:void(0)" class="easyui-linkbutton"  data-options="iconCls:'icon-undo',plain:true" onclick="reject()">退出编辑</a>
+	</div>      
+	<script>
+		function getData(pageNum, pageSize){
+			$.ajax({
+	            type : "get",
+	            url :rc+"/halloffame/selectall",
+	            data:{
+	                pageNum: pageNum,
+	                pageSize: pageSize,
+	            },
+	            dataType:"json",
+	            success:function(d){
+	            if(d.rows==null){
+	            return;
+	            }
+	                if(d.isSuccess){
+	                    $('#dg').datagrid('loadData', {total: d.total,rows: d.rows});
+	                }else{
+	                    alert(d.message);
+	                }
+	            }
+	        });
+		}
+		<!-- 插入标记-->
+		function setIsMark(isMark,codeno){
+			$.ajax({
+	            type : "get",
+	            url :rc+"/halloffame/updateismark",
+	            async: false,
+	            data:{
+	                isMark: isMark,
+	                 codeno:codeno, 
+	            },
+	            dataType:"json",
+	            success:function(d){
+	                if(d.isSuccess){
+	                    $('#dg').datagrid('loadData', {isMark: d.data.isMark});
+	                }else{
+	                    alert(d.message);
+	                }
+	            }
+	        });
+		}
+		<!-- 插入备注-->
+		function setReMark(reMark,codeno){
+			$.ajax({
+	            type : "post",
+	            url :rc+"/halloffame/updateremark",
+	            async: false,
+	            contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+	            data:{
+	                reMark: reMark, 
+	                codeno:codeno,
+	            },
+	            dataType:"json",
+	            success:function(d){
+	                if(d.isSuccess){
+	                    $('#dg').datagrid('loadData', {reMark: d.data.reMark});
+	                }else{
+	                    alert(d.message);
+	                }
+	            }
+	        });
+		}
+		
+		function pagerFilter(data){
+			if (typeof data.length == 'number' && typeof data.splice == 'function'){	// is array
+				data = {
+					total: data.length,
+					rows: data
+				}
+			}
+			var dg = $(this);
+			var opts = dg.datagrid('options');
+			var pager = dg.datagrid('getPager');
+			pager.pagination({
+				onSelectPage:function(pageNum, pageSize){
+					opts.pageNumber = pageNum;
+					opts.pageSize = pageSize;
+					pager.pagination('refresh',{
+						pageNumber:pageNum,
+						pageSize:pageSize
+					});
+					
+					getData(pageNum, pageSize);
+				}
+			});
+		}
+		
+		$(function(){
+			$('#dg').datagrid({
+				rownumbers:true,
+				singleSelect:true,
+				autoRowHeight:false,
+				pagination:true,
+				pageSize:30
+			});
+			$('#dg').datagrid('hideColumn','code')
+			$('#dg').datagrid('getPager').pagination({
+				displayMsg:'当前显示从 [{from}] 到 [{to}] 共[{total}]条记录',   
+			    onSelectPage : function(pPageIndex, pPageSize) {   
+			        //改变opts.pageNumber和opts.pageSize的参数值，用于下次查询传给数据层查询指定页码的数据   
+			        var gridOpts = $('#dg').datagrid('options');   
+			        gridOpts.pageNumber = pPageIndex;   
+			        gridOpts.pageSize = pPageSize;   
+			          
+			        getData(pPageIndex, pPageSize);  
+			    } 
+			});
+			
+			getData(1, 30)
+		});
+	</script>
+	<script type="text/javascript">
+		var editIndex = undefined;
+		function endEditing(){
+			if (editIndex == undefined){return true}
+			if ($('#dg').datagrid('validateRow', editIndex)){
+				var ed = $('#dg').datagrid('getEditor', {index:editIndex,field:'reMark'});
+				var reMark = $(ed.target).combobox('getText');
+				var codeno = $('#dg').datagrid('getData').rows[editIndex].code;
+				$('#dg').datagrid('getRows')[editIndex]['reMark'] = reMark;
+				$('#dg').datagrid('endEdit', editIndex);
+				  
+			   var isMark = $('#dg').datagrid('getData').rows[editIndex].isMark; 
+			   
+			   if(codeno!=0){
+				setIsMark(isMark,codeno);
+				}
+				if(reMark.length>40){
+				return alert("备注的长度不能超过40!");
+				}else{
+				setReMark(reMark,codeno);
+				}
+
+				editIndex = undefined;
+				return true;
+			} else {
+				return false;
+			}
+			
+		}
+		function onClickRow(index){
+			if (editIndex != index){
+				if (endEditing()){
+					$('#dg').datagrid('selectRow', index)
+							.datagrid('beginEdit', index);
+					editIndex = index;
+				} else {
+					$('#dg').datagrid('selectRow', editIndex);
+				}
+			}
+		}
+		
+		function accept(){
+			if (endEditing()){
+				$('#dg').datagrid('acceptChanges');
+			}
+		}
+		function reject(){
+			$('#dg').datagrid('rejectChanges');
+			editIndex = undefined;
+		}
+		
+	</script>
+	<script>
+		function doSearch(value){
+			
+			  if(this.id=="SearchOne"){
+				var qqno=value
+				$.ajax({
+	            type : "get",
+	            url :rc+"/halloffame/selectbyqq",
+	            async: false,
+	            data:{
+	                qqno: qqno, 
+	            },
+	            dataType:"json",
+	             success:function(d){
+	             	 if(d.rows==null){
+	               return;
+	            }
+	                if(d.isSuccess){
+	                  $('#dg').datagrid('loadData', {total: '1',rows: d.rows});
+	                }else{
+	                    alert(d.message);
+	                }
+	            }
+	            });
+				
+				}else{
+				if(this.id=="SearchTwo"){
+				var uid=value
+				$.ajax({
+	            type : "get",
+	            url :rc+"/halloffame/selectbyuid",
+	            async: false,
+	            data:{
+	                uid: uid, 
+	            },
+	            dataType:"json",
+	             success:function(d){
+	             	   if(d.rows==null){
+	                 return;
+	                }
+	                if(d.isSuccess){
+	                   $('#dg').datagrid('loadData', {total: '1',rows: d.rows});
+	                }else{
+	                    alert(d.message);
+	                }
+	            }
+	           });
+				
+			}}
+				
+		}
+	</script>
+	
+	<script>
+		function calendar(){	
+	       var stdate=$('#ndata1').datebox('getValue');
+			var endate=$('#ndata2').datebox('getValue');
+			var boo =dateCompare(stdate,endate);
+			if(boo==false){
+			return alert("开始日期大于结束日期");
+			}
+			if(boo==true){
+			if(stdate!=''&&endate!=''){
+			$.ajax({
+	            type : "get",
+	            url :rc+"/halloffame/selectbydate",
+	            async: false,
+	            data:{
+	                stdate: stdate, 
+	                endate:endate,
+	            },
+	            dataType:"json",
+	            success:function(d){
+	                if(d.isSuccess){
+	                	 if(d.rows==null){
+	                   return;
+	                }
+	                   $('#dg').datagrid('loadData', {total: '1',rows: d.rows});
+	                }else{
+	                    alert(d.message);
+	                }
+	            }
+	              });
+	        }
+      }
+      }
+		
+	</script>
+	
+	<script>
+			function dateCompare(stdate,endate)   
+			{   
+			date1=stdate.replace(/-/g,"/");
+			date2=endate.replace(/-/g,"/");  
+			var stdate = new Date(date1);
+			var endate = new Date(date2); 
+			 		 var sdate= stdate.getTime();
+			 		 var edate= endate.getTime();
+			if(sdate>=edate)    
+			{   
+			return false;   
+			}   
+			else  
+			return true;   		  
+			}
+	</script>
+</body>
+</html>

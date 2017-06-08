@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdnationaldayshare.IWdNationaldayEnrollMapper">
+	<resultMap type="cn.gyyx.action.beans.wdnationalday.WdNationaldayEnrollBean" id="WdNationaldayEnrollBeanMap">
+		<id column="code" property="code" />
+		<result column="user_id" property="userId" />
+		<result column="account" property="account" />
+		<result column="server_id" property="serverId" />
+		<result column="server_name" property="serverName" />
+		<result column="role_id" property="roleId" />
+		<result column="role_name" property="roleName" />
+		<result column="total_score" property="totalScore" />
+		<result column="create_time " property="createTime" />
+		<result column="ip" property="ip" />
+		<result column="open_id" property="openId" />
+		<result column="nick_name" property="nickName" />
+	</resultMap>
+	
+	<insert id="insert" parameterType="cn.gyyx.action.beans.wdnationalday.WdNationaldayEnrollBean"
+		useGeneratedKeys="true" keyProperty="code">
+		insert into action_wdnationalday_enroll_tb (
+		user_id
+		,account
+		,server_id
+		,server_name
+		,role_id
+		,role_name
+		,total_score
+		,create_time
+		,ip
+		,open_id,nick_name)
+		values(
+		#{userId}
+		,#{account}
+		,#{serverId}
+		,#{serverName}
+		,#{roleId}
+		,#{roleName}
+		,#{totalScore}
+		,#{createTime}
+		,#{ip}
+		,#{openId},#{nickName})
+	</insert>
+
+	<update id="increaseScore">
+		update action_wdnationalday_enroll_tb
+		set
+		total_score = total_score + #{increaseScore}
+		where
+		account = #{account}
+	</update>
+
+	<select id="getEnrollInfoByAccount" parameterType="cn.gyyx.action.beans.wdnationalday.WdNationaldayEnrollBean"
+		resultMap="WdNationaldayEnrollBeanMap">
+		select
+		top 1 *
+		from
+		action_wdnationalday_enroll_tb
+		where
+		account = #{account}
+	</select>
+	
+	<select id="getEnrollInfoFromDatabaseByOpenId" parameterType="cn.gyyx.action.beans.wdnationalday.WdNationaldayEnrollBean"
+		resultMap="WdNationaldayEnrollBeanMap">
+		select
+		top 1 *
+		from
+		action_wdnationalday_enroll_tb
+		where
+		open_id = #{openId}
+	</select>
+	
+</mapper>

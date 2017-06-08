@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.IMaterialInfoMapper">
+	<resultMap type="MaterialInfoBean" id="MaterialInfoMap">
+		<id column="code" property="code" />
+		<result column="material_name" property="materialName" />
+		<result column="material_type" property="materialType"/>
+		<result column="material_profile" property="materialProfile"/>
+		<result column="material_picture" property="materialPicture"/>
+		<result column="material_link" property="materialLink"/>
+		<result column="is_show_issuer" property="isShowIssuer"/>
+		<result column="material_cate" property="materialCate" />
+		
+		<!-- 图片  begin  -->
+		<result column="temp_url" property="tempUrl" />
+		<result column="img_feature" property="imgFeature" />
+		<result column="img_width" property="imgWidth" />
+		<result column="img_height" property="imgHeight" />
+		<!-- 图片  end  -->
+		
+		<result column="account" property="account" />
+		<result column="upload_time" property="uploadTime" />
+	</resultMap>
+	<!-- 增加素材信息 -->
+	<insert id="insertMaterialInfo" parameterType="MaterialInfoBean" useGeneratedKeys="true" keyProperty="code">
+		INSERT INTO xuanwuba_material_info_tb
+           (material_name
+           ,material_type
+           ,material_profile
+           ,material_picture
+           ,material_link
+           ,is_show_issuer
+           ,material_cate
+           ,temp_url
+           ,img_feature
+           ,img_width
+           ,img_height)
+     	VALUES
+           (#{materialName}
+           ,#{materialType}
+           ,#{materialProfile}
+           ,#{materialPicture}
+           ,#{materialLink}
+           ,#{isShowIssuer}
+           ,#{materialCate}
+           ,#{tempUrl}
+           ,#{imgFeature}
+           ,#{imgWidth}
+           ,#{imgHeight})
+	</insert>
+	
+	<select id="selectMaterialInfo" parameterType="MaterialInfoBean" resultMap="MaterialInfoMap">
+		select * from xuanwuba_material_info_tb 
+		where code = #{code}	
+	</select>
+	
+	<select id="getMaterialInfoByCode" parameterType="Integer" resultMap="MaterialInfoMap">
+		select a.code,a.material_name,a.material_type,a.material_picture,a.material_link,a.material_profile,a.is_show_issuer,a.material_cate,b.account,b.upload_time from xuanwuba_material_info_tb a left join xuanwuba_material_audit_new_tb b on a.code = b.material_code where b.material_code = #{code}
+	</select>
+</mapper>

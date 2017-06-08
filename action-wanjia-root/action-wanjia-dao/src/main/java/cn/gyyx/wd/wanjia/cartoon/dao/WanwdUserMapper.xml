@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.wd.wanjia.cartoon.dao.WanwdUserMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.wd.wanjia.cartoon.beans.WanwdUser" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_name" property="userName" jdbcType="NVARCHAR" />
+    <result column="net_id" property="netId" jdbcType="INTEGER" />
+    <result column="server_id" property="serverId" jdbcType="INTEGER" />
+    <result column="server_name" property="serverName" jdbcType="NVARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="NVARCHAR" />
+    <result column="level" property="level" jdbcType="INTEGER" />
+    <result column="faction" property="faction" jdbcType="NVARCHAR" />
+    <result column="is_default" property="isDefault" jdbcType="BIT" />
+    <result column="picture" property="picture" jdbcType="NVARCHAR" />
+    <result column="QQ" property="qq" jdbcType="NVARCHAR" />
+    <result column="gender" property="gender" jdbcType="NVARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, user_id, user_name, net_id, server_id, server_name, nick_name, level, faction, 
+    is_default, picture, QQ, gender, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_user_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wanwd_user_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdUser" >
+    insert into wanwd_user_tb (code, user_id, user_name, 
+      net_id, server_id, server_name, 
+      nick_name, level, faction, 
+      is_default, picture, QQ, 
+      gender, update_time)
+    values (#{code,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{userName,jdbcType=NVARCHAR}, 
+      #{netId,jdbcType=INTEGER}, #{serverId,jdbcType=INTEGER}, #{serverName,jdbcType=NVARCHAR}, 
+      #{nickName,jdbcType=NVARCHAR}, #{level,jdbcType=INTEGER}, #{faction,jdbcType=NVARCHAR}, 
+      #{isDefault,jdbcType=BIT}, #{picture,jdbcType=NVARCHAR}, #{qq,jdbcType=NVARCHAR}, 
+      #{gender,jdbcType=NVARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdUser" >
+    insert into wanwd_user_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="netId != null" >
+        net_id,
+      </if>
+      <if test="serverId != null" >
+        server_id,
+      </if>
+      <if test="serverName != null" >
+        server_name,
+      </if>
+      <if test="nickName != null" >
+        nick_name,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="faction != null" >
+        faction,
+      </if>
+      <if test="isDefault != null" >
+        is_default,
+      </if>
+      <if test="picture != null" >
+        picture,
+      </if>
+      <if test="qq != null" >
+        QQ,
+      </if>
+      <if test="gender != null" >
+        gender,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=NVARCHAR},
+      </if>
+      <if test="netId != null" >
+        #{netId,jdbcType=INTEGER},
+      </if>
+      <if test="serverId != null" >
+        #{serverId,jdbcType=INTEGER},
+      </if>
+      <if test="serverName != null" >
+        #{serverName,jdbcType=NVARCHAR},
+      </if>
+      <if test="nickName != null" >
+        #{nickName,jdbcType=NVARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=INTEGER},
+      </if>
+      <if test="faction != null" >
+        #{faction,jdbcType=NVARCHAR},
+      </if>
+      <if test="isDefault != null" >
+        #{isDefault,jdbcType=BIT},
+      </if>
+      <if test="picture != null" >
+        #{picture,jdbcType=NVARCHAR},
+      </if>
+      <if test="qq != null" >
+        #{qq,jdbcType=NVARCHAR},
+      </if>
+      <if test="gender != null" >
+        #{gender,jdbcType=NVARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdUser" >
+    update wanwd_user_tb
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=NVARCHAR},
+      </if>
+      <if test="netId != null" >
+        net_id = #{netId,jdbcType=INTEGER},
+      </if>
+      <if test="serverId != null" >
+        server_id = #{serverId,jdbcType=INTEGER},
+      </if>
+      <if test="serverName != null" >
+        server_name = #{serverName,jdbcType=NVARCHAR},
+      </if>
+      <if test="nickName != null" >
+        nick_name = #{nickName,jdbcType=NVARCHAR},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=INTEGER},
+      </if>
+      <if test="faction != null" >
+        faction = #{faction,jdbcType=NVARCHAR},
+      </if>
+      <if test="isDefault != null" >
+        is_default = #{isDefault,jdbcType=BIT},
+      </if>
+      <if test="picture != null" >
+        picture = #{picture,jdbcType=NVARCHAR},
+      </if>
+      <if test="qq != null" >
+        QQ = #{qq,jdbcType=NVARCHAR},
+      </if>
+      <if test="gender != null" >
+        gender = #{gender,jdbcType=NVARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdUser" >
+    update wanwd_user_tb
+    set user_id = #{userId,jdbcType=INTEGER},
+      user_name = #{userName,jdbcType=NVARCHAR},
+      net_id = #{netId,jdbcType=INTEGER},
+      server_id = #{serverId,jdbcType=INTEGER},
+      server_name = #{serverName,jdbcType=NVARCHAR},
+      nick_name = #{nickName,jdbcType=NVARCHAR},
+      level = #{level,jdbcType=INTEGER},
+      faction = #{faction,jdbcType=NVARCHAR},
+      is_default = #{isDefault,jdbcType=BIT},
+      picture = #{picture,jdbcType=NVARCHAR},
+      QQ = #{qq,jdbcType=NVARCHAR},
+      gender = #{gender,jdbcType=NVARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  
+  <!-- 通过用户userId查询用户信息 -->
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_user_tb
+    where user_id =  #{userId,jdbcType=INTEGER} 
+    order by [level] DESC
+  </select>
+</mapper>

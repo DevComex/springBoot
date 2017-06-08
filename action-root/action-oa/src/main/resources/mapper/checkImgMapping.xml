@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdno1pet.ICheckImgDisc">
+	
+	<resultMap type="ImageBean" id="ImageBeanInfo">
+		<result column="img_code" property="imgCode" />
+		<result column="user_code" property="userCode" />
+		<result column="img_status" property="imgStatus" />
+		<result column="img_type" property="imgType" />
+		<result column="temp_url" property="tempUrl" />
+		<result column="real_url" property="realUrl" />
+		<result column="img_width" property="imgWidth" />
+		<result column="img_height" property="imgHeight" />
+		<result column="img_feature" property="imgFeature" />
+	</resultMap>
+	<!--2. 分页查询10个信息 -->
+	<!-- <select id="checkImgInfo" parameterType="java.util.Map" resultMap="ImageBeanInfo" resultType="java.util.List" statementType="CALLABLE" >
+		{ call pro_wdno1_check_img_page_branch(  
+			#{ img_code, jdbcType=INTEGER,mode=OUT},
+			#{ user_code, jdbcType=INTEGER,mode=OUT},
+			#{ img_status, jdbcType=VARCHAR,mode=OUT},
+			#{ temp_url, jdbcType=VARCHAR,mode=OUT},
+			#{ img_width, jdbcType=INTEGER,mode=OUT},
+			#{ img_height, jdbcType=INTEGER,mode=OUT}
+			#{ nowPage,  jdbcType=INTEGER,mode=IN },
+			#{ petInfoBean.serverID, jdbcType=VARCHAR,mode=IN},
+			#{ petInfoBean.channel, jdbcType=VARCHAR,mode=IN },
+			#{ imgStatusOld, jdbcType=VARCHAR,mode=IN },	
+		) }
+	</select> -->
+	<select id="checkImgInfo" parameterType="java.util.Map" resultMap="ImageBeanInfo" resultType="java.util.List">
+		select 	imga.img_code, imga.user_code, imga.img_status, imga.img_type, imga.temp_url, imga.img_width, imga.img_height ,imga.img_feature
+		from( select pic.img_code, pic.user_code, pic.img_status, pic.img_type, pic.temp_url, pic.img_width, pic.img_height, pic.img_feature,ROW_NUMBER() over( Order by pic.img_code ) as rownum
+			  from  wdno1_game_pet_tb as pet inner join game_pic_tb as pic on pic.img_code=pet.img_code 
+			  where pet.server_code = #{petInfoBean.serverID}   and pet.channel=#{petInfoBean.channel} and pic.img_status=#{imgStatusOld}  ) as imga
+		where rownum between (#{nowPage}-1)*15 and #{nowPage}*15
+	</select> 
+	<!--3. 查询总共有多少信息 -->
+	<select id="checkImgPageNum" parameterType="java.util.Map" resultType="int">
+		select count (pic.img_code)
+		from  wdno1_game_pet_tb as pet inner join game_pic_tb as pic on pic.img_code=pet.img_code 
+		where pet.server_code = #{petInfoBean.serverID}   and pet.channel=#{petInfoBean.channel} and pic.img_status=#{imgStatusOld}
+	</select>
+	<!--4. 通过审核 -->
+	<update id="passImgInfo" parameterType="java.util.Map">
+		update game_pic_tb
+		set real_url = #{realUrl},img_status='checked'
+		where img_code= #{imgCode}
+	</update>
+	<!--5. 通过imgCode查询图片信息 -->
+	<select id="selectImgByImgCode" parameterType="int" resultMap="ImageBeanInfo" resultType="ImageBean">
+		select img_code,user_code,img_status,img_type,temp_url,img_width,img_height,img_feature
+		from game_pic_tb
+		where img_code = #{imgCode}
+	</select>
+	<!--6. 取消通过的审核，设置为审核未通过 -->
+	<update id="cancelPassedImg" parameterType="int">
+		update game_pic_tb
+		set img_status='checkfail' 
+		where img_code= #{imgCode}
+	</update>
+	
+	<!-- 12-23修改 增加通过imgStatus查找图片信息 -->
+	<select id="selectImgInfoSta" parameterType="java.util.Map" resultType="java.util.List" resultMap="ImageBeanInfo">
+		select imga.img_code, imga.user_code, imga.img_status, imga.img_type, imga.temp_url, imga.img_width, imga.img_height ,imga.img_feature
+		from (select img_code, user_code, img_status, img_type, temp_url, img_width, img_height ,img_feature,ROW_NUMBER() over( Order by img_code ) as rownum
+			  from game_pic_tb
+			  where img_code in (select [img_code] from [dbo].[wdno1_game_pet_tb]) and img_status=#{imgStatus}) as imga
+		where rownum between (#{nowPage}-1)*15 and #{nowPage}*15
+	</select>
+	<select id="checkImgPageNum2" parameterType="String" resultType="int">
+		select count (img_code)
+		from  game_pic_tb
+		where img_status=#{imgStatus}
+	</select>
+	
+
+	
+	
+	
+	<!-- <select id="checkImgAll" parameterType="java.util.Map" resultMap="ImageBeanInfo" >
+		select 	img_code, img_status, img_type, temp_url, img_width, img_height 
+		from game_pic_tb
+	</select>
+	
+	<update id="passImgI" parameterType="java.util.Map">
+		update game_pic_tb
+		set real_url = #{realUrl},img_status='checked'
+		where img_code= #{imgCode}
+	</update> -->
+	
+</mapper>

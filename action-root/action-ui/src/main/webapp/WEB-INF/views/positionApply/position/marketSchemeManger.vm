@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+    <title>光宇社招</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/positionApply/css/publicjian01.css"/>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/allstyle01.css" />
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/animate.css" />
+</head>
+<body style="background: #1a74c6;">
+	<div class="warp">
+		<div class="main shichangS" uid="560019863">
+			<h1><a href="${rc.contextPath}/position/index?a=1" class="list">职位列表</a></h1>
+			<div class="btn">
+				<p class="heads btnanimated fadeIn">
+					<img src="http://static.cn114.cn/action/positionApply/img01/swHead.png"/>
+				</p>
+				<!--<a href="${rc.contextPath}/position/positiontype/marketScheme" class="left leftani fadeInRight"></a>-->
+				<a href="${rc.contextPath}/position/positiontype/marketMedium" class="right rightani fadeInLeft"></a>
+			</div>
+			<div class="content contentani fadeIn2">
+				<h2>市场策划主管/专员</h2>
+				<h3>岗位职责</h3>
+				<p>1、制定市场营销全案及执行；</p>
+				<p>2、负责产品市场事件策划、执行；</p>
+				<p>3、负责产品各类市场媒体活动的策划、执行。</p>
+				<h3>任职资格</h3>
+				<p>1、1-3年游戏行业市场策划经验；</p>
+				<p>2、有完整市场事件策划、执行经验者优先；</p>
+				<p>3、较强的文字功底，游戏爱好者。</p>
+			</div>
+			<div class="xsbtn xsani fadeInUpBig">
+				<a href="http://gyyx.m.zhiye.com/JobAd/Info?adid=560019863" class="sq">在线申请</a>
+				<a href="#" class="fx fxz">分享职位</a>
+			</div>
+		</div>
+	</div>
+	<div class="zz">
+		<img src="http://static.cn114.cn/action/positionApply/img01/zz.png" />
+	</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/zepto.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/allstyle01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/gyyx_wxshare.min.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/content01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/fx01.js" ></script>
+<script>
+	$("body").on("swipeLeft",function(){
+		location.href="${rc.contextPath}/position/positiontype/marketMedium";
+	})
+	
+</script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>新世界挑战</title>
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/png.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/common.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/share.js"></script>
+<link href="http://static.cn114.cn/action/challenger/css/reset.css" rel="stylesheet" /> 
+<link href="http://static.cn114.cn/action/challenger/css/popup.css" rel="stylesheet" /> 
+<link href="http://static.cn114.cn/action/challenger/css/index.css" rel="stylesheet" />  <!--首页小导航分享 -->
+<link href="http://static.cn114.cn/action/challenger/css/commonTop.css" rel="stylesheet" />  <!-- 公用head -->
+</head>
+
+<body>
+    <!-- 社区公用头部-->
+      <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+
+    <!-- 活动公用头部-->
+    <div class="js_mask">
+        <ul class="navList">
+            <li><a href="#" class="active">首页</a></li>
+            <li><a href="#">挑战新世界</a></li>
+            <li><a href="#">生死挑战者</a></li>
+        </ul>
+
+    </div>
+    <div class="poplic_top ">
+        <div class="wid1000">
+              <div class="top">
+           <a href="javascript:;" class="logo"></a>
+           <ul class="topNav">
+               <li><a href="http://wd.gyyx.cn/index_wd_v5.htm ">进入官网</a>|</li>
+               <li><a href="">账号注册</a>|</li>
+               <li><a href="http://wd.gyyx.cn/download/index.aspx ">下载中心</a>|</li>
+               <li><a href="http://bbs.gyyx.cn/forum.php?gid=8">游戏论坛</a>|</li>
+               <li class="js-share-btn" data-sharCon="分享内容描述">
+                   <a class="shar_wb" target="_self" href="javascript:void(0)" data-sharename="tqq"></a>
+                   <a class="shar_kj" target="_self" href="javascript:void(0)" data-sharename="qzone"></a>
+               </li>
+           </ul>
+       </div>
+        <!-- 登录/报名参赛 -->
+        <div class="siginBox">
+                	<!--登录前-->
+                    <div class="lb_before loginBtn">
+                       <a href="javascript:;">登录 <span>SIGN IN</span></a>
+                    </div>
+                    <!--登录后-->
+                    <P class="lb_log" style="display: none">
+                        <span>h***24</span><br />
+                        <a href="javascript:;" class="border">查看我的中奖纪录</a><br>
+                        <a href="#" class="js_Logout">退出登录</a>
+                    </P>
+          </div>
+         <h3 class="activeTitle">挑战“新世界”</h3>
+         <div class="enter">
+            <!--报名参赛按钮-->
+                    <div class="enterBtn wybm">
+                        <a href="jsvascript:;"><span>报名参赛</span></a>
+                    </div>
+             <!--报名信息展示-->
+              <P class="enterMessage" style="display: none"><span>角色名称：h***24</span><br><span>联系方式：12525252525</span></P>
+
+              <P class="enterMessageMore" style="display: none"><span>角色名称：h***24</span><br><span>联系方式：12525252525</span><br /><span><a href="#">谁挑战了我></a><a href="#">我挑战了谁></a></span></P>
+        </div>
+            
+            <!-- 选项导航--可以根据页面情况替换-->
+            <div class="navTab">
+                <ul>
+                    <li><a href="javascript:;" class="">创建队伍</a></li>
+                    <li><a href="javascript:;" class="myTeam_zzl">我的队伍</a></li>
+                    <li><a href="javascript:;" class="joinTeam">加入队伍</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 活动公用头部结束-->
+
+
+
+    <!--  以下是自己的内容页面  -->
+
+
+
+
+
+
+    <!-- 社区公用底部 -->
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+ </div>
+
+    <!-- 弹窗提示（登录注册提醒）-->
+    <div class="mask"></div>
+    <div class="maskMain">
+        <div class="maskKuang">
+            <h2>请先登录</h2>
+            <div class="handle">
+               <a href="javascript:;" class="loginA lb_login">登录</a>
+               <a href="javascript:;" class="registerA">注册</a>
+            </div>
+        </div>
+        <a href="javascript:;" class="clock">关闭</a>
+    </div>
+</body>
+</html>

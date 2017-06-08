@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.cadet.IGuide">
+	<resultMap id="GuideBeanMap" type="GuideBean">
+		<result property="code" column="code" />
+		<result property="guideName" column="guide_name" />
+		<result property="guideStaffCode" column="guide_staff_code" />
+	</resultMap>
+	<insert id="addGuide" parameterType="GuideBean" useGeneratedKeys="true" keyProperty="code">
+		insert into cadet_guide_tb
+		(guide_name,guide_staff_code)
+		values
+		(#{guideName},#{guideStaffCode})
+	</insert>
+	<select id="getGuideByCode" parameterType="Integer" resultMap="GuideBeanMap">
+		select * from cadet_guide_tb where code = #{code}
+	</select>
+	<select id="getGuideBeansByReportCode" parameterType="Integer" resultMap="GuideBeanMap">
+		select cadet_guide_tb.* from cadet_report_guide_tb
+		join cadet_report_tb
+		on cadet_report_guide_tb.report_code = cadet_report_tb.code
+		join cadet_guide_tb
+		on cadet_report_guide_tb.guide_code = cadet_guide_tb.code
+		where cadet_report_guide_tb.report_code = #{code}
+	</select>
+	<select id="getGuideByName" parameterType="java.lang.String" resultMap="GuideBeanMap">
+		select * from cadet_guide_tb
+		where guide_name = #{guideName}
+	</select>
+</mapper>

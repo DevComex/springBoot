@@ -1,0 +1,167 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>乾坤锁</title>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/QianKunLock/css/style.css">
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+    <script src="http://static.cn114.cn/action/QianKunLock/js/hdAward.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+
+
+</head>
+
+<body>
+    <div class="public_nav_top">
+	<script type="text/javascript">Showtop(true);</script>
+</div>
+    <div class="reward png">
+        <div class="warp">
+            <div class="header">
+                <div class="logo_cls">
+                    <a href="../index.html">
+                        <img src="http://static.cn114.cn/action/QianKunLock/images/logo.png" title="" alt="问道" /></a>
+                </div>
+                <div class="header_r">
+                    <a class="nav_1" href="http://wd.gyyx.cn/huodong/hls2014/index.html">
+                        <span class="png" ></span>
+                    </a>
+                    <a  class="nav_2" href="http://wd.gyyx.cn/huodong/hls2014/intro.html">
+                        <span class="png" ></span>
+                    </a>
+                    <a class="nav_3 nav_3_on" href="#">
+                        <span class="png" ></span>
+                    </a>
+                    <a class="nav_4" href="http://wd.gyyx.cn/huodong/hls2014/mall.html">
+                        <span class="png" ></span>
+                    </a>
+                    <a  class="nav_5" href="http://wd.gyyx.cn/huodong/hls2014/manage.html">
+                        <span class="png" ></span>
+                    </a>
+                </div>
+            </div>
+            <div class="reward_cls">
+                <div class="reward_cls_n">
+                    <div class="reward_l">
+                        <h1>首次奖励领取</h1>
+                        <div class="login_tab">
+                            <p id="loginbar" class="input_tab pad_l_10"></p>
+                            <p>
+                                <label class="title_tab">选择大区</label>
+                                <select id="daqu" class="input_txt input_sel">
+                                    <option value="2">电信</option>
+                                    <option value="1">网通</option>
+                                    <option value="3">双线</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label class="title_tab">服务器</label>
+                                <select id="qufu" class="input_txt input_sel">
+                                    <option value="">--请选择--</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label class="title_tab">动态密码</label>
+                                <input id="password" type="text" class="input_txt ">
+                            </p>
+                            
+                            <p>
+                                <label class="title_tab">乾坤锁SN</label>
+                                <input id="sn" type="text" class="input_txt ">
+                            </p>
+
+                            <p>
+                                <label class="title_tab">&nbsp;</label>
+                                <input id="getpizes" type="button" class="log_btn" value="领取礼包">
+                            </p>
+                            <p id="errtip" class="errtip pad_l_10"></p>
+                            <p class="remarks pad_l_10">注
+                                <br />
+                                第三代和第四代葫芦实体乾坤锁均可在此页面领取首次绑定奖励</p>
+                        </div>
+
+                    </div>
+                    <div class="reward_r">
+                        <div id="tablit_1">
+
+                            <dl>
+                                <dt></dt>
+                                <dd class="on">1</dd>
+                                <dt></dt>
+                                <dd class="out">2</dd>
+                                <dt></dt>
+                                <dd class="out">3</dd>
+                                <dt></dt>
+                            </dl>
+
+                            <div class="tabcon">
+                                <!--1-->
+                                <h1>奖励一 实惠道具会员卡</h1>
+                                <p id="txt_n">
+                                    绑定的乾坤锁且账号均未领取过礼包的玩家可领取首次绑定乾坤锁礼包<br>
+                                    <span>可以获得以下虚拟奖励：30天会员卡X1，特级八卦阴阳令X1，驯兽诀X2</span><br>
+                                    <span>紫薇命格卡X2、清风沐雨时装X1</span>
+
+                                </p>
+                                <img src="http://static.cn114.cn/action/QianKunLock/images/jl1.jpg" title="" alt="" />
+                            </div>
+
+                            <div class="tabcon dis" style="display: none">
+                                <h1>奖励二 独有尊享的唯一称号</h1>
+                                <p id="txt_n">
+                                    绑定葫芦乾坤锁的玩家，将会获得独一无二的称号，<br>
+                                    让您马上与众不同，个性彰显！
+                                </p>
+                                <img src="http://static.cn114.cn/action/QianKunLock/images/jl2.jpg" title="" alt="" />
+                            </div>
+
+                            <div class="tabcon dis" style="display: none">
+                                <h1>奖励三 问道客服VIP服务</h1>
+                                <h3>自动获得VIP服务-优先处理各类游戏问题的资格</h3>
+                                <p id="txt_n">
+                                    光宇密保乾坤锁用户，在开启密保乾坤锁服务后，将在满足其他条件后获得资格。<br>
+                                    <span>提示：关闭密保乾坤锁服务器，将失去VIP客户服务。</span>
+                                </p>
+                                <img src="http://static.cn114.cn/action/QianKunLock/images/jl3.jpg" title="" alt="" />
+
+                            </div>
+
+
+                        </div>
+                        <!--tab_end-->
+
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="footer">
+                <div class="footer_l">
+                    <a href="http://www.gyyx.cn/" target="_blank">
+                        <img src="http://static.cn114.cn/action/QianKunLock/images/f_logo_1.png" title="" alt="" class="footer_img_1" /></a>
+                    <a href="http://shop34648795.taobao.com/" target="_blank">
+                        <img src="http://static.cn114.cn/action/QianKunLock/images/f_logo_2.png" title="" alt="" class="footer_img_2" /></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="public_nav_bottom">
+	<script type="text/javascript">ShowBottom("fff");</script>
+	
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?2623e255867042f1a4c06e1d5a315b56";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>问道-老玩家回归</title>
+	<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdowj/css/wd160415.css"/>
+	<script type="text/javascript">
+		var rc="${rc.contextPath}";
+	</script>
+</head>
+<body>
+<div class="wd_wrap">
+	<div class="main">
+		<div class="wd_nav"><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">游戏官网</a>|<a href="http://download.gyyx.cn/Default.ashx?typeid=996&netType=1">下载游戏</a></div>
+		<div class="mes_box">
+			<div class="mes_left">
+				<h3 class="tit01">选择账号区组</h3>
+				<div class="divbox"><label>请输入您的账号：</label><input class="inp js_service" type="text" /></div>
+				<div class="divbox">
+					<label>请选择您的区组：</label>
+					<select class="sel mr6" id="region">
+						<option value="1">网通</option>
+						<option value="2">电信</option>
+						<option value="3">双线</option>
+					</select>
+					<select id="region_d" class="sel" style="width: 105px;">
+						
+					</select>
+				</div>
+				<a href="javascript:;" class="wd_btn js_regison">确认</a>
+				<h3 class="tit02">查找已合区区组</h3>
+				<div class="divbox"><label>请填写您的区组：</label><input class="inp js_serveName" type="text" /></div>
+				<a href="javascript:;" class="wd_btn btn_check js_check">查询</a>
+			</div>
+			<div class="mes_right">
+				<h3 class="tit03">活动规则</h3>
+				<ul class="wd_list">
+					<li><span>1</span>凡是参与活动的老玩家，均可获得特殊限时“回归者”称号；</li>
+					<li><span>2</span>凡是等级≥80级的老玩家，可获得游戏内十一重回归大礼；</li>
+					<li><span>3</span>30天未登录《问道》的玩家，视为老玩家；</li>
+				</ul>
+			</div>
+		</div>
+		<div class="btn_box">
+			<div class="box01">
+				<a href="javascript:;" class="a01 wd_link" data_id="1">消费回馈 海量道具</a>
+				<a href="javascript:;" class="a02 wd_link" data_id="2">领取回归 活动好礼</a>
+				<a href="javascript:;" class="a03 wd_link" data_id="3">活跃玩家 在线奖励</a>
+				<a href="javascript:;" class="a04 wd_link" data_id="4">欲火重生 之王者归来</a>
+			</div>
+			<div class="box02">
+				<a href="javascript:;" class="a05 wd_link" data_id="5">累计登录 四重大礼</a>
+				<a href="javascript:;" class="a06 wd_link" data_id="6">经验潜能 升级加成</a>
+				<a href="javascript:;" class="a07 wd_link" data_id="7">狂霸酷炫 专属效果</a>
+			</div>
+			<div class="box03">
+				<a href="javascript:;" class="a08 wd_link" data_id="8">回归即送 全服公告</a>
+				<a href="javascript:;" class="a09 wd_link" data_id="9">老玩家登录赠大礼</a>
+				<a href="javascript:;" class="a10 wd_link" data_id="10">老玩家尊享专属活动</a>
+				<a href="javascript:;" class="a11 wd_link" data_id="11">回流送豪礼</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="wdhd_tc" ><!--弹层-->
+	<a href="javascript:;" class="wdhd_close">关闭</a>
+	<h3 class="wdhd_title">领取回归活动好礼</h3><!--标题内容为获取元素的内容 如例子就是button的内容-->
+    <div class="wdhd">
+    	<div class="wdhd_cont">
+            <div class="wdhd_txt">
+            	<ul class="wd_list">
+					<li><span>1</span>玩家角色等级≥80级且连续30天以上未登录角色所在区组的玩家在天墉城寻找再续问道缘大使，选择“领取老兵不死活动奖励”可以领取道具、装备、宠物、
+娃娃、铭牌、称号等老兵福利；</li>
+					<li><span>2</span>此外只要回归即可获得基础经验池，同时等级提升1级后即可选择额外获得一定的经验和道行奖励，玩家可以选择升级1级之后领取，也可选择升级到更高级别
+后再领，如此方可领取到满额奖励。</li>
+					<li><span>3</span>海量经验、道行、装备、宠物、娃娃、铭牌、称号、道具；<br>注：回归玩家若等级低于100级，则不可获得：装备、宠物、娃娃奖励、道具奖
+励中的（特级八卦令、梦荷）</li>
+				</ul>
+            </div>
+        </div>
+        <div class="wdhd_slider"><!--滚动条-->
+          <div class="varrowUp">&nbsp;</div>
+          <div class="vtrack">
+            <div class="vthumb">&nbsp;</div>
+          </div>
+          <div class="varrowDown">&nbsp;</div>
+        </div><!--滚动条 end-->
+    </div>
+</div>
+<!--领取礼包弹层-->
+<!--<div class="popup_con1">
+    <a class="wdhd_close" href="javascript:;">关闭</a>
+    <div class="con">
+        <p class="jh_num">新手卡序号：470878053b7d</p>
+        <a href="javascript:;" class="wd_btn btn_jh">立即激活礼包</a>
+        <p class="wd_tips">激活成功后，登录《问道》，在天墉城NPC南极仙翁处领用礼包。<br />现在登录游戏，额外附送价值200元新人礼包！</p>
+    </div>
+</div>-->
+<!--其他弹层-->
+<div class="popup_con2 js_pop">
+    <a class="wdhd_close js_close" href="javascript:;">关闭</a>
+    <div class="con">
+        <h3>请在游戏中查看您的获奖情况</h3>
+    </div>
+</div>
+<!-- 漂浮 -->
+<div class="wd_pf wd_pf1">
+	<!--<a href="#" class="a01">网吧特权</a>-->
+	<a href="http://download.gyyx.cn/Default.ashx?typeid=996&netType=1" class="a02">下载游戏</a>
+</div>
+<div id="js_tc"></div>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdowj/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdowj/js/index1.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdowj/js/ymscrollbar.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdowj/js/ymcore.min.js"></script>
+<script type="text/javascript">
+//弹层
+YM.UI.Popup({
+container: 'div.wdhd_tc',
+openBtn: '.wd_link',
+closeBtn: '.wdhd_close',
+state: 'hide',
+time: 500
+});
+//弹层内容 
+//弹层的内容的是按顺序获取tc文件下html文件的内容
+$(".btn_box .wd_link").click(function(){
+	var $tccon = $(".wdhd_txt");
+	var idx="http://actionv2.gyyx.cn/WDPlayerBack/tc"+ ($(this).attr("data_id"));
+	$(".wdhd_title").text($(this).html());
+	$tccon.load(idx,ssss);
+});
+function ssss(){
+wdhd_slider.setUpdateWithReset()
+};
+//滚动
+ var wdhd_slider = $.YMUIScrollbar({
+    container: '.wdhd',
+    scrollbar: '.wdhd_slider',
+    arrowUp: '.varrowUp',
+    arrowDown: '.varrowDown',
+    track: '.vtrack',
+    thumb: '.vthumb',
+    direction: 'v',
+    calculation: true
+	
+});
+
+/*piaofu*/
+(function ($, window) {
+	var box = $(".wd_pf"), winObj = $(window), startPoint = 100, box03 = $(".wd_pf"), startPoint03 = 100;
+	box03.css({ "top": startPoint03, "position": "absolute","right":"100px" });
+	winObj.scroll(function(){
+		var pos03 = startPoint03 + winObj.scrollTop();
+		box03.stop().animate({ "top": pos03 }, 300);
+	});
+})(jQuery, window);
+</script>
+<script>
+$(".js_pop").css("display","block");
+$("#js_tc").css("display","block");
+$(".js_pop h3").html("活动已结束，感谢参与！");
+</script>
+</body>
+</html>

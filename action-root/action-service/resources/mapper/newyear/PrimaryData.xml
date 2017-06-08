@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.newyear.IPrimaryDataMapper">
+   
+   
+   <insert id="insert" parameterType="PrimaryDataBean" >
+		insert into primary_data_tb(primary_data_name,primary_data_time) values(#{primaryDataName},#{primaryDataTime})
+	</insert>
+
+	<select id="selectAll" resultType="java.util.List" resultMap="PrimaryDataResultMap">
+		select primary_data_code,primary_data_name,primary_data_time from primary_data_tb
+	</select>
+	<select id="selectOne" parameterType="PrimaryDataBean" resultType="PrimaryDataBean" resultMap="PrimaryDataResultMap">
+		select primary_data_code,primary_data_name,primary_data_time from primary_data_tb where primary_data_name=#{primaryDataName}
+	</select>
+	<resultMap id="PrimaryDataResultMap" type="PrimaryDataBean">
+		<result property="primaryDataCode" column="primary_data_code" />
+		<result property="primaryDataName" column="primary_data_name" />
+		<result property="primaryDataTime" column="primary_data_time" />
+	</resultMap>
+</mapper>

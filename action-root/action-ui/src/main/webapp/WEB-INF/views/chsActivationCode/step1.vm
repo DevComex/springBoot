@@ -1,0 +1,162 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>《创世》官网－抢激活码</title>
+		<link type="text/css" href="http://static.cn114.cn/action/chsActivationCodes/css/cs160407.css" rel="stylesheet" />
+		<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=webgame"></script>
+		<script  type="text/javascript">
+		    var rc = "${rc.contextPath}";
+		</script>
+		<script type="text/javascript" charset="utf-8">
+    		alert("谢谢参与，活动已结束");
+    	</script>
+	</head>
+	<body>
+		<div class="public_nav_top">
+		    	<script type="text/javascript">Showtop();</script>
+		</div>
+		<!--导航-->
+		<div class="jhm_nav">
+			<div class="main clear"><a href="stepOneIndex" class="on"><i>01</i><span><em>STEP</em>抢激活码</span></a><a href="stepTwoIndex"><i>02</i><span><em>STEP</em>激活游戏</span></a><a href="stepThreeIndex"><i>03</i><span><em>STEP</em>激活状态</span></a><a href="http://cs2.gyyx.cn/DownLoad/guest/index.shtml"><i>04</i><span><em>STEP</em>下载游戏</span></a></div>
+		</div><!--导航 end-->
+		<div class="bg1">
+			<div class="main">
+				<div class="game_login">
+					<!-- 登陆前 -->
+					<div class="game_fail">抽奖前请先<a href="#" class="game_col">[登录]</a></div>
+					<!-- 登陆后 -->
+					<div class="game_sucs" style="display: none;">欢迎您：<a href="#" class="game_col">[注销]</a><p>剩余抽奖次数：<span>3</span></p></div>
+				</div>
+				<div class="jhm_cont clear">
+					<div class="jhm_left">
+						<h2>我的激活码</h2>
+						<input class="jhm" type="text" id="js_jhm" />
+						<h2>活动说明</h2>
+						<p><span>▪</span>参与活动之前必须先进行账号登录。如果您还没有光宇账号，请进入<a href="http://account.gyyx.cn/Member/Register" target="_blank">注册账号</a>页面进行账号注册。</p>
+						<p><span>▪</span>每个光宇账号每天只有3次抽取激活码的机会。</p>
+						<p><span>▪</span>每日12:00与18:00各投放一批激活码，数量有限抽完为止。</p>
+						<p><span>▪</span>每个光宇账号只能获得一个激活码，成功获得激活码后将无法再次获得。</p>
+						<p><span>▪</span>激活码在有效期内不使用将会作废。如果您成功获得激活码，请您尽快至<a href="stepTwoIndex">激活游戏</a>页面进行账号激活。</p>
+					</div>
+					<div class="jhm_right">
+						<h3>幸运大转盘，抽取激活码</h3>
+						<div class="zpbg js_zpbg">
+			          			<a class="start" href="javascript:;" id="js_start" style="text-indent: -4000px;" data-state="yes"></a>
+			          			<div class="js_img zp1" id="dzp1"></div>
+			          			<div class="js_img zp2" id="dzp2"></div>
+			          			<div class="js_img zp3" id="dzp3"></div>
+			          			<div class="js_img zp4" id="dzp4"></div>
+			          			<div class="js_img zp5" id="dzp5"></div>
+			          			<div class="js_img zp6" id="dzp6"></div>
+			        		</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 弹出层 -->
+		<div class="popup_con js_tcstprize">
+			<h2 class="tit">恭喜您获得激活码</h2>
+		    	<a class="close js_tcclose js_getjf" href="#">关闭</a>
+		    	<div class="con">
+		        	<p class="js_prizes">5487-6287-5894-2351</p>
+		    	</div>
+		</div>
+		<!--主线任务-->
+		<div class="cs_tc js_pop1">
+			<h3>很遗憾，请再试一次</h2>
+			<a class="cs_close js_tcclose" href="#">关闭</a>
+			<div class="cs_tcBox">
+				<h2>谢谢参与</h2>
+				<div class="cs_tcCont">
+					<img src="http://static.cn114.cn/action/chsActivationCodes/images/cs160425_tc_pic01.jpg" width="188" height="176" />
+					<div class="cs_tcTxt">
+						<h4>电影级主线任务</h4>
+						<p>根据中国古典神话编写的强大的电影级剧情故事。剧情跌宕起伏、妙趣横生。让玩家感受到出演主角般的游戏体验。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--主线任务 end-->
+		<!--副本群-->
+		<div class="cs_tc js_pop2">
+			<h3>很遗憾，请再试一次</h2>
+			<a class="cs_close js_tcclose" href="#">关闭</a>
+			<div class="cs_tcBox">
+				<h2>谢谢参与</h2>
+				<div class="cs_tcCont">
+					<img src="http://static.cn114.cn/action/chsActivationCodes/images/cs160425_tc_pic02.jpg" width="188" height="176" />
+					<div class="cs_tcTxt">
+						<h4>庞大副本群</h4>
+						<p>众多的、精彩的、不尽相同的副本群，用于玩家历练和修为提升。随着级别的升高，永远都是新内容，永远都是期待。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--副本群 end-->
+		<!--竞技系统-->
+		<div class="cs_tc js_pop3">
+			<h3>很遗憾，请再试一次</h2>
+			<a class="cs_close js_tcclose" href="#">关闭</a>
+			<div class="cs_tcBox">
+				<h2>谢谢参与</h2>
+				<div class="cs_tcCont">
+					<img src="http://static.cn114.cn/action/chsActivationCodes/images/cs160425_tc_pic03.jpg" width="188" height="176" />
+					<div class="cs_tcTxt">
+						<h4>多元化竞技系统</h4>
+						<p>竞技系统重大创新，多元化的PVP和PVE结合的趣味性的竞技系统，实现了PVP与PVE的完美结合和综合实力的体现。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--竞技系统 end-->
+		<!--押镖系统-->
+		<div class="cs_tc js_pop4">
+			<h3>很遗憾，请再试一次</h2>
+			<a class="cs_close js_tcclose" href="#">关闭</a>
+			<div class="cs_tcBox">
+				<h2>谢谢参与</h2>
+				<div class="cs_tcCont">
+					<img src="http://static.cn114.cn/action/chsActivationCodes/images/cs160425_tc_pic04.jpg" width="188" height="176" />
+					<div class="cs_tcTxt">
+						<h4>创新押镖系统</h4>
+						<p>创新的采集和PVE和PVP合为一体的新式押镖玩法，整个过程体现了PVP与PVE的结合，收获和PK的结合，利益和智慧的结合。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--押镖系统 end-->
+		<!--帮派-->
+		<div class="cs_tc js_pop5">
+			<h3>很遗憾，请再试一次</h2>
+			<a class="cs_close js_tcclose" href="#">关闭</a>
+			<div class="cs_tcBox">
+				<h2>谢谢参与</h2>
+				<div class="cs_tcCont">
+					<img src="http://static.cn114.cn/action/chsActivationCodes/images/cs160425_tc_pic05.jpg" width="188" height="176" />
+					<div class="cs_tcTxt">
+						<h4>家园式帮派</h4>
+						<p>对帮派系统进行了功能和表现力的加强，让帮派更有意义与凝聚力。帮派任务和副本以休闲副本为主，让玩家耳目一新。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--帮派 end-->
+		<div class="pop_mask"></div>
+		<div class="public_nav_bottom">
+		    <script type="text/javascript">ShowBottom()</script>
+		</div>
+		<script type="text/javascript" src="http://static.cn114.cn/action/chsActivationCodes/js/csaction160425.js"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/chsActivationCodes/js/rotate.js"></script>
+		<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?21611cabf0c02d6b2a7032f01c33be52";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+	</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我用一生换你十年</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/tenyears/html/css/style.css" />
+		<link rel="stylesheet" href="http://static.cn114.cn/action/tenyears/html/css/share.css" />
+		<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+		<script type="text/javascript">
+			alert("谢谢参与，活动已结束")
+		</script>
+	</head>
+	<body>
+		<!--公共头部-->
+		<div class="public_nav_top">
+      		<script type="text/javascript">Showtop();</script>
+    	</div>
+		<div class="finalBackgroung">
+			<div class="weixinma" style="position: absolute;">
+				<img src="http://static.cn114.cn/action/tenyears/html/img/indexhref.png" width="150px" height="150px"/>
+			</div>
+			<div class="minwidth">
+			<div class="shareAction" style="width: 300px;height: 40px;float: right;margin: 50px 0 0 0;font-size: 14px;">
+					<a href="http://wd.gyyx.cn/" style="color: #fde0e0;background-color: #c44428;padding: 5px;border-radius:10px ;">进入官网</a>	
+					<span style="font-weight: bold;color:#c44428 ;">分享活动：</span>
+					<a title="分享到微信" href="javascript:void(0);"  class="shareActionXin shareBtn"></a>
+					<a title="分享到新浪微博" href="http://v.t.sina.com.cn/share/share.php?url=http://actionv2.gyyx.cn/wdonechangeten/index&title=我用一生换你十年&content=utf-8&source=&sourceUrl=&pic=" class="shareActionBo shareBtn" target="_blank"></a>
+				</div>
+			<div class="time" style="padding-top: 480px;">
+				<h2>活动时间：4月22日-5月9日</h2>
+			</div>
+			<div class="storyCollect">
+				<a href="http://actionv2.gyyx.cn/WDOneChangeTen/upload">故事征集</a>
+			</div>
+			<div class="uploadTitle" style="margin: 120px auto 0; width: 852px;">
+				<div class="storyTitle ">
+					<p><span id="person"></span><span id="authorNameF"></span><span class="space"></span><span id="areaNameF"></span>-<span id="serverNameF"></span><span class="space"></span><i class="heart" id="js_heart_f"></i><span id="heartNumF"></span></p>
+				</div>
+				<div class="share-con shareDiv">
+					
+					<a title="分享到新浪微博" href="javascript:void(0);" class="shareBtnWrok" data-type="work"><span class="xinlang"></span></a>
+					<div style="position: relative;">
+						<a title="分享到微信" href="javascript:void(0);" id="bt" class="shareBtnWrok"data-type="work"><span class="weixin" ></span></a>				
+						<div id="div_div"><img src="http://static.cn114.cn/action/tenyears/html/img/listbg.png" width="256px" height="256px" /></div>
+					</div>
+				</div>
+				<div class="backTo">
+					<a class="backToIndex" href="http://actionv2.gyyx.cn/wdonechangeten/index"></a>
+					<a class="backToList" href="http://actionv2.gyyx.cn/WDOneChangeTen/workInfoListIndex"></a>
+				</div>
+			</div>
+			<div class="storyConten">
+				<div class="storyMain txt">
+					1
+				</div>
+				<div id="fenxiang">    </div>
+				<div class="storyPic">
+					<div class="prev"><a id="prev"></a></div>
+					<div class="showPic" id="showPic">
+					</div>
+					<div class="next"><a id="next"></a></div>
+				</div>
+			</div>
+			<div class="info" style="margin: 184px auto;">
+				<p>《问道》才十年，玩家故事征集活动正式开启。参与活动的玩家均可获得抽奖机会。玩家可以上传自己这十年来的精彩故事，可以是爱情，友情或兄弟情等，以文字或图片的形式上传即可。<br/>同时，玩家可以通过集赞的方式赢好礼，获得赞最多的玩家，将获得由官方提供的价值500元大礼。<br/>活动结束后，官方会从中筛选出精彩的故事拍摄成MV进行宣传。小伙伴们还等什么，快来分享你们的故事吧！</p>
+			</div>
+				<input id="codeINPF" type="hidden" code="$!code"/>
+				</div>
+		</div>
+		
+		<!--公共页脚-->
+		<div class="public_nav_bottom" style="clear: both;">
+      		<script type="text/javascript">ShowBottom()</script>
+    	</div>
+		<script type="text/javascript" src="http://static.cn114.cn/action/tenyears/html/js/share.js" ></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/tenyears/html/js/jquery.qrcode.js" ></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/tenyears/html/js/qrcode.js" ></script>
+		<script>
+		var rc = "${rc.contextPath}";
+			function utf16to8(str) { //转码
+				var out, i, len, c;
+				out = "";
+				len = str.length;
+				for (i = 0; i < len; i++) {
+					c = str.charCodeAt(i);
+					if ((c >= 0x0001) && (c <= 0x007F)) {
+						out += str.charAt(i);
+					} else if (c > 0x07FF) {
+						out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));
+						out += String.fromCharCode(0x80 | ((c >> 6) & 0x3F));
+						out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+					} else {
+						out += String.fromCharCode(0xC0 | ((c >> 6) & 0x1F));
+						out += String.fromCharCode(0x80 | ((c >> 0) & 0x3F));
+					}
+				}
+				return out;
+			}
+			
+		</script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "//hm.baidu.com/hm.js?ba8797592648c3f68c14883094474437";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/tenyears/html/js/main.js" ></script>
+	</body>
+</html>

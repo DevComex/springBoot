@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.ICommentsMapper">
+	<resultMap type="CommentsBean" id="CommentMap">
+		<id column="code" property="code" />
+		<result column="comment_account" property="commentAccount" />
+		<result column="material_code" property="materialCode"/>
+		<result column="content" property="content"/>
+		
+		<result column="comment_date" property="commentDate"/>
+		<result column="is_best" property="isBest"/>
+		<result column="ip_address" property="ipAddress"/>
+		<result column="is_delete" property="isDelete"/>
+	</resultMap>
+	<!-- 增加评论 -->
+	<insert id="addComment" parameterType="CommentsBean">
+		insert into xuanwuba_comments_tb (comment_account,material_code,content,comment_date,is_best,ip_address,is_delete) values(#{commentAccount},#{materialCode},#{content},#{commentDate},#{isBest},#{ipAddress},#{isDelete})
+	</insert>
+	<!-- 查询评论 -->
+	<select id="getCommentByPage" parameterType="java.util.Map" resultMap="CommentMap">
+		<![CDATA[
+			select TOP (#{page.pageSize}) *  from xuanwuba_comments_tb 
+			where 
+			(code NOT IN 
+				(SELECT TOP (#{page.pageSize}*(#{page.pageNo}-1)) code FROM xuanwuba_comments_tb 
+					where '1'='1'
+		]]>
+		<if test="comments.commentAccount != null and comments.commentAccount != ''">
+		<![CDATA[
+					and comment_account like CONCAT('%','${comments.commentAccount}','%' ) 
+		]]>
+		</if>
+		<if test="comments.materialCode != null">
+		<![CDATA[
+					and material_code=#{comments.materialCode}
+		]]>
+		</if>
+		<![CDATA[
+       			 ORDER BY code desc )
+       		)
+       	]]>
+       	<if test="comments.commentAccount != null and comments.commentAccount != ''">
+		<![CDATA[
+					and comment_account like CONCAT('%','${comments.commentAccount}','%' ) 
+		]]>
+		</if>
+		<if test="comments.materialCode != null">
+		<![CDATA[
+					and material_code=#{comments.materialCode}
+		]]>
+		</if>
+		<![CDATA[
+			ORDER BY code desc
+		]]>
+	</select>
+	<!-- 查询评论数量 -->
+	<select id="getCommentCount" parameterType="CommentsBean" resultType="Integer">
+		<![CDATA[
+			select count(*) from xuanwuba_comments_tb where '1'='1'
+		]]>
+		<if test="commentAccount != null and commentAccount != ''">
+		<![CDATA[
+					and comment_account like CONCAT('%','${commentAccount}','%' ) 
+		]]>
+		</if>
+		<if test="materialCode != null">
+		<![CDATA[
+					and material_code=#{materialCode}
+		]]>
+		</if>
+		<![CDATA[
+			and is_delete = 0
+		]]>
+	</select>
+	<!-- 删除评论 -->
+	<delete id="deleteComment" parameterType="Integer">
+		delete from xuanwuba_comments_tb where code=#{code}
+	</delete>
+	
+	<!-- 查询匿名评论 -->
+	<select id="getNoNameCommentWithAddr" resultMap="CommentMap">
+		select top 1 * from xuanwuba_comments_tb where comment_account = '匿名玩家' and is_delete = 0 and material_code = #{0} and ip_address = #{1} order by comment_date desc
+	</select>
+		<!-- 删除-->
+	<update id="deleteByCode"  parameterType="Integer">
+		  update xuanwuba_comments_tb set [is_delete]=1 where code = #{code}
+	</update>
+		<!-- 删除-->
+	<update id="deleteByUser"  parameterType="String">
+		  update xuanwuba_comments_tb set [is_delete]=1 where [comment_account]=#{commentAccount}
+	</update>
+	
+	<!-- 查询评论 -->
+	<select id="getComment" resultMap="CommentMap">
+		select top 1 * from xuanwuba_comments_tb where comment_account = #{0} and is_delete = 0 and material_code = #{1} and ip_address = #{2} order by comment_date desc
+	</select>
+	
+	<select id="getCommentListByPage" resultMap="CommentMap" parameterType="Integer">
+		select TOP (10) *  from xuanwuba_comments_tb 
+			where 
+			(code NOT IN 
+				(SELECT TOP (10*(#{1}-1)) code FROM xuanwuba_comments_tb 
+					where is_delete = 0 and material_code = #{0}
+					 ORDER BY is_best desc,code desc )
+       		)
+       		and is_delete = 0 and material_code = #{0}
+       		ORDER BY is_best desc,code desc
+	</select>
+		<select id="getCommentByUser" resultMap="CommentMap" parameterType="String">
+		select * from xuanwuba_comments_tb where is_delete = 0 and comment_account = #{commentAccount} order by comment_date desc
+	</select>
+	
+	<select id="getCommentCountByUser" resultType="Integer">
+		select count(*) from xuanwuba_comments_tb where comment_account = #{0} and material_code = #{1} and is_delete = 0
+	</select>
+	<select id="getCommonByCode" parameterType="Integer" resultMap="CommentMap">
+		select * from xuanwuba_comments_tb where code = #{code}
+	</select>
+</mapper>

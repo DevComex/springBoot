@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.challenger.IChallengeRelationship">
+	<resultMap type="ChallengeRelationshipBean" id="ChallengeRelationshipBeanMap">
+		<id column="code" property="code" />
+		<result column="user_id" property="userId" />
+		<result column="dare_id " property="dareId" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
+
+
+	<select id="getCountDareIdChallengeRelationshipBeanInTimeo"
+		resultType="int">
+		select count(*) from challenger_dare_user_log
+		where
+		dare_id=#{dareId}
+		and
+	 <![CDATA[  
+	create_time>#{begin}
+	and 
+	create_time<#{end}
+	     ]]>
+
+	</select>
+
+
+
+	<select id="getCountDareIdChallengeRelation" resultType="int">
+		select
+		count(*) from challenger_dare_user_log
+		where
+		dare_id=#{dareId}
+	</select>
+
+	<select id="getOneTodayChallengeSomeOne" resultMap="ChallengeRelationshipBeanMap">
+		select top 1 * from challenger_dare_user_log
+		where
+		dare_id=#{dareId}
+		and
+		user_id=#{userId}
+		and
+	 <![CDATA[  
+	create_time>#{begin}
+	and 
+	create_time<#{end}
+	     ]]>
+	</select>
+
+	<insert id="addChallengeRelationshipBean">
+		insert into challenger_dare_user_log
+		(user_id,dare_id)
+		values
+		(#{userId},#{dareId})
+	</insert>
+
+	<select id="getRoleNameIChallenge" resultType="String">
+		select DISTINCT
+		b.role_name from
+		challenger_dare_user_log a
+		left join
+		challenger_user_info_tb b
+		on
+		a.user_id=b.user_id
+		where
+		dare_id=#{userId}
+		and
+		b.user_state='pass'
+	</select>
+
+	<select id="getRoleNameChallengeMe" resultType="String">
+		select DISTINCT
+		b.role_name from
+		challenger_dare_user_log a
+		left join
+		challenger_user_info_tb b
+		on
+		a.dare_id=b.user_id
+		where
+		a.user_id=#{userId}
+		and
+		b.user_state='pass'
+	</select>
+</mapper>

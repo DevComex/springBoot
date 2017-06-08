@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Layout:luochongfei" />
+    <title>主页</title>
+	
+    <link href="/action-oa/resources/style/projectStyle.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="/action-oa/resources/script/jquery-ui.dialog.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+	<script type="text/javascript" charset="utf-8">
+	function goCheckDiscuss(){
+		window.location.href='goCheckDiscuss';
+	}
+	function goCheckImg(){
+		window.location.href='goCheckImg';
+	}
+	</script>
+    <link href="/action-oa/resources/style/jquery-ui.css" rel="stylesheet" />
+    <style>
+    	.piclist img{width:15%;margin:0 1% 0 0;}
+    </style>
+	<!-- **********************每页和尾页的点击事件 start*************************************** -->
+	<script type="text/javascript" charset="utf-8">
+	     
+	   //弹出式审核
+	   function passImgX(imgCode){
+	   		window.open("${rc.contextPath}/checkImg/startCheck/" + imgCode);
+	   }
+	   //通过审查按钮实现的功能，
+	   function  passImgS ( code ) {
+		
+			var selSt = document.getElementById("imgStatus");
+			var selValueSt = selSt.options[selSt.selectedIndex].value;
+			
+			var nowpageNew = document.getElementById("nowpageNew").value;
+			//window.location.href = "${rc.contextPath}/OAGoldenyears/pass?page="+nowpageNew+"&status="+selValueSt+"&workCode="+code;
+	   }  
+	   //不通过审查按钮实现的功能，
+	   function  passImgF ( code ) {
+		
+			var selSt = document.getElementById("imgStatus");
+			var selValueSt = selSt.options[selSt.selectedIndex].value;
+			
+			var nowpageNew = document.getElementById("nowpageNew").value;
+			//window.location.href = "${rc.contextPath}/OAGoldenyears/fail?page="+nowpageNew+"&status="+selValueSt+"&workCode="+code;
+			
+	   }  
+	
+	
+	   //通过页码跳转
+	   function jumpPage( nowPage ) {
+			var selSt = document.getElementById("imgStatus");
+			var selValueSt = selSt.options[selSt.selectedIndex].value;
+	   		window.location.href = "${rc.contextPath}/OAGoldenyears/pass?page="+nowPage+"&status="+selValueSt;
+	   }
+	   
+	   function lastPage() {
+			var selSt = document.getElementById("imgStatus");
+			var selValueSt = selSt.options[selSt.selectedIndex].value;
+	   		
+			var maxPage = document.getElementById("maxPageInfo").value;
+			
+			window.location.href = "${rc.contextPath}/OAGoldenyears/index?page="+maxPage+"&status="+selValueSt;
+			
+	   }
+	   
+	   function homePage() {
+			var selSt = document.getElementById("imgStatus");
+			var selValueSt = selSt.options[selSt.selectedIndex].value;
+			window.location.href = "${rc.contextPath}/OAGoldenyears/index?page=1&status="+selValueSt;
+	   		
+	   }
+	   $(function(){
+		   $('#selectBut').click(function(){
+				var statusNum = $("#imgStatus").find("option:selected").val();
+				window.location.href = "${rc.contextPath}/OAGoldenyears/index?page=1&status="+statusNum;
+				
+			});
+	   });
+	   
+  
+    </script>
+	<!-- **************************每页和尾页的点击事件 end*********************************** -->
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+                        <header class="header bg-white b-b clearfix">
+                            <div class="row m-t-sm"> 
+					<form id="topForm"  method="post">
+						<div class="col-sm-2 m-b-xs">
+							<div class="input-group">
+								<select id="imgStatus" name="imgStatus" class="input-sm form-control" style="width: 160px">
+									#if( "$!{status}" == "1" )
+									<option value="0" >未审核</option>
+									<option value="2" >审核通过</option>
+									<option value="1" selected>审核未通过</option>
+									#elseif(  "$!{status}" == "2"  )
+									<option value="0" >未审核</option>
+									<option value="2" selected>审核通过</option>
+									<option value="1" >审核未通过</option>
+									#else 
+									<option value="0" selected>未审核</option>
+									<option value="2" >审核通过</option>
+									<option value="1" >审核未通过</option>
+									#end
+								</select>
+							</div>
+						</div>
+						<span class="input-group-btn">
+							<input id="selectBut" name="selectBut" class="btn btn-sm btn-default" type="button" value="查询" />
+						</span>
+					</form>   
+                            </div> 
+                        </header>
+                        <!--顶部标题导航 end-->
+                        <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <div class="m-b-md"> </div>
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" id = "inner">
+<div class="table-responsive">
+	<table class="table table-striped m-b-none">
+		<form    method="post"   >
+			<thead>
+				<tr>
+					<!--<th width="20">
+						<input type="checkbox">
+					</th>-->
+					<th width="10%">作品CODE</th>
+					<th width="70%">图片列表</th>
+					<th width="20%">状态/操作</th>
+				</tr>
+			</thead>
+	    		<tbody>	
+	    				#foreach( $d in $!{result.data} )									
+	            		<tr>	                   		
+							<td>$d.code</td>	
+							<td class="piclist">
+								#foreach( $t in $d.picture )
+									<a href="$t.path" target="_blank"><img src="$t.path" /></a>
+								#end
+							</td>
+							<td>
+								#if ($d.status.equals(0))
+									<a class="btn btn-xs btn-info js_passSuc" data-toggle="tooltip" data-title="通过审核" style="height:22px;width:40px"  title="" href="${rc.contextPath}/OAGoldenyears/pass?page=$!{page}&status=$!{status}&workCode=$d.code" >通过</a>
+                            		<a class="btn btn-xs btn-info js_passFail" data-toggle="tooltip" data-title="不通过审核" style="height:22px;width:55px"  title="" href="${rc.contextPath}/OAGoldenyears/fail?page=$!{page}&status=$!{status}&workCode=$d.code">不通过</a>
+								#elseif ($d.status.equals(2))
+		                            <span>审核已通过</span>
+		                        #elseif ($d.status.equals(1))
+		                            <span>审核不通过</span>
+		                        #end
+	                        </td>                   		
+	                	</tr>
+	                	#end
+			   	<!--<input  id="passAll"  name="passAll" type="button" value="提交全部" class="btn btn-s-md btn-info btn-rounded" onclick="passAll()">-->
+	    		</tbody>
+	      </form>
+	</table>
+	<input type="hidden" id="maxPage" name="maxPage" value="$!{maxPage}">
+	<input type="hidden" id="nowPage" name="nowPage" value="$!{page}">
+</div>
+<div class="row dataTables_wrapper">
+	<div class="col-sm-6">
+		<div id="maxPage" class="dataTables_info">共$!{maxPage}条，当前第$!{page}页</div>
+			<input type="hidden" id="maxPageInfo" name="maxPageInfo" value="$!{maxPage}"/>
+            <input type="hidden" id="nowpageNew" name="nowPageNew" value="$!{page}">
+		</div>
+		<!--<div class="col-sm-6">-->
+		<div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers">
+			<a id="DataTables_Table_0_first" class="first paginate_button" tabindex="0" onclick="homePage()">首页</a>
+			#foreach( ${lip} in [1..$!{maxPage}] )
+				<a  id="nowPageNum" name="nowPageNum"  class="paginate_button" tabindex="0" onclick="jumpPage('${lip}')">${lip}</a>
+			#end
+			<a id="imgLastPage" name="imgLastPage" class="last paginate_button" tabindex="0" onclick="lastPage()">末页</a>									
+		</div>
+	</div>								
+</div>
+
+
+					</section>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+						<!-- 页脚内容begin-->
+						<!--<footer class="footer bg-white b-t">
+						</footer> -->
+						<!-- 页脚内容end-->
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+</body>
+</html>

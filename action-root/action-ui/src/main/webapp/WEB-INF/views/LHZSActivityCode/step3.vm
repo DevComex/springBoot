@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>激活状态</title>
+		<link type="text/css" href="http://static.cn114.cn/action/LHZSActivityCode/css/sm150806.css" rel="stylesheet" />
+	<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=webgame"></script>
+	<style>
+.pop_mask {width: 100%;background: #000;opacity: 0.5;filter: alpha(opacity=50);position: fixed;left: 0;top: 0;z-index: 1000;}
+
+</style>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e906604cff6bb47d3c28093a0bceb5dd";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+	</head>
+	<body>
+	 <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+		<!--导航-->
+		<div class="jhm_nav pt">
+			<div class="main clear"><a href="http://actionv2.gyyx.cn/LHZS/step1Index" ><i>01</i><span><em>STEP</em><br />抢激活码</span></a><a href="http://actionv2.gyyx.cn/LHZS/step2Index" ><i>02</i><span><em>STEP</em><br />激活游戏</span></a><a href="http://actionv2.gyyx.cn/LHZS/step3Index" class="on"><i>03</i><span><em>STEP</em><br />激活状态</span></a><a href="http://sm.gyyx.cn/download/download.shtml"><i>04</i><span><em>STEP</em><br />下载游戏</span></a></div>
+		</div><!--导航 end-->
+		<div class="state_bg">
+			<div class="main game_main">
+				<div class="game_login">
+					<!-- 登陆前 -->
+					<div class="game_fail" style="display: none;">抽奖前请先 <a href="#" class="game_col">[登录]</a></div>
+					<!-- 登陆后 -->
+					<div class="game_sucs">欢迎您：chfff4 <a href="#">[注销]</a></div>
+				</div>
+				<div class="state_check">
+					<p>请输入验证码</p>
+					
+					<div class="state_box yzmp">
+					<input type="text" class="js_word"/>
+						<img class="Captcha" width="100" height="40" src="#" alt="验证码" />
+						<!-- <img src="http://static.cn114.cn/action/LHZSActivityCode/images/state_yam.jpg" width="90" height="40" class="flash_pagecode"/>-->
+						
+						
+						<a class="link Captcha" href="javascript:;">换一张</a>
+					</div>
+					<a class="game_btn js_yanzheng" href="javascript:;">立即查询</a>
+				</div>
+			</div>
+		</div>
+		<div class="public_nav_bottom">
+		<div class="pop_mask"></div>
+		
+<script>
+$(function(){
+var Defaults = {
+        /*==================参数说明=========================*/
+        /* LoginStatusAjaxUrl 判断是否登录接口               */
+        /*===================================================*/
+        LoginStatusAjaxUrl: "http://reg.gyyx.cn/Login/Status"
+    };
+  
+ //判断是否登录
+ function checkLogin(fn) {
+        $.ajax({
+            url: Defaults.LoginStatusAjaxUrl,
+            type: "GET",
+            dataType: "jsonp",
+            jsonp: "jsoncallback",
+            data: { r: Math.random() },
+            success: function (d) {
+                if (d.IsLogin) {
+                    if (fn.success) {
+                        fn.success(d);
+                    }
+                } else {
+                    if (fn.failed) {
+                        fn.failed(d);
+                    }
+                }
+            }
+        });
+    }
+  checkLogin({
+                success: function (d) {
+                    $(".game_fail").hide();
+                    $(".game_sucs").show();
+                    var temp = "$!{lotteryNum}";
+                    var temp2 = "$!{account}";
+                    $(".game_sucs").empty().html('<p style="text-align: center;">欢迎您：<strong>'+ temp2 +'</strong> <a class="js_Logout">[注销]</a><br /></p>');
+                
+                	$(".js_yanzheng").click(function () {
+				        if ($(".js_word").val().match(' ')) {
+				            alert("输入有空格，请核对后再填写")
+				        } else if ($(".js_word").val() != '') {
+				           // getYZM( $(".js_word").val() )
+				              $.ajax({
+						            url: "http://actionv2.gyyx.cn/LHZS/step3",
+						            type: "GET",
+						            data: {
+						              checkcode:$(".js_word").val()
+						            },
+						            success: function (data) {
+						                if (data.isSuccess == true) {
+						                   alert(data.data); 
+						                } else if(data.isSuccess == false){
+						                   alert(data.data);
+						                    $(".Captcha").attr("src", GlobalVirtual.captcha + "?r=" + Math.random());
+						                }
+						            }
+						        });
+				           
+				        } else if($(".js_word").val() == ''){
+				            alert("请输入验证码")
+				        }
+				    });
+                },
+                failed: function () {
+                    $(".game_fail").show();
+                    $(".game_sucs").hide();
+                    $(".game_fail").empty().html('<p> 抽奖前请先 <a class="game_col" onclick="alertFn(null,null,true); return false;">[登录]</a></span></p>');
+                  $(".js_yanzheng").click(function () { 
+					    alertFn(null, null, true);
+					});
+                }
+            });
+            
+ //验证码获取
+ var GlobalVirtual ={
+    captcha :'http://api.gyyx.cn/Captcha/CreateVJ.ashx'
+ }
+ $(".Captcha").attr("src", GlobalVirtual.captcha + "?r=" + Math.random());
+ $(".Captcha").click(function () {
+                $(".Captcha").attr("src", GlobalVirtual.captcha + "?r=" + Math.random());
+            });
+ 
+
+//验证
+/*$(".js_yanzheng").click(function () {
+        
+        if ($(".js_word").val().match(' ')) {
+            alert("输入有空格，请核对后再填写")
+        } else if ($(".js_word").val() != '') {
+            getYZM( $(".js_word").val() )
+           
+        } else if($(".js_word").val() == ''){
+            alert("请输入验证码")
+        }
+    });*/
+function getYZM(Verification) {
+        $.ajax({
+            url: "http://actionv2.gyyx.cn/LHZS/step3",
+            type: "GET",
+            data: {
+              checkcode:Verification
+            },
+            success: function (data) {
+                if (data.isSuccess == true) {
+                   alert(data.data); 
+                } else if(data.isSuccess == false){
+                   alert(data.data);
+                    $(".Captcha").attr("src", GlobalVirtual.captcha + "?r=" + Math.random());
+                }
+            }
+        });
+    }    
+});    
+</script>
+<script type="text/javascript">ShowBottom()</script>
+    </div>
+	</body>
+</html>

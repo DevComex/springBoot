@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.mapper.IActionLotteryLogMapper">
+	
+	<select id="getCountTodayByAccount"
+			resultType="java.lang.Integer">
+		select count(1)
+		  from action_lottery_log_tb
+		 where activityId = #{activityCode}
+		   and userId = #{account} and convert(varchar(10), winningAt, 23) = convert(varchar(10), getdate(), 23) 
+	</select>
+	
+	<select id="getDataList" parameterType="cn.gyyx.action.beans.lottery.po.ActionLotteryLogPO"
+			resultType="cn.gyyx.action.beans.lottery.po.ActionLotteryLogPO">
+		select top 7 *
+		  from action_lottery_log_tb
+		 where prizeType &lt;&gt; 'ThankYou'
+		   and activityType = #{activityType}
+		   and activityId = #{activityId}
+		   and userId = #{userId}
+	   <if test="prizeType != null">
+	   	   and prizeType = #{prizeType}
+	   </if>
+	   <if test="prizeCode != null">
+	   	   and prizeCode = #{prizeCode}
+	   </if>
+	   <if test="prizeName != null">
+	   	   and prizeName = #{prizeName}
+	   </if>
+	   <if test="isAvailable != null">
+	   	   and isAvailable = #{isAvailable}
+	   </if>
+	   <if test="remark != null">
+	   	   and remark = #{remark}
+	   </if>
+	     order by winningAt desc
+	</select>
+	
+	<select id="selectCount" parameterType="cn.gyyx.action.beans.lottery.po.ActionLotteryLogPO"
+			resultType="java.lang.Integer">
+		select count(1)
+		  from action_lottery_log_tb
+		 where prizeType &lt;&gt; 'ThankYou'
+		   and activityId = #{activityId}
+		   and userId = #{userId}
+		<if test="activityType != null">
+		   and activityType = #{activityType}
+		</if>   
+		<if test="prizeType != null">
+		   and prizeType = #{prizeType}
+		</if>
+		<if test="prizeCode != null">
+		   and prizeCode = #{prizeCode}
+		</if>
+	</select>
+	
+	<select id="selectExceptThankYou" parameterType="cn.gyyx.action.beans.lottery.po.ActionLotteryLogPO"
+			resultType="cn.gyyx.action.beans.lottery.po.ActionLotteryLogPO">
+		select *
+		  from action_lottery_log_tb
+		 where prizeType &lt;&gt; 'ThankYou'
+		   and activityId = #{activityId}
+		   and userId = #{userId}
+	   <if test="activityType != null">
+	   	   and activityType = #{activityType}
+	   </if>
+	   <if test="prizeType != null">
+	   	   and prizeType = #{prizeType}
+	   </if>
+	   <if test="prizeCode != null">
+	   	   and prizeCode = #{prizeCode}
+	   </if>
+	   <if test="isAvailable != null">
+	   	   and isAvailable = #{isAvailable}
+	   </if>
+	   <if test="remark != null">
+	   	   and remark = #{remark}
+	   </if>
+	     order by winningAt desc
+	</select>
+	
+	<insert id="putData" parameterType="cn.gyyx.action.beans.lottery.po.ActionLotteryLogPO">
+		insert into action_lottery_log_tb
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			activityType, activityId, userId, serverId, prizeType, prizeCode, 
+			prizeName, prizeNum, cardCode, winningAt, winningIp, isAvailable,
+			<if test="gameId != null">gameId,</if>
+			<if test="remark != null">remark,</if>
+		</trim>
+			values
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			#{activityType}, #{activityId}, #{userId}, #{serverId}, #{prizeType}, #{prizeCode}, 
+			#{prizeName}, #{prizeNum}, #{cardCode}, #{winningAt}, #{winningIp}, #{isAvailable},
+			<if test="gameId != null">#{gameId},</if>
+			<if test="remark != null">#{remark},</if>
+		</trim>
+	</insert>
+</mapper>

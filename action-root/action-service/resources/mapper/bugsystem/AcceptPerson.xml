@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.bugsystem.IAcceptPersonMapper">
+	<resultMap type="AcceptPersonBean" id="AcceptPersonBean">
+		<id column="code" property="code" />
+		<result column="acceptperson_code" property="acceptPersonCode" />
+		<result column="acceptperson_name" property="acceptPersonName" />
+		<result column="message_type" property="messageType" />
+		<result column="is_can_evaluate" property="isCanEvaluate" />
+		<result column="acceptperson_code" property="acceptpersonCode" />
+		<result column="acceptperson_userid" property="acceptpersonUserid" />
+		<result column="acceptperson_zhw_name" property="acceptpersonZhwName" />
+	</resultMap>
+
+	<!-- 查询所有受理人信息 -->
+	<select id="queryAll" resultMap="AcceptPersonBean">
+		select * from
+		bug_acceptperson_tb
+	</select>
+
+	<!-- 根据受理人姓名查询受理人相关信息 -->
+	<select id="queryByAcceptPersonName" resultMap="AcceptPersonBean"
+		parameterType="AcceptPersonBean">
+		select * from bug_acceptperson_tb where
+		acceptperson_name = #{acceptPersonName}
+	</select>
+	
+	<update id="updatAcceptPersonCode" parameterType="AcceptPersonBean">
+		update bug_acceptperson_tb set acceptperson_code = #{acceptPersonCode} where acceptperson_name = #{acceptPersonName};
+	</update>
+</mapper>

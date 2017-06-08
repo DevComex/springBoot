@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.ICreditsMapper">
+	<resultMap type="Credit" id="Credit">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="credits" property="credits" />
+		<result column="type" property="type" />
+		<result column="enter_time" property="enterTime" />
+	</resultMap>
+	
+  <!-- 查询所有积分记录 -->
+  <select id="getCredits" parameterType="Credit" resultMap="Credit">
+	select TOP 10 *  from xuanwuba_credits_tb 
+		where 
+		(code NOT IN 
+		(SELECT TOP 
+		(10*(#{page}-1)) 
+		code 
+		FROM 
+		xuanwuba_credits_tb where 1=1 
+		<if test="account != null and account != ''">
+		<![CDATA[
+					and account=#{account}
+		]]>
+		</if>
+		<if test="type != null and type != ''">
+		<![CDATA[
+					and type=#{type}
+		]]>
+		</if>
+		<if test="date != null and date != ''">
+		<![CDATA[
+					and datediff(dd,#{date},enter_time)=0
+		]]>
+		</if>
+		)) 
+		<if test="account != null and account != ''">
+		<![CDATA[
+					and account=#{account}
+		]]>
+		</if>
+		<if test="type != null and type != ''">
+		<![CDATA[
+					and type=#{type}
+		]]>
+		</if>
+		<if test="date != null and date != ''">
+		<![CDATA[
+					and datediff(dd,#{date},enter_time)=0
+		]]>
+		</if>
+  </select>
+  
+  <!-- 查询所有积分记录数 -->
+  <select id="getCreditsNum" parameterType="Credit" resultType="int" >
+	select count(*) from xuanwuba_credits_tb 
+	where 1=1 
+	<if test="account != null and account != ''">
+		<![CDATA[
+					and account=#{account}
+		]]>
+		</if>
+		<if test="type != null and type != ''">
+		<![CDATA[
+					and type=#{type}
+		]]>
+		</if>
+		<if test="date != null and date != ''">
+		<![CDATA[
+					and datediff(dd,#{date},enter_time)=0
+		]]>
+		</if>
+		<if test="startTime != null and endTime != null">
+		<![CDATA[
+					and enter_time between #{startTime} and #{endTime}
+		]]>
+		</if>
+  </select>
+
+  
+  <!-- 新增积分记录 -->
+	<insert id="addCredits" parameterType="Credit">
+		insert into xuanwuba_credits_tb  
+		(account,credits,type,enter_time) 
+		values(#{account},#{credits},#{type},#{enterTime})
+	</insert>
+
+		
+</mapper>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>审核评论</title>
+  <link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+    <link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+        $(function(){
+        	$("#backbuttion").click(function(){
+				window.location.href="${rc.contextPath}/chsActivationCodeOa/index";        	
+        	});
+        	$("#submit").click(function(){
+        		var codeInt = $("#codeInt").val();
+        		var numInt = $("#numInt").val();
+        		var tiem = $("#activationMarket").val();
+        		if(codeInt==""){
+        			alert("起始激活码code不能为空！！");
+        			return false;
+        		}
+        		if(numInt==""){
+        			alert("投放个数不能为空！！");
+        			return false;
+        		}
+        		if(tiem==""){
+        			alert("时间不能为空！！");
+        			return false;
+        		}
+        		$.ajax({
+					url: "${rc.contextPath}/chsActivationCodeOa/getActivityCodeMesCode",
+					type:"GET",
+					data:{
+						"nowDate" : tiem ,
+						"startCode" : codeInt, 
+						"num" : numInt 
+						},
+					success:function(data){
+						$(".addMessTable").html("");
+						var isSuccess = data.isSuccess;
+						var message = data.message;
+						var datas = data.data;
+						if(isSuccess==true){
+							$("#codeInt").val(message.split(";")[0]);
+        					$("#numInt").val(message.split(";")[1]);
+        					$("#activationMarket").val(message.split(";")[2]);
+							for(var i=0;i<datas.length;i++){
+								$(".addMessTable").append("<tr><td>"+datas[i].code+"</td><td>"+datas[i].activationCode+"</td><td>"+datas[i].activationTime+"</td><td>"+datas[i].userId+"</td></tr>");
+							}
+							alert("查询成功！");
+						}else{
+							alert("查询出错！！");
+						}
+						
+					},
+					error:function(){
+						alert("网络不给力！！");
+					}
+				});	
+        	});
+        });
+    </script>
+  </script>
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                         <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" style="overflow: scroll;height:100%">
+                            <input type="button" class="btn btn-info" id="backbuttion" style="margin-left:8px" value="返回"/>
+                            <input id="codeInt" name="channel" style="width:120px;margin-top:5px;margin-left:100px" value="" placeholder="起始激活码Code值" maxlength="300">
+                            <input id="numInt" name="channel" style="width:120px;margin-top:5px" value="" placeholder="投放个数"  maxlength="300">
+                            <input type="text" id="activationMarket" style="height:30px;width:120px;margin-top:5px;display:inline-block;" class="input-sm form-control js_Min_select" placeholder="时间" value="" name="time2" >
+                            <input type="button" class="btn btn-info" id="submit" style="margin-left:8px;margin-top:2px" value="查询"/>
+                            <!--列表开始  begin -->
+              					<section class="panel panel-default">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            <tr>
+                                                <th>code</th>
+                                                <th>激活码</th>
+                                                <th>激活时间</th>
+                                                <th>用户ID</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="addMessTable">
+                                        	#foreach(${p} in ${activityMes.data} )
+                                            <tr>
+                                                <td>${p.code}</td>
+                                                <td>${p.activationCode}</td>
+                                                <td>${p.activationTime}</td>
+                                                <td>${p.userId}</td>
+                                            </tr>
+                                            #end
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </section>
+								
+                            <!--列表结束  begin -->
+                         </section>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+    <script type="text/javascript">
+    $(function(){
+        $(".js_Min_select").datepicker({
+            format: 'yyyy-mm-dd hh:ii:s',
+            startView: 2,   //默认打开是年试图
+            autoclose: true,  //选择后自动关闭
+            todayBtn: true,  //选择今天的按钮
+            minView: 2   //只能选到年试图  （0 代表能选到分钟、1 代表能选到小时、2 代表能选到日 ）
+        }).on('changeDate', function (ev) {
+            $(".js_Min").datepicker('hide');    //隐藏开始时间面板
+        });
+    });
+	</script>
+</body>
+</html>

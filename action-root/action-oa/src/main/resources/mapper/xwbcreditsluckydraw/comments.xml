@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.ICommentsMapper">
+	<resultMap type="CommentsBean" id="CommentMap">
+		<id column="code" property="code" />
+		<result column="comment_account" property="commentAccount" />
+		<result column="material_code" property="materialCode"/>
+		<result column="content" property="content"/>
+		<result column="comment_date" property="commentDate"/>
+		
+		<result column="is_best" property="isBest"/>
+		<result column="ip_address" property="ipAddress"/>
+		<result column="is_delete" property="isDelete"/>
+		
+		<result column="material_name" property="materialName"/>
+		<result column="material_type" property="materialType"/>
+	</resultMap>
+	<!-- 增加评论 -->
+	<insert id="addComment" parameterType="CommentsBean">
+		insert into xuanwuba_comments_tb values(#{commentAccount},#{materialCode},#{content},#{commentDate})
+	</insert>
+	<!-- 查询评论 -->
+	<select id="getCommentByPage" parameterType="java.util.Map" resultMap="CommentMap">
+		<![CDATA[
+			select TOP (#{page.pageSize}) a.*,b.material_name,b.material_type  from xuanwuba_comments_tb a 
+			left join xuanwuba_material_info_tb b on a.material_code = b.code
+			where 
+			(a.code NOT IN 
+				(SELECT TOP (#{page.pageSize}*(#{page.pageNo}-1)) a.code FROM xuanwuba_comments_tb a 
+					left join xuanwuba_material_info_tb b 
+					on a.material_code = b.code
+					where '1'='1' and is_delete = 0
+		]]>
+		<if test="comments.commentAccount != null and comments.commentAccount != ''">
+		<![CDATA[
+					and a.comment_account like CONCAT('%','${comments.commentAccount}','%' ) 
+		]]>
+		</if>
+		<if test="comments.materialName != null and comments.materialName != ''">
+		<![CDATA[
+					and b.material_name like CONCAT('%','${comments.materialName}','%' ) 
+		]]>
+		</if>
+		<if test="comments.materialCode != null and comments.materialCode != ''">
+		<![CDATA[
+					and a.material_code = #{comments.materialCode}
+		]]>
+		</if>
+		<if test="comments.materialType != null and comments.materialType != ''">
+		<![CDATA[
+					and b.material_type like CONCAT('%','${comments.materialType}','%' ) 
+		]]>
+		</if>
+		<if test="comments.commentDateStr != null and comments.commentDateStr != ''">
+		<![CDATA[
+					and DATEDIFF( d ,#{comments.commentDateStr} ,[comment_date])=0 and DATEDIFF( m ,#{comments.commentDateStr} ,[comment_date])=0 and DATEDIFF( yyyy ,#{comments.commentDateStr} ,[comment_date])=0
+		]]>
+		</if>
+		<if test="comments.isBest != null">
+		<![CDATA[
+					and a.is_best=#{comments.isBest}
+		]]>
+		</if>
+		<![CDATA[
+       			 ORDER BY a.code desc )
+       		)
+       	]]>
+       	<if test="comments.commentAccount != null and comments.commentAccount != ''">
+		<![CDATA[
+					and a.comment_account like CONCAT('%','${comments.commentAccount}','%' ) 
+		]]>
+		</if>
+		<if test="comments.materialName != null and comments.materialName != ''">
+		<![CDATA[
+					and b.material_name like CONCAT('%','${comments.materialName}','%' ) 
+		]]>
+		</if>
+		<if test="comments.materialCode != null and comments.materialCode != ''">
+		<![CDATA[
+					and a.material_code = #{comments.materialCode}
+		]]>
+		</if>
+		<if test="comments.materialType != null and comments.materialType != ''">
+		<![CDATA[
+					and b.material_type like CONCAT('%','${comments.materialType}','%' ) 
+		]]>
+		</if>
+		<if test="comments.commentDateStr != null and comments.commentDateStr != ''">
+		<![CDATA[
+					and DATEDIFF( d ,#{comments.commentDateStr} ,[comment_date])=0 and DATEDIFF( m ,#{comments.commentDateStr} ,[comment_date])=0 and DATEDIFF( yyyy ,#{comments.commentDateStr} ,[comment_date])=0
+		]]>
+		</if>
+		<if test="comments.isBest != null">
+		<![CDATA[
+					and a.is_best=#{comments.isBest}
+		]]>
+		</if>
+		<![CDATA[
+			and is_delete = 0
+			ORDER BY a.code desc
+		]]>
+	</select>
+	<!-- 查询评论数量 -->
+	<select id="getCommentCount" parameterType="CommentsBean" resultType="Integer">
+		<![CDATA[
+			select count(*) from xuanwuba_comments_tb a
+			
+			left join xuanwuba_material_info_tb b on a.material_code = b.code
+			
+			where '1'='1' and is_delete = 0
+			
+		]]>
+		<if test="commentAccount != null and commentAccount != ''">
+		<![CDATA[
+					and a.comment_account like CONCAT('%','${commentAccount}','%' ) 
+		]]>
+		</if>
+		<if test="materialName != null and materialName != ''">
+		<![CDATA[
+					and b.material_name like CONCAT('%','${materialName}','%' ) 
+		]]>
+		</if>
+		<if test="materialCode != null and materialCode != ''">
+		<![CDATA[
+					and a.material_code = #{materialCode}
+		]]>
+		</if>
+		<if test="materialType != null and materialType != ''">
+		<![CDATA[
+					and b.material_type like CONCAT('%','${materialType}','%' ) 
+		]]>
+		</if>
+		<if test="materialCode != null">
+		<![CDATA[
+					and a.material_code=#{materialCode}
+		]]>
+		</if>
+		<if test="commentDateStr != null and commentDateStr != ''">
+		<![CDATA[
+					and DATEDIFF( d ,#{commentDateStr} ,[comment_date])=0 and DATEDIFF( m ,#{commentDateStr} ,[comment_date])=0 and DATEDIFF( yyyy ,#{commentDateStr} ,[comment_date])=0
+		]]>
+		</if>
+		<if test="isBest != null">
+		<![CDATA[
+					and a.is_best=#{isBest}
+		]]>
+		</if>
+	</select>
+	<!-- 删除评论 -->
+	<delete id="deleteComment" parameterType="Integer">
+		delete from xuanwuba_comments_tb where code=#{code}
+	</delete>
+	<!-- 取消所有最佳 -->
+	<update id="cleanBestCommon" parameterType="Integer">
+		update xuanwuba_comments_tb set is_best = 0 where material_code=#{materialCode}
+	</update>
+	<!-- 最佳 -->
+	<update id="setBestCommon" parameterType="Integer">
+		update xuanwuba_comments_tb set is_best = 1 where code=#{code}
+	</update>
+	<!-- 取消最佳 -->
+	<update id="resetBestCommon" parameterType="Integer">
+		update xuanwuba_comments_tb set is_best = 0 where code=#{code}
+	</update>
+	
+	<select id="getCommonByCode" parameterType="Integer" resultMap="CommentMap">
+		select * from xuanwuba_comments_tb where code = #{code}
+	</select>
+		<!-- 删除-->
+	<update id="deleteByCode"  parameterType="Integer">
+		  update xuanwuba_comments_tb set [is_delete]=1 where code = #{code}
+	</update>
+</mapper>

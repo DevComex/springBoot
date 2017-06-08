@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>问道—十周年粉丝榜，快来关注</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wd10yearfans/css/main.css" />
+		<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+	<script type="text/javascript" src="http://static.cn114.cn/action/wd10yearfans/js/jquery.ajaxpage-2.0.js" ></script>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+ 			 var hm = document.createElement("script");
+ 			 hm.src = "//hm.baidu.com/hm.js?3108e9be0dc658778a99d7911e58903b";
+ 			 var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+    </script>
+	</head>
+	<body>
+		<!--公共导航-->
+		<div class="public_nav_top">
+      		<script type="text/javascript">Showtop();</script>
+    	</div>
+		<div class="navPart">
+			<div class="navTitle">
+				<a class="new on" href="javascript:;"><span>最新</span>NEW</a>
+			</div>
+			<div class="navTitle">
+				<a class="fans" href="javascript:;"><span>粉丝榜</span>TOP</a>
+			</div>
+			<div class="navTitle">
+				<a class="blackFans" href="javascript:;"><span>黑粉榜</span>TOP</a>				
+			</div>
+			<div class="navTitle" style="width: 280px;">
+				<input type="text" class="js_searchipt" value="请输入角色名称搜索" /><div class="js_searchtop">&nbsp;</div>
+			</div>
+		</div>
+		<div class="content">
+			<div class="show">
+				<ul class="showBody">
+					#foreach($para in $list)
+						<li>
+						<div class="showSelf">
+							<input type="hidden" id="nationCode" value="$para.nominationCode" />
+							<div class="showMain">
+								<div class="head">
+									<img src=$!{para.picNum}.jpg  width="174px" height="120px" />
+								</div>
+								<div class="name">
+									<p>$para.roleName</p>
+									
+								</div>
+								<div class="fansNum">
+									<p><span>粉丝数：</span>$para.whiteNum</p>
+								</div>
+								<div class="rank">
+									<p><span>排 名：</span>$para.whiteRanking</p>
+								</div>
+								<div class="blackFansNum">
+									<p><span>黑粉数:</span>$para.blackNum</p>
+								</div>
+								<div class="blackRank">
+									<p><span>排 名：</span>$para.blackRanking</p>
+								</div>
+							</div>
+							<div class="disMask"></div>
+							<div class="goodOrBad">
+								<a class="good">关注</a>
+								<a class="black">拉黑</a>
+							</div>
+							<a class="disThis" nominationCode="$para.nominationCode">评论</a>
+						</div>
+					</li>
+					#end
+					
+				</ul>
+			</div>
+			<div class="pl_page">
+                <div style="width: 100%; text-align: center; height: auto; font-size: 12px; line-height: 20px; margin: 20px 0 0 0;" id="js_pgInfo">
+                    <!--      <div align="center" style="width: 100%; float: left;">
+                        <a style="margin-right: 5px;" href="#" class="pfirst">首页</a>
+                        <a style="margin-right: 5px;" href="#" class="pfirst">上页</a>
+                        <a style="margin-right: 5px;" href="#">1</a>
+                        <span style="margin-right: 5px; font-weight: Bold; color: red;">2</span>
+                        <a style="margin-right: 5px;" href="#">3</a>
+                        <a style="margin-right: 5px;" href="#">4</a>
+                        <a style="margin-right: 5px;" href="#">...</a>
+                        <a style="margin-right: 5px;" href="#" class="plast">下页</a>
+                        <a style="margin-right: 5px;" href="#" class="plast">尾页</a>
+                    </div>-->
+                </div>
+            </div>
+			
+		</div>
+		<!--弹层-->
+		<div class="alertBox1">
+			<a class="boxClose">&nbsp;</a>
+			<div class="alertLeft">
+				<div class="headPic"><img width="162px" height="162px" class="js_imgsrc" src="http://static.cn114.cn/action/wd10yearfans/images/350.jpg"></div>
+				<div class="name js_layername">
+					<p></p>
+				</div>
+				<div class="fansNum js_fansNum">
+					<p><span>粉丝数：</span></p>
+				</div>
+				<div class="rank js_rank">
+					<p><span>排 名：</span></p>
+				</div>
+				<div class="blackFansNum js_blackFansNum">
+					<p><span>黑粉数:</span></p>
+				</div>
+				<div class="blackRank js_blackRank">
+					<p><span>排 名：</span></p>
+				</div>
+			</div>
+			<div class="alertRight">
+				<div class="alertTit">
+					<h2>他获得的评论</h2>
+				</div>
+				<div class="disBody">
+				</div>
+				<div class="alertTit">
+					<h2>我要对他评论</h2>
+				</div>
+				<div class="myDis">
+					<input type="text" id="myDiscution" />
+					<div class="submitBtn">
+						<p><span><b class="js_now">15</b>/15</span><a class="disSubmit" >提交</a></p>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+		<div class="mask"></div>
+		<!--漂浮栏-->
+		<div id="floatingBar" class="floatingBar">
+			<div class="floatingBarWord">
+				<div class="board" id="board">
+					<a target="_blank" href="http://actionv2.gyyx.cn/WDFans/index">提名榜单</a>
+				</div>	
+				<div id="signIn" class="signIn">
+					<a href="http://actionv2.gyyx.cn/WDFans/toNomination" target="_blank">我要提名</a>
+				</div>
+				<div class="signIn" style="font-size: 17px; left: 37px; top: 94px;">
+					<a href="http://wd.gyyx.cn/huodong/10zn/10qd/index.html" target="_blank">十年庆典</a>
+				</div>
+				<div class="signIn" style="font-size: 17px; left: 47px; top: 90px;">
+					<a href="http://wd.gyyx.cn/huodong/10zn/jnh/index.html" target="_blank">嘉年华</a>
+				</div>
+			</div>
+		</div>
+				<!--页脚-->
+		<div class="public_nav_bottom" style="clear: both;">
+      		<script type="text/javascript">ShowBottom()</script>
+    	</div>
+	</body>
+	<script type="text/javascript" src="http://static.cn114.cn/action/wd10yearfans/js/main.js" ></script>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Layout:luochongfei" />
+    <title>积分操作记录</title>
+
+    <link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+	<link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+	<script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+	<script type="text/javascript" src="${rc.contextPath}/resources/script/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+						<section id="content">
+                    <section class="vbox">
+						<header class="header bg-white b-b clearfix">
+                            <div class="row m-t-sm">   
+								<form action="records" method="post">   
+                                   <div class="col-sm-2 m-b-xs">
+                                        <div class="input-group">
+                                            <input type="text" name="date" value="$!date" class="input-sm form-control js_Day" readonly placeholder="操作时间">
+                                        </div>
+                                    </div>   
+									<div class="col-sm-2 m-b-xs">
+                                        <div class="input-group">
+                                            <input type="text" name="account" value="$!account" class="input-sm form-control" placeholder="玩家账号">
+                                        </div>
+                                    </div> 
+									<div class="col-sm-2 m-b-xs">
+                                        <div class="input-group">
+                                            <input type="text" name="materialCode" value="$!materialCode" class="input-sm form-control" placeholder="素材编号">
+                                        </div>
+                                    </div> 
+                                    <div class="col-sm-2 m-b-xs">
+                                        <span class="input-group-btn">
+                                            <input type="submit" class="btn btn-sm btn-info" value="筛选">
+                                        </span>
+                                    </div>
+                            </form>
+                            </div>
+                        </header>
+                        <!--顶部标题导航 end-->
+
+                        <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <div class="m-b-md">
+                            </div>
+							 <h4 >积分操作记录列表</h4>
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default"  style="height:750px">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            <tr>
+                                                <th>操作人员</th>
+                                                <th>操作时间</th>
+                                                <th>对应玩家账号</th>
+												<th>对应素材编号</th>
+												<th>素材得分</th>
+                                                <th>审核操作时间</th>
+												<th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+											#foreach($!record in $!recordsList)
+                                            <tr>
+                                                <td>$!record.oprator</td>
+                                                <td>$!record.oprateTimeStr</td>
+                                                <td>$!record.account</td>
+												<td>$!record.materialCode</td>
+												<td>$!record.creditGived</td>
+                                                <td>$!record.oprateTimeStr</td>
+                                                #if($!record.resetFlag == 0)
+													<td>   <a class="btn btn-xs btn-success" href="back?account=$!record.account&credit=$!record.creditGived&materialCode=$!record.materialCode" data-title="撤销" data-toggle="tooltip">
+                                                        <i class="fa fa-minus-square"></i>
+                                                    </a></td>
+												#else
+													<td></td>
+												#end
+                                            </tr>
+											#end
+                                        </tbody>
+                                    </table>
+									
+                                </div>
+                            </section>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+						<!--翻页功能-->
+                        <footer class="footer bg-white b-t">
+                            <div class="row dataTables_wrapper">
+                                <div class="col-sm-2">
+                                    <div class="dataTables_info" id="DataTables_Table_0_info">共$!{page.totalRecords}条 </div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_0_paginate">
+										#if(${page.pageNo} == $!{page.topPage})
+                                        <a href="records?pageNum=$!{page.topPage}&date=$!{date}&account=$!{account}" class="first paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_first">首页</a>
+										<a href="records?pageNum=$!{page.previousPageNo}&date=$!{date}&account=$!{account}" class="previous paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_previous">上一页</a>
+										#else
+										<a href="records?pageNum=$!{page.topPage}&date=$!{date}&account=$!{account}" class="first paginate_button" tabindex="0" id="DataTables_Table_0_first">首页</a>
+										<a href="records?pageNum=$!{page.previousPageNo}&date=$!{date}&account=$!{account}" class="previous paginate_button" tabindex="0" id="DataTables_Table_0_previous">上一页</a>
+										#end
+										<span>
+											
+											$!{page.pageNo}/$!{page.totalPages}
+										</span>
+										#if(${page.pageNo} == $!{page.bottomPageNo})
+										<a href="records?pageNum=$!{page.nextPageNo}&date=$!{date}&account=$!{account}" class="next paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_next">下一页</a>
+										<a href="records?pageNum=$!{page.bottomPageNo}&date=$!{date}&account=$!{account}" class="last paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_last">末页</a>
+										#else
+										<a href="records?pageNum=$!{page.nextPageNo}&date=$!{date}&account=$!{account}" class="next paginate_button" tabindex="0" id="DataTables_Table_0_next">下一页</a>
+										<a href="records?pageNum=$!{page.bottomPageNo}&date=$!{date}&account=$!{account}" class="last paginate_button" tabindex="0" id="DataTables_Table_0_last">末页</a>	
+										#end
+										
+										<input type="hidden" id="goPageMax" value="$!{page.totalPages}" />
+										&nbsp;&nbsp;&nbsp;&nbsp;页码：
+										<input type="text" id="goPageNum" value="" style="width:50px"/>
+										<a class="last paginate_button" tabindex="0" id="goPage">Go</a>
+										
+										<script>
+                                        	$(function(){
+                                        		$("#goPage").click(function(){
+                                        			var max = parseInt($("#goPageMax").val());
+                                        			var index = parseInt($.trim($("#goPageNum").val()));
+                                        			if(index == ""){
+                                        				alert("请输入页码!");
+                                        			}else if(isNaN(index)){
+                                        				alert("页码只能为数字!");
+                                        			}else if(index <= 0){
+                                        				alert("页码只能为正整数!");
+                                        			}else if(index > max){
+                                        				alert("超出页码范围!");
+                                        			}else{
+                                        				window.location.href="records?pageNum="+index+"&date=$!{date}&account=$!{account}";
+                                        			}
+                                        		})
+                                        	})
+                                        </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+	<script type="text/javascript">
+    $(function () {
+		$(".js_Day").datepicker({
+            format: 'yyyy-mm-dd',
+            startView: 2,   //默认打开是年试图
+            autoclose: true,  //选择后自动关闭
+            todayBtn: true,  //选择今天的按钮
+            minView: 2   //只能选到年试图  （0 代表能选到分钟、1 代表能选到小时、2 代表能选到日 ）
+        })
+	})	
+	</script>
+
+</body>
+</html>

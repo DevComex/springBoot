@@ -1,0 +1,55 @@
+
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<title></title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wd2999/weixin/css/normalize.css" />
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wd2999/weixin/css/main.css" />
+	</head>
+	<body>
+		<input type="hidden" value="38" id="batchNo" name="batchNo" />
+		<input type="hidden" value="$userType" name="userType" id="userType" />
+		<input type="hidden" value="问道移动官网微信29992017" name="hdName" id="hdName" />
+		<div class="jihuopage">
+			<img src="http://static.cn114.cn/action/wd2999/weixin/images/index_bg.jpg" />
+			<div class="logo"><img src="http://static.cn114.cn/action/wd2999/weixin/images/logo2.png" /></div>
+			<div class="jihuoform">
+				<form id="formmima" method="post" action="" class="reg_form_web js_login_form">
+					<p class="item_p">
+						<label>选择区组：</label>
+						<span class="item_p_r">
+							<select class="inps js_Account"  name="netType" id="ddlNetType">
+								<option value="3">双线</option>
+							</select>
+						</span>
+					</p>
+					<p class="item_p">
+						<label>选择服务器:</label>
+						<span class="item_p_r">
+							<select class="inps js_Password" name="serverId" id="ddlGameServer">
+                       			<option value="">请选择</option>
+							</select>
+						</span>
+					</p>
+					<p class="item_p">
+						<label>输入验证码:</label>
+						<span class="item_p_r">
+							<input type="text" class="shortinput" id="txtCheckcode" value="" name="txtCheckcode" autocomplete="off" placeholder="请输入验证码" />
+							<img id="captcha_image" class="yzmimg" src="" />
+						</span>						
+					</p>
+					<p class="errorp" style="min-height:25px;"></p>
+					<a id="btnRegister" class="login_btn jihuo_btn" href="#">领取新手卡礼包</a>
+				</form>
+				<p class="wxtxt">搜索公众号：gyyxwd<br />或长按二维码保存至相册，在微信中使用扫一扫-相册-选择二维码图片，即可添加关注<img src="http://static.cn114.cn/action/novicecardmobile/images/wx.gif" /></p>
+			</div>
+		</div>
+		<script src="http://static.cn114.cn/action/wd2999/weixin/js/jquery-1.8.2.min.js"></script>
+		<script src="http://static.cn114.cn/action/wd2999/weixin/js/receive.js"></script>
+	</body>
+</html>

@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/slwx/css/index.css">
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao"></script>
+    <script src="http://s.gyyx.cn/Lib/configCaptcha/js/configCaptcha.min.js"></script>
+    <script src="http://static.cn114.cn/action/slwx/js/index.js" charset="utf-8"></script>
+    <script src="http://static.cn114.cn/action/slwx/js/Lottery.js" charset="utf-8"></script>
+    <style type="text/css">
+
+    </style>
+    <script>
+        var rc = "http://static.cn114.cn/action/slwx/";
+        var system ={
+       		win : false,
+       		mac : false,
+       		xll : false
+       	};
+       	//检测平台
+       	var p = navigator.platform;
+       	system.win = p.indexOf("Win") == 0;
+       	system.mac = p.indexOf("Mac") == 0;
+       	system.x11 = (p == "X11") || (p.indexOf("Linux") == 0);
+		//检查是pc
+		//if(system.win||system.mac||system.x11){
+       	if(system.win||system.mac){
+       		
+       	}else{
+       		window.location.href = "/wd/slwxcallup/wap/index";
+        }
+    </script>
+</head>
+<body>
+<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+<div class="wrap">
+    <div class="main">
+        <div class="nav">
+            <a href="http://wd.gyyx.cn/index_wd_v5.htm">游戏官网</a>|<a href="http://pay.gyyx.cn/">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/">账号注册</a>|<a href="http://wd.gyyx.cn/download/">下载中心</a>
+        </div>
+        <div><img src= "http://static.cn114.cn/action/slwx/img/logo.png" alt="" class="logo"></div>
+        <div class="content">
+            <div>
+                <div class="advertising">
+                    <img src="http://static.cn114.cn/action/slwx/img/ggy.png" alt="">
+                    <img src="http://static.cn114.cn/action/slwx/img/fggy.png" alt="" style="margin-left: 73px;margin-top: -20px;">
+                </div>
+                <div class="signUp_time">
+                    <p>活动报名时间：4月13日 - 4月25日</p>
+                    <p>活动举办时间：4月29日<a class="address"></a>浙江杭州</p>
+                </div>
+            </div>
+            <div>
+                <div class="main_login">
+                    <div class="login">
+                        <div class="login_Before">
+                            <a class="login_button"></a>
+                            <p class="login_test">登录并绑定角色即可赢得<span style="color:#d6c97f;font-size: 18px;margin: 0 2px;">3</span>次抽奖次数</p>
+                        </div>
+                        <div class="login_noBind">
+                            <div class="box1">
+                                <p class="welcome"><span>欢迎您：</span><span class="js_userName"></span><a class="js_Loginout loginOut" href="javascript:;">退出登陆</a></p>
+                            </div>
+                            <div class="box2">
+                                <lable>请选择区服：</lable>
+                                <select class="js_netId" name="">
+                                    <option>请选择区组</option>
+                                    <option value="1">网通</option>
+                                    <option value="2">电信</option>
+                                    <option value="3">双线</option>
+                                </select>
+                                <select class="js_serverList" name="">
+
+                                </select>
+                            </div>
+                            <div class="box3">
+                                <lable>输入验证码：</lable>
+                                <input type="text" name="" value="" class="js_chaptaText">
+                                <a href="javascript:;" class="js_refresh"><img src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=1231231" alt=""></a>
+                            </div>
+                            <div class="box4">
+                                <a href="javascript:;" class="js_bindUser bindUser"></a>
+                            </div>
+                            <div class="box5">
+                                <p>请选择拥有角色等级大于或等于20级的区服，一旦绑定不可修改。</p>
+                            </div>
+                        </div>
+                        <div class="login_hasBind">
+                            <div class="box1">
+                                <p class="welcome"><span>欢迎您：</span><span class="js_userName"></span><a class="js_Loginout loginOut" href="javascript:;">退出登陆</a></p>
+                                <p class="hasBindServer">已绑定：<span class="js_bindServer"></span></p>
+                            </div>
+                            <div class="box2">
+                                <p><a href="javascript:;" class="js_checkMyPrize">查看我的获奖信息</a></p>
+                                <p><a href="javascript:;" class="js_checkMyAddress">更新获奖地址</a><a href="javascript:;" class="js_checkMyInviteAddress">更新邀请函地址</a></p>
+                                <p class="hasBindServer">我的剩余抽奖次数:<span class="js_getPrizeNum"></span></p>
+                            </div>
+                            <div class="box3">
+                                <p class="hasBindServer">【 游戏数据获取略有延迟，请耐心等待】</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="lotteryRules">
+                        <p class="rule">抽奖规则</p>
+                        <div class="rule_text">
+                            <div><span>1</span><h1>活动期间，玩家需在本页面登陆账号，并绑定区组（该区组需有等级需≥20级的角色），即可参与活动，玩家可通过【登陆并绑定区组】，每日获得3次抽奖机会。</h1></div>
+                            <div><span>2</span><h1>抽奖次数可累积，活动期间，每个光宇账号只可赢得一张邀请函；</h1></div>
+                            <div><span>3</span><h1>获得邀请函的玩家，为了确保您的获奖资格，请务必填写正确的个人信息（姓名、电话、邮箱、QQ、地址），工作人员将最迟于48小时以内与您联系；活动不收取任何费用，参与玩家的住宿以及餐饮将由官方统一负责，往返浙江杭州路费将最高报销500元；</h1></div>
+                            <div><span>4</span><h1>活动实物奖品将由《问道》官方统一安排联系派送，为了确保您的获奖资格，请务必填写正确的个人信息（姓名、电话、邮箱、QQ、地址）以免影响发奖；</h1></div>
+                            <div><span>5</span><h1>本次活动的解释权归光宇游戏所有。</h1></div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="map_bg">
+                        <span class="prize_bg prize_bg1" id="dzp0"></span>
+                        <span class="prize_bg prize_bg2" id="dzp7"></span>
+                        <span class="prize_bg prize_bg3" id="dzp6"></span>
+                        <span class="prize_bg prize_bg4" id="dzp5"></span>
+                        <span class="prize_bg prize_bg5" id="dzp4"></span>
+                        <span class="prize_bg prize_bg6" id="dzp3"></span>
+                        <span class="prize_bg prize_bg7" id="dzp2"></span>
+                        <span class="prize_bg prize_bg8" id="dzp1"></span>
+                        <a class="prize_bg9" id="btnStart" href="javascript:;" text="go"></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-------------------------->
+            <div class="ban" id="demo1">
+                <div class="carousel_title"></div>
+                <div class="ban2" id="ban_pic1">
+                    <div class="prev1" id="prev1">
+                        <img src="http://static.cn114.cn/action/slwx/img/left.png"/>
+                    </div>
+                    <div class="next1" id="next1">
+                        <img src="http://static.cn114.cn/action/slwx/img/right.png"/>
+                    </div>
+                    <ul>
+                        <li><a href="javascript:;"><img src="http://static.cn114.cn/action/slwx/img/lb01.jpg" width="976" height="440" /></a></li>
+                        <li><a href="javascript:;"><img src="http://static.cn114.cn/action/slwx/img/lb02.jpg"  width="976" height="440" /></a></li>
+                        <li><a href="javascript:;"><img src="http://static.cn114.cn/action/slwx/img/lb03.jpg"  width="976" height="440" /></a></li>
+                    </ul>
+                    <div class="js_border"></div>
+                </div>
+                <div class="shadow"></div>
+            </div>
+            <!-------------------------->
+            <!--<div style="width:100%;">
+                <div class="carousel_title"></div>
+                <div class="carousel">
+
+                    &lt;!&ndash;<div class="carousel_border"></div>&ndash;&gt;
+                    <div><a href="javascript:;" class="btn_left"></a></div>
+                    <div><a href="javascript:;" class="btn_right"></a></div>
+
+                </div>
+                <div class="shadow"></div>
+            </div>-->
+        </div>
+    </div>
+</div>
+<!-- 遮罩 -->
+<div class="tc_zz"></div>
+<!-- 中奖纪录 -->
+<div class="tc_history">
+    <a class="close"></a>
+    <h3 class="js_title">我的中奖记录</h3>
+    <div class="prizeShowBox">
+
+    </div>
+</div>
+<!-- 谢谢 -->
+<div class="tc">
+    <a class="close"></a>
+    <p class="js_text"></p>
+</div>
+<!-- 虚拟 -->
+<div class="tc_noreal">
+    <a class="close"></a>
+    <p class="js_title">恭喜中奖</p>
+    <p class="js_note"></p>
+    <p class="js_keyN"></p>
+    <p class="js_keyK"></p>
+</div>
+<!-- 实物 -->
+<div class="tc_dz">
+    <a class="close"></a>
+    <h1>恭喜中奖</h1>
+    <h2>邀请函</h2>
+    <div class="box">
+        <h3>请填写联系方式</h3>
+        <div>
+            <div>
+                <span>姓名：</span>
+                <input type="text" >
+            </div>
+            <div>
+                <span>手机：</span>
+                <input type="text" >
+            </div>
+            <div>
+                <span>Q Q：</span>
+                <input type="text" >
+            </div>
+            <div>
+                <span>邮箱：</span>
+                <input type="text" >
+            </div>
+            <div>
+                <span>地址：</span>
+                <input type="text" >
+            </div>
+            <div>
+                <span></span>
+                <a class="js_ok" data-type="">确定</a>
+            </div>
+            <div class="tips">
+                <span>注：</span>
+                <p></p>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+</body>
+
+<script src="http://static.cn114.cn/action/slwx/js/jquery.min.js"></script>
+<script src="http://static.cn114.cn/action/slwx/js/pic_tab.js"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f383a5e2ee3358a1ee21faed33a12a8b";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+    jq(function(){
+        jq('#demo1').banqh({
+            box:"#demo1",//总框架
+            pic:"#ban_pic1",//大图框架
+            pnum:"#ban_num1",//小图框架
+            prev_btn:"#prev_btn1",//小图左箭头
+            next_btn:"#next_btn1",//小图右箭头
+            pop_prev:"#prev2",//弹出框左箭头
+            pop_next:"#next2",//弹出框右箭头
+            prev:"#prev1",//大图左箭头
+            next:"#next1",//大图右箭头
+            pop_div:"#demo2",//弹出框框架
+            pop_pic:"#ban_pic2",//弹出框图片框架
+            pop_xx:".pop_up_xx",//关闭弹出框按钮
+            mhc:".mhc",//朦灰层
+            autoplay:true,//是否自动播放
+            interTime:2000,//图片自动切换间隔
+            delayTime:400,//切换一张图片时间
+            pop_delayTime:400,//弹出框切换一张图片时间
+            order:0,//当前显示的图片（从0开始）
+            picdire:true,//大图滚动方向（true为水平方向滚动）
+            mindire:true,//小图滚动方向（true为水平方向滚动）
+            min_picnum:5,//小图显示数量
+            pop_up:false//大图是否有弹出框
+        });
+        $(".close").click(function(){
+            $(this).parent().hide();
+            $(".tc_zz").hide();
+            $(".tc_dz :input").val("");
+        });
+
+    })
+</script>
+</html>

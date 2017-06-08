@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdno1pet.PetInfoMapper">
+	<!-- 根据宠物主键返回宠物 -->
+	<select id="getPetInfoByPetCode" parameterType="Integer"
+		resultType="WDNo1PetInfoBean" resultMap="WDNo1PetInfoBeanMap">
+		SELECT pet.*,pic.real_url
+		FROM
+		wdno1_game_pet_tb pet,game_pic_tb pic
+		WHERE
+		pet_code = #{pcode} AND
+		pet.img_code = pic.img_code
+	</select>
+
+	<!-- 最强各类宠物 -->
+	<select id="getStrongestPetsByQuality" resultMap="WDNo1PetInfoBeanMap"
+		resultType="java.util.List">
+		SELECT TOP ${limit} wdno1_game_pet_tb.*,game_pic_tb.img_code,strongKey='${qualityName}'
+		FROM
+		wdno1_game_pet_tb
+		LEFT JOIN game_pic_tb
+		ON game_pic_tb.img_code = wdno1_game_pet_tb.img_code
+		WHERE
+		game_pic_tb.img_status = 'checked'
+		ORDER BY
+		${qualityName}
+		DESC
+	</select>
+	<!-- 最热各类宠物 -->
+	<select id="getHottestPetsByType" resultMap="WDNo1PetInfoBeanMap"
+		resultType="java.util.List">
+		SELECT TOP ${limit} *
+		FROM wdno1_game_pet_tb,game_pic_tb
+		WHERE pet_type =
+		'${type}'
+		AND 
+		game_pic_tb.img_status = 'checked'
+		AND
+		 wdno1_game_pet_tb.img_code =
+		 game_pic_tb.img_code
+		ORDER BY vote_count DESC,vote_time ASC
+	</select>
+
+	<!-- 提交参赛作品 -->
+	<insert id="uploadPetInfo" parameterType="WDNo1PetInfoBean">
+		insert into
+		wdno1_game_pet_tb(
+		img_code,
+		pet_name,
+		channel,
+		server_code,
+		character,
+		pet_info,
+		pet_growth,
+		pet_blood,
+		pet_speed,
+		pet_magic,
+		pet_attack,
+		pet_type
+		) values(
+		#{petInfo.imgCode},
+		#{petInfo.petName},
+		#{petInfo.channel},
+		#{petInfo.serverID},
+		#{petInfo.characterName},
+		#{petInfo.petInfo},
+		#{petInfo.petGrowth},
+		#{petInfo.petBlood},
+		#{petInfo.petSpeed},
+		#{petInfo.petMagic},
+		#{petInfo.petAttack},
+		#{petInfo.petType}
+		)
+
+	</insert>
+	<!-- 更新作品选票 -->
+	<update id="updateVote">
+		update
+		wdno1_game_pet_tb
+		set
+		vote_count=vote_count+1,
+		vote_time=#{voteTime}
+		where
+		pet_code=#{petCode}
+
+	</update>
+
+	<!-- 依据（最热、最新）策略和关键字（服务器id、作品名、角色名）、分页码获得参赛作品集合 -->
+	<select id="getBeanByStrategyAndKeys" resultType="java.util.List"
+		resultMap="WDNo1PetInfoBeanMap">
+		WITH PET_TEMP AS (
+		SELECT top (${query.pageIndex} * 12 + 12)
+		wdno1_game_pet_tb.*,game_pic_tb.real_url
+		FROM wdno1_game_pet_tb
+		LEFT
+		JOIN game_pic_tb
+		ON wdno1_game_pet_tb.img_code = game_pic_tb.img_code
+		WHERE game_pic_tb.img_status = 'checked'
+		<!-- serverId 过滤 -->
+		<if test="query.serverId != -1">
+			AND wdno1_game_pet_tb.server_code = #{query.serverId}
+		</if>
+		<if test="query.petType != null">
+			AND wdno1_game_pet_tb.pet_type = #{query.petType}
+		</if>
+		<!-- 至少有一个搜索筛选条件 -->
+		<if test="query.characterName != null or query.petName != null">
+			AND (
+			<if test="query.characterName != null">
+				wdno1_game_pet_tb.character LIKE '%${query.characterName}%' OR
+			</if>
+			<if test="query.petName != null">
+				wdno1_game_pet_tb.pet_name LIKE '%${query.petName}%' OR
+			</if>
+			1 != 1
+			)
+		</if>
+		<!-- 按照最新或最热排序，最热票数相同时按照先打到该票数的时间排序 -->
+		<choose>
+			<when test="query.stg == 'newest'">
+				ORDER BY wdno1_game_pet_tb.pet_code DESC
+			</when>
+			<otherwise>
+				ORDER BY
+				wdno1_game_pet_tb.vote_count DESC,wdno1_game_pet_tb.vote_time DESC
+			</otherwise>
+		</choose>
+		)
+		SELECT * FROM PET_TEMP WHERE pet_code NOT IN (SELECT TOP
+		(${query.pageIndex}
+		* 12) pet_code from PET_TEMP)
+	</select>
+	
+	<select id="getPetCountByStrategyAndKeys" resultType="java.lang.Integer">
+		WITH PET_TEMP AS (
+		SELECT
+		wdno1_game_pet_tb.pet_code
+		FROM wdno1_game_pet_tb
+		LEFT JOIN game_pic_tb
+		ON wdno1_game_pet_tb.img_code = game_pic_tb.img_code
+		WHERE game_pic_tb.img_status = 'checked'
+		<!-- serverId 过滤 -->
+		<if test="query.serverId != -1">
+			AND wdno1_game_pet_tb.server_code = #{query.serverId}
+		</if>
+		<if test="query.petType != null">
+			AND wdno1_game_pet_tb.pet_type = #{query.petType}
+		</if>
+		<!-- 至少有一个搜索筛选条件 -->
+		<if test="query.characterName != null or query.petName != null">
+			AND (
+			<if test="query.characterName != null">
+				wdno1_game_pet_tb.character LIKE '%${query.characterName}%' OR
+			</if>
+			<if test="query.petName != null">
+				wdno1_game_pet_tb.pet_name LIKE '%${query.petName}%' OR
+			</if>
+			1 != 1
+			)
+		</if>
+		)
+		SELECT COUNT(*) FROM PET_TEMP
+	</select>
+	<select id="getPetCountByUserCode" resultType="java.lang.Integer">
+		SELECT COUNT(*) FROM wdno1_game_pet_tb
+		LEFT JOIN game_pic_tb
+		ON wdno1_game_pet_tb.img_code = game_pic_tb.img_code
+		WHERE game_pic_tb.user_code = #{userCode}
+	</select>
+	<select id="getServerIdListByExist" resultType="java.lang.Integer">
+		SELECT distinct server_code from wdno1_game_pet_tb
+	</select>
+	<select id = "getPetInfoByImgCode" resultMap = "WDNo1PetInfoBeanMap">
+		SELECT TOP 1 * from wdno1_game_pet_tb
+		JOIN game_pic_tb
+		ON wdno1_game_pet_tb.img_code = game_pic_tb.img_code
+		WHERE game_pic_tb.img_code = #{imgCode}
+	</select>
+	<resultMap type="WDNo1PetInfoBean" id="WDNo1PetInfoBeanMap">
+		<id column="pet_code" property="petCode" />
+		<result column="img_code" property="imgCode" />
+		<result column="pet_name" property="petName" />
+		<result column="server_code" property="serverID" />
+		<result column="character" property="characterName" />
+		<result column="pet_info" property="petInfo" />
+		<result column="pet_growth" property="petGrowth" />
+		<result column="pet_blood" property="petBlood" />
+		<result column="pet_speed" property="petSpeed" />
+		<result column="pet_magic" property="petMagic" />
+		<result column="pet_attack" property="petAttack" />
+		<result column="pet_type" property="petType" />
+		<result column="vote_time" property="voteTime" />
+		<result column="vote_count" property="voteCount" />
+		<result column="real_url" property="imgURL" />
+	</resultMap>
+</mapper>

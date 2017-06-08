@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.newlottery.IConPramNew">
+	<resultMap type="ContrParmBean" id="ContrParmMap">
+		<id column="code" property="code" />
+		<result column="hd_name" property="activityName" />
+		<result column="hd_start" property="activityStart" />
+			<result column="hd_end" property="activityEnd" />
+		<result column="is_delete" property="isDelete" />
+		<result column="game_id" property="gameId" />
+		<result column="paras" property="paras" />
+		<result column="hd_link" property="activityLink" />
+	</resultMap>
+<select id="getConPram" resultMap="ContrParmMap">
+		select * from hd_config_tb
+		where 
+		code=#{actionCode}
+		and 
+		is_delete='False'
+		</select>
+</mapper>

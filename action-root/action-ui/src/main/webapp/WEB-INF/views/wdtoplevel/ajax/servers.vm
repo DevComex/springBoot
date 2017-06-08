@@ -1,0 +1,4 @@
+<option value="0">请选择服务器</option>
+#foreach($server in $servers)
+<option value = '$server.serverName'>$server.serverName</option>
+#end

@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>问道1.60门派招生活动</title>
+		<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdwxwebsite/css/index.css"/>
+		<script type="text/javascript" src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> <!--光宇统计-->
+		
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/jquery-1.8.2.min.js" ></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+		<script  type="text/javascript">
+			var rc="${rc.contextPath}";
+		</script>
+		<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?2669ad9365a19af95780e512f9e7f871";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+	</head>
+	<body>
+		<a name="six"></a>
+		<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+		<div class="wd_wrap">
+			<div class="main">
+				<div class="wd_nav">
+					<a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/index.aspx" target="_blank">下载中心</a>
+				</div>
+			</div>
+		</div>
+		<a name="one"></a>
+		<div class="wd_box">
+			<div class="main">
+				<div class="wd_log">
+					<div id="login"><a href="javascript:;" class="js_logins"></a><p>参与活动前请先登录</p></div>
+					<div id="over" style="display: none;">
+						<p>欢迎您：<span class="js_acount"></span><a href="javascript:;" class="js_Logout">退出登录</a></p>
+						<select id="daQu"><option>大区：</option><option value="3">双线</option><option value="1">网通</option><option value="2">电信</option></select>
+						<select id="service"><option>服务器：</option></select>
+						<p class="top1"><input type="text" id="testma"/><img src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=Math.random()" class="testmatu"/></p>
+						<a href="javascript:;" class="js_getrole">获取角色</a>
+						<select id="joine"><option>角色：</option></select>
+						<a href="javascript:;" class="js_bindrole">绑定角色</a>
+					</div>
+				</div>
+				<div class="wd_tab" id="js_changetab">
+					<dl class="active" data-id="金">
+						<dt><img src="http://static.cn114.cn/action/wdwxwebsite/image/golden.png"/></dt>
+						<dd>
+							<p>当前积分总数</p>
+							<p class="store"></p>
+						</dd>
+					</dl>
+					<dl data-id="木">
+						<dt><img src="http://static.cn114.cn/action/wdwxwebsite/image/wood.png"/></dt>
+						<dd>
+							<p>当前积分总数</p>
+							<p class="store"></p>
+						</dd>
+					</dl>
+					<dl data-id="水">
+						<dt><img src="http://static.cn114.cn/action/wdwxwebsite/image/water.png"/></dt>
+						<dd>
+							<p>当前积分总数</p>
+							<p class="store"></p>
+						</dd>
+					</dl>
+					<dl data-id="火">
+						<dt><img src="http://static.cn114.cn/action/wdwxwebsite/image/fire.png"/></dt>
+						<dd>
+							<p>当前积分总数</p>
+							<p class="store"></p>
+						</dd>
+					</dl>
+					<dl data-id="土">
+						<dt><img src="http://static.cn114.cn/action/wdwxwebsite/image/soil.png"/></dt>
+						<dd>
+							<p>当前积分总数</p>
+							<p class="store"></p>
+						</dd>
+					</dl>
+				</div>
+				<ul class="table1 js_changenav" style="display: block;">
+					<li><span class="a">金排名</span><span class="b">区组</span><span class="c">角色</span><span class="d">等级</span><span class="e">当前道行</span><span class="f">本月道行</span><span class="g">贡献积分</span></li>
+				</ul>
+				<ul class="table1 js_changenav">
+					<li><span class="a">木排名</span><span class="b">区组</span><span class="c">角色</span><span class="d">等级</span><span class="e">当前道行</span><span class="f">本月道行</span><span class="g">贡献积分</span></li>
+				</ul>
+				<ul class="table1 js_changenav">
+					<li><span class="a">水排名</span><span class="b">区组</span><span class="c">角色</span><span class="d">等级</span><span class="e">当前道行</span><span class="f">本月道行</span><span class="g">贡献积分</span></li>
+				</ul>
+				<ul class="table1 js_changenav">
+					<li><span class="a">火排名</span><span class="b">区组</span><span class="c">角色</span><span class="d">等级</span><span class="e">当前道行</span><span class="f">本月道行</span><span class="g">贡献积分</span></li>
+				</ul>
+				<ul class="table1 js_changenav">
+					<li><span class="a">土排名</span><span class="b">区组</span><span class="c">角色</span><span class="d">等级</span><span class="e">当前道行</span><span class="f">本月道行</span><span class="g">贡献积分</span></li>
+				</ul>
+				<ul class="table1" id="js_changecont">
+				</ul>
+				<div class="wd_comment">
+					<div class="wd_comment_golden">
+						<img src="http://static.cn114.cn/action/wdwxwebsite/image/com_g.png" class="img1" />
+						<img src="http://static.cn114.cn/action/wdwxwebsite/image/jiao.png" class="img2" />
+						<div class="coent1">
+						<div class="coent">
+						</div>
+						</div>
+					</div>
+					<div class="wd_comment_golden">
+						<img src="http://static.cn114.cn/action/wdwxwebsite/image/com_w.png" class="img1" />
+						<img src="http://static.cn114.cn/action/wdwxwebsite/image/jiao.png" class="img2" />
+						<div class="coent1">
+						<div class="coent">
+						</div>
+						</div>
+					</div>
+					<div class="wd_comment_golden">
+						<img src="http://static.cn114.cn/action/wdwxwebsite/image/com_o.png" class="img1" />
+						<img src="http://static.cn114.cn/action/wdwxwebsite/image/jiao.png" class="img2" />
+						<div class="coent1">
+						<div class="coent">
+						</div>
+						</div>
+					</div>
+					<div class="wd_comment_golden">
+						<img src="http://static.cn114.cn/action/wdwxwebsite/image/com_f.png" class="img1" />
+						<img src="http://static.cn114.cn/action/wdwxwebsite/image/jiao.png" class="img2" />
+						<div class="coent1">
+						<div class="coent">
+						</div>
+						</div>
+					</div>
+					<div class="wd_comment_golden">
+						<img src="http://static.cn114.cn/action/wdwxwebsite/image/com_s.png" class="img1" />
+						<img src="http://static.cn114.cn/action/wdwxwebsite/image/jiao.png" class="img2" />
+						<div class="coent1">
+						<div class="coent">
+						</div>
+						</div>
+					</div>
+				</div>
+				<div class="wd_comment_submit">
+					<p>评论门派：</p>
+					<select class="js_commentit"><option>金</option><option>木</option><option>水</option><option>火</option><option>土</option></select>
+					<input type="text"  class="js_commentcon"/>
+					<a href="javascript:;" id="js_commentsub"></a>
+				</div>
+				<div class="wd_address_reset">
+					<a href="javascript:;" id="js_myprize">查看我的奖品</a>
+					<a href="javascript:;" id="js_myaddress">修改邮寄地址</a>
+				</div>
+				<a name="two"></a>
+				<div class="wd_lottery_big">
+					<img src="http://static.cn114.cn/action/wdwxwebsite/image/big.png" />
+					<div class="wd_lottery_big_left">
+						<div class="cjcon clear">
+							<div class="img01 jp" id="dzp0"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img1.png" width="162" height="118"><span></span></div>
+							<div class="img01 jp" id="dzp1"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img2.png" width="162" height="118"><span></span></div>
+							<div class="img01 jp" id="dzp2"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img3.png" width="162" height="118"><span></span></div>
+							<div class="img01 jp" id="dzp3"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img4.png" width="162" height="118"><span></span></div>
+							<div class="img01 jp" id="dzp4"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img5.png" width="162" height="118"><span></span></div>
+							<div class="img01 jp" id="dzp5"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img6.png" width="162" height="118"><span></span></div>
+							<div class="img01 jp" id="dzp13"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img14.png" width="162" height="118"><span></span></div>
+							<div class="start">
+								<a href="javascript:;" id="btnStart" text="go"></a>
+							</div>
+							<div class="img01 jp" id="dzp6"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img7.png" width="162" height="118"><span></span></div>
+							<div class="img01 jp" id="dzp12"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img13.png" width="162" height="118"><span></span></div>
+							<div class="img01 jp" id="dzp11"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img12.png" width="162" height="118"><span></span></div>
+							<div class="img01 jp" id="dzp10"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img11.png" width="162" height="118"><span></span></div>
+							<div class="img01 jp" id="dzp9"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img10.png" width="162" height="118"><span></span></div>
+							<div class="img01 jp" id="dzp8"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img9.png" width="162" height="118"><span></span></div>
+							<div class="img01 jp" id="dzp7"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img8.png" width="162" height="118"><span></span></div>
+						</div>
+					</div>
+					<div class="wd_lottery_big_right">
+						<div class="wd_lottery_big_right_top">
+							<h1></h1>
+							<ul class="title">
+								<li><span class="a">角色名</span><span class="b">区组</span><span class="c">奖品</span></li>
+							</ul>
+							<div class="scroll">
+								<div class="scrollbox" id="mqcon_v">
+									<ul id="js_scrollList1">
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="wd_lottery_big_right_bottom">
+							<h1>抽奖规则</h1>
+							<p><span>1</span>抽奖时间:10月1日0:30-10月7日23:59</p>
+							<p><span>2</span>抽奖时间内，贡献积分最高的门派下所有成员都可在此抽奖。抽奖次数（详情请见活动</br>&nbsp;&nbsp;&nbsp;规则）由玩家的贡献积分决定。</p>
+							<p><span>3</span>官方将会采用技术手段查询刷奖行为，一经发现则取消奖励。</p>
+						</div>
+					</div>
+				</div>
+				<div class="wd_lottery_big">
+					<img src="http://static.cn114.cn/action/wdwxwebsite/image/small.png" />
+					<div class="wd_lottery_big_left">
+						<div class="cjcon clear">
+							<div class="img01 ajp" id="adzp0"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img1.png" width="162" height="118"><span></span></div>
+							<div class="img01 ajp" id="adzp1"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img2.png" width="162" height="118"><span></span></div>
+							<div class="img01 ajp" id="adzp2"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img03.png" width="162" height="118"><span></span></div>
+							<div class="img01 ajp" id="adzp3"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img4.png" width="162" height="118"><span></span></div>
+							<div class="img01 ajp" id="adzp4"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img5.png" width="162" height="118"><span></span></div>
+							<div class="img01 ajp" id="adzp5"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img6.png" width="162" height="118"><span></span></div>
+							<div class="img01 ajp" id="adzp13"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img14.png" width="162" height="118"><span></span></div>
+							<div class="start">
+								<a href="javascript:;" id="abtnStart" text="go"></a>
+							</div>
+							<div class="img01 ajp" id="adzp6"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img7.png" width="162" height="118"><span></span></div>
+							<div class="img01 ajp" id="adzp12"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img13.png" width="162" height="118"><span></span></div>
+							<div class="img01 ajp" id="adzp11"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img12.png" width="162" height="118"><span></span></div>
+							<div class="img01 ajp" id="adzp10"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img11.png" width="162" height="118"><span></span></div>
+							<div class="img01 ajp" id="adzp9"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img10.png" width="162" height="118"><span></span></div>
+							<div class="img01 ajp" id="adzp8"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img9.png" width="162" height="118"><span></span></div>
+							<div class="img01 ajp" id="adzp7"><img src="http://static.cn114.cn/action/wdwxwebsite/image/img8.png" width="162" height="118"><span></span></div>
+						</div>
+					</div>
+					<div class="wd_lottery_big_right">
+						<div class="wd_lottery_big_right_top">
+							<h1></h1>
+							<ul class="title">
+								<li><span class="a">角色名</span><span class="b">区组</span><span class="c">奖品</span></li>
+							</ul>
+							<div class="scroll">
+								<div class="scrollbox" id="mqcon_v">
+									<ul id="js_scrollList">
+									</ul>
+								</div>
+							</div>
+						</div>
+						<div class="wd_lottery_big_right_bottom">
+							<h1>抽奖规则</h1>
+							<p><span>1</span>抽奖时间:10月1日0:30-10月7日23:59</p>
+							<p><span>2</span>抽奖时间内，成功报名参与活动的成员（除贡献积分最高的门派下的）都可在此抽奖。</br>&nbsp;&nbsp;&nbsp;抽奖次数（详情请见活动规则）由玩家的贡献积分决定。</p>
+							<p><span>3</span>官方将会采用技术手段查询刷奖行为，一经发现则取消奖励。</p>
+						</div>
+					</div>
+				</div>
+				<a name="three"></a>
+				<div class="wd_introduce">
+					<img src="http://static.cn114.cn/action/wdwxwebsite/image/wz.png" />
+				</div>
+			</div>
+		</div>
+		<div class="tc_box_pf">
+			<a href="#one" class="one"></a>
+			<a href="#two" class="two"></a>
+			<a href="#three" class="three"></a>
+			<a href="javascript:;" class="four"></a>
+			<a href="http://wd.gyyx.cn/action/1.60/index.html" target="_blank" class="five"></a>
+			<a href="#six" class="six"></a>
+		</div>
+		<div class="tc_box0 js_tc" style="display: none;">
+			<a href="javascript:;" class="close"></a>
+			<p class="st">请修改联系方式：</p>
+			<p>姓名：<input type="text" class="name" id="js_oldname"/></p>
+			<p>电话：<input type="text" class="phone" id="js_oldphone"/></p>
+			<p>地址：<input type="text" class="address" id="js_oldaddress"/></p>
+			<a href="javascript:;" class="js_subprizeadd"></a>
+			<p class="st3">注：活动奖品将在活动结束后由《问道》官网统一安排寄送，请保持电话畅通。联系方式可在活动结束前更新，活动结束后不可更改，如有问题请联系客服：010-82438999</p>
+		</div>
+		<div class="tc_box js_tc" style="display: none;">
+			<a href="javascript:;" class="close"></a>
+			<h1>恭喜中奖</h1>
+			<h2></h2>
+			<p class="st">请填写联系方式：</p>
+			<p>姓名：<input type="text" class="name" id="js_name"/></p>
+			<p>电话：<input type="text" class="phone" id="js_phone"/></p>
+			<p>地址：<input type="text" class="address" id="js_address"/></p>
+			<a href="javascript:;" class="js_subprizeadd"></a>
+			<p class="st3">注：活动奖品将在活动结束后由《问道》官网统一安排寄送，请保持电话畅通。联系方式可在活动结束前更新，活动结束后不可更改，如有问题请联系客服：010-82438999</p>
+		</div>
+		<div class="tc_box1 js_tc" style="display: none;">
+			<a href="javascript:;" class="close"></a>
+			<h1>评论成功，审核中</h1>
+		</div>
+		<div class="tc_box2 js_tc" style="display: none;">
+			<a href="javascript:;" class="close"></a>
+			<img src="http://static.cn114.cn/action/wdwxwebsite/image/bg2.jpg" />
+		</div>
+		<div class="tc_box3 js_tc" style="display: none;">
+			<a href="javascript:;" class="close"></a>
+			<h1>我的奖品</h1>
+			<ul>
+				<li><span class="a">奖品来源</span><span class="b">奖品名称</span></li>
+			</ul>
+			<ul id="js_showmyprize">
+			</ul>
+		</div>
+		<div class="tc_box4 js_tc" style="display: none;">
+			<a href="javascript:;" class="close"></a>
+			<h1>恭喜中奖</h1>
+			<h2></h2>
+			<a href="javascript:;" class="know"></a>
+			<p>所获奖品将发送至对应角色中，如有问题请联系客服：010-82438999</p>
+		</div>
+		<div class="tc_box5 js_tc" style="display: none;">
+			<a href="javascript:;" class="close"></a>
+			<h1>报名信息</h1>
+			<p>门派：<select id="js_changemp"><option value="0">金</option><option value="1">木</option><option value="2">水</option><option value="3">火</option><option value="4">土</option></select></p>
+			<p>门派导师：<span id="js_changeds">文殊天尊</span></p>
+			<p>简介：<span id="js_introduce">金系由西昆仑玉虚宫的元始天尊建立。随后由五龙山云霄洞文殊广法天尊在中洲大陆广收根骨上乘之人。 金系弟子善于用枪。并精通使敌方遗忘和给己方增加攻击力的技能。</span></p>
+			<div>
+				<span class="titleimgs zj_upload" id="divFileProgressContainer" style="width: 200px;  display: inline-block;  margin-left: 75px;"/></span>
+				<a href="javascript:;" class="selBtn"></a>
+			</div>
+			<p class="tips1">注：提交之后不可修改，提交前请仔细核对；上传头像应用于微信版活动，请前往微信版查看。</p>
+			<a href="#" class="sub" id="js_subbm"></a>
+			<ul id="js_ImageUl">
+                <li id="js_UpImageLi">
+                    <span class="uploadimg" style="position: absolute; top: 230px; left: 193px; opacity: 0; filter: alpha(opacity=0);">
+                        <input type="button" id="btnUpload" class="upload" value="上传图片" style="zoom:1"/>
+                        <input type="hidden" id="hid_addImgUrl" name="hid_addImgUrl" /><input type="hidden" id="hid_addthumbImgUrl" name="hid_addthumbImgUrl" />
+                    </span>
+                </li>
+           </ul>
+		</div>
+		<div class="tc_box6 js_tc" style="display: none;">
+			<a href="javascript:;" class="close"></a>
+			<h1>报名信息</h1>
+			<p>门派：<select id="js_changemp2"><option value="0" text="金">金</option><option value="1" text="木">木</option><option value="2" text="水">水</option><option value="3" text="火">火</option><option value="4" text="土">土</option></select></p>
+			<p>门派导师：<span id="js_changeds2"></span></p>
+			<p>简介：<span id="js_introduce2"></span></p>
+			<div>
+				<img src="http://static.cn114.cn/action/wdwxwebsite/image/photos.png"/>
+			</div>
+			<p class="tips1">注：提交之后不可修改，提交前请仔细核对；上传头像应用于微信版活动，请前往微信版查看。</p>
+		</div>
+		<div class="js_black_box" style="display: none; position: absolute; left: 0px; right: 0px; top: 0px; bottom: 0px; opacity: 0.7; z-index: 99; background: rgb(0, 0, 0);">     <!--[if IE 6]><iframe></iframe><![endif]--></div>
+		<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+	</body>
+
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/Lotterywdbig.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/Lotterywdsmall.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/swfupload.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/SWFInitialize.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/Handlers.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/introduce.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/index.js"></script>
+</html>
+
+

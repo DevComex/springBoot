@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 为实体类起别名 -->
+	<typeAliases>
+		<!--  绝世武神微信签到功能 -->
+		<typeAlias alias="JSWSWxSignUserScoreBean"
+		type="cn.gyyx.action.beans.jswswxsign.UserScore" />
+		<typeAlias alias="JSWSWxSignBean"
+		type="cn.gyyx.action.beans.jswswxsign.Sign" />
+		
+	</typeAliases>
+
+	<environments default="ActionDBV2">
+		<environment id="ActionDBV2">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver" value="${jdbc.driverClassName}" />
+				<property name="url" value="${jdbc.ActionDBV2url}" />
+				<property name="username" value="${jdbc.ActionDBV2username}" />
+				<property name="password" value="${jdbc.ActionDBV2password}" />
+				<property name="poolTimeToWait" value="2000" />
+				<property name="poolMaximumActiveConnections" value="50" />
+			</dataSource>
+		</environment>
+	</environments>
+
+	<mappers>
+		<!--绝世武神微信签到功能 -->
+		<mapper resource="mapper/jswswxsign/userScore.xml" />
+		<mapper resource="mapper/jswswxsign/sign.xml" />
+		
+		<!--驯龙三国微信签到功能 -->
+		<mapper resource="mapper/xlsgwxsign/XlsgUserScore.xml" />
+		<mapper resource="mapper/xlsgwxsign/XlsgSign.xml" />
+		
+	</mappers>
+</configuration>

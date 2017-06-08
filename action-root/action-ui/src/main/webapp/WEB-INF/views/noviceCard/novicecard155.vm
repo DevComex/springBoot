@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道-2015雪战到底系列礼包激活</title>
+<link href="http://$!{codeServer2}/action/novicecard155/css/wd141126.css" rel="stylesheet" type="text/css">
+    <script src="http://$!{codeServer1}/Lib/jquery.js" type="text/javascript"></script>
+    <script src="http://$!{codeServer1}/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+
+    <script src="http://$!{codeServer2}/action/novicecard155/js/ReceiveCommon.js" type="text/javascript"></script>
+	<script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+    </script>
+</head>
+<body>
+<div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+</div>
+	
+
+<div class="wdwrap_bg">
+	<div class="main">
+        <div class="wd_tnav"><a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm">进入官网</a><a href="http://account.gyyx.cn/Member/Register">账号注册</a><a href="http://wd.gyyx.cn/new/gl01_20.htm">新手指南</a><a href="http://pay.gyyx.cn/">游戏充值</a><a href="http://wd.gyyx.cn/huodong/2014jhhd/index.html" class="last">关注问道</a></div>
+        <div class="wd_con">
+        	<div class="wd_snav pngbg"></div>
+            <div class="wd_box wd_box1">
+				<form action="receive">
+            	<div class="wd_left">
+            	<h3 class="tit_jh pngbg"></h3>
+                <div class="wd_loginfo">
+                	<div class="wd_lgoin">
+                    	<p id="loginbar">领取请您先：<a class="loga" onclick="alertFn(null,null,true)">登录</a>
+                    <p>
+
+                        <p><label>选择服务器：</label>
+						  <select id="ddlNetType" name="">
+                            <option value="3">双线</option>
+                            <option value="1">网通</option>
+                            <option value="2">电信</option>
+                          </select>
+						  <select id="ddlGameServer" name="serverId">
+                            <option value="0">请选择服务器</option>
+                          </select>
+						</p>
+                        <p><label>新手卡号码：</label>
+
+							<input name="card" id="txtNoviceCard" type="text" class="input_w in">
+						</p>
+                        <p><label>输入验证码：</label>
+							<input type="text" maxlength="6" class="input_w input_w100" id="txtCheckcode" name="code">
+                        <img width="88" height="40" class="yzm1" alt="验证码" title="看不清楚,请点击." src="http://api.gyyx.cn/Captcha/CreateVJ.ashx" id="captcha_image">
+
+						</p>
+					<p class="errorp"></p>
+                    <input type="hidden" value="26" id="batchNo" name="batchNo"/>
+                    <input type="hidden" name="hdName" id="hdName" value="问道1.55新手卡活动" />
+                    </div>
+                    <div class="wd_lqlb">
+						<!--
+                    	<a href="#" class="lqbut pngbg">领取礼包</a>
+						-->
+						<input name="Input"  id="btnRegister" type="button"  class="lqbut" value="" />
+
+                        <a target="_blank" href="http://account.gyyx.cn/Member/Register" class="reg">注册激活</a>
+                        <a target="_blank" href="http://wd.gyyx.cn/download/" class="down">下载游戏</a>
+                    </div>
+                </div>
+				</form>
+                <div class="wd_tip">
+                	<p class="tit"></p>
+                    <p>1、本卡只能用于激活12月26日开启的双线新服“雪战到底”以及以后开启的问道新服；</p>
+                    <p>2、激活相应服务器30天之内的帐号可以领取；</p>
+                    <p>3、同一服务器内，一个帐号只能领取一张卡。</p>
+                </div>
+            </div>
+            <div class="wd_right">
+            	<h3 class="tit_lb pngbg"></h3>
+                <ul>
+                	<li>
+                    	<div class="wd_limg"><a href="http://wd.gyyx.cn/huodong/2014jhhd/index.html" target="new"><img src="http://$!{codeServer2}/action/novicecard155/images/wd_two.jpg"alt=""/></a></div>
+                        <div class="wd_rtext">
+                        	<h3>关注问道微信领取新手礼包</h3>
+                            <p>进入订阅号，点击下方导航【问道助手】<br>选择雪战到底新手卡即可领取</p>
+                        </div>
+                    </li>
+                  <li>
+                    	<div class="wd_limg"><a href="http://t.qq.com/wendao2006" target="new"><img src="http://$!{codeServer2}/action/novicecard155/images/wd_blog.jpg"alt=""/></a></div>
+                        <div class="wd_rtext">
+                        	<h3>收听问道腾讯官博领取新手礼包</h3>
+                            <p>进入问道官方腾讯微博，<br>点击导航内——新手卡领取即可</p>
+                        </div>
+                    </li>
+                  <li>
+                    	<div class="wd_limg"><a href="http://wd.gyyx.cn/tz/YY8009.html" target="new"><img src="http://$!{codeServer2}/action/novicecard155/images/wd_sina.jpg"alt=""/></a></div>
+                        <div class="wd_rtext">
+                        	<h3>参与问道YY8009领取新手礼包</h3>
+                            <p>进入官方YY8009频道，<br>参加活动在大厅领取新手卡</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            </div>
+          <div class="wd_box">
+           	<h3 class="tit_list pngbg"></h3>
+              <ul class="wd_lblist">
+               	  <li><a href="#"><img src="http://$!{codeServer2}/action/novicecard155/images/wd_pic01.jpg" alt=""/></a></li>
+                  <li><a href="#"><img src="http://$!{codeServer2}/action/novicecard155/images/wd_pic02.jpg" alt=""/></a></li>
+                  <li><a href="#"><img src="http://$!{codeServer2}/action/novicecard155/images/wd_pic03.jpg" alt=""/></a></li>
+                  <li><a href="#"><img src="http://$!{codeServer2}/action/novicecard155/images/wd_pic04.jpg" alt=""/></a></li>
+                  <li><a href="#"><img src="http://$!{codeServer2}/action/novicecard155/images/wd_pic05.jpg" alt=""/></a></li>
+                  <li><a href="#"><img src="http://$!{codeServer2}/action/novicecard155/images/wd_pic06.jpg" alt=""/></a></li>
+                  <li><a href="#"><img src="http://$!{codeServer2}/action/novicecard155/images/wd_pic07.jpg" alt=""/></a></li>
+                  <li><a href="#"><img src="http://$!{codeServer2}/action/novicecard155/images/wd_pic08.jpg" alt=""/></a></li>
+                  <li><a href="#"><img src="http://$!{codeServer2}/action/novicecard155/images/wd_pic09.jpg" alt=""/></a></li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom("f6f6f6");</script>
+	<script src="http://www.gyyx.cn/inc/gyyx_statistics.js" type="text/javascript"></script>
+	<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+
+</div>
+
+</body>
+</html>

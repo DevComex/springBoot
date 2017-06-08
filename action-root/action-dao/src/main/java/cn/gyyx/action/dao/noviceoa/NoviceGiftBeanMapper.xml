@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.noviceoa.NoviceGiftBeanMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.action.beans.noviceoa.NoviceGiftBean" >
+    <constructor >
+      <idArg column="code" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="batch_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+      <arg column="gift_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="gift_code" jdbcType="VARCHAR" javaType="java.lang.String" />
+      <arg column="is_default" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="is_delete" jdbcType="BIT" javaType="java.lang.Boolean" />
+      <arg column="create_time" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+    </constructor>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, batch_id, gift_name, gift_code, is_default, is_delete, create_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from novice_gift_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <insert id="insert" useGeneratedKeys="true" keyProperty="code" parameterType="cn.gyyx.action.beans.noviceoa.NoviceGiftBean" >
+    insert into novice_gift_tb (batch_id, gift_name,
+      gift_code, is_default, is_delete,
+      create_time)
+    values (#{batchId,jdbcType=INTEGER}, #{giftName,jdbcType=VARCHAR},
+      #{giftCode,jdbcType=VARCHAR}, #{isDefault,jdbcType=BIT}, #{isDelete,jdbcType=BIT},
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" useGeneratedKeys="true" keyProperty="code" parameterType="cn.gyyx.action.beans.noviceoa.NoviceGiftBean" >
+    insert into novice_gift_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="batchId != null" >
+        batch_id,
+      </if>
+      <if test="giftName != null" >
+        gift_name,
+      </if>
+      <if test="giftCode != null" >
+        gift_code,
+      </if>
+      <if test="isDefault != null" >
+        is_default,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="batchId != null" >
+        #{batchId,jdbcType=INTEGER},
+      </if>
+      <if test="giftName != null" >
+        #{giftName,jdbcType=VARCHAR},
+      </if>
+      <if test="giftCode != null" >
+        #{giftCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefault != null" >
+        #{isDefault,jdbcType=BIT},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.action.beans.noviceoa.NoviceGiftBean" >
+    update novice_gift_tb
+    <set >
+      <if test="batchId != null" >
+        batch_id = #{batchId,jdbcType=INTEGER},
+      </if>
+      <if test="giftName != null" >
+        gift_name = #{giftName,jdbcType=VARCHAR},
+      </if>
+      <if test="giftCode != null" >
+        gift_code = #{giftCode,jdbcType=VARCHAR},
+      </if>
+      <if test="isDefault != null" >
+        is_default = #{isDefault,jdbcType=BIT},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.action.beans.noviceoa.NoviceGiftBean" >
+    update novice_gift_tb
+    set batch_id = #{batchId,jdbcType=INTEGER},
+      gift_name = #{giftName,jdbcType=VARCHAR},
+      gift_code = #{giftCode,jdbcType=VARCHAR},
+      is_default = #{isDefault,jdbcType=BIT},
+      is_delete = #{isDelete,jdbcType=BIT},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <select id="selectListByBatchId" resultMap="BaseResultMap">
+    select code,batch_id,gift_name,gift_code,is_default,is_delete,create_time from novice_gift_tb where batch_id=#{batchId} and is_delete=0
+  </select>
+
+  <select id="selectBeanByGiftName" resultMap="BaseResultMap">
+    select code,batch_id,gift_name,gift_code,is_default,is_delete,create_time from novice_gift_tb where batch_id=#{batchId} and gift_name=#{giftName} and is_delete=0
+  </select>
+
+  <select id="selectBeanByGiftCode" resultMap="BaseResultMap">
+    select code,batch_id,gift_name,gift_code,is_default,is_delete,create_time from novice_gift_tb where batch_id=#{batchId} and gift_code=#{giftCode} and is_delete=0
+  </select>
+
+  <update id="deleteGiftBeanByCode">
+    update novice_gift_tb set is_delete = 1 where code=#{code}
+  </update>
+</mapper>

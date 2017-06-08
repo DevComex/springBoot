@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>问道1.60门派招生活动</title>
+    <link href="http://s.gyyx.cn/scgg/css/chinaCaptcha.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdwxwebsite/css/nologinsingup.css"/>
+    <script type="text/javascript" src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> <!--光宇统计-->
+    
+    <script src="http://s.gyyx.cn/lib/md5-min.js"></script>
+    <script  type="text/javascript">
+		var rc="${rc.contextPath}";
+	</script>
+</head>
+<body>
+	<div id="logo">
+		<img src="http://static.cn114.cn/action/wdwxwebsite/img/logo.jpg" />
+		<h1>活动时间：<span>9月13日12:00-10月7日23:59</span></h1>
+	</div>
+	<div id="main1">
+		<form id="formmima" method="post" action="" class="reg_form_web js_login_form">
+
+		<h1 class="font1">参与活动前请先登录</h1>
+		<p class="duan1"><input placeholder="账号" type="text" class="js_Account" id="Account" value="" name="Account" autocomplete="off" maxlength="18" data-olduser="" /></p>
+		<p class="duan1"><input placeholder="密码" type="Password" class="js_Password" id="Password" value="" name="Password" autocomplete="off" /></p>
+		<h2 class="font1">请输入验证码完成登录</h2>
+		<div class="js_captcha " style="display:none;">
+			<p class="item_p">
+				<input type="text" id="Captcha" name="captcha" value="" class="validCodeVal" placeholder="验证码"   />
+			</p>
+			<p class="easycode">
+				<img class="js_captchaimg" src="" />
+				<a class="changecode chinaCaptcha_Tip03">看不清？</a>
+			</p>
+		</div>				
+		<p class="chinaCaptchaContainer_p01 js_china ">
+			<label>验证码</label>
+			<span class="ChinaCaptchaInput_container ">
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="chinaCaptchaIcon chinaCaptchaIcon1 ChinaCaptchaInput ChinaCaptcha_DeleteBtn js_deleteChinaCaptcha"></em>
+			</span>
+			<i class="chinaCaptchaIcon chinaCaptcha_Tip02 js_checkChinaCaptchaTip default"></i>
+		</p>
+		<p class="chinaCaptchaContainer_p02 js_china">
+			<span class="chinaCaptchaImg chinaCaptchaImg_yes js_refreshChinaCaptcha"></span>
+			<a class="chinaCaptchaChange js_refreshChinaCaptcha chinaCaptcha_Tip03">看不清？</a>
+		</p>
+		<p class="chinaCaptchaContainer_p03 js_china">点击框内文字输入上图中汉字相应文字</p>
+		<div class="chinaCaptchaContainer_p02 js_china">
+			<ul class="ChinaCaptchaSelectCon clearFix js_ChinaCaptchaSelect">
+				<li class="chinaCaptchaImg chinaCaptchaImg_0 js_ChinaCaptchaSelect_img" data-code="0"></li>
+				<li class="chinaCaptchaImg chinaCaptchaImg_1 js_ChinaCaptchaSelect_img" data-code="1"></li>
+				<li class="chinaCaptchaImg chinaCaptchaImg_2 js_ChinaCaptchaSelect_img" data-code="2"></li>
+				<li class="chinaCaptchaImg chinaCaptchaImg_3 js_ChinaCaptchaSelect_img" data-code="3"></li>
+				<li class="chinaCaptchaImg chinaCaptchaImg_4 js_ChinaCaptchaSelect_img" data-code="4"></li>
+				<li class="chinaCaptchaImg chinaCaptchaImg_5 js_ChinaCaptchaSelect_img" data-code="5"></li>
+				<li class="chinaCaptchaImg chinaCaptchaImg_6 js_ChinaCaptchaSelect_img" data-code="6"></li>
+				<li class="chinaCaptchaImg chinaCaptchaImg_7 js_ChinaCaptchaSelect_img" data-code="7"></li>
+				<li class="chinaCaptchaImg chinaCaptchaImg_8 js_ChinaCaptchaSelect_img" data-code="8"></li>
+			</ul>
+		</div>
+		<p class="chinaCaptchaContainer_p04" style="display:none;">
+			<span class="chinaCaptchaSubmit_Btn js_chinaCaptchaBtn">确定</span>
+		</p>
+		<a href="javascript:;" id="loginBtn" class="loginbtn"><img src="http://static.cn114.cn/action/wdwxwebsite/img/anbg.png"/><span>登&nbsp;&nbsp;录</span></a>
+		</form>
+	</div>
+	<div id="footer">
+		<a href="javascript:;" class="on" id="signup">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img1on.jpg" />
+			<b>报名</b>
+		</a>
+		<a href="javascript:;" id="show">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img2.jpg" />
+			<b>展示</b>
+		</a>
+		<a href="javascript:;" id="lottery">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img3.jpg" />
+			<b>抽奖</b>
+		</a>
+		<a href="javascript:;" id="rule">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img4.jpg" />
+			<b>规则</b>
+		</a>
+	</div>
+</body>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/jquery-1.8.2.min.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/addChinaCaptcha.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/gyyx_wxshare.min.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/login.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/pubfx.js" ></script>
+</html>

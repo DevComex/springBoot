@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.ISignPrizeMapper">
+	<resultMap type="SignPrizeBean" id="SignPrizeMap">
+		<id column="code" property="code" />
+		<result column="prize_code" property="prizeCode" />
+		<result column="prize_type" property="prizeType" />
+		<result column="prize_photo" property="prizePhoto" />
+		<result column="prize_name" property="prizeName" />
+		<result column="prize_sex" property="prizeSex" />
+		<result column="is_delete" property="isDelete" />
+		<result column="mail_content" property="mailContent" />
+	</resultMap>
+	<!-- 增加一条签到奖励信息 -->
+	<insert id="insertSignPrize" parameterType="SignPrizeBean">
+		insert into
+		xuanwuba_signprize_tb
+		(prize_code,prize_type,prize_photo,prize_name,prize_sex,is_delete,mail_content) values
+		(#{prizeCode},#{prizeType},#{prizePhoto},#{prizeName},#{prizeSex},0,#{mailContent})
+	</insert>
+	<!-- 修改签到奖励 -->
+	<update id="updateSignPrize" parameterType="SignPrizeBean">
+		update
+		xuanwuba_signprize_tb set prize_code = #{prizeCode},prize_type =
+		#{prizeType},prize_photo = #{prizePhoto},prize_name =
+		#{prizeName},prize_sex = #{prizeSex},mail_content = #{mailContent} where code = #{code}
+	</update>
+	<!-- 根据奖励编号查询签到奖励 -->
+	<select id="selectSignPrizeByCode" parameterType="Integer" resultMap="SignPrizeMap">
+		select * from xuanwuba_signprize_tb where code = #{code} and is_delete = 0
+	</select>
+	<!-- 删除签到奖励 -->
+	<delete id="deleteSignPrize" parameterType="Integer">
+		update xuanwuba_signprize_tb set is_delete = 1 where code = #{code}
+	</delete>
+	<!-- 查询全部签到奖励 -->
+	<select id="selectAllSignPrize" resultMap="SignPrizeMap">
+		select * from xuanwuba_signprize_tb where is_delete = 0
+	</select>
+	<!-- 根据奖励类型和角色性别查询签到奖励 -->
+	<select id="selectSignPrizeByType" parameterType="String" resultMap="SignPrizeMap">
+		select * from xuanwuba_signprize_tb where prize_type = #{0} and prize_sex = #{1} and is_delete = 0
+	</select>
+	
+	<!-- 查询奖励数量 -->
+	<select id="getPrizeCountByType" parameterType="String" resultType="Integer">
+		select count(*) from xuanwuba_signprize_tb where prize_type = #{0} and is_delete = 0 and prize_sex in ('无',#{1})
+	</select>
+</mapper>

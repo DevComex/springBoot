@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.challenger.ISameData">
+	<resultMap type="cn.gyyx.action.beans.challenger.SameDataBean" id="SameDataBeanMap">
+		<id column="code" property="code" />
+		<result column="aid" property="actionCode" />
+		<result column="type " property="type" />
+		<result column="content" property="content" />
+	</resultMap>
+	<insert id="addSameData">
+		insert into same_data_tb
+		(aid,type,content)
+		values
+		(#{actionCode},#{type},#{content})
+	</insert>
+
+	<update id="setSameDate">
+		update same_data_tb
+		set content=#{content}
+		where
+		type=#{type}
+		and
+		aid=#{actionCode}
+	</update>
+	
+	<update id="increaseSameDate">
+		update same_data_tb
+		set content=content+#{increaseScore}
+		where
+		type=#{type}
+		and
+		aid=#{activityCode}
+	</update>
+
+	<select id="getSameDataBean" resultMap="SameDataBeanMap">
+		select top 1 * from
+		same_data_tb
+		where
+		type=#{type}
+		and
+		aid=#{actionCode}
+	</select>
+</mapper>

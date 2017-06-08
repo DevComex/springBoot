@@ -1,0 +1,319 @@
+#parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/jquery.ajaxpage-2.2.js"></script>
+<style>
+	.table td{word-wrap:break-word;vertical-align: middle !important;}
+	.table td img{width:100%;}
+	 textarea{border-color: #d9d9d9;}
+</style>
+<script>
+	function lengXz(ob,length){
+		var chain= /.*[\u4e00-\u9fa5]+.*$/;
+		//默认长为0
+	    var allL = 0;
+	    //初始中文长度
+	    var s = 0;
+	    for (var i = 0; i < $.trim(ob).length; i++) {
+	
+	        if (chain.test($.trim(ob).charAt(i))) {
+	            s++;
+	        }
+	        //英文个数总长
+	        var chi = $.trim(ob).length - s;
+	        //总长
+	        allL = chi + s * 2;
+	    }
+	    if(allL > length){
+	    	return true;
+	    }
+	    return false;
+	}
+
+	$(function () {
+		  //获取机构列表--结束
+	  var formatJsonDateStr = function(jsonDateStr) {
+			var date = new Date(parseInt(jsonDateStr));
+			var dateStr = [];
+			dateStr.push(date.getFullYear());
+			dateStr.push('-'
+					+ (Number(date.getMonth()) + 1));
+			dateStr.push('-' + date.getDate());
+			dateStr.push(' ' + date.getHours());
+			dateStr.push(':' + date.getMinutes());
+			dateStr.push(':' + date.getSeconds());
+			return dateStr.join('');
+		};
+		
+		getlist();
+	  function getlist() {
+	      $("#js_tbSzList").ajaxPage({
+	          url: rc+"/wd10yearcoser/noviceDataList",//接口
+	          pageObj: $("#DataTables_Table_0_paginate"),
+	          pageIndex: 1,
+	          pageSize: 10,
+	          curPageCls: "paginate_active",
+	          pageInfo: {
+	              obj: $("#DataTables_Table_0_info"),
+	              content: "共{allCount}条  当前第{pageIndex}/{allPage}页"
+	          },
+	          paramObj: {
+	          },
+	          dataFn: function (data, $this) {
+	              var dataHtml = "",dataHtmlmain ="", dCont = data.data;//获取返回数据
+	              if (dCont && dCont.length && dCont[0]) {
+	     
+	                   var isneedact = "";
+	                   
+	                  for (var i = 0; i < dCont.length; i++) {
+	                	  dCont[i].content = dCont[i].content.replace("\r\n","<br/>");
+	                	  
+	                      dataHtml += '' 
+	                         + '<tr>' 
+	                           +'  <td>' + (i+1) + '</td>' 
+	                           +'  <td>' + dCont[i].title + '</td>' 
+	                           +'  <td>' + ((dCont[i].content.length > 200) ? (dCont[i].content.substring(0,200)+'...') : (dCont[i].content)) + '</td>' 
+	                          + '  <td style="text-align:center;"><span class="label '+(dCont[i].isPub=='Y'?'bg-success':'label-default')+'">' + (dCont[i].isPub=='Y'?'是':'否') + '</span></td>' 
+	                          + '  <td>' + formatJsonDateStr(dCont[i].createTime) + '</td>' //时间
+	                          + '  <td style="" code="'+dCont[i].code+'">'
+	                          + ' <a data-toggle="modal" href="#noviceModal" class="modNovice btn btn-xs btn-success">编辑</a><span style="margin:0 10px;">|</span>';
+	                          dataHtml += ' <a href="javascript:;" class="delNovice btn btn-xs btn-danger">删除</a>' 
+	                        	  if(dCont[i].isPub=='N'){
+		                        	  dataHtml +=' <span style="margin:0 10px;">|</span><a href="javascript:;" class="pubNovice btn btn-xs btn-info">发布</a>';
+		                          }else{
+		                        	  //dataHtml +=' <a href="javascript:;" class="upPubNovice btn btn-xs btn-success">取消发布</a>';
+		                          }
+	                          
+	                          dataHtml += '</td></tr>';
+	                  }
+	                  $("#js_tbSzList").empty().html(dataHtml);//展示精选详情内容
+	                  $(".pubNovice,.unPubNovice").live('click',function(e){
+	                  	var code =  $(this).parent("td").attr("code");
+	                  	var state= "";
+	                  	if($(e.target).hasClass("pubNovice")){
+	                  		state = "Y";
+	                  	}else if($(e.target).hasClass("upPubNovice")){
+	                  		state = "N";
+	                  	}
+	                  	$
+						.ajax({
+	                  		url: rc+"/wd10yearcoser/novicePub",
+	                          type: "POST",
+	                          data: { 
+	                          	r: Math.random(), 
+	                          	code:code,
+	                          	state:state
+	                          },
+	                          dataType: "json",
+	                          success: function (d) {
+	                        	  if (d.isSuccess) {
+	         						 alert("发布成功");
+	         						 location.reload();
+	         					 }else{
+	         						 alert(d.message);
+	         					 }
+	                          }
+	                  	})
+	
+	                  })
+						
+	                  return dataHtml;
+	                 
+	              } else {
+	                 // alert(data.message)
+	                  $("#js_tbSzList").empty()
+	                  $("#scrollable_one").hide();
+	
+	              }
+	          }
+	
+	      });
+	  }
+	 
+	  $(".js_edit_btn").click(function(){
+			var code = $.trim($("#code").val());
+			var title = $.trim($("#title").val());
+			if(title == ""){
+				alert("标题不能为空！");
+				return false;
+			}
+			if(lengXz($.trim(title), 30)){
+				alert("标题长度不能大于30个字符！");
+				return false;
+			}
+			//内容
+			var content = $.trim($("#noviceModal #content").val());
+			if(content == ""){
+				alert("内容不能为空！");
+				return false;
+			}
+			if($.trim(content).length  >600){
+				alert("内容长度不能大于600！");
+				return false;
+			}
+			
+			var formSrc = "${rc.contextPath}/wd10yearcoser/";
+			if(code!=0){//编辑
+				formSrc += "noviceMod";
+			}else{
+				formSrc += "noviceAdd";
+			}
+			
+			$.ajax({
+	            type:"post",
+	            url:formSrc,
+	            data:$("#editForm").serialize(),
+	            success:function(d){
+	            	if (d.isSuccess) {
+						 alert(d.message);
+						 location.reload();
+					 }else{
+						 alert(d.message);
+					 }
+	            },
+	            error: function(){
+	                alert("网络异常");
+	            } 
+	         }); 
+		});
+	  
+	  $(".modNovice").live("click",function(){
+			$.ajax
+			({
+				url:'${rc.contextPath}/wd10yearcoser/getNotice',
+				type:'POST',
+				data:{code:$(this).parent().attr("code"),r:Math.random()},
+				dataType:'json',
+				success:function(d){
+					 if (d.isSuccess) {
+						 var data = d.data;
+						 $("#code").val(data.code);
+							$("#title").val(data.title);
+							$("#noviceModal #content").val(data.content);
+					 }else{
+						 alert(d.message);
+					 }
+					
+				}
+			  }); 
+		});
+	  
+	  
+	  $("#addNovice").live("click",function(){
+		  $("#editForm")[0].reset();
+		  $("#editForm #code").val("0");
+	  });
+	  $(".delNovice").live("click",function(){
+		  if(confirm("确定要删除数据吗？")){
+			  $.ajax({
+					url:'${rc.contextPath}/wd10yearcoser/noviceDel',
+					type:'POST',
+					data:{code:$(this).parent().attr("code"),r:Math.random()},
+					dataType:'json',
+					success:function(d){
+						 if (d.isSuccess) {
+							 alert(d.message);
+							 location.reload();
+						 }else{
+							 alert(d.message);
+						 }
+					}
+				  }); 
+		  }
+	  });
+	});
+</script>
+<!--标题-->
+<header class="header bg-white b-b clearfix">
+    <div class="col-sm-9 m-t-xs">
+        <h4>同人活动-文字公告列表</h4>
+    </div>
+    <div class="col-sm-2 m-b-xs m-t-sm m-l-xl">
+        <div class="input-group m-l-xl">
+            <a class="btn btn-s-md  btn-info m-l-xl" href="#noviceModal" data-toggle="modal" id="addNovice">新增</a>
+        </div>
+    </div>
+</header>
+<!-- 查询表单 -->
+<section class="scrollable padder" style="overflow: scroll; top: 92px;" id="scrollable_one">
+   
+    <!--数据表格  begin -->
+    
+    <section class="panel panel-default">
+         
+       <div class="table-responsive">
+            <table class="table table-striped m-b-none" style="table-layout: fixed;">
+                <thead>
+                    <tr>
+                        <th width="5%">序号</th>
+                        <th width="15%">标题</th>
+                        <th width="40%">内容</th>
+                        <th style="text-align:center;" width="10%">是否发布</th>
+                        <th width="15%">创建时间</th>
+                        <th width="18%">操作</th>
+                    </tr>
+                </thead>
+                <tbody id="js_tbSzList">
+                  
+                </tbody>
+            </table>
+            <!-- 分页 -->
+            <div class="row dataTables_wrapper" style="margin-right: 0px; margin-left: 0px;">
+                <footer class="footer bg-white b-t">
+                    <div class="row dataTables_wrapper">
+                        <div class="col-sm-6">
+                            <div id="DataTables_Table_0_info" class="dataTables_info"></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers"></div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!--分页 -->
+        </div>
+    </section>
+</section>
+ <!--弹层 begin-->
+    <div class="modal fade" id="noviceModal">
+    <div class="modal-dialog" style="width:800px;">
+        <div class="modal-content">
+        	<form id="editForm" class="form-horizontal" method="post">
+        		<input id="code" name="code" type="hidden" value="0" />
+	            <div class="modal-header">
+	                <button type="button" id="js_modal_add_form_close" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+	                <h4 class="modal-title">
+		             	<i class="fa fa-pencil"></i>
+		                <span>添加信息</span>
+		            </h4>
+	            </div>
+	            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+	            <div class="modal-body" style="padding:5px;">
+	                	<div class="form-group">
+	                        <label class="col-sm-2 control-label"><span class="text-danger">*&nbsp;</span>标题：</label>
+	                        <div class="col-sm-10">
+	                        	<input id="title" name="title" type="text" class="input-sm form-control" style="width:300px" >
+	                        </div>
+	                    </div>
+	                    <div class="form-group">
+	                    	<label class="col-sm-2 control-label"><span class="text-danger">*&nbsp;</span>内容：</label>
+	                    	<div class="col-sm-10">
+	                    		<textarea id="content" name="content" rows="20" cols="153" style="width:90%" class="cl_valid_input"></textarea>
+	                        </div>
+	                    </div>
+	                    <div class="form-group" style="padding:0px;margin:0px;">
+	                    	<div class="col-sm-12">
+	                            
+	                        </div>
+	                    </div>
+	            </div>    
+	            <div class="modal-footer">
+	            	 <button type="button" class="btn btn-info js_edit_btn">确定</button>
+	            </div>
+            </form>
+        </div>
+    </div>
+   </div>
+   
+
+    
+ #parse("/shared/footer.vm")

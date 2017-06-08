@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.supporter.ISubTb">
+	<insert id="addSubForm" useGeneratedKeys="true" keyProperty="code" parameterType="java.util.Map"> 
+		insert into common_sub_tb 
+		(action_code,type,account_code,account,ip_addr,upload_date,upload_sqldate,main_code,display,json_str,display)
+		values
+		(#{action_code},#{type},#{account_code},#{account},#{ip_addr},#{upload_date},#{upload_sqldate},#{main_code},#{display},#{json_str},#{display})
+	</insert>
+	<update id="updateSubForm" parameterType="java.util.Map">
+		update common_sub_tb
+		set 
+		display = #{display},
+		json_str = #{json_str}
+		where code = #{code}
+	</update>
+	<select id="querySubForm" resultType="java.util.Map">
+		<choose>
+			<when test="usePaging == true">
+			select common_sub_tb.*,
+			t.m from 
+			(
+				select common_sub_tb.code,
+				<choose>
+					<when test="ascColum != null">
+						ROW_NUMBER() OVER (ORDER BY ${ascColum} asc) as m 
+					</when>
+					<otherwise>
+						<choose>
+							<when test="descColum != null">
+								ROW_NUMBER() OVER (ORDER BY ${descColum} desc) as m 
+							</when>
+							<otherwise>
+								ROW_NUMBER() OVER (ORDER BY common_sub_tb.code asc) as m 
+							</otherwise>
+						</choose>
+					</otherwise>
+				</choose>
+				from common_sub_tb
+				where 1 = 1
+				${whereCondition}
+			) as t
+			left join common_sub_tb
+			on t.code = common_sub_tb.code
+			where t.m between (((${pageNum} - 1)*${pageSize}) + 1) and ((${pageNum})*${pageSize})
+			</when>
+			<otherwise>
+			select 
+			<if test="useTop == true">
+				top ${top} 
+			</if> 
+			* 
+			from common_sub_tb
+			where 1 = 1
+			${whereCondition}
+			<choose>
+					<when test="randomize == true">
+						ORDER BY newid()
+					</when>
+					<otherwise>
+						<choose>
+							<when test="ascColum != null">
+								ORDER BY ${ascColum} asc
+							</when>
+							<otherwise>
+								<choose>
+									<when test="descColum != null">
+										ORDER BY ${descColum} desc
+									</when>
+									<otherwise>
+										ORDER BY common_sub_tb.code asc
+									</otherwise>
+								</choose>
+							</otherwise>
+						</choose>
+					</otherwise>
+				</choose>
+			</otherwise>
+		</choose>
+	</select>
+	<select id="querySubFormNum" resultType="java.lang.Integer">
+		<choose>
+			<when test="usePaging == true">
+			select count(common_sub_tb.code) from 
+			(
+				select common_sub_tb.code,
+				<choose>
+					<when test="ascColum != null">
+						ROW_NUMBER() OVER (ORDER BY ${ascColum} asc) as m 
+					</when>
+					<otherwise>
+						<choose>
+							<when test="descColum != null">
+								ROW_NUMBER() OVER (ORDER BY ${descColum} desc) as m 
+							</when>
+							<otherwise>
+								ROW_NUMBER() OVER (ORDER BY common_sub_tb.code asc) as m 
+							</otherwise>
+						</choose>
+					</otherwise>
+				</choose>
+				from common_sub_tb
+				where 1 = 1
+				${whereCondition}
+			) as t
+			left join common_sub_tb
+			on t.code = common_sub_tb.code
+			where t.m between (((${pageNum} - 1)*${pageSize}) + 1) and ((${pageNum})*${pageSize})
+			</when>
+			<otherwise>
+			select count(common_sub_tb.code)
+			from common_sub_tb
+			where 1 = 1
+			${whereCondition}
+			</otherwise>
+		</choose>
+	</select>
+	<select id="getAllSubForm" resultType="java.util.Map">
+		select * from common_sub_tb
+		where action_code = #{actionCode}
+		and type = #{type}
+		and main_code = #{mainCode}
+	</select>
+</mapper>

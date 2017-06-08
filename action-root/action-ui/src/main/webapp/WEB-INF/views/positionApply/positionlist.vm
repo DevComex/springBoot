@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    	<title>加入光宇游戏，一起缔造快乐！</title>
+		<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/positionApply/css/publicjian.css"/>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/zhiweilist.css" />
+	</head>
+	<body style="background: #1d75d4;">
+		<div class="warp">
+			<div class="main">
+				<img src="http://static.cn114.cn/action/positionApply/img/zhiweifl.jpg" />
+				<div class="listH">
+					<ul>
+						<li>
+							<dl>
+								<dt><a href="${rc.contextPath}/position/positiontype/gamedeveloper"><img src="http://static.cn114.cn/action/positionApply/img/kf.png"/></a></dt>
+								<dd><a href="${rc.contextPath}/position/positiontype/gamedeveloper">游戏开发类</a></dd>
+							</dl>
+							<dl>
+								<dt><a href="${rc.contextPath}/position/positiontype/artscene"><img src="http://static.cn114.cn/action/positionApply/img/ms.png"/></a></dt>
+								<dd><a href="${rc.contextPath}/position/positiontype/artscene">游戏美术类</a></dd>
+							</dl>
+							<dl>
+								<dt><a href="${rc.contextPath}/position/positiontype/gameNumberDesigner"><img src="http://static.cn114.cn/action/positionApply/img/ch.png"/></a></dt>
+								<dd><a href="${rc.contextPath}/position/positiontype/gameNumberDesigner">游戏策划类</a></dd>
+							</dl>
+						</li>
+						<li>
+							<dl>
+								<dt><a href="${rc.contextPath}/position/positiontype/applicationLinux"><img src="http://static.cn114.cn/action/positionApply/img/yykf.png"/></a></dt>
+								<dd><a href="${rc.contextPath}/position/positiontype/applicationLinux">应用开发类</a></dd>
+							</dl>
+							<dl>
+								<dt><a href="${rc.contextPath}/position/positiontype/produceAnalysisSupervisor"><img src="http://static.cn114.cn/action/positionApply/img/yy.png"/></a></dt>
+								<dd><a href="${rc.contextPath}/position/positiontype/produceAnalysisSupervisor">产品运营类</a></dd>
+							</dl>
+							<dl>
+								<dt><a href="${rc.contextPath}/position/positiontype/marketScheme"><img src="http://static.cn114.cn/action/positionApply/img/sw.png"/></a></dt>
+								<dd><a href="${rc.contextPath}/position/positiontype/marketScheme">市场商务类</a></dd>
+							</dl>
+						</li>
+						<li id="lastList">
+							<dl>
+								<dt><a href="${rc.contextPath}/position/positiontype/videoGC"><img src="http://static.cn114.cn/action/positionApply/img/sp.png"/></a></dt>
+								<dd><a href="${rc.contextPath}/position/positiontype/videoGC">视频美术类</a></dd>
+							</dl>
+							<dl>
+								<dt><a href="${rc.contextPath}/position/positiontype/function"><img src="http://static.cn114.cn/action/positionApply/img/zn.png"/></a></dt>
+								<dd><a href="${rc.contextPath}/position/positiontype/function">职能类</a></dd>
+							</dl>
+						</li>
+					</ul>
+				</div>
+				<div class="jian">
+					<a href="${rc.contextPath}/position/contactme"><img src="http://static.cn114.cn/action/positionApply/img/jian.png" /></a>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

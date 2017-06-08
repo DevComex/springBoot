@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wechatvideo.WeChatVideoUpLoadLogBeanMapper">
+	<resultMap id="BaseResultMap"
+		type="cn.gyyx.action.beans.wechatvideo.WeChatVideoUpLoadLogBean">
+		<id column="code" jdbcType="INTEGER" property="code" />
+		<result column="user_id" jdbcType="INTEGER" property="userId" />
+		<result column="account" jdbcType="VARCHAR" property="account" />
+		<result column="role_name" jdbcType="NVARCHAR" property="roleName" />
+		<result column="wechat_account" jdbcType="VARCHAR" property="wechatAccount" />
+		<result column="server_name" jdbcType="NVARCHAR" property="serverName" />
+		<result column="upload_time" jdbcType="TIMESTAMP" property="uploadTime" />
+		<result column="video_name" jdbcType="VARCHAR" property="videoName" />
+		<result column="video_address" jdbcType="VARCHAR" property="videoAddress" />
+		<result column="video_cover_address" jdbcType="VARCHAR"
+			property="videoCoverAddress" />
+		<result column="video_status" jdbcType="INTEGER" property="videoStatus" />
+		<result column="auditor" jdbcType="VARCHAR" property="auditor" />
+		<result column="audit_time" jdbcType="TIMESTAMP" property="auditTime" />
+		<result column="vote_times" jdbcType="INTEGER" property="voteTimes" />
+		<result column="share_times" jdbcType="INTEGER" property="shareTimes" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		code, user_id, account, role_name, wechat_account,
+		server_name,
+		upload_time, video_name,
+		video_address,
+		video_cover_address, video_status, auditor, audit_time, vote_times,
+		share_times
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from wechatvideo_upload_log_tb
+		where code = #{code,jdbcType=INTEGER}
+	</select>
+
+	<!-- 根据userId和视频状态获取上传视频列表 -->
+	<select id="getUploadTimesByUserId" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from wechatvideo_upload_log_tb
+		where user_id=#{userId}
+		<if test="status!=100">
+          <![CDATA[ and video_status =  #{status} ]]>
+		</if>
+	</select>
+
+	<!-- 通过游戏账号、角色名、视频名称进行视频搜索 -->
+	<select id="selectByParam" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from wechatvideo_upload_log_tb
+		where 
+		(
+		account like
+		'%${searchPar}%' or
+		role_name like
+		'%${searchPar}%' or
+		video_name like
+		'%${searchPar}%'
+		)
+		and
+		video_status=1
+		order
+		by upload_time desc
+	</select>
+
+	<!-- 首页通过页码获取视频列表 -->
+	<select id="getVideoByIndex" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select top ${pageCount}
+		<include refid="Base_Column_List" />
+		from wechatvideo_upload_log_tb
+		where
+		code not in (select top
+		${skipCount} code from wechatvideo_upload_log_tb
+		where video_status=1
+		order by upload_time desc)
+		and video_status=1 order by upload_time desc
+	</select>
+
+	<!--OA后台获取视频列表 -->
+	<select id="getVideoList" resultMap="BaseResultMap">
+		select top ${pageCount}
+		<include refid="Base_Column_List" />
+		from wechatvideo_upload_log_tb
+		where
+		code not in
+		(
+		select top ${skipCount}
+		code from wechatvideo_upload_log_tb
+		where 1=1
+		<if test="beginTime!= null and beginTime!= '' ">
+                    <![CDATA[ and upload_time >=  #{beginTime} ]]>
+		</if>
+		<if test="endTime!= null and endTime!= '' ">
+                    <![CDATA[ and upload_time <=#{endTime} ]]>
+		</if>
+		<if test="keyWord!= null and keyWord!= '' ">
+                    <![CDATA[ and account like  '%${keyWord}%' or video_name like '%${keyWord}%' ]]>
+		</if>
+		<if test="verifyStatus!= null and verifyStatus!= '' ">
+                    <![CDATA[ and video_status =  #{verifyStatus} ]]>
+		</if>
+		)
+		<if test="beginTime!= null and beginTime!= '' ">
+                    <![CDATA[ and upload_time >=  #{beginTime} ]]>
+		</if>
+		<if test="endTime!= null and endTime!= '' ">
+                    <![CDATA[ and upload_time <=#{endTime} ]]>
+		</if>
+		<if test="keyWord!= null and keyWord!= '' ">
+                    <![CDATA[ and account like  '%${keyWord}%' or video_name like '%${keyWord}%' ]]>
+		</if>
+		<if test="verifyStatus!= null and verifyStatus!= '' ">
+                    <![CDATA[ and video_status =  #{verifyStatus} ]]>
+		</if>
+	</select>
+
+	<!--获取视频总数 -->
+	<select id="getVideoCount" resultType="java.lang.Integer">
+		select
+		count(code)
+		from
+		wechatvideo_upload_log_tb
+		where 1=1
+		<if test="beginTime!= null and beginTime!= '' ">
+                    <![CDATA[ and upload_time >=  #{beginTime} ]]>
+		</if>
+		<if test="endTime!= null and endTime!= '' ">
+                    <![CDATA[ and upload_time <=#{endTime} ]]>
+		</if>
+		<if test="keyWord!= null and keyWord!= '' ">
+                    <![CDATA[ and account like  '%${keyWord}%' or video_name like '%${keyWord}%' ]]>
+		</if>
+		<if test="verifyStatus!= null and verifyStatus!= '' ">
+                    <![CDATA[ and video_status =  #{verifyStatus} ]]>
+		</if>
+	</select>
+
+	<!--获取过滤视频总数 -->
+	<select id="getDistinctUserIdCount" resultType="java.lang.Integer">
+		select
+		count(DISTINCT user_id)
+		from
+		wechatvideo_upload_log_tb
+		where 1=1
+		<if test="verifyStatus!= null and verifyStatus!= '' ">
+                    <![CDATA[ and video_status =  #{verifyStatus} ]]>
+		</if>
+	</select>
+
+	<insert id="insert"
+		parameterType="cn.gyyx.action.beans.wechatvideo.WeChatVideoUpLoadLogBean">
+		insert into wechatvideo_upload_log_tb (code, user_id,
+		account,
+		role_name, wechat_account, server_name,
+		upload_time,
+		video_name, video_address,
+		video_cover_address, video_status, auditor,
+		audit_time, vote_times, share_times
+		)
+		values (#{code,jdbcType=INTEGER},
+		#{userId,jdbcType=INTEGER},
+		#{account,jdbcType=VARCHAR},
+		#{roleName,jdbcType=NVARCHAR}, #{wechatAccount,jdbcType=VARCHAR},
+		#{serverName,jdbcType=NVARCHAR},
+		#{uploadTime,jdbcType=TIMESTAMP},
+		#{videoName,jdbcType=VARCHAR},
+		#{videoAddress,jdbcType=VARCHAR},
+		#{videoCoverAddress,jdbcType=VARCHAR},
+		#{videoStatus,jdbcType=INTEGER}, #{auditor,jdbcType=VARCHAR},
+		#{auditTime,jdbcType=TIMESTAMP}, #{voteTimes,jdbcType=INTEGER},
+		#{shareTimes,jdbcType=INTEGER}
+		)
+	</insert>
+	<insert id="insertSelective"
+		parameterType="cn.gyyx.action.beans.wechatvideo.WeChatVideoUpLoadLogBean">
+		insert into wechatvideo_upload_log_tb
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="code != null">
+				code,
+			</if>
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="account != null">
+				account,
+			</if>
+			<if test="roleName != null">
+				role_name,
+			</if>
+			<if test="wechatAccount != null">
+				wechat_account,
+			</if>
+			<if test="serverName != null">
+				server_name,
+			</if>
+			<if test="uploadTime != null">
+				upload_time,
+			</if>
+			<if test="videoName != null">
+				video_name,
+			</if>
+			<if test="videoAddress != null">
+				video_address,
+			</if>
+			<if test="videoCoverAddress != null">
+				video_cover_address,
+			</if>
+			<if test="videoStatus != null">
+				video_status,
+			</if>
+			<if test="auditor != null">
+				auditor,
+			</if>
+			<if test="auditTime != null">
+				audit_time,
+			</if>
+			<if test="voteTimes != null">
+				vote_times,
+			</if>
+			<if test="shareTimes != null">
+				share_times,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="code != null">
+				#{code,jdbcType=INTEGER},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=INTEGER},
+			</if>
+			<if test="account != null">
+				#{account,jdbcType=VARCHAR},
+			</if>
+			<if test="roleName != null">
+				#{roleName,jdbcType=NVARCHAR},
+			</if>
+			<if test="wechatAccount != null">
+				#{wechatAccount,jdbcType=VARCHAR},
+			</if>
+			<if test="serverName != null">
+				#{serverName,jdbcType=NVARCHAR},
+			</if>
+			<if test="uploadTime != null">
+				#{uploadTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="videoName != null">
+				#{videoName,jdbcType=VARCHAR},
+			</if>
+			<if test="videoAddress != null">
+				#{videoAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="videoCoverAddress != null">
+				#{videoCoverAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="videoStatus != null">
+				#{videoStatus,jdbcType=INTEGER},
+			</if>
+			<if test="auditor != null">
+				#{auditor,jdbcType=VARCHAR},
+			</if>
+			<if test="auditTime != null">
+				#{auditTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="voteTimes != null">
+				#{voteTimes,jdbcType=INTEGER},
+			</if>
+			<if test="shareTimes != null">
+				#{shareTimes,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="cn.gyyx.action.beans.wechatvideo.WeChatVideoUpLoadLogBean">
+		update wechatvideo_upload_log_tb
+		<set>
+			<if test="userId != null">
+				user_id = #{userId,jdbcType=INTEGER},
+			</if>
+			<if test="account != null">
+				account = #{account,jdbcType=VARCHAR},
+			</if>
+			<if test="roleName != null">
+				role_name = #{roleName,jdbcType=NVARCHAR},
+			</if>
+			<if test="wechatAccount != null">
+				wechat_account = #{wechatAccount,jdbcType=VARCHAR},
+			</if>
+			<if test="serverName != null">
+				server_name = #{serverName,jdbcType=NVARCHAR},
+			</if>
+			<if test="uploadTime != null">
+				upload_time = #{uploadTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="videoName != null">
+				video_name = #{videoName,jdbcType=VARCHAR},
+			</if>
+			<if test="videoAddress != null">
+				video_address = #{videoAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="videoCoverAddress != null">
+				video_cover_address =
+				#{videoCoverAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="videoStatus != null">
+				video_status = #{videoStatus,jdbcType=INTEGER},
+			</if>
+			<if test="auditor != null">
+				auditor = #{auditor,jdbcType=VARCHAR},
+			</if>
+			<if test="auditTime != null">
+				audit_time = #{auditTime,jdbcType=TIMESTAMP},
+			</if>
+			<if test="voteTimes != null">
+				vote_times = #{voteTimes,jdbcType=INTEGER},
+			</if>
+			<if test="shareTimes != null">
+				share_times = #{shareTimes,jdbcType=INTEGER},
+			</if>
+		</set>
+		where code = #{code,jdbcType=INTEGER}
+		<if test="videoStatus==1">
+              <![CDATA[ and video_status<>1 ]]>
+		</if>
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="cn.gyyx.action.beans.wechatvideo.WeChatVideoUpLoadLogBean">
+		update wechatvideo_upload_log_tb
+		set user_id =
+		#{userId,jdbcType=INTEGER},
+		account = #{account,jdbcType=VARCHAR},
+		role_name = #{roleName,jdbcType=NVARCHAR},
+		wechat_account =
+		#{wechatAccount,jdbcType=VARCHAR},
+		server_name =
+		#{serverName,jdbcType=NVARCHAR},
+		upload_time =
+		#{uploadTime,jdbcType=TIMESTAMP},
+		video_name =
+		#{videoName,jdbcType=VARCHAR},
+		video_address =
+		#{videoAddress,jdbcType=VARCHAR},
+		video_cover_address =
+		#{videoCoverAddress,jdbcType=VARCHAR},
+		video_status =
+		#{videoStatus,jdbcType=INTEGER},
+		auditor = #{auditor,jdbcType=VARCHAR},
+		audit_time = #{auditTime,jdbcType=TIMESTAMP},
+		vote_times =
+		#{voteTimes,jdbcType=INTEGER},
+		share_times =
+		#{shareTimes,jdbcType=INTEGER}
+		where code = #{code,jdbcType=INTEGER}
+	</update>
+
+	<!--OA后台更新视频状态 -->
+	<update id="updateVideoStatusByPrimaryKey">
+		update
+		wechatvideo_upload_log_tb
+		set
+		video_status=${videoStatus}
+		where
+		code= #{videoId}
+		<if test="videoStatus==1">
+              <![CDATA[ and video_status<>1 ]]>
+		</if>
+	</update>
+	
+	<!--给视频增加点赞总次数 -->
+	<update id="addVoteTimes" parameterType="java.lang.Integer">
+		update
+		wechatvideo_upload_log_tb
+		set 
+		vote_times=vote_times+1
+		where
+		code = #{videoId}
+	</update>
+</mapper>

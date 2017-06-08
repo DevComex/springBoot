@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdtenexchangescore.IPrizeConfig">
+
+	<resultMap type="PrizeConfigBean" id="PrizeConfigBeanMap">
+		<id column="code" property="code" />
+		<result column="prize_code" property="prizeCode" />
+		<result column="add_num" property="addNum" />
+		<result column="total_num" property="totalBum" />
+		<result column="update_time" property="updateTime" />
+		<result column="day_num" property="dayBum" />
+		<result column="time" property="time" />
+		<result column="begin_time" property="beginTime" />
+		<result column="all_num" property="allNum" />
+		<result column="score" property="score" />
+		<result column="type" property="type" />
+		<result column="info" property="info" />
+
+	</resultMap>
+
+	<select id="getPrizeConfigBeanByPrizeCode" resultMap="PrizeConfigBeanMap">
+		select *
+		from wd_tenyears_scoreexchange_prizeconfig_tb
+		where
+		prize_code=#{prizeCode}
+	</select>
+
+
+	<select id="getPrizeConfigBeanByPrizeCodeWithLock" resultMap="PrizeConfigBeanMap">
+		declare @code int
+		select @code=code
+		from wd_tenyears_scoreexchange_prizeconfig_tb
+		with(updlock)
+		where
+		prize_code=#{prizeCode}
+		
+		select *
+		from wd_tenyears_scoreexchange_prizeconfig_tb
+		where
+		code=@code
+	</select>
+
+	<update id="exchangePrize">
+		update wd_tenyears_scoreexchange_prizeconfig_tb
+		set
+		all_num=all_num+1,
+		day_num=day_num-1
+		where
+		prize_code=#{prizeCode}
+
+	</update>
+
+	<select id="getAllExchangePrizes" resultMap="PrizeConfigBeanMap"
+		resultType="list">
+		select *
+		from wd_tenyears_scoreexchange_prizeconfig_tb
+		order
+		by score desc
+	</select>
+
+	<update id="setTimeByCode">
+		update wd_tenyears_scoreexchange_prizeconfig_tb
+		set
+		day_num=day_num+ #{num},
+		update_time=getdate()
+		where
+		code=#{code}
+	</update>
+</mapper>

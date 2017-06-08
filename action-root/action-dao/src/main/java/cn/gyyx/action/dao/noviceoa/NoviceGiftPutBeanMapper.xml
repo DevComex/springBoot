@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.noviceoa.NoviceGiftPutBeanMapper">
+	<resultMap id="BaseResultMap"
+		type="cn.gyyx.action.beans.noviceoa.NoviceGiftPutBean">
+		<constructor>
+			<idArg column="code" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="put_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+			<arg column="put_type" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="put_url" jdbcType="VARCHAR" javaType="java.lang.String" />
+			<arg column="description" jdbcType="VARCHAR" javaType="java.lang.String" />
+		</constructor>
+	</resultMap>
+	<sql id="Base_Column_List">
+		code, put_name, put_type, put_url, description
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from novice_gift_put
+		where code = #{code,jdbcType=INTEGER}
+	</select>
+	<select id="selectPageList" resultMap="BaseResultMap">
+		select
+		code,put_name,put_type,put_url,description from novice_gift_put
+		where
+		<if test="put_type!=0">
+			put_type=#{put_type} and
+		</if>
+		<if test="put_name!=null and put_name!=''">
+			put_name=#{put_name} and
+		</if>
+		1=1 order by code desc limit #{skip_count},#{select_count}
+	</select>
+
+	<select id="selectByPutType" resultMap="BaseResultMap">
+		select
+		code,put_name,put_type,put_url,description from novice_gift_put
+		where
+		<if test="put_type!=0">
+			put_type=#{put_type} and
+		</if>
+        1=1
+	</select>
+
+	<select id="selectNoviceGiftPut" resultMap="BaseResultMap">
+		select
+		code,put_name,put_type,put_url,description from novice_gift_put
+		where
+		put_type=#{putType} and put_name=#{putName}
+	</select>
+
+	<select id="selectTotalCount" resultType="java.lang.Integer">
+		select count(1) from novice_gift_put
+		where
+		<if test="put_type!=0">
+			put_type=#{put_type} and
+		</if>
+		<if test="put_name!=null and put_name!=''">
+			put_name=#{put_name} and
+		</if>
+		1=1
+	</select>
+
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from
+		novice_gift_put
+		where code = #{code,jdbcType=INTEGER}
+	</delete>
+	<insert id="insert" parameterType="cn.gyyx.action.beans.noviceoa.NoviceGiftPutBean">
+		insert into novice_gift_put
+		(code, put_name, put_type,
+		put_url, description)
+		values
+		(#{code,jdbcType=INTEGER}, #{putName,jdbcType=VARCHAR},
+		#{putType,jdbcType=INTEGER},
+		#{putUrl,jdbcType=VARCHAR},
+		#{description,jdbcType=VARCHAR})
+	</insert>
+	<insert id="insertSelective" useGeneratedKeys="true"
+		keyProperty="code" parameterType="cn.gyyx.action.beans.noviceoa.NoviceGiftPutBean">
+		insert into novice_gift_put
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="code != null">
+				code,
+			</if>
+			<if test="putName != null">
+				put_name,
+			</if>
+			<if test="putType != null">
+				put_type,
+			</if>
+			<if test="putUrl != null">
+				put_url,
+			</if>
+			<if test="description != null">
+				description,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="code != null">
+				#{code,jdbcType=INTEGER},
+			</if>
+			<if test="putName != null">
+				#{putName,jdbcType=VARCHAR},
+			</if>
+			<if test="putType != null">
+				#{putType,jdbcType=INTEGER},
+			</if>
+			<if test="putUrl != null">
+				#{putUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				#{description,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.action.beans.noviceoa.NoviceGiftPutBean">
+		update novice_gift_put
+		<set>
+			<if test="putName != null">
+				put_name = #{putName,jdbcType=VARCHAR},
+			</if>
+			<if test="putType != null">
+				put_type = #{putType,jdbcType=INTEGER},
+			</if>
+			<if test="putUrl != null">
+				put_url = #{putUrl,jdbcType=VARCHAR},
+			</if>
+			<if test="description != null">
+				description = #{description,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where code = #{code,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey" parameterType="cn.gyyx.action.beans.noviceoa.NoviceGiftPutBean">
+		update
+		novice_gift_put
+		set put_name = #{putName,jdbcType=VARCHAR},
+		put_type =
+		#{putType,jdbcType=INTEGER},
+		put_url = #{putUrl,jdbcType=VARCHAR},
+		description = #{description,jdbcType=VARCHAR}
+		where code =
+		#{code,jdbcType=INTEGER}
+	</update>
+</mapper>

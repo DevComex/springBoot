@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Layout:luochongfei" />
+    <title>作品审核</title>
+	
+	<link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet" />
+	<link href="${rc.contextPath}/resources/style/main.css" rel="stylesheet" />
+	<script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+	<script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+	<script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+	<script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+	<script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+	<script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+	<script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+	<script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+	<link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+	<script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+	
+	<link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet" />
+	<link rel="stylesheet" href="${rc.contextPath}/resources/style/base.css" id="camera-css" />
+	<link rel="stylesheet" href="${rc.contextPath}/resources/style/framework.css" />
+	<link rel="stylesheet" href="${rc.contextPath}/resources/style/style.css" />
+	
+	<script type="text/javascript" src="${rc.contextPath}/resources/script/My97DatePicker/WdatePicker.js"></script>
+
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+</head>
+<body>
+	<input type="hidden" id="js_doc" />
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+                        <header class="header bg-white b-b clearfix">
+							<div class="row m-t-sm">   
+								<div class="col-sm-1 m-b-xs">
+                                    <div class="input-group">
+											<button id="auditingBatch" class="btn btn-sm btn-default" style="width: 110px">批量审核通过</button>
+									</div>
+                                </div>
+								
+								<div class="col-sm-1 m-b-xs" style="margin-left: 35px;">
+                                    <div class="input-group">
+											<button id="showBatch" class="btn btn-sm btn-default">批量发布</button>
+									</div>
+                                </div>
+								
+                                <div class="col-sm-1 m-b-xs">
+                                     <div class="input-group">
+											<button id="deleteBatch" class="btn btn-sm btn-default">批量删除</button>
+									</div>
+                                </div>
+                            </div>
+                        </header>
+						<section id="content">
+                    <section class="vbox">
+						<header class="header bg-white b-b clearfix">
+                            <div class="row m-t-sm">   
+                                <div class="col-sm-1 m-b-xs" style="width:100px;">
+                                       <lable style="float:left;line-height:26px;">字数大于：</lable>
+                                    </div>                          
+                                <div class="col-sm-1 m-b-xs">                                  
+                                    <div class="input-group">                                       
+										<input name="textSize" id="textSizeID" style="width: 90px" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 m-b-xs" style="width:100px;">
+                                       <lable style="float:left;line-height:26px;">默认图片：</lable>
+                                    </div>           
+                                <div class="col-sm-1 m-b-xs">
+                                    <div class="input-group">      
+                                        <select class="input-sm form-control" name="isDefaultPicture" id="isDefaultPictureID" style="width: 90px">
+                                            <option value="0">否</option>
+											<option value="1">是</option>	
+											<option value="">全部</option>
+                                        </select>
+                                    </div>
+                                </div>
+								<div class="col-sm-2 m-b-xs" style="width:100px;">
+                                       <lable style="float:left;line-height:26px;">审核状态：</lable>
+                                    </div>           
+                                <div class="col-sm-1 m-b-xs">
+                                    <div class="input-group">      
+                                        <select class="input-sm form-control" name="isAuditing" id="isAuditingID" style="width: 90px">
+                                            <option value="0">未审核</option>
+											<option value="1">审核</option>	
+											<option value="">全部</option>
+                                        </select>
+                                    </div>
+                                </div>
+								<div class="col-sm-2 m-b-xs" style="width:100px;">
+                                       <lable style="float:left;line-height:26px;">发布状态：</lable>
+                                    </div>           
+                                <div class="col-sm-1 m-b-xs">
+                                    <div class="input-group">      
+                                        <select class="input-sm form-control" name="isShow" id="isShowID" style="width: 90px">
+                                            <option value="">全部</option>
+											<option value="1">是</option>
+											<option value="0">否</option>
+                                        </select>
+                                    </div>
+                                </div>
+								<div class="col-sm-5 m-b-xs" style="width:350px;">
+                                       <lable style="float:left;line-height:26px;">上传时间：</lable>
+
+									   <input id="txtStartTime" type="text" style="width:99px;margin:2px 0px 0px 12px" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" name="startTime" value="2016-04-01"></input>
+									   —
+									   <input id="txtEndTime" type="text" style="width:99px;margin:3px 0px" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" name="endTime" value="2017-04-01"></input>
+									 
+								</div>
+								
+								<div class="col-sm-1 m-b-xs" style="float:right">
+                                    <div class="input-group">
+											<button id="search" class="btn btn-sm btn-default">查询</button>
+									</div>
+                                </div>
+                            </div>
+                        </header>
+                        <!--顶部标题导航 end-->
+
+                        <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <div class="m-b-md">
+                            </div>
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" style="height:850px;">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            <tr>
+                                                <th ><input type="checkbox" id="checkAllBox"/></th>
+                                            	<th>账号</th>
+                                                <th>区组服务器</th>
+                                                <th>故事内容</th>
+                                                <th>图片</th>
+												<th>点赞次数</th>
+												<th style="width:150px">上传时间</th>
+                                                <th>审核状态</th>
+                                                <th>发布状态</th>
+                                                <th>审核</th>
+												<th>发布</th>
+												<th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbody">
+											
+                                        </tbody>
+                                    </table>
+									
+                                </div>
+                            </section>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+						<!--翻页功能-->
+                        <footer class="footer bg-white b-t">
+                            <div class="row dataTables_wrapper">
+                                <div class="row dataTables_wrapper">
+                                    <div class="col-sm-2">
+                                		<div class="dataTables_info" id="DataTables_Table_0_info">共<span id="countSpan"></span> 条 </div>
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_0_paginate">
+                        					<a class="previous paginate_button" href="#" type="start" tabindex="0" id="firstPage2">首页</a>
+                                			<a class="previous paginate_button" href="#" type="last" tabindex="0" id="lastPage2">上一页</a>
+                                
+                                			<span class="js_page"><span class="js_page_on" id="pageNum">1</span> / <span id="listCount">
+                                						$!listCount
+                                			</span></span>
+                                		
+                                			<a class="next paginate_button" href="#" type="next" tabindex="0" id="nextPage">下一页</a>
+                        					<a class="previous paginate_button" href="#" type="end" tabindex="0" id="endPage">末页</a>
+                                		
+                                        </div>
+                                    </div>
+									
+                                </div>
+                            </div>
+                        </footer>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+
+    <!--添加域名弹层 begin-->
+	<div class="modal fade" id="modalone">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body" style="text-align:center">
+                    <div class="form-group" style="display: inline-block; overflow: hidden;">
+                        <h3 for="input-id-1" class="col-sm-12 control-label">预览</h3>
+						<br />
+                        <div class="col-sm-10" style="margin-top:20px" id="showInfo" >
+							<div class="clearFix"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
+                    <!--                    <button type="button" class="btn btn-info" data-loading-text="提交中...">确定</button>-->
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!--添加域名弹层 end-->
+	<script>
+	 $(document).ready(function() {
+			//查询
+			$("#search").click(function(){
+				var textSize=$("#textSizeID").val();
+				
+				var startDate = $.trim($("#txtStartTime").val());
+        		var endDate = $.trim($("#txtEndTime").val());	
+				
+				if(textSize==''){
+					textSize=0;
+				}
+				if(isNaN(textSize)){
+					alert("请正确输入数字！！");
+				}else if(textSize>2000 || textSize<0){
+					alert("请正确输入数字（最大不会超过2000）！！");
+				}else if(startDate=="" && endDate==""){
+        			alert("查询时间不能为空！！");
+        		}else if(startDate.replace("-","").replace("-","")>endDate.replace("-","").replace("-","")){
+        			alert("查询开始时间必须比结束时间小！！");
+        		}else{
+    				var isDefaultPicture = $("#isDefaultPictureID").find("option:selected").val();
+    				var isAuditing = $("#isAuditingID").find("option:selected").val();
+    				var isShow = $("#isShowID").find("option:selected").val();
+    				
+    				$("#search").attr("textSize",textSize);
+    				$("#search").attr("isDefaultPicture",isDefaultPicture);
+    				$("#search").attr("isAuditing",isAuditing);
+    				$("#search").attr("isShow",isShow);
+					$("#search").attr("startDate",startDate)
+					$("#search").attr("endDate",endDate)
+    				//获得数据
+    				$("#pageNum").text("1");
+    				getWorkInfo(textSize,isDefaultPicture,isAuditing,isShow,1,startDate,endDate);
+				}
+			})
+			//页面初始时查询
+			$("#search").click();
+			//刷新当前页
+			function updatePage(){
+				var textSize=$("#search").attr("textSize");
+				var isDefaultPicture =$("#search").attr("isDefaultPicture");
+				var isAuditing = $("#search").attr("isAuditing");
+				var isShow = $("#search").attr("isShow");
+				var page=$("#pageNum").text();
+				var startDate=	$("#search").attr("startDate")
+				var endDate=$("#search").attr("endDate")
+				if(page!=0){
+    				getWorkInfo(textSize,isDefaultPicture,isAuditing,isShow,page,startDate,endDate);
+    			}
+			}
+			//分页
+			$(".paginate_button").click(function(){		
+				var textSize=$("#search").attr("textSize");
+				var isDefaultPicture =$("#search").attr("isDefaultPicture");
+				var isAuditing = $("#search").attr("isAuditing");
+				var isShow = $("#search").attr("isShow");
+				var startDate=	$("#search").attr("startDate")
+				var endDate=$("#search").attr("endDate")
+    			var listCount = $("#listCount").text();
+    			var type = $(this).attr("type");
+    			var page=$("#pageNum").text();
+    		    if(type=="last"){
+    				if(page==1){
+    					page = 0;
+        				alert("当前页已经是第一页！");
+        			}else{
+        				page = page-1;
+    					$(".js_page_on").text(page);
+        			} 
+    			}else if(type=="next"){
+    				if(page == listCount || listCount == 0){
+    					page = 0;
+        				alert("当前页已经是最后一页！");
+        			}else{
+        			 	page = parseInt(page)+1;
+    					$(".js_page_on").text(page);
+        			}
+    			}else{
+    				if(listCount == 0){
+    					page = 0;
+                		alert("没有数据")
+            		}
+    				if(type=="start"){
+            			 	page = 1;
+        					$(".js_page_on").text(page);
+            		}
+    				if(type=="end"){
+            			 	page = listCount;
+        					$(".js_page_on").text(listCount);
+            		}
+    			}
+    			if(page!=0){
+    				getWorkInfo(textSize,isDefaultPicture,isAuditing,isShow,page,startDate,endDate);
+    			}
+			})
+			
+			//获取数据并绑值
+			function getWorkInfo(textSize,isDefaultPicture,isAuditing,isShow,pageNum,startDate,endDate){
+				$.ajax
+				({
+					url:'getWorkInfo',
+					type:'get',
+					data:{textSize:textSize,isDefaultPicture:isDefaultPicture,isAuditing:isAuditing,isShow:isShow,pageNum:pageNum,startDate,endDate,r:Math.random()},
+					dataType:'json',
+					async:false,
+					success:function(d){
+						if(d.isSuccess){
+							$("#tbody").empty();
+							var html = "";
+							json = d.data;
+							for(var i = 0;i<json.length;i++){
+        						 html +='<tr><th ><input type="checkbox" class="checkCla" name="checkName" code="'+json[i].code+'"/></th>';
+                                 html +="<th>"+json[i].account+"</th>";
+                                 html +="<th>"+json[i].areaName+'</br>'+json[i].serverName+"</th>";
+                                 html +='<th><textarea readonly="readonly" rows="3" cols="40">'+json[i].content+"</textarea></th>";
+                                 html +='<th><button class = "picture"  code="'+json[i].code+'" pictureUrlTemp1="'+json[i].pictureUrlTemp1+'" pictureUrlTemp2="'+json[i].pictureUrlTemp2+'" pictureUrlTemp3="'+json[i].pictureUrlTemp3+'" data-toggle="modal" href="#moda3">'+"详情"+"</button></th>";
+        						 html +="<th>"+json[i].likeCount+'<button class="updateLikeCount" code="'+json[i].code+'" data-toggle="modal" href="#modal">'+"修改"+"</button></th>";
+								 html +='<th style="width:150px">'+json[i].uploadeTimeStr+"</th>";
+								 if(!json[i].isAuditing){
+									 html +="<th>未审核</th>";
+								 }else{
+								 	html +="<th>已审核</th>";
+								 }
+								 if(!json[i].isShow){
+									 html +="<th>未发布</th>";
+								 }else{
+								 	html +="<th>已发布</th>";
+								 }
+                                 if(!json[i].isAuditing){
+									 html +='<th><button class = "auditing" value="1" code="'+json[i].code+'" >'+"审核"+"</button></th>";
+								 }else{
+								 	 html +='<th><button class = "auditing" value="0" code="'+json[i].code+'" >'+"取消审核"+"</button></th>";
+								 }
+								 if(!json[i].isShow){
+									 html +='<th><button class = "show" value="1" code="'+json[i].code+'" >'+"发布"+"</button></th>";
+								 }else{
+								 	 html +='<th><button class = "show" value="0" code="'+json[i].code+'" >'+"取消发布"+"</button></th>";
+								 }
+								 html +='<th><button class = "delete"  code="'+json[i].code+'" >'+"删除"+"</button></th></tr>";
+							}
+							html += '<tr><th ><br/><br/></th></tr>'
+							$("#tbody").append(html);
+							//分页信息
+							$("#countSpan").text(d.count);
+							$("#listCount").text(d.listCount);
+							//将全选取消
+							$("#checkAllBox").attr("checked",false);
+						}
+					}
+				})
+				
+				//审核
+    			$(".auditing").unbind().bind("click",function(){
+    				var auditing = $(this).attr("value");
+    				var code = $(this).attr("code");
+    				auditingFuc(auditing,code);
+					updatePage();
+    			})
+				
+				//发布
+    			$(".show").unbind().bind("click",function(){
+    				var show = $(this).attr("value");
+    				var code = $(this).attr("code");
+    				showFuc(show,code);
+					updatePage();
+    			})
+				//删除
+    			$(".delete").unbind().bind("click",function(){
+    				var code = $(this).attr("code");
+    				isDelete(code);
+    			})
+				//获取点赞数到弹窗
+				$(".updateLikeCount").unbind().bind("click",function(){
+					$("#likeBody").val($(this).parent().text().replace("修改",""));
+					$("#updateLike").attr("code",$(this).attr("code"));
+				})
+				//图片信息弹层
+				$(".picture").unbind().bind("click",function(){
+					var html = '';
+					$("#imgBody").empty();
+					if($(this).attr("pictureUrlTemp1")!="null" && $(this).attr("pictureUrlTemp1")!=""){
+						html+='<img src="'+$(this).attr("pictureUrlTemp1")+'" width="300px"/></br>';
+					}
+					if($(this).attr("pictureUrlTemp2")!="null" && $(this).attr("pictureUrlTemp2")!=""){
+						html+='<img src="'+$(this).attr("pictureUrlTemp2")+'" width="300px"/></br>';
+					}
+					if($(this).attr("pictureUrlTemp3")!="null" && $(this).attr("pictureUrlTemp3")!=""){
+						html+='<img src="'+$(this).attr("pictureUrlTemp3")+'" width="300px"/></br>';
+					}
+					$("#imgBody").append(html);
+				})
+			}
+			//修改点赞数
+			$("#updateLike").click(function(){
+				var likeCount = $("#likeBody").val();
+				if(likeCount>1000000 || likeCount<0){
+					alert("请设置大于0、小于1000000的点赞数量！！")
+				}else{
+    				var code = $(this).attr("code");
+    				$.ajax
+    				({
+    					url:'updateLikeCount',
+    					type:'get',
+    					data:{likeCount:likeCount,code:code,r:Math.random()},
+    					dataType:'json',
+    					async:false,
+    					success:function(d){
+    						alert(d.message);
+    						if(d.isSuccess){
+    							$("#retBtn").click();
+    							updatePage();
+    						}
+    						
+    					}
+    				})
+				}
+			})
+			//批量审核
+			$("#auditingBatch").unbind().bind("click",function(){
+    			var code = getALLCheckedBox();
+				auditingFuc(1,code);
+				updatePage();
+    		})
+			//发布
+			$("#showBatch").unbind().bind("click",function(){
+				var code = getALLCheckedBox();
+				showFuc(1,code);
+				updatePage();
+			})
+			//删除
+			$("#deleteBatch").unbind().bind("click",function(){
+				var code = getALLCheckedBox();
+				isDelete(code);
+			})
+			//获取所有选定的复选框
+			function  getALLCheckedBox(){
+				//判断是否有选中项
+				var flag=false;
+    			var str = "";
+    			$('input:checkbox[name=checkName]:checked').each(function(i){
+    				str+=$(this).attr("code")+",";
+					flag=true;
+    			})
+				//去除有选中项的最后一个逗号
+				if(flag){
+					str = str.substring(0,str.length-1);
+				}
+				return str;
+			}
+			
+			function auditingFuc(auditing,code) {
+				$.ajax
+				({
+					url:'auditing',
+					type:'get',
+					data:{isAuditing:auditing,code:code,r:Math.random()},
+					dataType:'json',
+					async:false,
+					success:function(d){
+						alert(d.message)
+					}
+				})
+			
+			}
+			
+			function showFuc(show,code) {
+				$.ajax
+				({
+					url:'show',
+					type:'get',
+					data:{isShow:show,code:code,r:Math.random()},
+					dataType:'json',
+					async:false,
+					success:function(d){
+						alert(d.message)
+					}
+				})
+			
+			}
+			
+			function isDelete(code) {
+				$.ajax
+				({
+					url:'delete',
+					type:'get',
+					data:{isDelete:1,code:code,r:Math.random()},
+					dataType:'json',
+					async:false,
+					success:function(d){
+						alert(d.message)
+					}
+				})
+				$("#search").click();
+			}
+		})
+	</script>
+
+	   <!--编辑域名弹层 begin-->
+	
+	   <div class="modal fade" id="moda3">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="form-group" style="display: inline-block; overflow: hidden;">
+                        <label for="input-id-1" class="col-sm-12 control-label"></label>
+                        <div class="col-sm-10">
+                            <!--审核-->
+                            <div class="review" style="font-size: 14px; margin-top: 40px;">
+                                <div class="tg" style="display:inline-block;">
+                                <label for="input-id-1" class="col-sm-4 control-label">图片：</label>
+                                <div class="col-sm-4" id="imgBody">
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="returnBtn">返回</button>
+                    <!--                    <button type="button" class="btn btn-info" data-loading-text="提交中...">确定</button>-->
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+	
+    <!--编辑域名弹层 end-->
+	
+	
+    <!--编辑域名弹层 begin-->
+	
+<div class="modal fade" id="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="form-group" style="display: inline-block; overflow: hidden;">
+                        <label for="input-id-1" class="col-sm-12 control-label"></label>
+                        <div class="col-sm-10">
+                            <!--审核-->
+                            <div class="review" style="font-size: 14px; margin-top: 40px;">
+                                <div class="tg" style="display:inline-block;">
+                                <label for="input-id-1" class="col-sm-5 control-label">点赞数：</label>
+                                <div class="col-sm-4">
+                                    <div class="input-group">
+                                        <input type="text" class="input-sm form-control"  id="likeBody">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				
+                <div class="modal-footer">
+					 <button type="button" class="btn btn-default" id="updateLike">修改</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="retBtn">返回</button>
+                    <!--                    <button type="button" class="btn btn-info" data-loading-text="提交中...">确定</button>-->
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+	
+    <!--编辑域名弹层 end-->
+	
+	  
+
+</body>
+</html>

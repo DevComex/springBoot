@@ -1,0 +1,237 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<title>制作作品</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wdgoldenyears/css/normalize.css" />
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wdgoldenyears/css/main.css" />
+	</head>
+	<body>
+		<header class="header">
+			<img src="http://static.cn114.cn/action/wdgoldenyears/images/headerbg.jpg" />
+			<a class="btn btn_making" href="#"><img class="btn_1" src="http://static.cn114.cn/action/wdgoldenyears/images/btn11.png" /></a>
+			<a class="share_btn" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/shareicon.png" /></a>
+		</header>
+		<section class="content">
+			<div class="addpic">
+				<h1 class="title3"><img src="http://static.cn114.cn/action/wdgoldenyears/images/title3.png" /></h1>
+				<div class="uploadwrap">
+					<ul class="js_imgList_cont">
+						<!--<li class="added_ap js_imgList" data-code="1111">
+							<a class="dele_ap js_delete" href="#"><img src="images/close.png" /></a>
+							<img src="images/works3.jpg" />
+						</li>
+						<li class="added_ap js_imgList" data-code="2222">
+							<a class="dele_ap js_delete" href="#"><img src="images/close.png" /></a>
+							<img src="images/works3.jpg" />
+						</li>
+						<li class="added_ap js_imgList" data-code="3333">
+							<a class="dele_ap js_delete" href="#"><img src="images/close.png" /></a>
+							<img src="images/works3.jpg" />
+						</li>
+						<li class="added_ap js_imgList" data-code="4444">
+							<a class="dele_ap js_delete" href="#"><img src="images/close.png" /></a>
+							<img src="images/works3.jpg" />
+						</li>-->
+					</ul>
+					<div class="add_ap" id="js_upBtn">
+						<div class="border_ap">
+							<img class="addicon_ap" src="http://static.cn114.cn/action/wdgoldenyears/images/add.png" />
+							<span>添加</span>
+						</div>
+					</div>
+				</div>
+				<a class="addmusic_btn" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/btn12.jpg" /></a>
+				<a class="preview_btn" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/btn13.jpg" /></a>
+				<a class="save_btn" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/btn14.jpg" /></a>
+			</div>
+			<dl class="rules">
+				<dt>说明</dt>
+				<dd><span>1</span>上传图片内容需文明守法，否则作品保存后，审核时将会被删除，无法再进行编辑和查看。</dd>
+				<dd><span>2</span>保存的作品可在“参赛”页面查看。</dd>
+				<dd><span>3</span>上传参赛作品，需要先登陆光宇通行证，再审核通过后，才可在首页查看到自己的参赛作品。若有不文明、广告、QQ微信手机等联系方式、违法等等内容，均不可通过审核，且依然会占据三个作品参赛的名额，以及作品会被删除，无法查看编辑等。</dd>
+			</dl>
+		</section>
+		<footer class="footer">
+			<nav>
+				<ul>
+					<li><a class="alink1" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico1_1.png" />首页</a></li>
+					<li class="on"><a class="alink2" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico2_2.png" />制作</a></li>
+					<li><a class="alink3" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico3_1.png" />参赛</a></li>
+					<li><a class="alink4" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico4_1.png" />规则</a></li>
+				</ul>
+			</nav>
+		</footer>
+		<div class="sharemark"></div>
+		<img class="sharemarkimg" src="http://static.cn114.cn/action/wdgoldenyears/images/share.png" />
+		<div id="choiceMusic" class="pop" style="display:none;">
+			<span class="bg_pop"><img src="http://static.cn114.cn/action/wdgoldenyears/images/popbg.png" /></span>			
+			<div class="cont_pop">
+				<ul class="musiclist">
+					<li><input type="radio" id="music1" name="music" value="1" /><label for="music1">音乐曲目一</label></li>
+					<li><input type="radio" id="music2" name="music" value="2" /><label for="music2">音乐曲目二</label></li>
+					<li><input type="radio" id="music3" name="music" value="3" /><label for="music3">音乐曲目三</label></li>
+					<li><input type="radio" id="music4" name="music" value="4" /><label for="music4">音乐曲目四</label></li>
+					<li><input type="radio" id="music5" name="music" value="5" /><label for="music5">音乐曲目五</label></li>
+					<li><input type="radio" id="music6" name="music" value="6" checked /><label for="music6">不添加音乐</label></li>
+				</ul>
+				<a id="musicBtn" class="sure_btn_pop" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/btn15.jpg" /></a>
+			</div>
+		</div>
+		<div id="popTip" class="pop" style="display:none;">
+			<span class="bg_pop"><img src="http://static.cn114.cn/action/wdgoldenyears/images/popbg.png" /></span>
+			<a class="close_pop" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/close.png" /></a>
+			<div class="cont_pop">
+				<p>十年问道，不忘初心，快快来关注“问道”，制作你自己的问道流金岁月吧！</p>
+				<a class="btn_pop" href="http://mp.weixin.qq.com/s?__biz=MjM5MzgzMTAyMA==&mid=407317913&idx=1&sn=7f6a06c0f55cad72831cc9bfcb5a1587#rd" target="_blank"><img src="http://static.cn114.cn/action/wdgoldenyears/images/btn9.jpg" /></a>
+			</div>
+		</div>
+		<div class="mark" style="display:none;"></div>
+		<div class="previewbg"></div>
+		<div class="preview">	
+			<div id="musicWrap" class="musicwrap">
+				<audio id="playMusic" src=""  loop="loop" >
+				</audio>
+			</div>
+			<a class="jump" href="#">返回</a>			
+		</div>
+		<audio style="display:none" id="PreviewMusic" src=""  loop="loop"></audio>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/jquery-1.8.2.min.js"></script>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/gyyx_wxImgUp.js"></script>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/common.js"></script>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/swiper.js"></script>
+		<script>
+			$(function(){
+				var par = decodeURIComponent(window.location.search);
+				var openId = getQuery("OpenId",par),
+					times = getQuery("time",par),
+					signs = getQuery("sign",par),
+					from = getQuery("from",par),
+					tokens = "";
+
+				var song = 6;
+				
+				//选择音乐
+				$(".addmusic_btn").click(function(){					
+					var popleft = $(window).width()/2 - $("#choiceMusic").width()/2;
+					var poptop = $(window).height()/2 - $("#choiceMusic").height()/2 +$(window).scrollTop();
+					var bodyheight = Math.max($("body").outerHeight(true), $(window).height());
+					$(".mark").css("height", bodyheight);
+					$("#choiceMusic").css({"left":popleft, "top":poptop});
+					$("#choiceMusic").show();
+					$(".mark").show();
+					return false;
+				});
+				$(".musiclist input").click(function(){
+					var previewsong = $(this).val(); 
+					document.getElementById("PreviewMusic").pause();
+					$("#PreviewMusic").attr("src","http://static.cn114.cn/action/wdgoldenyears/music/"+previewsong+".mp3");
+					document.getElementById("PreviewMusic").play();
+				});
+				$("#musicBtn").click(function(){
+					document.getElementById("PreviewMusic").pause();
+					song = $("#choiceMusic").find("input:checked").val();
+					$("#choiceMusic").hide();
+					$(".mark").hide();
+					return false;
+				});
+				
+				
+				//上传图片
+	             wxUpImg({
+	                 //debug: true,
+	                 game: "wd",
+	                 btn: "js_upBtn",
+	                 imgList: ".js_imgList",
+	                 imgListCon: ".js_imgList_cont",
+	                 imgListHtml: '<li class="added_ap js_imgList"  data-code="{code}" data-localcode="{localcode}"><a class="dele_ap js_delete" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/close.png" /></a><img class="uploadimg" src="{img}" /></li>',
+	                 imglistDelBtn: ".js_delete",
+	                 imgNum: 6
+	             });
+
+				
+	             //控制音乐播放暂停
+				$("#musicWrap").click(function(){
+					if($(this).hasClass("pause")){
+						playMusic();
+					}else{
+						pauseMusic();
+					}
+				});
+				
+				
+				//预览
+	             $(".preview_btn").click(function(){
+	             	var songsrc = "";
+	             	var imglistsrc = [];
+	             	if(song != 6){
+	             		songsrc = "http://static.cn114.cn/action/wdgoldenyears/music/"+song+".mp3";
+	             	}
+ 					for(var i=0; i<$(".uploadimg").length;i++){
+	             		imglistsrc[imglistsrc.length] = $(".uploadimg").eq(i).attr("src");
+	             	}
+	             	if(imglistsrc.length < 3){
+	             		alert("需至少上传3张页面，才可进行预览及保存。");
+	             		return false;
+	             	}
+	             	$("body").css("overflow","hidden");
+	             	showPriview(songsrc, imglistsrc);	             	
+	             	$(".preview").show();
+	             	$(".previewbg").show();
+	             	wx.hideOptionMenu();
+	             	playMusic();
+	             	return false;
+	             });
+				//保存
+				var disabledBtn = false;
+	             $(".save_btn").click(function(){		            
+	             	if(disabledBtn){
+	             		return false;
+	             	}
+	             	disabledBtn = true;
+	             	$(".save_btn").css("opacity", "0.5");
+	             	var imgcodelist = [];
+ 					for(var i=0; i<$(".js_imgList").length;i++){
+	             		imgcodelist[imgcodelist.length] = $(".js_imgList").eq(i).attr("data-code");
+	             	}
+	             	var imgcode = imgcodelist.join(",");
+	             	$.ajax({
+	             		url:"save",
+	             		type:"post",
+	             		dataType:"json",
+	             		data:{
+	             			openid: openId,
+	             			token:tokens,
+	             			mediaId: imgcode,
+	             			music: song,
+							r: Math.random()
+	             		},
+	             		beforeSend:function(){
+	             			
+	             		},
+	             		success:function(d){
+	             			disabledBtn = false;
+	             			$(".save_btn").css("opacity", "1");
+	             			if(d.isSuccess){	             				
+	             				alert(d.message);
+	             				window.location.href = "http://actionv2.gyyx.cn/GoldenYears/myWorks" +decodeURIComponent(window.location.search);
+	             			}else{
+	             				alert(d.message);
+	             			}
+	             		},
+	             		error:function(){
+	             			disabledBtn = false;
+	             			$(".save_btn").css("opacity", "1");
+	             			alert("错误");
+	             		}
+	             	});
+	             	return false;
+	             });
+
+			});
+			
+		</script>
+	</body>
+</html>

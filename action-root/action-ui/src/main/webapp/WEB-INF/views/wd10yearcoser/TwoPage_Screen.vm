@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="keywords" content="" >
+    <meta name="description" content="">
+    <title>光宇-次元突破</title>
+
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wd10yearcoser/css/index.css" />
+    <script  type="text/javascript">
+        var rc = "${rc.contextPath}";
+ 	</script>
+	<script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+	<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+    <script type="text/javascript" src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> <!--光宇统计-->
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script src="http://static.cn114.cn/action/wd10yearcoser/script/public.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wd10yearcoser/script/jquery.ajaxpage-2.2.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wd10yearcoser/script/swfobject.min.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wd10yearcoser/script/ymadplayer.min.js"></script>
+</head>
+<style>
+.ManagementUpload_gl{    margin-right: 20px !important;
+    margin-left: 40px;}
+</style>
+<body>
+	<div class="public_nav_top">
+		<script type="text/javascript">Showtop();</script>
+	</div>
+    <div class="wrap" style="height:1800px;">
+        <div class="TwoPageCos_main">
+            <div class="top_link">
+                <a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">问道官网</a>
+                <a href="http://account.gyyx.cn/Member/Register" target="_blank">账号注册</a>
+                <a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+                <a href="http://kf.gyyx.cn/" target="_blank">客服中心</a>
+                <a href="http://bbs.gyyx.cn/portal.php" target="_blank">游戏论坛</a>
+            </div>
+        <div style="margin-top: 22px;margin-left: 28px;"><img src="http://static.cn114.cn/action/wd10yearcoser/images/logo.png"/></div>
+        <div style="margin-left: 69px;"><img src="http://static.cn114.cn/action/wd10yearcoser/images/title.png"/></div>
+        <div class="TwoPageCos_SignIn">
+            <!-- step_01 -->
+            <div class="step_01">
+                <!--<div class="LoginWindowCos">
+                    <span>欢迎您：登录后可查看</span>
+                    <a class="signin_a">登录</a>
+                </div>
+                <div class="LuckDrawCos">
+                    <span>剩余抽奖次数：hhhhhh</span>
+                    <a class="LuckDrawCos_signin_a">查询我的奖品 >></a>
+                </div>
+                <div>
+                    <a class="ManagementUpload_gl">管理已上传 >></a>
+                    <a class="ManagementUpload_zp">上传作品 >></a>
+                </div>-->
+            </div>
+
+            <!-- search -->
+            <div class="TwoPage_search">
+                <div class="TwoPage_sp">
+                    <a class="twopage_gfsp btnOn"></a>
+                    <a class="twopage_wjsp"></a>
+                </div>
+                <div class="search" style="margin-top:0px;">
+                	<input type="hidden" id="type" value="VIDEO" />
+                    <input class="search_input" id="name" type="text" placeholder="请输入关键字搜索" />
+                    <a class="search_a"></a>
+                </div>
+            </div>
+            <!-- search -->
+
+            <div class="COS_main">   </div>
+            <!-- 分页 -->
+			<div class="row dataTables_wrapper pageCut" style="margin-top:40px;">
+	        	<footer class="footer bg-white b-t">
+	            	<div class="row dataTables_wrapper">
+	                	<div class="col-sm-6">
+	                    	<div id="DataTables_Table_0_info" class="dataTables_info"></div>
+	                    </div>
+	                    <div class="col-sm-6">
+	                    	<div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers"></div>
+	                    </div>
+	                </div>
+	             </footer>
+	         </div>
+	         <!--分页 -->
+
+
+        </div>
+    </div>
+    <div class="WinningSituation_Mask"></div>
+    <!-- 左侧浮动窗口 -->
+    #parse("wd10yearcoser/left_navigater.vm")
+    <!-- 左侧浮动窗口  end -->
+
+    <!-- 登录弹层 start -->
+    <div class="SignIn_Mask" style="height:1990px;">
+        <div class="SignIn_main">
+            <h3 class="SignIn_Title">参与活动前请先登录
+                <a class="SignIn_close">x</a>
+            </h3>
+            <div class="SignIn_btn">
+                <a class="SignIn_btn_dl js_alertlogin_a"></a>
+                <a class="SignIn_btn_zc info_mli_a no_lo_a" href="http://account.gyyx.cn/Member/Register" target="_blank" statistics="true"></a>
+            </div>
+        </div>
+    </div>
+    <!-- 登录弹层 end -->
+
+
+    <div class="public_nav_bottom">
+		<script type="text/javascript">ShowBottom()</script>
+	</div>
+
+
+   <!--  <script src="http://static.cn114.cn/action/runningman/js/awardRotate.js" type="text/javascript"></script>
+    <script src="http://static.cn114.cn/action/runningman/js/index.js" type="text/javascript"></script> -->
+
+
+
+    <script>
+        //分页调用--end
+//获取地址栏参数
+        function getQuery(name, str) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"),
+                r = !str ? window.location.search.substr(1).match(reg) : str.substr(1).match(reg);
+            if (r != null) {
+                return unescape(r[2]);
+            }
+            return null;
+        }
+        var par = decodeURIComponent(window.location.search);
+
+        var typeName = getQuery("type", par);
+        function dataQuery(){
+
+        	$(".COS_main").ajaxPage({
+                url: rc + "/wd10coserresource/otherlist",
+                type: "POST",
+                pageObj: $("#DataTables_Table_0_paginate"),
+                pageIndex: 1,//默认起始页为第一页
+                pageSize: 9,//一页12个
+                curPageCls: "paginate_active",
+                pageInfo: {
+                    obj: $("#DataTables_Table_0_info"),
+                    content: ""
+                },
+                paramObj: {type : $("#type").val(),
+                    name : $("#name").val()
+                },
+                dataFn:function(data,$this){
+                    var screen_html = "";
+                    data.list = data.data;
+                    if (data.list.length > 0) {
+
+                        for (var i = 0; i < data.list.length; i++) {
+                            //获取资源
+                            var resource = data.list[i];
+                            //资源code
+                            var code = resource.code;
+                            //资源图片
+                            var screen_pic;
+                            //标题图片
+                            var head_pic = "";
+                            if (resource.attrs != '') {
+                                head_pic = resource.attrs;
+                            }else{
+                            	head_pic ="http://static.cn114.cn/action/wd10yearcoser/images/defultVideo.jpg"
+                            }
+                            
+                            if (resource.works !='') {
+                                if (resource.works.indexOf(",") > 0) {
+                                    screen_pic = resource.works.split(",");
+                                } else {
+                                    screen_pic = resource.works;
+                                }
+                            }
+                            //点赞量
+                            var favorite_num = resource.favoriteNum;
+                            var favorite_flag = resource.flag;
+                            var lightclass = (favorite_flag == true) ? "zanCur" : "TwoPage_COS_zan";//点亮效果增加
+
+
+                            screen_html += '<div style="position:relative;float:left;margin-right:5px;" class="js_hoverCos">' +
+                                                '<div id="mask_zzl"></div>'+
+                                                '<a href="' + rc + '/wd10coserresource/talist?taUserCode='+ resource.userCode +'&taUsername='+ resource.username+'&type='+typeName+'" class="js_goSee">去看TA</a>'+
+                                              	'<a style="height:100%;" class="play0" href="javascript:;" videourl="' + resource.works + '"><img width=328 height=240 src="' + head_pic + '"/></a>' +
+                                                '<div class="js_name"></div>'+
+                                                '<p class="js_namemessage">'+resource.name+'</p>'+
+                                                '<div class="picTxt" sourceCode="' + resource.userCode + '" data-code="' + code + '"><i class="' + lightclass + '">心</i>'+
+                                                '<span class="TwoPage_COS_zanNumber">' + favorite_num + '</span></div>'+
+                                            '</div>';
+                        }
+                        $(".COS_main").empty().html(screen_html);//将循环出来的内容追加到最外层的div内
+                        return screen_html;
+
+                    }else{
+                  	  $(".COS_main").html("<p style='text-align:center;font-size:20px; padding-top:80px; color: #d28669;'>没有数据哦亲~</p>");
+                    };
+                }
+
+            });
+        }
+        $(function () {
+            var search = location.search;
+            var urltype = search.split("=")[1];
+        dataQuery();
+            //官方视频
+            $(".twopage_wjsp").on("click",function(){
+                location.href = rc + "/wd10yearcoser/ovideolist";
+            });
+
+            //玩家视频
+            $(".twopage_gfsp").on("click",function(){
+            	location.href = rc + "/wd10yearcoser/resourceslist?type=VIDEO";
+            });
+
+            //搜索
+            $(".search_a").on("click",function(){
+            	dataQuery();
+            })
+      
+
+
+        });
+        $(".COS_main").on("mouseover",".js_hoverCos",function(){
+
+        	$(this).children(".js_namemessage").hide();
+        	$(this).children(".js_goSee").show();
+
+        });
+        $(".COS_main").on("mouseout",".js_hoverCos",function(){
+        	
+        	$(this).children(".js_namemessage").show();
+        	$(this).children(".js_goSee").hide();
+
+        });
+ </script>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?82e3adfd5776431f37feeaec1f11515c";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+</body>
+</html>

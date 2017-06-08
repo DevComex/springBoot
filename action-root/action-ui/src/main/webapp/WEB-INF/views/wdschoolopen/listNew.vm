@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>更多</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdschoolopen/css/wd151123.css" />
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript" src=" http://a.gyyx.cn/StatServer.ashx?v=&amp;s=30&amp;r="></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?6152f20c464e1fb4c06f792ab8082da6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<style>
+.wdTc {position:fixed; _position: absolute;top:50%; left:50%; margin:-255px 0 0 -421px;z-index: 1000;}
+#SWFUpload_0{opacity: 0;filter:alpha(opacity=0);position: absolute;}
+.maskBox{background:#000; opacity:0.6; filter:alpha(opacity=60);width:100%; height:100%; position:fixed; display:none;_position: absolute; left: 0; top: 0;z-index: 100;}
+.error{ font-size:14px; padding-left:10px; color: #DA3D1D; }
+#picBigShow img{ display:block;position:fixed; _position: absolute;top:50%; left:50%; z-index: 1001;}
+</style>
+<script type="text/javascript" charset="utf-8">
+    alert("谢谢参与，活动已结束");
+</script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <!-- 图片放大 -->
+<div id="maskBoxPicAll" style="display:none;">
+			<div id="picBigShow" style="display:none;">
+   				<img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_wrap03_video01.png">
+			</div>
+			<div class="maskBox" id="maskBoxPic"></div> 
+</div>
+    
+    
+    
+	<div class="swrap">
+		<div class="main">
+			<div class="header">
+				<div class="nav"><a href="http://news.gyyx.cn/Counter.ashx?pc=4089&sc=15617&mc=6304&gc=2&ul=http%3a%2f%2fwd.gyyx.cn%2findex_wd_v5.htm&mt=4061&et=1 " class="first">进入官网</a><a href="http://pay.gyyx.cn/">充值中心</a><a href="http://news.gyyx.cn/Counter.ashx?pc=4089&sc=15618&mc=6304&gc=2&ul=http%3a%2f%2faccount.gyyx.cn%2fMember%2fRegister&mt=4061&et=1">账号注册</a><a href="http://wd.gyyx.cn/download/" class="last">下载中心</a></div>
+				<span class="goHome"><a href="index.html">返回首页</a></span>
+			</div>
+			<div class="dCont">
+				<div class="dBox">
+					<div class="loginBox dlogin">
+						<!-- 登陆前 -->
+						<div class="login">请 <a href="javascript:;">[登陆]</a></div>
+
+						<!-- 登陆后 -->
+						<div class="login_suc" style="display: none;">欢迎xxxxx登录！！</div>
+					</div>
+					<div class="search inBox"><input type="text" class="btnInp seaTxt" id="userName" value="请输光宇社区帐号搜索" /><input type="button"  class="seaBtn btnSea" value="搜索" /></div>
+				   
+                </div>
+				<div class="dList" id="photoList" >
+					<ul class="picList picBox" style=" float: initial;">
+						
+					</ul>
+				</div>
+				<div class="picBtn" id="loadMore"><a href="javascript:void(0);">加载更多</a></div>
+			</div>
+		</div>
+	</div>
+
+
+     <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+ <script>
+    
+     //最新抽奖次数
+     var getLotteryTimeUrl = "../wdschoolopen/getLotteryTime";
+     //获取中奖列表
+     var getLotteryInfoUrl = "../wdschoolopen/getLotteryInfo";
+     //当前页数
+     var pageIndex = 0;
+     //当前账号
+     var account = "null";
+     //获取爱心图片列表
+     var getPhotoIndexUrl = "../wdschoolopen/ajaxGetFaceByPageAndAccount";
+     //点亮爱心图片
+     var favoritePhotoUrl = "../wdschoolopen/ajaxLightFace";
+
+ //获取首页笑脸列表
+     getPhotoIndex();
+     function getPhotoIndex(empty) {
+         $.ajax({
+             url: getPhotoIndexUrl,
+             type: "GET",
+             dataType: "JSON",
+             data: {
+                 account: account,
+                 pageIndex: pageIndex,
+                 r: function () { return Math.random(); }
+             },
+             success: function (d) {
+                 if (d.isSuccess) {
+          if (empty) {
+                         $("#photoList ul").empty();
+                    }
+                     if(d.data.length >0){
+                         var length = d.data.length;
+							 
+                         for (var i = 0; i < length; i++) {
+						//$("#photoList ul").empty();
+                             if(d.data[i].imgPass == true){
+                                 var lightclass = (d.data[i].isLighted == true)?"curr": "";
+                                 $("#photoList ul").append('<li data-code="' + d.data[i].code + '" class="js_praise"><a href="javascript:void(0);"><img src="' + d.data[i].faceTempUrl + '" width="157" height="249"></a><div class="picTxt"><i class="' + lightclass + '">心</i><b class="xinClass"><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_icoBig.png"></b><span class="js_favnum">' + d.data[i].voteNum + '</span><strong class="js_add">+1</strong></div></li>');
+                             }else if(d.data[i].imgPass == false && d.data[i].faceUrl == "FAIL"){
+                                 $("#photoList ul").append('<li data-code="'+ d.data[i].code + '" class="js_praise"><a href="javascript:void(0);"><img src="' + d.data[i].faceTempUrl + '" width="157" height="249"></a><div class="picTxt"><span style="padding-left:50px; font-size:20px;">审核未通过</span></div></li>');
+                                 
+
+                             }else if(d.data[i].imgPass == false && d.data[i].faceUrl == null){
+                                 $("#photoList ul").append('<li data-code="'+ d.data[i].code + '" class="js_praise"><a href="javascript:void(0);"><img src="' + d.data[i].faceTempUrl + '" width="157" height="249"></a><div class="picTxt"><span>未审核</span></div></li>');
+                                 $(".picTxt span").css({paddingLeft:"50px",fontSize:"20px"})
+                             }
+
+                                         
+                         }
+                         pageIndex = pageIndex+ 1;
+                                          
+
+                     }
+                 }else{
+                     alert(d.message);
+                 }
+
+             }
+         });
+     }
+//点亮爱心图标，点赞
+     $(".js_praise .picTxt").die().live("click", function () {
+         var $this = $(this).children("i");//爱心小图标
+         if ($this.hasClass("curr")) {
+             //return false;
+         }
+         $.ajax({
+             url: favoritePhotoUrl,
+             type: "GET",
+             dataType: "JSON",
+             data: {
+                 faceCode: $this.parent(".picTxt").parent(".js_praise").attr("data-code"),
+                 r: function () { return Math.random(); }
+             },
+             success: function (d) {
+                 if (d.isSuccess) {//未满3次的话，可以点赞
+                      var number = parseInt($this.siblings(".js_favnum").text())+1;
+                                //获取最新抽奖次数
+                                getLotteryTime();
+
+                               // $this.addClass("curr");
+                                $this.removeClass("curr").attr("class","curr")
+                                $this.siblings(".xinClass").fadeIn("slow");
+                                $this.siblings(".js_add").fadeIn("slow");//+1显示后消失
+                                $this.siblings(".js_favnum").text(number);
+                                $this.siblings(".js_add").fadeOut("slow");
+
+                     
+                   //  alert("点亮成功！");
+                 } else {
+                     if (d.message == "请先登录") {
+                         alertFn(null, null, true);
+                     } else {
+                         alert(d.message);
+                     }
+                 }
+             }
+         });
+     });
+
+     //登录判断
+     checkLogin({
+         success: function (d) {
+             $(".login").hide();
+             $(".login_suc").show();
+             $(".uploadimgNo").hide();
+             $(".uploadimg").show().css("cursor", "pointer");
+
+             var uname = "";
+
+             if (d.Account.length <= 8) {
+                 uname = d.Account;
+             } else {
+                 var uname1 = d.Account.substring(0, 2);
+                 var uname2 = d.Account.substring(d.Account.length - 2, d.Account.length);
+                 uname = uname1 + "****" + uname2;
+             }
+             $(".login_suc").text('欢迎' + uname + '登录');
+             $(".login_suc").attr("data-account", d.Account);
+             //获取最新抽奖次数
+             getLotteryTime();
+			$(".btnSea").click(function () {
+ 				// account = ($("#userName").val() == "" ||$("#userName").val() == "请输光宇社区帐号搜索")|| $("#userName").val().match()? "null":$("#userName").val();
+				 if($("#userName").val() == "请输光宇社区帐号搜索" ){
+						account = "null"  
+ 						alert("请核对要查找的账号")
+ 						pageIndex = 0;
+         				$("#photoList ul").empty();
+         				getPhotoIndex(true);
+		
+				 }else if( $("#userName").val().match(' ')){
+						alert("账号不能有空格")
+					}else{
+  			            
+						 account = $("#userName").val() 
+						 pageIndex = 0;
+         				 $("#photoList ul").empty();
+         				 getPhotoIndex(true);
+				}
+         
+        
+     })
+         },
+         failed: function () {
+             $(".login").show();
+             $(".login_suc").hide();
+             $(".wrap02_upload").click(function () {
+                 alertFn(null, null, true); return false
+             });
+             $(".picTxt").click(function () {
+                 alertFn(null, null, true); return false
+             });
+             $(".cj_start").click(function () {
+                 alertFn(null, null, true); return false
+             });
+             $(".login a").click(function () {
+                 alertFn(null, null, true); return false
+             });
+             $(".wrap02_more").click(function () {
+                 alertFn(null, null, true); return false
+             });
+ 			 $(".btnSea").click(function () {
+                 alertFn(null, null, true); return false
+             });
+
+         }
+     });
+     function checkLogin(fn) {
+         $.ajax({
+             url: "http://reg.gyyx.cn/Login/Status",
+             type: "GET",
+             dataType: "jsonp",
+             jsonp: "jsoncallback",
+             data: { r: Math.random() },
+             success: function (d) {
+                 if (d.IsLogin) {
+                     if (fn) {
+                         fn.success(d);
+                     }
+                 }
+                 else {
+                     if (fn) {
+                         fn.failed(d);
+                     }
+                 }
+             }
+         });
+     }
+     //获得最新抽奖次数
+     function getLotteryTime() {
+         $.ajax({
+             url: getLotteryTimeUrl,
+             type: "GET",
+             dataType: "JSON",
+             data: {
+                 r: Math.random()
+             },
+             success: function (d) {
+                 if (d.isSuccess) {
+                     $(".logn_times a").text(d.data);
+                 } else {
+                     alert(d.message);
+                 }
+             }
+         });
+
+     }
+
+
+
+
+
+    
+     //加载更多               
+     $("#loadMore").click(function () {
+         getPhotoIndex();
+         return false;
+     });
+     //输入框变化
+     $("#userName").focus(function () {
+         if ($(this).val() == "请输光宇社区帐号搜索") {
+             $(this).val("");
+         }
+     }).blur(function () {
+         if ($(this).val() == "") {
+             $(this).val("请输光宇社区帐号搜索");
+         }
+     });
+     //搜索
+     
+     
+	/*$(".btnSea").click(function () {
+ // account = ($("#userName").val() == "" ||$("#userName").val() == "请输光宇社区帐号搜索")|| $("#userName").val().match()? "null":$("#userName").val();
+	 if($("#userName").val() == "请输光宇社区帐号搜索"|| $("#userName").val().match('')){
+		account = "null"  
+ 		alert("请核对要查找的账号")
+		//$("#photoList").empty();
+        // getPhotoIndex(true);
+	 }else{
+  alert($("#userName").val())
+		 account = $("#userName").val() 
+		 pageIndex = 0;
+         $("#photoList").empty();
+         getPhotoIndex(true);
+		}
+         
+        
+     })*/
+
+
+     $(window).scroll(function () {
+         var scrollTop = $(this).scrollTop();
+         var scrollHeight = $(document).height();
+         var windowHeight = $(this).height();
+         if (scrollTop + windowHeight == scrollHeight) {
+             getPhotoIndex();
+         }
+     });
+   
+   
+   //放大效果
+$(".js_praise>a").die().live('click',function(){
+var imgAddress = $(this).children("img").attr("src")
+
+	$("#picBigShow").empty().append('<img src="' + imgAddress + '" >')//添加元素
+	
+	//真实宽高
+	var img = new Image();
+	img.src =$("#picBigShow img").attr("src") ;
+	var wid = img.width;
+	var hei = img.height;
+	
+	//定位的width;
+	var newWidth = -(wid/2)+'px';
+	
+	//定位的height;
+	var newHeight =-(hei/2)+'px';
+	
+	$("#maskBoxPicAll").show()
+	$("#maskBoxPic").show().css("z-index","1000");
+	$("#picBigShow img").css({"margin-top":newHeight,"margin-left":newWidth});
+	$("#picBigShow").show();
+})
+$("#maskBoxPicAll").click(function(){
+   $("#maskBoxPic").hide();
+   $("#picBigShow").hide();
+})
+   
+ </script>
+ <!--[if IE 6]>
+<script src="http://www.gyyx.cn/Scripts/DD_belatedPNG.js"></script>
+<script>
+DD_belatedPNG.fix('.picBox li');
+DD_belatedPNG.fix('.picTxt i.curr');
+DD_belatedPNG.fix('.picTxt i');
+
+	var oMask = document.getElementById('maskBox');
+	var oMaskPic = document.getElementById('maskBoxPic');
+
+	var iH = Math.max( view().h, scrollH(), offsetH() );
+//遮罩层的height铺满
+	oMask.style.height = iH + 'px';
+	oMaskPic.style.height = iH + 'px';
+	
+	
+function scrollH(){
+	return document.body.scrollHeight;	
+}
+
+function offsetH(){
+	return document.body.offsetHeight;	
+}
+
+function scrollX(){
+	return document.body.scrollLeft || document.documentElemenbt.scrollLeft;
+}
+
+function scrollY(){
+	return document.body.scrollTop || document.documentElement.scrollTop;
+	
+}
+
+
+function view(){
+
+	return {
+		
+		w : document.documentElement.clientWidth,
+		
+		h : document.documentElement.clientHeight
+		
+	};	
+	
+}
+
+</script>
+<![endif]-->
+</body>
+</html>

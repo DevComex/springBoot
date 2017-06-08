@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xlsgwxsign.IXlsgUserScoreMapper">
+	<resultMap type="cn.gyyx.action.beans.xlsgwxsign.XlsgUserScore" id="XLSGWxSignUserScoreBeanMap">
+		<id column="code" property="code" />
+		<result column="open_id" property="openId" />
+		<result column="cur_intergral" property="curIntergral" />
+		<result column="last_month_intergral" property="lastMonthIntergral" />
+		<result column="job_last_update_time" property="jobLastUpdateTime" />
+	</resultMap>
+	
+	<!-- 根据条件获得用户积分记录 -->
+	<select id="getUserScore" parameterType="cn.gyyx.action.beans.xlsgwxsign.XlsgUserScore" resultMap="XLSGWxSignUserScoreBeanMap">
+		select 
+			top 1 * 
+		from
+			xlsg_wx_sign_user_score_tb
+		where 
+			1=1 
+			<if test="openId!= null and openId!= '' ">     
+            	and open_id = #{openId}      
+        	</if>
+	</select>
+	
+	<!-- 插入用户积分记录 -->
+	<insert id="insertUserScore" parameterType="cn.gyyx.action.beans.xlsgwxsign.XlsgUserScore">
+		insert into xlsg_wx_sign_user_score_tb (
+			open_id
+		   ,cur_intergral)
+		values(
+		    #{openId}
+		   ,#{curIntergral})
+	</insert>
+	
+	<!-- 更新用户积分记录 -->     
+	<update id="updateUserScore" parameterType="cn.gyyx.action.beans.xlsgwxsign.XlsgUserScore">     
+	    update xlsg_wx_sign_user_score_tb      
+	    <set>     
+	        <if test="curIntergral!=null">     
+	            cur_intergral = #{curIntergral},      
+	        </if> 
+	    </set>     
+	    where open_id = #{openId}
+	</update>  
+	
+	<!-- 更新用户积分记录 -->     
+	<update id="updateUserScoreZero">     
+	    update xlsg_wx_sign_user_score_tb      
+	    set cur_intergral = 0,
+	    	last_month_intergral = cur_intergral,
+	    	job_last_update_time = getdate()
+	</update>    
+	
+</mapper>

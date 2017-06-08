@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道-天下第一宠票选活动</title>
+<link href="css/wd130927.css" rel="stylesheet" type="text/css">
+<style type="text/css">
+<!--
+.STYLE2 {
+	color: #AE241D;
+	font-size: 14;
+}
+.STYLE3 {
+	color: #AB221C;
+	font-size: 14;
+}
+.STYLE4 {font-size: 14px}
+-->
+</style>
+</head>
+<body>
+<div class="tcbox">
+  <h2 class="tctit">奖品收货信息填写</h2>
+  <div class="con">
+    <div class="formdiv">
+      <p>
+        <label>奖品收件人姓名：</label>
+        <input name="input" type="text">
+      </p>
+      <p>
+        <label>收件人联系电话：</label>
+        <input name="input" type="text">
+      </p>
+      <p>
+        <label>奖品收货人地址：</label>
+        <input name="input" type="text">
+        </p>
+     </p>
+      <p class="btnp"><input name="" type="button" class="btn01"><input name="" type="button" class="btn02"></p>
+    </div>
+  </div>
+</div>
+<script src="http://www.gyyx.cn/inc/gyyx_statistics.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+</body>
+</html>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.wish11th.Wish11thLotteryPrizesBeanMapper">
+	<!--获取用户或ip抽取的奖品列表 -->
+	<select id="getUserIPPrizeList"
+		resultType="cn.gyyx.action.beans.wish11th.Wish11thLotteryPrizesBean">
+		select *
+		from action_lottery_log_tb
+		where
+		(
+		userId = #{userid}
+		or winningIp
+		= #{ip}
+		)
+		<if test=" actioncodelist != null and actioncodelist.size() > 0 ">
+			and activityId in
+			<foreach collection="actioncodelist" item="code" index="index"
+				open="(" close=")" separator=",">
+				#{code}
+			</foreach>
+		</if>
+	</select>
+
+    <!--获取用户或ip抽取的实物奖或银元宝的数量 -->
+	<select id="getCountForRealOrSilver" resultType="java.lang.Integer">
+		select
+		count(code)
+		from action_lottery_log_tb
+		where
+		(
+		userId = #{userid}
+		or
+		winningIp = #{ip}
+		)
+		and
+		activityId
+		in(456,457,458,459)
+		and
+		(
+		prizeType='realPrize' or prizeName like
+		'%银元宝%'
+		)
+	</select>
+</mapper>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.meetingroom.IAttendPersonMapper">
+	<resultMap type="AttendPerson" id="AttendPerson">
+		<id column="code" property="code"/>
+		<result column="user_code" property="userCode"/>
+		<result column="order_code" property="orderCode"/>
+		<result column="user_name" property="userName"/>
+	</resultMap>
+	
+	<!--添加参会人员  -->
+	<insert id="insertAttendPerson" parameterType="AttendPerson">
+	  insert into mos_attendperson_tb (order_code,user_code,user_name)
+	  values (
+	  #{orderCode},
+	  #{userCode},
+	  #{userName}
+	  )
+	</insert>
+</mapper>

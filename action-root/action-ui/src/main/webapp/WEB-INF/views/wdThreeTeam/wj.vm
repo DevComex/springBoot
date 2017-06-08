@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>《盗墓三番队》概念站</title>
+    <link href="http://static.cn114.cn/action/wdThreeTeam/css/wj.css" rel="stylesheet" type="text/css">
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script  type="text/javascript">
+		    var rc = "${rc.contextPath}";
+	    </script>
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?5e57c77b5a00405a016d6793113e7ff5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+    <script>
+        if (navigator.platform.indexOf('Win32') != -1 || navigator.platform.indexOf('Win64') != -1 || navigator.platform.indexOf('MacPPC') != -1|| navigator.platform.indexOf('MacIntel') != -1) {
+
+
+        } else {
+            //shouji
+            window.location.href = rc+"/tombThreeTeam/mobile/index"+window.location.search;
+        }
+    </script>
+</head>
+<body>
+
+<div class="public_nav_top">
+    <script type="text/javascript">Showtop();</script>
+</div>
+<!--wenjuan-->
+<div class="wrap">
+    <a href="$returnIndex" class = "return1"></a>
+    <form class="con">
+        <div class="fsp">
+            <div class="iem_wj">
+                <p class="quest">1.请问您的姓别是?</p>
+                <p class="answer">
+                    <input type="radio" name="wj_sex" value="A: 我是男生" /><span>A: 我是男生</span>
+                    <input type="radio" name="wj_sex" value="B: 我是女生" /><span>B: 我是女生</span>
+                </p>
+            </div>
+            <div class="iem_wj">
+                <p class="quest">2.请问您的年龄是?</p>
+                <p class="answer">
+                    <input type="radio" name="wj_age" value="A: 0~18岁" /><span>A: 0~18岁</span>
+                    <input type="radio" name="wj_age" value="B: 18~25岁" /><span>B: 18~25岁</span>
+                    <input type="radio" name="wj_age" value="C: 26岁~35岁" /><span>C: 26岁~35岁</span>
+                    <input type="radio" name="wj_age" value="D: 35岁以上" /><span>D: 35岁以上</span>
+                </p>
+            </div>
+            <div class="iem_wj">
+                <p class="quest">3.您的居住城市是?（下拉框选择）</p>
+                <div class="answer">
+                    <select class="province" id="province" name="province"><option style="background:#000 ">省</option></select>
+                    <select class="city" name="city" id="city"><option style="background:#000 ">市</option></select>
+                </div>
+            </div>
+            <div class="iem_wj">
+                <p class="quest">4.您的职业是?</p>
+                <p class="answer">
+                    <input type="radio" name="wj_job" value="A: 学生" /><span>A: 学生</span>
+                    <input type="radio" name="wj_job" value="B: 上班族" /><span>B: 上班族</span>
+                    <input type="radio" name="wj_job" value="C: 自由职业" /><span>C: 自由职业</span>
+                    <input type="radio" name="wj_job" value="D: 其他" /><span>D: 其他</span>
+                </p>
+            </div>
+            <div class="iem_wj">
+                <p class="quest">5. 您的手机型号是？</p>
+                <p class="answer">
+                    <input class="wj_phoneType oneSe aaaa" type="text" valueTex="请具体到型号,如：小米4" value="请具体到型号,如：小米4" maxlength="20" name="wj_phoneType" />
+                </p>
+            </div>
+            <div class="iem_wj gt2">
+                <p class="quest">6. 如果有一款盗墓背景的手游，你最希望是哪种类型？（多选）</p>
+                <div class="answer">
+                    <ul class="dmsj">
+                        <li style="margin-top: 0;">
+                            <input class="wj_hopeGame" type="checkbox" name="wj_hopeGame" value="A: 动作打击" /><span>A: 动作打击</span>
+                        </li>
+                        <li>
+                            <input class="wj_hopeGame" type="checkbox" name="wj_hopeGame" value="B: 热血日漫" /><span>B: 热血日漫</span>
+                        </li>
+                        <li>
+                            <input class="wj_hopeGame" type="checkbox" name="wj_hopeGame" value="C: Q版" /><span>C: Q版</span>
+                        </li>
+                        <li>
+                            <input class="wj_hopeGame" type="checkbox" name="wj_hopeGame" value="D: 角色扮演" /><span>D: 角色扮演</span>
+                        </li>
+                        <li>
+                            <input class="wj_hopeGame" type="checkbox" name="wj_hopeGame" value="E: 卡牌" /><span>E: 卡牌</span>
+                        </li>
+                        <li>
+                            <input class="wj_hopeGame" type="checkbox" name="wj_hopeGame" value="F: 冒险探索" /><span>F: 冒险探索</span>
+                        </li>
+                        <li>
+                            <input class="otherIns_value" type="checkbox" name="wj_hopeGame" value="" />
+                            <input style="margin-left: 16px;width: 335px;" class="otherIns aaaa"  type="text" valueTex="G: 其他,请详细说明" value="G: 其他,请详细说明" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="iem_wj">
+                <p class="quest">7.如果这款游戏有代言，您最希望是？</p>
+                <p class="answer">
+                    <input type="radio" name="wj_prolocutor" value="A: 影视明星(例如:李易峰)" /><span>A: 影视明星(例如：李易峰)</span>
+                    <input type="radio" name="wj_prolocutor"  value="B: 虚拟人设（例如:初音未来）"/><span>B: 虚拟人设（例如:初音未来）</span>
+
+                </p>
+                <p class="answer">
+                    <input type="radio" name="wj_prolocutor" value="C: 表情红人（例如:金馆长）" /><span>C: 表情红人（例如:金馆长）</span>
+                    <input type="radio" name="wj_prolocutor" value="D: 热血教官（例如:松冈修造）" /><span>D: 热血教官（例如:松冈修造）</span>
+                </p>
+                <p class="answer">
+                    <input type="radio" name="wj_prolocutor" value="E: 日本明星（例如:小栗旬）" /><span>E: 日本明星（例如:小栗旬）</span>
+                </p>
+            </div>
+            <div class="iem_wj">
+                <p class="quest">8. 您从哪里获取游戏相关信息？</p>
+                <p class="answer">
+                    <input type="radio" name="wj_souce" value="A: 媒体/广告" /><span>A: 媒体/广告 </span>
+                    <input type="radio" name="wj_souce" value="B: 社交平台" /><span>B: 社交平台</span>
+                    <input type="radio" name="wj_souce" value="C: 朋友推荐" /><span>C: 朋友推荐</span>
+                    <input type="radio" name="wj_souce" value="D: 应用商店排行榜" /><span>D: 应用商店排行榜</span>
+                </p>
+            </div>
+            <div class="iem_wj gt2">
+                <p class="quest">9. 您习惯在哪里与人交流游戏心得？（多选）</p>
+                <p class="answer">
+                    <input type="checkbox" name="wj_platform" value="A: 贴吧" /><span>A: 贴吧</span>
+                    <input type="checkbox" name="wj_platform" value="B: 论坛" /><span>B: 论坛</span>
+                    <input type="checkbox" name="wj_platform" value="C: 微博" /><span>C: 微博</span>
+                    <input type="checkbox" name="wj_platform" value="D: 微信" /><span>D: 微信</span>
+                </p>
+                <p class="answer">
+                    <input type="checkbox" name="wj_platform" value="E: QQ" /><span style="margin-right: 13px;">E: QQ</span>
+                    <input type="checkbox" name="wj_platform" value="F: 哔哩哔哩" /><span style="margin-right: 13px;">F: 哔哩哔哩</span>
+                    <input type="checkbox" class="otherIns_value" name="wj_platform" value="" />
+                    <input style="margin-left: 16px;width: 226px;" class="otherIns aaaa" maxlength="50" type="text" valueTex="G: 其他,请详细说明" value="G: 其他,请详细说明" />
+                </p>
+            </div>
+            <div class="iem_wj">
+                <p class="quest">10. 您最想了解游戏中哪方面资讯？</p>
+                <p class="answer tem10">
+                    <input name="wj_gameInfoType" type="radio" value="A: 战斗玩法" /><span>A: 战斗玩法</span>
+                </p>
+                <p class="answer tem10 padding_l20">
+                    <input name="wj_gameInfoType" type="radio" value="B: 剧情发展" /><span>B: 剧情发展</span>
+                </p>
+                <p class="answer tem10  padding_l20">
+                    <input name="wj_gameInfoType" type="radio" value="C: 画面品质" /><span>C: 画面品质</span>
+                </p>
+                <p class="answer tem10  padding_l20">
+                    <input name="wj_gameInfoType" type="radio" value="D: 正版授权" /><span>D: 正版授权</span>
+                </p>
+                <p class="answer tem10  padding_l20">
+                    <input name="wj_gameInfoType" type="radio" value="E: 攻略评测" /><span>E: 攻略评测</span>
+                </p>
+            </div>
+            <div class="iem_wj gt2">
+                <p class="quest">11. 在您之前的游戏体验中，您觉得最有趣的是？（至少选两项）</p>
+                <div class="answer">
+                    <ul class="dmsj">
+                        <li style="margin-top: 0;">
+                            <input class="wj_hopeGame" type="checkbox" name="wj_interests" value="A: 体验游戏精美画质，看看风景" /><span>A: 体验游戏精美画质，看看风景</span>
+                        </li>
+                        <li>
+                            <input class="wj_hopeGame" type="checkbox" name="wj_interests" value="B: 与好友或者工会成员聊天" /><span>B: 与好友或者工会成员聊天</span>
+                        </li>
+                        <li>
+                            <input class="wj_hopeGame" type="checkbox" name="wj_interests" value="C: 与其他队友组队，相互协作作战" /><span>C: 与其他队友组队，相互协作作战</span>
+                        </li>
+                        <li>
+                            <input class="wj_hopeGame" type="checkbox" name="wj_interests" value="D: 单人挑战，提高技巧与战斗，推进关卡" /><span>D: 单人挑战，提高技巧与战斗，推进关卡</span>
+                        </li>
+                        <li>
+                            <input class="wj_hopeGame" type="checkbox" name="wj_interests" value="E: 体验游戏剧情做日常副本" /><span>E: 体验游戏剧情做日常副本</span>
+                        </li>
+                        <li>
+                            <input class="otherIns_value" type="checkbox" name="wj_interests" value="" />
+                            <input style="margin-left: 16px;width: 335px;" type="text" class="otherIns aaaa" valueTex="F: 其他,请详细说明" maxlength="50" value="F: 其他,请详细说明" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="iem_wj gt2">
+                <p class="quest">12. 您觉得以下最适合您的是? (可多选)</p>
+                <div class="answer">
+                    <ul class="dmsj">
+                        <li>
+                            <input  type="checkbox" name="wj_disposition" value="A: 宅" /><span>A: 宅</span>
+                        </li>
+                        <li>
+                            <input  type="checkbox" name="wj_disposition" value="B: 呆" /><span>B: 呆</span>
+                        </li>
+                        <li >
+                            <input type="checkbox" name="wj_disposition" value="C: 腹黑" /><span>C: 腹黑</span>
+                        </li>
+                        <li >
+                            <input  type="checkbox" name="wj_disposition" value="D: 腐" /><span>D: 腐</span>
+                        </li>
+                        <li>
+                            <input  type="checkbox" name="wj_disposition" value="E: 毒舌" /><span>E: 毒舌</span>
+                        </li>
+                        <li >
+                            <input  type="checkbox" name="wj_disposition" value="F: 萌" /><span>F: 萌</span>
+                        </li>
+                        <li>
+                            <input c type="checkbox" name="wj_disposition" value="G: 傲" /><span>G: 傲</span>
+                        </li>
+                        <li >
+                            <input  type="checkbox" name="wj_disposition" value="H: 燃" /><span>H: 燃</span>
+                        </li>
+                        <li >
+                            <input  type="checkbox" name="wj_disposition" value="I: 弱气" /><span>I: 弱气</span>
+                        </li>
+                        <li >
+                            <input  type="checkbox" name="wj_disposition" value="J: 女王" /><span>J: 女王</span>
+                        </li>
+                        <li>
+                            <input class="otherIns_value" type="checkbox" name="wj_disposition" value="" />
+                            <input style="margin-left: 16px;width: 335px;" type="text" maxlength="50" valueTex="K: 其他,请详细说明" class="otherIns aaaa" value="K: 其他,请详细说明" />
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+
+        </div>
+        <p class="danger">以下信息将作为官方发放激活码的必要依据，请认真填写有效信息</p>
+        <div class="iem_wj tx_input">
+            <p class="wj_yz">
+                <input type="text" name="check_email" class="aaaa" valueTex="请输入您的邮箱" value="请输入您的邮箱" maxlength="50">
+            </p>
+        </div>
+        <div class="iem_wj tx_input">
+            <p class="wj_yz">
+                <input type="text" name="check_qq" class="aaaa"  valueTex="请输入您的QQ号" value="请输入您的QQ号" maxlength="50">
+            </p>
+        </div>
+
+        <p class="wj_submit"></p>
+    </form>
+</div>
+</div>
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom()</script>
+</div>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?adf34816abef562c37599de5f6071496";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<div class="mask"></div>
+<script src="http://static.cn114.cn/action/wdWildCity/js/validation.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdWildCity/js/ZeroClipboard.min.js"></script>
+<!--<script src="http://static.cn114.cn/action/wdWildCity/js/gmmc.js"></script>-->
+
+<script src="http://static.cn114.cn/action/wdThreeTeam/js/city.js"></script>
+<script src="http://static.cn114.cn/action/wdThreeTeam/js/wj.js"></script>
+</body>
+</html>

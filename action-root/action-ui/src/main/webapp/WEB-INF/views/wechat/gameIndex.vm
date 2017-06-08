@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html manifest="cache.manifest">
+<head>
+    <title>终极酷跑</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=IE9">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <meta name="title" content="Aggravated Asphalt">
+    <meta name="description" content="终极酷跑,终极酷跑官网,终极酷跑官方网站">
+    <meta name="keywords" content="终极酷跑,终极酷跑官网,终极酷跑官方网站,html5">
+
+		
+    <link rel="stylesheet" href="http://static.cn114.cn/action/zjkp/game/css/game_specific.css" type="text/css" media="screen">
+
+  
+
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui" />
+
+
+
+
+<script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://static.cn114.cn/action/zjkp/game/js/tgl.boot.min.js"></script>
+	<script src="http://action.gyyx.cn/DialLottery/WXZjjsDialLottery/js/gyyx_wxshare.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+    </script>
+</head>
+<body id="" class="">
+    <style type="text/css">
+        html, body { margin: 0; padding: 0; font-family: Arial; font-size: 12px; color: #fff; background: #000 url(http://static.cn114.cn/action/zjkp/game/assets/images/backgrounds.jpg); -webkit-text-size-adjust: none; -webkit-tap-highlight-color: transparent; }
+        #game_canvas { z-index: 1; overflow: hidden; image-rendering: optimizeSpeed; -webkit-tap-highlight-color: transparent; -moz-tap-highlight-color: transparent; -webkit-user-select: none; -webkit-transform: translateZ(0); -ms-touch-action: none; }
+        #wrong_orientation { background: #000; position: absolute; top: 0; left: 0; z-index: 2; width: 100%; height: 100%; display: none; }
+        #wrong_orientation img { display: block; margin: 0 auto; width: 80%; }
+    </style>
+    <div id="viewporter" align="center" width="100%">
+        <div id="wrong_orientation" style="display: none;">
+            <img src="http://static.cn114.cn/action/zjkp/game/assets/images/reorient-message.jpg" /></div>
+        <div id="preloader" align="center">正在连接服务器，请您稍等...</div>
+        <div id="game_canvas"></div>
+    </div>
+<script>
+	$(function(){
+		function getQuery(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"),
+            regs = new RegExp("%26", "g"); addda = window.location.search.replace(regs, "&");
+            r = addda.substr(1).match(reg); if (r != null) { return r[2]; } return null;
+        };
+    			
+		  wxShare({
+            debug: false,
+            game: "Zjjs",
+            title: "和孙佳奇一起酷跑，赢Iphone6S等周边好礼吧！",
+            desc: "和孙佳奇一起酷跑，赢Iphone6S等周边好礼吧！",
+            link: "http://actionv2.gyyx.cn/wechatLottery/zjkpShare",
+            imgUrl: "http://static.cn114.cn/action/zjkp/lottery/images/share_pic.png",
+            success: function () {
+                var geturl = "http://actionv2.gyyx.cn/wechatCount/ajaxBackstageCount?countType=zjjsShare&nickName=" + getQuery("OpenId");
+                $("body").append("<img src=" + geturl + " border=0 width=0 height=1 style='display:none;'>");
+                alert("分享成功！");
+				window.location.reload();
+            },
+            cancel: function () {
+                alert("取消了分享");
+            }
+        });
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>我用一生换你十年</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/tenyears/html/css/style.css" />
+		<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+		<style>
+			.beforLogin p #server{display: none;}
+		</style>
+		<!--<script type="text/javascript" src="js/basic.js" ></script>
+		<script type="text/javascript" src="js/modernizr.2.5.3.min.js" ></script>-->
+		<!--<script type="text/javascript">
+			
+			function loadApp() {
+	// Create the flipbook
+				$('.flipbook').turn({
+			// Width
+					width:922,
+			// Height
+					height:600,
+			// Elevation
+					elevation: 50,
+			// Enable gradients
+					gradients: true,
+			// Auto center this flipbook
+					autoCenter: true
+				});
+			}
+// Load the HTML4 version if there's not CSS transform
+			yepnope({
+	test : Modernizr.csstransforms,
+	yep: ['../../lib/turn.js'],
+	nope: ['../../lib/turn.html4.min.js'],
+	both: ['css/basic.css'],
+	complete: loadApp
+});
+		</script>-->
+		<script type="text/javascript">
+			alert("谢谢参与，活动已结束")
+		</script>
+	</head>
+	<body>
+		<!--公共头部-->
+		<div class="public_nav_top">
+			
+      		<script type="text/javascript">Showtop();
+			var rc = "${rc.contextPath}";
+			</script>
+    	</div>
+		<div class="background">
+			<div class="weixinma" style="position: absolute;">
+				<img src="http://static.cn114.cn/action/tenyears/html/img/indexhref.png" width="150px" height="150px"/>
+			</div>
+			<div class="minwidth">
+				<div class="shareAction" style="width: 300px;height: 40px;float: right;margin: 50px 0 0 0;font-size: 14px;">
+					<a href="http://wd.gyyx.cn/" style="color: #fde0e0;background-color: #c44428;padding: 5px;border-radius:10px ;">进入官网</a>	
+					<span style="font-weight: bold;color:#c44428 ;">分享活动：</span>
+					<a title="分享到微信" href="javascript:void(0);"  class="shareActionXin shareBtn"></a>
+					<a title="分享到新浪微博" href="http://v.t.sina.com.cn/share/share.php?url=http://actionv2.gyyx.cn/wdonechangeten/index&title=我用一生换你十年&content=utf-8&source=&sourceUrl=&pic=" class="shareActionBo shareBtn" target="_blank"></a>
+				</div>
+			<div class="time" id="topindex">
+				<h2>活动时间：4月22日-5月9日</h2>
+			</div>
+			<div class="storyCollect">
+				<a href="http://actionv2.gyyx.cn/WDOneChangeTen/upload">故事征集</a>
+			</div>
+			<div class="beforLogin">
+				<p><span id="loginPic" style="vertical-align: middle;"><img src="http://static.cn114.cn/action/tenyears/html/img/loginPic.png"/></span>参与活动请先：<a class="login">登陆</a></p>
+				<span id="prizeMsg">
+					您的剩余抽奖积分：<span id="chance">0</span>
+					<span class="space"></span>
+					<a id="checkMyPirze">查询我的奖品</a>
+					<span class="space"></span>
+					<a id="getPrize" href="#cjx1">去抽奖</a>
+				</span>
+			</div>
+			<div class="book">
+				<div class="book_main">
+					<div class="wordsPage">
+						<p><span id="person"></span>
+							<span id="authorName"></span>
+							<span class="space"></span>
+							<span id="areaName"></span>-<span id="serverName"></span>
+							<span class="space"></span>
+							<i class="heart" id="js_heart_index"></i>
+							<span id="heartNum"></span></p>
+							<div style="margin-top: 30px;line-height: 24px;overflow: hidden;height: 374px;margin-bottom:10px
+								">
+							<div id="storyCont"></div>
+        					</div>
+        					<input type="hidden" value="" id="codE" />
+        					<a class="showDital" id="codeINPI" code="" ></a>
+					</div>
+					<div class="picPage">
+						<div class="indexBtn">
+							<a class="searchNew" href="http://actionv2.gyyx.cn/WDOneChangeTen/workInfoListIndex?type=0&currentPage=1"></a>
+							<a class="searchTop" href="http://actionv2.gyyx.cn/WDOneChangeTen/workInfoListIndex?type=1&currentPage=1"></a>
+						</div>
+						<div class="picBox">
+							<div class="prev" style="margin: 58px 0 0 40px;width: 70px;height: 68px;float: left;text-align: left;"><a id="prevPic"></a></div>
+							<div class="picMask">
+								<div class="picShow">
+									
+								</div>
+							</div>
+							<div class="next" style="margin: 58px 20px 0 0;width: 70px;height: 68px;float: right;text-align: right;"><a id="nextPic"></a></div>
+						</div>
+					</div>
+				</div>
+				<div class="pageBtn">
+					<a href="javascript:;" class="prevPage">上一页</a>
+					<a href="javascript:;" class="nextPage">下一页</a>
+				</div>
+			</div>
+			<div class="actionInfo">
+				<div class="title">
+					<h2 class="actionTitle">活动说明</h2>
+					<div class="content">
+						<p>问道十年"不忘初心"，玩家故事征集活动正式开启。参与活动的玩家均可获得抽奖机会。玩家可以上传自己这十年来的精彩故事，可以是爱情，友情或兄弟情等，以文字或图片的形式上传即可。</p>
+						<p>同时，玩家可以通过集赞的方式赢好礼，获得赞最多的玩家，将获得由官方提供的价值500元大礼。</p>
+						<p>活动结束后，官方会从中筛选出精彩的故事拍摄成MV进行宣传。小伙伴们还等什么，快来分享你们的故事吧！</p>
+					</div>
+				</div>
+				
+			</div>
+			
+			<div class="lottery">
+				<div class="lotteryTitle">
+					<h2 class="lotteryTit">抽取大奖</h2>
+				</div>
+				<div class="lotteryLeft">
+					<ul class="lotteryList">
+						<li class="prize" id="cjx1">
+							<div class="prizeBg">
+								<div class="prizePic">
+									<img src="http://static.cn114.cn/action/tenyears/html/img/ipad.png" />
+								</div>
+								<div class="prizeWord">IPAD</div>
+							</div>
+						</li>
+						<li class="prize" id="cjx2"><div class="prizeBg"><div class="prizePic"><img src="http://static.cn114.cn/action/tenyears/html/img/thanku.png" /></div><div class="prizeWord"></div></div></li>
+						<li class="prize" id="cjx3"><div class="prizeBg"><div class="prizePic"><img src="http://static.cn114.cn/action/tenyears/html/img/Tshirt.png" /></div><div class="prizeWord">T恤</div></div></li>
+						<li class="prize" id="cjx8"><div class="prizeBg"><div class="prizePic"><img src="http://static.cn114.cn/action/tenyears/html/img/gygold.png" /></div><div class="prizeWord">光宇币：10元</div></div></li>
+						<li class="GO star"><a href="javascript:;" class="star" id="js_go" data-lfg="go"></a></li>
+						<li class="prize" id="cjx4"><div class="prizeBg"><div class="prizePic"><img src="http://static.cn114.cn/action/tenyears/html/img/gygold.png" /></div><div class="prizeWord">光宇币：30元</div></div></li>
+						<li class="prize" id="cjx7"><div class="prizeBg"><div class="prizePic"><img src="http://static.cn114.cn/action/tenyears/html/img/gamehand.png" /></div><div class="prizeWord">手柄</div></div></li>
+						<li class="prize" id="cjx6"><div class="prizeBg"><div class="prizePic"><img src="http://static.cn114.cn/action/tenyears/html/img/thanku.png" /></div><div class="prizeWord"></div></div></li>
+						<li class="prize" id="cjx5"><div class="prizeBg"><div class="prizePic"><img src="http://static.cn114.cn/action/tenyears/html/img/gygold.png" /></div><div class="prizeWord">光宇币：100元</div></div></li>
+					</ul>
+				</div>
+				<div class="lotteryRight">
+					<div class="ruleTit">
+						<h2 class="ruleTitle">抽奖规则</h2>
+					</div>
+					<div class="ruleContent">
+						<p><span class="point">1</span>活动期间，每位《问道》玩家每天最多可获得3次抽奖机会；</p>
+						<p><span class="point">2</span>活动奖品将由《问道》官方统一安排寄送，为了确保 您的获奖资格，请务必填写正确的个人信息，以免影  响发奖；</p>
+						<p><span class="point">3</span>发放奖品时间：6月30日之前；</p>
+						<p><span class="point">4</span>本次活动的解释权归《问道》官方共同所有。</p>
+					</div>
+				</div>
+			</div>
+			<!--漂-->
+			
+			</div>
+			
+		</div>
+		<div class="flyBoard">
+			<div class="flyDiv" style="margin-top: 164px;" ><a href="http://actionv2.gyyx.cn/WDOneChangeTen/upload"></a></div>
+			<div class="flyDiv"><a href="http://actionv2.gyyx.cn/WDOneChangeTen/workInfoListIndex"></a></div>
+			<div class="flyDiv" ><a href="#cjx1"></a></div>
+			<div class="flyDiv"><a href="#topindex"></a></div>
+			
+		</div>
+		<!--弹层-->
+		<div class="alertBoxs" id="js_dialogRealPrize">
+   			<div class="alertBoxT">
+   				<p>恭喜你中奖：<span id="prizeName">键鼠</span></p>
+   				<a class="close">X</a>
+   			</div>
+   			<div class="realPrize">
+	   			<div class="tc_div">
+	   				<p>请填写准确详细的个人信息(一旦填写不可修改)以便我们邮寄奖品，包邮哦！</p>
+	   			</div>
+	   			<div class="tc_div1">
+	   				<label>姓名</label>
+	   				<input type="text" id="userName"/>
+	   			</div>
+	   			<div class="tc_div1">
+	   				<label>手机号码</label>
+	   				<input type="text" id="userPhone" />
+	   			</div>
+	   			<div class="tc_div1">
+	   				<label>邮寄地址</label>
+	   				<input type="text" id="userAdress"/>
+	   			</div>
+	   			<div class="tc_div1" style="margin: 0 154px;">
+	   				<a class="submitPR" id="realSub"></a>
+	   			</div>
+	   			<div class="tc_div" style="height: 80px;margin-top: 30px;">
+	   				<p>活动结束后我们会统一邮寄奖品，请耐心等待~~</p>
+	   			</div>
+   			</div>
+   			<div class="norealPrize">
+   				<div class="tc_div">
+	   				<p>卡号：<span id="cardNum"></span></p>
+	   			</div>
+	   			<div class="tc_div">
+	   				<p>密码：<span id="password"></span></p>
+	   			</div>
+	   			<div class="tc_div1" style="margin: 48px 43px;height: 52px;">
+	   				<a class="submitPR close" ></a>
+	   			</div>
+   			</div>
+   			<div class="myPrize">
+   				<div class="myPrizeDic">
+   				<p>1</p>
+   				<p>2</p>
+   				<p>3</p>
+   				</div>
+   				<div class="tc_div1" style="margin: 48px 43px;height: 52px;text-align: center;">
+	   				<a class="submitPR close" ></a>
+	   			</div>
+   			</div>
+		</div>
+		<div id='masks'></div>
+
+
+		
+		
+		<!--公共页脚-->
+		<div class="public_nav_bottom" style="clear: both;">
+      		<script type="text/javascript">ShowBottom()</script>
+    	</div>
+		<script type="text/javascript" src="http://static.cn114.cn/action/tenyears/html/js/lottery.js" ></script>
+    	<script type="text/javascript" src="http://static.cn114.cn/action/tenyears/html/js/main.js" ></script>
+		<script>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "//hm.baidu.com/hm.js?ba8797592648c3f68c14883094474437";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+    	
+	</body>
+</html>

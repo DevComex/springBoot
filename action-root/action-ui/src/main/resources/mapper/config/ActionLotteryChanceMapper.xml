@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.config.mapper.IActionLotteryChanceMapper">
+	
+	<resultMap id="baseMap" type="cn.gyyx.action.beans.config.po.ActionLotteryChancePO">
+		<id column="code" property="code"/>
+		<result column="prize_code" property="prizeCode"/>
+		<result column="action_code" property="actionCode"/>
+		<result column="probability" property="probability"/>
+		<result column="number" property="number"/>
+		<result column="number" property="number"/>
+	</resultMap>
+
+	<select id="getDataList" parameterType="java.lang.Integer" resultMap="baseMap">
+		select * 
+		  from action_lottery_chance_tb
+		 where action_code = #{actionCode}
+	</select>
+	
+	<select id="getDataListByAvailable" parameterType="java.lang.Integer" resultMap="baseMap">
+		select c.* 
+		  from action_lottery_chance_tb c, action_prize_tb p
+		  where c.prize_code = p.code and p.isAvailable = 1
+		    and c.action_code = #{actionCode}
+	</select>
+	
+	<select id="getData" parameterType="cn.gyyx.action.beans.config.po.ActionLotteryChancePO" resultMap="baseMap">
+		select * 
+		  from action_lottery_chance_tb
+		 where action_code = #{actionCode}
+		   and prize_code = #{prizeCode}
+	</select>
+	
+	<update id="putNumber" parameterType="cn.gyyx.action.beans.config.po.ActionLotteryChancePO">
+		update action_lottery_chance_tb
+		   set number = number - 1
+		 where prize_code = #{prizeCode}
+		   and action_code = #{actionCode}
+	</update>
+</mapper>

@@ -1,0 +1,152 @@
+
+#parse("/shared/top.vm")
+<script type="text/javascript" charset="utf-8">	
+$(document).ready(function(){
+//书写具体信息
+goPage(1);
+
+});
+</script>
+
+                           	<header class="header bg-white b-b clearfix">
+								<div class="row m-t-sm">
+											 
+											<label for="annualMange_name" class="col-sm-1 control-label text-right" style="padding-top:7px;">绑定账号</label>
+											<div class="col-sm-2">
+												<input type="text" id="name" class="form-control">
+											</div>
+											<input type="button" class="btn btn-info btn-s-md" id="js_btnFindYc" value="查询" name="js_btnFindYc" onclick='goPage(1)'>
+												<input type="button" class="btn btn-info btn-s-md" id="js_btnExport" value="导出" name="js_btnExport">									
+													<label  class=" control-label " style="padding-top:7px;" >积分用户：$countAccount 人  </label>	
+                            </div>
+                        </header>
+                        
+
+                        <!-- 查询表单 -->
+                        <section class="scrollable padder" style=" overflow:scroll; margin-bottom:60px;">
+                         <section class="scrollable padder">
+                            <div class="m-b-md">
+                            
+                            </div>
+                           
+                            <section class="panel panel-default" id="checkLine">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none" id="scrollable_one">
+                                        <thead>
+                                            	
+                                            <tr>
+                                            <th width="10%">账户</th>
+											<th>总积分</th>	
+                                           #foreach ( $listActionTemp in $listAction) 
+											<th>$listActionTemp</th>
+											#end
+                                            </tr>                                        
+                                        </thead>
+                                         <tbody id="js_table">
+                                        </tbody>
+                                    </table>
+                                  
+                                </div>
+                            </section>
+                           
+                        </section>
+                        </section>
+                        <!--查询表单结束 -->
+                          <!-- 分页插件 -->
+                                   
+                                    <footer class="footer bg-white b-t">
+                                       <div id="pagenum">
+                                  
+                                    </div>
+                                    </footer>
+									<script type="text/javascript" charset="utf-8">	
+	
+	
+	     //重载页码信息
+		 function goPage(pageNo) {
+		 //账户
+		 var account=$("#name").val();
+		 var pageSize=15;
+			$.ajax
+			({
+				type:"GET",
+				url:"${rc.contextPath}/oawtenyearscore/getInfo",
+				data: {
+					"account":account,
+					"pageNo": pageNo,
+					"pageSize": pageSize,
+					 r: Math.random()
+				},
+				success:function( data ) {
+					$("#js_table").html(data);
+					//获取页码
+				var pageNo=$("#pageNoA").val();
+					//获取总页数
+				var allPage=$("#allPageA").val();
+	            showPageNo(pageNo,allPage);
+				}
+			});	
+	   	 }
+		 
+		 
+		 //重写页码
+		 function showPageNo(pageNo,allPage){
+		 //首页验证
+		 if(pageNo<1){
+		 pageNo=1;
+		 }
+		 //下一页计算
+		 var nextPage=Number(pageNo)+Number(1);
+		 if(nextPage>allPage){
+		 nextPage=allPage;
+		 }
+		 //上一页计算
+		 var beforePage=pageNo-1;
+		 if(beforePage<1){
+		 beforePage=1;
+		 }
+		 var optHtml="";
+		 //首页
+		 optHtml=optHtml+"<a href='javascript:;' class='first paginate_button' id='firstPage' onclick='goPage(1)'>首页</a>";
+		//上一页
+		optHtml=optHtml+"<a href='javascript:;'class='previous paginate_button'onclick='goBefore("+beforePage+")' >上一页</a><span id='pagelista'>";
+	    optHtml=optHtml+"当前第"+pageNo+"页";
+		//下一页
+		optHtml=optHtml+"</span><a href='javascript:;'class='next paginate_button' onclick='goNext("+nextPage+")'>下一页</a>";
+		//末页
+		 optHtml=optHtml+"<a href='javascript:;'  class='last paginate_button' onclick='goPage("+allPage+")'>末页</a>";
+	
+	    $("#pagenum").html(optHtml);
+		 }
+		 
+		 
+		 //上一页
+		 function goBefore(pageNo){
+		 goPage(pageNo);
+		 }
+		 
+		 //下一页
+		 function goNext(pageNo){
+		 	//获取总页数
+		var allPage=$("#allPageA").val();
+		 if(pageNo>allPage){
+		 alert("已经是最后页了");
+		 }
+		 else{
+		 goPage(pageNo);
+		 }
+		 }
+		 
+		 //得到页码
+		 function getSoManyPage(pageNo,allPage){
+		 
+		 }
+		 
+		 //冻结汇总表导出exc
+    $("#js_btnExport").click(function () {	
+	 //账户
+		 var account=$("#name").val();
+        	window.location = rc+'/oawtenyearscore/exportScore?account='+account;     	
+    })
+ </script>
+ #parse("/shared/footer.vm")

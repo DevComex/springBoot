@@ -1,0 +1,149 @@
+/*# 漫画目录弹出的less */
+.charapter_view {
+  position: absolute;
+  width: 75rem;
+  height: 43.75rem;
+  background-color: white;
+  top: 15%;
+  left: 30%;
+  border: solid;
+  display: none;
+}
+.charapter_view_title {
+  margin-left: 6.25rem;
+  margin-top: 3.125rem;
+  font-size: 2.5rem;
+}
+.charapter_list {
+  margin-left: 6.25rem;
+  margin-top: 2.5rem;
+  height: 25rem;
+  font-size: 1.25rem;
+  margin-right: 6.25rem;
+  overflow: auto;
+}
+.charapter_view_backBtn {
+  margin-left: 25rem;
+  margin-top: 1.875rem;
+  font-size: 3.125rem;
+  margin-right: 25rem;
+  border: solid;
+  text-align: center;
+}
+.charapter_view_oneCharapter_circle {
+  background-color: white;
+  margin-top: 1.25rem;
+  margin-left: 0.9375rem;
+  width: 12.5rem;
+  height: 4.375rem;
+  margin-right: 0.9375rem;
+  text-align: center;
+  font-size: 1.875rem;
+  display: inline-block;
+}
+.charapter_view_oneCharapter_status_circle {
+  margin-left: 8.75rem;
+  width: 3.75rem;
+  height: 1.25rem;
+}
+.charapter_view_oneCharapter_status {
+  background-color: #3EB2B3;
+  color: white;
+  border: 0.0625rem solid;
+  border-color: rgba(121, 121, 121, 0.9);
+  border-radius: 10%;
+  text-align: center;
+  font-size: 0.9375rem;
+}
+.charapter_view_oneCharapter {
+  background-color: white;
+  border: solid;
+  width: 10rem;
+  height: 2.8125rem;
+  margin-bottom: 0rem;
+  text-align: center;
+  font-size: 1.5625rem;
+  cursor: pointer;
+}
+.charapter_view_oneCharapter:hover{
+	color: #FF6600;
+}
+/*# 漫画某一章节审核弹出的less */
+.charapter_review_view {
+  position: absolute;
+  width: 75rem;
+  height: auto;
+  background-color: white;
+  top: 10%;
+  left: 30%;
+  border: solid;
+  display:none;
+}
+.charapter_review_title {
+  height: 3.75rem;
+  background-color: #3EB2B3;
+  color: #fff;
+  text-align: center;
+  font-size: 2.5rem;
+}
+.charapter_review_pic {
+  height: 50rem;
+}
+.charapter_review_reply {
+  height: 11.25rem;
+}
+.charapter_review_reply_title {
+  border: 0.0625rem solid;
+  border-radius: 5%;
+  border-color: rgba(121, 121, 121, 0.9);
+  background-color: #3EB2B3;
+  width: 12.5rem;
+  height: 3.125rem;
+  color: white;
+  margin-left: 1.25rem;
+  margin-top: 0.3125rem;
+  text-align: center;
+  font-size: 1.875rem;
+}
+.charapter_review_reply_context_text {
+  margin-top: 0.3125rem;
+  margin-left: 6.25rem;
+  width: 62.5rem;
+  border: 0.25rem solid;
+  border-radius: 5%;
+  border-color: rgba(121, 121, 121, 0.9);
+}
+.charapter_review_submit {
+  text-align: center;
+  margin-bottom: 0.625rem;
+}
+.charapter_review_submit_btn {
+  margin-top: 0.3125rem;
+  display: inline-block;
+  background-color: #3EB2B3;
+  width: 12.5rem;
+  height: 3.125rem;
+  border: 0.125rem solid;
+  border-radius: 5%;
+  font-size: 1.875rem;
+}
+.manhuaPic{
+	width:100px;
+	height:100px;
+	margin:10px;
+	float:left;
+	cursor: pointer;
+}
+.manhuaPic img{
+	width:100%;
+	height:100%;
+}
+.charapter_review_pic{
+	overflow-y:auto;
+	height: 200px;
+}
+.choose{
+	border:3px #3EB1E5 solid;
+	box-sizing: border-box;
+}
+/*# sourceMappingURL=listCharapter.css.map */

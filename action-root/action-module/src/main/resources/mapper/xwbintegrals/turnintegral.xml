@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwb.integral.ITurnIntegralMapper">
+	<parameterMap type="map" id="integralParaMap">
+		<parameter property="orderNum" jdbcType="VARCHAR"/>
+		<parameter property="account" jdbcType="VARCHAR"/>
+		<parameter property="integral" jdbcType="INTEGER"/>
+		<parameter property="amount" jdbcType="FLOAT"/>
+		<parameter property="serviceId" jdbcType="VARCHAR"/>
+		<parameter property="datetime" jdbcType="VARCHAR"/>
+		<parameter property="result" jdbcType="VARCHAR"/>
+		<parameter property="error" jdbcType="VARCHAR"/>
+		
+	</parameterMap>
+	<select id="computeTurn" statementType="CALLABLE" parameterMap="integralParaMap" >
+		 <![CDATA[ 
+		 {  
+		 	call xwb_turn_integral(
+		 		#{orderNum,mode=IN,jdbcType=VARCHAR},
+		 		#{account,mode=IN,jdbcType=VARCHAR},
+		 		#{integral,mode=IN,jdbcType=INTEGER},
+		 		#{amount,mode=IN,jdbcType=FLOAT},
+		 		#{serviceId,mode=IN,jdbcType=VARCHAR},
+		 		#{datetime,mode=IN,jdbcType=VARCHAR},
+		 		#{result,mode=OUT,jdbcType=VARCHAR},
+		 		#{error,mode=OUT,jdbcType=VARCHAR}
+		 	)
+		 }
+		 ]]>
+	</select>
+
+</mapper>

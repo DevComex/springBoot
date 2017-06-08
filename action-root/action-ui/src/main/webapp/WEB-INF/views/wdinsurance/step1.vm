@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>问道-虚拟财产保险-登录认证</title>
+ <script  type="text/javascript">
+ var rc="${rc.contextPath}";
+ </script>
+<link rel="stylesheet" href="http://static.cn114.cn/action/wdinsurance/css/wd150702.css" type="text/css" />
+<link href="http://www.gyyx.cn/Content/game/gameindex.css" rel="stylesheet" />
+<script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+<script src="http://static.cn114.cn/action/wdinsurance/js/common.js" type="text/ecmascript"></script>
+<script>
+    $(function () {
+        virtual.loginVer();
+    })
+</script>
+</head>
+<body>
+    <div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+	<div class="wrap">
+		<div class="main">
+			<div class="nav">
+				<a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm ">进入官网</a>｜<a target="_blank" href="http://pay.gyyx.cn/">充值中心</a>｜<a target="_blank" href="http://account.gyyx.cn/Member/Register ">帐号注册</a>｜<a target="_blank" href="http://wd.gyyx.cn/download/">下载中心</a>
+			</div>
+			<div class="conBox">
+				<ul class="tabBtn">
+					<li class="on"><a href="index" class="a01">首页</a></li>
+					<li><a  class="js_myorder " href="javascript:;" class="a02">我的保单</a></li>
+					<li><a href="understanding.html" class="a03">了解投保</a></li>
+				</ul>
+				<div class="tabPart">
+					<div class="partCont"><!--内容-->
+					  <div class="step">
+					  	 <ul>
+					  	 	<li class="widthOne on01"><span class="sp01">登录认证</span></li>
+					  	 	<li class="widthTwo "><span class="sp02">角色选择</span></li>
+					  	 	<li class="widthTwo "><span class="sp03">保单填写</span></li>
+					  	 	<li class="widthTwo "><span class="sp04">保费支付</span></li>
+					  	 </ul>
+					  </div>
+					  <div class="stepBot">
+					  	<div class="rzPhone">
+					  	 <ul>
+					  	  	<li class="on01" style="margin-left: 150px;"><a target="_blank" href="http://account.gyyx.cn/MobilePhone/VerifyRegisterInfo/ "></a><p>手机认证</p></li>
+					  	  	<!--<li class="on02"><a target="_blank" href="http://security.gyyx.cn/EkeyV2/GetPhoneEkey "></a><p>手机乾坤锁</p></li>-->
+					  	  </ul>	
+					  	  <div class="txt">
+					  	  	<!--<p>- 投保账号必须手机认证≥30天，且乾坤锁绑定≥7天。</p>-->
+					  	  	<p>- 投保账号必须手机认证≥30天</p>
+							<!--<p>- 进行投保、需要登陆，且验证手机验证码及乾坤锁动态码。</p>-->
+							<p>- 进行投保、需要登陆，且验证手机验证码。</p>
+							<p>- 手机验证码有效时间为5分钟，请在5分钟内使用</p>
+					  	  </div>
+					  	</div>
+					  <!--	<div class="rzLogin"  style="display: none;" >
+					  		<p><input type="text" value="请输入账号" /></p>
+					  		<p><input type="text" value="请输入密码" /></p>
+					  		<p><input type="text" value="验证码" class="yzm" /></p>
+					  		<p class="tip"><a href="#">注册账号</a><span>|</span><a href="#">忘记密码</a></p>
+					  		<p><input type="button" class="btn" /></p>
+					  	</div>-->
+					  	<div class="rzLogin rel">
+					  		<h3>验证</h3>
+                            <p class="js_err red loginerr"></p>
+					  		<!--<p class="p01 mar_t40"><input  disabled type="checkbox" checked="checked" class="check" /><label>请输入乾坤锁动态码</label></p>
+					  		<p><input class="dlinput"  id="ekVerifyCode" type="text" value="" /></p>-->
+					  		<p class="p01"><input disabled type="checkbox" checked="checked"  class="check" /><label>请输入认证手机收到的短信验证码</label></p>
+					  		<p class="mb10"><input  class="dlinput"   id="phoneVerifyCode" type="text" value="" /></p>
+					  		<p class="send">
+								<input  type="button" class=" js_sendsms_btn" value="点击发送短信验证码" />
+								<!--<a disabled="false" class="js_sendsms_btn" href="javascript:;">点击发送短信验证码（60秒后可重新点击发送）</a>-->
+							</p>
+                            
+					  		<p class="btnbox">
+                                  <!--<a data-disabled="flase" class="js_unclock  ainp" href="javascript:;">确定</a>-->
+                                  <input  type="button" class=" ainp js_unclock" value="确认" />
+					  		</p>
+					  	</div>
+					  	
+					  </div>
+					  
+					</div><!--内容 End-->
+				</div>
+				
+			</div>
+		</div>
+	</div>
+    <div class="public_nav_bottom"><script type="text/javascript">ShowBottom()</script></div>
+</body>
+</html>

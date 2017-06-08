@@ -1,0 +1,235 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>问道-我和宠物有个约会</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdpetdating/css/wd150824.css">
+    <script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>	<script>
+	 var rc = "${rc.contextPath}";
+	</script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+    <script src="http://static.cn114.cn/action/wdpetdating/js/pet.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $(".wd_actmenu  a").click(function () {
+                $(this).parents("li").addClass("on").siblings().removeClass("on");
+                var id = $(this).attr("href");
+                $("#" + id).show().siblings().hide();
+                return false;
+            })
+        })
+    </script>
+</head>
+<body>
+     <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wd_bg">
+        <!--左侧-->
+        <div class="wd_left">
+            <div class="wd_logo">问道</div>
+            <!--活动类目-->
+            <div class="wd_item">
+                <ul>
+                    <li><a class="a01" href="index.html">赛事首页</a></li>
+                    <li class="on"><a class="a02" href="guize.html">活动规则</a></li>
+                    <li><a class="a03" href="cansai.html">我要参赛</a></li>
+                    <li><a class="a04" href="choujiang.html">参与抽奖</a></li>
+                </ul>
+            </div>
+            <!--左侧链接-->
+            <div class="wd_link">
+                <a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>
+                <a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>
+                <a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>
+                <a href="http://wd.gyyx.cn/download/" target="_blank">下载游戏</a>
+            </div>
+        </div>
+        <!--右侧-->
+        <div class="wd_right">
+            <!--导航-->
+            <div class="wd_nav">
+                <a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+            </div>
+            <div class="people">人物</div>
+            <div class="wd_tab">
+
+                <!--活动规则开始-->
+                <div class="wd_cont wd_box02">
+                    <div class="wd_main">
+                        <div class="wd_rule">
+                            <ul class="wd_actmenu">
+                                <li class="on"><a class="aa01" href="cansai-guize">参赛规则</a></li>
+                                <li><a class="aa02" href="choujiang-guize">抽奖规则</a></li>
+                            </ul>
+                            <div class="wd_actab">
+                                <!--参赛规则开始-->
+                                <div id="cansai-guize" class="wd_actcont" style="display: block;">
+                                    <div class="txt">
+                                        <h3 class="tit01">活动时间</h3>
+                                        <p>
+                                            <strong>投稿时间：2015年9月14日-2015年10月5日<br>
+                                                点赞时间：2015年9月21日-2015年10月5日</strong>
+                                        </p>
+                                    </div>
+                                    <div class="txt">
+                                        <h3 class="tit02">活动流程</h3>
+                                        <p>在投稿时间开始后，在活动页面上传自己和宠物约会的照片（也就是玩家和宠物在一起的图片），图片的显示信息要完整，能显示出玩家、宠物，所在的地图的名称和玩家所在的服务器区组。</p>
+                                    </div>
+                                    <div class="txt">
+                                        <h3 class="tit03">活动限制</h3>
+                                        <p>（1）参赛资格：光宇游戏注册用户，请使用社区账号登录参赛，每个账号最多可上传5个作品；</p>
+                                        <p>（2）若官方人员检查或玩家举报核实确认认为违规，则取消其参赛和获奖资格；</p>
+                                        <p>（3）同IP号或同一个账号每天只能对同一个作品点赞一次，严禁刷赞行为，一旦发现将取消参赛资格；</p>
+                                        <p>（4）作品要求：稿件中的宠物必须为玩家本人的宠物，若不符合要求则会审批不通过。</p>
+                                        <p>上传示例图如下：（红框处所标为必有）</p>
+                                        <img src="http://static.cn114.cn/action/wdpetdating/images/gz.jpg" width="660" height="516">
+                                    </div>
+                                    <div class="txt">
+                                        <h3 class="tit04">排名奖励</h3>
+                                        <p>点赞数排行前20名的玩家还可以获得超级丰富的银元宝奖励哦，具体的名次奖励如下：</p>
+                                        <table width="80%" border="0" class="wd_table">
+                                            <tr>
+                                                <th>
+                                                    <div align="center"><strong>排行</strong></div>
+                                                </th>
+                                                <th>
+                                                    <div align="center"><strong>奖励</strong></div>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div align="center">第一名</div>
+                                                </td>
+                                                <td>
+                                                    <div align="center">80000银元宝</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div align="center">第二名</div>
+                                                </td>
+                                                <td>
+                                                    <div align="center">60000银元宝</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div align="center">第三名</div>
+                                                </td>
+                                                <td>
+                                                    <div align="center">40000银元宝</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div align="center">第四名</div>
+                                                </td>
+                                                <td>
+                                                    <div align="center">20000银元宝</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div align="center">第五名</div>
+                                                </td>
+                                                <td>
+                                                    <div align="center">10000银元宝</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div align="center">第6-20名</div>
+                                                </td>
+                                                <td>
+                                                    <div align="center">8000银元宝</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <p><strong>注：</strong>如果有玩家票数相同，则根据达到票数的时间进行排位，先达到该票数者排名靠前。</p>
+                                    </div>
+                                    <div class="wd_actbtn">
+                                        <a href="index.html" class="btn01">我要投票</a>
+                                        <a href="cansai.html" class="btn02">我要参赛</a>
+                                    </div>
+                                </div>
+                                <!--参赛规则结束-->
+                                <!--抽奖规则开始-->
+                                <div id="choujiang-guize" class="wd_actcont" style="display: none;">
+                                    <div class="txt">
+                                        <h3 class="tit01">抽奖时间</h3>
+                                        <p><b>10月8日12:00—10月18日23:59</b></p>
+                                    </div>
+                                    <div class="txt">
+                                        <h3 class="tit02">抽奖规则</h3>
+                                        <p>活动期间，踊跃参与上传图片和累计赞数大于等于10的玩家在比赛结束后可进行抽奖，有机会获得Iphone6 plus、IPAD ARI、红米手机、周边、银元宝等丰厚奖励。投票结束后3个工作日内将开启抽奖。</p>
+                                        <ul class="wd_actpic clear">
+                                            <li>
+                                                <img src="http://static.cn114.cn/action/wdpetdating/images/pic1.jpg"><p>Iphone6 plus</p>
+                                            </li>
+                                            <li>
+                                                <img src="http://static.cn114.cn/action/wdpetdating/images/pic2.jpg"><p>Iphone6</p>
+                                            </li>
+                                            <li>
+                                                <img src="http://static.cn114.cn/action/wdpetdating/images/pic3.jpg"><p>IPAD ARI</p>
+                                            </li>
+                                            <li>
+                                                <img src="http://static.cn114.cn/action/wdpetdating/images/pic4.jpg"><p>红米手机</p>
+                                            </li>
+                                            <li>
+                                                <img src="http://static.cn114.cn/action/wdpetdating/images/pic5.jpg"><p>
+                                                    九尾狐手办<br>
+                                                    +福元宝
+                                                </p>
+                                            </li>
+                                            <li>
+                                                <img src="http://static.cn114.cn/action/wdpetdating/images/pic6.jpg"><p>海尔音箱</p>
+                                            </li>
+                                            <li>
+                                                <img src="http://static.cn114.cn/action/wdpetdating/images/pic7.jpg"><p>极智鼠标</p>
+                                            </li>
+                                            <li>
+                                                <img src="http://static.cn114.cn/action/wdpetdating/images/pic8.jpg"><p>威威虎抱枕</p>
+                                            </li>
+                                            <li>
+                                                <img src="http://static.cn114.cn/action/wdpetdating/images/pic9.jpg"><p>问道钱包</p>
+                                            </li>
+                                            <li>
+                                                <img src="http://static.cn114.cn/action/wdpetdating/images/pic10.jpg"><p>问道T恤</p>
+                                            </li>
+                                            <li>
+                                                <img src="http://static.cn114.cn/action/wdpetdating/images/pic11.jpg"><p>微达人礼包</p>
+                                            </li>
+                                            <li>
+                                                <img src="http://static.cn114.cn/action/wdpetdating/images/pic12.jpg"><p>银元宝</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="txt">
+                                        <h3 class="tit03">抽奖条件</h3>
+                                        <p>（1）玩家在开启转盘活动之前必须先进行登录；</p>
+                                        <p>（2）每个账号只有一次抽奖机会，活动期间若未抽奖则视为放弃抽奖资格和奖品；</p>
+                                        <p>（3）中奖玩家收货信息须如实填写，若信息有误或不填写导致奖品无法发出将视为放弃奖品；</p>
+                                        <p>（4）本次活动奖品不可退换；</p>
+                                        <p>（5）活动结束后我们将进行统一奖品发货。</p>
+                                    </div>
+                                    <div class="wd_actbtn">
+                                        <a href="javascript:;" class="noOpen btn03">我要抽奖</a>
+                                    </div>
+                                </div>
+                                <!--抽奖规则结束-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--活动规则结束-->
+
+            </div>
+        </div>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+</body>
+</html>

@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道-1.56决战昆仑满级预约赛</title>
+<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdtoplevel/css/wd_150328.css">
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+<script type="text/javascript">
+	var loginClick = function(){
+		alertFn(null,null,true);
+		$(".close").trigger("click");
+	}
+	var repServerOption = function(type){
+		$.
+		ajax({
+				type : "POST",
+				url : "${rc.contextPath}/wdtoplevel/ajaxGetServers?type="+type,
+				success:function(data) {
+					$("#serverSelect").html(data);
+				}
+			});
+	}
+	var uploadAppoint = function(){
+		$.
+		ajax({
+				type : "POST",
+				url : "${rc.contextPath}/wdtoplevel/appointment",
+				data : $("#uploadForm").serialize(),
+				success:function(msg) {
+					alert(msg.message);
+				}
+			});
+	}
+	var initIO = function (){
+		$('#typeSelect').change(function(){
+			var type = $("#typeSelect").children('option:selected').val();
+			repServerOption(type);
+		});
+		$('#uploadButton').click(uploadAppoint);
+	}
+	$(document).ready(function(){
+		initIO();
+		document.getElementById("typeSelect").selectedIndex = 0;
+	});
+</script>
+<script type="text/javascript" charset="utf-8">
+	alert("谢谢参与，活动已结束");
+</script>
+</head>
+<body>
+<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+<div class="wrap">
+   <div class="main">
+      <!--导航-->
+      <div class="nav">
+         <a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/gamepay/paygold?gameId=2" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_parent">下载中心</a>
+      </div>
+      
+      <!--活动时间-->
+      <div class="time">
+         <p class="p01">活动时间：2015年5月15日-6月29日</p>
+         <p class="p02">预约截止时间：2015年5月31日23:59</p>
+      </div>
+      
+      <!--活动说明-->
+      <div class="desc">
+         <p>玩家在官网活动页申请参加1.56满级冲级预约赛，在指定活动时间内达到预约165级的玩家即可获得丰厚奖励~</p>
+         <span>注：</span>
+         <ul>
+            <li>1、若完成多个目标，则发放最高的一项奖励，不重复发奖，预约目标分两种：预约28天内达到165级、预约45天内达到 165级；</li>
+            <li>2、完成活动时间以服务器时间为准，冲级赛等级排名相同的玩家，按升级先后顺序排名，并列玩家均发放奖励；</li>
+            <li>3、可参加冲级赛区组除了内测专区的所有区组。</li>
+         </ul>
+      </div>
+      
+      <!--主体内容-->
+      <div class="content">
+         <!--活动奖品-->
+         <div class="block01">
+            <h2>活动奖品</h2>
+            <div class="award">
+               <ul class="awd_thead">
+                  <li>排名</li>
+                  <li class="li02">奖项</li>
+                  <li>奖品</li>
+                  <li class="li04">称号</li>
+               </ul>
+               <div class="awd_tbody">
+                  <table class="table01">
+                     <tr>
+                        <th width="162"></th>
+                        <th width="481"></th>
+                        <th width="161"></th>
+                        <th width="144"></th>
+                     </tr>
+                     <tr class="bg01">
+                        <td>1</td>
+                        <td>所有服务器预约玩家中第1名达到满级的玩家</td>
+                        <td>100000银元宝</td>
+                        <td>满级第一人</td>
+                     </tr>
+                     <tr class="bg02">
+                        <td>2</td>
+                        <td>所有服务器预约玩家中第2名达到满级的玩家</td>
+                        <td>90000银元宝</td>
+                        <td>冲级狂人</td>
+                     </tr>
+                     <tr class="bg01">
+                        <td>3</td>
+                        <td>所有服务器预约玩家中第3名达到满级的玩家</td>
+                        <td>80000银元宝</td>
+                        <td>冲级狂人</td>
+                     </tr>
+                     <tr class="bg02">
+                        <td>4</td>
+                        <td>所有服务器预约玩家中第4名达到满级的玩家</td>
+                        <td>70000银元宝</td>
+                        <td>冲级狂人</td>
+                     </tr>
+                     <tr class="bg01">
+                        <td>5</td>
+                        <td>所有服务器预约玩家中第5名达到满级的玩家</td>
+                        <td>60000银元宝</td>
+                        <td>冲级狂人</td>
+                     </tr>
+                     <tr class="bg02">
+                        <td>6-10</td>
+                        <td>所有服务器预约玩家中第6-10名达到满级的玩家</td>
+                        <td>50000银元宝</td>
+                        <td>冲级狂人</td>
+                     </tr>
+                     <tr class="bg01">
+                        <td>28天前100名</td>
+                        <td>完成预约15年6月12日23:59前到达165级的前100名玩家</td>
+                        <td>20000银元宝</td>
+                        <td>冲级圣手</td>
+                     </tr>
+                     <tr class="bg02">
+                        <td>45天前100名</td>
+                        <td>完成预约15年6月29日23:59前到达165级的前100名玩家</td>
+                        <td>10000银元宝</td>
+                        <td>冲级高手</td>
+                     </tr>
+                  </table>
+               </div>
+            </div>
+         </div>
+         <!--活动介绍-->
+         <div class="block02">
+            <h2>活动介绍</h2>
+            <p>1.56决战昆仑火爆公测，问道开放165级等级上限，全新装备首饰，全新团队副本系统！</p>
+            <p>证道之途再起风云。更多玩法更多惊喜，问道带你征战三界领略修真世界！</p>
+            <p>为庆新版本开放新等级上限，问道举办满级预约冲级赛。</p>
+            <p>谁将会是1.56满级第一人，新世界之王，冲级预约赛为您揭晓！</p>
+            <p>各位道友势必已整装待发，就让我们打开修真世界，一起征战洪荒再谱战歌吧！</p>
+         </div>
+         <!--活动时间-->
+         <div class="block03">
+            <h2>活动时间</h2>
+            <p><b>活动时间：</b>2015年5月15日-6月29日&nbsp;&nbsp;&nbsp;&nbsp;<b>预约开启及截止时间：</b>2015年5月31日23:59</p>
+         </div>
+         <!--活动流程-->
+         <div class="block04">
+            <h2>活动流程</h2>
+            <ul>
+               <li>预约登录</li>
+               <li>选择区服</li>
+               <li>输入角色</li>
+               <li>选择时间</li>
+               <li class="last">预约完成</li>
+            </ul>
+         </div>
+      </div>      
+   </div>
+</div>
+
+<!--右侧漂浮我要预约-->
+<div class="pf"><a id="openPopBtn">我要预约</a></div>
+
+<!--我要预约弹层-->
+<div class="popup_con">
+    <a class="close" href="#">关闭</a>
+    <div class="con">
+       <h2>活动预约</h2>
+       <p>注：每个账号只可预约1次，请谨慎填写您的预约资料。</p>
+       <form id = 'uploadForm' class="formdiv">
+			#if($account)
+				<p class = "first">欢迎&nbsp;&nbsp; ${account}</p>
+			#else
+			<div class="wd_lgoin">
+				<p id="loginbar">预约需先&nbsp;&nbsp;<a class="loga" onclick="loginClick();">登录</a></p>
+			</div>
+			#end
+			
+          <!-- <p class="first"><label>预约需先</label>&nbsp;&nbsp;<a class="land">登录</a> /欢迎abdd**fff</label>&nbsp;&nbsp;<a class="land">注销</a> </p>-->
+          <p>
+             <label>预约区组：</label>
+             <select name="area" class="select01" id = 'typeSelect'>
+                <option value="0">请选择区组</option>
+                <option value="1">网通</option>
+                <option value="2">电信</option>
+                <option value="3">双线</option>
+             </select>  <select name="serverName" class="select02" id = 'serverSelect'>
+                           <option value="0">请选择服务器</option>
+                        </select>
+          </p>
+          <p><label>预约角色名：</label><input type="text" class="rolename" name = "characterName"/></p>
+          <p>
+             <label>预约冲级时间：</label>
+             <select name="type" class="select03">
+                <option value="0">2015年6月12日23:59前到达165级（28天）</option>
+                <option value="1">2015年6月29日23:59前到达165级（45天）</option>
+             </select>
+          </p>
+          <p class="last">（以2015年5月15日全服更新起）</p>
+          <input type="button" id = 'uploadButton' class="btn" value="提交预约" />
+       </form>
+    </div>
+</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdtoplevel/js/ymcore.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+	var box = $(".pf"), winObj = $(window), startPoint = 360;
+	box.css({ "top": startPoint, "position": "absolute" });
+	winObj.scroll(function () {
+		var pos = startPoint + winObj.scrollTop();
+		box.stop().animate({ "top": pos }, 300);
+	});
+	YM.UI.Popup({
+        container: 'div.popup_con',
+        openBtn: '#openPopBtn',
+        closeBtn: '.close',
+        state: 'hide',
+        time: 500
+    });
+});
+</script>
+<script src="http://www.gyyx.cn/inc/gyyx_statistics.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+</body>
+</html>

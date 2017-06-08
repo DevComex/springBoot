@@ -1,0 +1,176 @@
+﻿<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<title>流金岁月</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wdgoldenyears/css/normalize.css" />
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wdgoldenyears/css/main.css" />
+		<!--百度统计-->
+    	<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "//hm.baidu.com/hm.js?9ed47f067875b0af2ce9b3fb8d02211a";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+	<body>
+	<input type="hidden" id="Tokens" value="$!{Tokens}" />
+		<header class="header">
+			<img src="http://static.cn114.cn/action/wdgoldenyears/images/headerbg.jpg" />
+			<a class="btn btn_index" href="#"><img class="btn_1" src="http://static.cn114.cn/action/wdgoldenyears/images/btn1_1.png" /></a>
+			<a class="share_btn" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/shareicon.png" /></a>
+		</header>
+		<section class="content">
+			<div class="searchwrap">
+				<form>
+					<input id="searchTxt" class="searchtxt" type="text" value="" placeholder="请输入作品编号进行搜索" />
+					<input id="searchBtn" class="searchbtn" type="button" value="" />
+				</form>
+			</div>
+			<section class="tab">
+				<ul class="tabnav">
+					<li id="hotWorksRank" class="tn1 on"><img class="state1" src="http://static.cn114.cn/action/wdgoldenyears/images/btn2_1.png" /><img class="state2" src="http://static.cn114.cn/action/wdgoldenyears/images/btn2_2.png" /></li>
+					<li id="newWorksRank" class="tn2"><img  class="state1" src="http://static.cn114.cn/action/wdgoldenyears/images/btn3_1.png" /><img class="state2" src="http://static.cn114.cn/action/wdgoldenyears/images/btn3_2.png" /></li>
+				</ul>
+				<section class="tabcontent">
+					<ul id="workList" class="worklist">
+						<!--<li><a class="img_wl" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/works.jpg" /></a><span class="order_wl">NO.99999</span><span class="vote_wl"><img class="like2" src="http://static.cn114.cn/action/wdgoldenyears/images/like2.png" />66</span></li>
+						<li><a class="img_wl" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/works.jpg" /></a><span class="order_wl">NO.99999</span><span class="vote_wl"><img class="like1" src="http://static.cn114.cn/action/wdgoldenyears/images/like1.png" />6666666</span></li>
+						<li><a class="img_wl" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/works.jpg" /></a><span class="order_wl">NO.99999</span><span class="vote_wl"><img class="like2" src="http://static.cn114.cn/action/wdgoldenyears/images/like2.png" />66666</span></li>
+						<li><a class="img_wl" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/works.jpg" /></a><span class="order_wl">NO.99999</span><span class="vote_wl"><img class="like1" src="http://static.cn114.cn/action/wdgoldenyears/images/like1.png" />66666</span></li>
+						<li><a class="img_wl" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/works.jpg" /></a><span class="order_wl">NO.99999</span><span class="vote_wl"><img class="like2" src="http://static.cn114.cn/action/wdgoldenyears/images/like2.png" />66666</span></li>
+						<li><a class="img_wl" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/works.jpg" /></a><span class="order_wl">NO.99999</span><span class="vote_wl"><img class="like1" src="http://static.cn114.cn/action/wdgoldenyears/images/like1.png" />66666</span></li>-->
+					</ul>
+					<p class="loading">加载中...</p>
+				</section>
+			</section>
+		</section>
+		<footer class="footer">
+			<nav>
+				<ul>
+					<li class="on"><a class="alink1" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico1_2.png" />首页</a></li>
+					<li><a class="alink2" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico2_1.png" />制作</a></li>
+					<li><a class="alink3" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico3_1.png" />参赛</a></li>
+					<li><a class="alink4" href=""><img src="http://static.cn114.cn/action/wdgoldenyears/images/footerico4_1.png" />规则</a></li>
+				</ul>
+			</nav>
+		</footer>
+		<a id="toTop" class="totop" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/totop.png" /></a>
+		<div class="sharemark"></div>
+		<img class="sharemarkimg" src="http://static.cn114.cn/action/wdgoldenyears/images/share.png" />
+		<div id="popTip" class="pop" style="display:none;">
+			<span class="bg_pop"><img src="http://static.cn114.cn/action/wdgoldenyears/images/popbg.png" /></span>
+			<a class="close_pop" href="#"><img src="http://static.cn114.cn/action/wdgoldenyears/images/close.png" /></a>
+			<div class="cont_pop">
+				<p>十年问道，不忘初心，快快来关注“问道”，制作你自己的问道流金岁月吧！</p>
+				<a class="btn_pop" href="http://mp.weixin.qq.com/s?__biz=MjM5MzgzMTAyMA==&mid=407317913&idx=1&sn=7f6a06c0f55cad72831cc9bfcb5a1587#rd" target="_blank"><img src="http://static.cn114.cn/action/wdgoldenyears/images/btn9.jpg" /></a>
+			</div>
+		</div>
+		<div class="mark" style="display:none;"></div>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/jquery-1.8.2.min.js"></script>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/gyyx_wxshare.min.js"></script>
+		<script src="http://static.cn114.cn/action/wdgoldenyears/js/common.js"></script>
+		<script>
+			$(function(){
+				var openId = getQuery("OpenId"),
+					times = getQuery("time"),
+					signs = getQuery("sign"),
+					searchType = 2,
+					page = 1,
+					para = "";
+
+				//全部作品列表
+				var pageflag = getWorkList(searchType, page, para, showWorkList, true);							
+				
+				//滚动加载
+				$(window).scroll(function(){
+					var scrollHeight = document.documentElement.scrollTop||document.body.scrollTop;
+					var clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+					var dHeight = $(document).height();
+					if( scrollHeight +clientHeight >= dHeight){
+						if(pageflag){
+							page++;
+							//当卷走的部分+浏览器高度 等于 文档高度 即滚动到底时
+							pageflag = getWorkList(searchType, page, para, showWorkList, false);
+						}						
+					}
+				});
+				//搜索
+				$("#searchBtn").click(function(){
+					var val = $.trim($("#searchTxt").val());
+					if(!/^[0-9]*$/.test(val)){
+						alert("作品编号为数字！");
+						return false;
+					}else{
+						$(".tabnav").find("li").removeClass("on");
+						para = $("#searchTxt").val();
+						page = 1;
+						searchType = 0;
+						pageflag = getWorkList(searchType, page, para, showWorkList, true);
+					}
+				});
+				//最热
+				$("#hotWorksRank").click(function(){
+					if($(this).hasClass("on")){
+						return false;
+					}else{
+						$("#searchTxt").val("");
+						$(this).siblings("li").removeClass("on");
+						$(this).addClass("on");
+						para = "";
+						page = 1;
+						searchType = 2;
+						pageflag = getWorkList(searchType, page, para, showWorkList, true);
+					}
+				});
+				//最新
+				$("#newWorksRank").click(function(){
+					if($(this).hasClass("on")){
+						return false;
+					}else{
+						$("#searchTxt").val("");
+						$(this).siblings("li").removeClass("on");
+						$(this).addClass("on");
+						para = "";
+						page = 1;
+						searchType = 1;
+						pageflag = getWorkList(searchType, page, para, showWorkList, true);
+					}
+				});
+
+				
+				//微信分享
+				var par = decodeURIComponent(window.location.search);
+				var hdName = "流金岁月", OpenId = getQuery("OpenId", par);
+				wxShare({
+					debug: false,
+					game: "wd",
+					title: '十年问道，不忘初心，快快来关注“问道”，制作你自己的问道流金岁月吧！',
+					desc: '十年问道，不忘初心，快快来关注“问道”，制作你自己的问道流金岁月吧！',
+					link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxc0f025a1feb5c567&redirect_uri=http%3a%2f%2faction.gyyx.cn%2fWebAuthorize%2fWeiXinAuth.ashx&response_type=code&scope=snsapi_base&state=351#wechat_redirect',
+					imgUrl: "http://action.gyyx.cn/subway/images/share_pic.jpg",
+					trigger: function () {},
+					success: function () {
+						alert("分享成功！");
+						//Ajax("http://action.gyyx.cn/WDWeiXinWishVideo/AddShareLog?hdName=" + hdName + "&OpenId=" + OpenId, "GET", function (d) {
+						//		if (d.IsSuccess) {} else {}
+						//});
+					},
+					cancel: function () {
+						alert("分享失败")
+					}
+				});
+
+				
+
+			});
+		</script>
+	</body>
+</html>

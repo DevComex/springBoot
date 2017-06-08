@@ -1,0 +1,194 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>问道-我和宠物有个约会</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdpetdating/css/wd150824.css">
+    <script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+	<script>
+	 var rc = "${rc.contextPath}";
+	</script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+    <script src="http://static.cn114.cn/action/wdpetdating/js/jquery.ajaxpage.js"></script>
+    <script src="http://static.cn114.cn/action/wdpetdating/js/pet.js"></script>
+	<!--[if IE 6]><script src="http://static.cn114.cn/action/wdpetdating/js/DD_belatedPNG.js"></script><![endif]-->
+	<script type="text/javascript" >
+	window.onload=function(){
+		alert("活动已结束！");
+	}
+	</script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wd_bg">
+        <!--左侧-->
+        <div class="wd_left">
+            <div class="wd_logo">问道</div>
+            <!--活动类目-->
+            <div class="wd_item">
+                <ul>
+                    <li class="on"><a class="a01" href="index.html">赛事首页</a></li>
+                    <li><a class="a02" href="guize.html">活动规则</a></li>
+                    <li><a class="a03" href="cansai.html">我要参赛</a></li>
+                    <li><a class="a04" href="choujiang.html">参与抽奖</a></li>
+                </ul>
+            </div>
+            <!--左侧链接-->
+            <div class="wd_link">
+                <a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>
+                <a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>
+                <a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>
+                <a href="http://wd.gyyx.cn/download/" target="_blank">下载游戏</a>
+            </div>
+        </div>
+        <!--右侧-->
+        <div class="wd_right">
+            <!--导航-->
+            <div class="wd_nav">
+                <a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+            </div>
+            <div class="people pngFix">人物</div>
+            <div class="wd_tab">
+                <!--作品展示开始-->
+                <div class="wd_cont wd_box01">
+                    <div class="wd_main">
+                        <h2>作品展示</h2>
+                        <div class="wd_search">
+                            <p>
+                                <label>选择大区</label>
+                                <select name="netType" id="ddlNetType">
+									<option value="-1">请选择大区</option>
+                                    <option value="3">双线</option>
+                                    <option value="1">网通</option>
+                                    <option value="2">电信</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label>选择区组</label>
+                                <select class="group" name="serverId" id="ddlGameServer">
+                                    <option value="-1">请选择服务器</option>
+                                </select>
+                            </p>
+                            <p>
+                                <label>填写昵称</label><input id="searchName" type="text" placeholder="请输入关键词搜索" maxlength="50" />
+                            </p>
+                            <p><a class="a_sear fontHide js_search" href="javascript:;">搜索</a></p>
+                        </div>
+                        <div class="opus_tab">
+                            <ul class="opus_menu clear">
+                                <li class="on"><a data-type="hotest" href="javascript:;">最热</a></li>
+                                <li><a data-type="newest" href="javascript:;">最新</a></li>
+                                <li><a data-type="3" href="javascript:;">排行</a></li>
+                            </ul>
+                            <input id="zpType" type="hidden" value="" />
+                            <div class="opus_list">
+                                <div class="opus_cont">
+                                    <!--part 01-->
+                                    <ul class="opus clear" id="js_xyList">
+                                      
+                                  
+                                      
+                                      
+                                       
+                                    </ul>
+                                    <div class="page" id="js_xyPage"><a href="#" class="page_fh">&lt;</a><a href="#">1</a><a href="#">2</a><a href="#" class="page_on">3</a><a href="#">4</a><a href="#">5</a><a href="#" class="page_fh">&gt;</a></div>
+                                </div>
+                                <!--part 01 end-->
+                                <div class="opus_cont">
+                                    <!--part 02-->
+
+                                </div>
+                                <!--part 02 end-->
+                                <div class="opus_cont">
+                                    <!--part 03-->
+
+                                </div>
+                                <!--part 03 end-->
+                            </div>
+                        </div>
+                        <div class="wd_phb" id="top">
+                            <h3>排行榜</h3>
+                            <ul class="phb_hd">
+                                <li class="li01">名次（前25名）</li>
+                                <li class="li02">作品名</li>
+                                <li class="li03">称得票数</li>
+                            </ul>
+                            <div class="phb_center">
+                                <div class="phb_cont">
+                                    <div class="phb_txt">
+                                        <table class="phb_table" id="ranking">
+                                           <!-- <tr>
+                                                <td width="150">1</td>
+                                                <td width="300">斗殴魔神最强</td>
+                                                <td width="160">123票</td>
+                                            </tr>-->
+                                        </table>
+                                    </div>
+                                </div>
+                                <!--scrollbar-->
+                                <!--<div class="tab_vscrollbar">
+                                    <div class="tab_track">
+                                        <div class="tab_thumb"></div>
+                                    </div>
+                                </div>-->
+                                <!--scrollbar end-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--作品展示结束-->
+            </div>
+        </div>
+    </div>
+
+    <div class="js_ZanPop" style="display:none;">
+        <div class="wd_tc tc_03 pop_con js_ZanCon">
+            <a class="wd_close fontHide js_Zanpopclose pngFix" href="javascript:;">关闭</a>
+            <div class="tc03_left">
+                <span class="imgbox"><img id="imgsrc" width="440" height="440" src=""></span>
+                <div class="tc_page clear"><a class="a1 fontHide js_pre" href="javascript:;">上一张</a><a class="a2 fontHide js_next" href="javascript:;">下一张</a></div>
+            </div>
+            <div class="tc03_right">
+                <div class="tc_vote">
+                    <p class="js_area">区组：</p>
+                    <p class="js_name">昵称：</p>
+                    <p class="upvote_btn"><a class="fontHide js_zanbtn" href="javascript:;">点赞</a></p>
+                </div>
+                <div class="pous_intro">
+                    <h3>作品简介：</h3>
+                    <p class="js_about"></p>
+                </div>
+                <div class="player_pl">
+                    <h3>玩家评论：</h3>
+                    <div class="player_center">
+                        <div class="pl_cont">
+                            <div class="pl_txt js_reviews">
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="txt_box">
+                        <input id="js_nickname" type="text" value=""  placeholder="请输入您的昵称"  />
+                    </p>
+                    <p class="txt_box">
+                        <textarea  id="js_message" placeholder="请输入评论" ></textarea>
+                    </p>
+                  
+                    
+                    <p class="issue">
+                        <button class="fontHide js_ly">我来说两句</button>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="pop_mask"></div>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+
+</body>
+</html>

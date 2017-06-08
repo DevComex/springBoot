@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.IUserLotteryInfo">
+	<resultMap type="UserInfoBean" id="UserInfoMap">
+		<id column="code" property="code" />
+		<result column="activity_id" property="actionCode" />
+		<result column="source" property="source" />
+		<result column="source_code" property="sourceCode" />
+		<result column="account" property="account" />
+		<result column="game_id" property="gameCode" />
+		<result column="server_id" property="serverCode" />
+		<result column="server_name" property="serverName" />
+		<result column="present_type" property="presentType" />
+		<result column="present_name" property="presentName" />
+			<result column="draw_time" property="time" />
+				<result column="draw_ip" property="ip" />
+	</resultMap>
+	
+	<select id="getAllUserLotteryInfo" resultMap="UserInfoMap"
+		resultType="java.util.List" >
+		select * from hd_send_present_log
+		where 
+		activity_id=#{actionCode} order by code desc
+	</select>
+		
+	<select id="getUserLotteryInfoByUserCode" resultMap="UserInfoMap"
+	 resultType="java.util.List" >
+	 select * from hd_send_present_log
+	 where 
+	 activity_id=#{actionCode}
+	 and 
+	 account=#{userAccount}
+	 and
+	 present_type='realPrize'
+
+	</select>
+	<select id="wishGetUserLotteryInfoByUserCode" resultMap="UserInfoMap"
+	 resultType="java.util.List" >
+	 select * from hd_send_present_log
+	 where 
+	 activity_id=#{actionCode}
+	 and 
+	 account=#{userAccount}
+
+	</select>
+	<insert id="addInfo" useGeneratedKeys="true">
+	insert into hd_send_present_log
+	(activity_id,source,source_code,account,game_id,server_id,server_name,present_type,present_name,draw_time,draw_ip)
+	values
+	(#{actionCode},#{source},#{sourceCode},#{account},#{gameCode},#{serverCode},#{serverName},#{presentType},#{presentName},#{time},#{ip})
+	
+	</insert>
+	<select id="getNumOf" resultType="int" >
+	select count(code) 
+	from hd_send_present_log
+	where
+	activity_id=#{actionCode}
+	and 
+	present_name=#{prizeChinese}
+	
+	</select>
+	<select id="selectLogByDay" parameterType="String" resultType="Integer" >
+ 	select count(*) from hd_send_present_log
+	 where 
+	 activity_id=263 and  datediff(dd,draw_time,#{date})=0
+	
+	</select>
+	<select id="getSendPresentLogs" resultMap="UserInfoMap" parameterType="Integer" >
+		select top 100 * from hd_send_present_log where activity_id = #{code}
+	</select>
+	   <!-- 模糊查询所有任务信息 -->	
+  <select id="getLogByInfo" resultMap="UserInfoMap" parameterType="NewPageBean">
+  
+  	  		<![CDATA[select TOP (#{pageSize}) *
+	
+	,[row_num]
+      
+		from (
+		SELECT ROW_NUMBER() OVER (ORDER BY code DESC) AS
+		row_num,* FROM
+		hd_send_present_log where activity_id = #{code} ]]> 
+		<if
+			test="account!= null and account!= ''">
+		<![CDATA[
+					and 	account  like CONCAT('%','${account}','%')
+		]]>
+		</if>
+		<if
+			test="prizeName!= null and prizeName!= ''">
+		<![CDATA[
+						and 	present_name  like CONCAT('%','${prizeName}','%')
+		]]>
+		</if>
+		<if
+			test="dateS!= null and dateS!= ''">
+		<![CDATA[
+					and  DATEDIFF( d ,#{dateS},draw_time)=0 and DATEDIFF( m ,#{dateS},draw_time)=0 and DATEDIFF( yyyy ,#{dateS},draw_time)=0 
+		]]>
+		</if>
+		<![CDATA[
+		) A
+		WHERE row_num
+		> (#{pageSize}*(#{pageIndex}-1))
+        
+		
+		
+		
+			ORDER BY code desc
+		]]>
+  </select>
+	  <select id="getCountByInfo" resultType="Integer" parameterType="NewPageBean">
+  
+  	  		  	  		<![CDATA[select count(*)
+	
+      
+		from (
+		SELECT ROW_NUMBER() OVER (ORDER BY code DESC) AS
+		row_num,* FROM
+		hd_send_present_log where activity_id = #{code} ]]> 
+		<if
+			test="account!= null and account!= ''">
+		<![CDATA[
+					and 	account  like CONCAT('%','${account}','%')
+		]]>
+		</if>
+		<if
+			test="prizeName!= null and prizeName!= ''">
+		<![CDATA[
+						and 	present_name  like CONCAT('%','${prizeName}','%')
+		]]>
+		</if>
+		<if
+			test="dateS!= null and dateS!= ''">
+		<![CDATA[
+					and  DATEDIFF( d ,#{dateS},draw_time)=0 and DATEDIFF( m ,#{dateS},draw_time)=0 and DATEDIFF( yyyy ,#{dateS},draw_time)=0 
+		]]>
+		</if>
+		<![CDATA[
+		) A
+		]]>
+  </select>
+
+</mapper>

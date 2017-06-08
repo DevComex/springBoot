@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>问道1.60门派招生活动</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdwxwebsite/css/nologinsingup.css"/>
+    <script type="text/javascript" src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> <!--光宇统计-->
+    <script  type="text/javascript">
+		var rc="${rc.contextPath}";
+	</script>
+</head>
+<body>
+	<div id="logo">
+		<img src="http://static.cn114.cn/action/wdwxwebsite/img/logo.jpg" />
+		<h1>活动时间：<span>9月13日12:00-10月7日23:59</span></h1>
+	</div>
+	<div id="main1">
+		<p class="js_quita">注销</p>
+		<h1 class="font1">绑定角色</h1>
+		<select class="style1" id="daqu"><option>选择大区</option><option value="3">双线</option><option value="1">网通</option><option value="2">电信</option></select>
+		<select class="style1" id="services"><option>选择服务器</option></select>
+		<p class="js_bindbtn"><input type="text" class="js_testma"/><img class="testmatu" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=Math.random()"/></p>
+		<select class="style1" id="choice"><option>选择角色</option></select>
+		<a href="javascript:;" class="signupbtn js_getrolebtn"><img src="http://static.cn114.cn/action/wdwxwebsite/img/anbg.png"/><span>获取角色</span></a>
+		<a href="javascript:;" class="signupbtn js_bindrolebtn"><img src="http://static.cn114.cn/action/wdwxwebsite/img/anbg.png"/><span>绑&nbsp;&nbsp;定</span></a>
+	</div>
+	<div id="footer">
+		<a href="javascript:;" class="on" id="signup">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img1on.jpg" />
+			<b>报名</b>
+		</a>
+		<a href="javascript:;" id="show">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img2.jpg" />
+			<b>展示</b>
+		</a>
+		<a href="javascript:;" id="lottery">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img3.jpg" />
+			<b>抽奖</b>
+		</a>
+		<a href="javascript:;" id="rule">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img4.jpg" />
+			<b>规则</b>
+		</a>
+	</div>
+</body>
+<script src="http://static.cn114.cn/action/wdwxwebsite/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/gyyx_wxshare.min.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/bindpage.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/pubfx.js" ></script>

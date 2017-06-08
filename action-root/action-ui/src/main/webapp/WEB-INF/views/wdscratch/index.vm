@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0,maximum-scale=1.0,width=device-width,user-scalable=no">
+    <title>2016万人新服 孙茜送好礼</title>
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/wdScratch/css/style.css"/>
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script  type="text/javascript">
+        var rc = "${rc.contextPath}";
+        var scratchGo = {
+            Scratchoff: false,
+            Logoff: false
+        }
+	 </script>
+	 <script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+    </script>
+</head>
+<body>
+    <section class="wrap">
+        <div class="top" style="position:relative">
+            <img src="http://static.cn114.cn/action/wdScratch/images/top.jpg"/>
+            <div class="scratch_con">
+            	<input id="OpenId" value="$!OpenId" type="hidden"/>
+                <img src="http://static.cn114.cn/action/wdScratch/images/gua_bg.jpg"/>
+                <div class="getPrizes js_prize" id="js_prize"></div>
+                <canvas class="scratch js_canvas" style="display:none;"></canvas>
+            </div>
+        </div>
+        <div class="notice">
+            <h3>活动规则</h3>
+            <ul>
+                <li>
+                    <p><i>1</i>活动时间：2015年12月31日-2016年1月8日</p>
+                </li>
+                <li>
+                    <p><i>2</i>奖项设置：</p>
+                    <p>一等奖：神宠人偶</p>
+                    <p>二等奖：30元光宇币</p>
+                    <p>三等奖：10元光宇币</p>
+                    <p>四等奖：1.58新手礼包</p>
+                </li>
+                <li>
+                    <p><i>3</i>每位用户只能参加一次抽奖（除1.58大礼包外）,不能重复参加活动，中奖率为100%。</p>
+                </li>
+                <li>
+                    <p><i>4</i>获得实物奖品的玩家请认真填写联系方式，否则视为自动放弃。</p>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <div class="dia_modal_nouse js_nouse" style="display:none;">请在竖屏使用！</div>
+    <script src="http://static.cn114.cn/action/wdScratch/js/gyyx_wxshare.min.js"></script>
+    <script src="http://static.cn114.cn/action/wdScratch/js/scratchFn.js"></script>
+    <script src="http://static.cn114.cn/action/wdScratch/js/index.js"></script>
+    <script  type="text/javascript">
+        wxShare({
+            debug: false,
+            game: "wd",
+            title:'2016万人新服 孙茜送好礼',
+            desc: '2016万人新服 孙茜送好礼',
+            link: "http://actionv2.gyyx.cn/wechatWDScratchCard/scratchCardShare",
+            imgUrl: "http://static.cn114.cn/action/wdScratch/images/share.jpg",
+            success: function () {
+                alert("分享成功了");
+            },
+            cancel: function () {
+                alert("取消了分享");
+            }
+        });
+	 </script>
+    <!--<div class="pop">-->
+        <!--<h2 class="prize_title">恭喜您获得1.58新手礼包</h2>-->
+        <!--<ul class="pop_form">-->
+            <!--<li><label>姓名</label><input type="text" placeholder="请输入姓名" maxlength="20"/></li>-->
+            <!--<li><label>电话</label><input type="text" placeholder="请输入电话" maxlength="11" /></li>-->
+            <!--<li class="address"><label>地址</label><textarea placeholder="请输入地址" maxlength="100"></textarea></li>-->
+        <!--</ul>-->
+        <!--<input class="pop_button" type="button" value="确定"/>-->
+    <!--</div>-->
+    <!--<div class="pop">-->
+        <!--<h2 class="prize_title">恭喜您获得1.58新手礼包</h2>-->
+        <!--<p class="noRealPrize">激活码<br/>ur48d545dsg78gwga</p>-->
+        <!--<input class="pop_button" type="button" value="确定"/>-->
+    <!--</div>-->
+</body>
+</html>

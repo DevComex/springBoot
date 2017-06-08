@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>明星宠物领养计划 给流浪猫狗找个家</title>
+<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/WDPetAdoption/css/wd151215.css">
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://static.cn114.cn/action/WDPetAdoption/js/share.js"></script><!--微博分享代码 -->
+<script src="http://static.cn114.cn/action/NoteURL/js/noteURL.js"></script><!--统计代码 -->
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+<script type="text/javascript">
+var rc="${rc.contextPath}";
+</script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?515be9a898bfcb8bf98863bc18948729";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+<body>
+<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+<div class="wrap">
+   <div class="main">
+      <div class="wd_header" id="anchor1">
+         <!--导航-->
+         <div class="wd_nav"><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/RegisterPhone?toURL=http%3A%2F%2Factionv2.gyyx.cn%2Fpetadoption%2Findex" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a></div>
+         <!--按钮-->
+         <div class="wd_btn"><a href="http://account.gyyx.cn/Member/RegisterPhone?toURL=http%3A%2F%2Factionv2.gyyx.cn%2Fpetadoption%2Findex" target="_blank" class="a01">注册助力</a><a href="javascript:void(0);" class="a02 xinlang">分享呼吁</a></div>
+      </div>
+      <!--01-->
+      <div class="wd_box wd_box01" id="anchor2">
+         <h2>01</h2>
+         <h3>关爱流浪动物 我们在行动</h3>
+         <div class="wd_video"><div id="adplayer_s"></div></div>
+         <a href="javascript:void(0);" class="wd_share xinlang">分享呼吁</a>
+      </div>
+      <!--02-->
+      <div class="wd_box wd_box02" id="anchor3">
+         <h2>02</h2>
+         <h3>待领养滴小天使</h3>
+         <h4>具体领养信息及领养要求，请关注光宇游戏公众微信号（guangyuyouxi）了解更多~~</h4>
+         <div class="wd_pic clear">
+            <ul>
+               <li>
+                  <a href="#">
+                     <img src="http://static.cn114.cn/action/WDPetAdoption/images/xtspic01.jpg">
+                     <div class="wd_text">
+                        <h3>小黑</h3>
+                        <p>男　40天　坐标：大同<br>
+                        蝴蝶犬的串，中长毛，胆子很小。联系微博@大同汪汪流浪狗孤儿院</p>
+                     </div>
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <img src="http://static.cn114.cn/action/WDPetAdoption/images/xtspic02.jpg">
+                     <div class="wd_text">
+                        <h3>萨默妞</h3>
+                        <p>女　1岁　坐标：北京<br>
+活泼可爱，左前腿略有残疾。微博联系@陶雨含</p>
+                     </div>
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <img src="http://static.cn114.cn/action/WDPetAdoption/images/xtspic03.jpg">
+                     <div class="wd_text">
+                        <h3>黑妹</h3>
+                        <p>女　两岁　坐标：天津<br>
+安静乖顺懂得感恩，略胆小。微博联系@猫科在于帅_给狗找家ing</p>
+                     </div>
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <img src="http://static.cn114.cn/action/WDPetAdoption/images/xtspic04.jpg">
+                     <div class="wd_text">
+                        <h3>月饼</h3>
+                        <p>女　2个月左右　<br>
+                          坐标：北京海淀区<br>
+活泼可爱，会使用猫砂。微博联系@Hey_盈盈</p>
+                     </div>
+                  </a>
+               </li>
+               <li>
+                  <a href="#">
+                     <img src="http://static.cn114.cn/action/WDPetAdoption/images/xtspic05.jpg">
+                     <div class="wd_text">
+                        <h3>小警长</h3>
+                        <p>男　2个月　坐标：北京<br>
+活泼亲人， 会主动趴肚子上睡觉！微博联系@Vivian-yxw</p>
+                     </div>
+                  </a>
+               </li>
+            </ul>
+         </div>
+      </div>
+      <!--03-->
+      <div class="wd_box wd_box03" id="anchor4">
+         <h2>03</h2>
+         <h3>好猫好狗义工团的王阿姨和小天使们</h3> 
+         <div class="wd_show">
+           <ul>
+              <li><img src="http://static.cn114.cn/action/WDPetAdoption/images/wd151215_pic1.jpg"><img src="http://static.cn114.cn/action/WDPetAdoption/images/wd151215_pic2.jpg"><img src="http://static.cn114.cn/action/WDPetAdoption/images/wd151215_pic3.jpg"><img src="http://static.cn114.cn/action/WDPetAdoption/images/wd151215_pic4.jpg"><img src="http://static.cn114.cn/action/WDPetAdoption/images/wd151215_pic5.jpg"></li>
+              <li><img src="http://static.cn114.cn/action/WDPetAdoption/images/wd151215_pic6.jpg"><img src="http://static.cn114.cn/action/WDPetAdoption/images/wd151215_pic7.jpg"><img src="http://static.cn114.cn/action/WDPetAdoption/images/wd151215_pic8.jpg"><img src="http://static.cn114.cn/action/WDPetAdoption/images/wd151215_pic9.jpg"><img src="http://static.cn114.cn/action/WDPetAdoption/images/wd151215_pic10.jpg"></li>
+           </ul>
+        </div>
+      </div>
+   </div>
+</div>
+<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+<!--漂浮-->
+<div class="pf">
+   <a href="http://account.gyyx.cn/Member/RegisterPhone?toURL=http%3A%2F%2Factionv2.gyyx.cn%2Fpetadoption%2Findex" target="_blank" class="a01">注册助力</a>
+   <a href="#anchor2" class="a02">领养呼吁</a>
+   <a href="#anchor3" class="a03">我要领养</a>
+   <a href="#anchor4" class="a04">义工团展示</a>
+   <a href="#" class="a05" id="gotoTop">Top</a> 
+</div>
+
+        <!-- 一键分享描述内容截取 start-->
+        <div id="fenxiang">#孙茜呼吁关爱流浪动物#我已在@问道“明星宠物领养计划”中成功注册，为流浪动物捐赠0.1元！与槿汐姑姑孙茜一起倡议“领养代替购买”，愿所有流浪天使都能找到一个温暖的家！1月1日，我在《问道》2016万人新服中等你！
+</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/WDPetAdoption/js/ymcore.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/WDPetAdoption/js/swfobject.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/WDPetAdoption/js/ymadplayer.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/WDPetAdoption/js/wd151215.js"></script>
+</body>
+</html>

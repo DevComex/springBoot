@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xlsgwxsign.IXlsgSignLogMapper">
+	<resultMap type="cn.gyyx.action.beans.xlsgwxsign.XlsgSignLog" id="XLSGWxSignLogBeanMap">
+		<id column="code" property="code" />
+		<result column="sid" property="sid" />
+		<result column="open_id" property="openId" />
+		<result column="sign_time" property="signTime" />
+		<result column="obtained_integral" property="obtainedIntegral" />
+	</resultMap>
+	
+	<!-- 插入签到明细记录 -->
+	<insert id="insertSignLog" parameterType="cn.gyyx.action.beans.xlsgwxsign.XlsgSignLog">
+		insert into xlsg_wx_sign_log (
+		   open_id
+		   ,sid
+		   ,sign_time,obtained_integral)
+		values(
+		   #{openId}
+		   ,#{sid}
+		   ,#{signTime},#{obtainedIntegral})
+	</insert>
+	
+</mapper>

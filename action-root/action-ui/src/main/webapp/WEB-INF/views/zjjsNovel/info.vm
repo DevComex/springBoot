@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, width=device-width">
+    <title>终极教师-小说连载</title>
+    <link href="http://static.cn114.cn/action/zjjsNovel/css/style.css" rel="stylesheet" />
+    <script  type="text/javascript">
+        var rc = "${rc.contextPath}";
+	 </script>
+	 <script>
+		var _hmt = _hmt || [];
+		(function() {
+  		var hm = document.createElement("script");
+  		hm.src = "//hm.baidu.com/hm.js?fdf38acbe57d4fec16b335e425216f73";
+  		var s = document.getElementsByTagName("script")[0]; 
+  		s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	 
+</head>
+<body>
+    <section>
+        <div class="info_top">
+            <img src="http://static.cn114.cn/action/zjjsNovel/images/logo.png"/> 
+        </div>
+        <!--<div class="info_title">
+            <img src="http://static.cn114.cn/action/zjjsNovel/images/info_title.jpg" />
+            <h2 class="js_title">第001章</h2>
+        </div>-->
+        <div class="info_wrap js_content">
+            <p>你们不能欺负我，我才刚刚被欺负过。</p>
+            <p>这算是什么狗屁的理由？</p>
+            <p>教室安静了一刹那，然后学生们就闹腾的更加起劲儿了。</p>
+            <p>“老师，你这么萌你妈知道吗？”</p>
+            <p>“原来刚刚被人欺负过，是谁在为民除害啊？”</p>
+            <p>“哇哈哈，他果然是观世音请来逗我们开心的猴子。方老师，你会翻跟头吗？给我们翻个跟头吧。”</p>
+            <p>方炎不气不怒，站在讲台上笑呵呵地看着台下的学生们吵闹喧哗对他挖苦打击。</p>
+            <p>渐渐的，学生们发现情况不对劲儿了。</p>
+            <p>宁静是暴风雨来临的前兆，这家伙笑的</p>    
+        </div>
+        <ul class="info_bottom">
+            <li class="js_prev" data-chapter="">上一章</li>
+            <li class="js_cur" data-chapters=""><a href="">目录</a></li>
+            <li class="js_next last" data-chapter="">下一章</li>
+        </ul>
+    </section>
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://static.cn114.cn/action/zjjsNovel/js/gyyx_wxshare.js"></script>
+    <script src="http://static.cn114.cn/action/zjjsNovel/js/index.js"></script>
+    <script>
+        $(function(){
+            var getData = new GetPageData();
+            getData.pageInfo();
+
+
+        });
+        wxShare({
+            debug: false,
+            game: "Zjjs",
+            title: "关注终极教师手游公众号，终极教师小说全免费阅读！呼叫小伙伴吧！",
+            desc: "关注终极教师手游公众号，终极教师小说全免费阅读！呼叫小伙伴吧！",
+            link: rc+"/chapter/index?currentPage=1",
+            imgUrl: "http://static.cn114.cn/action/zjjsNovel/images/share.jpg",
+            success: function () {
+                
+            },
+            cancel: function () {
+               
+            }
+        });
+    </script>
+</body>
+</html>

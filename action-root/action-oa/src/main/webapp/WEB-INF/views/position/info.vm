@@ -1,0 +1,73 @@
+
+#parse("/shared/top.vm")
+
+<!--标题-->
+<header class="header bg-white b-b clearfix">
+    <div class="col-sm-2 m-t-xs">
+        <h4>$!applyInfoBean.name 信息</h4>
+    </div>
+</header>
+
+
+<!--列表-->
+<section class="scrollable padder">
+    <div class="m-t-xs"></div>
+    <div class="row m-b-xs">
+    </div>
+    <section class="panel panel-default">
+	  <table class="table table-striped m-b-none" >
+		 <tr>
+    <th scope="col">应聘者姓名：</th>
+    <th scope="col">$!applyInfoBean.name</th>
+    <th scope="col">申请职位：</th>
+    <th scope="col">$!applyInfoBean.position</th>
+  </tr>
+  <tr>
+    <td>应聘者QQ：</td>
+    <td>$!applyInfoBean.qq</td>
+    <td>性别：</td>
+    <td>$!applyInfoBean.sex</td>
+  </tr>
+  <tr>
+    <td colspan="2">应聘者电话：</td>
+    <td colspan="2">$!applyInfoBean.phone</td>
+  </tr>
+  <tr>
+    <td>推荐者姓名：</td>
+    <td>$!applyInfoBean.introducer</td>
+    <td>推荐者邮箱：</td>
+    <td>$!applyInfoBean.introducerEmail</td>
+  </tr>
+  <tr>
+    <td colspan="2"><div align="center"><button><a onclick="removeInfo($applyInfoBean.code)">删除</a></button></div></td>
+    <td colspan="2"><div align="center"><button><a href="index">返回</a></button></div></td>
+  </tr>
+      </table>
+    </section>
+  <script>
+  function removeInfo(code){
+  if(confirm("确定要进行此操作吗？"))
+        {
+          $.ajax
+			({
+				type:"POST",
+				url:rc+"/oaposition/removeApplyInfo",
+				data: {
+					
+					code:code,
+					r: Math.random()
+				},
+				success:function( data ) {
+					alert(data.message);
+					if(data.isSuccess){
+					location.href=rc+"/oaposition/index";
+					}
+				}
+			});	
+        }
+        else 
+        {
+        }
+}
+  </script>
+ #parse("/shared/footer.vm")

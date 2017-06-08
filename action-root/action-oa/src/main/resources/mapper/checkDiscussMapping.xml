@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdno1pet.ICheckImgDisc">
+	
+	<resultMap type="CommentItem" id="CommentBeanInfo">
+		<id column="c_code" property="commentCode" />
+		<result column="pet_code" property="petCode" />
+		<result column="nick_name" property="nickName" />
+		<result column="c_comment" property="commentContent" />
+		<result column="c_time" property="commentTime" />
+		<result column="c_status" property="commentStatus" />
+		<result column="ip" property="CommentIp" />
+	</resultMap>
+	<!-- 2.通过评论状态分页查找10条评论 -->
+	<select id="checkDiscussInfo" parameterType="java.util.Map" resultType="java.util.List" resultMap="CommentBeanInfo">
+		select tem.c_code,tem.nick_name,tem.c_comment,tem.c_time,tem.c_status
+		from(select c_code,nick_name,c_comment,c_time,c_status,ROW_NUMBER() over( Order by c_code ) as rownum
+			 from  wdno1_comment_tb
+			 where c_status= #{commentStatus}) as tem
+		where rownum between (#{nowPage}-1)*10 and #{nowPage}*10
+	</select> 
+	 <!-- 查找所有的 -->
+	<!--<select id="checkDiscussInfo" parameterType="java.util.Map" resultType="java.util.List" resultMap="CommentBeanInfo">
+		select c_code,nick_name,c_comment,c_time,c_status
+		from wdno1_comment_tb 
+		where c_status= #{commentStatus}
+		order by c_time desc
+	</select> -->
+	<!-- 7.查询总共有多少评论信息 -->
+	<select id="selectDisPageNum" parameterType="String" resultType="int">
+		select COUNT(c_code)
+		from wdno1_comment_tb
+		where c_status= #{commentStatus}
+	</select>
+	
+	<!-- 8. 通过审核 -->
+	<update id="passDisInfo" parameterType="int">
+		update wdno1_comment_tb
+		set c_status ='checked'
+		where c_code=#{commentCode}
+	</update>
+	<!-- 9. 取消通过的审核，更改为审核未通过 -->
+	<update id="cancelPassedDis" parameterType="int">
+		update wdno1_comment_tb
+		set c_status='checkfail'
+		where c_code= #{commentCode}
+	</update>
+</mapper>

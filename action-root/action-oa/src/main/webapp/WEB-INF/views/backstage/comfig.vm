@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Layout:luochongfei" />
+    <title>配置信息</title>
+
+    <link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+	
+	<script src="${rc.contextPath}/resources/script/swfupload.js" type="text/javascript"></script>
+    <script src="${rc.contextPath}/resources/script/SWFInitialize.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/SWFInitializes.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/videoHandlers.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/VideoUpload.js" type="text/javascript" ></script>
+    <script type="text/javascript" src="${rc.contextPath}/resources/script/My97DatePicker/WdatePicker.js"></script>
+	
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet" />
+	<script>
+	  var changeImg = function(url){
+       		$("#checkImg").attr("src",url);
+       	}
+      
+    </script>
+	
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+						<section id="content">
+                    <section class="vbox">
+						<header class="header bg-white b-b clearfix">
+                           
+                                
+									<a class="btn btn-sm btn-dark js_add_info" href="#addTask"
+                                       data-toggle="modal">增加</a>
+                                    
+                           
+                        </header>
+                        <!--顶部标题导航 end-->
+		
+                        <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <div class="m-b-md">
+                            </div>
+                            
+							 <h4 >配置信息</h4>
+							<!-- 记录Ajax返回的目前任务分数 -->
+                            <input type="hidden" id="oldCredit" value="" />  
+                            <h3>活动编号:$!actionCode </h3>  
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" style="height:750px">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            
+                                       <tr>
+                                       
+                                                    	<th width="20"></th>
+                                                        
+                                                        <th width="20">活动编号</th>
+                                                        <th width="20">活动名称</th>
+                                                        <th width="20">开始时间</th>
+														<th width="20">结束时间</th>
+														
+														
+														<th width="20">游戏ID</th>
+														<th width="20">配置</th>
+														<th width="20">链接</th>
+														<th width="20">编辑</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="js_tbody">
+												
+                                                        <tr>
+                                                            <td></td>
+                                                           
+                                                            <td>$!bean.code</td>
+    														<td>$!bean.activityName</td>
+    														<td>$!bean.startDate</td>
+    														<td>$!bean.endDate</td>
+    														<td>$!bean.gameId</td>
+    														<td>$!bean.paras</td>
+    														<td>$!bean.activityLink</td>
+    														
+    														
+    														 
+															  
+    														  #if($!flag==1)
+																 <td class="js_btn_edit">
+																	<a title="" class="btn btn-xs btn-primary js_edit_project" code="$!bean.code" data-title="编辑" data-toggle="modal" href="#updateTask" data-original-title="编辑">
+															 </td>
+															  #end
+															
+                                                        </tr>
+													
+                                        </tbody>
+                                    </table>
+									
+                                </div>
+                                
+                            </section>
+                            
+                            <!--翻页功能-->
+                        <footer class="footer bg-white b-t">
+                            <div class="row dataTables_wrapper">
+                                <div class="col-sm-2">
+                                    <div class="dataTables_info" id="DataTables_Table_0_info">共 $!pageBean.totalRecords 条</div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_0_paginate">
+                                        <a class="first paginate_button" tabindex="0" id="DataTables_Table_0_first">首页</a>
+										<a class="previous paginate_button" tabindex="0" id="DataTables_Table_0_previous">上一页</a>
+										<span>
+											
+											 $!pageBean.pageIndex / $!pageBean.totalPages 
+											 <input type="hidden" id="hiddenURL" value="$!url" />
+										</span>
+										<a class="next paginate_button" tabindex="0" id="DataTables_Table_0_next">下一页</a>
+										<a class="last paginate_button" tabindex="0" id="DataTables_Table_0_last">末页</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                        <script>
+                        
+							$(function(){
+							
+								
+								
+
+							
+							
+							
+					$(".js_add_askForSubmit").click(function(){
+						var te= /^[1-9]+[0-9]*]*$/;
+        				var activityName = $.trim($("#activityName1").val());
+        				
+        				var gameId = $("#gameId1").val();
+        				var paras = $("#paras1").val();
+        				
+        				
+        				var activityLink = $("#activityLink1").val();
+        				
+        				var startDate = $("#startDate1").val();
+        				var endDate = $("#endDate1").val();
+						var startOld = startDate.replace("-","");
+						var start = startOld.replace("-","");
+						startNew = start.replace(/\s+/g,"");
+						var endOld = endDate.replace("-","");
+						var end = endOld.replace("-","");
+						endNew = end.replace(/\s+/g,"");
+						var code = $!actionCode;
+        				var valS = $.trim(gameId);
+        			
+        				//Jquery绑定Form
+        				$("#activityName").val(activityName);
+        				$("#gameId").val(gameId);
+        				$("#paras").val(paras);
+        				$("#activityLink").val(activityLink);
+        				$("#startDate").val(startDate);
+        				$("#endDate").val(endDate);
+        				$("#code1").val(code);
+        				if(activityName == ""){
+        					alert("请填写活动名称!");
+        				}else if(activityName.length > 40){
+        					alert("活动名称长度在40个字符以内!");
+        				}else if(valS == ""){
+        					alert("游戏ID不能为空!");
+        				}else if(isNaN(valS)){
+        					alert("游戏ID只能为数字!");
+        				}else if(valS < 0){
+        					alert("游戏ID只能为不小于0的整数!");
+        				}else if(valS > 100000){
+        					alert("游戏ID不能大于100000!");
+        				}
+        				else if(!te.test(valS)){
+				alert("游戏ID只能为正整数！");
+				return false;
+			}else if(activityLink == ""){
+                alert("请填写活动链接!");
+            }else if(startDate == ""){
+        					alert("请选择活动开始时间!");
+        				}else if(endDate == ""){
+        					alert("请选择活动结束时间!");
+        				}else if(parseInt(startNew)>=parseInt(endNew)){
+        					alert("开始时间不能大于等于结束时间!");
+        				}else{
+							$.ajax({
+								url:'getConfigByCode',
+								type:'get',
+								data:{code:code,r:Math.random()},
+								dataType:'json',
+								success:function(data){
+								
+									if(data != null){
+										
+											alert("已有一条配置信息！");
+    								
+									}else{
+										$("#taskForm").attr("action","addConfig");
+                        				$("#taskForm").submit();
+									}
+								}
+							})
+        				}
+					
+				})
+				
+				
+				$(".js_update_askForSubmit").click(function(){
+
+        			var te= /^[1-9]+[0-9]*]*$/;
+        				var activityName = $.trim($("#activityName4").val());
+        				
+        				var gameId = $("#gameId4").val();
+        				var paras = $("#paras4").val();
+        				
+        				var activityLink = $("#activityLink4").val();
+        				
+        				var startDate = $("#startDate4").val();
+        				var endDate = $("#endDate4").val();
+        				var startOld = startDate.replace("-","");
+						var start = startOld.replace("-","");
+						startNew = start.replace(/\s+/g,"");
+						var endOld = endDate.replace("-","");
+						var end = endOld.replace("-","");
+						endNew = end.replace(/\s+/g,"");
+					
+						var code = $!actionCode;
+        				var valS = $.trim(gameId);
+        				//Jquery绑定Form
+        				$("#activityName6").val(activityName);
+        				$("#gameId6").val(gameId);
+        				$("#paras6").val(paras);
+        				$("#activityLink6").val(activityLink);
+        				$("#startDate6").val(startDate);
+        				$("#endDate6").val(endDate);
+        				$("#code").val(code);
+        				
+        			if(activityName == ""){
+        					alert("请填写活动名称!");
+        				}else if(activityName.length > 40){
+        					alert("活动名称长度在40个字符以内!");
+        				}else if(valS == ""){
+        					alert("游戏ID不能为空!");
+        				}else if(isNaN(valS)){
+        					alert("游戏ID只能为数字!");
+        				}else if(valS < 0){
+        					alert("游戏ID只能为不小于0的整数!");
+        				}else if(valS > 100000){
+        					alert("游戏ID不能大于100000!");
+        				}
+        				else if(!te.test(valS)){
+				alert("游戏ID只能为正整数！");
+				return false;
+			}else if(activityLink == ""){
+                alert("请填写活动链接!");
+            }else if(startDate == ""){
+        					alert("请选择活动开始时间!");
+        				}else if(endDate == ""){
+        					alert("请选择活动结束时间!");
+        				}else if(parseInt(startNew)>=parseInt(endNew)){
+        					alert("开始时间不能大于等于结束时间!");
+        				}else{
+										$("#taskForm1").attr("action","updateConfig");
+                        				$("#taskForm1").submit();
+						}
+					
+				});
+					
+					$(".js_edit_project").click(function(){
+
+						var code = $(this).attr("code");
+						$("#code").val(code);
+						$.ajax({
+							url:'getConfigByCode',
+							type:'get',
+							data:{code:code,r:Math.random()},
+							dataType:'json',
+							success:function(d){
+							
+									$("#activityName4").val(d.activityName);
+                    				$("#startDate4").val(d.startDate);
+                    				$("#endDate4").val(d.endDate);
+                    				$("#gameId4").val(d.gameId);
+                    				$("#paras4").val(d.paras);
+                    				$("#activityLink4").val(d.activityLink);
+                    			
+									
+									
+							}
+						})
+						
+						
+							
+					})							
+										
+							$(".js_clkupimg").click(function(){
+                				$("#SWFUpload_0").trigger("click");
+                			});	
+								
+							})
+		
+						</script>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+						<!--翻页功能-->
+						<br />
+						<br />
+                       
+                    </section>
+                    
+                        <!-- -----------------------------------------------添加弹层开始---------------------------------------------- -->
+                        <div class="modal fade" id="seepic">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">查看图片</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <section class="panel bg-dark">
+                                                <div class="carousel slide carousel-fade panel-body" id="c-fade">
+                                                    <div class="carousel-inner js_con">
+                                                        <div class="divopt" style="display:block;">
+                                                            <img id="checkImg" src="" style="width: 100%;">
+                                                          	
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" style="text-align: center;">
+                                        <button class="btn btn-info btn-s-md" type="button" id="js_editPorSubmit" style="display: none;">确定</button>
+                                        <button data-dismiss="modal" class="btn btn-default close_js_Msg" type="button">返回</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- -----------------------------------------------添加弹层结束---------------------------------------------- -->
+              <!--编辑域名弹层 begin-->
+              
+              <form class="form-horizontal" id="taskForm" method="post">
+					<input type="hidden" id="code1" name="code" value="" />	
+					<input type="hidden" id="activityName" name="activityName" value="" />
+					
+					<input type="hidden" id="gameId" name="gameId" value="" />
+					<input type="hidden" id="paras" name="paras" value="" />
+					<input type="hidden" id="activityLink" name="activityLink" value="" />
+					
+					<input type="hidden" id="startDate" name="startDate" value="" />
+					<input type="hidden" id="endDate" name="endDate" value="" />
+					
+					
+					
+				</form>
+				
+							
+				<form class="form-horizontal" id="taskForm1" method="post">
+					
+					<input type="hidden" id="code" name="code" value="" />	
+					<input type="hidden" id="activityName6" name="activityName" value="" />
+					
+					<input type="hidden" id="gameId6" name="gameId" value="" />
+					<input type="hidden" id="paras6" name="paras" value="" />
+					<input type="hidden" id="activityLink6" name="activityLink" value="" />
+					
+					<input type="hidden" id="startDate6" name="startDate" value="" />
+					<input type="hidden" id="endDate6" name="endDate" value="" />
+				</form>
+              
+                 <div class="modal fade" id="addTask">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h6 class="modal-title">增加</h6>
+                            </div>
+                            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+                            <div class="modal-body">
+                                <form id="add_askForForm" class="form-horizontal" method="post">
+                					
+                					<div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">活动名称：</label>
+                                        <div class="col-sm-6">
+                							<input id="activityName1" name="activityName1" class="form-control" style="width:350px;" maxlength="300"/>
+                                       </div>
+                                    </div>
+									
+                                                    
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">游戏ID：</label>
+                                        <div class="col-sm-6">
+                							<input id="gameId1" name="gameId1" class="form-control" style="width:350px;" maxlength="300"/>
+                                       </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">活动配置：</label>
+                                        <div class="col-sm-6">
+                							<input id="paras1" name="paras1" class="form-control" style="width:350px;" maxlength="300"/>
+                                       </div>
+                                    </div>
+                                    
+                                     <div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">活动链接：</label>
+                                        <div class="col-sm-6">
+                							<input id="activityLink1" name="activityLink1" class="form-control" style="width:350px;" maxlength="300"/>
+                                       </div>
+                                    </div>
+                               
+                               		 <div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">活动开始时间：</label>
+	                                <div class="col-sm-6 m-b-xs">
+	                                   <input type="text" id="startDate1" class="input-sm form-control" value="" name="startDate1" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly placeholder="活动开始时间" style="width: 100%;">
+	                                </div>
+                               		</div>
+                                    	 <div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">活动结束时间：</label>
+	                                <div class="col-sm-6 m-b-xs">
+	                                   <input type="text" id="endDate1" class="input-sm form-control" value="" name="endDate1" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly placeholder="活动结束时间" style="width: 100%;">
+	                                </div>
+                               		</div>
+                                    
+                                 
+                					<div class="modal-footer">
+                                    	<button type="button"  class="btn btn-info js_add_askForSubmit">确定</button>
+                                        <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">返回</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                	
+                    <!-- /.modal-dialog -->
+                </div>
+	
+                <!--编辑域名弹层 end-->
+              <div class="modal fade" id="updateTask">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h6 class="modal-title">编辑</h6>
+                        </div>
+                        <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+                        <div class="modal-body">
+                            <form id="add_askForForm" class="form-horizontal" method="post">
+            					
+            					<div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">活动名称：</label>
+                                        <div class="col-sm-6">
+                							<input id="activityName4" name="activityName4" class="form-control" style="width:350px;" maxlength="300"/>
+                                       </div>
+                                    </div>
+									
+                                                    
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">游戏ID：</label>
+                                        <div class="col-sm-6">
+                							<input id="gameId4" name="gameId4" class="form-control" style="width:350px;" maxlength="300"/>
+                                       </div>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">活动配置：</label>
+                                        <div class="col-sm-6">
+                							<input id="paras4" name="paras4" class="form-control" style="width:350px;" maxlength="300"/>
+                                       </div>
+                                    </div>
+                                    
+                                     <div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">活动链接：</label>
+                                        <div class="col-sm-6">
+                							<input id="activityLink4" name="activityLink4" class="form-control" style="width:350px;" maxlength="300"/>
+                                       </div>
+                                    </div>
+                               
+                               		 <div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">活动开始时间：</label>
+	                                <div class="col-sm-6 m-b-xs">
+	                                   <input type="text" id="startDate4" class="input-sm form-control" value="" name="startDate4" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly placeholder="活动开始时间" style="width: 100%;">
+	                                </div>
+                               		</div>
+                                    	 <div class="form-group">
+                                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">活动结束时间：</label>
+	                                <div class="col-sm-6 m-b-xs">
+	                                   <input type="text" id="endDate4" class="input-sm form-control" value="" name="endDate4" onFocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" readonly placeholder="活动结束时间" style="width: 100%;">
+	                                </div>
+                               		</div>
+                             
+            					<div class="modal-footer">
+                                	<button type="button"  class="btn btn-info js_update_askForSubmit">确定</button>
+                                    <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">返回</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /.modal-content -->
+                </div>
+            	
+                <!-- /.modal-dialog -->
+            </div>
+            	
+    <!--编辑域名弹层 end-->
+ </section>
+            </section>
+        </section>
+    </section>
+
+</body>
+</html>

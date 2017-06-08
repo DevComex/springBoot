@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+    <title>光宇社招</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/positionApply/css/publicjian01.css"/>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/allstyle01.css" />
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/animate.css" />
+</head>
+<body style="background: #f86561;">
+	<div class="warp">
+		<div class="main chanpinY" uid="560025842">
+			<h1><a href="${rc.contextPath}/position/index?a=1" class="list">职位列表</a></h1>
+			<div class="btn">
+				<p class="heads btnanimated fadeIn">
+					<img src="http://static.cn114.cn/action/positionApply/img01/cpHead.png"/>
+				</p>
+				<a href="${rc.contextPath}/position/positiontype/produceInvestigate" class="left leftani fadeInRight"></a>
+				<!--<a href="#" class="right rightani fadeInLeft"></a>-->
+			</div>
+			<div class="content contentani fadeIn2">
+				<h2>互联网产品策划</h2>
+				<h3>岗位职责</h3>
+				<p>1、负责互联网产品策划、组织实施产品开发；</p>
+				<p>2、撰写详细的产品需求文档及原型设计文档；</p>
+				<p>3、负责产品的用户体验优化、功能完善，提升产品黏度，提升用户体验。</p>
+				<h3>任职资格</h3>
+				<p>1、对互联网产品形态和用户行为习惯有较深刻认识；</p>
+				<p>2、具备较好的交互设计能力和较好的用户体验意识；</p>
+				<p>3、对数据敏感，善于数据统计分析，逻辑清晰；</p>
+				<p>4、具备良好的文字表达能力，能够清楚明白把需求传达给开发、设计、测试人员。</p>
+			</div>
+			<div class="xsbtn xsani fadeInUpBig">
+						<a href="http://gyyx.m.zhiye.com/JobAd/Info?adid=560025842" class="sq">在线申请</a>
+				<a href="#" class="fx fxz">分享职位</a>
+			</div>
+		</div>
+	</div>
+	<div class="zz">
+		<img src="http://static.cn114.cn/action/positionApply/img01/zz.png" />
+	</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/zepto.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/allstyle01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/gyyx_wxshare.min.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/content01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/fx01.js" ></script>
+<script>
+	$("body").on("swipeRight",function(){
+		location.href="${rc.contextPath}/position/positiontype/produceInvestigate";
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.IRewardReceiveLogMapper">
+	<resultMap type="RewardReceiveLogBean" id="RewardReceiveLogBean">
+		<id column="code" property="code" />
+		<result column="reward_type" property="rewardType" />
+		<result column="account" property="account"/>
+		<result column="server_id" property="serverId"/>
+		<result column="sex" property="sex"/>
+		<result column="receive_date" property="receiveDate"/>
+	</resultMap>
+	<insert id="insertRewardReceiveLog" parameterType="RewardReceiveLogBean">
+		INSERT INTO [dbo].[xuanwuba_reward_receive_log]
+           ([reward_type]
+           ,[account]
+           ,[server_id]
+           ,[sex]
+           ,[receive_date])
+    	 VALUES(rewardType
+     		,account
+     		,serverId
+     		,sex
+     		,receiveDate)
+	</insert>
+	<select id="selectRewardReceiveLog" parameterType="RewardReceiveLogBean" resultType="RewardReceiveLogBean">
+		select * from xuanwuba_reward_receive_log 
+		where account = #{account} and receive_date between #{startTime} and #{endTime}
+	</select>
+</mapper>

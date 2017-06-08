@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我用一生换你十年</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/tenyears/html/css/style.css" />
+		<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+		<script type="text/javascript">
+			alert("谢谢参与，活动已结束")
+		</script>
+	</head>
+	<body>
+		<!--公共头部-->
+		<div class="public_nav_top">
+      		<script type="text/javascript">Showtop();</script>
+    	</div>
+		<div class="uploadBackground">
+			<div class="weixinma" style="position: absolute;">
+				<img src="http://static.cn114.cn/action/tenyears/html/img/indexhref.png" width="150px" height="150px"/>
+			</div>
+			<div class="minwidth">
+				<div class="shareAction" style="width: 300px;height: 40px;float: right;margin: 25px 0 0 0;font-size: 14px;">
+					<a href="http://wd.gyyx.cn/" style="color: #fde0e0;background-color: #c44428;padding: 5px;border-radius:10px ;">进入官网</a>	
+					<span style="font-weight: bold;color:#c44428 ;">分享活动：</span>
+					<a title="分享到微信" href="javascript:void(0);"  class="shareActionXin shareBtn"></a>
+					<a title="分享到新浪微博" href="http://v.t.sina.com.cn/share/share.php?url=http://actionv2.gyyx.cn/wdonechangeten/index&title=我用一生换你十年&content=utf-8&source=&sourceUrl=&pic=" class="shareActionBo shareBtn" target="_blank"></a>
+				</div>
+			<div class="time">
+				<h2>活动时间：4月22日-5月9日</h2>
+			</div>
+			<div class="storyCollect">
+				<a href="http://actionv2.gyyx.cn/WDOneChangeTen/upload">故事征集</a>
+			</div>
+			<!--登陆框-->
+			<div class="beforLogin">
+				<p></p>
+			</div>
+			<div class="uploadTitle" style="margin:20px 0 0 0;">
+				<div class="storyTitle"><h2></h2></div>
+				<div class="backTo">
+					<a class="backToIndex" href="http://actionv2.gyyx.cn/wdonechangeten/index"></a>
+					<a class="backToList" href="http://actionv2.gyyx.cn/WDOneChangeTen/workInfoListIndex?type=0&amp;currentPage=1"></a>
+				</div>
+			</div>
+			<!--文字描述-->
+			<div class="write">
+				<div class="text">
+					<script type="text/plain" id="myEditor">
+        				<p>请输入您的故事</p>
+    				</script>
+				</div>
+			</div>
+			<!--上传图片-->
+			<div class="uploadPic">
+				<span class="uploadimg">
+                	
+                	<input type="hidden" id="hid_addImgUrl" name="hid_addImgUrl" /><input type="hidden" id="hid_addthumbImgUrl" name="hid_addthumbImgUrl" />
+                </span>
+                <span class="titleimgs zj_upload" id="divFileProgressContainer"></span>
+                <div>
+                	<ul class="upPicList">
+                		<li class="btnUploadLi"><input type="button" id="btnUpload" class="upload" value="上传图片" style="zoom: 1" /></li>
+                	</ul>
+                	<input type="hidden" id="imgNum" value="" />
+                </div>
+			</div>
+			<!--验证码-->
+			<div class="validateStyle">
+				<label>验证码：</label>
+                <input name="ValidateCode" type="text" value="" class="inp fl txt " style="width: 100px">
+                <span  class="error_matrix"></span>
+                <img src="http://www.gyyx.cn/Captcha/Create/0716136161" class="flash_pagecode checkcodeimg">
+                <span class="checkcodeupdatecode fl f_pagecode_txt">看不清</span>
+           </div>
+			<div class="uploadBtnDiv">
+				<a class="uploadBtn"></a>
+			</div>
+			<div class="two"></div>
+			<div class="info">
+				<p>《问道》才十年，玩家故事征集活动正式开启。参与活动的玩家均可获得抽奖机会。玩家可以上传自己这十年来的精彩故事，可以是爱情，友情或兄弟情等，以文字或图片的形式上传即可。同时，玩家可以通过集赞的方式赢好礼，获得赞最多的玩家，将获得由官方提供的价值500元大礼。活动结束后，官方会从中筛选出精彩的故事拍摄成MV进行宣传。小伙伴们还等什么，快来分享你们的故事吧！</p>
+			</div>
+			</div>
+		</div>
+		<!--公共页脚-->
+		<div class="public_nav_bottom" style="clear: both;">
+      		<script type="text/javascript">ShowBottom()</script>
+    	</div>
+		
+		
+		
+		
+		<script type="text/javascript" src="http://static.cn114.cn/action/tenyears/html/js/ueditor.config.js" ></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/tenyears/html/js/ueditor.all.min.js" ></script>
+		
+		<script type="text/javascript" src="http://static.cn114.cn/action/tenyears/html/js/swfupload.js" ></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/tenyears/html/js/SWFInitialize.js" ></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/tenyears/html/js/Handlers.js" ></script>
+		<script type="text/javascript">
+			var rc = "${rc.contextPath}";
+	        $(function () {
+	            //图片上传
+	            UPLOADURL = "http://up.gyyx.cn/Image/WebSiteSaveToTemp.ashx?group=official_site&width=200&height=200";
+	            FLASHURL = "http://up.gyyx.cn/flash/swfupload_f9.swf";
+	            FILESIZE = "2048";//1mb;
+	            FILETYPE = "*.jpg;*.png";
+	            TYPESDESCRIPTION = "*";
+	            UPLOADLIMIT = "100";
+	            QUEUELIMIT = 0;
+	            DEBUG = false;
+	            UPLOADTARGET = "divFileProgressContainer";
+	            SAVEELEMENT = "FileCode";
+	
+	            if ($("#btnUpload").length > 0) {
+	                Initialize();
+	            }
+	        })
+	    </script>
+    
+		<script type="text/javascript" src="http://static.cn114.cn/action/tenyears/html/js/main.js" ></script>
+		<script type="text/javascript">
+	        var editor = UE.getEditor('myEditor',{
+	            //这里可以选择自己需要的工具按钮名称,此处仅选择如下五个
+	            toolbars:[['cleardoc']],
+	            //focus时自动清空初始化时的内容
+	            autoClearinitialContent:true,
+	            //关闭字数统计
+	            wordCount:true,
+	            maximumWords:800,
+	            wordCountMsg:'{#count}/{#leave}' ,  //当前已输入 {#count} 个字符，您还可以输入{#leave} 个字符,
+
+	            //默认的编辑区域高度
+	            initialFrameHeight:410,
+	            initialFrameWidth:770,
+	            autoHeightEnabled: false
+	            //默认自动
+	        });
+	    </script>
+		<script>
+            var _hmt = _hmt || [];
+            (function() {
+              var hm = document.createElement("script");
+              hm.src = "//hm.baidu.com/hm.js?ba8797592648c3f68c14883094474437";
+              var s = document.getElementsByTagName("script")[0]; 
+              s.parentNode.insertBefore(hm, s);
+            })();
+        </script>
+	</body>
+</html>

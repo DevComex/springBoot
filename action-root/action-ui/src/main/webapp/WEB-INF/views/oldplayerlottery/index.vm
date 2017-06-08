@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>问道老玩家回归</title>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/oldplayerlottery/css/index.css">
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js"></script>
+    <script>
+        var rc = "${rc.contextPath}";
+        alert("谢谢参与，活动已结束");
+    </script>
+   <style>
+   .bottompub_word_p2 a{
+   color:#666666;
+   }
+   html{
+    min-width: 1100px;
+    *min-width:1100px;
+    *+min-width:1100px;
+}
+   
+   </style>
+</head>
+<body>
+<div class="public_nav_top" style="display:block;">
+    <script type="text/javascript">Showtop();</script>
+</div>
+<div class="main">
+    <div class="header">
+        <div class="nav">
+            <a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm">进入官网</a>|<a target="_blank" href="http://account.gyyx.cn/Member/Register">账号注册</a>|<a target="_blank" href="http://pay.gyyx.cn/">我要充值</a>|<a target="_blank" href="http://wd.gyyx.cn/download/">下载中心</a>
+        </div>
+    </div>
+   <div class="contain">
+
+       <p class="activedTime">活动时间 : 2016年10月13日-10月20日</p>
+       <p class="login" id="js_account">
+           <span>抽奖需要先</span><a href="javascript:void(0)" class="info_mli_a js_alertlogin_a no_lo_a">【登录】</a>
+       </p>
+       <p class="servers choose">
+           <span>我的服务器</span>
+           <select name="select_block" class="sel01 " id="js_netType">
+               <option value>请选择区组</option>
+               <option value="1">网通</option>
+               <option value="2">电信</option>
+               <option value="3">双线</option>
+           </select>
+           <select name="select_server" class="sel02 " id="js_server">
+               <option value>请选择服务</option>
+           </select>
+       </p>
+       <!--<p class="prize" id="js_myPrize"></p>-->
+       <p class="myprizes">
+          <span class="prize_info">中奖信息</span>
+          <span id="js_btnPopEditAddress">修改地址</span>
+       </p>	
+       <div class="activeCjInfo">
+           <div class="lotteryLb">
+                <div class="lottery dzp ">
+                        <a href="javascript:;" id="js_start" class="start" data-state="yes"></a>
+                        <div class="js_img dzp0 dzp_active" id="dzp0">
+                            <img src="http://static.cn114.cn/action/oldplayerlottery/images/wd160705_img01.png" alt="">
+                            <p class="txt">谢谢参与</p>
+                        </div>
+                        <div class="js_img dzp1" id="dzp1">
+                            <img src="http://static.cn114.cn/action/oldplayerlottery/images/wd160705_img02.png" alt="">
+                            <p class="txt">小米4</p>
+                        </div>
+                        <div class="js_img dzp2" id="dzp2">
+                            <img src="http://static.cn114.cn/action/oldplayerlottery/images/wd160705_img03.png" alt="">
+                            <p class="txt">平板包</p>
+                        </div>
+                        <div class="js_img dzp3" id="dzp3">
+                            <img src="http://static.cn114.cn/action/oldplayerlottery/images/wd160705_img04.png" alt="">
+                            <p class="txt">谢谢参与</p>
+                        </div>
+                        <div class="js_img dzp4" id="dzp4">
+                            <img src="http://static.cn114.cn/action/oldplayerlottery/images/wd160705_img05.png" alt="">
+                            <p class="txt">移动电源（蓝）</p>
+                        </div>
+                        <div class="js_img dzp5" id="dzp5">
+                            <img src="http://static.cn114.cn/action/oldplayerlottery/images/wd160705_img06.png" alt="">
+                            <p class="txt">海尔音响</p>
+                        </div>
+                        <div class="js_img dzp6" id="dzp6">
+                            <img src="http://static.cn114.cn/action/oldplayerlottery/images/wd160705_img07.png" alt="">
+                            <p class="txt">谢谢参与</p>
+                        </div>
+                        <div class="js_img dzp7" id="dzp7">
+                            <img src="http://static.cn114.cn/action/oldplayerlottery/images/wd160705_img08.png" alt="">
+                            <p class="txt">谢谢参与</p>
+                        </div>
+                        <div class="js_img dzp8" id="dzp8">
+                            <img src="http://static.cn114.cn/action/oldplayerlottery/images/wd160705_img09.png" alt="">
+                            <p class="txt">小米5</p>
+                        </div>
+                        <div class="js_img dzp9" id="dzp9">
+                            <img src="http://static.cn114.cn/action/oldplayerlottery/images/wd160705_img10.png" alt="">
+                            <p class="txt txt_noL">北通动力堡垒<br/>移动电源</p>
+                        </div>
+                        <div class="js_img dzp10" id="dzp10">
+                            <img src="http://static.cn114.cn/action/oldplayerlottery/images/wd160705_img11.png" alt="">
+                            <p class="txt">Iphone6s</p>
+                        </div>
+                        <div class="js_img dzp11" id="dzp11">
+                            <img src="http://static.cn114.cn/action/oldplayerlottery/images/wd160705_img12.png" alt="">
+                            <p class="txt txt_noL">九尾狐手办<br/>+福元宝</p>
+                        </div>
+                </div>
+             
+               	<div class="scroll">
+				<div class="scrollbox lotteryInfo">
+					<ul id="js_scrollList">
+						
+					</ul>
+				</div>
+			</div>
+           </div>
+           <div class="activeInfo">
+              <dl class="actTit" style="margin-top: 7px">
+                  <dt>活动时间</dt>
+                  <dd>2016年10月13日-10月20日</dd>
+                  <dd>2016年9月13日更新维护后至2016年10月12日23:59各服务器再续问道缘积分排行前10名玩家可抽奖</dd>
+              </dl>
+               <dl class="actTit">
+                   <dt>活动奖励</dt>
+                   <dd>Iphone6s、小米5、小米4、九尾狐手办、海尔音响、平板包、北通动力堡垒移动电源、移动电源（蓝）等丰富大奖等你拿！</dd>
+               </dl>
+               <dl class="actTit noPadding" style="margin-top: -6px;margin-bottom:12px">
+                   <dt>活动说明</dt>
+                   <dd><i>1</i><span>玩家在开启转盘活动之前必须先进行登录;</span></dd>
+                   <dd><i>2</i><span>每个账号只有1次抽奖机会，活动期间若未抽奖则视为放弃抽奖资格和奖品;</span></dd>
+                   <dd><i>3</i><span>中奖玩家收获信息须如实填写，若信息有误或不填写导致奖品无法发出将视为放弃奖品;</span></dd>
+                   <dd><i>4</i><span>本次活动奖品不可退换;</span></dd>
+                   <dd><i>5</i><span>活动结束后我们将进行统一奖品发放，请耐心等待;</span></dd>
+                   <dd><i>6</i><span>活动最终解释权由光宇在线科技有限责任公司所有。</span></dd>
+               </dl>
+           </div>
+       </div>
+   </div>
+</div>
+<div class="public_nav_bottom" style="display:block;">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+   
+<!--弹层提示-->
+    <!--遮罩-->
+<div class="tc tc_01" style="display:none;" id="js_popAddress">
+		<h3 class="tc_tit">抽奖</h3>
+		<h3 class="tc_tit2">恭喜您获得<span id="js_panelPrize_two"></span>奖励,请填写收货地址</h3>
+		<a class="close pop-close" href="#">关闭</a>
+		<div class="tc_shdz">
+			<form id="js_popAddressForm">
+				<div class="tc_shdztxt">
+					<p><label>收货人姓名：</label><input type="text" name="userName" class="sh_name" /></p>
+					<p><label>手&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;机：</label><input type="text" name="userPhone" class="sh_tel" /></p>
+					<p><label>收&nbsp;货&nbsp;地&nbsp;址：</label><input type="text" name="userAddress" class="sh_address" /></p>
+				</div>
+				<div class="tc_btn">
+					<input type="submit" value="确认提交" />
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="tc tc_02" id="js_popSuccTip" style="display:none;">
+		<h3 class="tc_tit">抽奖</h3>
+		<a class="close pop-close" href="#">关闭</a>
+		<div class="tc_cj">
+			<div class="tc_cjtxt">
+				<h3>恭喜你获得<span id="js_panelPrize"></span>奖励！</h3>
+				<p>我们将在活动结束7个工作日内统一发放奖励。</p>
+			</div>
+			<div class="tc_btn">
+				<a  href="javascript:;" class="pop-close">确&nbsp;定</a>
+			</div>
+		</div>
+	</div>
+	<div class="tc tc_02" id="js_popFailTip" style="display:none;">
+		<h3 class="tc_tit">抽奖</h3>
+		<a class="close pop-close" href="#">关闭</a>
+		<div class="tc_cj">
+			<div class="tc_cjtxt">
+				<h3>谢谢参与!</h3>
+			</div>
+			<div class="tc_btn">
+				<a href="javascript:;" class="pop-close">确&nbsp;定</a>
+			</div>
+		</div>
+	</div>
+<script>
+    var NLOTTERY_CONFIG = {
+        //获取我的奖品
+        getMyPrize: rc+"/oldplayerlottery/getAllLotteryInfoByUser",
+        //服务器列表
+        serverListUrl: rc+"/oldplayerlottery/getServers",
+        //抽奖
+        lotteryUrl: rc+"/oldplayerlottery/getLottery",
+        //滚动信息（其他玩家获取列表）
+        scrollNews: rc+"/oldplayerlottery/getLotteryInfo",
+        getBeforeAddress: rc +"/oldplayerlottery/getAddress",
+        updateAddress: rc +"/oldplayerlottery/resetAddress",
+        submitAddress : rc +"/oldplayerlottery/resetAddress"
+    };
+</script>
+<script src="http://s.gyyx.cn/lib/jquery.bgiframe.js"></script>
+<script src="http://static.cn114.cn/action/oldplayerlottery/js/Lotterywd.js"></script>
+<script src="http://static.cn114.cn/action/oldplayerlottery/js/handle.js"></script>
+
+<script>
+    $(function () {
+        nLottery.init();
+    });
+</script>
+</body>
+</html>

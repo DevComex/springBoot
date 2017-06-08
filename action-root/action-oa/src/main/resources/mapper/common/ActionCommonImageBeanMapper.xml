@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.common.IActionCommonImageBean">
+	<resultMap type="ActionCommonImageBean" id="ActionCommonImageBean">
+		<id column="code" property="code" />
+		<result column="temp_url" property="tempUrl" />
+		<result column="action_code" property="actionCode" />
+		<result column="real_url" property="realUrl" />
+		<result column="form_code" property="formCode" />
+		<result column="img_type" property="imgType" />
+		<result column="img_width" property="imgWidth" />
+		<result column="img_height" property="imgHeight" />
+		<result column="img_feature" property="imgFeature" />
+		<result column="status" property="status" />
+	</resultMap>
+	<insert id="insertActionCommonImageBean" useGeneratedKeys="true" keyProperty="code" parameterType="ActionCommonImageBean">
+		insert into action_common_image
+		(temp_url,real_url,img_width,img_height,img_feature,status)
+		values
+		(#{tempUrl},#{realUrl},#{imgWidth},#{imgHeight},#{imgFeature},#{status})
+	</insert>
+	
+	<select id="selectActionCommonImageBeanBycode" parameterType="int" resultMap="ActionCommonImageBean">
+		select * from action_common_image
+		where code = #{code}
+	</select>
+	
+	<update id="updateActionCommonImageBean" parameterType="ActionCommonImageBean">
+		update action_common_image
+		set
+		temp_url = #{tempUrl},real_url = #{realUrl},img_width = #{imgWidth},img_height = #{imgHeight},img_feature = #{imgFeature},status = #{status}
+		where
+		code = #{code}
+	</update>
+	
+	<delete id="deleteActionCommonImageBeanBycode" parameterType="int">
+		delete from action_common_image
+		where code = #{code}
+	</delete>
+	<select id="getImgBeanByPage" resultMap="ActionCommonImageBean" parameterType="CheckImgDTO">
+		select action_common_image.*,t.* from 
+		(
+			select action_common_image.code,ROW_NUMBER() OVER (ORDER BY action_common_image.code desc) as m from action_common_image
+			left join action_common_form
+			on action_common_image.form_code = action_common_form.code
+			where  
+				(action_common_image.action_code=${actionCode}
+				 <if test="status != ''">
+				 	and action_common_image.status = '${status}'
+				 </if>
+				 <if test="status == ''">
+				 	and action_common_image.status != '审核未通过'
+				 </if>
+				 )
+			and
+				(action_common_form.json_str like '%${account}%' and action_common_form.json_str like '%${area}%' and action_common_form.json_str like '%${netType}%')
+		) as t
+		left join action_common_image
+		on t.code = action_common_image.code
+		where t.m between ((${pageIndex}*10) + 1) and ((${pageIndex} + 1)*10)
+	</select>
+	<update id="updateImg" parameterType="ActionCommonImageBean">
+		update action_common_image set status = #{status},real_url = #{realUrl} where code = #{code}
+	</update>
+	<select id="selectImgBycode" resultMap="ActionCommonImageBean" parameterType="int">
+		select * from action_common_image where code = #{code}
+		</select>
+	<select id="getImgBeanByPagePass" resultMap="ActionCommonImageBean" parameterType="CheckImgDTO">
+		select action_common_image.*,t.* from 
+		(
+			select action_common_image.code,ROW_NUMBER() OVER (ORDER BY action_common_image.code desc) as m from action_common_image
+			left join action_common_form
+			on action_common_image.form_code = action_common_form.code
+			where  
+				(action_common_image.action_code=${actionCode}
+				 <if test="status != ''">
+				 	and action_common_image.status = '${status}'
+				 </if>
+				 <if test="status == ''">
+				 	and action_common_image.status != '审核未通过'
+				 </if>
+				 )
+			and
+				(action_common_form.json_str like '%${account}%' and action_common_form.json_str like '%${area}%' and action_common_form.json_str like '%${netType}%')
+		) as t
+		left join action_common_image
+		on t.code = action_common_image.code
+	</select>
+</mapper>

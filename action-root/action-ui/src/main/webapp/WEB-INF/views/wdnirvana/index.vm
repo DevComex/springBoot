@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>问道老玩家浴火重生-2017新服</title>
+    <meta name="keywords" content="问道，老玩家，浴火重生，2017">
+    <meta name="description" content="问道鸡年首服-2017，老玩家浴火重生。">
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wdnirvana/css/style.css"/>
+    <script type="text/javascript" src="http://s.gyyx.cn/Lib/jqueryModule/jquery-1.12.4.min.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wrap">
+        <div class="main">
+            <div class="links"><a target="_blank" href="">进入官网</a>|<a target="_blank" href="">充值中心</a>|<a target="_blank" href="">账号注册</a>|<a target="_blank" href="">下载中心</a></div>
+            <p class="times">活动时间：2016年10月8日-2016年10月15日</p>
+            <div class="content">
+                <div class="content_l">
+                    <div class="login_con">
+                        <div class="un_login js_login">抽奖需要先<a onclick="alertFn(null,null,true);">【登录】</a></div>
+                        <div class="logined js_logined" style="display:none;">欢迎您：<span class="js_account">******</span><label class="js_roleInfo">****-***</label><a class="js_signOutBtn">【退出】</a><a class="js_myPrize">查看我的中奖信息</a><a class="js_addressBtn">修改地址</a><a class="login_tip js_logined_tip">***</a></div>
+                    </div>
+                    <table class="prizes">
+                        <tr>
+                            <td class="js_cjBox" id="cjx0">
+                                <img src="http://static.cn114.cn/action/wdnirvana/images/prize_01.png" alt="">
+                            </td>
+                            <td class="js_cjBox" id="cjx1">
+                                <img src="http://static.cn114.cn/action/wdnirvana/images/prize_02.png" alt="">
+                            </td>
+                            <td class="js_cjBox" id="cjx2">
+                                <img src="http://static.cn114.cn/action/wdnirvana/images/prize_03.png" alt="">
+                            </td>
+                            <td class="js_cjBox" id="cjx3">
+                                <img src="http://static.cn114.cn/action/wdnirvana/images/prize_04.png" alt="">
+                            </td>
+                            <td class="js_cjBox" id="cjx4">
+                                <img src="http://static.cn114.cn/action/wdnirvana/images/prize_05.png" alt="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="js_cjBox" id="cjx11">
+                                <img src="http://static.cn114.cn/action/wdnirvana/images/prize_06.png" alt="">
+                            </td>
+                            <td colspan="3" class="prize_btn"><a class="js_prizeBtn" data-status="go"></a></td>
+                            <td class="js_cjBox" id="cjx5">
+                                <img src="http://static.cn114.cn/action/wdnirvana/images/prize_07.png" alt="">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="js_cjBox" id="cjx10">
+                                <img src="http://static.cn114.cn/action/wdnirvana/images/prize_08.png" alt="">
+                            </td>
+                            <td class="js_cjBox" id="cjx9">
+                                <img src="http://static.cn114.cn/action/wdnirvana/images/prize_09.png" alt="">
+                            </td>
+                            <td class="js_cjBox" id="cjx8">
+                                <img src="http://static.cn114.cn/action/wdnirvana/images/prize_10.png" alt="">
+                            </td>
+                            <td class="js_cjBox" id="cjx7">
+                                <img src="http://static.cn114.cn/action/wdnirvana/images/prize_11.png" alt="">
+                            </td>
+                            <td class="js_cjBox" id="cjx6">
+                                <img src="http://static.cn114.cn/action/wdnirvana/images/prize_12.png" alt="">
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="scroll_prize" id="js_scroll_top">
+                        <ul class="js_prizeList">
+                            <li><span>f****x</span>,已获得海尔音响!</li>
+                            <li><span>f****x</span>,已获得海尔音响!</li>
+                            <li><span>f****x</span>,已获得海尔音响!</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content_r">
+                    <h2><i></i>活动时间</h2>
+                    <p>2016年7月25日00:00-8月1日23:59<br/>2016年6月24日00:00至2016年7月23日23:59<br/>各服务器再续问道缘积分排行前10名玩家可抽奖</p>
+                    <h2><i></i>活动奖励</h2>
+                    <p>Iphone6s、Ipad AIR 2、小米4、九尾狐手办、海<br/>尔音响、平板包、北通动力堡垒移动电源、移动电<br/>源（蓝）等丰富大奖等你拿！</p>
+                    <h2><i></i>活动说明</h2>
+                    <ul>
+                        <li><i>1</i>玩家在开启转盘活动之前必须先进行登录；</li>
+                        <li><i>2</i>每个账号只有1次抽奖机会，活动期间若未抽奖则视<br/>为放弃抽奖资格和奖品；</li>
+                        <li><i>3</i>中奖玩家收获信息须如实填写，若信息有误或不填<br/>写导致奖品无法发出将视为放弃奖品；</li>
+                        <li><i>4</i>本次活动奖品不可退换；</li>
+                        <li><i>5</i>活动结束后我们将进行统一奖品发放，<br/>请耐心等待；</li>
+                        <li><i>6</i>活动最终解释权由光宇在线<br/>科技有限责任公司所有。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+     <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>  
+    <div class="pop_form pop_inner" id="popForm">
+        <div class="title js_prizeTitleBig">抽奖</div>
+        <span class="close"></span>
+        <h2 class="prize_message js_prizeTipBig">恭喜您获得：<span>XXXXX</span></h2>
+        <div class="txt">
+            <label>收货人姓名：</label>
+            <input class="js_name" type="text" maxlength="10" name="userNames"/>
+        </div>
+        <div class="txt">
+            <label>联系电话：</label>
+            <input class="js_phone" type="text" maxlength="11" name="phone"/>
+        </div>
+        <div class="txt">
+            <label>收货地址：</label>
+            <input class="js_addr" type="text" maxlength="200" name="address"/>
+        </div>
+        <p class="js_prizeTipBigBottom">注：实物奖励将在活动结束后7日工作日发放。烦请耐心等候。</p>
+        <a class="js_submitBtn">确认提交</a>
+    </div> 
+    <div class="pop_default pop_inner" id="popTip">
+        <div class="title js_prizeTitleSmall">抽奖</div>
+        <span class="close"></span>
+        <h2 class="prize_message js_prizeTipSmall">恭喜您获得：<span>XXXXX</span></h2>
+        <p>我们将在活动结束7个工作日内统一发放奖励。</p>
+        <a class="js_iKnow">确 认</a>
+    </div> 
+    <a href="" class="float_con"></a>
+	<script src="http://static.cn114.cn/action/wdnirvana/js/common.js"></script>
+	<script src="http://static.cn114.cn/action/wdnirvana/js/index.js"></script>
+</body>
+</html>

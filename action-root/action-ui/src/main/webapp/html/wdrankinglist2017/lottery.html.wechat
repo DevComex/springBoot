@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>问道周年新服“1心1意”开启！冲榜比拼赢IPHONE7！</title>
+    <link rel="stylesheet" type="text/css"  href="http://static.cn114.cn/action/wdxfcb/css/index.css"/>
+    <link rel="stylesheet" type="text/css"  href="http://static.cn114.cn/action/wdxfcb/css/chinaCaptcha.css"/>
+    <script src="http://static.cn114.cn/action/wdxfcb/js/jquery-1.8.2.min.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdxfcb/js/gyyx_wxshare.min.js" ></script>
+    <script type="text/javascript" src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> <!--光宇统计-->
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<div class="lottery_main">
+    <div class="marstBox" id="maskId" style="display:none;"></div>
+    <div class="uploadWord tcT">
+        <div class="Tp">
+            <p class="bgTop"><span>恭喜您</span></p>
+            <p class="close"></p>
+
+            <div class="cont3 tcAl">
+                <p class="gzInfo">
+                    <i class="gzBz">1</i>
+                    <span>关注问道微信，报名冲榜活动并达到80级或400年道行就可以获得抽奖资格;</span>
+                </p>
+                <p class="gzInfo">
+                    <i class="gzBz">2</i>
+                    <span>玩家报名冲榜活动后，在游戏内达到80级或400年道行后每天都可以抽一次奖！</span>
+                </p>
+                <p class="gzInfo">
+                    <i class="gzBz">3</i>
+                    <span>达到等级和道行所获的抽奖次数不叠加;</span>
+                </p>
+            </div>
+            <div class="cont4 tcAl">
+                <div class="cp2 zjjl">
+                </div>
+            </div>
+            <div class="cont tcAl">
+                <p class="cp2">
+                    <span>获得了</span><i></i>
+                </p>
+                <p class="sure"></p>
+            </div>
+            <div class="cont2 tcAl">
+                <p class="cp2">
+                    获得了<i></i>
+                </p>
+                <p class="co2_tit">请填写联系方式</p>
+                <input type="text" class="xm" placeholder="姓名" maxlength="10" />
+                <input type="text" class="sj" placeholder="手机" maxlength="11" />
+                <input type="text" class="dz" placeholder="地址" maxlength="200" />
+                <p class="co2_tit">道姐温馨提示：地址一经填写将不能修改请务必慎重填写；如果地址填写不完整导致奖励无法发放，将视为放弃奖励！<br/></p>
+                <p class="sure2"></p>
+            </div>
+        </div>
+    </div>
+    <div class="topBG">
+        <img src="http://static.cn114.cn/action/wdxfcb/images/topBG2.jpg" width="100%" class="topImg" alt="">
+        <span class="rule"></span>
+    </div>
+    <div class="index_Bg">
+        <div class="" style="width: 92%">
+            <ul class="lotys ul_lottery">
+                <li id="dzp0" class="js_img"><img src="http://static.cn114.cn/action/wdxfcb/images/01.png" /><p>1000银元宝</p></li>
+                <li  id="dzp1" class="js_img"><img src="http://static.cn114.cn/action/wdxfcb/images/01.png" /><p>3000银元宝</p></li>
+                <li  id="dzp2" class="js_img"><img src="http://static.cn114.cn/action/wdxfcb/images/01.png" /><p>5000银元宝</p></li>
+                <li  id="dzp3" class="js_img"><img src="http://static.cn114.cn/action/wdxfcb/images/01_1.png" /><p>谢谢参与</p></li>
+                <li  id="dzp11" class="js_img"><img src="http://static.cn114.cn/action/wdxfcb/images/11.png" /><p>勾陈手办</p></li>
+                <li class="choujiang start" id="js_start" data-state="yes"></li>
+                <li  id="dzp4" class="js_img"><img src="http://static.cn114.cn/action/wdxfcb/images/04.png" /><p>铜钱铭牌</p></li>
+                <li  id="dzp5" class="js_img"><img src="http://static.cn114.cn/action/wdxfcb/images/05.png" /><p>小米4</p></li>
+                <li style="position: absolute;bottom: 25%;"  id="dzp10" class="js_img"><img src="http://static.cn114.cn/action/wdxfcb/images/10.png" /><p>威威虎U型枕</p></li>
+                <li  id="dzp9" class="js_img"><img src="http://static.cn114.cn/action/wdxfcb/images/09.png" /><p>iphone 7</p></li>
+                <li  id="dzp8" class="js_img"><img src="http://static.cn114.cn/action/wdxfcb/images/08.png" /><p>新T恤</p></li>
+                <li  id="dzp7" class="js_img"><img style="position: relative;" src="http://static.cn114.cn/action/wdxfcb/images/07.png" /><p>iphone 6S</p></li>
+                <li  id="dzp6" class="js_img"><img src="http://static.cn114.cn/action/wdxfcb/images/06.png" /><p>移动电源</p></li>
+            </ul>
+            <p class="userInfo"  style="display: none;">
+                <span class="uNs">欢迎&nbsp;<i class="Ns"></i></span>
+            </p>
+            <p style="margin-bottom: .4rem">
+                <span class="uNs u2">剩余抽奖次数:&nbsp;<i class="num"></i></span>
+                <span class="myAwards" style="float: right;">查看我的中奖情况</span>
+            </p>
+            <div class="prizeDetail">
+                <i class="money"></i>
+                <p class="prizeTitle">
+                    玩家中奖情况
+                </p>
+                <div class="js_scrollCon" style="overflow:hidden;">
+                    <ul class="userPrize mulitline"></ul>
+                </div>
+
+            </div>
+            <ul class="activeRule">
+                <li>
+                    <i>1</i>
+                    <span> 关注问道微信，报名冲榜活动后在游戏内达到80级或400年道行就可以每天获得一次抽奖次数;</span>
+                </li>
+                <li>
+                    <i>2</i>
+                    <span>玩家抽奖获得的实物奖励会在活动结束后统一发放，获得奖励的玩家请耐心等待哦;</span>
+                </li>
+                <li>
+                    <i>3</i>
+                    <span>本活动最终解释权归光宇游戏公司所有，疑问请致电光宇客服：010-82438999</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+<ul  class="footer">
+    <li class="rank01 f1">
+        <a href="#"></a>
+    </li>
+    <li class="rank02 f2">
+        <a href="#"></a>
+    </li>
+    <li class="rank04 f3 f3_cur">
+        <a href="#"></a>
+    </li>
+</ul>
+
+<script type="text/javascript" src="http://static.cn114.cn/action/wdxfcb/js/publicnav.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdxfcb/js/lotterywd.js"></script>
+<script>
+    function formatDate(nS)   {
+        var date = new Date(nS);
+        Y = date.getFullYear() + '年';
+        M = (date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '月';
+        D = date.getDate() + '日';
+        return Y+M+D;
+    };
+    //多行滚动
+    function enveScroll(){
+        var _wrap = $('ul.mulitline');//定义滚动区域
+        var _interval = 2000;//定义滚动间隙时间
+        var _moving;//需要清除的动画
+        _moving = setInterval(function () {
+            var _field = _wrap.find('li:first');//此变量不可放置于函数起始处,li:first取值是变化的
+            var _h = _field.height()+20;//取得每次滚动高度
+            _wrap.animate({ marginTop: -_h + 'px' }, 500, function () {//通过取负margin值,隐藏第一行
+                _wrap.css('marginTop', 0).append(_field);//隐藏后,将该行的margin值置零,并插入到最后,实现无缝滚动
+            })
+        }, _interval)
+    };
+    function allPrizes(){
+        $.ajax({
+            url: "/wdrankinglist2017/prizes/show",
+            type: "GET",
+            dataType: "json",
+            data:{
+                r: Math.random()
+            },
+            success: function (d) {
+                if(d.isSuccess&& d.rows.length>0){
+                    var html="";
+                    for(var i=0;i<d.rows.length;i++){
+//                        var  dd=new  Date(d.rows[i].winningAt);formatDate(dd)
+                        html+='<li>恭喜玩家"'+d.rows[i].roleName+'"在抽奖活动中获得"'+d.rows[i].prizeName+'"</li>';
+                    };
+                    $(".userPrize").html(html);
+                };
+            },
+            error:function(){
+                alert("异常错误，请重试！");
+            },
+            complete:function(){
+                if($(".userPrize li").length>5){
+                    var liH=($(".mulitline li").eq(0).height()+20)*5;
+                    $(".js_scrollCon").css("height",liH+"px");
+                    enveScroll();
+                };
+            }
+        });
+    };
+    function winPrizeFn(point, message,cardCode, defaults) {
+        var loHas="";
+        var cardCode_kh,cardCode_pas;
+        if(cardCode!=null)
+        {
+            cardCode_kh=cardCode.toString().split(":")[0];
+            cardCode_pas=cardCode.toString().split(":")[1];
+        };
+        switch (point) {
+            case 0:
+            case 1:
+            case 2:
+            case 4:
+                $(".bgTop span").html("恭喜您");
+                $(".cp2 span").show();
+                $(".tcT").css("top","2%");
+                $(".Tp .cont .cp2 i").html(message);
+                $("#maskId,.uploadWord,.cont").show();
+                allPrizes()
+                break;
+            case 3:
+                $(".bgTop span").html("继续努力");
+                $(".cp2 span").hide();
+                $(".tcT").css("top","2%");
+                $(".Tp .cont .cp2 i").html("谢谢参与");
+                $("#maskId,.uploadWord,.cont").show();
+                break;
+            case  5:
+            case  6:
+            case  7:
+            case  8:
+            case  9:
+            case 10:
+            case 11:
+                $(".bgTop span").html("恭喜您");
+                $(".cp2 span").show();
+                $(".tcT").css("top","0");
+                $(".Tp .cont2 .cp2 i").html(message);
+                $("#maskId,.uploadWord,.cont2").show();
+                allPrizes()
+            default:
+        };
+        $(defaults.Btn).attr(defaults.BtnAttr, defaults.BtnStateYes);
+        $(".myAwards").attr("isc","1");
+    };
+
+    $(function(){
+        allPrizes();
+        //获取抽奖次数
+        $.ajax({
+            url: "/wdrankinglist2017/lottery",
+            type: "GET",
+            dataType: "json",
+            data: {
+                r: Math.random(),
+                openId: openIdFormat()
+            },
+            success:function(d){
+                $(".num").html(d.data);
+            },
+            error:function(){
+                alert("异常错误，请重试!")
+            }
+        });
+
+        $("#js_start").click(function(){
+            $(document).rotate({
+                ajaxData:{
+                    openId: openIdFormat()
+                }
+            });
+        });
+
+        $(".Tp .sure").click(function(){
+            $("#maskId,.uploadWord,.tcAl").hide();
+        });
+        $(".sure2").click(function(){
+            var xm=$(".cont2 .xm").val(), sj=$(".cont2 .sj").val(), dz=$(".cont2 .dz").val();
+            if(xm==""||sj==""||dz==""){
+                alert("信息不能为空！");
+                return false;
+            };
+            if(!(/^1[34578]\d{9}$/.test(sj))){
+                alert("手机号码格式不对，请重填");
+                return false;
+            };
+            $.ajax({
+                url: "/wdrankinglist2017/address",
+                type: "POST",
+                dataType: "json",
+                data:{
+                    r: Math.random(),
+                    openId: openIdFormat(),
+                    activityId: 466,
+                    userName : xm,
+                    userPhone :sj,
+                    userAddress :dz
+                },
+                success: function (d) {
+                    if(d.isSuccess){
+                        alert("添加成功");
+                    }else{
+                        alert("添加失败");
+                    }
+                    $("#maskId,.uploadWord,.tcAl").hide();
+                },
+                error:function(){
+                    alert("异常错误，请重试！");
+                }
+            });
+        });
+        $(".myAwards").click(function(){
+           if($(".myAwards").attr("isc")=="0"){
+               return false;
+           }
+            $(".bgTop span").html("中奖记录");
+            var html="";
+            var indexLi=1;
+            $.ajax({
+                url: "/wdrankinglist2017/prizes",
+                type: "GET",
+                dataType: "json",
+                data:{
+                    r: Math.random(),
+                    openId: openIdFormat()
+                },
+                success: function (d) {
+                    if(d.isSuccess&& d.rows.length>0){
+                        for(var i=0;i<d.rows.length;i++){
+                            if(d.rows[i].prizeName!="谢谢参与"){
+                                var  dd=new Date(d.rows[i].winningAt);
+                                html+="<p>"+(indexLi)+".&nbsp;&nbsp;"+ d.rows[i].prizeName+"&nbsp;&nbsp;"+formatDate(dd)+"</p>";
+                                indexLi++
+                            }
+
+                        };
+                        $(".zjjl").html(html);
+                    };
+                    $(".tcT").css("top","2%");
+                    $("#maskId,.uploadWord,.cont4").show();
+                },
+                error:function(){
+                    alert("异常错误，请重试！");
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

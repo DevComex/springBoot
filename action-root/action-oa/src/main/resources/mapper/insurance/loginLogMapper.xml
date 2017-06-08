@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper pageNum.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.insurance.ILoginLogMapper">
+	<resultMap type="LoginLogBean" id="LoginLogBean">
+		<id column="code" property="code" />
+		<result column="count_id" property="countId" />
+		<result column="login_time" property="loginTime" />
+		<result column="login_ip" property="loginIp" />		
+	</resultMap>
+	<insert id="insertLoginLog"  parameterType="LoginLogBean">
+		insert into [wd_insurance_login_log]
+		([count_id],[login_time],[login_ip])
+        values(#{countId},#{loginTime},#{loginIp})
+	</insert>
+	<select id="selectLastLogin"  resultMap="LoginLogBean" parameterType="Integer">
+		select top 1 *  
+		from wd_insurance_login_log 
+		where count_id = #{countId} 
+		order by login_time desc
+	</select>
+	
+</mapper>

@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>战斗补砖块h5小游戏,战斗补砖块手机小游戏_核弹头小游戏网</title>
+<meta name="keywords" content="战斗补砖块手机小游戏,战斗补砖块h5小游戏"/>
+<meta name="description" content="核弹头小游戏网为您提供战斗补砖块在线玩，战斗补砖块攻略秘籍和更多战斗补砖块h5小游戏尽在核弹头小游戏网！"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="full-screen" content="yes"/>
+<meta name="screen-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="360-fullscreen" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" href="css/bind.css">
+<script src="http://s.gyyx.cn/Lib/jqueryModule/jquery-1.12.4.min.js "></script>
+</head>
+<body>
+<div class="wrap">
+    <div class="login" style="display:none;">
+        <input type="text" placeholder="账号" class="text" maxlength="18"/>
+        <input type="text" placeholder="密码" class="text" maxlength="18"/>
+        <p class="captchaTip">请输入验证码完成登录</p>
+        <div id="captchaWrap" class="captchaWrap"></div>
+        <input type="button" value="登录" class="button"/>
+    </div>
+    <div class="serverWrap">
+        <h2>绑定区服</h2>
+        <select>
+            <option value="0">请选择大区</option>
+            <option value="1">网通</option>
+            <option value="2">电信</option>
+            <option value="3">双线</option>
+        </select>
+        <select id="sel_serverlist">
+            <option value="0">请选择服务器</option>
+        </select>
+        <input type="button" value="确定" class="button"/>
+    </div>
+</div>
+<div class="configCaptchaCom" id="captcha" style="display:none">  
+    <p class="configCaptchaContainer_p01">
+        <label class="configCaptcha_text">验证码：</label>
+        <span class="configCaptchaInput_container">
+            <em class="configCaptchaInput js_configCaptchaInput"><i class="configCaptchaImg js_configCaptchaImg"></i></em>
+            <em class="configCaptchaInput js_configCaptchaInput"><i class="configCaptchaImg js_configCaptchaImg"></i></em>
+            <em class="configCaptchaInput js_configCaptchaInput"><i class="configCaptchaImg js_configCaptchaImg"></i></em>
+            <em class="configCaptchaInput js_configCaptchaInput"><i class="configCaptchaImg js_configCaptchaImg"></i></em>
+            <em class="configCaptchaIcon configCaptchaInput configCaptcha_DeleteBtn js_deleteConfigCaptcha"></em>
+        </span>
+        <i class="configCaptchaIcon configCaptcha_Tip02 js_checkChinaCaptchaTip default"></i>
+    </p>
+    <p class="configCaptchaContainer_p02">
+        <span class="configCaptchaImg js_configCaptchaImg configCaptchaImg_yes js_refreshConfigCaptcha"></span>
+        <a class="configCaptchaChange js_refreshConfigCaptcha">换一张</a>
+    </p>
+    <p class="configCaptchaContainer_p03">点击框内文字输入上图中<b class="configCaptcha_Tip03">汉字</b>相应文字</p>
+    <div class="configCaptchaContainer_p04">
+        <ul class="configCaptchaSelectCon js_ChinaCaptchaSelect">
+            <li class="configCaptchaImg js_configCaptchaImg configCaptchaImg_0 js_captchaCaptchaSelect_img" data-code="0"></li>
+            <li class="configCaptchaImg js_configCaptchaImg configCaptchaImg_1 js_captchaCaptchaSelect_img" data-code="1"></li>
+            <li class="configCaptchaImg js_configCaptchaImg configCaptchaImg_2 js_captchaCaptchaSelect_img" data-code="2"></li>
+            <li class="configCaptchaImg js_configCaptchaImg configCaptchaImg_3 js_captchaCaptchaSelect_img" data-code="3"></li>
+            <li class="configCaptchaImg js_configCaptchaImg configCaptchaImg_4 js_captchaCaptchaSelect_img" data-code="4"></li>
+            <li class="configCaptchaImg js_configCaptchaImg configCaptchaImg_5 js_captchaCaptchaSelect_img" data-code="5"></li>
+            <li class="configCaptchaImg js_configCaptchaImg configCaptchaImg_6 js_captchaCaptchaSelect_img" data-code="6"></li>
+            <li class="configCaptchaImg js_configCaptchaImg configCaptchaImg_7 js_captchaCaptchaSelect_img" data-code="7"></li>
+            <li class="configCaptchaImg js_configCaptchaImg configCaptchaImg_8 js_captchaCaptchaSelect_img" data-code="8"></li>
+        </ul>
+    </div>
+</div>
+<div id="userInfo" class="userInfo">
+    <img class="close" src="res/close.png"/>
+    <h2>请填写联系方式：</h2>
+    <div class="inputs">
+        <label>姓　名：</label>
+        <input type="text" name="user" id="user" maxlength="10"/>
+    </div>
+    <div class="inputs">
+        <label>手机号：</label>
+        <input type="text" name="tel" id="tel" maxlength="11"/>
+    </div>
+    <div class="inputs">
+        <label>地　址：</label>
+        <textarea name="ads" id="ads" maxlength="200"></textarea>
+    </div>
+    <input type="button" class="button"/>
+    <p>活动奖品将在活动结束后由《问道》官方统一寄出，请保持电话畅通。</p>
+</div>
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/configCaptcha/js/configCaptcha.min.js"></script>
+<script src="js/function.js"></script>
+</body>
+</html>

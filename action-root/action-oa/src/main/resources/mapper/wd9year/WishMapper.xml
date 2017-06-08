@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wd9year.IWishDAO">
+	<resultMap type="wishBean" id="wishBeanInfo">
+		<id column="code" property="code" />
+		<result column="user_id" property="userId" />
+		<result column="content" property="content" />
+		<result column="picture_url" property="pictureURL" />
+		<result column="check_status" property="checkStatus" />
+		<result column="wish_time" property="wishTime" />
+	</resultMap>
+
+	<!-- 根据分页和条件查询 -->
+	<select id="selectByPage" resultMap="wishBeanInfo"
+		parameterType="java.util.Map">
+		select top 10 * from wendao_nineyear_wish_tb where code
+		not in (select
+		top (10*#{page}) code from wendao_nineyear_wish_tb where 1=1
+		<if test="checkStatus != null and checkStatus != ''">
+			and check_status = #{checkStatus}
+		</if>
+		<if test="checkStatus == null or checkStatus == ''">
+			and check_status = 'uncheck'
+		</if>
+		)
+		<if test="checkStatus != null and checkStatus != ''">
+			and check_status = #{checkStatus}
+		</if>
+		<if test="checkStatus == null or checkStatus == ''">
+			and check_status = 'uncheck'
+		</if>
+		;
+	</select>
+
+	<!-- 根据code修改审核状态 -->
+	<update id="updateWishStatus" parameterType="wishBean">
+		update
+		wendao_nineyear_wish_tb set check_status = #{checkStatus} where code =
+		#{code};
+	</update>
+
+	<!-- 根据状态查询数据总数 -->
+	<select id="getCountByStatus" resultType="Integer">
+		select count(*) from wendao_nineyear_wish_tb where 1=1
+		<if test="checkStatus != null and checkStatus != ''">
+			and check_status = #{checkStatus}
+		</if>
+		<if test="checkStatus == null or checkStatus == ''">
+			and check_status = 'uncheck'
+		</if>
+		;
+	</select>
+
+
+</mapper>

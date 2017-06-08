@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.novicecard.ActivityConfigMapper">
+
+	<resultMap type="ActivityConfigBean" id="ActivityConfig">
+		<id column="code" property="code" />
+		<result column="hd_name" property="activityName" />
+		<result column="hd_start" property="activityStart" />
+		<result column="hd_end" property="activityEnd" />
+		<result column="is_delete" property="isDelete" />
+		<result column="game_id" property="gameId" />
+		<result column="paras" property="paras" />
+		<result column="hd_link" property="activityLink" />
+	</resultMap>
+
+	<select id="selectActivityConfigByCode" parameterType="int" resultMap="ActivityConfig">
+		select top 1 code,hd_name,hd_start,hd_end,is_delete,game_id,paras,hd_link from hd_config_tb 
+		where code=#{code} and is_delete=0
+	</select>
+	
+	<select id="selectActivityConfigByhdName" parameterType="String" resultMap="ActivityConfig">
+		select top 1 code,hd_name,hd_start,hd_end,is_delete,game_id,paras,hd_link from hd_config_tb 
+		where hd_name=#{hdName} and is_delete=0
+	</select>
+	 <update id="updateActivityConfig" parameterType="ActivityConfigBean">
+ 	
+		  update hd_config_tb set hd_end=#{activityEnd} where hd_name=#{activityName}
+	
+  </update>
+  	 <update id="updateActivity" parameterType="ActivityConfigBean">
+ 	
+		  update hd_config_tb set code=#{code},hd_name=#{activityName},hd_start=#{activityStart},hd_end=#{activityEnd},game_id=#{gameId},paras=#{paras},hd_link=#{activityLink} where  code=#{code}
+	
+  </update>
+  <insert id="insertActivity"  parameterType="ActivityConfigBean" >
+		insert into hd_config_tb   
+		(code,hd_name, hd_start,hd_end,is_delete,game_id,paras,hd_link)  
+	    values(#{code},#{activityName},#{activityStart},#{activityEnd},#{isDelete},#{gameId},#{paras},#{activityLink}) 
+	</insert>
+  	<select id="getActivityConfig" resultMap="ActivityConfig">
+  		select top 50 code,hd_name from hd_config_tb 
+		where is_delete=0 order by code desc
+  	</select>
+</mapper>

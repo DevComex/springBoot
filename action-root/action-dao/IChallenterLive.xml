@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.challenger.IChallenterLive">
+	<resultMap type="ChallenterLiveBean" id="ChallenterLiveBeanMap">
+		<id column="code" property="code" />
+		<result column="player" property="player" />
+		<result column="create_time " property="createTime" />
+		<result column="live_radio" property="liveRadio" />
+		<result column="live_time " property="liveTime" />
+		<result column="user_id" property="userId" />
+		<result column="state" property="state" />
+		<result column="role_name" property="roleName" />
+	</resultMap>
+
+	<insert id="addChallenterLive">
+		insert into challenger_live_tb
+		(player,live_radio,live_time,user_id,role_name)
+		values
+		(#{player},#{live_radio},#{live_time},#{user_id},#{role_name})
+
+
+
+	</insert>
+</mapper>

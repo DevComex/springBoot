@@ -1,0 +1,287 @@
+
+#parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/jquery.ajaxpage-2.2.js"></script>
+<style>
+.table td {
+	word-wrap: break-word;
+	vertical-align: middle !important;
+}
+
+#main_region th, #content td {
+	padding: 5px 5px 5px;
+	text-align: center;
+}
+
+.table td img {
+	width: 100%;
+	max-height: 40px;
+}
+
+textarea {
+	border-color: #d9d9d9;
+}
+
+tr:hover td{
+	background-color: #DFF0D8 !important;
+}
+
+* {
+	outline: none;
+}
+</style>
+<script>
+	function getlist() {
+		$("#js_tbSzList").ajaxPage({
+			url : rc + "/wd/novice/serverDataList",//接口
+			pageObj : $("#DataTables_Table_0_paginate"),
+			pageIndex : 1,
+			pageSize : 10,
+			curPageCls : "paginate_active",
+			pageInfo : {
+				obj : $("#DataTables_Table_0_info"),
+				content : "共{allCount}条  当前第{pageIndex}/{allPage}页"
+			},
+			paramObj : {
+				hdType:$("#hdType").val()
+			},
+			dataFn : function(data, $this) {
+				var dataHtml = "",dataHtmlmain ="", dCont = data.data;//获取返回数据
+	              if (dCont && dCont.length && dCont[0]) {
+	                  for (var i = 0; i < dCont.length; i++) {
+	                      dataHtml += '<tr>' 
+	                           +'  <td>' + (i+1) + '</td>' 
+	                           +'  <td>' + dCont[i].serverId + '</td>' 
+	                           +'  <td>' + dCont[i].serverName + '</td>' 
+	                           + ' <td><span class="label '+(dCont[i].type=='媒体'?'bg-success':'bg-danger')+'">' + '媒体/官网' + '</span></td>' 
+	                           +'  <td>' + dCont[i].areaName + '</td>' 
+	                           //+'  <td>' + dCont[i].activityId + '</td>' 
+	                           +'  <td code="'+dCont[i].code+'"><a style="margin-left:10px;" class="btn btn-xs btn-danger js_delete_server">'
+		                       +'  <i class="fa fa-times-circle"></i>删除'
+		                       +'  </a>'
+	                      dataHtml += '</td></tr>';
+	                  }
+	                  $("#js_tbSzList").empty().html(dataHtml);
+	                  
+	                  return dataHtml;
+				} else {
+					$("#js_tbSzList").empty()
+					$("#scrollable_one").hide();
+				}
+			}
+		});
+	}
+
+	$(function() {
+		$("#search").click(function() {
+			getlist();
+		});
+		
+		getlist();
+		
+		$(".js_delete_server").live("click",function(){
+			  if(confirm("确定要删除当前记录吗？")){
+				  $.ajax({
+						url:rc + "/wd/novice/deleteServer",
+						type:'POST',
+						data:{code:$(this).parent().attr("code"),r:Math.random()},
+						dataType:'json',
+						success:function(d){
+							 if (d.isSuccess) {
+								 alert(d.message);
+								 getlist();
+							 }else{
+								 alert(d.message);
+							 }
+						}
+					  }); 
+			  }
+		});
+		
+		$(".js_edit_btn").click(function(){
+			var serverId = $.trim($("#serverId").val());
+			var activityId = $.trim($("#activityId").val());
+			if(!serverId){
+				alert("服务器ID不能为空！");
+				return false;
+			}
+			if(isNaN($.trim(serverId))){
+				alert("服务器ID必须为数字！");
+				return false;
+			}
+			var serverName = $.trim($("#serverName").val());
+			if(!serverName){
+				alert("服务器名称不能为空！");
+				return false;
+			}
+			if($.trim(serverName).length  >20){
+				alert("服务器名称长度不能大于20！");
+				return false;
+			}
+			var activityId = $.trim($("#activityId").val());
+			if(!activityId){
+				alert("活动号/批次号不能为空！");
+				return false;
+			}
+			if(isNaN($.trim(serverId))){
+				alert("活动号/批次号必须为数字！");
+				return false;
+			}
+			var formSrc = rc + "/wd/novice/addOrUpdateServer";
+			
+			$.ajax({
+	            type:"post",
+	            url:formSrc,
+	            data:{
+					serverName : serverName,
+					serverId : serverId,
+					areaCode : $("#areaCode").val(),
+					batchNo : activityId,
+					r : Math.random()
+				},
+				success : function(d) {
+					alert(d.message);
+					getlist();
+					//$('#serverAddModal').modal('hide');
+					location.reload();
+				},
+				error : function() {
+					alert("网络异常");
+				}
+			});
+		});
+	});
+</script>
+
+<section class="vbox">
+	<section>
+		<section class="hbox stretch">
+			<section id="content">
+				<section class="vbox js_template_right">
+					<header class="header bg-white b-b clearfix">
+						<h4 class="doc-buttons pull-left" style="margin-top: 16px">新手卡活动-服务器列表</h4>
+						<span class="doc-buttons pull-left"> 
+							<select id="hdType" style="margin-top: 10px; margin-left: 10px;"
+								class="input-sm">
+									<option value="38" selected>2999 2017</option>
+							</select>
+						</span>
+						<span class="doc-buttons pull-left"> <a id="search"
+							class="btn btn-sm btn-info"
+							style="margin-top: 10px; margin-left: 10px"
+							href="javascript:void(0);"><i class="fa fa-search"></i>搜索</a>
+						</span>
+						<span class="doc-buttons pull-left"> <a id="addServerBtn"
+							class="btn btn-sm btn-info"
+							style="margin-top: 10px; margin-left: 10px" data-toggle="modal"
+							href="#serverAddModal"><i class="fa fa-search"></i>增加</a>
+						</span>
+						<span class="doc-buttons pull-left"> <a
+							class="btn btn-sm btn-info" id="js_add_project"
+							style="margin-top: 10px; margin-left: 10px" href="/wd/novice/index"><i class="fa fa-home"></i>首页</a>
+						</span>
+					</header>
+					<section class="scrollable padder">
+						<div class="m-b-md"></div>
+						<section class="panel panel-default" id="main_region">
+							<div class="table-responsive">
+								<table class="table table-striped m-b-none"
+									style="table-layout: fixed;">
+									<thead>
+										<tr>
+											<th width="5%">序号</th>
+											<th width="10%">服务器ID</th>
+											<th width="10%">服务器名称</th>
+											<th width="10%">类型</th>
+											<th width="15%">所属大区</th>
+											<!-- <th width="10%">标识值</th> -->
+											<th width="8%">操作</th>
+										</tr>
+									</thead>
+									<tbody id="js_tbSzList">
+									</tbody>
+								</table>
+								<div class="row dataTables_wrapper"
+									style="margin-right: 0px; margin-left: 0px;">
+									<footer class="footer bg-white b-t">
+										<div class="row dataTables_wrapper">
+											<div class="col-sm-6">
+												<div id="DataTables_Table_0_info" class="dataTables_info"></div>
+											</div>
+											<div class="col-sm-6">
+												<div id="DataTables_Table_0_paginate"
+													class="dataTables_paginate paging_full_numbers"></div>
+											</div>
+										</div>
+									</footer>
+								</div>
+							</div>
+						</section>
+					</section>
+				</section>
+			</section>
+			
+<div class="modal fade" id="serverAddModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+				<div class="modal-header" style="height:60px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h6 class="modal-title">新增</h6>
+                </div>
+				<form id="editForm" method="post">
+					<input id="code" name="code" type="hidden" value="0" />
+	                <div class="modal-body">
+	                	<div class="form-group" style="display: inline-block; overflow: hidden;width: 500px;">
+	                        <div class="col-sm-10">
+	                                <label for="input-id-4" style="text-align:right;padding-top:6px;" class="col-sm-4 control-label">服务器ID：</label>
+	                                <div class="col-sm-6">
+	                                    <div class="input-group">
+	                                        <input id="serverId" name="serverId" type="text" class="input-sm form-control" style="width:300px" >
+	                                    </div>
+	                                </div>
+	                        </div>
+	                    </div>
+						<div class="form-group" style="display: inline-block; overflow: hidden;width: 500px;">
+	                        <div class="col-sm-10">
+	                                <label for="input-id-4" style="text-align:right;padding-top:6px;" class="col-sm-4 control-label">服务器名称：</label>
+	                                <div class="col-sm-6">
+	                                    <div class="input-group">
+	                                        <input id="serverName" name="serverName" type="text" class="input-sm form-control" style="width:300px" >
+	                                    </div>
+	                                </div>
+	                        </div>
+	                    </div>
+	                    <div class="form-group" style="display: inline-block; overflow: hidden;width: 500px;">
+	                        <div class="col-sm-10">
+	                                <label for="input-id-4" style="text-align:right;padding-top:6px;" class="col-sm-4 control-label">大区：</label>
+	                                <div class="col-sm-6">
+	                                    <div class="input-group" >
+	                                    	<select id="areaCode" name="areaCode" style="width:200px;height:30px;border-color:#d9d9d9">
+	                                    		<option value="3">双线</option>
+	                                    		<option value="1">网通</option>
+	                                    		<option value="2">电信</option>
+	                                    	</select>
+	                                    </div>
+	                                </div>
+	                        </div>
+	                    </div>
+	                    <div class="form-group" style="display: inline-block; overflow: hidden;width: 500px;">
+	                        <div class="col-sm-10">
+	                                <label for="input-id-4" style="text-align:right;padding-top:6px;" class="col-sm-4 control-label">活动号/批次号：</label>
+	                                <div class="col-sm-6">
+	                                    <div class="input-group">
+	                                        <input id="activityId" name="activityId" type="text" class="input-sm form-control" style="width:300px" >
+	                                    </div>
+	                                </div>
+	                        </div>
+	                    </div>
+	                </div>
+				</form>
+                <div class="modal-footer">
+					<button type="button" class="btn btn-info js_edit_btn">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
+                </div>
+            </div>
+        </div>
+    </div>
+			#parse("/shared/footer.vm")

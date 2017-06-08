@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>【问道】地铁大对决（捍卫我的主场）</title>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wdsubway/css/wd150909.css" type="text/css" />
+    <script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js"></script>
+    <style>
+        .loginBox { left: 310px; width: 580px; }
+
+        .voteCount { position: relative; top: 0; left: 0; }
+        .voteCount p { position: absolute; top: 0; }
+        .voteCount p.p01 { width: 50%; left: 0px; z-index: 2; transition: all 0.2s linear; -moz-transition: all 0.2s linear; -webkit-transition: all 0.2s linear; }
+        .voteCount p.p02 { width: 100%; right: 0px; z-index: 1; }
+
+        .btn01,.btn02{border:none; font-family:'Microsoft YaHei';}
+
+        .loginBox .login{margin-left:65px;}
+		.js_prizeUl{top:0;}
+		.voteList li span{ transition: width 0.2s linear; -moz-transition: width 0.2s linear; -webkit-transition: width 0.2s linear;}
+    </style>
+	<script  type="text/javascript">
+        var rc = "${rc.contextPath}";
+	</script>
+	<script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?721ab808204a89b82a77468069b72dfb";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+
+    <div class="wrap">
+        <div class="main">
+            <div class="nav"><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a></div>
+            <div class="loginBox">
+                <div class="login" id="js_loginBtn" style="display: none;"><a href="javascript:;" onclick="window.alertFn&&alertFn(null,null,true); return false;" class="noTxt">立即登录参与活动</a></div>
+                <!--登录前-->
+                <div class="log_succ" id="js_loginInPanel" style="display: none;">
+                    <!--登录后-->
+                </div>
+            </div>
+            <div class="voteBox">
+                <h3>每位用户最多可捍卫三条线路</h3>
+                <div class="voteList" id="js_voteList">
+                    <ul class="voteLeft">
+                        <li>
+                            <p><span style="width: 0%;" id="js_vote1"></span></p>
+                            <a href="javascript:;" class="a01">1号线</a></li>
+                        <li>
+                            <p><span style="width: 0%;" id="js_vote7"></span></p>
+                            <a href="javascript:;" class="a02">7号线</a></li>
+                        <li>
+                            <p><span style="width: 0%;" id="js_vote9"></span></p>
+                            <a href="javascript:;" class="a03">9号线</a></li>
+                        <li>
+                            <p><span style="width: 0%;" id="js_vote10"></span></p>
+                            <a href="javascript:;" class="a04">10号线</a></li>
+                        <li>
+                            <p><span style="width: 0%;" id="js_voteCp"></span></p>
+                            <a href="javascript:;" class="a05">昌平线</a></li>
+                        <li>
+                            <p><span style="width: 0%;" id="js_voteYz"></span></p>
+                            <a href="javascript:;" class="a06">亦庄线</a></li>
+                    </ul>
+                    <ul class="voteRight">
+                        <li><a href="javascript:;" class="a07">2号线</a><p><span style="width: 0%;" id="js_vote2"></span></p>
+                        </li>
+                        <li><a href="javascript:;" class="a08">5号线</a><p><span style="width: 0%;" id="js_vote5"></span></p>
+                        </li>
+                        <li><a href="javascript:;" class="a09">6号线</a><p><span style="width: 0%;" id="js_vote6"></span></p>
+                        </li>
+                        <li><a href="javascript:;" class="a10">8号线</a><p><span style="width: 0%;" id="js_vote8"></span></p>
+                        </li>
+                        <li><a href="javascript:;" class="a11">15号线</a><p><span style="width: 0%;" id="js_vote15"></span></p>
+                        </li>
+                        <li><a href="javascript:;" class="a12">房山线</a><p><span style="width: 0%;" id="js_voteFs"></span></p>
+                        </li>
+                        <li><a href="javascript:;" class="a13">八通线</a><p><span style="width: 0%;" id="js_rvoteYz"></span></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="voteCount">
+                    <p class="p01" id="js_redVoteBar">
+                        <span style="width: 100%;"><i></i><b id="js_redVoteCount">0</b>票</span>
+                    </p>
+                    <p class="p02">
+                        <span style="width: 100%;"><b id="js_blueVoteCount">0</b>票<i></i></span>
+                    </p>
+                </div>
+            </div>
+            <div class="cjList">
+                <h3 class="wd_tit">投票抽奖</h3>
+                <div class="cjBox">
+                    <ul class="cjLeft">
+                        <li id="dzp0" class="jp on"><a href="javascript:;">
+                            <img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic01.jpg"></a><a href="javascript:;" class="cj_on"><img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic01_on.jpg"></a></li>
+                        <li id="dzp1" class="jp"><a href="javascript:;">
+                            <img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic02.jpg"></a><a href="javascript:;" class="cj_on"><img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic02_on.jpg"></a></li>
+                        <li id="dzp2" class="jp"><a href="javascript:;">
+                            <img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic03.jpg"></a><a href="javascript:;" class="cj_on"><img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic03_on.jpg"></a></li>
+                        <li id="dzp3" class="jp"><a href="javascript:;">
+                            <img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic04.jpg"></a><a href="javascript:;" class="cj_on"><img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic04_on.jpg"></a></li>
+                        <li id="dzp9" class="jp"><a href="javascript:;">
+                            <img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic05.jpg"></a><a href="javascript:;" class="cj_on"><img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic05_on.jpg"></a></li>
+                        <li class="cjBtn"><a href="javascript:;" class="noTxt" id="btnStart" text="go">立即抽奖</a></li>
+                        <li id="dzp4" class="jp"><a href="javascript:;">
+                            <img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic06.jpg"></a><a href="javascript:;" class="cj_on"><img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic06_on.jpg"></a></li>
+                        <li id="dzp8" class="jp"><a href="javascript:;">
+                            <img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic07.jpg"></a><a href="javascript:;" class="cj_on"><img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic07_on.jpg"></a></li>
+                        <li id="dzp7" class="jp"><a href="javascript:;">
+                            <img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic08.jpg"></a><a href="javascript:;" class="cj_on"><img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic08_on.jpg"></a></li>
+                        <li id="dzp6" class="jp"><a href="javascript:;">
+                            <img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic09.jpg"></a><a href="javascript:;" class="cj_on"><img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic09_on.jpg"></a></li>
+                        <li id="dzp5" class="jp"><a href="javascript:;">
+                            <img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic10.jpg"></a><a href="javascript:;" class="cj_on"><img src="http://static.cn114.cn/action/wdsubway/images/wd150909_pic10_on.jpg"></a></li>
+                    </ul>
+                    <div class="cjRight">
+                        <h3>获奖名单</h3>
+                        <div class="cj_txt"style="overflow:hidden;">
+                            <ul class="js_prizeUl" id="js_scrollList" >
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hdBox">
+                <h3 class="wd_tit">投票抽奖</h3>
+                <div class="hdTxt">
+                    <p>1、用户登录光宇账号后，可参与三条线路的投票。参与投票后获得1次抽奖机会，且每个光宇帐号最多获得1次抽奖机会；</p>
+                    <p>2、参与抽奖100%获得奖品；</p>
+                    <p>3、活动期间，每个光宇帐号最多获得1次抽奖机会；</p>
+                    <p>4、实物活动奖品，除iPhone 6S Plus奖品外，其他实物奖品将由光宇游戏在活动结束后30天以内统一安排寄送，为了确保您的获奖资格，请务必填写正确的个人信息，以免影响发奖；</p>
+                    <p>5、由于iPhone 6S Plus奖品的特殊性，奖品将可能延迟发放。如获奖者不愿等待，可换取苹果官方发售价等值的京东卡；</p>
+                    <p>6、本次活动的解释权归光宇游戏共同所有。</p>
+                </div>
+                <div class="wd_slide">
+                    <div class="pic">
+                        <a href="javascript:;">
+                            <img src="http://static.cn114.cn/action/wdsubway/images/pic1.jpg"></a>
+                    </div>
+                    <div class="pic">
+                        <a href="javascript:;">
+                            <img src="http://static.cn114.cn/action/wdsubway/images/pic2.jpg"></a>
+                    </div>
+                    <div class="pic">
+                        <a href="javascript:;">
+                            <img src="http://static.cn114.cn/action/wdsubway/images/pic3.jpg"></a>
+                    </div>
+                    <ul class="picnum">
+                        <li class="on">1</li>
+                        <li>2</li>
+                        <li>3</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--实物奖品 begin-->
+    <!--div class="tc tcNo2" style="width: 778px; height:470px;" id="js_popMater">
+        <div class="ico"><i></i>恭喜您获得<span id="js_materPrize"></span>一部</div>
+        <div class="txt">请填写准确详细的个人信息，以便我们邮寄奖品，包邮哦！</div>
+        <form>
+            <p>
+                <label for="">姓&emsp;&emsp;名：</label>
+                <input type="text" name="realName" maxlength="15" autocomplete="off" />
+            </p>
+            <p>
+                <label for="">手机号码：</label>
+                <input type="text" name="phone" maxlength="11" autocomplete="off" />
+            </p>
+            <p>
+                <label for="">邮寄地址：</label>
+                <input type="text" name="address" maxlength="50" autocomplete="off" />
+            </p>
+            <p>
+                <label for="">邮&emsp;&emsp;编：</label>
+                <input type="text" name="post"  maxlength="6" autocomplete="off" />
+            </p>
+            <div class="tac">
+                <button type="submit" class="btn01">确认领奖</button>
+            </div>
+        </form>
+        <a href="javascript:;" class="close js_close"></a>
+    </div>
+    <!--实物奖品 end-->
+	
+    <!--实物奖品 new begin-->
+	<div class="tc tcNo2" id="js_popMater">
+    	<h3>恭喜您获得<span id="js_materPrize"></span>一部</h3>
+    	<div class="txt">请填写准确详细的个人信息，以便我们邮寄奖品，包邮哦！</div>
+        <form>
+            <p>
+                <label for="">姓&emsp;&emsp;名：</label>
+                <input type="text" name="realName" maxlength="15" autocomplete="off" />
+            </p>
+            <p>
+                <label for="">手机号码：</label>
+                <input type="text" name="phone" maxlength="11" autocomplete="off" />
+            </p>
+            <p>
+                <label for="">邮寄地址：</label>
+                <input type="text" name="address" maxlength="50" autocomplete="off" />
+            </p>
+            <p>
+                <label for="">邮&emsp;&emsp;编：</label>
+                <input type="text" name="post"  maxlength="6" autocomplete="off" />
+            </p>
+            <div class="tac">
+                <button type="submit" class="btn02">立即领取</button>
+            </div>
+        </form>
+    	<a href="javascript:;" class="close js_close"></a>
+	</div>
+    <!--实物奖品 end-->
+
+
+    <!--新手卡礼包 begin-->
+    <!--div class="tc tcNo2" style="width: 778px; height:412px;" id="js_popNoviceCard">
+        <div class="ico"><i></i>恭喜您获得2499元新手礼包！</div>
+        <div class="txtr">价值2499元的豪华礼包,内含“高级时装. 套装首饰. 极品道具. 限量坐骑”等. <br />1秒变土豪！</div>
+        <div class="num" id="js_noviceCardNum">序列号为：</div>
+        <div class="tac">
+            <a  href="http://actionv2.gyyx.cn/heavenlybookcard/index" target="_blank" class="btn01" title="会在新窗口中打开">立即领取</a>
+        </div>
+        <a href="javascript:;" class="close js_close"></a>
+    </div>
+    <!--新手卡礼包 end-->
+
+	<!--新手卡礼包 new begin-->
+    <div class="tc tcNo2" id="js_popNoviceCard2">
+    	<h3>恭喜您获得2499元<br>《问道》新手礼包！</h3>  	
+    	<div class="txtr">价值2499元的豪华礼包，内含“高级时装. 套装首饰. 极品道具. 限量坐骑”等；1秒变土豪！</div>
+        <div class="num" id="js_noviceCardNum2">序列号为：*****</div>
+		<div class="tac">
+            <a  href="http://actionv2.gyyx.cn/heavenlybookcard/index" class="btn01" title="会在新窗口中打开">立即领取</a>
+        </div>
+    	<a href="javascript:;" class="close js_close"></a>
+    </div>
+    <!--新手卡礼包 new end-->
+	
+    <!--新手卡礼包 new begin-->
+    <div class="tc tcNo2" id="js_popNoviceCard">
+    	<h3>恭喜您获得2499元<br>《问道》新手礼包！</h3>  	
+    	<div class="txtr">价值2499元的豪华礼包，内含“高级时装. 套装首饰. 极品道具. 限量坐骑”等；1秒变土豪！</div>
+        <div class="tac" style="display:none;">
+            <a  href="http://actionv2.gyyx.cn/heavenlybookcard/index" class="btn01" title="会在新窗口中打开">立即领取</a>
+        </div>
+        <form>
+			<div class="num" id="js_noviceCardNum" style="display:none;">序列号为：*****</div>
+			<input type="hidden" value="" id="js_noviceCardNumhidden" name="noviceCard" />
+            <p>
+                <label for="ddlNetType">请选择大区：</label>
+                <select name="netType" id="ddlNetType">                    
+                    <option value="1">网通</option>
+                    <option value="2">电信</option>
+					<option value="3">双线</option>
+                </select>
+            </p>
+            <p>
+                <label for="ddlGameServer">请选择服务器：</label>
+                <select name="serverId" id="ddlGameServer">
+                </select>
+            </p>
+			<p>
+                <label for="ddlGameServer">验证码：</label>
+                <input type="text" name="Checkcode" id="txtCheckcode" value="" style="width:100px" />
+				<img width="88" height="40" alt="验证码" title="看不清楚,请点击." src="" id="captcha_image" style="background-color:#fff;" />
+            </p>
+            <div class="tac">
+                <button id="getNoviceCardBtn" type="button" class="btn02">立即领取</button>
+            </div>
+        </form>
+    	<a href="javascript:;" class="close js_close"></a>
+    </div>
+    <!--新手卡礼包 new end-->
+	
+	 <!--京东卡 begin-->
+    <!--div class="tc tcNo2" style="width:778px; height:338px;" id="js_popJDCard">
+        <div class="ico"><i></i>恭喜您获得<span id="js_JDCardName">京东卡</span>！</div>
+        <p>
+			<label for="">卡&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</label>
+			<input type="text" readonly='readonly' id='js_JDCardNum' onclick='select();' />
+		</p>
+		<p>
+			<label for="">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+			<input type="text" readonly='readonly' id='js_JDCardSec' onclick='select();' />
+		</p>
+        <div class="tac">
+            <a href="http://giftcard.jd.com/giftcard/index.action#queryBind" target="_blank" class="btn01" title="会在新窗口中打开">去充值</a>
+        </div>
+        <a href="javascript:;" class="close js_close"></a>
+    </div>
+    <!--京东卡 end-->
+	
+    <!--京东卡 new begin-->
+	<div class="tc tcNo2 tcN03" id="js_popJDCard">
+    	 <h3 class="mt42">恭喜您获得<span id="js_JDCardName">京东卡</span></h3>
+    	 <p>
+			<label for="">卡&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;号：</label>
+			<input type="text" readonly='readonly' value="2323" id='js_JDCardNum' onclick='select();' />
+		</p>
+		<p>
+			<label for="">密&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;码：</label>
+			<input type="text" readonly='readonly' id='js_JDCardSec' onclick='select();' />
+		</p>
+    	 <div class="tac">
+            <a href="http://giftcard.jd.com/giftcard/index.action#queryBind" target="_blank" class="btn01" title="会在新窗口中打开">去充值</a>
+        </div>
+    	 <a href="javascript:;" class="close js_close"></a>
+	</div>
+    <!--京东卡 new end-->
+	
+	
+    <!--已参加活动 begin-->
+	<!--div style="width:582px; height:197px;" class="tc tcNo1" id="js_popLotteryed">
+	 <h3>您已参加活动</h3>	
+	 <a class="btn01" href="javascript:;">查看获奖记录</a>
+	 <a class="close js_close" href="javascript:;"></a>
+	</div>
+    <!--已参加活动  end-->
+	
+    <!--已参加活动 new begin-->
+	<div class="tc tcNo1" id="js_popLotteryed">
+    	 <h3>您已参加活动</h3>	
+    	 <a href="javascript:;" class="btn01">查看获奖记录</a>
+    	 <a href="javascript:;" class="close js_close"></a>
+	</div>
+    <!--已参加活动 new  end-->
+
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div>
+    <script src="http://static.cn114.cn/action/wdsubway/js/ymcore.min.js"></script>
+    <script src="http://static.cn114.cn/action/wdsubway/js/createPop.js"></script>
+    <script src="http://static.cn114.cn/action/wdsubway/js/Lotterywd.js"></script>
+    <script src="http://static.cn114.cn/action/wdsubway/js/voteLottery.js"></script>
+    <script src="http://static.cn114.cn/action/wdsubway/js/subwayVote.js"></script>
+    <script>
+        //焦点图
+        YM.UI.Slide({
+            container: 'div.wd_slide',
+            animated: 'fade',
+            bind: 'mouseover',
+            index: 0,
+            time: 500,
+            delay: 5000
+        });
+
+		//部分弹层配置
+		var popCfg= { modal: 1,width:'913px',height:'642px' };
+
+        //实物弹层
+        var popMater = CreatePop('js_popMater',popCfg);
+
+        //新手卡弹层
+        var popNoviceCard = CreatePop('js_popNoviceCard',popCfg);
+		//新手卡弹层2 查看我的获奖情况
+        var popNoviceCard2 = CreatePop('js_popNoviceCard2',popCfg);
+
+        //京东卡弹层
+        var popJDCard = CreatePop('js_popJDCard', popCfg);
+		
+		//已参加活动
+		var popLotteryed=CreatePop('js_popLotteryed',{modal:1,width:'809px',height:'453px'});
+		
+		//投票
+        new SubWayVote().init();
+
+		//抽奖
+        new VoteLottery().init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>笑脸图片审核</title>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="/resources/script/jquery-ui.dialog.min.js"></script>
+</head>
+<body>
+	<p>$!error</p>
+   <table class="table table-striped m-b-none">
+  <tr>
+    <td>编号</td>
+    <td>账号</td>
+    <td>区组</td>
+    <td>角色名</td>
+    <td>作品名</td>
+    <td>长传时间</td>
+    <td>状态</td>
+    <td>图片</td>
+    <td>审核</td>
+    <td>删除</td>
+  </tr>
+  #foreach($face in $faces)
+  <tr>
+	<td>${face.code}</td>
+    <td>${face.accountCode}</td>
+     <td>${face.wdDatingPet.server}</td>
+      <td>${face.wdDatingPet.character}</td>
+       <td>${face.wdDatingPet.petName}</td>
+        <td>时间</td>
+         <td>${face.status}</td>
+    <td><a href = "${face.faceTempUrl}">LINK</a></td>
+    <td><a href = "${rc.contextPath}/oacommon/passImg?pageIndex=${pageIndex}&code=${face.code}">审核通过</a></td>
+    <td><a href = "${rc.contextPath}/oacommon/unpassImg?pageIndex=${pageIndex}&code=${face.code}">审核不通过</a></td>
+  </tr>
+  #end
+  #set($nextIndex = $pageIndex + 1)
+  #set($preIndex = $pageIndex - 1)
+  <a href = "${rc.contextPath}/oacommon/showImgCheck?pageIndex=${preIndex}">上一页</a><a href = "${rc.contextPath}/oacommon/showImgCheck?pageIndex=${nextIndex}">下一页</a>
+</table>
+</body>
+</html>

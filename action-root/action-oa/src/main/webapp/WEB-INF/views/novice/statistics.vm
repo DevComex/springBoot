@@ -1,0 +1,221 @@
+#parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/jquery.ajaxpage-2.2.js"></script>
+<script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+<script src="http://cdn.hcharts.cn/highcharts/modules/exporting.js"></script>
+<style>
+.table td {
+	word-wrap: break-word;
+	vertical-align: middle !important;
+}
+
+#main_region th, #content td {
+	padding: 5px 5px 5px;
+	text-align: center;
+}
+
+.table td img {
+	width: 100%;
+	max-height: 40px;
+}
+
+textarea {
+	border-color: #d9d9d9;
+}
+
+tr:hover td{
+	background-color: #DFF0D8 !important;
+}
+
+* {
+	outline: none;
+}
+select{
+	border-color:#d9d9d9
+}
+</style>
+<script>
+	function getlist() {
+		var month = $.trim($("#month").val());
+		var hdType = $.trim($("#hdType").val());
+		var serverId = $("#serverId").val();
+		if(!serverId){
+			return false;
+		}
+		$.ajax({
+			url:'/wd/novice/statisticsDataList',
+			type:'POST',
+			data:{month:month,hdType:hdType,serverId:serverId,r:Math.random()},
+			dataType:'json',
+			beforeSend:function(){
+				$("#search").html("正在查询,请稍后").attr("disabled",true);
+			},
+			complete:function(){
+				$("#search").html("<i class='fa fa-search'></i>查询").attr("disabled",false);
+			},
+			success:function(data){
+				var dataHtml1 = "<tr><td colspan='7' style='color:red'>暂无记录!</td></tr>";
+				if(!data.isSuccess){
+					alert(data.message);
+					return;
+				}
+				data = data.data;
+				var receiveList = data.receiveList;
+				var receiveTimeList = data.receiveTimeList;
+				var receiveTimeArr = [];
+				var receiveArr1 = [];
+				var receiveArr2 = [];
+	            if (receiveTimeList && receiveTimeList.length !=0) {
+	                  for (var i = 0; i < receiveTimeList.length; i++) {
+	                	  receiveTimeArr.push(receiveTimeList[i]);
+	                  }
+				}
+	            if (receiveList && receiveList.length !=0) {
+	                  for (var i = 0; i < receiveList.length; i++) {
+	                	  receiveArr1.push(parseInt(receiveList[i].split(":")[0]));
+	                	  receiveArr2.push(parseInt(receiveList[i].split(":")[1]));
+	                  }
+				}
+	            
+	            $('#container').highcharts({
+	            	chart: {
+	                    zoomType: 'x'
+	                },
+	                credits : {
+	                	enabled :false
+	                },
+	    			//colors: ['#FF0000','#50B432'],
+	    	        title: {
+	    	            text: ('新手礼包领取数据统计（'+month.split("-")[0]+'年'+month.split("-")[1]+'月）'),
+	    	            x: -20 
+	    	        },
+	    	        subtitle: {
+	    	            text: '来源: 光宇游戏',
+	    	            x: -20
+	    	        },
+	    	        xAxis: {
+	    	            categories: receiveTimeArr
+	    	        },
+	    	        yAxis: {
+	    	            title: {
+	    	                text: '单位(次)'
+	    	            },
+	    	            plotLines: [{
+	    	                value: 0,
+	    	                width: 1,
+	    	                color: '#808080'
+	    	            }]
+	    	        },
+	    	        tooltip: {
+	    	            valueSuffix: '次'
+	    	        },
+	    	        legend: {
+	    	            layout: 'vertical',
+	    	            align: 'right',
+	    	            verticalAlign: 'middle',
+	    	            borderWidth: 0
+	    	        },
+	    	        //统计显示
+	    	        /* plotOptions: {
+	    	            line: {
+	    	                dataLabels: {
+	    	                    enabled: true
+	    	                },
+	    	                enableMouseTracking: false
+	    	            }
+	    	        }, */
+	    	      //格式化提示
+	    	       /*   tooltip: {  
+//	    	        	 crosshairs: [true, true],
+	    	        	 crosshairs: [{            // 设置准星线样式
+	    	        		    width: 3,
+	    	        		    color: 'gray'
+	    	        		}, {
+	    	        		    width: 1,
+	    	        		    color: "#006cee",
+	    	        		    dashStyle: 'longdashdot',
+	    	        		    zIndex: 100 
+	    	        		}],
+	    	        	
+	    	        },  */
+	    	        series: [{
+	    	            name: '官网',
+	    	            data: receiveArr1
+	    	        },{
+	    	            name: '媒体',
+	    	            data: receiveArr2
+	    	        }]
+	    	    });
+			},
+			error:function(){
+				alert("网络连接超时!");
+			}
+		});
+	}
+
+	$(function() {
+		$("#month").datepicker({
+			format : 'yyyy-mm',
+			startView : 2,
+			autoclose : true,
+			todayBtn : true,
+			minView : 2
+		}).on('changeDate', function(ev) {
+			
+		});
+
+		$("#search").click(function() {
+			getlist();
+		});
+
+		getlist();
+	});
+</script>
+
+<section class="vbox">
+	<section>
+		<section class="hbox stretch">
+			<section id="content">
+				<section class="vbox js_template_right">
+					<header class="header bg-white b-b clearfix">
+						<input type="hidden" id="ddx" value="$statisTime"/>
+						<h4 class="doc-buttons pull-left" style="margin-top: 16px">新手卡活动-按月统计领取量</h4>
+						<span class="doc-buttons pull-left" style="margin-left:40px;"> 
+							<input type="text"
+								class="input-sm form-control"
+								style="display: inline-block; width: 120px; margin-top: 10px; margin-left: 10px;"
+								placeholder="月份" id="month" name="month" value="$month"/> 
+						</span> 
+						<span class="doc-buttons pull-left"> 
+							<select id="hdType" style="margin-top: 10px; margin-left: 10px;"
+								class="input-sm">
+									<!-- <option value="问道2899元神合一" selected>问道2899元神合一</option> -->
+									<option value="2017新手" selected>2999新手礼包</option>
+							</select>
+						</span> 
+						<span class="doc-buttons pull-left"> 
+							<select id="serverId" style="margin-top: 10px; margin-left: 10px;"
+								class="input-sm">
+									#foreach($param in $!serverList)
+										<option value="$!param.serverId">$!param.serverName</option>
+									#end
+							</select>
+						</span> 
+						<span class="doc-buttons pull-left"> <a id="search"
+							class="btn btn-sm btn-info"
+							style="margin-top: 10px; margin-left: 10px"
+							href="javascript:void(0);"><i class="fa fa-search"></i>查询</a>
+						</span>
+						<span class="doc-buttons pull-left"> <a
+							class="btn btn-sm btn-info" id="js_add_project"
+							style="margin-top: 10px; margin-left: 10px" href="/wd/novice/index"><i class="fa fa-home"></i>首页</a>
+						</span>
+					</header>
+					<section class="scrollable padder">
+						<div class="m-b-md"></div>
+						
+						<div id="container" style="min-width:400px;height:400px"></div>
+					</section>
+				</section>
+			</section>
+			#parse("/shared/footer.vm")

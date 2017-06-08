@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wechatvideo.WeChatVideoRoleBindBeanMapper">
+	<resultMap id="BaseResultMap"
+		type="cn.gyyx.action.beans.wechatvideo.WeChatVideoRoleBindBean">
+		<id column="code" jdbcType="INTEGER" property="code" />
+		<result column="user_id" jdbcType="INTEGER" property="userId" />
+		<result column="account" jdbcType="VARCHAR" property="account" />
+		<result column="open_id" jdbcType="VARCHAR" property="openId" />
+		<result column="wechat_account" jdbcType="VARCHAR" property="wechatAccount" />
+		<result column="server_code" jdbcType="INTEGER" property="serverCode" />
+		<result column="server_name" jdbcType="NVARCHAR" property="serverName" />
+		<result column="role_id" jdbcType="NVARCHAR" property="roleId" />
+		<result column="role_name" jdbcType="NVARCHAR" property="roleName" />
+		<result column="lottery_times" jdbcType="INTEGER" property="lotteryTimes" />
+		<result column="remaining_times" jdbcType="INTEGER" property="remainingTimes" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		code, user_id, account, open_id, wechat_account,
+		server_code, server_name,
+		role_id,
+		role_name,
+		lottery_times,remaining_times
+	</sql>
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from wechatvideo_role_bind_tb
+		where code = #{code,jdbcType=INTEGER}
+	</select>
+	<!-- 通过UserId获取账号角色绑定信息 -->
+	<select id="selectByUserId" parameterType="java.lang.Integer"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from wechatvideo_role_bind_tb
+		where user_id =
+		#{userId}
+	</select>
+
+	<!--通过账号角色名称获取角色绑定信息 -->
+	<select id="selectById" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from wechatvideo_role_bind_tb
+		where user_id = #{userId} or
+		role_Id=#{roleId}
+	</select>
+
+	<!--通过微信OpenId获取角色绑定信息 -->
+	<select id="selectByOpenId" parameterType="java.lang.String"
+		resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from wechatvideo_role_bind_tb
+		where open_id = #{openId}
+	</select>
+
+	<insert id="insert"
+		parameterType="cn.gyyx.action.beans.wechatvideo.WeChatVideoRoleBindBean">
+		insert into wechatvideo_role_bind_tb (code, user_id,
+		account,
+		open_id, wechat_account, server_code,
+		server_name, role_id,
+		role_name,
+		lottery_times,remaining_times)
+		values
+		(#{code,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER},
+		#{account,jdbcType=VARCHAR},
+		#{openId,jdbcType=VARCHAR},
+		#{wechatAccount,jdbcType=VARCHAR}, #{serverCode,jdbcType=INTEGER},
+		#{serverName,jdbcType=NVARCHAR}, #{roleId,jdbcType=NVARCHAR},
+		#{roleName,jdbcType=NVARCHAR},
+		#{lotteryTimes,jdbcType=INTEGER},#{remainingTimes,jdbcType=INTEGER})
+	</insert>
+	<insert id="insertSelective"
+		parameterType="cn.gyyx.action.beans.wechatvideo.WeChatVideoRoleBindBean">
+		insert into wechatvideo_role_bind_tb
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="code != null">
+				code,
+			</if>
+			<if test="userId != null">
+				user_id,
+			</if>
+			<if test="account != null">
+				account,
+			</if>
+			<if test="openId != null">
+				open_id,
+			</if>
+			<if test="wechatAccount != null">
+				wechat_account,
+			</if>
+			<if test="serverCode != null">
+				server_code,
+			</if>
+			<if test="serverName != null">
+				server_name,
+			</if>
+			<if test="roleId != null">
+				role_id,
+			</if>
+			<if test="roleName != null">
+				role_name,
+			</if>
+			<if test="lotteryTimes != null">
+				lottery_times,
+			</if>
+			<if test="remainingTimes != null">
+				remaining_times,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="code != null">
+				#{code,jdbcType=INTEGER},
+			</if>
+			<if test="userId != null">
+				#{userId,jdbcType=INTEGER},
+			</if>
+			<if test="account != null">
+				#{account,jdbcType=VARCHAR},
+			</if>
+			<if test="openId != null">
+				#{openId,jdbcType=VARCHAR},
+			</if>
+			<if test="wechatAccount != null">
+				#{wechatAccount,jdbcType=VARCHAR},
+			</if>
+			<if test="serverCode != null">
+				#{serverCode,jdbcType=INTEGER},
+			</if>
+			<if test="serverName != null">
+				#{serverName,jdbcType=NVARCHAR},
+			</if>
+			<if test="roleId != null">
+				#{roleId,jdbcType=NVARCHAR},
+			</if>
+			<if test="roleName != null">
+				#{roleName,jdbcType=NVARCHAR},
+			</if>
+			<if test="lotteryTimes != null">
+				#{lotteryTimes,jdbcType=INTEGER},
+			</if>
+			<if test="remainingTimes != null">
+				#{remainingTimes,jdbcType=INTEGER},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="cn.gyyx.action.beans.wechatvideo.WeChatVideoRoleBindBean">
+		update wechatvideo_role_bind_tb
+		<set>
+			<if test="userId != null">
+				user_id = #{userId,jdbcType=INTEGER},
+			</if>
+			<if test="account != null">
+				account = #{account,jdbcType=VARCHAR},
+			</if>
+			<if test="openId != null">
+				open_id = #{openId,jdbcType=VARCHAR},
+			</if>
+			<if test="wechatAccount != null">
+				wechat_account = #{wechatAccount,jdbcType=VARCHAR},
+			</if>
+			<if test="serverCode != null">
+				server_code = #{serverCode,jdbcType=INTEGER},
+			</if>
+			<if test="serverName != null">
+				server_name = #{serverName,jdbcType=NVARCHAR},
+			</if>
+			<if test="roleId != null">
+				role_id = #{roleId,jdbcType=NVARCHAR},
+			</if>
+			<if test="roleName != null">
+				role_name = #{roleName,jdbcType=NVARCHAR},
+			</if>
+			<if test="lotteryTimes != null">
+				lottery_times = #{lotteryTimes,jdbcType=INTEGER},
+			</if>
+			<if test="remainingTimes != null">
+				remaining_times = #{remainingTimes,jdbcType=INTEGER},
+			</if>
+		</set>
+		where code = #{code,jdbcType=INTEGER}
+	</update>
+	<update id="updateByPrimaryKey"
+		parameterType="cn.gyyx.action.beans.wechatvideo.WeChatVideoRoleBindBean">
+		update wechatvideo_role_bind_tb
+		set user_id =
+		#{userId,jdbcType=INTEGER},
+		account = #{account,jdbcType=VARCHAR},
+		open_id = #{openId,jdbcType=VARCHAR},
+		wechat_account =
+		#{wechatAccount,jdbcType=VARCHAR},
+		server_code =
+		#{serverCode,jdbcType=INTEGER},
+		server_name =
+		#{serverName,jdbcType=NVARCHAR},
+		role_id = #{roleId,jdbcType=NVARCHAR},
+		role_name = #{roleName,jdbcType=NVARCHAR},
+		lottery_times =
+		#{lotteryTimes,jdbcType=INTEGER}
+		remaining_times =
+		#{remainingTimes,jdbcType=INTEGER}
+		where code =
+		#{code,jdbcType=INTEGER}
+	</update>
+
+	<!--给用户增加抽奖次数 -->
+	<update id="addLotteryTimes" parameterType="java.lang.Integer">
+		update
+		wechatvideo_role_bind_tb
+		set
+		lottery_times=lottery_times+1,remaining_times=remaining_times+1
+		where
+		user_id = #{userId} and lottery_times<![CDATA[<]]>3
+	</update>
+
+	<!--给用户减少抽奖次数 -->
+	<update id="reduceLotteryTimes" parameterType="java.lang.Integer">
+		update
+		wechatvideo_role_bind_tb
+		set 
+		remaining_times=remaining_times-1
+		where
+		user_id = #{userId} and remaining_times>0
+	</update>
+</mapper>

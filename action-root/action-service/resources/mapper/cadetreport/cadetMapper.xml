@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.cadet.ICadet">
+	<resultMap id="CadetBeanMap" type="CadetBean">
+		<result property="code" column="code" />
+		<result property="cadetName" column="cadet_name" />
+		<result property="cadetDate" column="cadet_date" />
+		<result property="department" column="cadet_department" />
+		<result property="status" column="cadet_status" />
+		<result property="flag" column="cadet_flag" />
+		<result property="name" column="primary_data_name" />
+		<result property="station" column="cadet_station" />
+	</resultMap>
+	<insert id="addCadet" parameterType="CadetBean">
+		insert into cadet_cadet_tb (cadet_name,cadet_date,cadet_department,cadet_status,cadet_flag,cadet_station) 
+		values(#{cadetName},#{cadetDate},#{department},#{status},#{flag},#{station});
+	</insert>
+	<select id="isCadetNameExist" parameterType="String" resultType="boolean"> 
+		<![CDATA[ select count(code) from cadet_cadet_tb where cadet_name = #{cadetName} ]]> 
+	</select>
+	<select id="getCadetCodesWithoutStatistic" resultType="Integer">
+		select cadet_cadet_tb.code from cadet_cadet_tb
+		where cadet_cadet_tb.code not in (
+			select cadet_count_tb.cadet_code from cadet_count_tb
+			where 
+			count_year = #{year}
+			and
+			count_month = #{month}
+		)
+	</select>
+	<select id="selectCadet" resultMap="CadetBeanMap" resultType="java.util.List">
+	select
+	*
+	from 
+	cadet_cadet_tb
+	</select>
+	<select id="getCadetByCode" resultMap="CadetBeanMap">
+		select * from cadet_cadet_tb where code = #{code};
+	</select>
+	<select id="getCadetByName" resultMap="CadetBeanMap">
+		select * from cadet_cadet_tb where cadet_name = #{cadetName} 
+	</select>
+	<select id="selectCadetLike" resultMap="CadetBeanMap" resultType="java.util.List">
+	select
+	*
+	from 
+	cadet_cadet_tb
+	where
+	cadet_name like '%${name}%'
+	</select>
+	<!-- update cadet status -->
+	<update id="upDateCadetStatus">
+	update
+	cadet_cadet_tb
+	set
+	cadet_status='yes'
+	where
+	code=#{code}
+	</update>
+	<update id="upDateCadetFlag">
+	update
+	cadet_cadet_tb
+	set
+	cadet_flag = #{flag}
+	where
+	code = #{code}
+	</update>
+	<!-- select cadet code -->
+	<select id="SelectCadetStatusByCode" resultType="String">
+	select cadet_status
+	from
+	cadet_cadet_tb
+	where
+	code=#{code}
+	</select>
+	
+	<update id="updateCadetNo">
+	update
+	cadet_cadet_tb
+	set
+	cadet_status='no'
+	where
+	code=#{code}
+	</update>
+	
+</mapper>

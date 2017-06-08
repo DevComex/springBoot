@@ -1,0 +1,143 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道-天下第一宠票选活动</title>
+<link href="http://${codeServer2}/action/wdNo1Vote/css/wd141201.css" rel="stylesheet" type="text/css"> 
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+<style>
+	.vote-count{
+		text-align: left;
+		padding-left: 10px;
+	}
+	  
+</style>
+</head>
+
+<body>
+<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+<div class="wbg">
+    <div class="sbg">
+      <div class="main">
+      
+      
+        <!--left-->
+        <div class="mleft">
+          <ul class="nav">
+          	<li><a href="${rc.contextPath}/wdno1pet/" class="a01"></a></li>
+          	<li class = "on"><a href="${rc.contextPath}/wdno1pet/showPets" class="a02"></a></li>
+          	<li><a href="${rc.contextPath}/wdno1pet/showUpload" class="a03"></a></li>
+          	<li><a href="${rc.contextPath}/wdno1pet/showLottery" class="a04"></a></li>
+          </ul>
+          <ul class="tip">
+          	<li><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="new">进入官网</a></li>
+          	<li><a href="http://account.gyyx.cn/Member/Register" target="new">账号注册</a></li>
+          	<li><a href="http://pay.gyyx.cn/" target="new">充值中心</a></li>
+          	<li><a href="http://wd.gyyx.cn/download/" target="new">下载游戏</a></li>
+          </ul>
+        </div>
+        <!--left end-->
+        
+        
+        <!--right-->
+        <div class="mright">
+           <div class="rtop">
+              <div class="rtxt">道途风云灵兽相伴，宠物是我们在问道游戏中必不可少的伙伴，值问道1.55新版本火爆上线，特征选<br/>“天下第一宠”，心爱的宠物晒一晒，看看谁是真正的天下无双！</div>
+              <div class="rtime"><span class="sp01">投稿时间：2014年12月25日起</span><span class="sp02">投票时间：2015年1月5日—1月12日</span></div>
+           </div>
+           <div class="box">
+             <div class="csbox">
+                <ul id = "changeType" class="csnav">
+                	<li class="on"><a>普宠</a></li>
+                	<li><a>元灵</a></li>
+                	<li><a>神兽</a></li>
+                	<li><a>变异</a></li>
+                	<li><a>坐骑</a></li>
+                	<li><a>所有</a></li>
+                </ul>
+                <div>
+                   <div class="cjtxt"><span>服务器</span>
+					<select id = "serverSelect" name="">
+						<option value="-1">请选择服务器</option>
+						#foreach($item in $defaultServers)
+							<option value ="${item.code}">${item.serverName}</option>
+						#end
+					</select><span>角色名</span><input id = "iptCharacter" type="text" value="请输入关键词搜索" onfocus="if (value =='请输入关键词搜索'){value =''}" onblur="if (value ==''){value='请输入关键词搜索'}" /><span>作品名</span><input id = "iptPetName" type="text" value="请输入关键词搜索" onfocus="if (value =='请输入关键词搜索'){value =''}" onblur="if (value ==''){value='请输入关键词搜索'}" /><input type="button" class="searchbtn" value="搜索"></div>
+                   <ul class="stip">
+                       <li class="on"><a>最新</a></li>
+                       <li><a>最热</a></li>
+                       <li><a href="#btc">排行</a></li>
+                   </ul>
+				   <div id = "cjulOuter">
+                   <ul class="cjul" id = "cjulid">
+                     
+                   </ul>
+				   </div>
+                </div>
+                
+                
+                <div class="box01" name = "btc" id = "btc">
+                    <div class="left_01">
+                       <div class="zptxt">各类最热宠物</div>
+                       <ul class="csnav" id="hotPets">
+                        <li class="on" data-index="0"><a href="#hotAndStrong">普通</a></li>
+                        <li data-index="1"><a href="#hotAndStrong">元灵</a></li>
+                        <li data-index="2"><a href="#hotAndStrong">神兽</a></li>
+                        <li data-index="3"><a href="#hotAndStrong">变异</a></li>
+                        <li data-index="4"><a href="#hotAndStrong">坐骑</a></li>
+                       </ul>
+                       <table border="0" class="table01 hotPets">
+                          #parse("wdno1pet/ajax/hotPets.vm")
+                       </table>
+
+                  </div>
+                  <div class="right_01">
+                     <div class="zptxt">各类最强宠物</div>
+                     <ul class="csnav" id="strongPets">
+                        <li class="on" data-quality="pet_growth"><a href="#hotAndStrong">总成长</a></li>
+                        <li data-quality="pet_magic"><a href="#hotAndStrong">法伤</a></li>
+                        <li data-quality="pet_attack"><a href="#hotAndStrong">物伤</a></li>
+                        <li data-quality="pet_blood"><a href="#hotAndStrong">气血</a></li>
+                        <li data-quality="pet_speed"><a href="#hotAndStrong">速度</a></li>
+                     </ul>
+                     <table border="0" class="table01 strongPets">
+                          #parse("wdno1pet/ajax/strongPets.vm")
+                     </table>
+                   </div>
+              </div>
+              
+              
+             </div>
+               
+           </div>        
+        </div>
+        <!--right end-->
+        
+        
+        
+      </div>
+    </div>
+</div>
+<script>var isLogin = ${isLogin}</script>
+<script type="text/javascript" src="http://${codeServer2}/action/wdNo1Vote/js/pets/petSetting.js" charset="UTF-8"></script>
+<script>
+	var vc = new viewController("${rc.contextPath}");
+</script>
+<script type="text/javascript" src="http://${codeServer2}/action/wdNo1Vote/js/pets/petReady.js" charset="UTF-8"></script>
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom("231c35");</script>
+</div>
+<script src="http://www.gyyx.cn/inc/gyyx_statistics.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+</body>
+</html>
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 

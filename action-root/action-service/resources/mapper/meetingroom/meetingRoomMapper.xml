@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.meetingroom.IMeetingRoomMapper">
+	<resultMap type="MeetingRoom" id="MeetingRoom">
+		<id column="code" property="code" />
+		<result column="place_code" property="placeCode" />
+		<result column="meeting_name" property="meetingName" />
+		<result column="max_capacity" property="maxCapacity" />
+		<result column="projector_type" property="projectorType" />
+		<result column="computer_type" property="computerType" />
+		<result column="remark" property="remark" />
+		<result column="place_name" property="placeName"/>
+	</resultMap>
+	<update id="updateMeetingRoom" parameterType="MeetingRoom">
+		update mos_meetingroom_tb set place_code=#{placeCode},
+									  meeting_name=#{meetingName},
+									  max_capacity=#{maxCapacity},
+									  projector_type=#{projectorType},
+									  computer_type=#{computerType},
+									  remark=#{remark}  where code=#{code}
+	</update>
+	
+	<!-- 添加会议室 -->
+	<insert id="inertMeetingRoom" parameterType="MeetingRoom">
+	  insert into mos_meetingroom_tb
+	  (place_code,meeting_name,max_capacity,projector_type,computer_type,remark)
+	  values(
+         #{placeCode},
+         #{meetingName},
+         #{maxCapacity},
+         #{projectorType},
+         #{computerType},
+         #{remark}
+      )
+	</insert>
+	
+	<!-- 条件查询会议室信息 -->
+	<select id="queryByConditions" resultMap="MeetingRoom" parameterType="MeetingRoom">
+		select * from mos_meetingroom_tb a , mos_place_tb b where a.place_code=b.code
+		<if test="placeCode != 0">
+		 	and place_code=#{placeCode} 
+		</if>
+		<if test="projectorType != null and projectorType != ''">
+		 	and projector_type=#{projectorType} 
+		</if>
+		<if test="computerType != null and computerType !=''">
+		 	and computer_type=#{computerType}
+		</if>
+	</select>
+
+	<!-- 查询会议室所有信息 -->
+	<select id="selectAllRoom" resultMap="MeetingRoom">
+		select * from mos_meetingroom_tb a , mos_place_tb b where a.place_code=b.code
+	</select>
+	<!-- 根据会议室名称和地点查询 -->
+	<select id="selectByPlaceAndName" parameterType="MeetingRoom" resultMap="MeetingRoom">
+		select * from mos_meetingroom_tb where place_code = #{placeCode} and meeting_name = #{meetingName} 
+	</select>
+</mapper>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道九周年新手礼包活动</title>
+<link href="http://static.cn114.cn/action/wd9yearcard/css/style150310.css" rel="stylesheet" type="text/css" />
+<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+<script src="http://static.cn114.cn/action/wd9yearcard/script/ReceiveCommon.js" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">
+	alert("谢谢参与，活动已结束");
+</script>
+</head>
+
+<body>
+<div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+</div>
+
+	<div class="wd_box">
+    	<div class="wd_bg">
+        	<div class="main">
+                <div class="wd_header">
+                    <ul class="wd_nav">
+                        <li><a href="http://wd.gyyx.cn/index_wd_v5.htm">进入官网</a></li>
+                        <li><a href="http://account.gyyx.cn/Member/Register">账号注册</a></li>
+                        <li><a href="http://wd.gyyx.cn/new/gl01_20.htm">新手指南</a></li>
+                        <li><a href="http://pay.gyyx.cn/">游戏充值</a></li>
+                        <li><a href="http://wd.gyyx.cn/huodong/2014jhhd/index.html">关注问道</a></li>
+                    </ul>
+                </div>
+                <div class="wd_content">
+                <form action="receive" id="actionForm">
+                	<div class="wd_left">
+                    	<h2>2199九九归一 周年系列礼包激活</h2>
+                        <div class="acti_cont">
+                            <div class="wd_form">
+                                <div class="d1" id="loginbar">
+                                    <label>领取请您先：</label>
+                                    <a class="wd_logn" onclick="alertFn(null,null,true)">登录</a>
+                                </div>
+                                <div class="d1">
+                                    <label>选择服务器：</label>
+                                    <select name="netType"  id="ddlNetType">
+                                         <option value="3">双线</option>
+                                        <option value="1">网通</option>
+                                        <option value="2">电信</option>
+                                    </select>
+                                    <select name="serverId" id="ddlGameServer">
+                                       
+                                    </select>
+                                </div>
+                                <div class="d1">
+                                    <label>新手卡号码：</label>
+                                    <input class="num1" type="text" name="card" id="txtNoviceCard"/>
+                                </div>
+                                 <div class="d1">
+                                    <label>输入验证码：</label>
+                                    <input class="num2" type="text" name="code" id="txtCheckcode" />
+                                    <img class="yzm1" width="88" height="40" alt="验证码" title="看不清楚,请点击." src="http://api.gyyx.cn/Captcha/CreateVJ.ashx" id="captcha_image"/>
+                                </div>
+								<p class="errorp"></p>
+								<input type="hidden" value="27" id="batchNo" name="batchNo"/>
+								<input type="hidden" name="hdName" id="hdName" value="问道9周年新手卡活动" />
+                            </div>
+                            <div class="wd_btn">
+                            	<a class="a1" id="btnRegister">领取礼包</a>
+                                <a class="a2" target="_blank" href="http://account.gyyx.cn/Member/Register">注册激活</a>
+                                <a class="a3" target="_blank" href="http://wd.gyyx.cn/download/" >下载游戏</a>
+                            </div>
+                        </div>
+                    </div>
+					</form>
+				
+                    <div class="wd_right">
+                    	<h2>礼包说明</h2>
+                        <ul class="wd_txt">
+                        	<li>1.本卡只能用于激活4月10日开启的双线新服“道道道”以及以后开启的问道新服</li>
+                            <li>2.激活相应服务器30天之内的帐号可以领取</li>
+                            <li>3.同一服务器内，一个帐号只能领取一张卡</li>
+                            <li>4.本激活页面还可激活问道微信礼包</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom("f6f6f6");</script>
+	<script src="http://www.gyyx.cn/inc/gyyx_statistics.js" type="text/javascript"></script>
+	<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+
+</div>
+    
+</body>
+</html>

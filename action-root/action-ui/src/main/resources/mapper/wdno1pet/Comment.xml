@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdno1pet.IComment">
+
+
+	<resultMap type="CommentItem" id="CommentItemMap">
+		<id column="c_code" property="commentCode" />
+		<result column="pet_code" property="petCode" />
+		<result column="nick_name" property="nickName" />
+		<result column="c_comment" property="commentContent" />
+		<result column="c_time" property="commentTime" />
+		<result column="c_status" property="commentStatus" />
+		<result column="ip" property="CommentIp" />
+	</resultMap>
+
+	<!-- 插入评论并返回评论的主键 -->
+	<insert id="insertComment" useGeneratedKeys="true"
+		keyProperty="commentCode">
+		insert into wdno1_comment_tb
+		(pet_code,nick_name,c_comment,ip) values
+		(#{petCode},#{nickName},#{commentContent},#{commentIp})
+
+	</insert>
+
+	<!-- 分页显示评论 -->
+	<select id="getCommentsByPagination" resultType="java.util.List"
+		resultMap="CommentItemMap">
+		SELECT TOP
+		${pagination.size} *
+		FROM
+		wdno1_comment_tb
+		WHERE
+		(c_code NOT IN
+		(SELECT TOP
+		(${pagination.size}*(${pagination.pageNum}-1))
+		c_code
+		FROM
+		wdno1_comment_tb
+		WHERE pet_code = ${petCode} AND c_status = 'checked'
+		))
+		AND pet_code = ${petCode} AND c_status = 'checked'
+		ORDER BY c_code
+	</select>
+	<!-- 返回某个作品对应的评论总数 -->
+	<select id="getCommentsCountByPetCode" resultType="Integer">
+		SELECT
+		count(c_code) as total
+		FROM wdno1_comment_tb
+		WHERE pet_code = ${petCode} AND c_status = 'checked'
+	</select>
+</mapper>

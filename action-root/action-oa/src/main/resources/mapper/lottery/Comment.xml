@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.IComment">
+	<resultMap type="CommentBean" id="CommentBean">
+		<id column="code" property="code" />
+		<result column="action_code" property="actionCode" />
+		<result column="form_code" property="formCode" />
+		<result column="nick_name" property="nickName" />
+		<result column="comment" property="comment" />
+		<result column="status" property="status" />
+		<result column="upload_date" property="uploadDate" />
+	</resultMap>
+	<!-- 查询总共有多少评论信息 -->
+	<select id="selectDisPageNum" resultType="int">
+		select COUNT(code)
+		from action_common_comment
+	</select>
+	<!-- 查询总共有多少评论信息 -->
+	<select id="selectDisPageNumByActionCode" parameterType="Integer" resultType="int">
+		select COUNT(code)
+		from action_common_comment where action_code=#{actionCode}
+	</select>
+	<!-- 通过评论状态分页查找10条评论 -->
+	<select id="checkDiscussInfo" parameterType="Integer" resultType="java.util.List" resultMap="CommentBean">
+		select tem.code,tem.action_code,tem.form_code,tem.nick_name,tem.comment,tem.status,tem.upload_date
+		from(select code,action_code,form_code,nick_name,comment,status,upload_date,ROW_NUMBER() over( Order by code ) as rownum
+			 from  action_common_comment) as tem
+		where rownum between (#{nowPage}-1)*10 and #{nowPage}*10
+	</select>
+	<!-- 通过评论状态分页查找10条评论 -->
+	<select id="getCommentBeansByPage" resultType="java.util.List" resultMap="CommentBean">
+		select tem.code,tem.action_code,tem.form_code,tem.nick_name,tem.comment,tem.status,tem.upload_date
+		from(select code,action_code,form_code,nick_name,comment,status,upload_date,ROW_NUMBER() over( Order by code ) as rownum
+			 from  action_common_comment where action_code=#{actionCode}) as tem
+		where rownum between (#{nowPage}-1)*10 and #{nowPage}*10
+	</select>
+	<insert id="addComment" useGeneratedKeys="true" keyProperty="code"
+		parameterType="CommentBean">
+		insert into action_common_comment
+		(action_code,form_code,nick_name,comment,status)
+		values
+		(#{actionCode},#{formCode},#{nickName},#{comment},#{status})
+	</insert>
+
+	<select id="getCommentBeansByStatus" resultMap="CommentBean"
+		resultType="java.util.List">
+		select * from action_common_comment
+		where status = #{status}
+		and
+		action_code=#{actionCode}
+		order by code
+		desc
+	</select>
+
+	<update id="setCommentStatusByCode">
+		update action_common_comment
+		set status=#{status}
+		where
+		code=#{code}
+	</update>
+	<delete id="removeCommentByCode">
+	delete from action_common_comment
+		where
+		code=#{code}
+	</delete>
+
+</mapper>

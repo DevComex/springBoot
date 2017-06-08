@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <title>百人主播冲级赛</title>
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+    <link href="http://static.cn114.cn/action/wd2017wh/css/style.css" rel="stylesheet" type="text/css" />
+    <script>
+        var rc = "${rc.contextPath}";
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?4c85e45cddf335f68aeda8c4407a54d4";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="flydiv">
+        <ul>
+            <li class="js_rule">活动规则</li>
+            <li class="js_wbshare" data-img="http://static.cn114.cn/action/wd2017wh/images/shareimg.png">微博分享</li>
+        </ul>
+    </div>
+    <div class="topbg">
+        <div id="main">
+            <ul class="navList">
+                <li><a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm">进入官网</a></li>
+                <li><a target="_blank" href="http://wd.gyyx.cn/download/">下载游戏</a></li>
+                <li><a target="_blank" href="http://pay.gyyx.cn/">充值中心</a></li>
+                <li><a target="_blank" href="http://news.gyyx.cn/Counter.ashx?pc=4089&sc=17887&mc=6316&gc=2&ul=http%3a%2f%2fscgg.gyyx.cn%2fwd%2fxmt.html&mt=9&et=1 ">账号注册</a></li>
+                <li style="border: 0;"><a target="_blank" href="http://wd.gyyx.cn/Reserve/NewServer.html">预约新服</a></li>
+            </ul>
+            <div class="top3">
+                <ul id="top3"></ul>
+            </div>
+            
+        </div>
+    </div>
+    <div class="bottombg">
+        <div id="content">
+            <span class="login js_islogin">登录参加活动</span>
+            <span class="islogined js_loginname"></span>
+            <span class="nosoft js_softs" data-soft="2">排序编号</span>
+            <span class="votesoft on js_softs" data-soft="1">投票量排序</span>
+            <ul class="img" id="img1"></ul>
+            <ul class="img" id="img2"></ul>
+            <ul class="img" id="img3"></ul>
+            <ul class="img" id="img4"></ul>
+        </div>
+    </div>
+    <div class="wdreturn" id="toTop" style="display: block;">
+        <a class="retop" id="reTop" href="#">返回顶部</a>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wd2017wh/js/zb.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wd2017wh/js/jquery.slimscroll.js"></script>
+</body>
+</html>

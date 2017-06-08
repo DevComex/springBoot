@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>问道十周年玩家答谢会</title>
+		<meta name="keywords" content="问道十周年玩家答谢会,问道十年 不忘初心,问道,光宇游戏">
+		<meta name="description" content="问道十周年玩家答谢会,韩国女团MIXX助威问道 带你真枪实弹闯中州">
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wdhunting/css/wd160428v2.css" />
+	    <script  type="text/javascript">
+	    	var rc = "${rc.contextPath}";
+	 	</script>
+		<script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+	</head>
+	<body>
+	<div class="public_nav_top">
+		<script type="text/javascript">Showtop();</script>
+	</div>
+	<div class="wd_wrap">
+			<div class="main">
+				<div class="wd_header">
+					<!--<em class="wd_time">5月14日、5月15日 </em>-->
+					<div class="wd_bm">
+						<a href="javascript:void(0);" class="js_bindRoleStatus js_singUp">点我报名</a>
+					</div>
+					<div class="wd_video js_video_btn"><a></a></div><!--视频-->
+				</div>
+				<!--part01-->
+				<div class="wd_part01 clear">
+					<div class="part01_left">
+						<h2>十周年玩家狂欢PARTY 精彩瞬间</h2>
+						<div class="wd_picBox" id="wd_picshow">
+							<a class="wd_left js_prev"></a>
+							<div class="wd_picList">
+								<ul id="js_slideList">
+									<li><a><img width="980" height="388" src="http://static.cn114.cn/action/wdhunting/images/wd160526_fouce01.jpg"/></a></li>
+									<li><a><img width="980" height="388" src="http://static.cn114.cn/action/wdhunting/images/wd160526_fouce02.jpg"/></a></li>
+									<li><a><img width="980" height="388" src="http://static.cn114.cn/action/wdhunting/images/wd160526_fouce03.jpg"/></a></li>
+									<li><a><img width="980" height="388" src="http://static.cn114.cn/action/wdhunting/images/wd160526_fouce05.jpg"/></a></li>
+								</ul>
+							</div>
+							<a class="wd_right js_next"></a>
+						</div>
+					</div>
+				</div>
+				<!--part01 end-->
+				<!--part02-->
+				<div class="wd_part02">
+					<h2>抽取答谢会名额，iPhone 6S 尽情送</h2>
+					<div class="wd_cj clear">
+						<ul class="cj_list01">
+							<li class="img01" id="dzp0"><img src="http://static.cn114.cn/action/wdhunting/images/wd160428_gyb30.png" width="110" height="80" /></li>
+							<li class="img01" id="dzp11"><img src="http://static.cn114.cn/action/wdhunting/images/wd160428_yhq.png" width="110" height="80" /></li>
+							<li class="img01" id="dzp10"><img src="http://static.cn114.cn/action/wdhunting/images/wd160428_gyb10.png" width="110" height="80" /></li>
+							<li class="img01" id="dzp9"><img src="http://static.cn114.cn/action/wdhunting/images/wd160428_jmh.png" width="110" height="80" /></li>
+						</ul>
+						<ul class="cj_list02">
+							<li class="list02_li img01" id="dzp1"><img src="http://static.cn114.cn/action/wdhunting/images/wd160428_6s.png" width="110" height="80" /></li>
+							<li class="img01" id="dzp2"><img src="http://static.cn114.cn/action/wdhunting/images/wd160428_hm.png" width="110" height="80" /></li>
+							<li class="bm_start"><a class="js_statrPrize" text="go" href="javascript:void(0);">报名参加</a></li> <!--cj_start-->
+							<li class="list02_li img01" id="dzp8"><img src="http://static.cn114.cn/action/wdhunting/images/wd160428_thanks.png" width="110" height="80" /></li>
+							<li class="img01" id="dzp7"><img src="http://static.cn114.cn/action/wdhunting/images/wd160428_yhq.png" width="110" height="80" /></li>
+						</ul>
+						<ul class="cj_list01">
+							<li class="img01" id="dzp3"><img src="http://static.cn114.cn/action/wdhunting/images/wd160428_jmh.png" width="110" height="80" /></li>
+							<li class="img01" id="dzp4"><img src="http://static.cn114.cn/action/wdhunting/images/wd160428_gyb10.png" width="110" height="80" /></li>
+							<li class="img01" id="dzp5"><img src="http://static.cn114.cn/action/wdhunting/images/wd160428_jd.png" width="110" height="80" /></li>
+							<li class="img01" id="dzp6"><img src="http://static.cn114.cn/action/wdhunting/images/wd160428_gyb30.png" width="110" height="80" /></li>
+						</ul>
+					</div>
+					<div class="part02_right">
+						<!--登录-->
+						<div class="wd_login">
+							<div class="login01 js_noLogin"><input type="button" onclick="alertFn(null,null,true);" /></div><!--step01-->
+							<!--step02-->
+							<div class="login02 js_unBindRole01" style="display: none;">
+								<p>欢迎您：<span class="js_accountName">chn**24</span><a class="log02_link01 js_Loginout" href="javascript:void(0);">退出登录</a></p>
+								<p><a class="log02_link02 js_bindtipBtn" href="javascript:;">抽奖前请先绑定角色</a></p>
+							</div>
+							<!--step02 end-->
+							<!--step03-->
+							<div class="login02 js_unBindRole02" style="display: none;">
+								<p>欢迎您：<span class="js_accountName">chn**24</span><a class="log02_link01 js_Loginout" href="javascript:void(0);">退出登录</a></p>
+								<p class="log_p">
+									<label>选择您的区组：</label>
+									<select id="sel_blocklist">
+				                        <option value="0">请选择区组</option>
+				                        <option value="1">网通</option>
+				                        <option value="2">电信</option>
+				                        <option value="3">双线</option>
+				                    </select>
+				                    <select id="sel_serverlist">
+				                        <option value="0">请选择服务器</option>
+				                    </select>
+								</p>
+								<p class="log_yzm">
+									<input class="log_txt" type="text" placeholder="请填写验证码" id="captchaInput" value="" maxlength="5" />
+									<img class="js_captcha" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=0.9730367364827543" width="69" height="30" />
+									<input class="log_btn01" id="js_upRole" type="button"  />
+								</p>
+							</div>
+							<!--step03 end-->
+							<!--step04-->
+							<div class="login02 js_unBindRole03" style="display: none;">
+								<p><span class="js_accountName">chn**24</span><a class="log02_link01 js_Loginout" href="javascript:void(0);">退出登录</a></p>
+								<p class="log_p">
+									<label>选择您的角色：</label>
+									<select class="js_roleList">
+										<option>角色1</option>
+									</select>
+									<input class="log_btn01 js_bindRoleSubmitBtn" type="button"/>
+								</p>
+							</div>
+							<!--step04 end-->
+							<!--step05-->
+							<div class="login02 js_bindRole" style="display: none;">
+								<p><span class="js_accountName">chn**24</span><a class="log02_link01 js_Loginout" href="javascript:void(0);">退出登录</a></p>
+								<p class="js_bindRoleName">已绑定角色：xxxxxxxxxx</p>
+								<p><a class="log_btn02 js_myPrize" href="javascript:void(0);">查询我的中奖情况</a></p>
+							</div>
+							<!--step05 end-->
+						</div>
+						<!--登录 end-->
+						<!--活动规则-->
+						<div class="wd_rule">
+							<h3>活动规则：</h3>
+							<p><i>1</i>2016年4月22日之前注册的玩家可直接参与报名；</p>
+							<p><i>2</i>2016年4月22日之后注册玩家游戏最大角色等级<strong>大于20级</strong>即可参与报名；</p>
+							<p><i>3</i>参与玩家最高报销路费500元；</p>
+							<p><i>4</i>活动奖品将由《问道》官方统一安排寄送，为了确保您的获奖资格，请务必填写正确的个人信息，以免影响发奖；</p>
+							<p><i>5</i>本次活动的解释权归《问道》官方所有。</p>
+						</div>
+						<!--活动规则 end-->
+					</div>
+				</div>
+				<!--part02 end-->
+				<!--part03-->
+				<div class="wd_part03">
+					<h2>答谢会奖品展示区</h2>
+					<div class="wd_scoll" id="wd_scoll">
+						<ul>
+							<li><a href="javascript:;"><img src="http://static.cn114.cn/action/wdhunting/images/s_01.jpg" width="140" height="134" /></a></li>
+							<li><a href="javascript:;"><img src="http://static.cn114.cn/action/wdhunting/images/s_02.jpg" width="140" height="134" /></a></li>
+							<li><a href="javascript:;"><img src="http://static.cn114.cn/action/wdhunting/images/s_03.jpg" width="140" height="134" /></a></li>
+							<li><a href="javascript:;"><img src="http://static.cn114.cn/action/wdhunting/images/s_04.jpg" width="140" height="134" /></a></li>
+							<li><a href="javascript:;"><img src="http://static.cn114.cn/action/wdhunting/images/s_05.jpg" width="140" height="134" /></a></li>
+							<li><a href="javascript:;"><img src="http://static.cn114.cn/action/wdhunting/images/s_06.jpg" width="140" height="134" /></a></li>
+							<li><a href="javascript:;"><img src="http://static.cn114.cn/action/wdhunting/images/s_07.jpg" width="140" height="134" /></a></li>
+							<li><a href="javascript:;"><img src="http://static.cn114.cn/action/wdhunting/images/s_08.jpg" width="140" height="134" /></a></li>
+						</ul>
+					</div>
+				</div>
+				<!--part03 end-->
+			</div>
+		</div>
+		<!--弹层-->
+		<!--iPhone 6S-->
+		<div class="wd_tc01" id="realPrize">
+			<span class="tc_icon"></span>
+			<h2 class="tc01_h">恭喜中奖： <em class="js_realPrizeName">iPhone 6S</em></h2>
+			<a class="tc01_btn js_iKnow" href="javascript:void(0);">知道了</a>
+			<p>活动奖品将在活动结束后由《问道》官方统一安排寄送，请保持电话畅通。</p>
+		</div>
+		<!--iPhone 6S end-->
+		<!--光宇币100元-->
+		<div class="wd_tc01" id="verticalPrize">
+			<h2 class="tc01_h h01">恭喜中奖： <em class="js_verticalPrizeName">光宇币100元</em></h2>
+			<div class="js_virticalPrize">
+				<!--<p class="tc01_p">卡号：XXXX-XXXX-XXXX-XXXX</p>
+				<p class="tc01_p">密码：XXXX-XXXX-XXXX-XXXX</p>-->
+			</div>
+			<a class="tc01_btn js_iKnow" href="javascript:void(0);">知道了</a>
+			<p class="js_popTips01">中奖卡号或密码可以在“查询我的中奖情况”中查询</p>
+		</div>
+		<!--光宇币100元 end-->
+		<!--没中奖-->
+		<div class="wd_tc02" id="noPrize">
+			<h2 class="js_popTips">很遗憾，没能中奖</h2>
+		</div>
+		<!--没中奖 end-->
+		<!--该账号已参与过活动-->
+		<div class="wd_tc02" id="participated">
+			<h2>该账号已参与过活动</h2>
+		</div>
+		<!--该账号已参与过活动 end-->
+		<!--填写资料弹层-->
+		<div class="wd_tc03" id="prizeStart">
+			<div class="tc03_cont">
+				<h3>我的信息</h3>
+				<div>
+					<label>姓名：</label>
+					<input class="tc_txt01" type="text" maxlength="10" name="userNames"/>
+				</div>
+				<div>
+					<label>性别：</label>
+					<p class="tc_rad"><input type="radio" name="sex" value="男" checked="checked" />&nbsp;男</p>
+					<p class="tc_rad"><input type="radio" name="sex" value="女" />&nbsp;女</p>
+				</div>
+				<div class="tc_sel01">
+					<label>年龄：</label>
+					<select name="age">
+						<option value="0">请选择</option>
+						<option value="1-10">1-10</option>
+						<option value="11-20">11-20</option>
+						<option value="21-30">21-30</option>
+						<option value="31-40">31-40</option>
+						<option value="41-50">41-50</option>
+						<option value="51-60">51-60</option>
+						<option value="61-70">61-70</option>
+						<option value="71-80">71-80</option>
+					</select>
+				</div>
+				<div class="tc_sel02">
+					<label>地址：</label>
+					<input class="tc_txt02"  type="text" maxlength="100" name="address"/>
+				</div>
+				<div>
+					<label>手机：</label>
+					<input class="tc_txt01" type="text" maxlength="11" name="phone"/>
+				</div>
+				<div>
+					<label>邮箱：</label>
+					<input class="tc_txt01" type="text" maxlength="50" name="email"/>
+				</div>
+				<div class="tc_btn01"><input class="js_prizeSubmitBtn" type="button" value="确认报名" /></div>
+				<p class="tc03_p">所填地址等信息将作为抽奖奖品邮寄地址，请如实填写，提交后不可修改</p>
+			</div>
+
+		</div>
+		<!--填写资料弹层 end-->
+		<!--其他弹层-->
+		<div class="wd_tc02" id="noLogin">
+			<h2>报名参与前请先登录</h2>
+		</div>
+		<!--其他弹层 end-->
+	<div class="public_nav_bottom">
+		<script type="text/javascript">ShowBottom()</script>
+	</div>
+	<script>
+	var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?2969218ed67903ece2c5253c0c8b49c7";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<script type="text/javascript" src="http://static.cn114.cn/action/wdhunting/js/Lotterywd.js"></script>
+	<script type="text/javascript" src="http://static.cn114.cn/action/wdhunting/js/indexv2.js"></script>
+	<script type="text/javascript" src="http://static.cn114.cn/action/wdhunting/js/swfobject.min.js"></script>
+	<script type="text/javascript" src="http://static.cn114.cn/action/wdhunting/js/ymadplayer.min.js"></script>
+	</body>
+</html>

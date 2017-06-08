@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper pageNum.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.insurance.IReparationMapper">
+	<resultMap type="ReparationBean" id="ReparationBean">
+		<id column="code" property="code" />
+		<result column="order_num" property="orderNum" />
+		<result column="server_group" property="serverGroup" />
+		<result column="type" property="type" />
+		<result column="protection" property="protection" />
+		<result column="circle" property="circle" />
+		<result column="reparation" property="reparation" />
+		<result column="other" property="other" />
+		<result column="reparation_order_num" property="reparationOrderNum" />
+		<result column="reparation_result" property="reparationResult" />
+		<result column="reparation_order_time" property="reparationOrderTime"/>
+	</resultMap>
+	<insert id="insertReparation" parameterType="ReparationBean">
+	insert into [wd_insurance_reparation_tb]
+	([order_num]
+      ,[server_group]
+      ,[type]
+      ,[protection]
+      ,[circle]
+      ,[reparation]
+      ,[other]
+      ,[reparation_order_num]
+      ,[reparation_result]
+      ,[reparation_order_time])
+      values(#{orderNum}
+      ,#{serverGroup}
+      ,#{type}
+      ,#{protection}
+      ,#{circle}
+      ,#{reparation}
+      ,#{other}
+      ,#{reparationOrderNum}
+      ,#{reparationResult}
+      ,#{reparationOrderTime})
+	</insert>
+	<update id="updateReparationOrderNum" parameterType="String">
+	update wd_insurance_reparation_tb set reparation_result=#{1} where order_num=#{0}
+	</update>
+	<update id="setReparation" parameterType="String">
+	update wd_insurance_reparation_tb set protection=#{1} where order_num=#{0}
+	</update>
+	<select id="selectReparationBeanByOrderNum" parameterType="String" resultMap="ReparationBean">
+	select * from wd_insurance_reparation_tb where order_num=#{orderNum}
+	</select>
+	<select id="selectPage" parameterType="MyOrderParameterBean" resultMap="ReparationBean" resultType="list">
+	select top (#{num}) * 
+		from 
+		(select *from wd_insurance_reparation_tb 
+		where order_num in(select order_num from [wd_insurance_order_tb] where account = #{account})) a 
+		WHERE 
+		 order_num like CONCAT('%' ,#{orderNum},'%') 	
+		<if
+			test="startTime != null and endTime != null and startTime != '' and endTime != ''">
+    		<![CDATA[ and  creat_time between #{startTime} and #{endTime} ]]>
+		</if>
+		and code NOT in
+		(
+		select top (#{num}*(#{pageNum}-1)) code from
+		(select * from wd_insurance_reparation_tb 
+		where order_num in(select order_num from [wd_insurance_order_tb] where account = #{account})) a 
+		WHERE 
+		 order_num like CONCAT('%' ,#{orderNum},'%') 	
+		<if
+			test="startTime != null and endTime != null and startTime != '' and endTime != ''">
+    		<![CDATA[ and  creat_time between #{startTime} and #{endTime} ]]>
+		</if>
+		ORDER by code
+		)
+		ORDER by code
+		
+	</select>
+	<select id="selectPageCount" parameterType="MyOrderParameterBean" resultType="Integer">
+	select count(*) 
+	from (select *from wd_insurance_reparation_tb 
+		where order_num in(select order_num from [wd_insurance_order_tb] where account = #{account})) a 
+	WHERE 
+		 order_num like CONCAT('%' ,#{orderNum},'%') 	
+		<if
+			test="startTime != null and endTime != null and startTime != '' and endTime != ''">
+    		<![CDATA[ and  creat_time between #{startTime} and #{endTime} ]]>
+		</if> 
+	</select>
+	
+</mapper>

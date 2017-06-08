@@ -1,0 +1,750 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道-2015全民PK火热来袭 我就是预言帝</title>
+<script type="text/javascript">
+var rc="${rc.contextPath}";
+</script>
+<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/predicable/css/wd150910.css">
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/predicable/js/scrolltext.js"></script><!--文字上下滚动-->
+
+<script type="text/javascript">
+$(function(){
+$(".noOpen").click(function(){
+alert("活动尚未开启，敬请期待！")
+});
+});
+</script>
+<script type="text/javascript" charset="utf-8">
+    alert("谢谢参与，活动已结束");
+</script>
+</head>
+<body>
+<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+<div class="wd_bg">
+	<div class="wd_wrap">
+		<div class="main">
+			<div class="wd_nav">
+				<a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+			</div>
+			<div class="wd_time">
+		    	<span class="hd_time">活动时间：<strong>2015</strong>年<strong>11</strong>月<strong>13</strong>日-<strong>2015</strong>年<strong>11</strong>月<strong>26</strong>日</span>
+				<span class="cj_time">抽奖时间：<strong>2015</strong>年<strong>11</strong>月<strong>30</strong>日-<strong>2015</strong>年<strong>12</strong>月<strong>6</strong>日</span>
+			</div>
+			<!-- 头部完 -->
+			<div class="wd_tab">
+				<ul class="tab_menu">
+								<li><a class="menu01" href="writingInfo">参赛作品 </a></li>
+					<li class="on"><a class="menu02" href="rule">活动规则</a></li>
+					<li><a class="menu03" href="partake">我要参赛</a></li>
+				<li ><a class="menu04 " href="lottery">参与抽奖</a></li>
+				</ul>
+				<div class="tab_con">
+					<!-- 参赛作品 -->
+					<div class="tab_list">
+						<div class="wdzp_search">
+							<label>选择职业 </label><select id="zyNextType"><option>1</option><option>2</option></select>
+							<label class="wdzp_lab">选择套装 </label><select id="tzNextType"><option>1</option><option>2</option></select>
+							<a href="javascript:;" class="wdzp_searbtn js_ztSearch">搜索</a>
+						</div>
+						<div class="wdzp_tab">
+							<p class="wdzp_tip">把鼠标放在图片上可以看到匹配的详细信息哦~</p>
+							<ul class="wdzp_menu">
+								<li><a href="javascript:;">我的备选</a></li>
+								<li><a href="javascript:;">我的预测</a></li>
+								<li><a href="javascript:;">最新</a></li>
+								<li class="on js_hot"><a href="javascript:;">最热</a></li>
+							</ul>
+							<div class="wdzp_con">
+								<!-- 最热 -->
+								<div class="wdzp_list" style="display:block ;">
+									<ul class="js_content">
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;" class="js_wjSupport">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+									</ul>
+								</div>
+								<!-- 最新 -->
+								<div class="wdzp_list">
+									<ul>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+									</ul>
+								</div>
+								<!-- 我的预测 -->
+								<div class="wdzp_list">
+									<ul>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+										<li>
+											<a href="javascript:;" class="wdzp_aBox">
+												<p class="wdzp_picB"><img src="images/wdzp_pic01.jpg" /></p>
+												<p class="wdzp_picS">
+													<span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span><span><img src="images/wdzp_pic02.jpg" /></span>
+												</p>
+												<p class="wdzp_txt">法宝：XXXX<br>套装：XXXX<br>娃娃：XXXX</p>
+											</a>
+											<p class="wdzp_name clear">
+												<a href="javascript:;">支持</a>
+												上传人：XXXX<br>区组：XXXX <span>XXXX</span>
+											</p>
+										</li>
+									</ul>
+								</div>
+							</div>
+							<!-- 页码 -->
+							<div class="wdzp_page">
+								<a  href="javascript:;">&lt;</a>
+								<a class="on" href="javascript:;">1</a>
+								<a href="javascript:;">2</a>
+								<a href="javascript:;">3</a>
+								<a href="javascript:;">4</a>
+								<a href="javascript:;">5</a>
+								<a href="javascript:;">&gt;</a>
+							</div>
+						</div>
+						<div class="wdzp_scroll">
+							<ul id="js_scroll">
+								<li>此处将滚动显示玩家提交的       评论内容显示排序为最新。</li>
+								<li>此处将滚动显示玩家提交的       评论内容显示排序为最新。</li>
+								<li>此处将滚动显示玩家提交的       评论内容显示排序为最新。</li>
+								<li>此处将滚动显示玩家提交的       评论内容显示排序为最新。</li>
+								<li>此处将滚动显示玩家提交的       评论内容显示排序为最新。</li>
+								<li>此处将滚动显示玩家提交的       评论内容显示排序为最新。</li>
+								<li>此处将滚动显示玩家提交的       评论内容显示排序为最新。</li>
+							</ul>
+						</div>
+						<div class="wdzp_yc">
+							<h3>看了这么多预测！我猜你有话要说！</h3>
+							<textarea id="js_message" placeholder="看了这么多预测！我猜你有话要说！"></textarea>
+							<input class="wdzp_sub js_discussSub" value="提交" type="submit" />
+						</div>
+					</div>
+					<!-- 活动规则-->
+					<div class="tab_list" style="display: block">
+						<div class="wdgz_step">
+						   <h2 class="wdgz_h01">01命中奖励</h2>
+						   <p>参与活动就有机会抽奖获得Iphone6 plus，红米手机，九尾狐手办+福元宝，威威虎抱枕，问道钱包，问道T恤，银元宝，铜钱铭牌等等。</p>
+                           <p><strong>注：</strong>成功命中是参赛搭配选项，一个搭配方案中所有套装、宠物等的8各选项全都猜测正确，才算成功。</p>
+						   <table class="wdgz_table">
+						      <tr>
+						         <th width="324">获奖资格</th>
+						         <th width="433">奖励内容</th>
+					          </tr>
+						      <tr>
+						         <td>成功命中冠军一个队员搭配</td>
+						         <td>5W银元宝+额外获得1次抽奖机会</td>
+					          </tr>
+						      <tr>
+						        <td>支持成功命中冠军一个队员搭配</td>
+						        <td>额外获得一次抽奖机会+铜钱铭牌</td>
+					         </tr>
+						      <tr>
+						        <td>参与预测的玩家</td>
+						        <td>获得一次抽奖机会</td>
+					         </tr>
+						      <tr>
+						         <td>参与投票大于等于10票的玩家</td>
+						         <td>获得一次抽奖机会</td>
+					          </tr>
+						   </table>
+						</div>
+						<div class="wdgz_step">
+						   <h2 class="wdgz_h02">02抽奖奖励</h2>
+						   <p>活动期间，踊跃“参与预测”以及“参与投票大于等于10票”的玩家可在比赛结束后可进行抽奖，有机会获得Iphone6 plus，红米手机，九尾狐手办+福元宝，威威虎抱枕，问道钱包，问道T恤，银元宝，铜钱铭牌等等。</p>
+						   <ul class="wdgz_pic">
+					         <li><img src=" http://static.cn114.cn/action/predicable/images/pic1.jpg" width="72" height="72"><p>Iphone6 plus</p>
+					         </li>
+						      <li><img src="http://static.cn114.cn/action/predicable/images/pic2.jpg" width="72" height="72"><p>问道钱包</p>
+						      </li>
+						      <li><img src="http://static.cn114.cn/action/predicable/images/pic3.jpg" width="72" height="72"><p>红米手机</p>
+						      </li>
+						      <li><img src="http://static.cn114.cn/action/predicable/images/pic4.jpg" width="72" height="72"><p>威威虎抱枕</p>
+						      </li>
+						      <li><img src="http://static.cn114.cn/action/predicable/images/pic5.jpg" width="72" height="72"><p>问道T恤</p>
+						      </li>
+						      <li><img src="http://static.cn114.cn/action/predicable/images/pic6.jpg" width="72" height="72"><p>银元宝</p>
+						      </li>
+						   </ul>
+						</div>
+						<div class="wdgz_step">
+						   <h2 class="wdgz_h03">03活动时间</h2>
+						   <p><strong>活动时间：</strong>2015年10月28日--2015年11月17日</p>
+						   <p><strong>抽奖时间：</strong>2015年11月23日--2015年11月29日</p>
+						</div>
+						<div class="wdgz_step">
+						   <h2 class="wdgz_h04">04活动流程</h2>
+						   <p>（1）玩家可在活动时间内在“我要参赛”页面中选择自己心目中全民PK赛冠军队伍中任一成员的装备宠物等的组合；</p>
+						   <p>（2）本次活动 判定预测成功的标准：以决出冠军的那一局，冠军队员的使用的装备搭配为标准（包裹中道具不计算在内）；
+     例如：5局3胜制中，第4局比赛决出冠军，则以获得冠军队伍在该局战斗中的装备搭配为预测基准，只预测其中一人搭配即可。</p>
+						   <p>（3）玩家可对已经完成的成员组合进行投票，如果某个组合预测成功，则参与投票的玩家也可获得奖励；</p>
+						    <p>（4）玩家不可上传已经被提交过的组合，但可以对该组合进行投票。</p>
+						</div>
+						<div class="wdgz_step">
+						   <h2 class="wdgz_h05">05活动限制</h2>
+						   <p>（1）参赛资格：光宇游戏注册用户，请使用社区账号登录参赛，每个账号最多可上传2个作品；</p>
+						   <p>（2）每个玩家每天只能对一个作品投票一次，最多可投票支持3种预测；</p>
+						   <p>（3）本次活动 判定预测成功的标准：以决出冠军的那一局，冠军队员的使用的装备搭配为标准（包裹中道具不计算在内）；
+     例如：5局3胜制中，第4局比赛决出冠军，则以获得冠军队伍在该局战斗中的装备搭配为预测基准，只预测其中一人搭配即可。</p>
+						</div>
+					</div>
+					<!-- 我要参赛-->
+					<div class="tab_list">
+						<div class="wdcs_step">
+						   <h2 class="wdcs_h01">01活动奖励</h2>
+						   <p>（1）预测时，将自己预测的搭配选好，可提交预览，没有问题即可上传提交。</p>
+						   <p>（2）每种搭配只能被预测一次，所以先预测先得，之后玩家只可对该种搭配投支持票。</p>
+						   <p>（3）每个账号只能进行2次搭配预测。</p>
+						   <p>（4）选项分单选和多选。</p>
+						   <p>（5）本次活动，以决赛中定胜负的轮次为准。<br>
+					       　　&nbsp;<strong>&nbsp;例如：</strong>决赛5局3胜，A队vsB队。A队在第三轮战胜B队，取得冠军，则本活动以第三轮为准，预测A队某个队员当时战斗的搭配组合；若在第四轮才取得3局胜利，获得冠军，则本活动以第四轮为准，以此类推。</p>
+						   <p>（6）只对冠军成员战斗时装带上的武器、套装、娃娃等信息进行预测，其他在包裹中的，未参战的不算（宠物除外，需预测其领取的全部宠物）。<br>
+					       　　&nbsp;&nbsp;<strong>例如：</strong>冠军队伍中的一员，第五轮决胜负的战斗中，娃娃领取了金、木两个，但是只有金娃娃在本轮战斗中参战了，则本活动预测以搭配金娃娃为命中的，选木娃娃则是猜测错误；玩家此战斗中装带的是木套装，而包裹中也有一金套装，则本活动预测以木套装为命中的，其他的均为猜测错误的，其他选项以此类推。（宠物例外，玩家身上有什么宠物，就按照什么宠物来判定）</p>
+						</div>
+						<div class="wdcs_step">
+						   <h2 class="wdcs_h02">02上传作品</h2>
+                           <div class="wdcs_service">
+                              <label>选择大区</label>
+                              <select>
+                                 <option>1</option>
+                                 <option>2</option>
+                              </select>
+                              <label>服务器</label>
+                              <select>
+                                 <option>1</option>
+                                 <option>2</option>
+                              </select>
+                              <label>角色名称</label>
+                              <input type="text">
+                           </div>
+						   <div class="wdcs_select js_profession">
+						      <h3>选择职业</h3>
+						      <ul class="wdcs_ul">
+						         <li><input type="radio" name="job" value="jin">金</li>
+						         <li><input type="radio" name="job" value="mu">木</li>
+						         <li><input type="radio" name="job" value="shui">水</li>
+						         <li><input type="radio" name="job" value="huo">火</li>
+						         <li><input type="radio" name="job" value="tu">土</li>
+						         <li><input type="radio" name="job" value="dk">刀客</li>
+						         <li><input type="radio" name="job" value="ls">灵兽</li>
+						         <li><input type="radio" name="job" value="jl">蛟龙</li>
+						         <li><input type="radio" name="job" value="fc">凤翅</li>
+						         <li><input type="radio" name="job" value="hm">荒蛮</li>
+						      </ul>
+						   </div>
+						   <div class="wdcs_select">
+						      <h3>选择头像<span>（该条仅供显示使用，不记为预测内容）</span></h3>
+						      <ul class="wdcs_ul02 js_person">
+						         <li><input type="radio" name="face" value="boy"><div><img src="images/wdzp_pic01.jpg" height="80" width="80"></div></li>
+						         <li><input type="radio" name="face" value="girl"><div><img src="images/wdcs150910_head.jpg"></div></li>
+						      </ul>
+						   </div>
+                           <div class="wdcs_select js_attr">
+						      <h3>属性加点最多</h3>
+						      <ul class="wdcs_ul">
+				                <li><input type="checkbox" name="attri" value="tz">体质</li>
+						         <li><input type="checkbox" name="attri" value="ll">灵力</li>
+						         <li><input type="checkbox" name="attri" value="ll">力量</li>
+						         <li><input type="checkbox" name="attri" value="mj">敏捷</li>
+					         </ul>
+					      </div>
+                          <div class="wdcs_select js_xiangxing">
+						      <h3>相性加点最多</h3>
+						      <ul class="wdcs_ul">
+						         <li><input type="checkbox" name="xiangxing" value="jx">金相</li>
+						         <li><input type="checkbox" name="xiangxing" value="mx">木相</li>
+						         <li><input type="checkbox" name="xiangxing" value="sx">水相</li>
+						         <li><input type="checkbox" name="xiangxing" value="hx">火相</li>
+						         <li><input type="checkbox" name="xiangxing" value="tx">土相</li>
+						      </ul>
+					      </div>
+						      <h3>选择套装</h3>
+						      <ul class="wdcs_ul">
+				                <li><input type="radio" name="suit" value="jt">金套</li>
+						         <li><input type="radio" name="suit" value="mt">木套</li>
+						         <li><input type="radio" name="suit" value="st">水套</li>
+						         <li><input type="radio" name="suit" value="ht">火套</li>
+						         <li><input type="radio" name="suit" value="tt">土套</li>
+                                <li><input type="radio" name="suit" value="ftc">非套装</li>
+						      </ul>
+						   </div>
+                           <div class="wdcs_select js_magic">
+						      <h3>选择法宝</h3>
+						      <ul class="wdcs_ul">
+					             <li><input type="radio" name="magic" value="fty">番天印</li>
+						         <li><input type="radio" name="magic" value="yyj">阴阳镜</li>
+						         <li><input type="radio" name="magic" value="dhz">定海珠</li>
+						         <li><input type="radio" name="magic" value="hyjd">混元金斗</li>
+						         <li><input type="radio" name="magic" value="jjj">金蛟剪</li>
+                                 <li><input type="radio" name="magic" value="jlshz">九龙神火罩</li>
+						         <li><input type="radio" name="magic" value="yjjm">卸甲金葫</li>
+					         </ul>
+					      </div>
+						   <div class="wdcs_select">
+						      <h3>选择宠物<span>（可多选，最多三个）</span></h3>
+						      <ul class="wdcs_ul js_pets">
+						         <li><input type="checkbox" name="pet" value="xw">玄武</li>
+						         <li><input type="checkbox" name="pet" value="zq">朱雀</li>
+						         <li><input type="checkbox" name="pet" value="jl">疆良</li>
+						         <li><input type="checkbox" name="pet" value="dssl">东山神灵</li>
+						         <li><input type="checkbox" name="pet" value="jwh">九尾狐</li>
+                                 <li><input type="checkbox" name="pet" value="gc">勾陈</li>
+						         <li><input type="checkbox" name="pet" value="qq">穷奇</li>
+						         <li><input type="checkbox" name="pet" value="rs">蓐收</li>
+						         <li><input type="checkbox" name="pet" value="jm">句芒</li>
+						         <li><input type="checkbox" name="pet" value="xm">玄冥</li>
+                                 <li><input type="checkbox" name="pet" value="zr">祝融</li>
+						         <li><input type="checkbox" name="pet" value="ht">后土</li>
+						      </ul>
+						   </div>
+						   <div class="wdcs_select js_baby">
+						      <h3>选择娃娃</h3>
+						      <ul class="wdcs_ul">
+						         <li><input type="radio" name="baby" value="yxt">云霄洞娃娃</li>
+						         <li><input type="radio" name="baby" value="yzt">玉柱洞娃娃</li>
+						         <li><input type="radio" name="baby" value="djg">斗阙宫娃娃</li>
+						         <li><input type="radio" name="baby" value="jgt">金光洞娃娃</li>
+						         <li><input type="radio" name="baby" value="bgd">白骨洞娃娃</li>
+						      </ul>
+						   </div>
+						   <div class="wdcs_select">
+						      <h3>选择天书<span>（可多选，最多三个）</span></h3>
+						      <ul class="wdcs_ul">
+						         <li><input type="checkbox" name="book" value="syzb">夙愿-震爆</li>
+						         <li><input type="checkbox" name="book" value="symb">夙愿-魔爆</li>
+						         <li><input type="checkbox" name="book" value="sysg">夙愿-圣光</li>
+						         <li><input type="checkbox" name="book" value="czlh">出阵-灵慧</li>
+						         <li><input type="checkbox" name="book" value="czzy">出阵-治愈</li>
+                                 <li><input type="checkbox" name="book" value="czfz">出阵-福泽</li>
+						         <li><input type="checkbox" name="book" value="ghzg">光环-战歌</li>
+						         <li><input type="checkbox" name="book" value="ghqj">光环-强击</li>
+						         <li><input type="checkbox" name="book" value="ghzz">光环-专注</li>
+						         <li><input type="checkbox" name="book" value="ghjs">光环-极速</li>
+						      </ul>
+						   </div>
+						   <div class="wdcs_btn js_create"><input type="button"><input type=hidden value="" class="js_hidval"><p>生成</p></div>
+						   <div class="wdcs_view" style="display:none;">
+						      <h3>预览</h3>
+						      <div class="wdcs_show ">
+						         <div class="wdcs_div01"><img class="js_viewBig" src="images/wdcs150910_people.jpg" width="165" height="165"></div>
+						         <div class="wdcs_div02"><img class="js_viewSmall01" src="images/wdcs150910_pic1.jpg" width="35" height="35"></div>
+						         <div class="wdcs_div03"><img class="js_viewSmall02" src="images/wdcs150910_pic2.jpg" width="35" height="35"></div>
+						         <div class="wdcs_div04"><img class="js_viewSmall03" src="images/wdcs150910_pic3.jpg" width="35" height="35"></div>
+						         <div class="wdcs_div05">法宝：<span class="js_viewMagic">XXXX</span></div>
+						         <div class="wdcs_div06">套装：<span class="js_viewSuit">XXXX</span></div>
+						         <div class="wdcs_div07">娃娃：<span class="js_viewBaby">XXXX</span></div>
+						      </div>
+						      <div class="wdcs_upload js_upload"><input type="button"><p>确定上传</p></div>
+						   </div>   
+						</div>
+					</div>
+					<!-- 参与抽奖 -->
+					<div class="tab_list">
+						<div class="wdcj_fail">
+							<p>抽奖需要先<a class="wdcj_login" href="#"> [登录]</a></p>
+							<p class="wdcj_secl"><label>我的服务器</label><select><option>请选择区组</option><option>1</option></select><select><option>请选择服务器</option><option>1</option></select></p>
+							<p class="wdcj_prize">我已获得的奖品：xxx</p>
+						</div>
+						<div class="wdcj_suc" style="display: none;">
+							<p>清风似无影，欢迎您！</p>
+						</div>
+						<div class="wdcj_box">
+							<div class="wdcj_btn">
+								<a href="javascript:;">抽大奖</a>
+								<p>快点动手抽大奖啦</p>
+							</div>
+							<ul>
+								<li class="wdcj_bg01 on">
+									<span><img src="images/wdgz150910_pic.jpg" /></span>
+									<p>千足金手链</p>
+								</li>
+								<li class="wdcj_bg02">
+									<span><img src="images/wdgz150910_pic.jpg" /></span>
+									<p>千足金手链</p>
+								</li>
+								<li class="wdcj_bg01">
+									<span><img src="images/wdgz150910_pic.jpg" /></span>
+									<p>千足金手链</p>
+								</li>
+								<li class="wdcj_bg02">
+									<span><img src="images/wdgz150910_pic.jpg" /></span>
+									<p>千足金手链</p>
+								</li>
+								<li class="wdcj_bg01">
+									<span><img src="images/wdgz150910_pic.jpg" /></span>
+									<p>千足金手链</p>
+								</li>
+								<li class="wdcj_bg02 wdcj_marg">
+									<span><img src="images/wdgz150910_pic.jpg" /></span>
+									<p>千足金手链</p>
+								</li>
+								<li class="wdcj_bg02">
+									<span><img src="images/wdgz150910_pic.jpg" /></span>
+									<p>千足金手链</p>
+								</li>
+								<li class="wdcj_bg01">
+									<span><img src="images/wdgz150910_pic.jpg" /></span>
+									<p>千足金手链</p>
+								</li>
+								<li class="wdcj_bg02">
+									<span><img src="images/wdgz150910_pic.jpg" /></span>
+									<p>千足金手链</p>
+								</li>
+								<li class="wdcj_bg01">
+									<span><img src="images/wdgz150910_pic.jpg" /></span>
+									<p>千足金手链</p>
+								</li>
+								<li class="wdcj_bg02">
+									<span><img src="images/wdgz150910_pic.jpg" /></span>
+									<p>千足金手链</p>
+								</li>
+								<li class="wdcj_bg01">
+									<span><img src="images/wdgz150910_pic.jpg" /></span>
+									<p>千足金手链</p>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- 切换内容完 -->
+		</div>
+	</div>
+</div>
+<!--我要参赛弹层-->
+<div class="js_WinUpload" style="display:none;">
+	<div class="wd_tc js_UploadCon pop_con">
+   <a class="wd_close js_UploadClose" href="#">关闭</a>
+   <div class="tc_cont">
+      <p>上传成功！</p>
+   </div>
+</div>
+<div class="pop_mask"></div>
+</div>
+<!--参与抽奖弹层-->
+	<div class="wd_tc" style="display:none;">
+   <a class="wd_close" href="#">关闭</a>
+   <div class="tc_cont">
+      <p>恭喜您获得了“xxxx”</p>
+   </div>
+</div>
+
+<!--参赛作品弹层-->
+<div class="js_support" style="display:none;">
+	<div class="wd_tc js_supportCon pop_con">
+	   <a class="wd_close js_supportClose" href="#">关闭</a>
+	   <div class="tc_cont">
+	      <p>您已成功支持该预测！</p>
+	   </div>
+	</div>
+	<div class="pop_mask"></div>
+</div>
+<!--参赛作品弹层-->
+<div class="js_WinDiscuss" style="display:none ;">
+	<div class="wd_tc">
+	   <a class="wd_close" href="#">关闭</a>
+	   <div class="tc_cont tc_cont04">
+	      <p>您评论的内容里含有敏感成分！ </p>
+	      <p>请重新确认评论内容后提交！</p>
+	   </div>
+	</div>
+</div>
+<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+</body>
+</html>

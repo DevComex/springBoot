@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.common.IActionUserLoginLogMapper">
+	<resultMap type="cn.gyyx.action.beans.common.ActionUserLoginLog" id="BaseResultMap">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="user_id" property="userId" />
+		<result column="login_id" property="loginId" />
+		<result column="login_time" property="loginTime" />
+		<result column="login_ip" property="loginIp" />
+		<result column="activity_code" property="activityCode" />
+	</resultMap>
+	
+	<insert id="insert" useGeneratedKeys="true" keyProperty="code">
+		insert into action_user_login_log
+		(account,user_id,login_id,login_time,login_ip,activity_code)
+		values
+		(#{account},#{userId},#{loginId},#{loginTime},#{loginIp},#{activityCode})
+	</insert>
+	
+	<select id="getBeanByLoginId" parameterType="java.lang.String" resultMap="BaseResultMap">
+		select * from action_user_login_log
+		where login_id = #{loginId}
+	</select>
+
+	<select id="getListPagingCount" resultType="java.lang.Integer" >
+	    select count(code) from action_user_login_log 
+	    where 1=1  
+		<if test="loginTimeStr!= null and loginTimeStr!= '' ">
+			<![CDATA[ and CONVERT(varchar(10), login_time, 21) =  #{loginTimeStr} ]]>  
+		</if>
+		<if test="account!= null and account!= '' ">
+			and account =  #{account} 
+		</if>
+		<if test="loginId!= null and loginId!= '' ">
+			and login_id =  #{loginId} 
+		</if>
+    </select>
+  
+	<select id="getListPaging" resultMap="BaseResultMap">
+		select 
+			TOP (#{pageSize})  
+			A.*
+		from (
+			SELECT 
+				TOP (#{pageSize}*#{pageIndex})
+			    ROW_NUMBER() OVER (ORDER BY a.login_time desc) AS row_num,a.*
+			FROM action_user_login_log a
+			where 1=1  
+			<if test="loginTimeStr!= null and loginTimeStr!= '' ">
+				<![CDATA[ and CONVERT(varchar(10), login_time, 21) =  #{loginTimeStr} ]]>  
+			</if>
+			<if test="account!= null and account!= '' ">
+				and account =  #{account} 
+			</if>
+			order by a.login_time desc
+		) A
+		WHERE
+		 row_num >
+		(#{pageSize}*(#{pageIndex}-1))
+	</select>
+	
+	<select id="getLoginCountGroupByDate" parameterType="java.lang.Integer" resultType="java.util.Map">
+		select 
+			CONVERT(varchar(10), login_time, 21) as loginTime,
+			cast(count(code) as varchar) as loginCount 
+		from action_user_login_log 
+		where activity_code = #{activityCode}  
+		group by CONVERT(varchar(10), login_time, 21) order by 1
+	</select>
+	
+</mapper>

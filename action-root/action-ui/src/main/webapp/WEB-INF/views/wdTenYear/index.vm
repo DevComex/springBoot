@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>问道十周年“点亮孔明灯”</title>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wdTenYear/css/main.css" />
+    <script  type="text/javascript">
+    	var rc = "${rc.contextPath}";
+ 	</script>
+    <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+	<script type="text/javascript">
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?d924f21c6bdbc823760fdea5cb659b85";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wrap">
+        <div class="main clear">
+            <div class="nav">
+                <a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/gamepay/paygold?gameId=2" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+            </div>
+            <div class="time clear">许愿活动时间：4月8日00：00---5月8日23：59</div>
+            <ul class="km_wrap js_light">
+                <li class="js_level_1 li_01" data-code="1"></li>
+                <li class="js_level_2 li_02" data-code="2"></li>
+                <li class="js_level_3 li_03" data-code="3"></li>
+                <li class="js_level_4 li_04" data-code="4"></li>
+                <li class="js_level_5 li_05" data-code="5"></li>
+                <li class="js_level_6 li_06" data-code="6"></li>
+            </ul>
+            <div class="content">
+                <div class="con_left">
+                    <div class="user_center">
+                        <div class="login js_login_wrap">
+                            <label>许愿前请先<span>登录</span>哦！</label>
+                            <a class="login_btn js_loginBtn"></a>
+                        </div>
+                        <div class="unbind_role js_unbindRole" style="display:none">
+                            <h2 class="user_info">欢迎您：<span class="js_accountName">Chn**24</span><a class="js_Loginout">退出登录</a></h2>
+                            <h3 class="user_tip">许愿前请先选择您的角色信息，许愿后不可修改，请认真选择</h3>
+                            <div class="select_item">
+                                <select id="sel_blocklist">
+			                        <option value="0">请选择区组</option>
+			                        <option value="1">网通</option>
+			                        <option value="2">电信</option>
+			                        <option value="3">双线</option>
+			                    </select>
+                                <select id="sel_serverlist"><option value="0">请选择服务器</option></select>
+                                <select class="js_roleList" style="display:none">
+			                        <option>选择角色</option>
+			                     </select>
+                                <label class="js_captcha_label">验证码：</label>
+                                <input id="captchaInput" value="" type="text" maxlength="5" />
+                                <img class="Captcha js_captcha" width="90" height="40" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=0.039287569699808955" alt="验证码"/>
+                            </div>
+                            <a class="get_btn" id="js_upRole" ></a>
+                            <a class="select_btn js_bindRoleBtn" style="display:none;"></a>
+                        </div>
+                        <div class="wd_num js_bindRole" style="display:none;">
+		                  <h2>欢迎您：<span class="js_accountName">Chn**24</span>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" class="js_Loginout">退出登录</a></h2>
+		                  <h3>游戏活跃度积分：<span class="js_integral_game">9999</span></h3>
+		                  <h3>十周年官网活动积分：<span class="js_integral_tenyear">9999</span></h3>
+		                  <a href="javascript:void(0);" class="a01 js_myWish">查询我许下的愿望</a>
+		                  <a href="javascript:void(0);" class="a02 js_myPrize">查询我所获得的奖励</a>
+		               </div>
+                        
+                    </div>
+                    <textarea id="wishContent" class="wish_textarea" placeholder="请输入您的愿望（16字内哦！）"></textarea>
+                    <div class="wish_level">
+                    	<label>我要在这层许愿：</label>
+                    	<select class="js_prizelevel" id="wishLevel" name="wishLevel"></select>
+                    </div>
+                    <a class="submit_btn js_wishBtn" data-bind=""></a>
+                </div>
+                <div class="con_right">
+                    <div class="prize_info">
+                        <div class="title"></div>
+                        <h2 class="prize_all_counts js_all_counts"></h2>
+                        <div class="prize_list_con">                        	
+                            <ul class="prize_list js_all_prize"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rule">
+                <h1>活动规则</h1>
+                <h2 class="top0">如何获取积分</h2>
+                <p>游戏内活动积分：在活动期间，玩家在游戏内完成日常任务可以获得积分，日常活动项目包括：助人为乐、帮派日常挑战、副本系统、驱除邪灵、八仙梦境、探索世界、通天塔、悬赏任务、答题任务、师门任务。每种活动每天最多可获得2积分~（本页面的许愿活动优先消耗游戏内活动积分）十周年官网活动积分：在十周年庆典期间，参加十周年官网活动可以获得积分。</p>
+                <h2>如何“点亮孔明灯”</h2>
+                <p>玩家在本页面可进行许愿，召集小伙伴一起将孔明灯点亮后在孔明灯中抽奖100%会获得奖励哦（获得奖池中的随机一个奖励）！每次许愿都会消耗积分，在越高层的孔明灯进行许愿消耗的积分就越多，奖励也更好哦，玩家每次许愿的内容不可以超过16个字哦，我们会尽快审核大家的愿望，通过审核的愿望将会显示在孔明灯内哟。</p>
+                <h2>如何进行许愿抽奖</h2>
+                <p>孔明灯只能依次被点亮，在该层未被完全点亮之前在该层的第一次许愿消耗积分较少，完全点亮后第一次在该层许愿就要消耗更多的积分啦。所有玩家在同层孔明灯进行多次许愿的时候，需要消耗的积分会越来越多哦。</p>
+                <h2>如何获得奖励</h2>
+                <p>玩家抽取到的称号铭牌奖励会直接发放到游戏中。其他奖励则需等到活动结束后统一发放~获得游戏内奖励的玩家可在收到系统邮箱提示后前往“南极仙翁”处领取。其他奖励会在活动结束后统一发放~（称号效果是会覆盖的）。</p>
+                <p class="yellow">温馨提示<br/>玩家用鼠标停留在孔明灯上的时候就可以看见孔明灯中的奖励啦，点击孔明灯还可以看见大家许下的愿望哦~(部分奖池奖励种类较多，仅显示部分)玩家在游戏内获取的积分每小时会更新一次~</p>
+                <h1>活动限制</h1>
+                <p>玩家绑定角色后才可进行许愿；绑定角色不可更改~；<br/>获得实物奖励的玩家需要认真填写自己的收件地址，如果因为地址填写问题导致奖励无法发放，则视为玩家放弃奖励~；</p>
+            </div>
+            <div class="js_prize_show prize_show prize_show_01 hide">
+                <h2>第一层奖品</h2>
+                <ul>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_ch.jpg" alt="奖品" /><h4>称号（限时）</h4></li>
+                </ul>
+            </div>
+            <div class="js_prize_show prize_show prize_show_02 hide">
+                <h2>第二层奖品</h2>
+                <ul>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_mp.jpg" alt="奖品" /><h4>铭牌（限时）</h4></li>
+                </ul>
+            </div>
+            <div class="js_prize_show prize_show prize_show_03 hide">
+                <h2>第三层奖品</h2>
+                <ul>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_yb3000.jpg" alt="奖品" /><h4>3000银元宝</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_qb.jpg" alt="奖品" /><h4>问道钱包</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_jf2.png" alt="奖品" /><h4>十周年积分2分</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_mp.jpg" alt="奖品" /><h4>铭牌（限时）</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_T.jpg" alt="奖品" /><h4>问道T恤</h4></li>
+                </ul>
+            </div>
+            <div class="js_prize_show prize_show prize_show_04 hide">
+                <h2>第四层奖品</h2>
+                <ul>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_yb4000.jpg" alt="奖品" /><h4>4000银元宝</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/Iphone5S.png" alt="奖品" /><h4>Iphone5s</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_bz.jpg" alt="奖品" /><h4>威威虎抱枕</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_ch.jpg" alt="奖品" /><h4>称号（限时）</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_mp.jpg" alt="奖品" /><h4>铭牌（限时）</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_hm.jpg" alt="奖品" /><h4>红米手机</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_jf5.png" alt="奖品" /><h4>十周年积分5分</h4></li>
+                </ul>
+            </div>
+            <div class="js_prize_show prize_show prize_show_05 hide">
+                <h2>第五层奖品</h2>
+                <ul>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_yb5000.jpg" alt="奖品" /><h4>5000银元宝</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/Iphone6plus.png" alt="奖品" /><h4>Iphone6plus</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/Iphone6.png" alt="奖品" /><h4>Iphone6</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_ch.jpg" alt="奖品" /><h4>称号（限时）</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_mp.jpg" alt="奖品" /><h4>铭牌（限时）</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/m5.jpg" alt="奖品" /><h4>小米4</h4></li>                    
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_jf10.png" alt="奖品" /><h4>十周年积分10分</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_by.png" alt="奖品" /><h4>变异（随机）</h4></li>
+                </ul>
+            </div>
+            <div class="js_prize_show prize_show prize_show_06 hide">
+                <h2>第六层奖品</h2>
+                <ul>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_yb8000.jpg" alt="奖品" /><h4>8000银元宝</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/jnb.png" alt="奖品" /><h4>十周年纪念币</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_ch.jpg" alt="奖品" /><h4>称号（限时）</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/Iphone6s.png" alt="奖品" /><h4>Iphone6s</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_by.png" alt="奖品" /><h4>变异（随机）</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_jf10.png" alt="奖品" /><h4>十周年积分10分</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_jwh.jpg" alt="奖品" /><h4>九尾仙狐 手办</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/wdTenYear/images/icon_ss.png" alt="奖品" /><h4>神兽</h4></li>
+                </ul>
+            </div>
+            <div id="js_wishList" class="wish_show">
+                <h1>该层已有<span class="js_personCount"></span>人许愿！</h1>
+                <div class="wish_con">
+	                <ul class="js_wish_cont">
+	                </ul>
+                </div>
+                <div class="js_prev prev"></div>
+                <div class="js_next next"></div>
+            </div>
+            <div class="prize_pop real_pop" id="js_realPrize_pop">
+                <div class="prize_con">
+                    <h2 class="js_realPrize">恭喜您中奖：Ipione6</h2>
+                    <p>请填写准确详细的个人信息，以便我们邮寄奖品，包邮哦！</p>
+                    <ul>
+                        <li>
+                            <label>姓　　名：</label>
+                            <input type="text" name="user" id="user" maxlength="10"/>
+                        </li>
+                        <li>
+                            <label>手机号码：</label>
+                            <input type="text" name="tel" id="tel" maxlength="11"/>
+                        </li>
+                        <li>
+                            <label>邮寄地址：</label>
+                            <input type="text" name="ads" id="ads" maxlength="50"/>
+                        </li>
+                    </ul>
+                    <div class="buttons">
+                        <input class="submit_btn js_realPrize_submit" type="button"/>
+                    </div>
+                </div>
+                <p>活动结束后我们会统一邮寄奖品，请耐心等待~~以上信息不可修改，如有疑问请咨询客服：010-82438999</p>
+            </div>
+            <div class="prize_pop virtual_pop" id="js_noRealPrize_pop">
+                <div class="prize_con">
+                    <h2>恭喜您中奖： <span class="js_noRealprize">称号（限时）</span></h2>
+                    <div class="buttons">
+                        <input class="submit_btn js_noRealPrize_confirm" type="button"/>
+                    </div>
+                </div>
+                <p class="js_prize_tip">称号铭牌以外的其他奖励在游戏后统一发放~请耐心等待哦，如有疑问请联系客服：010-82438999</p>
+            </div>
+            <div class="prize_pop tip_pop" id="js_noPrize_pop">
+                <div class="prize_con">
+                    <h2>尊敬的玩家，您还没有获得过奖品呢，许愿可以增加获奖几率哦！</h2>
+                </div>
+                <div class="buttons">
+                    <input class="submit_btn js_noPrize_confirm" type="button"/>
+                </div>
+            </div>
+            <div class="prize_pop tip_pop" id="js_noWish_pop">
+                <div class="prize_con">
+                    <h2>尊敬的玩家，您还没有许过愿呢，快去许愿吧！</h2>
+                </div>
+                <div class="buttons">
+                    <input class="submit_btn js_noWish_confirm" type="button"/>
+                </div>
+            </div>
+            <div class="prize_pop tip_pop hide">
+                <div class="prize_con">
+                    <h2>您还未<span>登录</span>，许愿前请先登录！</h2>
+                </div>
+                <div class="buttons">
+                    <input class="submit_btn" type="button"/>
+                </div>
+            </div>
+            <div class="prize_pop tip_pop" id="js_countConsume_pop">
+                <div class="prize_con">
+                    <h2>本次许愿将会消耗积分：<span class="js_countConsume">99999</span></h2>
+                    <h2>您确定许愿吗？</h2>
+                </div>
+                <div class="buttons">
+                    <input class="submit_btn js_wishSubmit" type="button"/>
+                    <input class="quite_btn js_wishQuite" type="button"/>
+                </div>
+            </div>
+            <div class="prize_pop tip_pop hide">
+                <div class="prize_con">
+                    <h2>您的游戏内积分不够哦，是否使用十周年官网活动积分抽奖？</h2>
+                </div>
+                <div class="buttons">
+                    <input class="submit_btn" type="button"/>
+                    <input class="quite_btn" type="button"/>
+                </div>
+            </div>
+            <div class="prize_pop tip_pop tip_text_left_pop hide">
+                <div class="prize_con">
+                    <h2><span>恭喜您，许愿成功！</span></h2>
+                    <h2>您可以在“查询我许下的愿望”中查看该愿望！同时也可以<span>通过鼠标点击奖池</span>查看该奖池中其他玩家的愿望哦！</h2>
+                </div>
+            </div>
+            <div id="js_myWish_pop" class="prize_pop tip_pop">
+                <ul class="js_myWish_listCont">
+                </ul>
+            </div>
+            <div id="js_myPrize_pop" class="prize_pop tip_pop">
+                <ul class="js_myPrize_listCont">
+                </ul>
+            </div>
+            <div class="wd_pf">
+			</div>			            
+        </div>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdTenYear/js/index.js"></script>
+	<script>alert("谢谢参与，活动已结束！");</script>
+</body>
+</html>

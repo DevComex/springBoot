@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!-- 打印查询语句 -->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!-- 为实体类起别名 -->
+    <typeAliases>
+    </typeAliases>
+    <environments default="SecurityDB">
+        <environment id="SecurityDB">
+            <transactionManager type="JDBC"></transactionManager>
+            <dataSource type="POOLED">
+                <property name="driver" value="${jdbc.driverClassName}"/>
+                <property name="url" value="${jdbc.ActionDBV2url}"/>
+                <property name="username" value="${jdbc.ActionDBV2username}"/>
+                <property name="password" value="${jdbc.ActionDBV2password}"/>
+                <!--默认值是false，当值为true的时候，将开启ping机制-->
+                <property name="poolPingEnabled" value="true"/>
+                <!--对数据库进行ping时所使用的sql-->
+                <property name="poolPingQuery" value="select user_id from userid_account_map_tb LIMIT 1"/>
+                <!-- 默认值是0，单位是毫秒。我们不能在每次使用连接池之前，都使用ping机制，这会使每一条sql的执行，都要额外执行一次ping语句。
+                     所以使用此属性来避免这种不合理做法。
+                     我们只针对闲置时间超过某个时间的连接，进行ping。
+                     本例中的值为1小时，当从连接池中拿出的连接闲置超过1小时，才会对它进行ping-->
+                <property name="poolPingConnectionsNotUsedFor" value="3600000"/>
+            </dataSource>
+        </environment>
+    </environments>
+    
+    <!-- 映射支援文件所在地 -->
+    <mappers>
+        <package name="cn.gyyx.wanjia.wd.dao.manhua"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,521 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<title>问道兑换奖品</title>
+		<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdtentyearexchangescore/css/wdqd160314.css">
+		<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+		<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+		<!--统计代码-->
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wd10" type="text/javascript"></script>
+		<script  type="text/javascript">
+		 var rc="${rc.contextPath}";
+	 </script>
+	 
+	 <script>
+        var _hmt = _hmt || [];
+        (function() {
+          var hm = document.createElement("script");
+          hm.src = "//hm.baidu.com/hm.js?983242e92ba973250047d86f2c155191";
+          var s = document.getElementsByTagName("script")[0]; 
+          s.parentNode.insertBefore(hm, s);
+        })();
+        </script>
+		<script type="text/javascript" charset="utf-8">
+    		alert("谢谢参与，活动已结束");
+    	</script>
+	</head>
+
+	<body>
+		<div style=" position:relative;">
+		<!-- 遮罩层 -->
+		<div class="maskBox"></div>
+		
+		
+		</div>
+		
+		<!--头部 start-->
+		<div class="public_nav_top">
+			<script type="text/javascript">
+				Showtop();
+			</script>
+		</div>
+		<!--end 头部 -->
+		
+		<!--内容区 start-->
+		<div class="main">
+			
+			<!--导航start-->
+			<div class="top_nav">
+				<a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">游戏官网</a> | 
+				<a href="http://pay.gyyx.cn/gamepay/paygold?gameId=2" target="_blank">充值中心</a> | 
+				<a href="http://account.gyyx.cn/Member/Register" target="_blank">账号注册</a> | 
+				<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+			</div>
+			<!--end 导航 -->
+			<div class="body_con">
+
+				<div class="page page1 clear" id="page1">
+					<p><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/pageTit1.png"/></p>
+					
+					<div class="login_box">
+							<span class="login_q">
+								兑换前请先：<a href="javascript:;" class="js_alertlogin_a ">登录</a>
+							</span>
+							<span class="login_h" style="display: block;">
+								<b></b>&nbsp;&nbsp;&nbsp;<a href="javascript:;" class="js_Logout ">注销</a>
+								<select name="daqu" id="daqu">
+									<option>选择大区</option>
+									<option value="1">网通</option>
+									<option value="2">电信</option>
+									<option value="3">双线</option>
+								</select>
+								<select name="quzu" id="quzu">
+									<option value="">选择区组</option>
+								</select>
+								
+								<select name="juese" id="juese" style="display:none;" >
+									
+								</select>
+								<a href="javascript:;" class="js_bindJS" style="display:none;" >&nbsp;&nbsp;&nbsp;绑定角色</a>
+								
+								
+								<span class="js_succJues" style="display:none;">
+									绑定角色：<span class="js_roleName" style="padding-right:10px;"></span>
+									<span href="javascript:;" class="seeRole"><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/seeStore.png" /></span>
+									积分数量：<span class="js_rolescore" style="padding-right:10px;"></span>
+									积分排名：<span class="js_roleorder" style="padding-right:10px;"></span>
+									
+								
+								</span>
+								
+								<span class="js_yzmBoxP">
+								<span class="yzm">验证码：</span><input type="text" class="yzm_inp" />
+								<b class="js_yzmBox"><img src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=334" class="js_yzmImg" /></b>
+								<a href="javascript:;" class="js_getJS">获取角色</a>
+								</span>
+							</span>
+					</div>
+					<div class="page1_con">
+						<ul class="clear">
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日奖励已兑换完</div>
+								<a href="javascript:;"   >抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							<li>
+								<img src="" alt="" />
+								<p class="on"></p>
+								<div class="jp_box">今日已兑换完</div>
+								<a href="javascript:;">抽奖</a>
+							</li>
+							
+						</ul>
+					</div>
+				</div>
+				
+				<div class="page page2">
+					<p><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/pageTit2.png"/></p>
+					<div class="page2_con clear">
+						<div class="page2_l">
+							<ul class="clear">
+								<li id="dzp0" class="img01 jp"><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj01.jpg"/><p><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj06.jpg"/></p></li>
+								<li id="dzp1" class="img01 jp"><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj02.jpg"/><p><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj06.jpg"/></p></li>
+								<li id="dzp2" class="img01 jp"><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj07.jpg"/><p><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj06.jpg"/></p></li>
+								<li id="dzp7" class="img01 jp"><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj04.jpg"/><p><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj06.jpg"/></p></li>
+								<li><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj06.jpg"/></li>
+								<li id="dzp3" class="img01 jp"><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj03.jpg"/><p><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj06.jpg"/></p></li>
+								<li id="dzp6" class="img01 jp"><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj07.jpg"/><p><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj06.jpg"/></p></li>
+								<li id="dzp5" class="img01 jp"><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj05.jpg"/><p><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj06.jpg"/></p></li>
+								<li id="dzp4" class="img01 jp"><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj07.jpg"/><p><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/cj06.jpg"/></p></li>
+							</ul>
+							<a href="javascript:;" class="js_start js_btnStart" text="go"></a>
+						</div>
+						<div class="page2_r">
+							<div class="js_tabal_box">
+    							<table border="1" cellspacing="1" cellpadding="1">
+    								<thead>
+    									<tr>
+    										<th>玩家排名</th>
+    										<th>玩家账号</th>
+    										<th>玩家区组</th>
+    										<th>玩家积分</th>
+    									</tr>
+    								</thead>
+    								
+    								<tbody class="js_tbody">
+    
+    									<tr>
+    										<td>7</td>
+    										<td>醉心客</td>
+    										<td>避暑山庄</td>
+    										<td>85256</td>
+    									</tr>
+    								
+    									<tr>
+    										<td>12</td>
+    										<td>醉心客</td>
+    										<td>避暑山庄</td>
+    										<td>85256</td>
+    									</tr>
+    								</tbody>
+								</table>
+							</div>
+							
+							
+							<div class="pageBox" id="DataTables_Table_0_paginate">
+								<a href="" class="">上页</a>
+								<a href="" class="">首页</a>
+								<a href="" class="">1</a>
+								<a href="" class="">2</a>
+								<a href="" class="">3</a>
+								<a href="" class="">4</a>
+								<a href="" class="">5</a>
+								<a href="" class="">末页</a>
+								<a href="" class="">下页</a>
+								<select name="" id="">
+									<option value="1">1</option>
+								</select>
+							</div>
+						</div>
+						
+					</div>
+					
+					<div class="page2_des">
+							4月22日和5月3日当天00:00，积分前1000名的玩家可以在此进行一次抽奖。抽奖时积分必须大于之前排名时积分，否则抽奖不成功，也不再给予机会，请多注意。抽奖机会请在当天使用，否则到当天23：59分将清空。
+						</div>
+				</div>
+				
+				<div class="page clear page34">
+					<div class="page3">
+						<p><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/pageTit3.png"/></p>
+						<ul class="page3_listTit">
+							<li>兑换账号</li>
+							<li>兑换内容</li>
+							<li>兑换时间</li>				
+						</ul>
+						<div class="page3_list">
+							<table border="0" cellspacing="0" cellpadding="0" class="js_scrol_table">
+								<tr><td>dddee11</td><td>抱枕</td><td>2016-03-08</td></tr>
+								<tr><td>dddee22</td><td>抱枕</td><td>2016-03-08</td></tr>
+								<tr><td>dddee33</td><td>抱枕</td><td>2016-03-08</td></tr>
+							
+								
+							
+							</table>
+						</div>
+							
+
+						
+					</div>
+					<div class="page4" id="page4">
+						<p><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/pageTit4.png"/></p>
+						<div class="page4_con">
+							<dl>
+								<dt>
+									<span>1</span>兑换规则
+								</dt>
+								<dd>
+									<ul>
+										<li>（1）	活动时间内，玩家可在活动页面使用自己十周年积分兑换奖励</li>
+										<li>（2）	为使更多玩家能成功兑换奖励~故部分奖励将分批投放（投放时间为每天凌晨）； </li>
+										<li>（3）	奖励显示“今日已兑换完”则玩家可以第二天来兑换，如显示“奖励已全部兑换完”则只能兑换其他奖励；</li>
+										<li>（4）	同一账号成功兑换某个奖励后，也需要等待冷却时间过去后才可再次兑换该物品</li>
+									</ul>
+								</dd>
+							</dl>
+							
+							<dl>
+								<dt>
+									<span>2</span>抽奖规则
+								</dt>
+								<dd>
+                                <li>（1）	在4月22日和5月3日00：00时积分排名前一千名的玩家有一次抽奖的机会；</li>
+								<li>（2）	如成功抽取，则会将玩家的当前积分清空</li>
+
+								</dd>
+							</dl>
+							
+							<dl>
+								<dt>
+									<span>3</span>积分获得
+								</dt>
+								<dd>
+									在十周年活动时间积极参加官网活动就可以获得十周年积分哦~<br>
+								            点击右侧漂浮的“更多活动”就可以查看十周年官网活动啦~
+								</dd>
+							</dl>
+							
+							<dl>
+								<dt>
+									<span>4</span>奖励发放
+								</dt>
+								<dd>
+									玩家成功兑换称号、铭牌、天神护佑奖励后，奖励将直接发送到游戏内，其他奖励均在活动结束后统一发放，大家不要捉急哟~<br>
+									<span style="color:#ff0000;">注：（1）此活动一个人只允许一个帐号参与（兑换和抽奖均是），请使用积分最高的那个帐号参与，若积分相同，也只允许其中一个，请尝试多次登录，确认可以参加活动的帐号，谢谢~<br>
+											（2）若兑换实物奖励时，填写的地址信息不正确导致奖励无法发放，视为道友放弃奖励~<br>
+											（3）参与活动需绑定角色，绑定后不可更改。
+										   </span>
+								</dd>
+							</dl>
+						</div>
+					</div>
+					
+				</div>	
+			</div>
+
+		</div>
+		<!--end 内容区 -->
+
+		<!--右侧悬浮 框 start -->
+		<div class="rig_float" style="right:4%">
+			<ul>
+				<li class="one"><a href="#page1" class="on">我要兑换</a></li>
+				<li class="two"><a href="http://wd.gyyx.cn/huodong/10zn/10qd/index.html" target="_blank">十年庆典</a></li>
+				<li class="three"><a href="http://wd.gyyx.cn/huodong/10zn/jnh/index.html" target="_blank">嘉&nbsp;&nbsp;年&nbsp;&nbsp;华</a></li>
+				<li class="four"><a href="http://wd.gyyx.cn/huodong/10zn/hdhz/index.html" target="_blank">更多活动</a></li>					
+			</ul>
+		</div>
+		<!--end 右侧悬浮 框  -->
+
+		<!-- 弹层 start  -->
+		<div class="js_black_box">
+			<div class="black_box"></div>
+			<div class="lqcg">
+				<a href="javascript:;" class="js_close"></a>
+				<p>您的积分不够兑换本奖励哦</p>
+				
+				<div class="btn_box">
+					<a href="javascript:;" class="js_getJF">获取积分</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					<a href="javascript:;" class="js_dhOpther">兑换其他奖励</a>
+				</div>
+				
+				<div class=" btn_box cjBtn_close">
+					<a href="javascript:;" class="js_dhOpther">确定</a>
+				</div>
+			</div>
+			
+			<div class="alert_yzm">
+				<a href="javascript:;" class="js_close"></a>
+				<p class="dj_tishi">您需要消耗<span></span>积分</p>
+				<div class="dj_yzm">
+    					<span class="dj_yzmTit">验证码：</span><input type="text" class="dj_inp" />
+    					<b class="dj_yzmBox"><img src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=43242" class="dj_yzmImg" /></b>
+						<a href="javascript:;" class="dj_yznBtn">确定</a>
+				</div>
+			</div>
+			
+			<div class="xn_box">
+				<a href="javascript:;" class="js_close"></a>
+				<p class="js_tit js_dhxnTit">恭喜您成功兑换</p>
+				<p class="js_tit js_cjxnTit">恭喜您成功抽中</p>
+				<span class="js_xnName"></span>
+				<div class="btn_box">
+					<a href="javascript:;" class="js_dhOpther">确定</a>
+				</div>
+				<p class="js_tishi">称号、铭牌、天神护佑奖励可以直接发放到游戏内，其他奖励活动结束后统一发放~ 如有疑问请致电客服：010-82438999</p>
+			</div>
+			
+			<div class="sw_box" >
+				<a href="javascript:;" class="css_close"></a>
+				<div style="height:25px">
+					<div class="js_dhswTit">恭喜您成功兑换：<span class="jq_name"></span></div>
+					<div class="js_cjswTit" style="display:none;">恭喜您抽中：<span class="jq_name_cj">iphone</span></div>
+				</div>
+				<p>请填写准确详细的个人信息，以便我们邮寄奖品，包邮哦~</p>
+				<ul>
+					<li><span>姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：</span><input type="text" class="js_name"  maxlength="10" /></li>
+					<li><span>手机号码：</span><input type="text" class="js_phone"  maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" /></li>
+					<li><span>邮寄地址：</span><input type="text" class="js_add"   maxlength="150"/></li>
+					<li><a href="javascript:;" class="js_addsub">确定</a></li>
+				</ul>
+				<p>称号、铭牌、天神护佑奖励可以直接发放到游戏内，其他奖励活动结束后统一发放~ 如有疑问请致电客服：010-82438999</p>
+			</div>
+			
+
+			<div class="maskDiv">
+    			<div class="messagesList">
+        			<div class="messages01">
+        				<div class="hei42"><span class="messageNum">01</span><span class="messageTitle">第一层许愿</span></div>
+        			    <p>您的积分不够兑换本奖励哦本奖励哦</p>
+        			</div>
+    			 
+    			</div>
+    		    <span class="closeBox"><img src="http://static.cn114.cn/action/wdtentyearexchangescore/images/closePic.png" /></span>
+    			<div class="js_myAdd">
+    				<a href="javascript:;">我的地址</a>
+    			</div>
+    		</div>
+			
+		</div>
+		<!--  end 弹层   -->
+
+		<!-- 底部 start  -->
+		<div class="public_nav_bottom">
+			<script type="text/javascript">
+				ShowBottom();
+			</script>
+		</div>
+		<!-- end   底部   -->
+		
+
+	<script type="text/javascript" src="http://static.cn114.cn/action/wdtentyearexchangescore/js/lottery.js" ></script>
+	<script type="text/javascript" src="http://static.cn114.cn/action/wdtentyearexchangescore/js/jquery.ajaxpage-syw-2.2.js" ></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdtentyearexchangescore/js/index.js"></script>	
+	<script>alert("谢谢参与，活动已结束！");</script>
+	</body>
+		
+</html>

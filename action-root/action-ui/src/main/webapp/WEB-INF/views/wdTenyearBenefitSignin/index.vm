@@ -1,0 +1,188 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>问道十周年签到活动</title>
+		<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdtenyearsign/css/wdqd160314.css">
+		<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+		<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+		<!--统计代码-->
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wd10" type="text/javascript"></script>
+		<script  type="text/javascript">
+		    var rc = "${rc.contextPath}";
+		    alert("活动已经结束！！！");
+		</script>
+	</head>
+
+	<body>
+		
+		<!--头部 start-->
+		<div class="public_nav_top">
+			<script type="text/javascript">
+				Showtop();
+			</script>
+		</div>
+		<!--end 头部 -->
+
+		<!--内容区 start-->
+		<div class="main">
+
+			<div class="body_con">
+				
+				<div class="login">
+					<!--登录前 -->
+					<div class="login_before">参与活动前请<a href="javascript:;" class="js_alertlogin_a ">登录</a></div>
+					
+					<!--登录后 -->
+					<div class="login_after"  style="display: none;">
+						<div  class="userName">欢迎您：<span></span><a href="javascript:;" class="js_Logout">退出登录</a></div>
+						<div class="server">
+							<div class="bdInfo" style="display:none"></div>
+							<div class="js_selBox">
+    							请选择您的区组信息：
+    							<select name="daqu" id="daqu">
+    								<option value="">选择大区</option>
+    								<option value="1">网通</option>
+    								<option value="2">电信</option>
+    								<option value="3">双线</option>
+    							</select>
+    							<select name="quzu" id="quzu">
+    								<option value="">选择区组</option>
+    							</select>
+    							<a href="javascript:;">确定</a>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+
+				<div class="page">
+					<h2><img src="http://static.cn114.cn/action/wdtenyearsign/images/tit01.png"/></h2>
+					<div class="page_con">
+						<div class="tit_scroll clear">
+							<span>签到信息：</span>
+							<div class="scroll_box">
+								<ul>
+									<li>xxx完成近日签到，获得十周年xx积分；</li>
+								</ul>
+							</div>
+						</div>
+						<div class="calendar_box">
+							<div class="sign_box">
+								<a href="javascript:;" class="js_sign_b"><img src="http://static.cn114.cn/action/wdtenyearsign/images/qdqBtn.png"/></a>
+								<a href="javascript:;" class="js_sign_a" style="display: none;"><img src="http://static.cn114.cn/action/wdtenyearsign/images/qdhBtn.png"/></a>
+							</div>
+							<ul class="clear">
+								<li></li>
+								<li>22</li>
+								<li>23</li>
+								<li>24</li>
+								<li>25</li>
+								<li class="red">26</li>
+								<li class="red">27</li>
+								<li>28</li>
+								<li>29</li>
+								<li>30</li>
+								<li>31</li>
+								<li>01</li>
+								<li class="red">02</li>
+								<li class="red">03</li>
+								<li>04</li>
+								<li>05</li>
+								<li>06</li>
+								<li>07</li>
+								<li>08</li>
+								<li class="red">09</li>
+								<li class="red">10</li>
+								<li>11</li>
+								<li>12</li>
+								<li>13</li>
+								<li>14</li>
+								<li>15</li>
+								<li class="red">16</li>
+								<li class="red">17</li>
+								<li>18</li>
+								<li>19</li>
+								<li>20</li>
+								<li>21</li>
+								<li>22</li>
+								<li class="red">23</li>
+								<li class="red">24</li>
+								<li>25</li>
+								<li>26</li>
+								<li>27</li>
+								<li>28</li>
+								<li>29</li>
+								<li class="red">30</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="page">
+					<h2><img src="http://static.cn114.cn/action/wdtenyearsign/images/tit02.png"/></h2>
+					<div class="page2_con">
+						<div class="bigBtn" data-info="88score">达到十周年88积分领取</div>
+						<ul class="clear">
+							<li data-info="3day">领取</li>
+							<li data-info="5day">领取</li>
+							<li data-info="10day">领取</li>
+							<li data-info="20day">领取</li>
+							<li data-info="30day">领取</li>
+							<li data-info="40day">领取</li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="page">
+					<h2><img src="http://static.cn114.cn/action/wdtenyearsign/images/tit03.png"/></h2>
+					<div class="page3_con">
+						<ul class="clear">
+							<li class="clear"><span>1</span><div>参与活动，需要登录帐号绑定角色，绑定后，不可更改。</div></li>
+							<li class="clear"><span>2</span><div>前一天游戏内活跃度达到B-，可在此签到，领取2个十周年积分，每天可领取一次。（注：达到B-时，请在当天重新登陆一下，否则第二天获取不到活跃度新数据，将无法签到。）</div></li>
+							<li class="clear"><span>3</span><div>累计签到，还可获得额外的十周年积分奖励或道具奖励（领取游戏内道具，需要激活绑定的区组，否则领取不成功，也不会重新发放）。十周年积分，可用于之后的许愿池、积分兑换福利活动。积分兑换互动将会在4月上线，有十周年纪念币、iPhone 6s plus、iPad AIR 2、iPad AIR、小米4等大奖。大家记得积极参加活动获得十周年积分，否则将与大奖失之交臂。<a href="http://wanwd.gyyx.cn/article/15450" style="color:red;">问道十周年纪念币获得攻略：点击进入</a></div></li>
+							<li class="clear"><span>4</span><div>通过参与十周年官网、微信等活动获得十周年积分，积分达到88积分，即可直接在此活动页面领取一个游戏内道具赠品；每个账号活动期间只能领取一个此道具。</div></li>
+							<li class="clear"><span>5</span><div>活动最终解释权由光宇在线科技有限责任公司所有。</div></li>
+						</ul>
+					</div>
+				</div>
+				
+			</div>
+
+		
+		</div>
+		<!--end 内容区 -->
+
+		<!--右侧悬浮 框 start -->
+		<div class="rig_float">
+			<ul>
+				<li class="one"><a href="#"></a></li>
+				<li class="two"><a href="#"></a></li>
+				<li class="three"><a href="#"></a></li>
+				<li class="four"><a href="#"></a></li>					
+			</ul>
+		</div>
+		<!--end 右侧悬浮 框  -->
+
+		<!-- 弹层 start  -->
+		<div class="js_black_box">
+			<div class="lq_box"></div>
+			<div class="lqcg">
+				<a href="javascript:;" class="js_close"></a>
+			</div>
+		</div>
+		<!--  end 弹层   -->
+
+		<!-- 底部 start  -->
+		<div class="public_nav_bottom">
+			<script type="text/javascript">
+				ShowBottom();
+			</script>
+		</div>
+		<!-- end   底部   -->
+		
+	<script type="text/javascript" src="http://static.cn114.cn/action/wdtenyearsign/js/index.js"></script>	
+	</body>
+		
+</html>

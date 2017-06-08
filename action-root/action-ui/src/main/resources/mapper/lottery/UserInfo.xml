@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.IUserLotteryInfo">
+	<resultMap type="UserInfoBean" id="UserInfoMap">
+		<id column="code" property="code" />
+		<result column="activity_id" property="actionCode" />
+		<result column="source" property="source" />
+		<result column="source_code" property="sourceCode" />
+		<result column="account" property="account" />
+		<result column="game_id" property="gameCode" />
+		<result column="server_id" property="serverCode" />
+		<result column="server_name" property="serverName" />
+		<result column="present_type" property="presentType" />
+		<result column="present_name" property="presentName" />
+		<result column="draw_time" property="time" />
+		<result column="draw_ip" property="ip" />
+		<result column="available" property="available" />
+	</resultMap>
+	<update id="updateAvailable" parameterType="Integer">
+		update
+		hd_send_present_log
+		set
+		available = 1
+		where
+		code = #{code}
+	</update>
+	<select id="getAllUserLotteryInfo" resultMap="UserInfoMap"
+		resultType="java.util.List">
+		select * from hd_send_present_log
+		where
+		activity_id=#{actionCode} order by code desc
+	</select>
+
+	<select id="getUserLotteryInfoByUserCode" resultMap="UserInfoMap"
+		resultType="java.util.List">
+		select * from hd_send_present_log
+		where
+		activity_id=#{actionCode}
+		and
+		account=#{userAccount}
+
+	</select>
+
+	<select id="wishGetUserLotteryInfoByUserCode" resultMap="UserInfoMap"
+		resultType="java.util.List">
+		select * from hd_send_present_log
+		where
+		activity_id=#{actionCode}
+		and
+		account=#{userAccount} order by draw_time desc
+
+	</select>
+
+	<select id="getUserLotteryInfoByActionCodeAndUserCodeAndPresentName"
+		resultMap="UserInfoMap">
+		select * from hd_send_present_log
+		where
+		activity_id=#{actionCode}
+		and
+		account=#{userAccount}
+		and
+		present_name=#{presentName}
+	</select>
+
+	<select id="getSendPresentLogs" resultMap="UserInfoMap">
+		select top 100 * from hd_send_present_log
+		where
+		activity_id=#{actionCode}
+		order by draw_time desc
+	</select>
+
+	<select id="getUserLotteryInfoByActionCodeAndUserCodeAndDrawTime"
+		resultMap="UserInfoMap">
+		select * from hd_send_present_log
+		where
+		activity_id=#{actionCode}
+		and
+		account=#{userAccount}
+		and
+		DATEDIFF( d ,#{drawTime} ,[draw_time])=0 and DATEDIFF( m ,#{drawTime}
+		,[draw_time])=0 and DATEDIFF( yyyy ,#{drawTime} ,[draw_time])=0 order
+		by
+		draw_time
+	</select>
+
+	<insert id="addInfo" useGeneratedKeys="true" keyProperty="code"
+		parameterType="UserInfoBean">
+		insert into hd_send_present_log
+		(activity_id,source,source_code,account,game_id,server_id,server_name,present_type,present_name,draw_time,draw_ip,available)
+		values
+		(#{actionCode},#{source},#{sourceCode},#{account},#{gameCode},#{serverCode},#{serverName},#{presentType},#{presentName},#{time},#{ip},#{available})
+
+	</insert>
+	<select id="getNumOf" resultType="int">
+		select count(code)
+		from hd_send_present_log
+		where
+		activity_id=#{actionCode}
+		and
+		present_name like '%${prizeChinese}%'
+
+	</select>
+	<select id="wishGetUserLotteryInfoByAvailable" resultMap="UserInfoMap"
+		resultType="java.util.List">
+		select * from hd_send_present_log
+		where
+		activity_id=#{actionCode}
+		and available=1 and
+		account=#{userAccount} order by draw_time desc
+
+	</select>
+	<select id="selectOtherPrizes" resultMap="UserInfoMap"
+		resultType="java.util.List">
+
+		select * from hd_send_present_log
+		where activity_id=#{actionCode}
+		and account=#{userAccount}
+		and present_type!=#{presentType}
+
+	</select>
+	<select id="selectOneTypePrizes" resultMap="UserInfoMap"
+		resultType="java.util.List">
+
+		select * from hd_send_present_log
+		where activity_id=#{actionCode}
+		and account=#{userAccount}
+		and present_type=#{presentType}
+
+	</select>
+
+	<!--问道2017寻找基友活动添加使用  -->
+	<select id="getLotteryList4Wd2017SeekTeam" resultMap="UserInfoMap"
+		resultType="java.util.List" >
+		select top 50 account,server_id,server_name,present_name from hd_send_present_log
+		where 
+		activity_id=#{actionCode} 
+		order by (  
+		case 
+		 when present_name = 'Iphone7 plus' then 12
+		 when present_name = 'Iphone7' then 11
+		 when present_name = '小米5' then 10
+		 when present_name = '移动电源（蓝色）' then 9
+		 when present_name = '十周年纪念币' then 8
+		 when present_name = '威威虎U型枕' then 7
+		 when present_name = '问道T恤' then 6
+		 when present_name = '蛋蛋鸡' then 5
+		 when present_name = '8000银元宝' then 4
+		 when present_name = '5000银元宝' then 3
+		 when present_name = '3000银元宝' then 2
+		 when present_name = '花朵铭牌' then 1 END ) desc ,draw_time desc 
+	</select>
+	<select id="selectTop50AvaPrizes" resultMap="UserInfoMap" resultType="java.util.List">
+		select top 50 * from hd_send_present_log
+		where activity_id=#{actionCode}
+		and available=#{available} order by code desc
+	</select>
+	
+	<!--问道1.61v2.0添加使用  -->
+	<select id="getLotteryList4Wd161" resultMap="UserInfoMap"
+		resultType="java.util.List" >
+		select top 200 * from hd_send_present_log
+		where 
+		activity_id=#{actionCode} 
+		order by (  
+		case 
+		 when present_name = 'Iphone6s plus' then 10
+		 when present_name = '小米5' then 9
+		 when present_name = '红米Note3' then 8
+		 when present_name = '威威虎U型枕' then 7
+		 when present_name = '问道T恤' then 6
+		 when present_name = '代代封侯吊坠' then 5
+		 when present_name = '8000银元宝' then 4
+		 when present_name = '5000银元宝' then 3
+		 when present_name = '3000银元宝' then 2
+		 when present_name = '灯笼铭牌' then 1 END ) desc ,draw_time desc 
+	</select>
+</mapper>

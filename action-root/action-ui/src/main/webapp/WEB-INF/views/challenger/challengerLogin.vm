@@ -1,0 +1,13 @@
+<!-- 弹窗提示（登录注册提醒）-->
+<div class="mask"></div>
+<div class="maskMain">
+    <div class="maskKuang">
+        <h2>请先登录</h2>
+        <div class="handle">
+            <a href="javascript:;" class="loginA lb_login">登录</a>
+            <a target="_blank" href="http://news.gyyx.cn/Counter.ashx?pc=4089&sc=17763&mc=6304&gc=2&ul=http%3a%2f%2faccount.gyyx.cn%2fMember%2fRegister&mt=4061&et=1" class="registerA">注册</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="clock">关闭</a>
+    <input id="source" type="hidden" name="index" value="index" />
+</div>

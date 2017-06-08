@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>问道1.60门派招生活动</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdwxwebsite/css/nologinsingup.css"/>
+    <script type="text/javascript" src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> <!--光宇统计-->
+    
+    <script  type="text/javascript">
+		var rc="${rc.contextPath}";
+	</script>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?b4f7ea4b343a6ded09c78627cc82e16c";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</head>
+<body>
+	<div id="logo">
+		<img src="http://static.cn114.cn/action/wdwxwebsite/img/logo.jpg" />
+		<h1>活动时间：<span>9月13日12:00-10月7日23:59</span></h1>
+	</div>
+	<div id="main">
+		<div id="page1">
+			<a href="javascript:;" class="loginbtn"><img src="http://static.cn114.cn/action/wdwxwebsite/img/anbg.png"/><span>登&nbsp;&nbsp;录</span></a>
+			<a href="javascript:;" class="bmbtn"><img src="http://static.cn114.cn/action/wdwxwebsite/img/anbg.png"/><span>报&nbsp;&nbsp;名</span></a>
+		</div>
+		<div id="loginpage1">
+			<p class="p5"><label>欢迎您：</label><span class="l1"></span><b class="js_quit2" data_sername="" data_sercode="">注销</b></p>
+			<p>角色名：<span class="l2"></span></p>
+			<p class="marg l3">报名门派：<span></span><span></span></p>
+			<p class="marg">贡献积分：<span class="l4"></span>贡献排名：<span class="l5"></span></p>
+			<p class="lasttoery">剩余抽奖次数：<span class="l6"></span>次</p>
+			<p class="address"><a href="javascript:;" id="myjaing"><img src="http://static.cn114.cn/action/wdwxwebsite/img/bg2.png"/><span>已经获得的奖励</span></a><a href="javascript:;" id="myaddress"><img src="http://static.cn114.cn/action/wdwxwebsite/img/bg2.png"/><span>修改收件地址</span></a></p>
+		</div>
+		<div id="cont">
+			<p class="title"><a href="javascript:;" class="on" data-id="391">大奖池</a><a href="javascript:;" data-id="390">小奖池</a></p>
+			<div class="zhuanpan" style="display: block;">
+				<div class="cjcon clear">
+					<div class="img01 jp" id="dzp0"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image0.png"><span></span></div>
+					<div class="img01 jp" id="dzp1"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image1.png" ><span></span></div>
+					<div class="img01 jp" id="dzp2"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image2.png"><span></span></div>
+					<div class="img01 jp" id="dzp3"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image3.png"><span></span></div>
+					<div class="img02">
+						<div class="img03">
+							<div class="img01 jp" id="dzp13"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image13.png" ><span></span></div>
+							<div class="img01 jp" id="dzp12"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image12.png" ><span></span></div>
+							<div class="img01 jp" id="dzp11"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image11.png" ><span></span></div>
+						</div>
+						<div class="start">
+							<a href="javascript:;" id="btnStart" text="go"><img src="http://static.cn114.cn/action/wdwxwebsite/img/starts.png" ></a>
+						</div>
+						<div class="img03">
+							<div class="img01 jp" id="dzp4"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image4.png" ><span></span></div>
+							<div class="img01 jp" id="dzp5"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image5.png" ><span></span></div>
+							<div class="img01 jp" id="dzp6"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image6.png" ><span></span></div>
+						</div>
+					</div>
+					<div class="img01 jp img04" id="dzp10"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image10.png" ><span></span></div>
+					<div class="img01 jp img04" id="dzp9"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image9.png" ><span></span></div>
+					<div class="img01 jp img04" id="dzp8"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image8.png" ><span></span></div>
+					<div class="img01 jp img04" id="dzp7"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image7.png" ><span></span></div>
+				</div>
+			</div>
+			<div class="zhuanpan">
+				<div class="cjcon clear">
+					<div class="img01 jp" id="adzp0"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image00.png"><span></span></div>
+					<div class="img01 jp" id="adzp1"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image01.png" ><span></span></div>
+					<div class="img01 jp" id="adzp2"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image02.png"><span></span></div>
+					<div class="img01 jp" id="adzp3"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image03.png"><span></span></div>
+					<div class="img02">
+						<div class="img03">
+							<div class="img01 jp" id="adzp13"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image013.png" ><span></span></div>
+							<div class="img01 jp" id="adzp12"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image012.png" ><span></span></div>
+							<div class="img01 jp" id="adzp11"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image011.png" ><span></span></div>
+						</div>
+						<div class="start">
+							<a href="javascript:;" id="abtnStart" text="go"><img src="http://static.cn114.cn/action/wdwxwebsite/img/starts.png" ></a>
+						</div>
+						<div class="img03">
+							<div class="img01 jp" id="adzp4"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image04.png" ><span></span></div>
+							<div class="img01 jp" id="adzp5"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image05.png" ><span></span></div>
+							<div class="img01 jp" id="adzp6"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image06.png" ><span></span></div>
+						</div>
+					</div>
+					<div class="img01 jp img04" id="adzp10"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image010.png" ><span></span></div>
+					<div class="img01 jp img04" id="adzp9"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image09.png" ><span></span></div>
+					<div class="img01 jp img04" id="adzp8"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image08.png" ><span></span></div>
+					<div class="img01 jp img04" id="adzp7"><img src="http://static.cn114.cn/action/wdwxwebsite/img/image07.png" ><span></span></div>
+				</div>
+			</div>
+			<p class="times"></p>
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/bg3.png" />
+			<ul class="tit">
+				<li><span>角色名</span><span>区组</span><span>奖品</span></li>
+			</ul>
+			<div class="scroll">
+				<div class="scrollbox" id="mqcon_v">
+					<ul id="js_scrollList">
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+		<a href="javascript:;" id="signup">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img1.jpg" />
+			<b>报名</b>
+		</a>
+		<a href="javascript:;" id="show">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img2.jpg" />
+			<b>展示</b>
+		</a>
+		<a href="javascript:;" class="on" id="lottery">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img3on.jpg" />
+			<b>抽奖</b>
+		</a>
+		<a href="javascript:;" id="rule">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/img4.jpg" />
+			<b>规则</b>
+		</a>
+	</div>
+	<div id="tc_lottery" style="display: none;">
+		<p class="st1">恭喜获奖</p>
+		<img src="http://static.cn114.cn/action/wdwxwebsite/img/photo.jpg" />
+		<p class="st2">iphone6</p>
+		<div class="add">
+			<a href="javascript:;" class="signupbtn"><img src="http://static.cn114.cn/action/wdwxwebsite/img/anbg.png"/><span>知道了</span></a>
+		</div>
+	</div>
+	<div id="prizeList" style="display: none;">
+		<p>获奖展示<img src="http://static.cn114.cn/action/wdwxwebsite/img/tg.png" class="close"/></p>
+		<ul>
+			<li><span>奖励名称</span><span>日期</span></li>
+		</ul>
+		<ul class="lists">
+		</ul>
+	</div>
+	<div id="address_info">
+		<p class="st1">恭喜获奖</p>
+		<img id="mytitle" src="http://static.cn114.cn/action/wdwxwebsite/img/photo.jpg">
+		<p class="st2" id="myprize"></p>
+		<div class="add">
+			<p>请填写联系方式</p>
+			<input type="text" placeholder="姓名" class="username">
+			<input type="text" placeholder="电话" class="tellphone">
+			<input type="text" placeholder="地址" class="address">
+			<a href="javascript:;" class="signupbtn js_subbtn"><img src="http://static.cn114.cn/action/wdwxwebsite/img/anbg.png"><span>提&nbsp;&nbsp;交</span></a>
+			<span>注：如有疑问请致电客服：010-82438999</span>
+		</div>
+	</div>
+	<div id="address_info1">
+		<div class="add">
+			<p>请修改联系方式</p>
+			<input type="text" placeholder="姓名" class="username">
+			<input type="text" placeholder="电话" class="tellphone">
+			<input type="text" placeholder="地址" class="address">
+			<a href="javascript:;" class="signupbtn js_subbtn"><img src="http://static.cn114.cn/action/wdwxwebsite/img/anbg.png"><span>提&nbsp;&nbsp;交</span></a>
+			<span>注：如有疑问请致电客服：010-82438999</span>
+		</div>
+	</div>
+</body>
+<script src="http://static.cn114.cn/action/wdwxwebsite/js/jquery-1.8.2.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/gyyx_wxshare.min.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/wxlotterywdbig.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/wxlotterywdsmall.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/lotteryphone.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdwxwebsite/js/pubfx.js" ></script>
+
+</html>

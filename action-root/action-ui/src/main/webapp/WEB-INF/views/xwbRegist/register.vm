@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>炫舞吧-官方网站-光宇游戏</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/xwbRegister/css/public.css"/>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/xwbRegister/css/register.css"/>
+    <script  type="text/javascript">
+       var rc = "";
+    </script>
+</head>
+<body>
+<div class="wrap">
+    <div class="form_register">
+        <p class="field alertNote"></p>
+        <p class="field"><input type="text" class="phone" maxlength="11" name="userName" placeholder="手机号" data-check="check"/></p>
+        <p class="field"><input type="text" placeholder="图片验证码" class="img_putcode" data-check="check"/><img src="" class="img_code"/></p>
+        <p class="field"><input type="text" placeholder="短信验证码" class="code" data-check="check"/><span class="send_code unclick">发送验证码</span></p>
+        <div class="field kg">
+            <input type="password" class="password" maxlength="16" name="onOffpwd" placeholder="密码" id="pwd" data-check="check" style="display:inline"/>
+            <div id="pwd_on_off" class="onOff">
+                <p class="round"></p>
+            </div>
+        </div>
+        <p class="field next" style="padding-left: 0;" id="reg_btn" type="get">接受协议并注册</p>
+        <p class="register_clause"><a href="http://www.gyyx.cn/Resource/Agreement.html#Terms">《光宇通行证用户协议》</a>和<a href="http://www.gyyx.cn/Resource/Agreement.html#Privacy">《光宇用户保护隐私条款》</a></p>
+    </div>
+    <p class="wd_text txt1">搜索公众号：wubazixun</p>
+    <p class="wd_text">或长按二维码保存至相册，在微信中使用</p>
+    <p class="wd_text"><span>扫一扫-相册-选择二维码图片</span>，即可添加关注</p>
+    <div class="barcode">
+        <img src="http://static.cn114.cn/action/xwbRegister/images/erwm.jpg" />
+    </div>
+    <p class="fx"><img src="http://static.cn114.cn/action/xwbRegister/images/fxj.jpg"/>一键分享好玩的游戏给朋友们</p>
+    <div class="phone_soft_content fx_all">
+        <div id="wxF">
+            <a href="javascript:;"><img src="http://static.cn114.cn/action/xwbRegister/images/wx.jpg"/></a>
+            <a href="javascript:;">微信好友</a>
+        </div>
+        <div id="wxFa">
+            <a href="javascript:;"><img src="http://static.cn114.cn/action/xwbRegister/images/pyq.jpg"/></a>
+            <a href="javascript:;">朋友圈</a>
+        </div>
+        <div id="wxXl">
+            <a href="javascript:;"><img src="http://static.cn114.cn/action/xwbRegister/images/xlwb.jpg"/></a>
+            <a href="javascript:;">新浪微博</a>
+        </div>
+        <div id="wxqq">
+            <a href="javascript:;"><img src="http://static.cn114.cn/action/xwbRegister/images/qqkj.jpg"/></a>
+            <a href="javascript:;">QQ空间</a>
+        </div>
+    </div>
+    <a id="visit_web" href="http://xwb.gyyx.cn/Home/index.shtml">访问电脑版</a>
+</div>
+<!--弹层-->
+<div class="tc disC">
+    <div class="tcBox">
+    	<div class="imgBox">
+	        <img src="http://static.cn114.cn/action/xwbRegister/images/ok.png">       
+	    
+        </div>
+          <p class="p1">注册成功</p>
+	        <p class="p2">请您前往PC端进行游戏体验</p>
+    </div>
+</div>
+
+<div class="mask"></div>
+<img id="go_top" src="http://static.cn114.cn/action/xwbRegister/images/top.jpg" />
+<img src="http://static.cn114.cn/action/xwbRegister/images/tc.png" id="js_tance"/>
+</body>
+<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/xwbRegister/js/registerPages.js" ></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7ab5f39ebc246f435a6a9e3af0d98a9f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</html>

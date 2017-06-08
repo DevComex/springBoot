@@ -1,0 +1,52 @@
+
+#parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/jquery.ajaxpage-2.2.js"></script>
+<script src="${rc.contextPath}/resources/script/order.js"></script>
+
+<!--标题-->
+<header class="header bg-white b-b clearfix">
+    <div class="col-sm-2 m-t-xs">
+        <h4>报名审核界面</h4>
+    </div>
+</header>
+<!-- 查询表单 -->
+<section class="scrollable padder" style="overflow: scroll; top: 92px;" id="scrollable_one">
+   
+    <!--数据表格  begin -->
+    
+    <section class="panel panel-default">
+         
+       <div class="table-responsive">
+            <table class="table table-striped m-b-none">
+                <thead>
+                    <tr>
+                        <th>账户</th>
+                        <th>角色</th>
+                        <th>联系类型</th>
+                        <th>联系方式</th>
+                        <th>时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="js_tbSzList">
+                  
+                </tbody>
+            </table>
+            <!-- 分页 -->
+            <div class="row dataTables_wrapper">
+                <footer class="footer bg-white b-t">
+                    <div class="row dataTables_wrapper">
+                        <div class="col-sm-6">
+                            <div id="DataTables_Table_0_info" class="dataTables_info"></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers"></div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!--分页 -->
+        </div>
+    </section>
+ #parse("/shared/footer.vm")

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.WdHalloffame.IWdHalloffameMapper">
+	<resultMap type="cn.gyyx.action.beans.wdhalloffame.WdHalloffameBean"
+		id="IWdHalloffameMap">
+		<id column="code" property="code" />
+		<result column="user_name" property="userName" />
+		<result column="game_id" property="gameId" />
+		<result column="sever_name" property="severName" />
+		<result column="role_name" property="roleName" />
+		<result column="phone_no" property="phoneNo" />
+		<result column="email" property="email" />
+		<result column="qq_no" property="qqNo" />
+		<result column="create_time" property="createTime" />
+		<result column="net_Type" property="netType" />
+		<result column="ismark" property="isMark" />
+		<result column="remark" property="reMark" />
+		<result column="rownumber" property="rownumber" />
+
+	</resultMap>
+	<!-- 分页查询 -->
+	<select id="selectbypage" parameterType="int" resultMap="IWdHalloffameMap">
+		select
+		top ${pageSize} *
+		from
+		(
+		select row_number() over(order by game_id) as
+		rownumber,* from game_vip_info
+		) A
+		where rownumber > ${start}
+
+	</select>
+
+	<!-- 总数查询 -->
+	<select id="selecttotal" parameterType="int" resultType="int">
+		select
+		count(*) as total from game_vip_info
+	</select>
+
+	<!-- 按QQ查询 -->
+	<select id="selectbyqq" parameterType="String" resultMap="IWdHalloffameMap">
+		select
+		* from game_vip_info where qq_no = #{qqNo}
+	</select>
+
+	<!-- 按用户名查询 -->
+	<select id="selectbyuserid" parameterType="String" resultMap="IWdHalloffameMap">
+		select * from game_vip_info where user_name = #{userName}
+	</select>
+	<!-- 按时间查询 -->
+	<select id="selectbytime" parameterType="java.util.Date"
+		resultMap="IWdHalloffameMap">
+	<![CDATA[ 
+	select * from [game_vip_info] where [create_time]>= #{stdate} and [create_time]<= #{endate}
+	]]>
+	</select>
+
+	<!-- 修改标记 -->
+	<update id="updateismark" parameterType="int">
+		update [game_vip_info]
+		set [ismark] =#{isMark} where code=#{code}
+	</update>
+	<!-- 修改备注 -->
+	<update id="updateremark">
+		update [game_vip_info] set [remark] =#{reMark} where
+		code=#{code}
+	</update>
+
+	<!-- 插入EXCEL表 -->
+	<insert id="insertexcel" parameterType="java.util.List">
+		<foreach collection="list" item="item" index="index">
+			insert into
+			game_vip_qualification
+			(game_id,user_name)values(#{item.gameId},#{item.userName});
+		</foreach>
+
+	</insert>
+	<!--查询用户信息BY用户名 game_vip_qualification -->
+	<select id="selectbyusername" parameterType="String" resultType="String">
+		select user_name from game_vip_qualification where user_name =
+		#{userName}
+	</select>
+	<!-- 通过用户名逐条插入EXCEL表 -->
+	<insert id="insertusername" parameterType="String">
+		insert into
+		game_vip_qualification(game_id,user_name)
+		values(2, #{userName});
+	</insert>
+</mapper>

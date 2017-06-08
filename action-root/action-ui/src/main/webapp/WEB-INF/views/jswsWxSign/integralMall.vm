@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+		<meta name="format-detection" content="telephone=no" />
+		<title>绝世武神微信签到活动</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/jswswxsign/css/index.css" />
+		<script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/jswswxsign/js/gyyx_wxshare.min.js"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/jswswxsign/js/index.js"></script>
+	</head>
+	<body>
+		<div class="dh_mian">
+				<input type="hidden" id="openId" name="openId" value="$openId"/>
+				<h2><img src="http://static.cn114.cn/action/jswswxsign/images/titImg.png"/></h2>
+				<ul class="clear">
+					<li>
+						<dl>
+							<dt><img src="http://static.cn114.cn/action/jswswxsign/images/jp01.png"/></dt>
+							<dd data-id="1"><a href="javascript:;"><img src="http://static.cn114.cn/action/jswswxsign/images/btnImg.png"/></a></dd>
+						</dl>
+					</li>
+					
+					<li>
+						<dl>
+							<dt><img src="http://static.cn114.cn/action/jswswxsign/images/jp02.png"/></dt>
+							<dd data-id="2"><a href="javascript:;"><img src="http://static.cn114.cn/action/jswswxsign/images/btnImg.png"/></a></dd>
+						</dl>
+					</li>
+					
+					<li>
+						<dl>
+							<dt><img src="http://static.cn114.cn/action/jswswxsign/images/jp03.png"/></dt>
+							<dd data-id="3"><a href="javascript:;"><img src="http://static.cn114.cn/action/jswswxsign/images/btnImg.png"/></a></dd>
+						</dl>
+					</li>
+					
+					<li>
+						<dl>
+							<dt><img src="http://static.cn114.cn/action/jswswxsign/images/jp04.png"/></dt>
+							<dd data-id="4"><a href="javascript:;"><img src="http://static.cn114.cn/action/jswswxsign/images/btnImg.png"/></a></dd>
+						</dl>
+					</li>
+					
+					<li>
+						<dl>
+							<dt><img src="http://static.cn114.cn/action/jswswxsign/images/jp05.png"/></dt>
+							<dd data-id="5"><a href="javascript:;"><img src="http://static.cn114.cn/action/jswswxsign/images/btnImg.png"/></a></dd>
+						</dl>
+					</li>
+					
+					<li>
+						<dl>
+							<dt><img src="http://static.cn114.cn/action/jswswxsign/images/jp06.png"/></dt>
+							<dd data-id="6"><a href="javascript:;"><img src="http://static.cn114.cn/action/jswswxsign/images/btnImg.png"/></a></dd>
+						</dl>
+					</li>
+					
+					<li>
+						<dl>
+							<dt><img src="http://static.cn114.cn/action/jswswxsign/images/jp07.png"/></dt>
+							<dd data-id="7"><a href="javascript:;"><img src="http://static.cn114.cn/action/jswswxsign/images/btnImg.png"/></a></dd>
+						</dl>
+					</li>
+					
+					<li>
+						<dl>
+							<dt><img src="http://static.cn114.cn/action/jswswxsign/images/jp08.png"/></dt>
+							<dd data-id="8"><a href="javascript:;"><img src="http://static.cn114.cn/action/jswswxsign/images/btnImg.png"/></a></dd>
+						</dl>
+					</li>
+					
+					<li>
+						<dl>
+							<dt><img src="http://static.cn114.cn/action/jswswxsign/images/jp09.png"/></dt>
+							<dd data-id="9"><a href="javascript:;"><img src="http://static.cn114.cn/action/jswswxsign/images/btnImg.png"/></a></dd>
+						</dl>
+					</li>
+				</ul>
+				
+		</div>
+		<div class="alert_box">
+			<div class="alert_con">
+				<img src="http://static.cn114.cn/action/jswswxsign/images/alertBg.png"/>
+				<div class="con_text con_text_succ">
+					<p class="dh_status">恭喜您！兑换成功！</p>
+					<p class="dh_code">礼包兑换码：<span></span></p>
+					<p class="dh_tip">（请到游戏内进行兑换吧！）</p>
+					<a href="javascript:;" class="js_close"><img src="http://static.cn114.cn/action/jswswxsign/images/qdBg.png"/></a>
+				</div>
+				
+				<div class="con_text con_text_error">
+					<p class="dh_status"></p>
+					<a href="javascript:;" class="js_close"><img src="http://static.cn114.cn/action/jswswxsign/images/qdBg.png"/></a>
+				</div>
+			</div>
+		</div>
+				<div class="dia_modal_nouse js_nouse" style="display:none;">请在竖屏使用！</div>
+	</body>
+</html>

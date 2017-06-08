@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.jswswxsign.ISignLogMapper">
+	<!-- Bean Map 映射 -->
+	<resultMap type="JSWSWxSignLogBean" id="JSWSWxSignLogBeanMap">
+		<id column="code" property="code" />
+		<result column="sid" property="sid" />
+		<result column="open_id" property="openId" />
+		<result column="sign_time" property="signTime" />
+		<result column="obtained_integral" property="obtainedIntegral" />
+	</resultMap>
+	
+	<!-- 插入签到明细记录 -->
+	<insert id="insertSignLog" parameterType="JSWSWxSignLogBean">
+		insert into jsws_wx_sign_log (
+		   open_id
+		   ,sid
+		   ,sign_time,obtained_integral)
+		values(
+		   #{openId}
+		   ,#{sid}
+		   ,#{signTime},#{obtainedIntegral})
+	</insert>
+	
+</mapper>

@@ -1,0 +1,179 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="renderer" content="webkit" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no, email=no" />
+		<title>森罗万象</title>
+        <link href="http://s.gyyx.cn/scgg/css/chinaCaptcha.css" rel="stylesheet" />
+		<link rel="stylesheet" href="http://static.cn114.cn/action/slwxwap/css/index.css" />
+		<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+	</head>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?f383a5e2ee3358a1ee21faed33a12a8b";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+	<body id="login_page" class="isLoginDef">
+		<div id="top">
+			<img src="http://static.cn114.cn/action/slwxwap/img/bg5.jpg"/>
+		</div>
+		<div id="login">
+			<img src="http://static.cn114.cn/action/slwxwap/img/bg6.jpg"/>
+            <div id="content">
+                <!--未登录-->
+                <!--<h6>已有账号，请登录</h6>
+                <a href="javascript:;" id="js_loginBtn"><img src="http://static.cn114.cn/action/slwxwap/img/btn2.jpg"/></a>
+                <h6>无账号，请注册</h6>
+                <p class="item_p name"><label></label><input type="text" id="account" placeholder="6-16位字母和数字" /></p>
+                <p class="item_p password"><label></label><input type="password" id="pwd" placeholder="4-16位字符(除<和>)" /></p>
+                <p class="item_p"><input class="js_inpyzm" type="text" id="vcode" placeholder="验证码" /><img class="login_yzm js_yz" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=Math.random()"/></p>
+                <h5><input id="serverTemp" type="checkbox"/><span>同意“服务条款”</span> </h5>
+                <a id="registBtn" href="#"><img src="http://static.cn114.cn/action/slwxwap/img/btn3.jpg"/></a>-->
+                <!--中文登录-->
+                <!--<form id="formmima" method="post" action="" class="reg_form_web js_login_form">
+                    <h4>参与活动前请登录</h4>
+					<p class="item_p name">
+						<label></label>
+						<input type="text" class="inps js_Account" id="Account" value="" name="Account" autocomplete="off" maxlength="18" data-olduser="" placeholder="账号" />
+					</p>
+					<p class="item_p password">
+						<label></label>
+						<input type="password" class="inps js_Password" id="Password" maxlength="16" value="" name="Password" autocomplete="off" placeholder="密码" />
+					</p>
+                    <h4>请输入验证码完成登录</h4>
+					<div class="js_captcha" style="display:none;">
+						<p class="item_p">
+							<span class="yzmico"></span>
+							<input type="text" id="Captcha" name="captcha" value="" class="validCodeVal" placeholder="验证码"   />
+						</p>
+						<p class="easycode">
+							<img class="js_captchaimg" src="" />
+							<a class="changecode">看不清？</a>
+						</p>
+					</div>
+					<div class="chinawrap">				
+						<p class="chinaCaptchaContainer_p01 js_china">
+                            <label>验证码</label>
+							<span class="ChinaCaptchaInput_container clearFix">
+								<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+								<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+								<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+								<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+								<em class="chinaCaptchaIcon ChinaCaptchaInput ChinaCaptcha_DeleteBtn js_deleteChinaCaptcha"></em>
+							</span>
+							<i class="chinaCaptchaIcon chinaCaptcha_Tip02 js_checkChinaCaptchaTip default"></i>
+						</p>
+						<p class="chinaCaptchaContainer_p02 js_china">
+							<span class="chinaCaptchaImg chinaCaptchaImg_yes js_refreshChinaCaptcha"></span>
+							<a class="chinaCaptchaChange js_refreshChinaCaptcha">看不清？</a>
+						</p>
+						<p class="chinaCaptchaContainer_p03 js_china">点击框内文字输入上图中汉字相应文字</p>
+						<div class="chinaCaptchaContainer_p02 js_china">
+							<ul class="ChinaCaptchaSelectCon clearFix js_ChinaCaptchaSelect">
+								<li class="chinaCaptchaImg chinaCaptchaImg_0 js_ChinaCaptchaSelect_img" data-code="0"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_1 js_ChinaCaptchaSelect_img" data-code="1"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_2 js_ChinaCaptchaSelect_img" data-code="2"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_3 js_ChinaCaptchaSelect_img" data-code="3"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_4 js_ChinaCaptchaSelect_img" data-code="4"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_5 js_ChinaCaptchaSelect_img" data-code="5"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_6 js_ChinaCaptchaSelect_img" data-code="6"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_7 js_ChinaCaptchaSelect_img" data-code="7"></li>
+								<li class="chinaCaptchaImg chinaCaptchaImg_8 js_ChinaCaptchaSelect_img" data-code="8"></li>
+							</ul>
+						</div>
+						<p class="chinaCaptchaContainer_p04" style="display:none;">
+							<span class="chinaCaptchaSubmit_Btn js_chinaCaptchaBtn">确定</span>
+						</p>
+					</div>
+                    <a id="loginBtn" class="login_btn" href="#"><img src="http://static.cn114.cn/action/slwxwap/img/btn2.jpg"/></a>
+				</form>-->
+                <!--绑定区服-->
+                <!--<h4>请选择区服</h4>
+                <select id="quName"><option value="3">双线</option><option value="1">网通</option><option value="2">电信</option></select>
+                <select id="serverName"><option>一心一意</option></select>
+                <a class="bindServe" href="#"><img src="http://static.cn114.cn/action/slwxwap/img/btn8.jpg"/></a>
+                <h4>请选择拥有角色等级大于或等于20级的区服，一旦绑定不可修改。</h4>-->
+                <!--已登录已绑定-->
+                <!--<h5 class="info"><span>欢迎您：ch***25</span><a class="quitBtn" href="javascript:;">退出登录</a></h5>
+                <h4>已绑定：区服名称</h4>
+                <h4>我的剩余抽奖次数：100</h4>
+                <a id="checklotteryinfo" href="#"><img src="http://static.cn114.cn/action/slwxwap/img/btn4.jpg"/></a>
+                <a id="updatebtn" href="#"><img src="http://static.cn114.cn/action/slwxwap/img/btn5.jpg"/></a>
+                <a id="updatepopbtn" href="#"><img src="http://static.cn114.cn/action/slwxwap/img/btn6.jpg"/></a>
+                <h4>【游戏数据获取略有延迟，请耐心等待】</h4>-->
+            </div>
+		</div>
+		<div id="nav">
+			<a href="index"><img src="http://static.cn114.cn/action/slwxwap/img/nav1.png"/></a>
+			<a href="lottery"><img src="http://static.cn114.cn/action/slwxwap/img/nav2.png"/></a>
+			<a href="javascript:;"><img src="http://static.cn114.cn/action/slwxwap/img/nav3.png"/></a>			
+		</div>
+        <div class="popup popup_3" id="popup_3">
+            <!--我的中奖记录-->
+            <div>
+                <a class="closebtn" href="javascript:;"></a>
+                <div>
+                    <h1>我的中奖记录</h1>
+                    <ul>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="popup popup_6">
+            <!--注册成功-->
+            <div>
+                <a class="closebtn" href="javascript:;"></a>
+                <div>
+                    <h3>注册成功</h3>
+                    <h4>请登录参与活动</h4>
+                </div>
+            </div>
+        </div>
+        <div class="popup popup_7 popup_7_1" id="popup_7_1">
+            <!--更新邀请函-->
+            <div>
+                <a class="closebtn" href="javascript:;"></a>
+                <div>
+                    <h5>更新邀请函地址</h5>
+                    <p>请填写联系方式</p>
+                    <input class="name" type="text" placeholder="姓名"/>
+                    <input class="phone" type="tel" placeholder="手机"/>
+                    <input class="qq" type="text" placeholder="QQ"/>
+                    <input class="email" type="email" placeholder="邮箱"/>
+                    <input class="address" type="text" placeholder="地址"/>
+                    <a id="updatepopAddress" href="javascript:;"><img src="http://static.cn114.cn/action/slwxwap/img/btn9.jpg"/></a>
+                    <p class="zhu">注：工作人员将于最迟48小时以内与您联系，活动不收取任何费用，请注意查收邮箱及电话。</p>
+                </div>
+            </div>
+        </div>
+        <div class="popup popup_7 popup_7_3" id="popup_7_3">
+            <!--更新实物奖中奖信息-->
+            <div>
+                <a class="closebtn" href="javascript:;"></a>
+                <div>
+                    <h5>更新中奖信息</h5>
+                    <p>请填写联系方式</p>
+                    <input class="name" type="text" placeholder="姓名"/>
+                    <input class="phone" type="tel" placeholder="手机"/>
+                    <input class="qq" type="text" placeholder="QQ"/>
+                    <input class="email" type="email" placeholder="邮箱"/>
+                    <input class="address" type="text" placeholder="地址"/>
+                    <a id="updateAddress" href="javascript:;"><img src="http://static.cn114.cn/action/slwxwap/img/btn9.jpg"/></a>
+                    <p class="zhu">注：活动奖品将在活动结束后由《问道》官方统一寄出，请保持电话畅通。</p>
+                </div>
+            </div>
+        </div>
+	</body>
+	<script src="http://static.cn114.cn/action/slwxwap/js/jquery-1.8.2.min.js"></script>
+    <script src="http://static.cn114.cn/action/slwxwap/js/addChinaCaptcha.js"></script>
+	<script src="http://s.gyyx.cn/lib/md5-min.js"></script>
+    <script src="http://static.cn114.cn/action/slwxwap/js/public.js"></script>
+	<script src="http://static.cn114.cn/action/slwxwap/js/login.js"></script>
+</html>

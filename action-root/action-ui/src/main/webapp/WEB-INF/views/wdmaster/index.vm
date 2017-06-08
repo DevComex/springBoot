@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>《问道》百万点卡回馈网吧活动</title>
+<link type="text/css" href="http://static.cn114.cn/action/wdcard/css/wd150807.css" rel="stylesheet" />
+<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">
+    alert("谢谢参与，活动已结束");
+</script>
+</head>
+<body>
+<script>
+alert("活动已经结束");
+</script>
+<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+	<div class="wd_bg">
+		<div class="main">
+			<div class="wd_nav"><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/gamepay/paygold?gameId=2" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a></div>
+			<div class="wd_cont">
+				<div class="wd_left">
+					<div class="wd_txt">
+						<h2><strong>活动</strong>时间</h2>
+						<p class="wd_time">2015.9.25-2015.10.27</p>
+					</div>
+					<div class="wd_txt">
+						<h2><strong>抽奖</strong>条件</h2>
+						<p><span></span>仅限在本页面内注册，并在注册时正确填写“问道百万网吧红包卡”内推广码的玩家</p>
+						<p><span></span>注册帐号在光宇社区或游戏客户端激活服务器且创建的第一个角色在3天（72小时内）等级达到15级</p>
+                        <p><span></span>如果先领取礼包，没有在光宇社区或者游戏客户端激活服务器的玩家，将无法抽奖</p>
+					</div>
+					<div class="wd_txt">
+						<h2><strong>抽奖</strong>说明</h2>
+						<p><span></span>每个达到抽奖条件的账号仅有一次抽奖机会</p>
+						<p><span></span>凭“问道百万网吧红包卡”内的推广码，可领取价值2499元游戏礼包</p>
+						<p><span></span>迪信通奖品使用方法请到迪信通全国自营店咨询</p>
+						<p><span></span>实物奖品将在活动结束后统一发放，光宇一卡通抽奖时即时发放</p>
+                        <p><span></span>活动最终解释权归光宇游戏所有</p>
+					</div>
+				</div>
+				<div class="wd_right">
+					<div class="zpbg">
+						<a class="start" href="javascript:void(0);" data-state="yes" id="js_start"></a>
+						<div class="js_img zp0 zp0_0"></div>
+						<div class="js_img zp1"></div>
+						<div class="js_img zp2"></div>
+						<div class="js_img zp3"></div>
+						<div class="js_img zp4"></div>
+						<div class="js_img zp5"></div>
+						<div class="js_img zp6"></div>
+						<div class="js_img zp7"></div>
+        			</div>
+					<div class="wd_btn">
+						<p class="js_noLogin"><a class="wd_regis js_register" href="javascript:void(0);">立即注册</a></p>
+						<p>&nbsp;</p>
+						<p class="js_noLogin">我已注册并达到等级，去登陆开启幸运抽奖<a class="wd_login" onclick="alertFn(null,null,true);"  href="javascript:void(0);">登录</a></p>
+						<p class="js_login logined_p" style="display: none;">欢迎您：<label class="js_account" data-account="">ya****MA</label><span class="wd_quite js_quite">退出</span></p>
+						<p class="js_loginPrize wd_notice">注：如果您还没有在光宇社区或者游戏客户端激活服务器，您点击领取礼包后将无法抽奖</p>
+						
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+    <div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+<!--tanceng1-->
+<div class="tc_cont" id="virtualPrize">
+		<p class="zj_cont js_virtualPrize"></p>
+		<p class="tc_sure tc_btn"><a href="javascript:void(0);" class="js_virtualConfirm">确定</a></p>
+		<!--<p class="tc_txt">活动结束后我们会统一邮寄奖品，请耐心等待~~</p> -->
+</div>
+<!--tanceng2-->
+<div class="tc_cont" id="materialPrize">
+	<div class="tc2_txt">
+		  <p>恭喜你中奖：iphone6</p>
+		  <p>请填写准确详细的个人信息，以便我们邮寄奖品，包邮哦！</p>
+		  <p class="inp"><label for="">姓名：</label><input type="text" maxlength="6" name="getName"/><span class="error">必填</span></p>
+		  <p class="inp"><label for="">手机号码：</label><input type="text" maxlength="11" name="getPhone" /><span class="error">必填</span></p>
+		  <p class="inp"><label for="">邮寄地址：</label><input type="text" maxlength="500" name="getAddress" /><span class="error">必填</span></p>
+		</div>
+		<p class="tc_sub tc_btn"><input type="submit"  class="js_addressSubmit" value="" /></p>
+		<!--<p class="tc_txt">活动结束后我们会统一邮寄奖品，请耐心等待~~</p> -->
+</div>
+<!--tanceng3-->
+<div class="tc_03 tc3_cont" id="register">
+	<div class="tc2_txt tc03">
+		  <p class="inp"><label for="">通行证账号</label><input type="text" name="accountTxt" maxlength="16" value="请输入"  /><span class="error">必填</span></p>
+		  <p class="inp"><label for="">设置密码</label><input type="password" 	name="passwordTxt1"maxlength="16"  value="请输入" /><span class="error">必填</span></p>
+		  <p class="inp"><label for="">确认密码</label><input type="password" 	name="passwordTxt2" maxlength="16"  value="请输入" /><span class="error">必填</span></p>
+		  <p class="inp"><label for="">真实姓名</label><input type="text" name="nameTxt" maxlength="6" value="请输入" /><span class="error">必填</span></p>
+		  <p class="inp"><label for="">身份证</label><input type="text" name="idCardTxt" maxlength="18" value="请输入" /><span class="error">必填</span></p>
+		  <p class="inp"><label for="">邮箱</label><input type="text" name="emailTxt" maxlength="100" value="请输入" /><span class="error">必填</span></p>
+		  <p class="inp"><label class="bacno" for="">推广员</label><input type="text" name="extendAccountTxt" maxlength="100" value="请输入" /></p>
+		  <p class="inp"><label for="">推广码</label><input type="text" name="extendIdTxt" maxlength="100" value="请输入" /><span class="error">必填</span></p>
+		  <p class="tc_red">此处请正确填写<br />"问道百万网吧红包卡"内号码</p>
+		  <p class="tc_red">* 为必填项</p>
+	   </div>
+	   <p class="tc_regis"><input type="button" class="js_registerSubmit" /></p>
+</div>
+<!--tanceng4-->
+<div class="wd_tc04" id="showmsg" style="height:auto;padding-left: 55px;text-align: left;">
+	<p id="showinfo"></p>
+</div>
+<!--tanceng4-->
+<div class="wd_tc04" id="editmsgs" style="height:auto;padding-left: 55px;text-align: left;">
+	<p id="showinfos"></p>
+</div>
+<script src="http://s.gyyx.cn/lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/lib/md5-min.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdcard/js/lottery.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdcard/js/index.js"></script>
+</body>
+</html>

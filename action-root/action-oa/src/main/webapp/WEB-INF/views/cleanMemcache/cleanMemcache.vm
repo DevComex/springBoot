@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>审核评论</title>
+	<link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/js/jquery-ui.dialog.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+    <script type="text/javascript" charset="utf-8">
+       
+	
+    </script>
+  </script>
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                         <!--主体内容 begin-->
+                        <section class="scrollable padder">
+     
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" style="overflow: scroll;height:100%">
+							
+							<table border="0" class="table" style="table-layout:fixed;word-break:break-all; word-wrap:break-all;"width="4000">
+        					<thead>
+                                <th width="100">活动编号</th>
+        					</thead>
+ 
+                               	<tbody>	  		  
+                            		<td><input type= "text" id="actionCode"  placeholder="请输入活动编号"/></td>
+                                    <td>
+									<input type="button" class="btn btn-info" id="clean"  value="清除"/>
+									</td>
+                                 </tbody>
+						</table>
+
+                         </section>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+</body>
+</html>

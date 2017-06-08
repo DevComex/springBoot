@@ -1,0 +1,199 @@
+#parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/jquery.ajaxpage-2.2.js"></script>
+<script src="http://cdn.hcharts.cn/highcharts/highcharts.js"></script>
+<script src="http://cdn.hcharts.cn/highcharts/modules/exporting.js"></script>
+<style>
+.table td {
+	word-wrap: break-word;
+	vertical-align: middle !important;
+}
+
+#main_region th, #content td {
+	padding: 5px 5px 5px;
+	text-align: center;
+}
+
+.table td img {
+	width: 100%;
+	max-height: 40px;
+}
+
+textarea {
+	border-color: #d9d9d9;
+}
+
+* {
+	outline: none;
+}
+</style>
+<script>
+	function getlist() {
+		$("#js_tbSzList").ajaxPage({
+			url : rc + "/xzq2016/loginDataList",//接口
+			pageObj : $("#DataTables_Table_0_paginate"),
+			pageIndex : 1,
+			pageSize : 10,
+			curPageCls : "paginate_active",
+			pageInfo : {
+				obj : $("#DataTables_Table_0_info"),
+				content : "共{allCount}条  当前第{pageIndex}/{allPage}页"
+			},
+			paramObj : {
+				account:$("#account").val(),
+				loginTimeStr:$("#loginTimeStr").val()
+			},
+			dataFn : function(data, $this) {
+				var dataHtml = "",dataHtmlmain ="", dCont = data.data;//获取返回数据
+	              if (dCont && dCont.length && dCont[0]) {
+	                  for (var i = 0; i < dCont.length; i++) {
+	                      dataHtml += '<tr>' 
+	                           +'  <td>' + (i+1) + '</td>' 
+	                           +'  <td>' + dCont[i].account + '</td>' 
+	                           +'  <td>' + dCont[i].loginIp + '</td>' 
+	                           +'  <td>' + dCont[i].loginTimeStr + '</td>' 
+	                      dataHtml += '</td></tr>';
+	                  }
+	                  $("#js_tbSzList").empty().html(dataHtml);
+	                  
+	                  return dataHtml;
+				} else {
+					$("#js_tbSzList").empty()
+					$("#scrollable_one").hide();
+				}
+			}
+		});
+	}
+
+	$(function() {
+		$("#loginTimeStr").datepicker({
+			format : 'yyyy-mm-dd',
+			startView : 2,
+			autoclose : true,
+			todayBtn : true,
+			minView : 2
+		}).on('changeDate', function(ev) {
+			
+		});
+
+		$("#search").click(function() {
+			getlist();
+		});
+		var timeArr = $("#ddx").val().split(",");
+		var loginArr = [];
+		var lotteryArr = [];
+		#foreach ($loginList in $login) 
+			loginArr.push($loginList); 
+		#end 
+		#foreach ($lotteryList in $lottery) 
+			lotteryArr.push($lotteryList); 
+		#end 
+		$('#container').highcharts({
+			colors: ['#FF0000', '#50B432'],
+	        title: {
+	            text: '2016薛之谦活动数据统计（12月）',
+	            x: -20 
+	        },
+	        subtitle: {
+	            text: '来源: 光宇游戏',
+	            x: -20
+	        },
+	        xAxis: {
+	            categories: timeArr
+	        },
+	        yAxis: {
+	            title: {
+	                text: '单位(次)'
+	            },
+	            plotLines: [{
+	                value: 0,
+	                width: 1,
+	                color: '#808080'
+	            }]
+	        },
+	        legend: {
+	            layout: 'vertical',
+	            align: 'right',
+	            verticalAlign: 'middle',
+	            borderWidth: 0
+	        },
+	        series: [{
+	            name: '登录次数',
+	            data: loginArr
+	        }, {
+	            name: '抽奖次数',
+	            data: lotteryArr
+	        }]
+	    });
+
+		getlist();
+	});
+</script>
+
+<section class="vbox">
+	<section>
+		<section class="hbox stretch">
+			<section id="content">
+				<section class="vbox js_template_right">
+					<header class="header bg-white b-b clearfix">
+						<input type="hidden" id="ddx" value="$statisTime"/>
+						<h4 class="doc-buttons pull-left" style="margin-top: 16px">问道2016助力薛之谦活动-用户登录信息列表</h4>
+						<span class="doc-buttons pull-left" style="margin-left:40px;"> 
+							<input type="text"
+								 class="input-sm form-control"
+								style="display: inline-block; width: 160px;" placeholder="账号名称"
+								id="account" name="account" />
+							<input type="text"
+								class="input-sm form-control"
+								style="display: inline-block; width: 160px; margin-top: 10px; margin-left: 10px;"
+								placeholder="登录时间" id="loginTimeStr" name="loginTimeStr" /> 
+						</span> 
+						<span class="doc-buttons pull-left"> <a id="search"
+							class="btn btn-sm btn-info"
+							style="margin-top: 10px; margin-left: 10px"
+							href="javascript:void(0);"><i class="fa fa-search"></i>搜索</a>
+						</span>
+						<span class="doc-buttons pull-left"> <a
+							class="btn btn-sm btn-info" id="js_add_project"
+							style="margin-top: 10px; margin-left: 10px" href="/xzq2016"><i class="fa fa-home"></i>首页</a>
+						</span>
+					</header>
+					<section class="scrollable padder">
+						<div class="m-b-md"></div>
+						<section class="panel panel-default" id="main_region">
+							<div class="table-responsive">
+								<table class="table table-striped m-b-none"
+									style="table-layout: fixed;">
+									<thead>
+										<tr>
+											<th width="5%">序号</th>
+											<th width="20%">账号</th>
+											<th width="30%">登录IP</th>
+											<th width="30%">登录时间</th>
+										</tr>
+									</thead>
+									<tbody id="js_tbSzList">
+									</tbody>
+								</table>
+								<div class="row dataTables_wrapper"
+									style="margin-right: 0px; margin-left: 0px;">
+									<footer class="footer bg-white b-t">
+										<div class="row dataTables_wrapper">
+											<div class="col-sm-6">
+												<div id="DataTables_Table_0_info" class="dataTables_info"></div>
+											</div>
+											<div class="col-sm-6">
+												<div id="DataTables_Table_0_paginate"
+													class="dataTables_paginate paging_full_numbers"></div>
+											</div>
+										</div>
+									</footer>
+								</div>
+								<!--分页 -->
+							</div>
+						</section>
+						<div id="container" style="min-width:400px;height:400px"></div>
+					</section>
+				</section>
+			</section>
+			#parse("/shared/footer.vm")

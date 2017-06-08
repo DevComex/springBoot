@@ -1,0 +1,136 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道-天下第一宠票选活动</title>
+<link href="http://${codeServer2}/action/wdNo1Vote/css/wd141201.css" rel="stylesheet" type="text/css" /> 
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+
+<script type="text/javascript" src="http://${codeServer2}/action/wdNo1Vote/js/upload/handlers.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://${codeServer2}/action/wdNo1Vote/js/upload/swfupload.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdNo1Vote/js/upload/uploadSetting.js" charset="UTF-8"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+</head>
+
+<body>
+<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+<div class="wbg">
+    <div class="sbg">
+      <div class="main">
+      
+      
+        <!--left-->
+        <div class="mleft">
+          <ul class="nav">
+          	<li><a href="${rc.contextPath}/wdno1pet/" class="a01"></a></li>
+          	<li><a href="${rc.contextPath}/wdno1pet/showPets" class="a02"></a></li>
+          	<li class = "on"><a href="${rc.contextPath}/wdno1pet/showUpload" class="a03"></a></li>
+          	<li><a href="${rc.contextPath}/wdno1pet/showLottery" class="a04"></a></li>
+          </ul>
+          <ul class="tip">
+          	<li><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="new">进入官网</a></li>
+          	<li><a href="http://account.gyyx.cn/Member/Register" target="new">账号注册</a></li>
+          	<li><a href="http://pay.gyyx.cn/" target="new">充值中心</a></li>
+          	<li><a href="http://wd.gyyx.cn/download/" target="new">下载游戏</a></li>
+          </ul>
+        </div>
+        <!--left end-->
+        
+        
+        <!--right-->
+        <div class="mright">
+           <div class="rtop">
+              <div class="rtxt">道途风云灵兽相伴，宠物是我们在问道游戏中必不可少的伙伴，值问道1.55新版本火爆上线，特征选<br/>“天下第一宠”，心爱的宠物晒一晒，看看谁是真正的天下无双！</div>
+              <div class="rtime"><span class="sp01">投稿时间：2014年12月25日起</span><span class="sp02">投票时间：2015年1月5日—1月12日</span></div>
+           </div>
+           <div class="box">
+              <h3 class="tit"><span>01</span>作品要求</h3>
+              <div class="box04">
+（1）投稿的宠物必须为投稿玩家本人携带截图，截图需同时带有登录角色名、携带状态和宠物属性，<br/>
+若不符合要求则会审批不通过<span>（举例如页面底部的图，标红处截图时必有）</span><br/>
+（3）自行填写的成长、气血等数值，必须与上传参赛宠物一致，否则不予通过。<br/>
+（4）若官方人员检查或有玩家举报核实确认为违规或为PS等修改后的假图则取消其参赛和获奖资格。
+               </div>
+               <h3 class="tit mt15"><span>02</span>上传作品</h3>
+			  
+               <div class="form">
+				<div class="wd_lgoin">
+						<p id="loginbar">参与请您先：<a class="loga" onclick="alertFn(null,null,true)">登录</a></p>
+				</div>
+                      <p><label for="">作品名称</label><input type="text" id = "petName" name = "petName"></p>
+                      <p><label for="">选择大区</label>
+						<select id = "channel" name = "channel">
+                            <option value ="3">双线</option>
+                            <option value ="1">网通</option>
+                            <option value ="2">电信</option>
+						</select>
+					  </p>
+					  <p><label for="">服务器</label>
+						<select id = "serverID" name = "serverID">
+                            #foreach($item in $defaultServers)
+								<option value ="${item.code}">${item.serverName}</option>
+							#end
+						</select>
+					  </p>
+                      <!-- <ul class="selectul01">
+                          	<li>群星聚会</li>
+                          	<li>群星聚会</li>
+                          	<li>群星聚会</li>
+                          	<li>群星聚会</li>
+                      </ul>-->
+                      <p><label for="">角色名</label><input type="text" id = "characterName" name = "characterName"></p>
+                      <p><label for="">宠物介绍</label><textarea id="petInfo" name="petInfo"></textarea></p>
+                      <p><label for="">宠物总成长</label><input type="text" id = "petGrowth" name = "petGrowth"></p>
+                      <p><label for="">宠物气血</label><input type="text" id = "petBlood" name = "petBlood"></p>
+                      <p><label for="">宠物速度</label><input type="text" id = "petSpeed" name = "petSpeed"></p>
+                      <p><label for="">宠物法伤</label><input type="text" id = "petMagic" name = "petMagic"></p>
+                      <p><label for="">宠物物伤</label><input type="text" id = "petAttack" name = "petAttack"></p>
+                      <p><label for="">本尊分类</label>
+						<select id = "petType" name = "petType">
+                            <option value = "0">普通</option>
+                            <option value = "1">元灵</option>
+                            <option value = "2">神兽</option>
+							<option value = "3">变异</option>
+                            <option value = "4">坐骑</option>
+						</select>例如：吃了神兽精魄的变异，要传到变异类型里
+					  </p>
+						
+                      <div style = "margin-left:80px;"><div id = "spanButtonPlaceholder" type="button" class="scbtn" value="选择图片"></div></div>
+                      <!-- <ul class="selectul02">
+                          	<li>普通</li>
+                          	<li>变异</li>
+                          	<li>神兽</li>
+                          	<li>元灵</li>
+                            <li>坐骑</li>
+                      </ul> -->
+                      <p><input type="button" id = "ajaxSubmit" class="scbtn" value="上传作品"></p>
+                      <!-- <div class="scimg"><img src="http://$!{codeServer2}/action/wdNo1Vote/images/wd_img02.jpg" width="130" class=""></div>-->
+					  <div id="divFileProgressContainer" style="padding: 20px 0 7px 150px; color: Red"></div>
+					  <p>
+						<input type="hidden" name="ctl00$ContentPlaceHolder1$hidFileNames" id="ctl00_ContentPlaceHolder1_hidFileNames" />
+						<input type="hidden" name="ctl00$ContentPlaceHolder1$hidFileOldNames" id="ctl00_ContentPlaceHolder1_hidFileOldNames" />
+					  </p>
+					  <div id="thumbnails" style="padding: 0 0 0 80px;"></div>
+               </div>
+               <div class="box04">
+                 <p class="sltxt mt15">事例图</p>
+                 <p class=""><img src="http://$!{codeServer2}/action/wdNo1Vote/images/wd_img02.jpg" width="624" height="488"></p>
+               </div>
+           </div>        
+        </div>
+        <!--right end-->
+		<script>var isLogin = ${isLogin}</script>
+		<script type="text/javascript">
+		var rc = "${rc.contextPath}";
+		</script>
+		<script type="text/javascript" src="http://${codeServer2}/action/wdNo1Vote/js/upload/uploadSetting.js" charset="UTF-8"></script>
+      </div>
+    </div>
+</div>
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom("231c35");</script>
+</div>
+<script src="http://www.gyyx.cn/inc/gyyx_statistics.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+</body>
+</html>

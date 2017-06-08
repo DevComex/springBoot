@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdtenyearpicture.IScore">
+
+	<resultMap type="WDTenYearScoreBean" id="ScoreBeanMap">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="user_code" property="userCode" />
+		<result column="ip" property="ip" />
+		<result column="score" property="score" />
+		<result column="creat_time" property="creatTime" />
+
+	</resultMap>
+	<select id="getScoreBean" resultMap="ScoreBeanMap">
+		select * from
+		wd_tenyears_score_tb
+		where
+		user_code=#{userCode}
+	</select>
+	<update id="setScoreBean">
+		update wd_tenyears_score_tb
+		set score=score+ #{score}
+		where
+		user_code=#{userCode}
+	</update>
+	<insert id="addScoreBean">
+		insert into wd_tenyears_score_tb
+		(account,user_code,ip,score)
+		values
+		(#{account},#{userCode},#{ip},#{score})
+
+	</insert>
+
+	<select id="getCountByAccount" resultType="int">
+		select count(account)
+		from wd_tenyears_score_tb
+
+	</select>
+
+	<select id="getScoreBeanas" resultType="java.util.List"
+		resultMap="ScoreBeanMap">
+		select * from
+		wd_tenyears_score_tb
+	</select>
+
+	<select id="getTopScoreByPage" resultType="java.util.List"
+		resultMap="ScoreBeanMap">
+
+		SELECT code,
+		account,
+		user_code,
+		ip,
+		score,
+		creat_time
+		FROM (
+		SELECT code,
+		account,
+		user_code,
+		ip,
+		score,
+		creat_time,
+		ROW_NUMBER()
+		OVER(ORDER BY score
+		DESC,creat_time ASC) AS [rank]
+		FROM
+		(SELECT
+		a.code,a.account,a.user_code,a.ip,a.score,a.creat_time
+		FROM
+		wd_tenyears_score_tb a LEFT JOIN
+		wd_tenyears_exchange_score_blacklist_tb b
+		ON
+		a.account=b.account WHERE
+		a.account is NOT NULL and b.account is
+		NULL ) c ) d
+		WHERE [rank]>(
+		#{pageNo}-1) * #{pageSize} AND
+			<![CDATA[  
+		[rank]<=#{pageNo} * #{pageSize}
+			]]>
+
+	</select>
+
+	<select id="getTopScore" resultType="java.util.List" resultMap="ScoreBeanMap">
+		select top 1000 * from
+		wd_tenyears_score_tb
+		ORDER BY
+		score desc
+
+	</select>
+
+	<select id="getCountScore" resultType="int">
+		select
+		count(a.account)
+		from wd_tenyears_score_tb a
+		where
+		(select b.account
+		from
+		wd_tenyears_exchange_score_blacklist_tb b where
+		b.account=a.account )
+		is null
+		and
+		score>= #{score}
+	</select>
+
+</mapper>

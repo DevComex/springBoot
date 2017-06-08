@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdtenexchangescore.IPrizeExchangeLog">
+
+	<resultMap type="PrizeExchangeLogBean" id="PrizeExchangeLogBeanMap">
+		<id column="code" property="code" />
+		<result column="user_code" property="userCode" />
+		<result column="account" property="account" />
+		<result column="user_name" property="userName" />
+		<result column="prize_code" property="prizeCode" />
+		<result column="before_score" property="beforeScore" />
+		<result column="after_score" property="afterScore" />
+		<result column="creat_time" property="creatTime" />
+		<result column="prize_name" property="prizeName" />
+		<result column="address" property="address" />
+		<result column="phone" property="phone" />
+		<result column="action_code" property="actionCode" />
+
+	</resultMap>
+	<select id="getTopOneByPrizeAndUserOrderByTime" resultMap="PrizeExchangeLogBeanMap">
+		select top 1 * from wd_tenyears_scoreexchange_prizelog_tb
+		where
+		action_code=#{actionCode}
+		and
+		user_code=#{userCode}
+		and
+		prize_code=#{prizeCode}
+		order by creat_time desc
+
+	</select>
+
+	<insert id="addPrizeExchangeLog">
+		insert into wd_tenyears_scoreexchange_prizelog_tb
+		(user_code,account,user_name,prize_code,before_score,after_score,prize_name,address,phone,action_code)
+		values
+		(#{userCode},#{account},#{userName},#{prizeCode},#{beforeScore},#{afterScore},#{prizeName},#{address},#{phone},#{actionCode})
+	</insert>
+
+	<select id="getAllPrizeExchangeLogBeans" resultMap="PrizeExchangeLogBeanMap"
+		resultType="list">
+		select top 250 * from wd_tenyears_scoreexchange_prizelog_tb
+		order by code desc
+	</select>
+
+	<select id="getExchangeLogBeansByUserCode" resultMap="PrizeExchangeLogBeanMap"
+		resultType="list">
+		select * from wd_tenyears_scoreexchange_prizelog_tb
+		where
+		user_code=#{userCode}
+	</select>
+</mapper>

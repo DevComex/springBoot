@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <title>图片上传管理</title>
+    <meta name="description" />
+    <script type="text/javascript" charset="utf-8">
+		var rc="${rc.contextPath}";
+    </script>
+    <link rel="stylesheet" href="${rc.contextPath}/assets/css/font.css" type="text/css" />
+    <link rel="stylesheet" href="${rc.contextPath}/assets/css/app.v2.css" type="text/css" />
+    <link rel="stylesheet" href="${rc.contextPath}/assets/css/common.css" type="text/css" />
+    <link rel="stylesheet" href="${rc.contextPath}/assets/css/list.css" type="text/css" />
+    <link rel="stylesheet" href="${rc.contextPath}/assets/css/listCharapter.css" type="text/css" />
+    <script src="${rc.contextPath}/assets/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script> 
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>    
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    
+    
+    <script	src="${rc.contextPath}/assets/js/My97DatePicker/WdatePicker.js"></script>
+    <script src="${rc.contextPath}/assets/js/jquery.ajaxpage.2.0.1.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!---------------------------------- ((((((套用内容))))))---------------------------------->
+                        <!--头部内容开始-->
+                        <header class="header bg-white b-b clearfix">
+							<form action="SelectTaskInfoList" method="post">
+                                <div class="row m-t-sm">
+                                	<!--类型-->
+                                    <div class="col-sm-4 js_tyepDiv">
+                                    	<span class="js_type">选择推荐位</span>
+                                        <select class="js_typeSelect" id="js_cartoonType">
+
+
+                                        </select>
+                                    </div>
+
+                                    <!--完结状态-->
+                                  <!--  <div class="col-sm-4 js_stateDiv">
+                                    	<span class="js_state">完结状态</span>
+                                        <select class="js_stateSelect" id="js_isClosed">
+                                            <option value="-1">全部</option>
+                                            <option value="1">已完结</option>
+                                            <option value="0">未完结</option>
+                                        </select>
+                                    </div>-->
+
+
+
+                                    <!--漫画名称-->
+                                  <!--  <div class="col-sm-4 js_nameDiv">
+                                    	<span class="js_nameDiv">漫画名称</span>
+                                        <input type="text" class="js_nameInput" id="js_title"/>
+                                    </div>-->
+
+                                    <!--等级1、等级2、等级3、等级4、等级5-->
+
+                                    <div class="col-sm-4 js_tyepDiv">
+                                    	<label class="js_service ">奖励等级</label>
+                                        <select class="js_serviceSelect1"  id="js_leavel">
+                                            <option value="-1">请选择等级</option>
+                                            <option value="1">等级1</option>
+                                            <option value="2">等级2</option>
+                                            <option value="3">等级3</option>
+                                            <option value="4">等级4</option>
+                                            <option value="5">等级5</option>
+                                        </select>
+
+                                    </div>
+
+                                  <!-- <div class="col-sm-4 js_serviceDiv">
+                                        <span class="js_serviceDiv">玩家帐号</span>
+                                        <input type="text" class="js_serviceDiv" id="js_account"/>
+                                    </div>-->
+
+                                    <!--查询按钮-->
+                                    <div class="col-sm-1 js_queryDiv">
+							            <span class="input-group-btn">
+							                <a href="#" class="btn btn-sm btn-info js_query" onclick="query()" style="border-radius:3px;">查询</a>
+							            </span>
+
+							        </div>
+
+                                </div>
+							</form>
+						</header>
+                        <!--头部内容结束-->
+
+                        <!--中间内容开始-->
+                        <section class="scrollable padder" style="margin-top:100px;overflow:auto;">
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" style="margin-top:2%;">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none" id="js_table">
+                                        <thead>
+                                            <tr>
+                                                <th style="border: 1px solid #ddd;">漫画名称</th>
+                                                <th  style="border: 1px solid #ddd;">漫画封面</th>
+                                                <th style="border: 1px solid #ddd;width:10%;">封面url</th>
+                                                <th style="border: 1px solid #ddd;width:5%;">展示状态</th>
+                                                <th style="border: 1px solid #ddd;width:16%;">推荐时间</th>
+                                                <th style="border: 1px solid #ddd;width:5%;">奖励等级</th>
+                                                <th style="border: 1px solid #ddd;width:9%;">显示顺序</th>
+                                                <th style="border: 1px solid #ddd;">操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="js_tbody">
+
+
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </section>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--中间内容结束-->
+
+                        <!---------------------------------- ((((((套用内容))))))---------------------------------->
+                        
+                    </section>                          
+                </section>
+            </section>
+        </section>
+    </section>
+
+      
+
+	<!--预览弹层 start-->
+    <div class="Mask"></div>
+    <div class="js_popKuang">
+    	<div class="pop_up_xx"><img src="${rc.contextPath}/assets/img/chacha3.png" width="40" height="40"  /></div>
+
+
+        <div class="ban" id="demo1">
+			<div class="ban2" id="ban_pic1">
+				<div class="prev1" id="prev1">
+					<img src="${rc.contextPath}/assets/img/index_tab_l.png" width="28" height="51"  />
+				</div>
+				<div class="next1" id="next1">
+					<img src="${rc.contextPath}/assets/img/index_tab_r.png" width="28" height="51"  />
+				</div>
+				<ul id="previewPop">
+				</ul>
+			</div>
+			<div class="min_pic">
+				<div class="prev_btn1" id="prev_btn1"><img src="${rc.contextPath}/assets/img/feel3.png" width="9" height="18"  /></div>
+				<div class="num clearfix" id="ban_num1">
+					<ul id="previewPop_small">
+					</ul>
+				</div>
+				<div class="next_btn1" id="next_btn1"><img src="${rc.contextPath}/assets/img/feel4.png" width="9" height="18"  /></div>
+			</div>
+		</div>
+
+
+    </div>
+    <!--预览弹层 end-->
+    <div class="recommendBox">
+    <form id="formObj">
+        <div class="cartoonPosition">
+            <h2>漫画专区推荐位</h2>
+            <div class="js_tuijianwei">
+                
+            </div>
+        </div>
+        <div style="border-top:1px grey solid;text-align:center;">
+            <h2>推荐奖励等级</h2>
+            <div>
+                <select class=""  id="js_leavels">
+                    <option value="-1">请选择等级</option>
+                    <option value="1">等级1</option>
+                    <option value="2">等级2</option>
+                    <option value="3">等级3</option>
+                    <option value="4">等级4</option>
+                    <option value="5">等级5</option>
+                </select>
+            </div>
+        </div>
+        <div class="recommendBtnBox">
+            <a href="javascript:;" class="btn btn-success js_submitAll">确定</a>
+            <a href="javascript:;" class="btn btn-danger js_closeRe">取消</a>
+        </div>
+        </form>
+    </div>
+
+	<script src="${rc.contextPath}/assets/js/pic_tab.js"></script>
+
+<script>
+$(function(){
+  var type =$("#js_cartoonType").val();
+  var leavel =$("#js_leavel").val();
+  //推荐管理页面
+  $.ajax({
+       url: rc+"/recommend/fieldsList",
+       type: "GET",
+       dataType: "json",
+       data: {
+           r: Math.random
+       },
+       success: function (data) {
+         if(data.success){
+              var list =data.data;
+              var str = "";
+              for (var i = 0; i < list.length; i++) {
+                str+="<option value='"+list[i].index+"'>"+list[i].name+"</option>"
+              }
+              $("#js_cartoonType").append(str);
+         }else{
+             alert(data.message);
+         };
+
+       }
+  });
+
+  //body列表
+  body(35,-1);
+
+
+});
+function query(){
+  var index =$("#js_cartoonType").val();
+  var leavel =$("#js_leavel").val();
+
+   body(index,leavel);
+
+}
+function body(index,leavel){
+  $.ajax({
+       url: rc+"/recommend/manageFieldList",
+       type: "GET",
+       dataType: "json",
+       data: {
+           r: Math.random,
+           index:index,
+           leavel:leavel
+       },
+       success: function (data) {
+         if(data.success){
+              var list =data.data;
+              var str = "";
+              for (var i = 0; i < list.length; i++) {
+                str+="<tr>"+
+                  "<td >"+list[i].title+"</td>"+
+                  "<td ><img src='"+list[i].infoBean.manhuaPageUrl+"' style='width:50px;height:50px;'/></td>"+
+                  "<td >"+list[i].url+"</td>";
+                  if (list[i].isDisplay) {
+                    str+="<td >已展示</td>";
+                  }else{
+                    str+="<td >未展示</td>";
+                  }
+                  str+="<td >"+list[i].createTime+"</td>"+
+                    "<td > 等级 "+list[i].thumbnail+"</td>";
+                  if (i==0) {
+                    str+="<td data-code='"+ list[i].code +"' style='width:11%;' > "+
+                    
+                    "<a href='javascript:void(0)' class='js_move btn-sm btn-info' data-type='DOWN'>下</a>"+
+                   
+                    "<a href='javascript:void(0)' class='js_move btn-sm btn-info' data-type='BOTTOM'>底</a>"+
+                    "</td>";
+                  }else if (i==list.length-1) {
+                    str+="<td data-code='"+ list[i].code +"'> "+
+                    "<a href='javascript:void(0)' class='js_move btn-sm btn-info' data-type='UP'>上</a>"+
+                    
+                    "<a href='javascript:void(0)' class='js_move btn-sm btn-info' data-type='TOP'>顶</a>"+
+                    
+                    "</td>";
+                  }else {
+                    str+="<td data-code='"+ list[i].code +"'> "+
+                    "<a href='javascript:void(0)' class='js_move btn-sm btn-info' data-type='UP'>上</a>"+
+                    "<a href='javascript:void(0)' class='js_move btn-sm btn-info' data-type='DOWN'>下</a>"+
+                    "<a href='javascript:void(0)' class='js_move btn-sm btn-info' data-type='TOP'>顶</a>"+
+                    "<a href='javascript:void(0)' class='js_move btn-sm btn-info' data-type='BOTTOM'>底</a>"+
+                    "</td>";
+                  }
+                  str+="<td>";
+                  if (list[i].isDisplay) {
+                    str+='<a title="隐藏" class="btn btn-xs btn-default js_display" href="javascript:void(0)" data-title="隐藏" data-toggle="tooltip" data-code="'+ list[i].code +'" data-original-title="隐藏">'+
+                          '<i class="fa fa-ban"></i>'+
+                          ' </a>' ;
+                  }else {
+                    str+='<a title="展示" class="btn btn-xs btn-default js_display" href="javascript:void(0)" data-title="展示" data-toggle="tooltip" data-code="'+ list[i].code +'" data-original-title="展示">'+
+                          '<i class="fa fa-unlock"></i>'+
+                          ' </a>' ;
+                  }
+                  str+='<a title="编辑" class="btn btn-xs btn-success js_editorThis" href="javascript:void(0)" data-title="编辑" data-toggle="tooltip" data-code="'+ list[i].infoBean.manhuaCode +'" data-original-title="编辑">'+
+                        '<i class="fa fa-edit"></i>'+
+                        '</a>'+
+                        '<a title="删除" class="btn btn-xs btn-danger js_deleteThis" href="javascript:void(0)" data-title="删除" data-toggle="tooltip" data-code="'+ list[i].code +'" data-type="DELETE" data-original-title="删除">'+
+                        '<i class="fa fa-times"></i>'+
+                        '</a>';
+                  str+=  "</td>"
+                  str+=  "</tr>";
+              }
+
+            $("#js_tbody").html(str);
+         }else{
+             alert(data.message);
+         };
+
+       }
+  });
+}
+$('body').on("click",".js_edit",function(){
+  var value=$(this).parent().prev().find(".js_more").text();
+  //alert(value);
+  $(this).parent().prev().html("");
+  $(this).parent().prev().append('<input class="js_inpEndit" value="'+value+'" type="text"/>');
+})
+
+//展示隐藏
+$('body').on("click",".js_display",function(){
+ $.get(rc+"/recommend/fieldsDisplay",{code:$(this).data("code")},function(d){
+ 	alert(d.message);
+  var index =$("#js_cartoonType").val();
+  $("#js_tbody").html("");
+  body(index,-1);
+ })
+  
+})
+//移动栏位
+$("body").on("click",".js_move",function(d){
+	var obj = $(this); 
+	$.get(rc+"/recommend/fieldsMove",{code:obj.parent().data("code"),type:obj.data("type"),r:Math.random()},function(d){
+    var index =$("#js_cartoonType").val();
+    $("#js_tbody").html("");
+	body(index,-1);
+	})
+})
+
+//删除此条
+$("body").on("click",".js_deleteThis",function(d){
+	var obj = $(this); 
+	$.get(rc+"/recommend/fieldsMove",{code:obj.data("code"),type:obj.data("type"),r:Math.random()},function(d){
+		alert(d.message);
+		if(d.success){
+		obj.parents("tr").remove();
+		}
+		
+	})
+})
+//关闭
+$(".js_closeRe").click(function(){
+		$(".recommendBox").fadeOut();
+		//$("#js_leavels option[value='-1']").attr("selected",true)
+		$("#js_leavels").val("-1");
+	})
+//编辑按钮
+$("body").on("click",".js_editorThis",function(){
+	$(".recommendBox").fadeIn();
+	$(".js_submitAll").attr("data-code",$(this).data("code"));
+	$.get(rc + "/recommend/fieldsList",{manhuaCode:$(this).data("code"),r:Math.random()},function(d){
+			var html ='',a='';
+			for( var i =0;i<d.data.length; i++){
+				if(d.data[i].bool == true){
+					a = "checked='true'";
+				}else{
+					a = '';
+				}
+				html += '<div class="_tuijianBox" style="float:left;"><input type="checkbox" class="js_checkThis" ' + a + ' data-type="' + d.data[i].index + '" /><a href="javascript:;" ' + a + ' class="btn btn-xs btn-success js_recommendBtn" data-bool="0"  data-type="' + d.data[i].index + '">' + d.data[i].name + '</a></div>';
+			}
+			$(".js_tuijianwei").html(html);
+		});
+});
+//提交编辑项
+$(".js_submitAll").click(function(){
+	var a = [];
+	$("input[type='checkbox']").each(function(){
+		if($(this).is(":checked")){
+			a.push($(this).data("type"));
+		}
+	})
+	console.log($("#js_leavel option:selected").val())
+	if($("#js_leavels option:selected").val() == "-1"){
+	
+		alert("你还没选等级")
+		return false;
+	}
+	if(a.length == 0){
+	alert("你还没有选择推荐位")
+	return false;
+	}
+	$.get(rc + "/recommend/editFields",{manhuaCode:$(this).data("code"),rewarLevel:$("#js_leavels option:selected").val(),locationId : a,r:Math.random()},function(d){
+		alert(d.message);
+		if(d.success){
+			$(".recommendBox").fadeOut();
+			$("#js_leavels").val(-1);
+      var index =$("#js_cartoonType").val();
+      $("#js_tbody").html("");
+      body(index,-1);
+		}
+	})
+})
+
+$('body').on("blur",".js_inpEndit",function(){
+    var code = $(this).parent().next().find(".js_edit").data("code");
+
+    var remark=$(this).val();
+     $.ajax({
+          url: rc+"/recommend/editRemark",
+          type: "GET",
+          dataType: "json",
+          data: {
+              r: Math.random,
+              code:code,
+              remark:remark
+          },
+          success: function (data) {
+            if(data.success){
+
+            }else{
+                alert(data.message);
+            };
+            query();
+          }
+    });
+})
+
+
+</script>
+</body>
+</html>
+
+ 

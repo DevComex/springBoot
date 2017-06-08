@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wechatroulette.WeChatScoreMapper">
+	<resultMap id="BaseResultMap"
+		type="cn.gyyx.action.beans.wechatroulette.WeChatScore">
+		<id column="code" jdbcType="INTEGER" property="code" />
+		<result column="openid" jdbcType="VARCHAR" property="openId" />
+		<result column="jifen" jdbcType="INTEGER" property="score" />
+		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+		<result column="weixin_type" jdbcType="VARCHAR" property="type" />
+		<result column="nickname" jdbcType="VARCHAR" property="nickName" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		code, openid, jifen, create_time, update_time, weixin_type,
+		nickname
+	</sql>
+	<!-- 查询用户积分 -->
+	<select id="selectScoreByOpenIdAndType" resultType="java.lang.Integer">
+		select isnull(
+		(select top 1
+		jifen
+		from weixin_user_tb
+		where openid=#{openId,jdbcType=VARCHAR}
+		and
+		weixin_type=#{type,jdbcType=VARCHAR}
+		order by jifen desc),0)
+	</select>
+	<!-- 减少积分 -->
+	<update id="reduceScoreByOpenIdAndType">
+		UPDATE weixin_user_tb 
+		SET jifen = jifen - #{score,jdbcType=INTEGER}
+		WHERE
+		openid = #{openId,jdbcType=VARCHAR}
+		AND weixin_type = #{type,jdbcType=VARCHAR}
+	</update>
+</mapper>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道-老玩家回归问道缘积分排行抽奖活动</title>
+<link href="$!{staticSource}/css/jquery-ui-1.8.13.custom.css" rel="stylesheet" type="text/css">
+<link href="$!{staticSource}/css/wd_150316.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js" type="text/javascript"></script>
+<script  type="text/javascript">
+    var rc = "${rc.contextPath}";
+    alert("活动已经结束");
+</script>
+</head>
+<body>
+<div class="public_nav_top">
+    <script type="text/javascript">Showtop();</script>
+</div>
+<div class="wrap">
+  <div class="main">
+    <div class="nav"><a href="http://wd.gyyx.cn/index_wd_v5.htm">进入官网</a>|<a href="http://account.gyyx.cn/Member/Register">账号注册</a>|<a href="http://wd.gyyx.cn/download/">下载游戏</a>|<a href="http://wd.gyyx.cn/huodong/2014jhhd/index.html">关注问道</a></div>
+       <div class="wd_cj">
+      <div class="server">
+         <p class="login_p js_loginbar">抽奖需要先<a onclick="alertFn(null, null, true); return false;">登录</a></p>
+         <p class="sele_fwq">
+         <label>我的服务器:</label>
+         <select id="sel_blocklist">
+            <option value="0">请选择区组</option>
+            <option value="1">网通</option>
+            <option value="2">电信</option>
+            <option value="3">双线</option>
+			
+         </select>
+         <select id="sel_serverlist">
+            <option value="0">请选择服务器</option>
+         </select>
+         </p>
+         <div class="login_succ showmsg jp">我的奖品：<span id="js_hid" class="js_presentlist"></span><a id="resetAddress"  class="login_succ js_updateAddress">修改地址</a></div>
+		 
+      </div>
+      <div class="cjlist_l">
+          <div class="cj_list">
+                    <ul class="cj_list01">
+                      <li class="img01" id="dzp0">
+						<img src="$!{staticSource}/images/thanks.jpg"/>
+                      	
+                      	<!--<span class="on"></span>-->
+                      </li>
+                      <li class="img01" id="dzp11">
+                      	<img src="$!{staticSource}/images/thanks.jpg"/>
+                      	<span></span>
+                      </li>
+                      <li class="img01" id="dzp10">
+                      	<img src="$!{staticSource}/images/jiuweihu.jpg"/>
+                        <span></span>
+                      </li>
+                      <li class="img01" id="dzp9">
+                      	<img src="$!{staticSource}/images/hongmi.jpg"/>
+                        <span></span>
+                      </li>
+                    </ul>
+                    <ul class="cj_list02">
+                      <li class="img01" id="dzp1">
+                      	<img src="$!{staticSource}/images/weiweihu.jpg"/>
+                        <span></span>
+                      </li>
+                      <li class="img01" id="dzp2">
+                      	<img src="$!{staticSource}/images/iphone6plus.jpg"/>
+                        <span></span>
+                      </li>
+                      <li class="star"><a class="js_btnStart" text="go">立即抽奖</a></li>
+                      <li class="img01" id="dzp8">
+                      	<img src="$!{staticSource}/images/thanks.jpg"/>
+                      	<span></span>
+                      </li>
+                      <li class="img01" id="dzp7">
+                      	<img src="$!{staticSource}/images/giftbox.jpg"/>
+                        <span></span>
+                      </li>
+                    </ul>
+                    <ul class="cj_list03">
+                      <li class="img01" id="dzp3">
+                      	<img src="$!{staticSource}/images/jiangliang.jpg"/>
+                        <span></span>
+                      </li>
+                      <li class="img01" id="dzp4">
+                      	<img src="$!{staticSource}/images/thanks.jpg"/>
+                        <span></span>
+                      </li>
+                      <li class="img01" id="dzp5">
+                      	<img src="$!{staticSource}/images/Tshirt.jpg"/>
+                      	<span></span>
+                      </li>
+                      <li class="img01" id="dzp6">
+						<img src="$!{staticSource}/images/thanks.jpg"/>
+                      	<span></span>
+                      </li>
+                    </ul>
+          </div>
+          <div class="rulebox zj_name">
+			<div class="scroll_con">
+    			<ul class="js_scroll">
+                </ul>
+			</div>
+		  </div>
+      </div>
+      <div class="cjlist_r">
+          <div class="rlist_cont">
+              <h3>活动说明:</h3>
+              <div class="contxt">
+                 2015年10月29日-11月5日23:59
+                <p>9月25日-10月25日各服务器再续问道缘积分排行前10玩家可抽奖</p> 
+              </div>
+              <h3>活动奖励:</h3>
+              <div class="contxt">Iphone6 plus、红米手机、九尾仙狐手办+福元宝、威威虎抱枕、疆良手办、问道T恤、八周年典藏礼盒等你拿!</div>
+              <h3>活动说明:</h3>
+              <ul>
+                  <li><span>1</span><p>玩家在开启转盘活动之前必须先进行登录；</p></li>
+                  <li><span>2</span><p>每个账号只有1次抽奖机会，活动期间若未抽奖则视为放弃抽奖资格和奖品；</p></li>
+                  <li><span>3</span><p>中奖玩家收货信息须如实填写，若信息有误或不填写导致奖品无法发出将视为放弃奖品；</p></li>
+                  <li><span>4</span><p>本次活动奖品不可退换；</p></li>
+                  <li><span>5</span><p>活动结束后我们将进行统一奖品发货。</p></li>
+                  <li><span>1</span><p>玩家在开启转盘活动之前必须先进行登录；</p></li>
+                  <li><span>2</span><p>每个账号只有1次抽奖机会，活动期间若未抽奖则视为放弃抽奖资格和奖品；</p></li>
+                  <li><span>3</span><p>中奖玩家收货信息须如实填写，若信息有误或不填写导致奖品无法发出将视为放弃奖品；</p></li>
+                  <li><span>4</span><p>本次活动奖品不可退换；</p></li>
+                  <li><span>5</span><p>活动结束后我们将进行统一奖品发货。</p></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+<div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+</div>
+<!--弹层一-->
+<div class="wd_tc1" id="js_dialogbox">
+   <a class="close js_popclose" href="#">关闭</a>
+   <h2>收货地址</h2>
+   <div class="tc_cont1">
+      <p class="tc_p1">请填写正确奖励收货地址，活动结束后统一发放奖励~</p>
+      <p class="tc_p2">活动结束前若未填写或因地址不正确导致无法发放，则默认道友放弃奖励不再发放！</p>
+      <div class="form">
+         <div class="tc_div">
+    		<label>收件人姓名</label>
+            <input name="input" type="text" id="txtRecName">
+        </div>
+        <div class="tc_div">
+    		<label>&nbsp;&nbsp;&nbsp;联系电话</label>
+            <input name="input" type="text" id="txtMobPhoneNumber">
+        </div>
+        <div class="tc_div">
+    		<label>&nbsp;&nbsp;&nbsp;收件地址</label>
+            <input name="input" type="text" id="txtAddress">
+        </div>
+         <button class="tc_btn" id="btn_subRecInfo">确认提交</button>
+        <input name="input" type="hidden" id="hidTxtRecName">
+        <input name="input" type="hidden" id="hidTxtMobPhoneNumber">
+        <input name="input" type="hidden" id="hidTxtAddress">
+        <input name="input" type="hidden" id="hidAwardName">
+      </div>
+   </div>
+</div>
+<input type="hidden" class="js_hidState"/>
+ <!--弹层二-->       
+<div class="wd_tc2" id="js_messageBox">
+    <a class="close js_close">关闭</a>
+    <h2>提示</h2>
+    <div class="tc_cont2" id="js_messageBox_cont">
+       <p class="tc2_p1">&nbsp;&nbsp;恭喜你获得5000银元宝奖励！</p>
+       <p class="tc2_p2">我们将在活动结束后7个工作日内统一发放奖励。</p>
+	   	
+    </div>
+	<div class="form"  id="js_btnWriteAddress">
+        <button class="tc_btn" href="#">填写收货地址</button>
+    </div>
+
+</div>
+<script src="$!{staticSource}/js/index.js" type="text/javascript"></script>
+<script src="$!{staticSource}/js/jquery-ui-1.8.16.custom.min.js"></script>
+<script src="$!{staticSource}/js/Lotterywd.js" type="text/javascript"></script>
+</body>
+</html>

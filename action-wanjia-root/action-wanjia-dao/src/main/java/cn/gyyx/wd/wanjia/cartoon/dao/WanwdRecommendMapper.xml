@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.wd.wanjia.cartoon.dao.WanwdRecommendMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.wd.wanjia.cartoon.beans.WanwdRecommend" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="NVARCHAR" />
+    <result column="picture" property="picture" jdbcType="VARCHAR" />
+    <result column="thumbnail" property="thumbnail" jdbcType="VARCHAR" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="location_id" property="locationId" jdbcType="INTEGER" />
+    <result column="is_display" property="isDisplay" jdbcType="BIT" />
+    <result column="display_order" property="displayOrder" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="is_delete" property="isDelete" jdbcType="BIT" />
+    <result column="content_id" property="contentId" jdbcType="INTEGER" />
+    <result column="content_type" property="contentType" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    code, title, picture, thumbnail, url, location_id, is_display, display_order, create_time, 
+    update_time, is_delete, content_id, content_type, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_recommend_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  
+  <select id="selectRecommendHistory"  resultType="java.util.Map" parameterType="map" >
+SELECT* FROM(
+select ROW_NUMBER() OVER (ORDER BY r.create_time desc) as rank,
+r.code,CONVERT(varchar(100), r.create_time, 20) create_time,r.url,r.thumbnail,r.remark,r.location_id,
+m.code manhuaCode,m.read_count,m.author_account,m.is_closed,m.title 
+from wanwd_recommend_tb r 
+LEFT JOIN wanwd_manhua_tb m ON m.code =r.content_id
+WHERE r.is_delete =0
+<if test="location!=null">
+AND r.location_id =#{location}
+</if>
+<if test="locationList!=null">
+AND r.location_id in (${locationList})
+</if>
+<if test="isClosed!=null">
+AND m.is_closed =#{isClosed}
+</if>
+<if test="leavel!=null">
+AND r.thumbnail LIKE '%${leavel}%'
+</if>
+<if test="account!=null">
+AND m.author_account LIKE '%${account}%'
+</if>
+<if test="title!=null">
+AND m.title LIKE '%${title}%'
+</if>
+ ) t  WHERE 1=1
+ <if test="start!=null">
+ AND t.rank BETWEEN #{start} AND #{end}
+ </if>
+  </select>
+  
+  <select id="selectRecommendHistoryCount"  resultType="int" parameterType="map" >
+SELECT COUNT(*) FROM(
+select ROW_NUMBER() OVER (ORDER BY r.create_time desc) as rank,
+r.code,CONVERT(varchar(100), r.create_time, 20) create_time,r.url,r.thumbnail,r.remark,
+m.code manhuaCode,m.read_count,m.author_account,m.is_closed,m.title 
+from wanwd_recommend_tb r 
+LEFT JOIN wanwd_manhua_tb m ON m.code =r.content_id
+WHERE r.is_delete =0
+<if test="location!=null">
+AND r.location_id =#{location}
+</if>
+<if test="locationList!=null">
+AND r.location_id in (${locationList})
+</if>
+<if test="isClosed!=null">
+AND m.is_closed =#{isClosed}
+</if>
+<if test="leavel!=null">
+AND r.thumbnail LIKE '%${leavel}%'
+</if>
+<if test="account!=null">
+AND m.author_account LIKE '%${account}%'
+</if>
+<if test="title!=null">
+AND m.title LIKE '%${title}%'
+</if>
+ ) t 
+  </select>
+  
+  
+  
+  <select id="findByLocaltionAndOrderId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+   select 
+    <include refid="Base_Column_List" />
+    from wanwd_recommend_tb
+	WHERE location_id= #{0}  and display_order = #{1} AND is_delete =0
+  </select>
+  
+  <select id="selectByLocaltionAndManhuaCode" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_recommend_tb
+    where location_id= #{0}  and content_id = #{1} and is_delete =0
+  </select>
+  
+  <select id="getFieldsListByLocaltionId" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_recommend_tb
+    where 
+    is_delete =0 and content_type =4
+    <if test="location != null">
+   	 and  location_id = #{location}  
+    </if>
+    <if test="leavel != null">
+   	 and  thumbnail = #{leavel}  
+    </if>
+    order by display_order
+  </select>
+  
+  <select id="getLinkListByLocaltionId" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_recommend_tb
+    where location_id = #{location,jdbcType=INTEGER}  and is_delete =0 order by display_order
+  </select>
+  
+  <select id="selectByLocaltion" resultType="int" parameterType="java.lang.Integer" >
+    select 
+    ISNULL(max(display_order),0)
+    from wanwd_recommend_tb
+    where location_id = #{location_id,jdbcType=INTEGER} and is_delete =0
+  </select>
+  
+   
+  
+  <select id="getManhuaFields" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from wanwd_recommend_tb
+    where content_id = #{content_id,jdbcType=INTEGER} and is_delete =0
+  </select>
+  
+  
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wanwd_recommend_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdRecommend" >
+    insert into wanwd_recommend_tb (code, title, picture, 
+      thumbnail, url, location_id, 
+      is_display, display_order, create_time, 
+      update_time, is_delete, content_id, 
+      content_type, remark)
+    values (#{code,jdbcType=INTEGER}, #{title,jdbcType=NVARCHAR}, #{picture,jdbcType=VARCHAR}, 
+      #{thumbnail,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, #{locationId,jdbcType=INTEGER}, 
+      #{isDisplay,jdbcType=BIT}, #{displayOrder,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{isDelete,jdbcType=BIT}, #{contentId,jdbcType=INTEGER}, 
+      #{contentType,jdbcType=INTEGER}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdRecommend" >
+    insert into wanwd_recommend_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="picture != null" >
+        picture,
+      </if>
+      <if test="thumbnail != null" >
+        thumbnail,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="locationId != null" >
+        location_id,
+      </if>
+      <if test="isDisplay != null" >
+        is_display,
+      </if>
+      <if test="displayOrder != null" >
+        display_order,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="isDelete != null" >
+        is_delete,
+      </if>
+      <if test="contentId != null" >
+        content_id,
+      </if>
+      <if test="contentType != null" >
+        content_type,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=NVARCHAR},
+      </if>
+      <if test="picture != null" >
+        #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnail != null" >
+        #{thumbnail,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="locationId != null" >
+        #{locationId,jdbcType=INTEGER},
+      </if>
+      <if test="isDisplay != null" >
+        #{isDisplay,jdbcType=BIT},
+      </if>
+      <if test="displayOrder != null" >
+        #{displayOrder,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="contentId != null" >
+        #{contentId,jdbcType=INTEGER},
+      </if>
+      <if test="contentType != null" >
+        #{contentType,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdRecommend" >
+    update wanwd_recommend_tb
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=NVARCHAR},
+      </if>
+      <if test="picture != null" >
+        picture = #{picture,jdbcType=VARCHAR},
+      </if>
+      <if test="thumbnail != null" >
+        thumbnail = #{thumbnail,jdbcType=VARCHAR},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="locationId != null" >
+        location_id = #{locationId,jdbcType=INTEGER},
+      </if>
+      <if test="isDisplay != null" >
+        is_display = #{isDisplay,jdbcType=BIT},
+      </if>
+      <if test="displayOrder != null" >
+        display_order = #{displayOrder,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDelete != null" >
+        is_delete = #{isDelete,jdbcType=BIT},
+      </if>
+      <if test="contentId != null" >
+        content_id = #{contentId,jdbcType=INTEGER},
+      </if>
+      <if test="contentType != null" >
+        content_type = #{contentType,jdbcType=INTEGER},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.wd.wanjia.cartoon.beans.WanwdRecommend" >
+    update wanwd_recommend_tb
+    set title = #{title,jdbcType=NVARCHAR},
+      picture = #{picture,jdbcType=VARCHAR},
+      thumbnail = #{thumbnail,jdbcType=VARCHAR},
+      url = #{url,jdbcType=VARCHAR},
+      location_id = #{locationId,jdbcType=INTEGER},
+      is_display = #{isDisplay,jdbcType=BIT},
+      display_order = #{displayOrder,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      is_delete = #{isDelete,jdbcType=BIT},
+      content_id = #{contentId,jdbcType=INTEGER},
+      content_type = #{contentType,jdbcType=INTEGER},
+      remark = #{remark,jdbcType=VARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="deleteByManhuaCode" parameterType="int" >
+    update wanwd_recommend_tb
+    set
+      is_display = 0,
+      display_order = -1,
+      is_delete = 1
+    where content_id=#{contentId} AND content_type =4
+  </update>
+</mapper>

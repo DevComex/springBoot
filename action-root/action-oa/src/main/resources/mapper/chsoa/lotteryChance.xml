@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.chsactivationcode.ILotteryChanceMapper">
+	<resultMap type="LotteryChance" id="LotteryChanceBean">
+		<result column="code" property="code" />
+		<result column="prize_code" property="prizeCode" />
+		<result column="action_code" property="actionCode" />
+		<result column="probability" property="probability" />
+		<result column="number" property="number" />
+	</resultMap>
+
+	<!-- 根据活动code查询活动信息 -->
+	<select id="findAll" resultMap="LotteryChanceBean">
+		select * from
+		action_lottery_chance_tb
+		where action_code = #{actionCode}
+	</select>
+	
+	<!-- 修改 -->
+	<update id="update">		
+		update action_lottery_chance_tb
+		set probability = #{probability}, number=#{num}
+		where code = #{code}
+	</update>
+	<!-- 按渠道查询激活个数（产品可能存在别的天领取今天激活） -->
+	<select id="searchActivitionCount" resultType="int">
+		select count(l.code)
+		from activity_code_channel c right join game_activation_code l on c.activity_code=l.activation_code
+		where 
+			  l.status=2 
+		  and c.channel=#{channel}
+<![CDATA[ and l.activation_time>=#{start} ]]>
+<![CDATA[ and l.activation_time<#{end} ]]>
+	</select>
+	<!-- 查询产品发出去个数 -->
+	<select id="searchSendCount" resultType="int">
+		select count(l.code)
+		from hd_send_present_log l 
+		where 
+			l.activity_id=#{actionCode}
+			and present_type='card'
+<![CDATA[ and l.draw_time>=#{start} ]]>
+<![CDATA[ and l.draw_time<#{end} ]]>
+	</select>
+	<!-- 发放但未激活个数 -->
+	<select id="searchSendNotCount" resultType="int">
+		select count(l.code)
+		from hd_send_present_log l 
+		where 
+			l.activity_id=#{actionCode}
+		and l.server_id=0 
+		and present_type='noPrize'
+<![CDATA[ and l.draw_time>#{start} ]]>
+<![CDATA[ and l.draw_time<#{end} ]]>
+	</select>
+	<update id="updateTimeLimit">
+		update chs_lottery_config_tb
+		set 
+			start_time=#{start}
+			,end_time=#{end}
+			,count=#{count}
+		where code=#{code}
+	</update>
+	<select id="getMarketDetailed" resultType="List" resultMap="UserMesBean">
+		select 
+			l.activation_time as 'activation_time' 
+		   ,l.user_id as 'user_id'
+		   ,l.activation_code as activation_code
+		   ,c.code as code
+		from activity_code_channel c right join game_activation_code l on c.activity_code=l.activation_code
+		where 
+			  l.status=2 and c.channel=#{channel}  
+<![CDATA[ and l.activation_time>#{start} ]]>
+<![CDATA[ and l.activation_time<#{end} ]]>
+		order by c.code 
+	</select>
+	<resultMap type="UserMesBean" id="UserMesBean">
+		<id column="code" property="code" />
+		<result column="activation_code" property="activationCode" />
+		<result column="activation_time" property="activationTime" />
+		<result column="user_id" property="userId" />
+	</resultMap>
+	<!-- 通过Code区分市场激活详细信息 -->
+	<select id="getActivityMarketDetailedToCode" resultType="List" resultMap="UserMesBean">
+		select 
+			l.activation_time as 'activation_time' 
+		   ,l.user_id as 'user_id'
+		   ,l.activation_code as activation_code
+		   ,c.code as code
+		from activity_code_channel c right join game_activation_code l on c.activity_code=l.activation_code
+		where 
+			  l.status=2 and c.channel=#{channel}  
+<![CDATA[ and l.activation_time>#{start} ]]>
+<![CDATA[ and l.activation_time<#{end} ]]>
+<![CDATA[ and c.code>#{startCode} ]]>
+<![CDATA[ and c.code<#{endCode} ]]>
+		order by c.code 
+	</select>
+	<select id="allTimeLimit" resultMap="TimeLimit" resultType="List">
+		select *
+		from chs_lottery_config_tb
+		where action_code=#{actionCode}
+	</select>
+	<resultMap type="cn.gyyx.action.beans.chsactivationcode.TimeLimitBean" id="TimeLimit">
+		<id column="code" property="code" />
+		<result column="start_time" property="startTime" />
+		<result column="end_time" property="endTime" />
+		<result column="count" property="count" />
+		<result column="is_deleted" property="isDeleted" />
+	</resultMap>
+	<update id="deleteLimitConfig">
+		update chs_lottery_config_tb
+		set is_deleted
+		where 
+	</update>
+</mapper>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=8">
+    <link href="http://static.cn114.cn/action/wdThreeTeam/css/vote.css" rel="stylesheet" type="text/css">
+	<script  type="text/javascript">
+		var rc = "${rc.contextPath}";
+	 </script>
+     <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=" type="text/javascript"></script>
+	<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?0bbf4491592eb5562a53d4f29c54f657";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+
+	<script>
+        if (navigator.platform.indexOf('Win32') != -1 || navigator.platform.indexOf('Win64') != -1 || navigator.platform.indexOf('MacPPC') != -1|| navigator.platform.indexOf('MacIntel') != -1) {
+
+
+        } else {
+            //shouji
+            window.location.href = rc+"/tombThreeTeam/mobilevotePage"+window.location.search;
+        }
+    </script>
+    <title>《盗墓三番队》概念站</title>
+</head>
+<body>
+<div class="public_nav_top">
+    <script type="text/javascript">Showtop();</script>
+</div>
+<div class="wrap">
+    <p class="date">活动时间：11月08日-12月02日</p>
+	<a href="http://dm3fd.gyyx.cn" class="return_index"></a>
+	
+    <ul class="vote_detail ">
+        <li class="vote_detail_l">
+            <h2>活动简述</h2>
+            <p>我是盗娘，你认识我吗？你听过我的声音吗？我在你心目中是御姐还是萌妹呢？ <br/>其实我也不知道我到底是什么样子的，因为我的一切都将由你来支配，我的主人。 <br/>所以快来赋予我你最喜欢的声音吧。你的投票，会让我成为独一无二的完美盗娘。</p>
+            <h2>活动规则</h2>
+            <p>
+                1. 投票时间：11月08日-12月02日<br>
+                2.每个手机号每天有1票机会为自己喜爱的声优投票。<br/>
+                3.每个投票的手机号会获得“积分”奖励，积分与您的手机号绑定，在未来，您可以使用积分兑换超值道具。
+            </p>
+        </li>
+        <li class="vote_detail_r01">
+            <p>欢迎您：133****3333</p>
+
+            <p>我的积分：99999999</p>
+
+            <a href="javascript:;">查询我的投票记录</a>
+            <button>退出登录</button>
+        </li>
+        <li class="vote_detail_r02"></li>
+    </ul>
+    <ul class="section clear" id="js_section">
+
+    </ul>
+    <div class="login_popinner">
+       <div class="login_popinner_l">
+           <h3>请输入手机号码</h3>
+           <input type="text" class="number" maxlength="11"/>
+           <h3>请输入右侧验证码</h3>
+           <input type="text" class="simple_yzm" maxlength="6"/>
+           <img class="js_captchaimg" id="captcha_image" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=" width="100" height="50" alt="验证码"/>
+           <a href="javascript:;">换一张</a>
+           <button class="get_message_yzm">
+           </button>
+           <p><span>60</span>秒后可重新发送</p>
+           <h3>请输入您收到的短信验证码</h3>
+           <input type="text" class="message_yzm" maxlength="10"/>
+           <button class="login_btn" id="login_btn"></button>
+       </div>
+        <div class="login_popinner_r">
+            <img src="http://static.cn114.cn/action/wdThreeTeam/img/vote_ewm.jpg" alt="" width="154" height="154"/>
+            <p>公众号搜索： <strong>盗娘俱乐部</strong></p>
+            <i>扫一扫关注我们，获取更多资讯</i>
+        </div>
+    </div>
+    <div class="other_popinner pop_vote_success">
+        <p>
+            投票成功，恭喜您获得10积分奖励，积分将与您手机号绑定，在未来，您可以使用积分兑换超值道具。
+        </p>
+       <button></button>
+    </div>
+    <div class="other_popinner pop_vote_second">
+        <p>
+            您今日已参与过投票，请明日再来
+        </p>
+        <button></button>
+    </div>
+    <div class="other_popinner pop_vote_query_log"  id="pop_vote_query_log">
+        <ul class="title_top">
+            <li>投票时间</li>
+            <li>投票声优</li>
+        </ul>
+        <div class="custom_scroll" id ="custom_scroll">
+            <div class="custom_scroll_in clear">
+                <ul class="custom_scroll_l">
+                </ul>
+                <ul class="custom_scroll_r">
+                </ul>
+            </div>
+        </div>
+        <div class = "scroll" id="scroll">
+            <div class="bar" id="bar"></div>
+        </div>
+    </div>
+</div>
+
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom()</script>
+</div>
+<script>
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?adf34816abef562c37599de5f6071496";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+</body>
+<script src="http://static.cn114.cn/action/wdThreeTeam/js/vote.js"></script>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>审核评论</title>
+  <link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+        var temp="";
+    	$(function(){
+    		$(".showTxt").text("");
+    		$(".dropdown-label").click(function(){
+	    		$(".dropdown-label").text("请选择相应活动");
+    		});
+    		$("#submit").click(function(){
+    			if(temp==""){
+    				alert("请填写活动编号");
+    				return false;
+    			}
+				$.ajax({
+					url:"${rc.contextPath}/LHZSOA/getCount",
+					type:"get",
+					data:{"actionCode" : temp },
+					success:function(data){
+						var isSuccess = data.isSuccess;
+						var message = data.message;
+						var datas = data.data;
+						if(isSuccess==true){
+							if(message=="272"){
+								$(".showTxt").text("烈火裁决-官方专属礼包    "+"还有"+datas+"个激活码！！");
+								alert("烈火裁决-官方专属礼包    "+"还有"+datas+"个激活码！！");
+							}
+							if(message=="274"){
+								$(".showTxt").text("绝世武神-官方福利客栈    "+"还有"+datas+"个激活码！！");
+								alert("绝世武神-官方福利客栈   "+"还有"+datas+"个激活码！！");
+							}
+						}else{
+							alert("网络不给力！！");
+						}
+					},
+					error:function(){
+						alert("网络不给力！！*");
+					}
+				});
+    		});
+    		$(".lhcj").click(function(){
+    			var lhcjVal = $("#lhcjVal").val();
+    			temp = lhcjVal;
+    			$("#shit").text("烈火裁决-官方专属礼包");
+    		});
+    		$(".jsws").click(function(){
+    			var jswsVal = $("#jswsVal").val();
+    			temp = jswsVal;
+    			$("#shit").text("绝世武神-官方福利客栈");
+    		});
+    	});
+    </script>
+  </script>
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                         <!--主体内容 begin-->
+                        <section class="scrollable padder">
+     
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" style="overflow: scroll;height:100%">
+              
+              <table border="0" class="table" style="table-layout:fixed;word-break:break-all; word-wrap:break-all;"width="4000">
+                  		<thead>
+                                <th width="100">活动编号</th>
+                				<th width="100"></th>
+                  		</thead>
+                                <tbody> 
+                                <tr>   
+                                <td>
+                                <div class="btn-group m-r">
+                                        <button class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown"><span id = 'shit' class="dropdown-label">请选择相应活动</span> <span class="caret"></span></button>
+                                        <ul class="dropdown-menu dropdown-select">
+                                            <li ><a class="lhcj" >
+                                                <input type="radio" value="272" name="d-s-r" id="lhcjVal">烈火裁决-官方专属礼包</a></li>
+                                            <li><a class="jsws">
+                                                <input type="radio" value="274" name="d-s-r" id="jswsVal">绝世武神-官方福利客栈</a></li>
+                                        </ul>
+                                    </div>
+                                </td>
+                                <td>
+                  					<input type="button" class="btn btn-info" id="submit"  value="查询"/>
+                  				</td></tr>
+                  				<tr>
+                  				<td class="showTxt">""</td>
+                  				</tr>
+                                </tbody>
+            </table>
+
+                         </section>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+</body>
+</html>

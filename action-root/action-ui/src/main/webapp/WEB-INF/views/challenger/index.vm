@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>《问道》挑战“新世界”活动</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/challenger/css/reset.css">
+    <link rel="stylesheet" href="http://static.cn114.cn/action/challenger/css/index.css">
+    <link rel="stylesheet" href="http://static.cn114.cn/action/challenger/css/popup.css">
+			<script  type="text/javascript">
+	 		var rc="${rc.contextPath}";
+	    </script>
+    <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/common.js"></script><!-- 公用head -->
+
+
+
+
+</head>
+<script>
+var rc="${rc.contextPath}";
+</script>
+<body>
+<!--光宇顶部导航调用-->
+<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+<!--主内容-->
+<div class="mainC">
+   <div class="w1000">
+       <div class="top">
+           <a href="" class="logo"></a>
+           <ul class="topNav">
+               <li><a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm ">进入官网</a>|</li>
+               <li><a target="_blank" href="http://news.gyyx.cn/Counter.ashx?pc=4089&sc=17763&mc=6304&gc=2&ul=http%3a%2f%2faccount.gyyx.cn%2fMember%2fRegister&mt=4061&et=1">账号注册</a>|</li>
+               <li><a target="_blank" href="http://wd.gyyx.cn/download/index.aspx ">下载中心</a>|</li>
+               <li><a target="_blank" href="http://bbs.gyyx.cn/forum.php?gid=8">游戏论坛</a></li>
+
+                <li class="js-share-btn" data-sharCon="《问道》新服“二〇一六”, 开启PK新世界。挑战“四象封印”，引领世界等级；生死挑战，名扬中州大陆，更有十万大奖等你挑战。军令已立，生死何惧，年中PK大服“二〇一六”，7.22不打不欢！">
+                   <input id="source" type="hidden" name="index" value="index" />
+
+
+
+                   <a class="shar_wb" target="_self" href="javascript:void(0)" data-sharename="tqq"></a>
+                   <a class="shar_kj" target="_self" href="javascript:void(0)" data-sharename="qzone"></a>
+               </li> 
+           </ul>
+       </div>
+       <p class="activeT">活动时间：7月22日-8月5日</p>
+       <a href="javascript:void(0)" class="wybm" ></a>
+       <div class="btns">
+           <a class="b1" href="/challenger/teamList"></a>
+           <a class="b2" href="/challenger/lotteryIndex"></a>
+           <a class="b3" href="/challenger/challengeinfo/fighterList"></a>
+       </div>
+
+   </div>
+</div>
+
+<!-- 社区公用底部 -->
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom()</script>
+</div>
+
+<!-- 弹窗提示（登录注册提醒）-->
+<div class="mask"></div>
+<div class="maskMain">
+    <div class="maskKuang">
+        <h2>请先登录</h2>
+        <div class="handle">
+            <a href="javascript:;" class="loginA lb_login">登录</a>
+            <a target="_blank" href="http://news.gyyx.cn/Counter.ashx?pc=4089&sc=17763&mc=6304&gc=2&ul=http%3a%2f%2faccount.gyyx.cn%2fMember%2fRegister&mt=4061&et=1" class="registerA">注册</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="clock">关闭</a>
+</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/share.js"></script>
+<!--透明处理-->
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/png.js"></script>
+<!--百度统计-->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?e0c6a57be4113c6e208f7d9a58c62421";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script>
+   /*  $(".btns a").click(function(){
+        alert("活动暂未开始，敬请期待!")
+    }) */
+</script>
+
+</body>
+
+</html>

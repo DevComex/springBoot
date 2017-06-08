@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.challenger.IOperationLog">
+	<resultMap type="OperationLogBean" id="OperationLogBeanMap">
+		<id column="code" property="code" />
+		<result column="tid" property="tid" />
+		<result column="type " property="type" />
+		<result column="aid" property="actionCode" />
+		<result column="user_id " property="userid" />
+		<result column="user_name" property="userName" />
+		<result column="description" property="description" />
+		<result column="create_time" property="createTime" />
+		<result column="account" property="account" />
+	</resultMap>
+	<insert id="addOperationLog">
+		insert into back_operation_log
+		(tid,type,aid,user_id,user_name,description,account)
+		values
+		(#{tid},#{type},#{actionCode},#{userid},#{userName},#{description},#{account})
+	</insert>
+	
+	<select id="getCoserWorksCheckCount" resultType="int">
+		select count(1) from (SELECT
+			tid
+		from back_operation_log
+		where account = #{userName} and aid =#{actionCode} and type = #{type} group by tid
+		 ) a
+	</select>
+</mapper>

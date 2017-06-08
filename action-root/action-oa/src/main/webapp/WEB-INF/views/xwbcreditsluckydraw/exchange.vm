@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Layout:luochongfei" />
+    <title>兑换列表</title>
+
+    <link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+	<script src="${rc.contextPath}/resources/script/swfupload.js" type="text/javascript"></script>
+    <script src="${rc.contextPath}/resources/script/SWFInitialize.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/SWFInitializes.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/videoHandlers.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/VideoUpload.js" type="text/javascript" ></script>
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet" />
+    <script>
+	  var changeImg = function(url){
+       		$("#checkImg").attr("src",url);
+       	}
+      
+    </script>
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+						<section id="content">
+                    <section class="vbox">
+						<header class="header bg-white b-b clearfix">
+                            <a class="btn btn-sm btn-dark js_add_info" href="#addTask"
+                                       data-toggle="modal">增加</a>
+                                       #if($!message=="no")
+																	<td><a data-toggle="tooltip" data-title="开启" href="../xwbJiFen/openActivity" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-check-square">开启</i></a></td>
+															  #end
+															  
+															  #if($!message=="yes")
+																	<td><a data-toggle="tooltip" data-title="关闭" href="../xwbJiFen/closeActivity" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-check-square">关闭</i></a></td>
+															  #end
+                        </header>
+                        <!--顶部标题导航 end-->
+		
+                        <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <div class="m-b-md">
+                            </div>
+                            
+							 <h4 >兑换列表</h4>
+							
+                                
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default"  style="height:750px">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            
+                                       <tr>
+                                       
+                                                    	<th width="20"></th>
+                                                        
+                                                        <th width="20">商品名称</th>
+                                                        <th width="20">商品代码</th>
+														<th width="20">对应积分</th>
+														<th width="20">商品说明</th>
+														<th width="20">商品图片</th>
+														<th width="20">商品个数</th>
+														<th width="20">编辑</th>
+														<th width="20">删除</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="js_tbody">
+												
+													#foreach($bean in $goodsInfoBean)
+														
+                                                        <tr>
+                                                            <td></td>
+                                                           
+                                                            <td>$!bean.goodsName</td>
+    														<td>$!bean.goodsCode</td>
+    														   <td>$!bean.creditsCost</td>
+    														<td>$!bean.goodsState</td>
+    														 
+    														
+    														 <td><a data-toggle="modal" href="#seepic" onclick="changeImg('${bean.goodsPic}');" data-title="点击查看" class="btn btn-xs btn-danger imgUrl js_add_opt" data-original-title="" title=""><i class="fa fa-eye"></i></a></td>
+                                                       
+													   <td>$!bean.price</td>
+													   
+													   <td class="js_btn_edit">
+													<a title="" class="btn btn-xs btn-primary js_edit_project" code="$!bean.code" data-title="编辑" data-toggle="modal" href="#updateTask" data-original-title="编辑">
+													
+                                                    
+												</td>
+												 <td class="js_btn_edit">
+												<a title="" class="btn btn-xs btn-primary js_delete_project" code="$!bean.code" data-title="删除" data-toggle="modal" href="#updateTask1" data-original-title="删除">
+												</td>
+                                                        </tr>
+													
+												
+													#end
+											
+                                        </tbody>
+                                    </table>
+									
+                                </div>
+                                
+                            </section>
+                            
+                            <!--翻页功能-->
+                     
+                        <script>
+                        
+							$(function(){
+							
+                        		$(".js_clkupimg").click(function(){
+                        			$("#SWFUpload_0").trigger("click");
+                        		})
+                        							
+							
+							
+				$(".js_add_askForSubmit").click(function(){
+
+						var goodsCode = $.trim($("#goodsCode8").val());
+						
+						var goodsName = $.trim($("#goodsName8").val());
+						
+						var creditsCost = $.trim($("#creditsCost8").val());
+						
+						var price = $.trim($("#price8").val());
+						var mailContent = $.trim($("#mailContent8").val());
+				
+						
+						if(goodsName == ""){
+							alert("请填写商品名称!");
+						}else if(goodsCode == ""){
+							alert("请填写商品代码!");
+						}else if(isNaN(goodsCode)){
+							alert("商品代码只能为数字!");
+						}else if(goodsCode < 0){
+							alert("商品代码不能为负!");
+						}else if(creditsCost == ""){
+							alert("积分必须填写!");
+						}else if(isNaN(creditsCost)){
+							alert("积分只能为数字!");
+						}else if(creditsCost < 0){
+							alert("积分不能为负!");
+						}else if(creditsCost > 10000){
+							alert("积分上限为10000!");
+						}else if(mailContent == ""){
+							alert("请填写发奖邮件内容!");
+						}else if(price == ""){
+							alert("商品个数必须填写!");
+						}else if(isNaN(price)){
+							alert("商品个数只能为数字!");
+						}else if(price < 0){
+							alert("商品个数不能为负!");
+						}else if(price > 10000){
+							alert("商品个数不能大于10000!");
+						}else if($("#prizePhoto").val() == ""){
+							alert("请上传图片!");
+						}else{
+		    				$("#add_askForForm").attr("action","addGoodsInfoBean");
+		    				$("#add_askForForm").submit();
+						}
+						
+				})
+				
+				
+				$(".js_update_askForSubmit").click(function(){
+		
+						var goodsCode = $.trim($("#goodsCode4").val());
+						
+						var goodsName = $.trim($("#goodsName4").val());
+						var goodsState = $.trim($("#goodsState4").val());
+						
+						
+						var creditsCost = $.trim($("#creditsCost4").val());
+						
+						var price = $.trim($("#price4").val());
+						var mailContent = $.trim($("#mailContent4").val());
+						
+						
+						//Jquery绑定Form
+						$("#goodsCode6").val(goodsCode);
+						$("#goodsName6").val(goodsName);
+						$("#goodsState6").val(goodsState);
+						$("#creditsCost6").val(creditsCost);
+						$("#goodsPic6").val($("#prizePhotoU").val());
+						$("#price6").val(price);
+						$("#mailContent6").val(mailContent);
+						
+						
+						if(goodsName == ""){
+							alert("请填写商品名称!");
+						}else if(goodsCode == ""){
+							alert("请填写商品代码!");
+						}else if(isNaN(goodsCode)){
+							alert("商品代码只能为数字!");
+						}else if(goodsCode < 0){
+							alert("商品代码不能为负!");
+						}else if(creditsCost == ""){
+							alert("积分必须填写!");
+						}else if(isNaN(creditsCost)){
+							alert("积分只能为数字!");
+						}else if(creditsCost < 0){
+							alert("积分不能为负!");
+						}else if(creditsCost > 10000){
+							alert("积分上限为10000!");
+						}else if(mailContent == ""){
+							alert("请填写发奖邮件内容!");
+						}else if(price == ""){
+							alert("商品个数必须填写!");
+						}else if(isNaN(price)){
+							alert("商品个数只能为数字!");
+						}else if(price < 0){
+							alert("商品个数不能为负!");
+						}else if(price > 10000){
+							alert("商品个数不能大于10000!");
+						}else{
+		    				$("#taskForm1").attr("action","updateGood");
+		    				$("#taskForm1").submit();
+						}
+							
+					})
+					$(".js_edit_project").click(function(){
+						var code = $(this).attr("code");
+						$("#code").val(code);
+						$.ajax
+						({
+							url:'getGoodsInfoBean',
+							type:'get',
+							data:{code:code,r:Math.random()},
+							dataType:'json',
+							success:function(d){
+                    				$("#goodsCode4").val(d.goodsCode);
+                    				$("#goodsName4").val(d.goodsName);
+                    				$("#goodsState4").val(d.goodsState);
+                    				$("#creditsCost4").val(d.creditsCost);
+				
+									$("#prizePhotoU").val(d.goodsPic);
+									$("#price4").val(d.price);
+									$("#mailContent4").val(d.mailContent);
+                    				$("#addImgs").attr("src",d.goodsPic);
+							}
+						})
+						
+						
+							
+					})							
+					$(".js_delete_project").click(function(){
+						if(confirm("确认删除?")){
+						var code = $(this).attr("code");
+						window.location.href="deleteGood?code="+code;
+						
+						}
+						
+							
+					})							
+								
+								
+							})
+		
+						</script>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+						<!--翻页功能-->
+						<br />
+						<br />
+                       
+                    </section>
+                    
+                        <!-- -----------------------------------------------添加弹层开始---------------------------------------------- -->
+                        <div class="modal fade" id="seepic">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">查看图片</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <section class="panel bg-dark">
+                                                <div class="carousel slide carousel-fade panel-body" id="c-fade">
+                                                    <div class="carousel-inner js_con">
+                                                        <div class="divopt" style="display:block;">
+                                                            <img id="checkImg" src="" style="width: 100%;">
+                                                          	
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" style="text-align: center;">
+                                        <button class="btn btn-info btn-s-md" type="button" id="js_editPorSubmit" style="display: none;">确定</button>
+                                        <button data-dismiss="modal" class="btn btn-default close_js_Msg" type="button">返回</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- -----------------------------------------------添加弹层结束---------------------------------------------- -->
+              <!--编辑域名弹层 begin-->
+              
+							
+							
+							<form class="form-horizontal" id="taskForm1" method="post">
+								<input type="hidden" id="code" name="code" value="" />
+								<input type="hidden" id="goodsCode6" name="goodsCode" value="" />
+								
+								<input type="hidden" id="goodsName6" name="goodsName" value="" />
+								<input type="hidden" id="goodsState6" name="goodsState" value="" />
+								
+								<input type="hidden" id="creditsCost6" name="creditsCost" value="" />
+								
+								<input type="hidden" id="goodsPic6" name="goodsPic" value="" />
+								<input type="hidden" id="price6" name="price" value="" />
+								<input type="hidden" id="mailContent6" name="mailContent" value="" />
+							</form>
+              
+     <div class="modal fade" id="addTask">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h6 class="modal-title">增加</h6>
+            </div>
+            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+            <div class="modal-body">
+                <form id="add_askForForm" class="form-horizontal" method="post">
+					
+					<div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">商品名称：</label>
+                        <div class="col-sm-6">
+							<input id="goodsName8" name="goodsName" class="form-control" style="width:350px;" maxlength="300"/>
+                       </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">商品代码：</label>
+                        <div class="col-sm-6">
+							<input id="goodsCode8" name="goodsCode" class="form-control" style="width:350px;" maxlength="300"/>
+                       </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">商品积分：</label>
+                        <div class="col-sm-6">
+							<input id="creditsCost8" name="creditsCost" class="form-control" style="width:350px;" maxlength="300"/>
+                       </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">商品描述：</label>
+                        <div class="col-sm-6">
+							<input id="goodsState8" name="goodsState" class="form-control" style="width:350px;" maxlength="300"/>
+                       </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">发奖邮件内容：</label>
+                        <div class="col-sm-6">
+                        	<textarea id="mailContent8" name="mailContent" class="form-control" rows="5" style="width:350px;" maxlength="200"></textarea>
+                       </div>
+                    </div>
+					
+					<div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">商品个数：</label>
+                        <div class="col-sm-6">
+							<input id="price8" name="price" class="form-control" style="width:350px;" maxlength="300"/>
+                       </div>
+                    </div>
+					
+                   <div class="form-group">
+                            <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">图片链接:</label>
+                            <div class="col-sm-6">
+								<input type="button" id="btnUpload" class="upload" onclick="swfu.selectFile(); this.blur(); " value="上传视频截图" />
+
+                                <span style="width:80%; display: block; text-align: left;"><img class="titleimgs_add" id="addImg" src="http://static.cn114.cn/action/xuanwuba/images/xwb150623_zj_pic01.jpg" width=300 height=200 ></span>             
+                            <input id="prizePhoto" name="goodsPic" class="form-control" style="width:350px;" value="" maxlength="300" type="hidden"/>
+
+						</div>
+                    </div>
+                 <div class="modal-footer">
+                    	<button type="button"  class="btn btn-info js_add_askForSubmit">确定</button>
+                        <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">返回</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+	
+    <!-- /.modal-dialog -->
+</div>
+	
+    <!--编辑域名弹层 end-->
+     <div class="modal fade" id="updateTask">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h6 class="modal-title">编辑</h6>
+            </div>
+            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+            <div class="modal-body">
+                <form id="update_askForForm" class="form-horizontal" method="post">
+					
+					<div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">商品名称：</label>
+                        <div class="col-sm-6">
+							<input id="goodsName4" name="goodsName4" class="form-control" style="width:350px;" maxlength="300"/>
+                       </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">商品代码：</label>
+                        <div class="col-sm-6">
+							<input id="goodsCode4" name="goodsCode4" class="form-control" style="width:350px;" maxlength="300"/>
+                       </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">商品积分：</label>
+                        <div class="col-sm-6">
+							<input id="creditsCost4" name="creditsCost4" class="form-control" style="width:350px;" maxlength="300"/>
+                       </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">商品描述：</label>
+                        <div class="col-sm-6">
+							<input id="goodsState4" name="goodsState4" class="form-control" style="width:350px;" maxlength="300"/>
+                       </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">发奖邮件内容：</label>
+                        <div class="col-sm-6">
+                        	<textarea id="mailContent4" name="mailContent" class="form-control" rows="5" style="width:350px;" maxlength="200"></textarea>
+                       </div>
+                    </div>
+					<div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">商品个数：</label>
+                        <div class="col-sm-6">
+							<input id="price4" name="price4" class="form-control" style="width:350px;" maxlength="300"/>
+                       </div>
+                    </div>
+                    <div class="form-group">
+                            <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">图片链接:</label>
+                            <div class="col-sm-6">
+								<input type="button" id="btnUploads" class="upload" onclick="swfus.selectFile(); this.blur(); " value="上传视频截图" />
+                                <span style="width:80%; display: block; text-align: left;"><img class="titleimgs_add" id="addImgs" src="${rc.contextPath}/resources/images/testimg01.jpg" width=300 height=200 ></span>
+                                    <input id="prizePhotoU" name="goodsPic" class="form-control" style="width:350px;" value="" maxlength="300" type="hidden"/>
+						</div>
+                    </div>
+                 <div class="modal-footer">
+                    	<button type="button"  class="btn btn-info js_update_askForSubmit">确定</button>
+                        <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">返回</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+	
+    <!-- /.modal-dialog -->
+</div>
+	
+    <!--编辑域名弹层 end-->
+ </section>
+            </section>
+        </section>
+    </section>
+
+</body>
+</html>

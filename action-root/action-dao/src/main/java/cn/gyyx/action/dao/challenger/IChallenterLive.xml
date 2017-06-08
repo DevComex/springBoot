@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.challenger.IChallenterLive">
+	<resultMap type="ChallenterLiveBean" id="ChallenterLiveBeanMap">
+		<result column="code" property="code" />
+		<result column="player" property="player" />
+		<result column="create_time" property="createTime" />
+		<result column="live_radio" property="liveRadio" />
+		<result column="live_time" property="liveTime" />
+		<result column="user_id" property="userId" />
+		<result column="state" property="state" />
+		<result column="role_name" property="roleName" />
+		<result column="account" property="account" />
+	</resultMap>
+
+	<insert id="addChallenterLive">
+		insert into challenger_live_tb
+		(player,live_radio,live_time,user_id,role_name,account)
+		values
+		(#{player},#{liveRadio},#{liveTime},#{userId},#{roleName},#{account})
+	</insert>
+
+	<select id="getOneCountLiveInday" resultType="int">
+		select count(*) from challenger_live_tb
+		where
+		user_id=#{userCode}
+		and
+		state='pass'
+		and
+	 <![CDATA[  
+	create_time>#{begin}
+	and 
+	create_time<#{end}
+	     ]]>
+	</select>
+	
+	<select id="getOneCountLiveIndayNoState" resultType="int">
+		select count(*) from challenger_live_tb
+		where
+		user_id=#{userCode}
+		and
+	 <![CDATA[  
+	create_time>#{begin}
+	and 
+	create_time<#{end}
+	     ]]>
+	</select>
+	
+	<select id="getTopNumChallenterLiveBean" resultMap="ChallenterLiveBeanMap"
+		resultType="java.util.List">
+		select top ${size} * from challenger_live_tb
+		where
+		state=#{status}
+		order by live_time desc
+	</select>
+
+	<select id="getOneCodeChallenterLiveBean" resultMap="ChallenterLiveBeanMap">
+		select *
+		from challenger_live_tb
+		where
+		code=#{code}
+
+	</select>
+
+	<update id="setStateAndTime">
+		update challenger_live_tb set
+		state=#{status},
+		create_time=getdate()
+		where
+		code=#{code}
+	</update>
+
+	<select id="getAllCountOncheckChallenterLiveBean" resultType="int">
+		select count(*) from challenger_live_tb
+		where
+		state='oncheck'
+	</select>
+
+	<select id="getPageOncheckChallenterLiveBean" resultMap="ChallenterLiveBeanMap"
+		resultType="java.util.List">
+		SELECT TOP
+		${size}
+		*
+		FROM
+		challenger_live_tb
+		WHERE
+		(code NOT
+		IN
+		(SELECT TOP
+		(#{size} *
+		(#{pageNo} - 1))
+		code
+		FROM
+		challenger_live_tb
+		where
+		state=#{status}
+		order BY create_time desc
+		)
+		)
+		and
+		state=#{status}
+		order BY
+		create_time desc
+
+
+
+	</select>
+
+
+
+</mapper>

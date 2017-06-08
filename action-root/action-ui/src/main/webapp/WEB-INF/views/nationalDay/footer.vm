@@ -1,0 +1,35 @@
+<!--底部导航部分-->
+<div id="footer"  class="footer">
+    <ul>
+        <li data-href="/wdnationalsign/login?OpenId=">
+            <a href="javascript:;">
+            	<img src="http://static.cn114.cn/action/nationalday/images/baoming_01.png" alt="">
+                <img src="http://static.cn114.cn/action/nationalday/images/baoming_02.png" alt="">
+                <p class="footer_active">报名</p>
+            </a>
+        </li>
+        <li data-href="/wdnationalsign/signindex?OpenId=">
+            <a href="javascript:;">
+                <img src="http://static.cn114.cn/action/nationalday/images/qiandao_01.png" alt="">
+                <img src="http://static.cn114.cn/action/nationalday/images/qiandao_02.png" alt="">
+                <p>签到</p>
+            </a>
+        </li>
+        <li data-href="/lottery/showPhoto?OpenId=">
+            <a href="javascript:;">
+                <img src="http://static.cn114.cn/action/nationalday/images/saisai_01.png" alt="">
+                <img src="http://static.cn114.cn/action/nationalday/images/saisai_02.png" alt="">
+                <p>晒晒晒</p>
+            </a>
+        </li>
+        <li data-href="/lottery/nationalday?OpenId=">
+            <a href="javascript:;">
+                <img src="http://static.cn114.cn/action/nationalday/images/choujiang_01.png" alt="">
+                <img src="http://static.cn114.cn/action/nationalday/images/choujiang_02.png" alt="">
+                <p>抽奖</p>
+            </a>
+        </li>
+    </ul>
+</div>
+
+

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wd2017seekteam.IWd2017SeekTeamMapper">
+	
+	<!--队员  -->
+	<resultMap type="cn.gyyx.action.beans.wd2017seekteam.Wd2017UserBean" id="Wd2017UserMap">
+		<id column="code" property="code" />
+		<result column="user_id" property="userId" />
+		<result column="account" property="account" />
+		<result column="server_id" property="serverId" />
+		<result column="server_name" property="serverName" />
+		<result column="role_id" property="roleId" />
+		<result column="role_name" property="roleName" />
+		<result column="level" property="level" />
+		<result column="tao" property="tao" />
+		<result column="family" property="family" />
+		<result column="team_code" property="teamCode" />
+		<result column="declaration" property="declaration" />
+		<result column="create_time" property="createTime" />
+		<result column="check_time" property="checkTime" />
+		<result column="check_person" property="checkPerson" />
+		<result column="check_status" property="checkStatus" />
+		<result column="ip" property="ip" />
+		<result column="is_teamleader" property="isTeamLeader" />
+		<result column="img_number" property="imageNumber" />
+	</resultMap>
+	
+	
+	
+	<!-- 查询宣言列表  -->
+	<select id="declarationList" resultMap="Wd2017UserMap">
+		select top 10 *, a.row_num
+			from(
+			select
+				ROW_NUMBER () OVER (order by create_time desc) as row_num ,*
+				from
+				wd_2017_seek_team_user_tb
+				
+				where 
+				declaration is not null 
+				
+				<if test="beginTime!= null and beginTime!= '' ">
+					<![CDATA[ and create_time >=  #{beginTime} ]]>  
+				</if>
+				<if test="endTime!= null and endTime!= '' ">
+					<![CDATA[ and create_time <=  #{endTime} ]]>  
+				</if>
+				<if test="checkStatus!= null and checkStatus!= '' ">
+					<![CDATA[ and check_status =  #{checkStatus} ]]> 
+				</if>
+			) a
+			where
+		a.row_num > 10 *  (#{pageNo} -1)
+			
+		
+	</select>
+
+	<!-- 查询宣言列表  总数-->
+	<select id="getDeclarationCount" resultType="java.lang.Integer">
+		select count(*) 
+		from 
+		wd_2017_seek_team_user_tb 
+		where 
+		declaration is not null
+		
+		<if test="beginTime!= null and beginTime!= '' ">
+			<![CDATA[  and create_time >=  #{beginTime} ]]>  
+		</if>
+		<if test="endTime!= null and endTime!= '' ">
+			<![CDATA[ and create_time <=  #{endTime} ]]>  
+		</if>
+		<if test="checkStatus!= null and checkStatus!= '' ">
+			<![CDATA[ and check_status =  #{checkStatus} ]]> 
+		</if>
+		
+	</select>
+	
+	<!-- 宣言审核 -->
+	<update id="checkDeclaration" >
+		update  wd_2017_seek_team_user_tb 
+		set 
+		check_status=#{checkStatus},
+		check_person=#{realName},
+		check_time=getdate()
+		where 
+		code=#{code}
+	</update>
+	
+	<!-- 宣言批量审核 -->
+	<update id="batchCheckDeclaration" >
+		update  wd_2017_seek_team_user_tb 
+		set 
+		check_status=#{checkStatus},
+		check_person=#{realName},
+		check_time=getdate()
+		where 
+		code=#{code}
+	</update>
+	
+	<!-- 批量审核 comments 先查  -->
+	<select id="getDeclarationByCode" resultMap="Wd2017UserMap">
+		SELECT
+		*
+		FROM
+			wd_2017_seek_team_user_tb
+		WHERE
+		code =#{code}
+		
+	</select>
+	
+	
+	
+
+</mapper>

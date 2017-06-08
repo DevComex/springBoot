@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>烈火裁决官方礼包</title>
+<link href="http://static.cn114.cn/action/LHCJActivityCode/css/lh150901.css" rel="stylesheet" type="text/css" />
+<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+<script type="text/javascript">
+	$(function(){
+		var isSuccess = "$!{resultBean.isSuccess}";
+		if(isSuccess==""){
+		}else{
+			popLayer("$!{resultBean.data}");		
+		}
+		//签到成功和失败弹窗
+	    function popLayer(stringMessage){
+	        $("#popLayer").show();
+	        $(".mAcitvityCode").text("兑换码："+stringMessage);
+	       	closeBtn();
+	    };
+	    function popLayerError(stringMessage){
+	        $("#errorLayer").show();
+	        $(".failMes").html(stringMessage);
+	       	closeBtn();
+	    };
+	    //关闭
+	     function closeBtn() {
+	        $(".close").unbind('click').click(function () {
+	            $("#popLayer").css("display", "none");
+	            $(".mAcitvityCode").text("");
+	        });
+	        $("#errorClose").unbind('click').click(function () {
+	            $("#errorLayer").css("display", "none");
+	            $(".failMes").text("");
+	        });
+	    }
+	    $(".gift_btn").click(function(){
+	    	var phoneMes = $(".gift_txt").val();
+	    	$.ajax({
+	    		url: "${rc.contextPath}/LHCJ/submitPhone",	
+	    		type: "GET",
+				data: { "phoneNum": phoneMes },
+				success:function(d){
+					if(d.isSuccess==true){
+				    	popLayer(d.data);
+				    }else if(d.message=="existed"){
+				    	popLayer(d.data);
+				    }else if(d.message=="phoneWrong"){
+						popLayerError("不好意思<br>您的手机号输入有误<br>请重新输入");
+				    }else if(d.message=="overIP"){
+						popLayerError("亲，您已领取太多次<br>礼包更新后再来试下吧！");
+				    }else{
+				    	popLayerError(d.data);				    
+				    }
+				},
+				error:{
+					
+				}
+	    	});
+	    	
+	    });
+	});
+</script>
+</head>
+
+<body>
+
+<div class="swrap swrap_gift">
+	<div class="main">
+		<div class="sheader">
+			<ul class="contact">
+				<li><a href="#"><i class="ico1"></i>关注微博</a><span class="top_ewm"><img src="http://static.cn114.cn/action/LHCJActivityCode/images/top_ewmwb.jpg"></span></li>
+				<li><a href="#"><i class="ico2"></i>关注微信</a><span class="top_ewm"><img src="http://static.cn114.cn/action/LHCJActivityCode/images/top_ewmwx.jpg"></span></li>
+				<li><a href="#"><i class="ico3"></i>联系客服</a><span class="top_ewm top_ewm02"><i>官方QQ群<br>340951146</i><b>官方客服<br>010-82438989</b></span></li>
+			</ul>
+		</div>
+		<div class="scontent clear">
+			<!--left-->
+			<div class="sleft">
+				<h2>下载游戏</h2>
+				<ul class="game_down clear">
+					<li class="on"><a class="a01" href="http://vega51.gyyx.cn/lhcj/client/andriod/FireJudge_138.1.3.1_min.apk">android下载</a></li>
+					<li><a class="a02" href="https://itunes.apple.com/cn/app/lie-huo-cai-jue-deng-lu-song/id1033104650?l=zh&ls=1&mt=8">ios官网</a></li>
+					<li><a class="a02 a03" href="#">ios越狱</a></li>
+				</ul>
+				<div class="wx_list">
+					<div class="wx_pic"><img src="http://static.cn114.cn/action/LHCJActivityCode/images/wx_android_1.jpg"></div>
+					<div class="wx_pic"><img src="http://static.cn114.cn/action/LHCJActivityCode/images/wx_ios_1.jpg"></div>
+					<div class="wx_pic"><img src="http://static.cn114.cn/action/LHCJActivityCode/images/wx_ios_2.jpg"></div>
+				</div>
+			</div>
+			<!--left end-->
+			<!--right-->
+			<div class="sright">
+				<div class="scont">
+					<div class="stit"><a href="http://lhcj.gyyx.cn/index.shtml" target="_blank">官网首页</a>&nbsp;&gt;<a href="http://lhcj.gyyx.cn/Compre/News/NewsList.shtml" target="_blank">新闻</a>&nbsp;&gt;<span>官方专属礼包</span></div>
+					<div class="snews">
+						<h3 class="sr_tit">官方专属礼包<br/><span>时间：2015年9月18日</span></h3>
+						<div class="snews_txt">
+                            <p> 小伙伴们，欢迎大家加入这场充满回忆的沙巴克远征！为给大家营造出公平公正的游戏环境，《烈火裁决》官网礼包将不定时更新。此外，每逢佳节我们都会为小伙伴们奉上专属节日礼包一份，让你们在游戏中惬意畅游，新的历史将由你书写！</p>
+                            <div class="gift"><label>请输入手机号码：</label>
+                            	<p>
+                            		<input type="text" class="gift_txt" name="phoneNum" value="" placeholder="请输入您的手机号码">
+                            		<input type="button" class="gift_btn" value="提交">
+                            	</p>
+                            </div>
+                            <h3>礼包内容：</h3>
+                            <p>1.2倍经验卷*2、洗练石*2、血精石*2、魔精石*2</p>
+                            <h3>礼包使用说明：</h3>
+                            <p>进入游戏主界面，点击“福利”按钮，选择“礼包兑换”，输入兑换码即可兑换官网福利礼包！</p>
+                            <h3>注意事项：</h3>
+                            <p>1. 如有打不开页面的情况，请置换成IE浏览器。</p>
+                            <p>2. 不要恶意刷礼包，会被封号哦！</p>
+                            <p>3. 礼包为安卓礼包，iOS礼包敬请期待。</p>
+                            
+					  </div>
+					</div>
+				</div>
+			</div>
+			<!--right end-->
+		</div>
+	</div>
+</div>
+<!--copyright-->
+<div class="copyright">
+	<div class="main">
+		<p>抵制不良游戏，拒绝盗版游戏；注意自我保护，谨防上当受骗；适度游戏益脑，沉迷游戏伤身；合理安排时间，享受快乐生活！</p>
+		<p>重庆隆讯科技有限公司</p>
+	</div>
+</div>
+<!--弹层恭喜中奖-->
+<div class="lbtc" id="popLayer">
+   <a class="close"></a>
+   <h3 class="lbtc_tit">恭喜中奖</h3>
+   <div class="lbtc_cont">
+      <p>您已获得《烈火裁决》官网专属礼包</p>
+      <p><strong class="mAcitvityCode">网络不给力亲！！</strong></p>
+      <img src="http://static.cn114.cn/action/LHCJActivityCode/images/lbtc_gift.png">
+   </div>
+</div>
+<div class="lbtc" id="errorLayer">
+   <a class="close" id="errorClose"></a>
+   <h3 class="lbtc_tit"><i></i>很遗憾</h3>
+   <div class="lbtc_cont">
+      <p class="failMes">网络不给力亲！！</p>
+   </div>
+</div>
+
+<script type="text/javascript" src="http://static.cn114.cn/action/LHCJActivityCode/js/ymcore.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/LHCJActivityCode/js/gift.js"></script>
+</body>
+</html>

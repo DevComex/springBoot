@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lottery.IVote">
+	<!-- 投票的映射 -->
+	<resultMap type="voteItemMap" id="voteItemMap">
+		<id column="code" property="code" />
+		<result column="writing_code" property="writingCode" />
+		<result column="user_code" property="userCode" />
+		<result column="ip" property="ip" />
+		<result column="creat_time" property="creatTime" />
+		<result column="action_code" property="actionCode" />
+		<result column="account" property="account" />
+		<result column="user_name" property="userName" />
+	</resultMap>
+	<!-- 增加一条投票信息 -->
+	<insert id="addVoteInfo" useGeneratedKeys="true" keyProperty="code"
+		parameterType="voteItemMap">
+		insert into action_vote_tb
+		(writing_code,user_code,ip,action_code,account,user_name)
+		values
+		(#{writingCode},#{userCode},#{ip},#{actionCode},#{account},#{userName})
+	</insert>
+	<!-- 根据主键移除一条投票信息 -->
+	<delete id="removeVoteInfoByCode">
+		delete from action_vote_tb
+		where
+		code=#{code}
+	</delete>
+	<!-- 获得用户支持过的种类数 -->
+	<select id="getCountVoteGroupByWritingCode" resultType="int">
+		select count(code) from action_vote_tb
+		where
+		user_code=#{userCode}
+		group by writing_code
+	</select>
+
+	<select id="getCodeBySome" resultMap="voteItemMap">
+		select
+		*
+		from
+		action_vote_tb
+		where
+		(ip=#{ip}
+		or
+		account=#{account}
+		)
+		and
+		year(creat_time)=#{year} and
+		month(creat_time)=#{month} and day(creat_time)=#{day}
+		and
+		writing_code=#{writingCode}
+	</select>
+	
+	<select id="getCountVoteByWritingCode" resultMap="voteItemMap" resultType="java.util.List">
+		select 
+		*
+		from
+		action_vote_tb
+		where
+		writing_code=#{writingCode}
+	</select>
+	<select id="getVoteBeanByIPAccountDate"  resultMap="voteItemMap">
+	select    top 1
+	*  from action_vote_tb
+	where
+	writing_code=#{writingCode}
+	and
+	ip=#{ip}
+	and
+	account=#{account}
+	and
+	year(creat_time)=#{year} and month(creat_time)=#{month} and day(creat_time)=#{day}
+	
+	</select>
+	
+	<select id="getVoteBeanByUserCode" resultMap="voteItemMap" resultType="java.util.List">
+	select 
+		*
+		from
+		action_vote_tb
+		where
+		user_code=#{userCode}
+		order by code desc
+	</select>
+</mapper>

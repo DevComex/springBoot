@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.wd10yearcoser.ResourceBeanMapper" >
+  <resultMap id="BaseResultMap" type="cn.gyyx.action.beans.wd10yearcoser.ResourceBean" >
+    <id column="code" property="code" jdbcType="INTEGER" />
+    <result column="user_code" property="userCode" jdbcType="INTEGER" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="favorite_num" property="favoriteNum" jdbcType="INTEGER" />
+    <result column="attrs" property="attrs" jdbcType="VARCHAR" />
+    <result column="check_type" property="checkType" jdbcType="VARCHAR" />
+    <result column="is_show" property="isShow" jdbcType="BIT" />
+    <result column="show_time" property="showTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="click_num" property="clickNum" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="cn.gyyx.action.beans.wd10yearcoser.ResourceBean" extends="BaseResultMap" >
+    <result column="works" property="works" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    code, user_code, type, name, description, favorite_num, attrs, check_type, is_show, 
+    show_time, create_time, update_time, click_num, username
+  </sql>
+  <sql id="Blob_Column_List" >
+    works
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="cn.gyyx.action.beans.wd10yearcoser.ResourceBeanExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from wd_tenyears_coser_resource_tb
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="cn.gyyx.action.beans.wd10yearcoser.ResourceBeanExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from wd_tenyears_coser_resource_tb
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from wd_tenyears_coser_resource_tb
+    where code = #{code,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from wd_tenyears_coser_resource_tb
+    where code = #{code,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="cn.gyyx.action.beans.wd10yearcoser.ResourceBeanExample" >
+    delete from wd_tenyears_coser_resource_tb
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="cn.gyyx.action.beans.wd10yearcoser.ResourceBean" >
+    insert into wd_tenyears_coser_resource_tb (code, user_code, type, 
+      name, description, favorite_num, 
+      attrs, check_type, is_show, 
+      show_time, create_time, update_time, 
+      click_num, username, works
+      )
+    values (#{code,jdbcType=INTEGER}, #{userCode,jdbcType=INTEGER}, #{type,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, #{favoriteNum,jdbcType=INTEGER}, 
+      #{attrs,jdbcType=VARCHAR}, #{checkType,jdbcType=VARCHAR}, #{isShow,jdbcType=BIT}, 
+      #{showTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{clickNum,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{works,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.gyyx.action.beans.wd10yearcoser.ResourceBean" >
+    insert into wd_tenyears_coser_resource_tb
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        code,
+      </if>
+      <if test="userCode != null" >
+        user_code,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="favoriteNum != null" >
+        favorite_num,
+      </if>
+      <if test="attrs != null" >
+        attrs,
+      </if>
+      <if test="checkType != null" >
+        check_type,
+      </if>
+      <if test="isShow != null" >
+        is_show,
+      </if>
+      <if test="showTime != null" >
+        show_time,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="clickNum != null" >
+        click_num,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="works != null" >
+        works,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="code != null" >
+        #{code,jdbcType=INTEGER},
+      </if>
+      <if test="userCode != null" >
+        #{userCode,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="favoriteNum != null" >
+        #{favoriteNum,jdbcType=INTEGER},
+      </if>
+      <if test="attrs != null" >
+        #{attrs,jdbcType=VARCHAR},
+      </if>
+      <if test="checkType != null" >
+        #{checkType,jdbcType=VARCHAR},
+      </if>
+      <if test="isShow != null" >
+        #{isShow,jdbcType=BIT},
+      </if>
+      <if test="showTime != null" >
+        #{showTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clickNum != null" >
+        #{clickNum,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="works != null" >
+        #{works,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="cn.gyyx.action.beans.wd10yearcoser.ResourceBeanExample" resultType="java.lang.Integer" >
+    select count(*) from wd_tenyears_coser_resource_tb
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update wd_tenyears_coser_resource_tb
+    <set >
+      <if test="record.code != null" >
+        code = #{record.code,jdbcType=INTEGER},
+      </if>
+      <if test="record.userCode != null" >
+        user_code = #{record.userCode,jdbcType=INTEGER},
+      </if>
+      <if test="record.type != null" >
+        type = #{record.type,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.description != null" >
+        description = #{record.description,jdbcType=VARCHAR},
+      </if>
+      <if test="record.favoriteNum != null" >
+        favorite_num = #{record.favoriteNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.attrs != null" >
+        attrs = #{record.attrs,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkType != null" >
+        check_type = #{record.checkType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isShow != null" >
+        is_show = #{record.isShow,jdbcType=BIT},
+      </if>
+      <if test="record.showTime != null" >
+        show_time = #{record.showTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null" >
+        update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.clickNum != null" >
+        click_num = #{record.clickNum,jdbcType=INTEGER},
+      </if>
+      <if test="record.username != null" >
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.works != null" >
+        works = #{record.works,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update wd_tenyears_coser_resource_tb
+    set code = #{record.code,jdbcType=INTEGER},
+      user_code = #{record.userCode,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      favorite_num = #{record.favoriteNum,jdbcType=INTEGER},
+      attrs = #{record.attrs,jdbcType=VARCHAR},
+      check_type = #{record.checkType,jdbcType=VARCHAR},
+      is_show = #{record.isShow,jdbcType=BIT},
+      show_time = #{record.showTime,jdbcType=TIMESTAMP},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      click_num = #{record.clickNum,jdbcType=INTEGER},
+      username = #{record.username,jdbcType=VARCHAR},
+      works = #{record.works,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update wd_tenyears_coser_resource_tb
+    set code = #{record.code,jdbcType=INTEGER},
+      user_code = #{record.userCode,jdbcType=INTEGER},
+      type = #{record.type,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      description = #{record.description,jdbcType=VARCHAR},
+      favorite_num = #{record.favoriteNum,jdbcType=INTEGER},
+      attrs = #{record.attrs,jdbcType=VARCHAR},
+      check_type = #{record.checkType,jdbcType=VARCHAR},
+      is_show = #{record.isShow,jdbcType=BIT},
+      show_time = #{record.showTime,jdbcType=TIMESTAMP},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      update_time = #{record.updateTime,jdbcType=TIMESTAMP},
+      click_num = #{record.clickNum,jdbcType=INTEGER},
+      username = #{record.username,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.gyyx.action.beans.wd10yearcoser.ResourceBean" >
+    update wd_tenyears_coser_resource_tb
+    <set >
+      <if test="userCode != null" >
+        user_code = #{userCode,jdbcType=INTEGER},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="favoriteNum != null" >
+        favorite_num = #{favoriteNum,jdbcType=INTEGER},
+      </if>
+      <if test="attrs != null" >
+        attrs = #{attrs,jdbcType=VARCHAR},
+      </if>
+      <if test="checkType != null" >
+        check_type = #{checkType,jdbcType=VARCHAR},
+      </if>
+      <if test="isShow != null" >
+        is_show = #{isShow,jdbcType=BIT},
+      </if>
+      <if test="showTime != null" >
+        show_time = #{showTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="clickNum != null" >
+        click_num = #{clickNum,jdbcType=INTEGER},
+      </if>
+      <if test="username != null" >
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="works != null" >
+        works = #{works,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="cn.gyyx.action.beans.wd10yearcoser.ResourceBean" >
+    update wd_tenyears_coser_resource_tb
+    set user_code = #{userCode,jdbcType=INTEGER},
+      type = #{type,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      favorite_num = #{favoriteNum,jdbcType=INTEGER},
+      attrs = #{attrs,jdbcType=VARCHAR},
+      check_type = #{checkType,jdbcType=VARCHAR},
+      is_show = #{isShow,jdbcType=BIT},
+      show_time = #{showTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      click_num = #{clickNum,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      works = #{works,jdbcType=LONGVARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.gyyx.action.beans.wd10yearcoser.ResourceBean" >
+    update wd_tenyears_coser_resource_tb
+    set user_code = #{userCode,jdbcType=INTEGER},
+      type = #{type,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      description = #{description,jdbcType=VARCHAR},
+      favorite_num = #{favoriteNum,jdbcType=INTEGER},
+      attrs = #{attrs,jdbcType=VARCHAR},
+      check_type = #{checkType,jdbcType=VARCHAR},
+      is_show = #{isShow,jdbcType=BIT},
+      show_time = #{showTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      click_num = #{clickNum,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR}
+    where code = #{code,jdbcType=INTEGER}
+  </update>
+  <!--******************************前台******************************** -->
+  <select id="selectMyselfByPage" resultMap="BaseResultMap" parameterType="cn.gyyx.action.beans.wd10yearcoser.PageHelper" >
+  		SELECT TOP (#{pageSize}) *
+		FROM wd_tenyears_coser_resource_tb t1
+		WHERE code NOT IN
+	          (
+	          SELECT TOP (#{pageRows}) code FROM wd_tenyears_coser_resource_tb t2
+	          WHERE 1=1 
+	          <if test="userCode != null">
+		      	and t2.user_code=#{userCode}
+		      </if>       
+			  <if test="name != null">
+		        and t2.name LIKE '%${name}%'  
+		      </if>
+		      <if test="type != null">
+		        and t2.type=#{type}  
+		      </if> 
+	          ORDER BY create_time desc
+	          )
+	    <if test="userCode != null">
+            and t1.user_code=#{userCode}
+        </if>       
+	    <if test="name != null">
+            and t1.name LIKE '%${name}%'  
+        </if> 
+        <if test="type != null">
+        	and t1.type=#{type}  
+        </if>
+		ORDER BY t1.create_time desc;
+  </select>
+  <select id="selectOtherByPage" resultMap="BaseResultMap" parameterType="cn.gyyx.action.beans.wd10yearcoser.PageHelper" >
+  		SELECT TOP (#{pageSize}) *
+		FROM wd_tenyears_coser_resource_tb t1
+		WHERE code NOT IN
+	          (
+	          SELECT TOP (#{pageRows}) code FROM wd_tenyears_coser_resource_tb t2
+	          WHERE 1=1 
+	          <if test="userCode != null">
+		      	and t2.user_code=#{userCode}
+		      </if>       
+			  <if test="name != null">
+		        and t2.name LIKE '%${name}%'  
+		      </if>
+		      <if test="type != null">
+		        and t2.type=#{type}  
+		      </if> 
+		      and t2.check_type = 'CHECKED'
+	          ORDER BY create_time desc
+	          )
+	    <if test="userCode != null">
+            and t1.user_code=#{userCode}
+        </if>       
+	    <if test="name != null">
+            and t1.name LIKE '%${name}%'  
+        </if> 
+        <if test="type != null">
+        	and t1.type=#{type}  
+        </if>
+        and t1.check_type = 'CHECKED'
+		ORDER BY t1.create_time desc;
+  </select>
+  <select id="findShowResources" resultMap="BaseResultMap" >
+ 		SELECT TOP (#{num}) *
+		FROM wd_tenyears_coser_resource_tb 
+		WHERE type = #{type} and is_show = 1
+		ORDER BY show_time desc;
+  </select>
+  <!--******************************后台******************************** -->
+  <!--分页显示 -->
+	<select id="getBackResourceListPaging"
+		resultMap="BaseResultMap">
+		select 
+			TOP (#{pageSize})  
+			A.*
+		from (
+			SELECT 
+				TOP (#{pageSize}*#{currentPage})
+			    ROW_NUMBER() OVER (ORDER BY a.show_time desc,a.create_time desc) AS row_num,a.*
+			FROM wd_tenyears_coser_resource_tb a
+			where 1=1  
+			<if test="beginTimeStr!= null and beginTimeStr!= '' ">
+				<![CDATA[ and create_time >=  #{beginTimeStr} ]]>  
+			</if>
+			<if test="endTimeStr!= null and endTimeStr!= '' ">
+				<![CDATA[ and create_time <=  #{endTimeStr} ]]>  
+			</if>
+			<if test="checkType!= null and checkType!= '' ">
+				and check_type =  #{checkType} 
+			</if>
+			<if test="type!= null and type!= '' ">
+				and type =  #{type} 
+			</if>
+			<if test="isShowStr!= null and isShowStr!= '' ">
+				and is_show =  #{isShowStr} 
+			</if>
+			order by a.show_time desc,a.create_time desc
+		) A
+		WHERE row_num >
+		(#{pageSize}*(#{currentPage}-1))
+	</select>
+	
+	<select id="getBackResourceCount" parameterType="cn.gyyx.action.beans.wd10yearcoser.ResourceBean"
+		resultType="int">
+		select count(1) from
+		wd_tenyears_coser_resource_tb
+		where 1=1  
+		<if test="beginTimeStr!= null and beginTimeStr!= '' ">
+			<![CDATA[ and create_time >=  #{beginTimeStr} ]]>  
+		</if>
+		<if test="endTimeStr!= null and endTimeStr!= '' ">
+			<![CDATA[ and create_time <=  #{endTimeStr} ]]>  
+		</if>
+		<if test="checkType!= null and checkType!= '' ">
+			and check_type =  #{checkType} 
+		</if>
+		<if test="type!= null and type!= '' ">
+			and type =  #{type} 
+		</if>
+		<if test="isShowStr!= null and isShowStr!= '' ">
+			and is_show =  #{isShowStr} 
+		</if>
+	</select>
+	
+	<update id="cancleLastTopWorksByType" parameterType="java.util.Map">
+		UPDATE wd_tenyears_coser_resource_tb
+		SET is_show = 0,
+		 show_time = NULL
+		WHERE
+			is_show = 1
+		AND type =#{type}
+		AND code NOT IN (
+			SELECT
+				TOP ${num} code
+			FROM
+				wd_tenyears_coser_resource_tb where is_show = 1 and type =#{type}
+			ORDER BY
+				show_time DESC
+		)
+	</update>
+	
+	<update id="batchCheckWorks">
+		UPDATE wd_tenyears_coser_resource_tb
+		SET check_type=#{state},
+		 update_time = getdate()
+		WHERE
+			is_show = 0
+		AND code IN 
+		<foreach item="a" index="index" collection="items" open="("
+			separator="," close=")">
+			#{a}
+		</foreach>
+	</update>
+</mapper>

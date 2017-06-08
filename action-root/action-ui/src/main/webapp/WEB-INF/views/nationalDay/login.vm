@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>问道十一黄金周活动--登录</title>
+    <link href="http://qibao.gyyx.cn/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+    <link rel="stylesheet" href="http://static.cn114.cn/action/nationalday/css/common.css"/>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/nationalday/css/styleT.css"/>
+    <link href="http://s.gyyx.cn/scgg/css/chinaCaptcha.css" rel="stylesheet" />
+	<script  type="text/javascript">
+    	var rc = "${rc.contextPath}";
+    	var footUrl = 0;
+ 	</script>
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/lib/md5-min.js"></script>
+    <script src="http://static.cn114.cn/action/wdmiddleyearwx/js/addChinaCaptcha.js"></script>
+    <script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?01ef5038ddcd8462e0cf9d6ac7670356";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</head>
+<body>
+<!-- header公共部分 -->
+<section class="wrap">
+    <div class="time">活动时间：10月1日-10月7日</div>
+    <!-- header公共部分 -->
+    <div id="main" class="main">
+        <!-- 登陆部分开始-->
+        <form id="form" method="post" action="" class="reg_form_web js_login_form ">
+            <div class="duan1">
+                <label>账号</label>
+                <input type="text" class="js_Account" id="Account" value="" name="Account" autocomplete="off" maxlength="18" data-olduser="" />
+            </div>
+            <div class="duan1">
+                <label>密码</label>
+                <input type="password" class="js_Password" id="Password" value="" name="Password" maxlength="18" autocomplete="off" />
+            </div>
+            <div class="js_captcha " style="display:none;">
+                <p class="item_p">
+                    <input type="text" id="Captcha" name="captcha" value="" class="validCodeVal" placeholder="验证码"   />
+                </p>
+                <p class="easycode">
+                    <img class="js_captchaimg" src="" />
+                    <a class="changecode chinaCaptcha_Tip03">看不清？</a>
+                </p>
+            </div>
+            <p class="chinaCaptchaContainer_p01 js_china ">
+                <span id="yzm_label">验证码</span>
+			<span class="ChinaCaptchaInput_container ">
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="chinaCaptchaIcon chinaCaptchaIcon1 ChinaCaptchaInput ChinaCaptcha_DeleteBtn js_deleteChinaCaptcha"></em>
+			</span>
+                <i class="chinaCaptchaIcon chinaCaptcha_Tip02 js_checkChinaCaptchaTip default"></i>
+            </p>
+            <p class="chinaCaptchaContainer_p02 js_china">
+                <span class="chinaCaptchaImg chinaCaptchaImg_yes js_refreshChinaCaptcha"></span>
+                <a class="chinaCaptchaChange js_refreshChinaCaptcha chinaCaptcha_Tip03">看不清？</a>
+            </p>
+            <p class="chinaCaptchaContainer_p03 js_china">点击框内文字输入上图中<b class="chinaCaptcha_Tip04">汉字</b>相应文字</p>
+            <div class="chinaCaptchaContainer_p02 js_china">
+                <ul class="ChinaCaptchaSelectCon clearFix js_ChinaCaptchaSelect">
+                    <li class="chinaCaptchaImg chinaCaptchaImg_0 js_ChinaCaptchaSelect_img" data-code="0"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_1 js_ChinaCaptchaSelect_img" data-code="1"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_2 js_ChinaCaptchaSelect_img" data-code="2"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_3 js_ChinaCaptchaSelect_img" data-code="3"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_4 js_ChinaCaptchaSelect_img" data-code="4"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_5 js_ChinaCaptchaSelect_img" data-code="5"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_6 js_ChinaCaptchaSelect_img" data-code="6"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_7 js_ChinaCaptchaSelect_img" data-code="7"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_8 js_ChinaCaptchaSelect_img" data-code="8"></li>
+                </ul>
+            </div>
+            <p class="chinaCaptchaContainer_p04" style="display:none;">
+                <span class="chinaCaptchaSubmit_Btn js_chinaCaptchaBtn">确定</span>
+            </p>
+            <a id="loginBtn" class="login_btn" href="javascript:;"></a>
+        </form>
+        <!-- 报名部分-->
+        <div class="js_roleBind" style="display:none;">
+            <div class="role_con">
+                <div class="role_li">
+                    <label>选择区组</label>
+                    <select id="sel_blocklist">
+                        <option value="0">请选择区组</option>
+                        <option value="1">网通</option>
+                        <option value="2">电信</option>
+                        <option value="3">双线</option>
+                    </select>
+                </div>
+                <div class="role_li">
+                    <label>选择服务器</label>
+                    <select id="sel_serverlist">
+                        <option value="0">请选择服务器</option>
+                    </select>
+                </div>
+                <div class="role_li js_roleList" style="display:none;">
+                    <label>选择角色</label>
+                    <select class="js_roleList" id="role_select">
+                        <option value="0">请选择角色</option>
+                    </select>
+                </div>
+                <div class="num_yzm js_captchaCon">
+                    <div class="role_li">
+                        <label>验证码</label>
+                        <input id="captchaInput" value="" maxlength="5">
+                    </div>
+                    <p class="numCaptchaContainer_p02">
+                        <img class="numCaptchaImg numCaptchaImg_yes js_captcha"
+                             src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=0.9730367364827543">
+                        <a class="numCaptcha_Tip03" id="num_yzm_button">
+                            看不清？
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <input class="sign_up_btn role_bind_btn" type="button" id="js_upRole"/>
+            <input class="sign_up_btn js_bindRoleBtn" type="button" style="display:none;"/>
+        </div>
+        <div id="user_detail" class="main" style="display:none;">
+            <div class="up_box">
+                <div class="up_btn">
+                    <input type="button" class="js_picUrl"/>
+                    <input type="button" class="js_wordUrl"/>
+                </div>
+                <ul class="personal_detail" id="user_detail_ul">
+                    <li>账号：<span class="js_account">li*********li</span></li>
+                    <li>区组：<span class="js_serverName">黄鹤楼</span></li>
+                    <li>角色名：<span class="js_roleName">黄鹤楼</span></li>
+                    <li>已获得积分：<span class="js_counts">320</span>分</li>
+                    <li>已签到：<span class="js_signNum">2</span>次</li>
+                    <li>已成功上传日记：<span class="js_wordNum">2</span>次</li>
+                    <li>已成功上传照片：<span class="js_picNum">4</span>次</li>
+                </ul>
+            </div>
+        </div>
+        <!-- 登陆部分结束-->
+    </div>
+    <!--底部导航部分-->
+    #parse("nationalDay/footer.vm")
+    <div class="popup" id="login_tip">
+        <div class="popup_login">
+            <p class="popup_msg js_loginTip">您的帐号/密码有误，请确认后重新输入</p>
+            <button class="button_certain_login js_iKnow"></button>
+        </div>
+    </div>
+</section>
+<div class="v_h_tips">要使用竖屏访问哦！</div>
+<!-- footer公共部分 -->
+<script src="http://static.cn114.cn/action/nationalday/js/common.js" type="text/javascript"></script>
+<script src="http://static.cn114.cn/action/nationalday/js/login.js" type="text/javascript"></script>
+<script src="http://static.cn114.cn/action/nationalday/js/gyyx_wxshare.min.js" type="text/javascript"></script>
+<script>
+    $(function () {
+        //分享
+        wxShare({
+            debug: false,
+            game: "wd",
+            title: '十一去了哪里都来晒晒吧!',
+            desc: '黄金周！不要宅！晒日记！晒照片！签到都能领奖励！',
+            link: "http://actionv2.gyyx.cn/wdnationalshare/sharepage",
+            imgUrl: "http://static.cn114.cn/action/nationalday/images/share.jpg",
+            success: function () {
+            },
+            cancel: function () {
+            }
+        });
+    })
+</script>
+</body>
+</html>

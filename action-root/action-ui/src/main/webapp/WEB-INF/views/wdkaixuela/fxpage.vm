@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	    <title>问道1.60门派招生活动</title>
+	    <style>
+	    	*{margin:0;padding:0;}
+	    	html,body,#wrap{width:100%;height:100%;}
+	    	#wrap img{width:100%;display:block;}
+	    </style>
+	    <script type="text/javascript" src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> <!--光宇统计-->
+	    
+	    <script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?5dca46edc10021fa336553774b64bcd4";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+	</head>
+	<body>
+		<div id="wrap">
+			<img src="http://static.cn114.cn/action/wdwxwebsite/img/fx.jpg" />
+		</div>
+	</body>
+</html>

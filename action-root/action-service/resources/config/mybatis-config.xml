@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 为实体类起别名 -->
+	<typeAliases>
+		<typeAlias type="cn.gyyx.oa.internal.beans.newyear.PrimaryDataBean" alias="PrimaryDataBean"/>
+		<typeAlias type="cn.gyyx.oa.internal.beans.newyear.UserScoreBean" alias="UserScoreBean"/>
+		<typeAlias type="cn.gyyx.oa.internal.beans.newyear.WholeQuestionBean" alias="WholeQuestionBean"/>
+		<typeAlias type="cn.gyyx.oa.internal.beans.newyear.UserAnswerBean" alias="UserAnswerBean"/>
+		<typeAlias type="cn.gyyx.oa.internal.beans.newyear.ScoreLogBean" alias="ScoreLogBean"/>
+		<typeAlias type="cn.gyyx.oa.internal.beans.newyear.UserChipBean" alias="UserChipBean"/>
+		<typeAlias type="cn.gyyx.oa.internal.beans.newyear.ChipLogBean" alias="ChipLogBean"/>
+		<typeAlias type="cn.gyyx.oa.internal.beans.newyear.ChipInfoOnTypeBean" alias="ChipInfoOnTypeBean"/>
+		
+		<typeAlias alias="Place" type="cn.gyyx.oa.internal.beans.meetingroom.PlaceBean"/>
+		<typeAlias alias="MeetingRoom" type="cn.gyyx.oa.internal.beans.meetingroom.MeetingRoomBean"/>
+		<typeAlias alias="MeetingOrder" type="cn.gyyx.oa.internal.beans.meetingroom.MeetingOrderBean"/>
+		<typeAlias alias="AlertType" type="cn.gyyx.oa.internal.beans.meetingroom.AlertTypeBean"/>
+		<typeAlias alias="Inform" type="cn.gyyx.oa.internal.beans.meetingroom.InformBean"/>
+		<typeAlias alias="User" type="cn.gyyx.oa.internal.beans.meetingroom.UserBean"/>
+		<typeAlias alias="AttendPerson" type="cn.gyyx.oa.internal.beans.meetingroom.AttendPersonBean"/>
+		
+		<typeAlias alias="BugInfoBean" type="cn.gyyx.oa.internal.beans.bugsystem.BugInfoBean"/>
+		<typeAlias alias="BugLogBean" type="cn.gyyx.oa.internal.beans.bugsystem.BugLogBean"/>
+		<typeAlias alias="BugSend" type="cn.gyyx.oa.internal.beans.bugsystem.BugSend"/>
+		<typeAlias alias="AcceptPersonBean" type="cn.gyyx.oa.internal.beans.bugsystem.AcceptPersonBean"/>
+		
+		<typeAlias alias="Log" type="cn.gyyx.oa.internal.beans.LogBean"/>
+		
+		<!-- 日程系统 -->
+		<typeAlias alias="AlertTypeBean" type="cn.gyyx.oa.internal.beans.memo.AlertTypeBean"/>
+		<typeAlias alias="MemoEntity" type="cn.gyyx.oa.internal.beans.memo.MemoEntityBean"/>
+		<typeAlias alias="ShareMemo" type="cn.gyyx.oa.internal.beans.memo.ShareMemoBean"/>
+		<typeAlias alias="UserBean" type="cn.gyyx.oa.internal.beans.memo.UserBean"/>
+	
+		
+		<!-- CadetReport -->
+        <typeAlias alias="CadetBean" type="cn.gyyx.oa.internal.beans.cadet.CadetBean"/>
+        <typeAlias alias="ReportBean" type="cn.gyyx.oa.internal.beans.cadet.ReportBean"/>
+        <typeAlias alias="StatisticBean" type="cn.gyyx.oa.internal.beans.cadet.StatisticBean"/>
+        <typeAlias alias="MatterBean" type="cn.gyyx.oa.internal.beans.cadet.MatterBean"/>
+        <typeAlias alias="PlanBean" type="cn.gyyx.oa.internal.beans.cadet.PlanBean"/>
+		<typeAlias alias="TaskBean" type="cn.gyyx.oa.internal.beans.cadet.TaskBean"/>
+		<typeAlias alias="GuideBean" type="cn.gyyx.oa.internal.beans.cadet.GuideBean"/>
+		<typeAlias alias="CircleBean" type="cn.gyyx.oa.internal.beans.cadet.CircleBean"/>
+		<typeAlias alias="EvaluateBean" type="cn.gyyx.oa.internal.beans.cadet.EvaluateBean"/>
+			<typeAlias alias="HolidayBean" type="cn.gyyx.oa.internal.beans.cadet.HolidayBean"/>
+
+	</typeAliases>
+	<environments default="InternalOA">
+		<environment id="InternalOA">
+			<transactionManager type="JDBC"></transactionManager>
+			<dataSource type="POOLED">
+				<property name="driver"
+					value="${jdbc.driverClassName}" />
+				<property name="url"
+					value="${jdbc.InternalOAurl}" />
+				<property name="username" value="${jdbc.InternalOAusername}" />
+				<property name="password" value="${jdbc.InternalOApassword}" />
+			</dataSource>
+		</environment>
+	</environments>
+	<!-- 映射支援文件所在地 -->
+	<mappers>
+		<mapper resource="mapper/newyear/PrimaryData.xml" />
+		<mapper resource="mapper/newyear/UserScore.xml" />
+		<mapper resource="mapper/newyear/QuestionMapper.xml" />
+		<mapper resource="mapper/newyear/UserAnswer.xml" />
+		<mapper resource="mapper/newyear/ScoreLog.xml" />
+		<mapper resource="mapper/newyear/UserChip.xml" />
+		<mapper resource="mapper/newyear/ChipLog.xml" />
+		<mapper resource="mapper/newyear/NameAndId.xml" />
+		
+		<mapper resource="mapper/meetingroom/placeMapper.xml" />
+		<mapper resource="mapper/meetingroom/meetingRoomMapper.xml" />
+		<mapper resource="mapper/meetingroom/meetingOrderMapper.xml" />
+		<mapper resource="mapper/meetingroom/alertTypeMapper.xml" />
+		<mapper resource="mapper/meetingroom/informMapper.xml" />
+		<mapper resource="mapper/meetingroom/userMapper.xml" />
+		<mapper resource="mapper/meetingroom/attendPersonMapper.xml" />
+		
+		<mapper resource="mapper/bugsystem/bugInfoMapper.xml" />
+		<mapper resource="mapper/bugsystem/bugLogMapper.xml" />
+		<mapper resource="mapper/bugsystem/bugSend.xml" />
+		<mapper resource="mapper/bugsystem/AcceptPerson.xml" />
+		
+		<mapper resource="mapper/logMapper.xml" />
+
+		<!-- 日程系统 -->
+		<mapper resource="mapper/memo/alertTypeMapper.xml" />
+		<mapper resource="mapper/memo/memoEntityMapper.xml" />
+		<mapper resource="mapper/memo/shareMemoMapper.xml" />
+		<mapper resource="mapper/memo/userMapper.xml" />
+		
+		<!-- CadetReport -->
+		<mapper resource="mapper/cadetreport/cadetMapper.xml" />
+		<mapper resource="mapper/cadetreport/reportMapper.xml" />
+		<mapper resource="mapper/cadetreport/statisticMapper.xml" />
+		<mapper resource="mapper/cadetreport/matterMapper.xml" />
+		<mapper resource="mapper/cadetreport/planMapper.xml" />
+		<mapper resource="mapper/cadetreport/taskMapper.xml" />
+		<mapper resource="mapper/cadetreport/guideMapper.xml" />
+		<mapper resource="mapper/cadetreport/circleMapper.xml" />
+		<mapper resource="mapper/cadetreport/evaluateBean.xml" />
+		<mapper resource="mapper/cadetreport/holidayMapper.xml" />
+</mappers>
+</configuration>

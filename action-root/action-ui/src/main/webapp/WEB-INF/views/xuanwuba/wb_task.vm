@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>舞吧任务</title>
+    <script type="text/javascript">
+        var rc = "${rc.contextPath}";
+    </script>
+<link rel="stylesheet" href="http://static.cn114.cn/action/xuanwuba/css/xwb150619.css" type="text/css" />
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=xuanwuba" type="text/javascript"></script>
+</head>
+<body>
+<div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+<div class="s_wrap">
+	<div class="s_wrap01">
+		<div class="s_wrapFooter">
+			<div class="smain">
+				<div class="header">
+					<div class="s_nav">
+							<a href="http://xwb.gyyx.cn/" target="_blank">进入官网</a>|<a href="http://xwb.gyyx.cn/Download/index.shtml" target="_blank">下载游戏</a>|<a href="http://bbs.gyyx.cn/forum.php?gid=167" target="_blank">进入论坛</a>|<a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" target="_blank">兑换充值</a>
+						</div>
+						<div class="s_left">
+						<div class="part_login">
+                            <div class="login">
+                                <!--登录前-->
+                                <a href="javascript:;" class="login_btn js_alertlogin_a">登录</a>
+
+                                <p>还没有光宇通行证?<a href="http://account.gyyx.cn/Member/Register" target="_blank">点此注册</a></p>
+                            </div>
+                            <!--登录前-->
+                            <div class="success_sign" style="display: none;" id="userSuccess">
+                                <!--登录后-->
+                                 <h3><span>
+                                    <img src="http://static.cn114.cn/action/xuanwuba/images/xwb150619_qd_pic01.png"></span><p id="loginbar" class="red">登录超时<br /><a href="javascript:;" class="info_mli_a js_Logout">退出</a></p>
+                                </h3>
+                                <p>玩家区组：<i class="red">未选择</i></p>
+                                <p>性别：<i class="red">未选择</i></p>
+                                <p><span class="sp01">积分：<i class="red">0</i></span></p><p>累计签到天数：<i class="red">0天</i></p>
+                            </div>
+                            <!--登录后-->
+                        </div> 
+						<div class="s_div s_btn">
+                            <a href="../xuanwuba/signIndex" class="registerBtn "><span class="ico01">签到</span></a>
+                            <a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" class="a02" target="_blank" id="s_div_s_btn_a02"><span class="ico02">充值</span></a>
+                        </div>
+					</div>
+					<a href="index" class="goHome">返回首页</a>
+				</div>
+				<div class="s_cont">
+					<h3 class="s_tit">舞吧任务</h3>
+					<div class="s_txt">
+						<p><span>1</span>舞吧任务中心将开启各种积分任务，领取后完成任务即可获得相应的积分奖励。</p>
+                        <p><span>2</span>还将不定时开放高额的积分任务，只要即时关注就可让伙伴们的积分不再烦恼。</p>
+					</div>
+					#if($!missionBean.missionName)
+    					<h3 class="s_tit01 mt20">推荐任务</h3>
+    					<div class="rwInfo">
+    						#if($!missionBean.status == "未领取")
+    							<i class="xwb_ico04"></i>
+    							<img src="$!missionBean.missionUrl" width=388 height=250 />
+    						#elseif($!missionBean.status == "未完成")
+    							<i class="xwb_ico01"></i>
+    							<img src="$!missionBean.missionUrl" width=388 height=250 />
+    						#elseif($!missionBean.status == "已完成")
+    							<i class="xwb_ico03"></i>
+    							<img src="$!missionBean.missionUrl" width=388 height=250 />
+    						#else
+    								
+    						#end
+    						<div class="txt">
+    							<h3>$!missionBean.missionName</h3>
+    							<span>$!missionBean.missionPublishTimeStr</span>
+    							<input type="hidden" name="hiddenType" value="$!missionBean.missionType" />
+    							#if($!missionBean.status == "未领取")
+    								<em>奖励积分：</em><i>$!missionBean.missionCredits</i>
+        							<em class="rwStit">任务介绍</em>
+        							<p>$!missionBean.missionState</p>
+    								<a href="javascript:;" class="rwBtn js_getbtn" data-url="addMissionReceive?code=$!missionBean.code">立即领取</a>
+    							#elseif($!missionBean.status == "未完成")
+    								<em>奖励积分：</em><i>$!missionBean.missionCredits</i>
+        							<em class="rwStit">任务介绍</em>
+        							<p>$!missionBean.missionState</p>
+    								<a class="rwBtn js_finish_redirect">立即完成</a>
+    							#elseif($!missionBean.status == "已完成")
+    								<em>奖励积分：</em><i>$!missionBean.missionCredits</i>
+        							<em class="rwStit">任务介绍</em>
+        							<p>$!missionBean.missionState</p>
+    								<a class="rwBtn">已完成</a>
+    							#else
+    								
+    							#end
+    						</div>
+    					</div>
+					#else
+						
+					#end
+					<h3 class="s_tit01 mt20">日常任务</h3>
+					<ul class="rwList">
+						#foreach($parm in $missionBeanList)
+						<li class="nomb">
+							<input type="hidden" name="hiddenType" value="$!parm.missionType" />
+							
+								#if($!parm.status == "未领取")
+									<i class="xwb_ico04"></i>
+    							#elseif($!parm.status == "未完成")
+    								<i class="xwb_ico01"></i>
+    							#else
+    								<i class="xwb_ico03"></i>
+    							#end
+								<img src="$!parm.missionUrl"/>
+							
+							<h3>
+								$!parm.missionName
+							</h3>
+							<p>
+								奖励积分：<span>$!parm.missionCredits</span>
+								#if($!parm.status == "未领取")
+								<a href="javascript:;" class="js_getbtn" data-url="addMissionReceive?code=$!parm.code">立即领取</a>
+    							#elseif($!parm.status == "未完成")
+    								<a class="js_finish_redirect">立即完成</a>
+    							#else
+    								<a>已完成</a>
+    							#end
+								
+							</p>
+						</li>
+						#end
+					</ul>
+					<h3 class="s_tit01">任务记录</h3>
+					<div class="rwNote jfBg">
+						<ul id="js_tbody"  style="height: 82px; overflow: hidden"></ul>
+					</div>
+	        	</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	$(function(){
+		$(".js_finish_redirect").click(function(){
+			var type = $(this).parent().parent().find("input[name=hiddenType]").val();
+			if(type == "签到"){
+				window.location.href="signIndex"
+			}else if(type == "视频"){
+				window.location.href="videoCollect"
+			}else if(type == "服装"){
+				window.location.href="photoCollect"
+			}else if(type == "建议"){
+				window.location.href="suggestCollect"
+			}else{
+				
+			}
+		})
+	})
+</script>
+<div class="pfNav">
+	<ul>
+		<li><a href="signIndex">每日签到</a></li>
+    		<li class="on"><a href="taskShow">舞吧任务</a></li>
+    		<li><a href="lotteryIndex">舞吧奖励</a></li>
+    		<li><a href="collectIndex">舞吧征集</a></li>
+    		<li><a href="videoShow">个人中心</a></li>
+	</ul>
+	<a href="#" class="goTop">top</a>
+</div>
+<div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div>
+<script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/ymcore.min.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/gyyxEffect.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/xwb150623.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/scrolltext.js"></script>
+</body>
+ <script>
+ $(function(){
+ $(".js_getbtn").click(function(){
+ var $this=$(this);
+ checkLogin({
+                    success: function (d) { 
+                     window.location.href=$this.attr("data-url");
+                    },
+                    failed: function () {
+                        alertFn(null, null, true)
+                    }
+                }); return false;
+ });
+ });
+  $.ajax
+  ({
+            url: rc + '/xuanwuba/getMissionReceiveLog ',
+            type: "get",
+            data: {
+                r: Math.random()
+            },
+            dataType: "json",
+            success: function (d) {
+                if (d.length>0) {
+                    var getprizelist = "";
+                    for (var i = 0; i < d.length; i++) {
+                        getprizelist += '<li style="line-height:30px;"><h3>'+ d[i].acount + d[i].completeStatus + d[i].missionName+'，获得<b>'+ d[i].missionCredits +'</b>个积分 </h3><span>'+ d[i].finishTimeStr +'</span></li>';
+                    }
+                    $("#js_tbody").html(getprizelist);
+                    if (d.length>=4) {
+                    //滚动
+                    var scrollup = new ScrollText("js_tbody");
+                    scrollup.LineHeight = 30;        //单排文字滚动的高度
+                    scrollup.Amount = 1;            //注意:子模块(LineHeight)一定要能整除Amount.
+                    scrollup.Delay = 20;           //延时
+                    scrollup.Start();             //文字自动滚动
+                    scrollup.Direction = "up";   //默认设置为文字向上滚动
+                    }
+                }
+            }
+        });
+ </script>
+</html>

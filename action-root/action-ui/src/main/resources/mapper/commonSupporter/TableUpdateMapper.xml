@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.supporter.ITableUpdate">
+	<update id="updateTable">
+		<choose>
+			<when test="updateTableName =='common_search_tb'">
+				update common_search_tb
+				set ${updateSetCondition}
+				where main_code = #{codeLimit}
+				${zeroLimitCondition}
+				and (select count(*) from common_main_tb where code = #{codeLimit}
+				<if test="updateType.limitUser">
+					and account_code = #{accountCode}
+				</if>
+				<if test="updateType.limitIp">
+					and ip_addr = #{ipAddress}
+				</if>
+				<if test="updateType.limitSqlday">
+					and account_code = #{uploadSqlDate}
+				</if>
+				) = 1
+			</when>
+			<otherwise>
+				update ${updateTableName}
+				set ${updateSetCondition}
+				where code = #{codeLimit}
+				${zeroLimitCondition}
+				<if test="updateType.limitUser">
+					and account_code = #{accountCode}
+				</if>
+				<if test="updateType.limitIp">
+					and ip_addr = #{ipAddress}
+				</if>
+				<if test="updateType.limitSqlday">
+					and account_code = #{uploadSqlDate}
+				</if>
+			</otherwise>
+		</choose>
+	</update>
+</mapper>

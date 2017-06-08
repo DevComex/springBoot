@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.gyyx.action.dao.noviceoa.NoviceGiftGenerateBeanMapper">
+	<resultMap id="BaseResultMap"
+		type="cn.gyyx.action.beans.noviceoa.NoviceGiftGenerateBean">
+		<constructor>
+			<idArg column="code" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="batch_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="gift_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="count" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="begin_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+			<arg column="end_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+			<arg column="channel" jdbcType="VARCHAR" javaType="java.lang.String" />
+			<arg column="is_delete" jdbcType="BIT" javaType="java.lang.Boolean" />
+			<arg column="description" jdbcType="VARCHAR" javaType="java.lang.String" />
+		</constructor>
+	</resultMap>
+	<resultMap id="ResultMapWithBLOBs"
+		type="cn.gyyx.action.beans.noviceoa.NoviceGiftGenerateInfoBean"
+		extends="BaseResultMap">
+		<constructor>
+			<idArg column="code" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="batch_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="gift_id" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="count" jdbcType="INTEGER" javaType="java.lang.Integer" />
+			<arg column="begin_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+			<arg column="end_date" jdbcType="TIMESTAMP" javaType="java.util.Date" />
+			<arg column="channel" jdbcType="VARCHAR" javaType="java.lang.String" />
+			<arg column="is_delete" jdbcType="BIT" javaType="java.lang.Boolean" />
+			<arg column="description" jdbcType="VARCHAR" javaType="java.lang.String" />
+			<arg column="gift_name" jdbcType="VARCHAR" javaType="java.lang.String" />
+		</constructor>
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		code, batch_id, gift_id, count, begin_date, end_date,
+		channel, is_delete,
+		description
+	</sql>
+	<select id="selectByPrimaryKey" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select
+		<include refid="Base_Column_List" />
+		from novice_gift_generate
+		where code = #{code,jdbcType=INTEGER}
+	</select>
+
+
+	<select id="selectByBatchId" resultMap="ResultMapWithBLOBs">
+		select
+		b.code,b.batch_id,b.gift_id,b.count,b.begin_date,b.end_date,b.channel,b.is_delete,b.description,
+		a.gift_name
+		from novice_gift_generate as b left join novice_gift_tb as
+		a
+		on a.batch_id=b.batch_id and a.code=b.gift_id
+		where
+		b.batch_id=#{batchId} and b.is_delete=0
+	</select>
+
+	<select id="selectByChannel" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
+		select * from novice_gift_generate
+		where channel like
+		'%${channel}%'
+	</select>
+
+	<select id="selectByGiftId" resultMap="BaseResultMap"
+		parameterType="java.lang.Integer">
+		select * from novice_gift_generate
+		where
+		gift_id=#{giftId} and is_delete=0
+	</select>
+
+	<insert id="insert"
+		parameterType="cn.gyyx.action.beans.noviceoa.NoviceGiftGenerateBean">
+		insert into novice_gift_generate (code, batch_id,
+		gift_id,
+		count, begin_date, end_date,
+		channel, is_delete, description
+		)
+		values (#{code,jdbcType=INTEGER}, #{batchId,jdbcType=INTEGER},
+		#{giftId,jdbcType=INTEGER},
+		#{count,jdbcType=INTEGER},
+		#{beginDate,jdbcType=TIMESTAMP}, #{endDate,jdbcType=TIMESTAMP},
+		#{channel,jdbcType=VARCHAR}, #{isDelete,jdbcType=BIT},
+		#{description,jdbcType=VARCHAR}
+		)
+	</insert>
+
+	<insert id="insertSelective" useGeneratedKeys="true"
+		keyProperty="code" parameterType="cn.gyyx.action.beans.noviceoa.NoviceGiftGenerateBean">
+		insert into novice_gift_generate
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+
+			<if test="batchId != null">
+				batch_id,
+			</if>
+			<if test="giftId != null">
+				gift_id,
+			</if>
+			<if test="count != null">
+				count,
+			</if>
+			<if test="beginDate != null">
+				begin_date,
+			</if>
+			<if test="endDate != null">
+				end_date,
+			</if>
+			<if test="channel != null">
+				channel,
+			</if>
+			<if test="isDelete != null">
+				is_delete,
+			</if>
+			<if test="description != null">
+				description,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="batchId != null">
+				#{batchId,jdbcType=INTEGER},
+			</if>
+			<if test="giftId != null">
+				#{giftId,jdbcType=INTEGER},
+			</if>
+			<if test="count != null">
+				#{count,jdbcType=INTEGER},
+			</if>
+			<if test="beginDate != null">
+				#{beginDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="endDate != null">
+				#{endDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="channel != null">
+				#{channel,jdbcType=VARCHAR},
+			</if>
+			<if test="isDelete != null">
+				#{isDelete,jdbcType=BIT},
+			</if>
+			<if test="description != null">
+				#{description,jdbcType=VARCHAR},
+			</if>
+		</trim>
+	</insert>
+	<update id="updateByPrimaryKeySelective"
+		parameterType="cn.gyyx.action.beans.noviceoa.NoviceGiftGenerateBean">
+		update novice_gift_generate
+		<set>
+			<if test="batchId != null">
+				batch_id = #{batchId,jdbcType=INTEGER},
+			</if>
+			<if test="giftId != null">
+				gift_id = #{giftId,jdbcType=INTEGER},
+			</if>
+			<if test="count != null">
+				count = #{count,jdbcType=INTEGER},
+			</if>
+			<if test="beginDate != null">
+				begin_date = #{beginDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="endDate != null">
+				end_date = #{endDate,jdbcType=TIMESTAMP},
+			</if>
+			<if test="channel != null">
+				channel = #{channel,jdbcType=VARCHAR},
+			</if>
+			<if test="isDelete != null">
+				is_delete = #{isDelete,jdbcType=BIT},
+			</if>
+			<if test="description != null">
+				description = #{description,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where code = #{code,jdbcType=INTEGER}
+	</update>
+</mapper>

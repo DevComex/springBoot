@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>“问道”才艺比拼</title>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wdTalent/css/main.css" />
+    <script  type="text/javascript">
+    	var rc = "${rc.contextPath}";
+ 	</script>
+    <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?9d240d62a1c9200febdeee28d6e0eb98";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</head>
+<body>
+	<a id="top"></a>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wrap list">
+        <div class="main clear">
+            <div class="nav">
+                <a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm" class="on">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+            </div>
+            <div class="time clear">活动时间：4月7日—4月30日</div>
+            <div class="cate_title js_cate_title"></div>
+            <div class="commit">
+                <div class="commit_con js_srcoll">
+                	<div class="js_commitList"></div>
+                </div>
+            </div>
+            <div class="commit_form">
+                <div class="title"></div>
+                <label>请选择昵称：</label>
+                <select class="js_nc">
+                    <option value="天极老人">天极牢头人</option>
+                </select>
+                <label>请输入评论：</label>
+                <div class="inputs">
+                    <input class="commit_input js_commit_input" maxlength="15" type="text"/>
+                    <input class="commit_btn js_commit_submit" type="button" value="提交"/>
+                </div>
+            </div>
+            <div class="commit_form commit_captcha">
+                <label>验证码：</label>
+                <input type="text" class="js_commit_captcha" maxlength="5" />
+                <img  class="js_captcha" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=0.039287569699808955" height="40" />
+                <span class="js_captchaBtn">刷新</span>
+            </div>
+            <div class="commit_form searchs_form">
+                <ul class="search_tab js_searchTab">
+                    <li data-queryType="hotest" class="on">最热</li>
+                    <li data-queryType="newest">最新</li>
+                </ul>
+                <div class="inputs">
+                    <input class="commit_input js_search_input" maxlength="50" type="text" placeholder="请输入角色名搜索"/>
+                    <input class="commit_btn js_search_submit" type="button" value="搜索"/>
+                </div>
+            </div>
+            <ul class="work_list" id="js_pageList">
+            </ul>
+            <div class="pages" id="js_Pages">
+                <a><<上一页</a>
+                <a class="on">1</a>
+                <a>2</a>
+                <a>3</a>
+                <a>4</a>
+                <a>5</a>
+                <a>下一页>></a>
+            </div>
+        </div>
+        <div class="follow">
+            <a href="${rc.contextPath}/wdTalent/list?type=qianming">签字比拼</a>
+            <a href="${rc.contextPath}/wdTalent/list?type=shufa">书法比拼</a>
+            <a href="${rc.contextPath}/wdTalent/list?type=huihua">绘画比拼</a>
+            <a href="${rc.contextPath}/wdTalent/list?type=shougong">手工DIY比拼</a>
+            <a href="${rc.contextPath}/wdTalent/list?type=cosplay">cosplay比拼</a>
+            <a class="out_link" href="http://actionv2.gyyx.cn/wdTalent/info" target="_blank">我要参赛</a>
+            <a class="out_link" href="http://wd.gyyx.cn/huodong/10zn/10qd/index.html" target="_blank">十年庆典</a>
+            <a class="out_link" href="http://wd.gyyx.cn/huodong/10zn/hdhz/index.html" target="_blank">更多活动</a>
+            <a class="go_top" href="#top">返回顶部</a>
+        </div>
+        <div class="pop_con" id="voted_10">
+            <p>您已为十个作品投票<br/>谢谢您的参与</p>
+            <a class="pop_btn js_pop_btn">确定</a>
+        </div>
+        <div class="pop_con" id="voted_success">
+            <p>恭喜您，投票成功</p>
+            <a class="pop_btn js_pop_btn">确定</a>
+        </div>
+        <div class="pop_con" id="voted_picture">
+            <img src="" width="500"/>
+        </div>
+    </div>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdTalent/js/jquery.ajaxpage.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/wdTalent/js/index.js"></script>
+	<script>
+	    $(function () {
+	        $().list();
+	    });
+	
+	</script>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+
+</body>
+</html>

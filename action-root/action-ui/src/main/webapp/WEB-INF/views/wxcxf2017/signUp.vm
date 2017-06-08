@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="expires" content="0">
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+    <title>2017新服冲榜活动</title>
+    <link href="http://qibao.gyyx.cn/favicon.ico" type="image/x-icon" rel="shortcut icon" />
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wdcf2017/css/wd0706.css" />
+    <script  type="text/javascript">
+        var rc = "${rc.contextPath}";
+      
+	</script>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?d162488ededa9111b92207f91b6c2ba8";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+
+</head>
+<body>
+	 <div id="logo" class="logo">
+
+		<a href="javascript:;" class="btn2">
+			<img src="http://static.cn114.cn/action/wdcf2017/img/gzbtn.png" />
+			
+		</a>
+	</div> 
+	
+	<div id="main">
+		<div class="bm_type">
+			<p><img src="http://static.cn114.cn/action/wdcf2017/img/bmimg4.png"/><label>账号</label><span class="bm bm1 " id="acount" ></span></p>
+			<p><img src="http://static.cn114.cn/action/wdcf2017/img/bmimg3.png"/><label>相性</label><select class="bm bm2 " id="sex"><option>金</option><option>木</option><option>水</option><option>火</option><option>土</option></select></p>
+			<p><img src="http://static.cn114.cn/action/wdcf2017/img/bmimg2.png"/><label>爱好</label><input class="bm bm2 " id="like" type="text" maxlength="10"/></p>
+			<p class="web_style"><img src="http://static.cn114.cn/action/wdcf2017/img/bmimg1.png"/><label>新服宣言</label><textarea class="bm bm3 " id="talk" maxlength="30"></textarea></p>
+		</div>
+	 <!--  上传 -->
+       <!-- <div class="form_image cf" style="height: 110px;">
+           	<div class="js_imgList_cont" style="word-break:break-all;float: left;"></div>
+          <img src="http://static.cn114.cn/action/wdcf2017/img/fhoto.png" class="form_button" id="js_upBtn">
+       </div> -->
+       
+      <!--  上传 -->
+      <div class="form_image cf" style="height: 110px;">
+           	<div class="js_imgList_cont" style="word-break:break-all;float: left;">
+               
+        
+           </div>
+            <!--<input  type="button" value="上传" class="form_button" id="js_upBtn"/>-->
+          <img src="http://static.cn114.cn/action/wdcf2017/img/fhoto.png" class="form_button" id="js_upBtn">
+       </div>
+      
+		<a class="bm_btn" id="bmBtn" href="javascript:;">报名</a>
+		
+		<ul class="role">
+			<li><span>1</span>本次活动与官网"冲榜活动"配套，只有在该活动中报名参加等级冲榜活动，才可参与官网的"冲榜活动"。</li>
+			<li><span>2</span>账号绑定后，等级、道行排行榜会定时更新一次，显示玩家该账号在“二〇一七”新服等级最大的角色名、等级、道行。（微信分享的票分享积分排行榜以微信数据为准，而游戏内等级、道行排行榜的数据则以游戏内为准）</li>
+			<li><span>3</span>一个微信只能报名一个账号，报名后无法更改，请谨慎操作。</li>
+			<li><span>4</span>上传的照片及留言，需要文明合法，涉及到不文明图片及文字、辱骂他人的、疑似软件推广的、其他游戏的等等，均不予审核通过，账号及微信也不可重新报名。（未审核通过的无法参与微信投票，但还可参与游戏内冲榜，请注意！）</li>
+		</ul>
+	</div>
+	<div id="footer">
+		<a href="javascript:;" id="phPage">
+			<img src="http://static.cn114.cn/action/wdcf2017/img/pm.png" />
+			<b>排行</b>
+		</a>
+		<a href="javascript:;" class="on" id="bmPage">
+			<img src="http://static.cn114.cn/action/wdcf2017/img/bmon.png" />
+			<b>报名</b>
+		</a>
+		<a href="javascript:;" id="jfPage">
+			<img src="http://static.cn114.cn/action/wdcf2017/img/jf.png" />
+			<b>积分兑换</b>
+		</a>
+	</div>
+	<div class="txtc">
+		<div class="tc3">
+			<h1>微信活动规则</h1>
+			<h2>活动时间：</h2>
+			<p>12月30日-2017年2月13日</p>
+			<h2>活动规则：</h2>
+			<p>1.本次活动与官网“冲榜活动”配套，只有在本活动中报名参加冲榜活动，才可参与官网的“冲榜活动”</p>
+			<p>2.账号绑定后，等级、道行排行榜会定时更新，显示玩家该帐号在“2017”新服等级最大的角色名、等级、等级、道行。（微信被分享排行榜以微信数据为准，而游戏内等级、道行排行榜的数据则以游戏内为准）；</p>
+			<p>3.一个微信只能报名一个账号，报名后无法更改，请谨慎操作；</p>
+			<p>4.上传的照片及留言，需要文明合法，涉及到不文明图片及文字、辱骂他人的、疑似软件推广的、其他游戏的等等，均不予审核通过，帐号及微信也不可重新报名、（未审核通过的玩家无法在各排行榜被展示，但是可参与游戏内冲榜活动！）</p>
+
+			<a href="javascript:;" class="roleClose">关闭</a>
+		</div>
+	</div>
+	<div class="zztc" id="gztc"  style="display: none;">
+		<div class="tc4">
+			<img src="http://static.cn114.cn/action/wdcf2017/img/ewm.png" class="img1"/>
+			<img src="http://static.cn114.cn/action/wdcf2017/img/know.png" class="close img2"/>
+		</div>
+	</div>
+	 <div class="alert_box">
+               <div class="alert_msg">亲，请竖屏观看哦~~</div>
+    </div>
+<script src="http://static.cn114.cn/action/wdcf2017/js/jquery-1.8.2.min.js"></script>
+<script src="http://static.cn114.cn/action/wdcf2017/js/gyyx_wxshare.min.js"></script>
+<script src="http://static.cn114.cn/action/wdcf2017/js/gyyx_wxImgUp.js"></script>
+<script>
+    $(function () {
+      
+        //上传图片
+        wxUpImg({
+            //debug: true,
+            game: "wd",
+            btn: "js_upBtn",
+            imgList: ".js_imgList",
+            imgListCon: ".js_imgList_cont",
+            imgListHtml: '<div class="form_image_list js_imgList" data-code="{code}"><a href="javascript:;" class="js_delete">×</a><img src="{img}" class="imgBor"/></div>',
+            imglistDelBtn: ".js_delete",
+            imgNum:1  //上传限制最大数量
+        });
+    });
+</script>
+	
+<script type="text/javascript" src="http://static.cn114.cn/action/wdcf2017/js/publicnav.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdcf2017/js/signUp.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdcf2017/js/fxinfo.js"></script>
+
+</body>
+</html>

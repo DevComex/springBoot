@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>frames</key>
+		<dict>
+			<key>brick.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{227,955},{120,53}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{120,53}</string>
+			</dict>
+			<key>btDown00.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{2,1009},{118,150}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{118,150}</string>
+			</dict>
+			<key>btDown01.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{122,1009},{118,150}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{118,150}</string>
+			</dict>
+			<key>btDown02.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{242,1009},{118,150}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{118,150}</string>
+			</dict>
+			<key>btDown03.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{362,1009},{118,150}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{118,150}</string>
+			</dict>
+			<key>btDown00c.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{2,1160},{118,150}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{118,150}</string>
+			</dict>
+			<key>btDown01c.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{122,1160},{118,150}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{118,150}</string>
+			</dict>
+			<key>btDown02c.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{242,1160},{118,150}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{118,150}</string>
+			</dict>
+			<key>btDown03c.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{362,1160},{118,150}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{118,150}</string>
+			</dict>
+			<key>offBtn.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{347,828},{35,35}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{35,35}</string>
+			</dict>
+			<key>playBg.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1,1},{480,800}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{480,800}</string>
+			</dict>
+			<key>right.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{347,803},{24,23}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{24,23}</string>
+			</dict>
+			<key>startBtn.png</key>
+			<dict>
+				<key>frame</key>
+				<string>{{1,803},{224,204}}</string>
+				<key>offset</key>
+				<string>{0,0}</string>
+				<key>rotated</key>
+				<false />
+				<key>sourceSize</key>
+				<string>{224,204}</string>
+			</dict>
+		</dict>
+		<key>metadata</key>
+		<dict>
+			<key>format</key>
+			<integer>2</integer>
+			<key>textureFileName</key>
+			<string>UiPlist.png</string>
+			<key>realTextureFileName</key>
+			<string>UiPlist.png</string>
+			<key>size</key>
+			<string>{482,1009}</string>
+		</dict>
+		<key>texture</key>
+		<dict>
+			<key>width</key>
+			<integer>482</integer>
+			<key>height</key>
+			<integer>1009</integer>
+		</dict>
+	</dict>
+</plist>

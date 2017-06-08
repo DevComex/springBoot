@@ -1,0 +1,336 @@
+#parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/jquery.ajaxpage-2.2.js"></script>
+<style>
+	.table td{word-wrap:break-word;}
+	.table td img{width:100%;}
+</style>
+<script>
+	$(function () {
+		  //获取机构列表--结束
+	  var formatJsonDateStr = function(jsonDateStr) {
+			var date = new Date(parseInt(jsonDateStr));
+			var dateStr = [];
+			dateStr.push(date.getFullYear());
+			dateStr.push('-'
+					+ (Number(date.getMonth()) + 1));
+			dateStr.push('-' + date.getDate());
+			dateStr.push(' ' + date.getHours());
+			dateStr.push(':' + date.getMinutes());
+			dateStr.push(':' + date.getSeconds());
+			return dateStr.join('');
+		};
+		
+		getlist();
+	  function getlist() {
+	      $("#js_tbSzList").ajaxPage({
+	          url: rc+"/challenteroa/getLiveRadioData",//接口
+	          pageObj: $("#DataTables_Table_0_paginate"),
+	          pageIndex: 1,
+	          pageSize: 10,
+	          curPageCls: "paginate_active",
+	          pageInfo: {
+	              obj: $("#DataTables_Table_0_info"),
+	              content: "共{allCount}条  当前第{pageIndex}/{allPage}页"
+	          },
+	          paramObj: {
+	          },
+	          dataFn: function (data, $this) {
+	              var dataHtml = "",dataHtmlmain ="", dCont = data.data;//获取返回数据
+	              if (dCont && dCont.length && dCont[0]) {
+	     
+	                   var isneedact = "";
+	                   
+	                  for (var i = 0; i < dCont.length; i++) {
+	                      dataHtml += '' 
+	                         + '<tr>' 
+	                           +'  <td>' + (i+1) + '</td>' 
+	                           +'  <td>' + dCont[i].title + '</td>' 
+	                          + '  <td><img src="' + dCont[i].picUrl + '"/></td>' 
+	                          + '  <td>' + dCont[i].radioUrl + '</td>' 
+	                          + '  <td><span class="label '+(dCont[i].isTop=='Y'?'bg-success':'label-default')+'">' + (dCont[i].isTop=='Y'?'是':'否') + '</span></td>' 
+	                          + '  <td>' + formatJsonDateStr(dCont[i].createTime) + '</td>' //时间
+	                          + '  <td style="" code="'+dCont[i].code+'">'
+	                          + ' <a data-toggle="modal" href="#liveRadioModal" class="modLiveRadio btn btn-xs btn-success">编辑</a><span style="margin:0 10px;">|</span></span>';
+	                         	
+	                        	  if(dCont[i].isTop=='N'){
+	                        		  dataHtml += ' <a href="javascript:;" class="delLiveRadio btn btn-xs btn-danger">删除</a><span style="margin:0 10px;">|</span></span>' 
+	          	                        
+		                        	  dataHtml +=' <a href="javascript:;" class="topLiveRadio btn btn-xs btn-success">推荐</a>';
+		                          }else{
+		                        	  dataHtml +=' <a href="javascript:;" class="upTopLiveRadio btn btn-xs btn-success">取消推荐</a>';
+		                          }
+	                          
+	                          dataHtml += '</td></tr>';
+	                  }
+	                  $("#js_tbSzList").empty().html(dataHtml);//展示精选详情内容
+	                  $(".topLiveRadio,.unTopLiveRadio").live('click',function(e){
+	                  	var code =  $(this).parent("td").attr("code");
+	                  	var state= "";
+	                  	if($(e.target).hasClass("topLiveRadio")){
+	                  		state = "Y";
+	                  	}else if($(e.target).hasClass("unTopLiveRadio")){
+	                  		state = "N";
+	                  	}
+	                  	$
+						.ajax({
+	                  		url: rc+"/challenteroa/topOperator",
+	                          type: "POST",
+	                          data: { 
+	                          	r: Math.random(), 
+	                          	code:code,
+	                          	state:state
+	                          },
+	                          dataType: "json",
+	
+	                          success: function (d) {
+	                              if (d.isSuccess) {
+	                              	location.reload();
+	                              }
+	                          }
+	                  	})
+	
+	                  })
+						
+	                  return dataHtml;
+	                 
+	              } else {
+	                 // alert(data.message)
+	                  $("#js_tbSzList").empty()
+	                  $("#scrollable_one").hide();
+	
+	              }
+	          }
+	
+	      });
+	  }
+	 
+	  $(".js_edit_btn").click(function(){
+			var code = $.trim($("#code").val());
+			var title = $.trim($("#title").val());
+			if(title == ""){
+				alert("标题不能为空！");
+				return false;
+			}
+			if($.trim(title).length  >20){
+				alert("标题长度不能大于20！");
+				return false;
+			}
+			//图片地址
+			var picUrl = $.trim($("#picUrl").val());
+			if(picUrl == ""){
+				alert("图片地址不能为空！");
+				return false;
+			}
+			if($.trim(picUrl).length  >100){
+				alert("图片地址长度不能大于100！");
+				return false;
+			}
+			//视频地址
+			var radioUrl = $.trim($("#radioUrl").val());
+			if(radioUrl == ""){
+				alert("视频地址不能为空！");
+				return false;
+			}
+			if($.trim(radioUrl).length  >100){
+				alert("视频地长度不能大于100！");
+				return false;
+			}
+			var formSrc = "${rc.contextPath}/challenteroa/";
+			if(code!=0){//编辑
+				formSrc += "liveRadioMod";
+			}else{
+				formSrc += "liveRadioAdd";
+			}
+			
+			$.ajax({
+	            type:"post",
+	            url:formSrc,
+	            data:$("#editForm").serialize(),
+	            success:function(d){
+	                alert(d.message);  
+	                location.reload();
+	            },
+	            error: function(){
+	                alert("网络异常");
+	            } 
+	         }); 
+		});
+	  
+	  $(".modLiveRadio").live("click",function(){
+			$.ajax
+			({
+				url:'${rc.contextPath}/challenteroa/getLiveRadio',
+				type:'POST',
+				data:{code:$(this).parent().attr("code"),r:Math.random()},
+				dataType:'json',
+				success:function(d){
+					 if (d.isSuccess) {
+						 var data = d.data;
+						 $("#code").val(data.code);
+							$("#title").val(data.title);
+							$("#picUrl").val(data.picUrl);
+							$("#radioUrl").val(data.radioUrl);
+					 }else{
+						 alert(d.message);
+					 }
+					
+				}
+			  }); 
+		});
+	  
+	  
+	  $("#addLiveRadio").live("click",function(){
+		  $("#editForm #code").val("0");
+		  $("#editForm")[0].reset();
+	  });
+	  $(".delLiveRadio").live("click",function(){
+		  if(confirm("确定要删除数据吗？")){
+			  $.ajax({
+					url:'${rc.contextPath}/challenteroa/liveRadioDel',
+					type:'POST',
+					data:{code:$(this).parent().attr("code"),r:Math.random()},
+					dataType:'json',
+					success:function(d){
+						 if (d.isSuccess) {
+							 alert(d.message);
+							 location.reload();
+						 }else{
+							 alert(d.message);
+						 }
+					}
+				  }); 
+		  }
+	  });
+	  
+	  $(".topLiveRadio,.upTopLiveRadio").live("click",function(e){
+		    var code =  $(this).parent().attr("code");
+	      	var state= "";
+	      	if($(e.target).hasClass("topLiveRadio")){
+	      		state = "Y";
+	      	}else if($(e.target).hasClass("upTopLiveRadio")){
+	      		state = "N";
+	      	}
+	      	$.ajax({
+	      		url: '${rc.contextPath}/challenteroa/topOperator',
+	              type: "POST",
+	              data:{code:code,state:state,r:Math.random()},
+				  dataType:'json',
+	              success: function (d) {
+	            	  if (d.isSuccess) {
+							 alert(d.message);
+							 location.reload();
+					  }else{
+						 alert(d.message);
+					  }
+	              }
+	      	});
+	  });
+	});
+</script>
+<!--标题-->
+<header class="header bg-white b-b clearfix">
+    <div class="col-sm-2 m-t-xs">
+        <h4>视频列表界面</h4>
+    </div>
+    <div class="col-sm-2 m-b-xs m-t-sm m-l-xl">
+        <div class="input-group m-l-xl">
+            <a class="btn btn-s-md  btn-info m-l-xl" href="#liveRadioModal" data-toggle="modal" id="addLiveRadio">新增</a>
+        </div>
+    </div>
+</header>
+<!-- 查询表单 -->
+<section class="scrollable padder" style="overflow: scroll; top: 92px;" id="scrollable_one">
+   
+    <!--数据表格  begin -->
+    
+    <section class="panel panel-default">
+         
+       <div class="table-responsive">
+            <table class="table table-striped m-b-none" style="table-layout: fixed;">
+                <thead>
+                    <tr>
+                        <th width="7%">序号</th>
+                        <th width="15%">标题</th>
+                        <th width="15%">图片</th>
+                        <th width="20%">视频地址</th>
+                        <th width="8%">是否推荐</th>
+                        <th width="15%">创建时间</th>
+                        <th width="20%">操作</th>
+                    </tr>
+                </thead>
+                <tbody id="js_tbSzList">
+                  
+                </tbody>
+            </table>
+            <!-- 分页 -->
+            <div class="row dataTables_wrapper">
+                <footer class="footer bg-white b-t">
+                    <div class="row dataTables_wrapper">
+                        <div class="col-sm-6">
+                            <div id="DataTables_Table_0_info" class="dataTables_info"></div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers"></div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+            <!--分页 -->
+        </div>
+    </section>
+</section>
+ <!--弹层 begin-->
+<div class="modal fade" id="liveRadioModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+				<div class="modal-header" style="height:60px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h6 class="modal-title">编辑</h6>
+                </div>
+				<form id="editForm" method="post">
+					<input id="code" name="code" type="hidden" value="0" />
+	                <div class="modal-body">
+	                	<div class="form-group" style="display: inline-block; overflow: hidden;width: 500px;">
+	                        <div class="col-sm-10">
+	                                <label for="input-id-4" class="col-sm-4 control-label">标题：</label>
+	                                <div class="col-sm-6">
+	                                    <div class="input-group">
+	                                        <input id="title" name="title" type="text" class="input-sm form-control" style="width:300px" >
+	                                    </div>
+	                                </div>
+	                        </div>
+	                    </div>
+						<div class="form-group" style="display: inline-block; overflow: hidden;width: 500px;">
+	                        <div class="col-sm-10">
+	                                <label for="input-id-4" class="col-sm-4 control-label">图片地址：</label>
+	                                <div class="col-sm-6">
+	                                    <div class="input-group">
+	                                        <input id="picUrl" name="picUrl" type="text" class="input-sm form-control" style="width:300px" >
+	                                    </div>
+	                                </div>
+	                        </div>
+	                    </div>
+						<div class="form-group" style="display: inline-block; overflow: hidden;width: 500px;">
+	                        <div class="col-sm-10">
+	                                <label for="input-id-4" class="col-sm-4 control-label">视频地址：</label>
+	                                <div class="col-sm-6">
+	                                    <div class="input-group">
+	                                        <input id="radioUrl" name="radioUrl" type="text" class="input-sm form-control" style="width:300px" >
+	                                    </div>
+	                                </div>
+	                        </div>
+	                    </div>
+	                </div>
+				</form>
+                <div class="modal-footer">
+					<button type="button" class="btn btn-info js_edit_btn">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">返回</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    
+ #parse("/shared/footer.vm")

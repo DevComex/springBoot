@@ -1,0 +1,289 @@
+#parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/jquery.ajaxpage-2.2.js"></script>
+<style>
+.table td {
+	word-wrap: break-word;
+	vertical-align: middle !important;
+}
+
+#main_region th, #content td {
+	padding: 5px 5px 5px;
+	text-align:left;
+}
+
+*{
+	outline:none;
+}
+</style>
+<script>
+  function checkWorks(obj){
+		var code =  $(obj).parent("td").attr("code");
+      	var state= "";
+      	if($(obj).hasClass("pass")){
+      		state = "pass";
+      	}else if($(obj).hasClass("unpass")){
+      		state = "unpass";
+      	}
+      	$.ajax({
+      		url: rc+"/wdpkliveoa/checkInfo",
+              type: "POST",
+              data: { 
+              	r: Math.random(), 
+              	code:code,
+              	auditStatus:state
+              },
+              dataType: "json",
+              success: function (d) {
+            	  if (d.isSuccess) {
+						 alert(d.message);
+						 getlist();
+					 }else{
+						 alert(d.message);
+					 }
+              }
+      	});
+   }
+   
+   function batchCheck(obj){
+     	var state= "";
+     	if($(obj).hasClass("batchPass")){
+     		state = "pass";
+     	}else if($(obj).hasClass("batchUnPass")){
+     		state = "unpass";
+     	}
+     	var codes = [];
+     	$("input[name=checkRadio]:checked").each(function(){
+     		codes.push($(this).parent().parent().find("td:last").attr("code"));
+     	});
+     	if(codes.length == 0){
+     		alert("请选择行！");
+     		return;
+     	}
+     	$.ajax({
+     		url: rc+"/wdpkliveoa/batchCheckInfo",
+             type: "POST",
+             data: { 
+             	r: Math.random(), 
+             	codesStr:codes.join(","),
+             	auditStatus:state
+             },
+             dataType: "json",
+             success: function (d) {
+           	  if (d.isSuccess) {
+						 alert(d.message);
+						 getlist();
+					 }else{
+						 alert(d.message);
+					 }
+             }
+     	});
+   }
+   
+   function getlist() {
+	  	  var type = $("#type").val();
+			
+	      $("#js_tbSzList").ajaxPage({
+	          url: rc+"/wdpkliveoa/infoDataList",//接口
+	          pageObj: $("#DataTables_Table_0_paginate"),
+	          pageIndex: 1,
+	          pageSize: 15,
+	          curPageCls: "paginate_active",
+	          pageInfo: {
+	              obj: $("#DataTables_Table_0_info"),
+	              content: "共{allCount}条  当前第{pageIndex}/{allPage}页"
+	          },
+	          paramObj: {
+	        	  auditStatus:$("#auditStatus").val(),beginTimeStr:$("#beginTimeStr").val(),endTimeStr:$("#endTimeStr").val()
+	          },
+	          dataFn: function (data, $this) {
+	        	  var dataHtml = "",dCont = data.data;//获取返回数据
+	              if (dCont && dCont.length && dCont[0]) {
+						
+	                  for (var i = 0; i < dCont.length; i++) {
+	                	  var status = dCont[i].auditStatus;
+                          var statusStr = "待审核";
+                          var statusColor = "label-default";
+                          if(status == 'pass'){
+                        	statusStr = "审核通过";
+                        	statusColor= "bg-success";
+                          }
+                          if(status == 'unpass'){
+                        	statusStr = "审核拒绝";
+                        	statusColor= "bg-danger";
+                          }
+                        
+	                      dataHtml += '' 
+	                         + '<tr><td><input name="checkRadio" type="checkbox"/></td>' 
+	                         +'  <td>' + (i+1) + '</td>' 
+	                         +'  <td>' + dCont[i].account + '</td>' 
+	                         +'  <td>' + dCont[i].teamName + '</td>' 
+	                         +'  <td>' + dCont[i].teamIntroduction + '</td>' 
+	                         +'  <td>' + dCont[i].livePlatform + '</td>'
+	                         +'  <td>' + dCont[i].liveChannel + '</td>' 
+	                         +'  <td>' + dCont[i].liveTimeStr + '</td>' 
+	                         +'  <td>' + dCont[i].createTimeStr + '</td>'
+	                         +'  <td style="text-align:center;"><span class="label '+ statusColor+'">' + statusStr + '</span></td>' 
+	                         
+	                      dataHtml+= '<td style="" code="'+dCont[i].code+'">'
+  	                      if(status=='oncheck'){
+                        	  dataHtml +=' <a href="javascript:;" onclick="checkWorks(this);" class="pass btn btn-xs btn-success">通过</a>';
+                        	  dataHtml +=' <span style="margin:0 10px;">|</span><a href="javascript:;" onclick="checkWorks(this);" class="unpass btn btn-xs btn-danger">拒绝</a>';
+                          }
+                          dataHtml += '</td></tr>';
+	                  }
+	                  $("#js_tbSzList").empty().html(dataHtml);//展示精选详情内容
+	                  
+	                  return dataHtml;
+	                 
+	              } else {
+	                  $("#js_tbSzList").empty()
+	                  $("#scrollable_one").hide();
+	              }
+	          }
+	      });
+	  }
+   
+	$(function() {
+		var curDate = '${curDate}';
+		$("#beginTimeStr").val('2016-11-01');
+		$("#endTimeStr").val('2016-12-31');
+		$("#beginTimeStr").datepicker({
+            format: 'yyyy-mm-dd',
+            startView: 2,   
+            autoclose: true,  
+            todayBtn: true,  
+            minView: 2 
+        }).on('changeDate', function (ev) {
+			var AddStartTime = $(this).val();
+			$("#beginTimeStr").blur();
+            $("#beginTimeStr").datepicker('hide');   
+    	});
+    	$("#endTimeStr").datepicker({
+                format: 'yyyy-mm-dd',
+                startView: 2,   
+                autoclose: true,  
+                todayBtn: true,  
+                minView: 2   
+        }).on('changeDate', function (ev) {
+                $("#endTimeStr").blur();
+                $("#endTimeStr").datepicker('hide');   
+    	});
+  		
+  		$("#search").click(function(){
+  			getlist();
+  		});
+  		$(".batchPass,.batchUnPass").click(function(){
+  			batchCheck(this);
+  		});
+  		
+  		getlist();
+  	});
+  </script>
+  
+<section class="vbox">
+	<section>
+		<section class="hbox stretch">
+			<section id="content">
+				<section class="vbox js_template_right">
+					<!--顶部标题导航 begin-->
+					<header class="header bg-white b-b clearfix">
+						<h4 class="doc-buttons pull-left" style="margin-top: 16px">问道全民PK公会直播活动后台</h4>
+						<span class="doc-buttons pull-left"> <input type="text"
+							class="input-sm form-control"
+							style="display: inline-block; width: 160px; margin-top: 10px; margin-left: 10px;"
+							placeholder="账号名称" id="account" name="account" />
+						</span> 
+						<span class="doc-buttons pull-left"> <select
+							id="auditStatus" style="margin-top: 10px; margin-left: 10px;"
+							class="input-sm">
+								<option value="">状态</option>
+								<option value="oncheck" selected>待审核</option>
+								<option value="pass">审核通过</option>
+								<option value="unpass">审核不通过</option>
+								<!-- <option value="cancle">取消报名</option> -->
+						</select>
+						</span> 
+						<span class="doc-buttons pull-left"> <input type="text"
+							class="input-sm form-control"
+							style="display: inline-block; width: 160px; margin-top: 10px; margin-left: 10px;"
+							placeholder="直播开始时间" id="beginTimeStr" name="beginTimeStr" /> <input
+							type="text" class="input-sm form-control"
+							style="display: inline-block; width: 160px;" placeholder="直播结束时间"
+							id="endTimeStr" name="endTimeStr" />
+						</span> 
+						 <span class="doc-buttons pull-left"> <a id="search"
+							class="btn btn-sm btn-info"
+							style="margin-top: 10px; margin-left: 10px"
+							href="javascript:void(0);"><i class="fa fa-search"></i>搜索</a>
+						</span> 
+						<span class="doc-buttons pull-left"> <a
+							class="btn btn-sm btn-info batchPass"
+							style="margin-top: 10px; margin-left: 10px"
+							href="javascript:void(0);"><i class="fa fa-search"></i>批量通过</a>
+						</span>
+						<span class="doc-buttons pull-left"> <a
+							class="btn btn-sm btn-info batchUnPass"
+							style="margin-top: 10px; margin-left: 10px"
+							href="javascript:void(0);"><i class="fa fa-search"></i>批量拒绝</a>
+						</span>
+					</header>
+					<!--顶部标题导航 end-->
+					
+					<!--主体内容 begin-->
+					<section class="scrollable padder">
+						<div class="m-b-md"></div>
+						<!--数据表格  begin -->
+						<section class="panel panel-default" id="main_region">
+							<div class="table-responsive">
+								<table class="table table-striped m-b-none"
+									style="table-layout: fixed;">
+									<thead>
+										<tr id="pk_list">
+											<th width="2%"><input id="checkall" type="checkbox"/></th>
+											<th width="5%">序号</th>
+											<th width="10%">账号</th>
+											<th width="10%">队伍名称</th>
+											<th width="35%">战队简介</th>
+											<th width="10%">直播平台</th>
+											<th width="10%">直播频道</th>
+											<th width="12%">直播时间</th>
+											<th width="15%">报名时间</th>
+											<th width="7%">审核状态</th>
+											<th width="12%">操作</th>
+										</tr>
+									</thead>
+									<tbody id="js_tbSzList">
+
+									</tbody>
+								</table>
+								<!-- 分页 -->
+								<div class="row dataTables_wrapper"
+									style="margin-right: 0px; margin-left: 0px;">
+									<footer class="footer bg-white b-t">
+										<div class="row dataTables_wrapper">
+											<div class="col-sm-6">
+												<div id="DataTables_Table_0_info" class="dataTables_info"></div>
+											</div>
+											<div class="col-sm-6">
+												<div id="DataTables_Table_0_paginate"
+													class="dataTables_paginate paging_full_numbers"></div>
+											</div>
+										</div>
+									</footer>
+								</div>
+								<!--分页 -->
+							</div>
+						</section>
+					</section>
+				</section>
+			</section>
+#parse("/shared/footer.vm")
+<script>
+	$(function(){
+		$("#nav").addClass("nav-xs");
+	})
+</script>
+<script type="text/javascript" charset="utf-8">
+    alert("谢谢参与，活动已结束");
+</script>

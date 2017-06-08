@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.LogMapper">
+	<resultMap type="Log" id="Log">
+		<id column="code" property="code" />
+		<result column="order_name" property="orderName" />
+		<result column="order_code" property="orderCode" />
+		<result column="rtx" property="rtx" />
+		<result column="email" property="email" />
+		<result column="phone" property="phone" />
+		<result column="oa_message" property="oaMessage" />
+		<result column="attend_id" property="attendId" />
+		<result column="attend_name" property="attendName" />
+		<result column="is_send" property="isSend" />
+		<result column="[content]" property="content" />
+		<result column="send_time" property="sendTime" />
+	</resultMap>
+
+	<!-- 添加游用户信息 -->
+	<insert id="insertLog" parameterType="Log">
+		insert into mos_log_tb
+		(order_name,order_code,rtx,email,phone,oa_message,attend_id,attend_name,is_send,content,send_time)
+		values(
+		#{orderName},
+		#{orderCode},
+		#{rtx},
+		#{email},
+		#{phone},
+		#{oaMessage},
+		#{attendId},
+		#{attendName},
+		#{isSend},
+		#{content},
+		#{sendTime}
+		)
+	</insert>
+	<!-- 取消会议预订发送信息 -->
+	<update id="updateLog" parameterType="Integer">
+		UPDATE
+		mos_log_tb SET is_send = 'false' WHERE order_code = #{orderCode}
+	</update>
+</mapper>

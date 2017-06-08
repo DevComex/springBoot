@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wechat.ICustomMapper">
+	<resultMap type="CustomBean" id="CustomMap">
+		<id column="code" property="code" />
+		<result column="config_code" property="configCode" />
+		<result column="operate_code" property="operateCode" />
+		<result column="custom_type" property="customType" />
+		<result column="custom_desc" property="customDesc" />
+		<result column="is_delete" property="isDelete" />
+	</resultMap>
+	
+	<select id="getAllCustomInfoByOperate" parameterType="Integer" resultMap="CustomMap">
+		SELECT * FROM [dbo].[wechat_custom_tb] WHERE is_delete = 0 and operate_code = #{operateCode}
+	</select>
+	
+	<select id="getAllCustomInfoByConfigCode" resultMap="CustomMap">
+		SELECT * FROM [dbo].[wechat_custom_tb] WHERE is_delete = 0 and config_code = #{configCode} order by operate_code desc
+	</select>
+	
+	<select id="getCustomInfoByCode" parameterType="Integer" resultMap="CustomMap">
+		SELECT * FROM [dbo].[wechat_custom_tb] WHERE is_delete = 0 and code = #{code}
+	</select>
+	
+	<select id="getCustomCountByCustomType" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM [dbo].[wechat_custom_tb] WHERE is_delete = 0 and custom_type = #{custom_type}
+	</select>
+	
+	<insert id="addCustomInfo" parameterType="CustomBean">
+		INSERT INTO [dbo].[wechat_custom_tb] (config_code,operate_code,custom_type,custom_desc,is_delete) VALUES (#{configCode},#{operateCode},#{customType},#{customDesc},#{isDelete})
+	</insert>
+	
+	<update id="updateCustomInfo" parameterType="CustomBean">
+		UPDATE [dbo].[wechat_custom_tb] SET custom_type = #{customType},custom_desc = #{customDesc} WHERE code = #{code}
+	</update>
+	
+	<delete id="deleteCustomInfo" parameterType="Integer">
+		DELETE FROM [dbo].[wechat_custom_tb] WHERE code = #{code}
+	</delete>
+</mapper>

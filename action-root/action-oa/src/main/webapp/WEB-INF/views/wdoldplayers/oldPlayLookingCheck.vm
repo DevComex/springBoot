@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Layout:luochongfei" />
+    <title>寻人信息列表</title>
+
+    <link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+	<script type="text/javascript" src="${rc.contextPath}/resources/script/My97DatePicker/WdatePicker.js"></script>
+	
+	<script src="http://oa.gyyx.cn/Script/datepicker/bootstrap-datepicker.js" type="text/javascript" charset="gbk"></script>
+    <link href="http://oa.gyyx.cn/Script/datepicker/datepicker.css" rel="stylesheet" />
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet" />
+    
+	<script type="text/javascript" src="${rc.contextPath}/resources/script/oldLookingCheck.js"></script>
+	
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+						<section id="content">
+                    <section class="vbox">
+						<header class="header bg-white b-b clearfix">
+							<div class="col-sm-2 m-b-xs">
+                                    <h4 class="m-t bold"></h4>
+                                </div>
+                                <div class="col-sm-2 m-b-xs m-t-sm">
+                                    <div class="input-group">
+                                        
+                                    </div>
+                                </div>
+                        </header>
+						
+                        <!--顶部标题导航 end-->
+
+                        <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <div class="m-b-md">
+                            </div>
+							<!--头部功能-->
+              
+						
+						<header class="header bg-white b-b clearfix">
+                            <div class=" m-t-sm">   
+								<form name="form1" id="form1">
+						          <div class="form-inline clearfix">
+						            <label class="col-sm-1 control-label">上传时间</label>
+					                <div class="col-sm-2">
+						              <input type="text" name="startTime" id="startTime" autocomplete="off" class="input-sm form-control js_Day" value="">
+						            </div>
+						            <label class="col-sm-1 control-label" style="width:30px;">至</label>
+						            <div class="col-sm-2">
+						              <input type="text" name="endTime" id="endTime" autocomplete="off" class="input-sm form-control js_Day" value="">
+									</div>
+                                    <label class="col-sm-1 control-label" style="text-align:center;font-size:10pt">寻人账号：</label>
+                                    <div class="col-sm-2">
+                						<input id="account" name="account" class="form-control" style="width:130px;" maxlength="300"/>
+                                    </div>
+                                    <label class="col-sm-1 control-label" style="text-align:center;font-size:10pt">被寻角色：</label>
+                                    <div class="col-sm-2">
+                						<input id="role" name="role" class="form-control" style="width:130px;" maxlength="300"/>
+                                		<button class="btn btn-info" type="submit" id="query-btn">查询</button>
+                                    </div>
+						              
+						              <input name="showList" type="hidden" value="self">
+
+						          </div>
+						        </form>
+                            </div>
+                        </header>
+                        
+                        <header class="header bg-white b-b clearfix">
+                            <div class="row m-t-sm">   
+								<form >
+								
+								<div class="col-sm-2 m-b-xs">
+                                    <div class="form-group">
+						              <button class="btn btn-s-md btn-info" id="batchShow" >批量展示</button>
+						            </div>
+                                </div>
+								
+									<div class="col-sm-2 m-b-xs">
+                                    <div class="form-group">
+						              <button id="batchHide" class="btn btn-s-md btn-info">批量隐藏</button>
+						            </div>
+                                </div>
+								
+								<div class="col-sm-2 m-b-xs">
+                                    <div class="form-group">
+						              <button id="batchDelete" class="btn btn-s-md btn-info">批量删除</button>
+						            </div>
+                                </div>
+								
+                                </form>
+                            </div>
+                        </header>
+                        
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" style="height:580px">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none" id="commentTable">
+                                        <thead>
+                                            <tr>
+												<th><input type="checkbox" name="all" id="allCheck" /></th>
+                                                <th>寻人账号</th>
+                                                <th>被寻角色</th>
+                                                <th>被寻角色服务器</th>
+                                                <th>被寻角色响应账号</th>
+                                                <th style="width:50%;">简介</th>
+                                                <th>发布时间</th>
+                                                <th>状态</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody class="js_tbody">
+                                        	
+                                        </tbody>
+                                    </table>
+                                    <div class="container" id="paging">
+									
+								</div>
+                                </div>
+                                
+                            </section>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+						<!--翻页功能-->
+						<br />
+						<br />
+                        <!--翻页功能-->
+                        <footer class="footer bg-white b-t">
+                            <div class="row dataTables_wrapper">
+                                 <div style="margin-left: 41%;margin-top:20px">
+										<input type="hidden" id="query-type" value="all" autocomplete="off">
+										<button class="btn btn-sm" id="firstPage-btn" disabled="disabled">首页</button>
+										<button class="btn btn-sm" id="prevPage-btn" disabled="disabled">上一页</button>
+										第<span id="currentPage-span">1</span>/ <span id="totalPage-span">1</span>&nbsp;页
+										<button class="btn btn-sm" id="nextPage-btn" disabled="disabled">下一页</button>
+										<button class="btn btn-sm" id="lastPage-btn" disabled="disabled">尾页</button>
+									</div>
+                            </div>
+                        </footer>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+<script type="text/javascript">
+    $(function () {
+		$(".js_Day").datepicker({
+            format: 'yyyy-mm-dd',
+            startView: 2,   //默认打开是年试图
+            autoclose: true,  //选择后自动关闭
+            todayBtn: true,  //选择今天的按钮
+            minView: 2   //只能选到年试图  （0 代表能选到分钟、1 代表能选到小时、2 代表能选到日 ）
+        })
+	})	
+	</script>
+</body>
+</html>

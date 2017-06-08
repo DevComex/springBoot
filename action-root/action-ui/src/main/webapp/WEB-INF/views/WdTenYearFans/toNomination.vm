@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>问道—十周年粉丝榜，快来关注</title>
+		<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wd10yearfans/css/style.css"/>
+		<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+	<script type="text/javascript" src="http://static.cn114.cn/action/wd10yearfans/js/jquery.ajaxpage-2.0.js" ></script>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+ 		 var hm = document.createElement("script");
+ 		 hm.src = "//hm.baidu.com/hm.js?4c11d507cde38427b5ac42cc1cada523";
+ 		 var s = document.getElementsByTagName("script")[0]; 
+ 		 s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+    </script>
+	</head>
+	<body style="background:none;">
+		
+		<!--公共导航-->
+		<div class="public_nav_top">
+      		<script type="text/javascript">Showtop();</script>
+    	</div>
+    	<div style="height:849px;width:100%; overflow:hidden;background: url(http://static.cn114.cn/action/wd10yearfans/img/bg1.jpg) no-repeat 50% 0;">
+    	<!--登录框-->
+		<div class="accountLogin">
+			<!--登陆前-->
+			<div class="beforeLogin">
+				<p class="beforeWord"></p>
+			</div>
+			<!--登陆后-->
+			<div class="afterLogin">
+				<div class="accountInfo" style="width: 380px;">
+					<p class="login_p"></p>
+				</div>
+				<div class="afterCheck"></div>
+				<div class="getRoleNameBox">
+					
+						
+							<select id="sel_blocklist">
+								<option value="0">选择大区</option>
+								<option value="1">网通</option>
+								<option value="2">电信</option>
+								<option value="3">双线</option>	
+							</select>
+							<select id="sel_serverlist">
+								<option value="0">选择区组</option>	
+							</select>
+							<select id="js_roleList" style="display: none;">
+							</select>
+							<span class="validataCodeHide js_validataCode">
+                               	<input name="ValidateCode" type="text" value="" class="validateCodeWidth js_validateCode" />
+                               	<img src="http://www.gyyx.cn/Captcha/Create/0716136161" class="flash_pagecode checkcodeimg" />
+                               	<span class="tips m_tsd yzmtips"></span>
+                            </span>
+							<a id="js_getRoleName">获取角色</a>
+							<a id="js_bindRoleBtn">绑定角色</a>
+						
+					
+				</div>
+			</div>
+		</div></div>
+		
+		<!--下部-->
+		<div class="downPart">
+			<!--我要提名-->
+			<div class="iWantGo">
+				<form id="form1">
+				<div class="dDiv">
+					<label>提名：</label>
+					<a><span class="point" id="forMe">&nbsp;</span>为自己</a>
+					<a><span class="point pointDown" id="forHe">&nbsp;</span>为他人</a>
+					<input id="uOrHe" type="hidden" value="1">
+				</div>
+				<div class="dDiv">
+					<input type="hidden" class="js_hidbind" value="0" />
+					<label>区组：</label>
+					<select class="selectSty " id="js_netServer">
+						<option value="0">选择大区</option>
+								<option value="1">网通</option>
+								<option value="2">电信</option>
+								<option value="3">双线</option>
+					</select>
+					<select class="selectSty " id="MserverId">
+						<option value="0"></option>
+					</select>
+					<input class="inputSel" type="text" id="myBlock"  value=""/>
+					<input class="inputSel" type="text" id="myServer" value="" />
+				</div>
+				<div class="dDiv">
+					<label>角色：</label>
+					<input type="text" class="roleName" value="请正确填写游戏角色名称" id="roleNameBind" maxlength="20" />
+					<input type="hidden" id="myName" value="" />
+				</div>
+				<div class="dDiv">
+					<label>职业：</label>
+					<select class="selectSty1" id="major">
+						<option value="0">金</option>
+						<option value="1">木</option>
+						<option value="2">水</option>
+						<option value="3">火</option>
+						<option value="4">土</option>
+					</select>
+					<p>&nbsp;</p>
+					<select class="selectSty1 lastSelectSty" id="job">
+						<option value="0">金男</option>
+						<option value="1">金女</option>
+						<option value="2">刀客男</option>
+						<option value="3">刀客女</option>
+						
+					</select>
+					<div class="headPicture">
+						<img width="100px" class="js_imgico" height="100px" src="http://static.cn114.cn/action/wd10yearfans/images/25.jpg">
+					</div>
+					<input type="hidden" id="imgSrc" value="http://static.cn114.cn/action/wd10yearfans/images/25" bian="http://static.cn114.cn/action/wd10yearfans/images/250" />
+				</div>
+				
+				<div class="dDiv">
+					<label class="lastLabel">简介:</label>
+					<textarea cols="46" rows="8" class="textarea" maxlength="100">请介绍一下你所提名的角色</textarea>
+				</div>
+				<div class="dDiv" style="margin-top: 3px;">
+					<a class="reset">重填</a>
+					<a class="submit">提交</a>
+				</div>
+				<div class="dDiv"  style="margin-top: 3px; font-size: 14px;color: #FF0000;">
+					<p>注：同一账号仅能提名一人，提交后不可更改。请仔细核对。</p>
+				</div>
+				</form>
+			<div>
+				<div class="afterSubmit">
+					<div class="bigHead">
+						<img src="" width="330px" height="330px"/>
+					</div>
+					<div class="dDiv">
+						<p>状态：<span>审核中</span></p>
+					</div >
+					<div class="dDiv">
+						<p>角色：<span></span></p>
+					</div>
+					<div class="dDiv">
+						<p>当前粉丝数<span></span></p>
+					</div>
+					<div class="dDiv">
+						<p>粉丝排名<span></span></p>
+					</div>
+					<div class="dDiv">
+						<p>当前黑粉数<span></span></p>
+					</div>
+					<div class="dDiv">
+						<p>黑粉排名<span></span></p>
+					</div>
+				</div>
+			</div>
+			</div>
+			
+			<!--活动规则-->
+			<div class="rules">
+				<div class="dDiv actionbtn">
+					<a class="rulesBtn">活动规则</a>
+					<a class="prizeBtn">活动奖励</a>
+				</div>
+				<div class="rulesdiv">
+				<div class="dDiv">
+					<h2>粉丝排名 规则</h2>
+				</div>
+				<div class="dDiv ofh">
+					<p>1) 玩家在“我要提名”页面即可参加活动提名，提名可以选择“为他人提名”，或者是“为自己提名”，每个账号只能提名一人。提名审核通过后，提名者可获得30个十周年积分。</p>
+					<p>2) 提名版块玩家所填的简介信息必须文明，否则不予通过。</p>
+					<p>3) 提名自己的玩家，登录后选择角色后不可更改只能提名选择的角色，提交后带官方认证标志。</p>
+					<p>4) 活动获得的实物奖励和银元宝奖励将在活动结束后发放至提名者处，十周年积分立即发放。十周年积分，可用于之后的许愿池、积分兑换福利活动。积分兑换活动将会在4月上线，有十周年纪念币、iPhone 6s plus、iPad AIR 2、iPad AIR、小米4等大奖。大家记得积极参加活动获得十周年积分，否则将与大奖失之交臂。<span style="color:red">问道十周年纪念金币获得攻略：</span><a href="http://wanwd.gyyx.cn/article/15450" target="_blank" style="color:red">点此进入</a></p>
+					<p>5) 玩家登陆后可以选择关注或者拉黑，进行“关注”的玩家则自动成为被提名者的粉丝，进行“拉黑”的玩家则自动成为被提名者的黑粉。</p>
+					<p>6) 同一账号，活动期间，进行关注和拉黑的次数不能超过十次，对同一个名人，活动期间只能关注或拉黑一次。</p>
+					<p>7) 粉丝榜与黑粉榜都会进行排名，同票数则先达到的排名靠前。</p>
+					<p>8) 玩家每关注或者拉黑一次获得3个十周年积分。</p>
+					<p>9) 玩家无需登录，即可在“评论”板块进行评论，评论需文明，否则不予通过。</p>
+					<p>10) 严禁刷票, 一经发现，则取消参赛资格及奖励。</p>
+					<p>11) 活动最终解释权由光宇在线科技有限责任公司所有。</p>
+				</div>
+				</div>
+				<div class="prizediv">
+					<div class="dDiv">
+					<h2>粉丝排名 奖励</h2>
+				</div>
+				<div class="dDiv">
+					<p>第1名  小米4</p>
+					<p>第2-4名 问道平板包</p>
+					<p>第5-9名 移动电源（金）</p>
+					<p>第10-30名 1000游戏内银元宝</p>
+				</div>
+					<div class="dDiv">
+					<p>所有提名的账号，每个提名审核通过后可获得30积分</p>
+				</div>
+					<div class="dDiv">
+					<p>所有参与关注或拉黑的账号，每关注或拉黑一个3积分，最多可获得30积分</p>
+				</div>
+				<div class="dDiv">
+					<h2>注：1、黑粉榜没有奖励</h2>
+				</div>
+				<div class="dDiv">
+					<h2 style="text-indent: 36px;">2、活动获得的实物奖励和银元宝奖励将在活动结束后发放至提名者处，十周年积分立即发放。十周年积分，可用于之后的许愿池、积分兑换福利活动。积分兑换活动将会在4月上线，有十周年纪念币、iPhone 6s plus、iPad AIR 2、iPad AIR、小米4等大奖。大家记得积极参加活动获得十周年积分，否则将与大奖失之交臂。<span style="color:red">问道十周年纪念金币获得攻略：<a style="color:red" href="http://wanwd.gyyx.cn/article/15450"  target="_blank">点此进入</a></span></h2>
+				</div>
+				</div>
+			</div>
+		</div>			
+		</div>
+		<!--页脚-->
+		<div class="public_nav_bottom" style="clear: both;">
+      		<script type="text/javascript">ShowBottom()</script>
+    	</div>
+		<!--漂浮栏-->
+		<div id="floatingBar" class="floatingBar">
+			<div class="floatingBarWord">
+				<div class="board" id="board">
+					<a target="_blank" href="http://actionv2.gyyx.cn/WDFans/index">提名榜单</a>
+				</div>	
+				<div id="signIn" class="signIn">
+					<a href="http://actionv2.gyyx.cn/WDFans/toNomination" target="_blank">我要提名</a>
+				</div>
+				<div class="signIn" style="font-size: 17px; left: 37px; top: 94px;">
+					<a href="http://wd.gyyx.cn/huodong/10zn/10qd/index.html" target="_blank">十年庆典</a>
+				</div>
+				<div class="signIn" style="font-size: 17px; left: 47px; top: 90px;">
+					<a href="http://wd.gyyx.cn/huodong/10zn/jnh/index.html" target="_blank">嘉年华</a>
+				</div>
+			</div>
+		</div>
+		<!--弹窗-->
+		<div class="alertbox">
+			<div class="close"><a>&nbsp;</a></div>
+			<div class="alertMain">
+				
+				<div class="tipWord">
+					<p>提交后不可修改，同一账号仅可提名一人，确定提交么？</p>
+				</div>
+				<div>
+					<a class="checkSubmit">确认提交</a>
+					<a class="thinkAbout">我再想想</a>
+				</div>
+			</div>
+		</div>
+		<div class="mask"></div>
+	<script type="text/javascript" src="http://static.cn114.cn/action/wd10yearfans/js/main.js" ></script>	
+	</body>
+</html>

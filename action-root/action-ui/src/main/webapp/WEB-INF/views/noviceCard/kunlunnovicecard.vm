@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>问道新手礼包激活页面</title>
+    <link href="http://static.cn114.cn/action/commonNovicecard/css/wd150507.css" rel="stylesheet" type="text/css">
+    <!--[if IE 6]>
+    <script src="js/DD_belatedPNG.js"></script>
+    <script>DD_belatedPNG.fix('.hnavl .on');DD_belatedPNG.fix('.pngbg');</script>
+    <![endif]-->
+    <script src="http://s.gyyx.cn/lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+	<script src="http://www.gyyx.cn/inc/gyyx_statistics.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+    <script src="http://static.cn114.cn/action/commonNovicecard/script/ReceiveCommon.js" type="text/javascript"></script>
+    <script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+    </script>
+</head>
+
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wdwrap_bg">
+        <div class="main">
+            <div class="wd_tnav"><a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm">进入官网</a><a target="_blank" href="http://account.gyyx.cn/Member/Register">账号注册</a><a target="_blank" href="http://wd.gyyx.cn/new/gl01_20.htm">新手指南</a><a target="_blank" href="http://pay.gyyx.cn/">游戏充值</a><a target="_blank" href="http://bbs.gyyx.cn/forum.php?gid=8" class="last">游戏论坛</a></div>
+            <div class="wd_con">
+                <div class="wd_snav pngbg"></div>
+                <div class="wd_box">
+                    <div class="wd_left">
+                        <h3 class="tit_jh pngbg"></h3>
+                        <div class="wd_loginfo">
+                            <div class="wd_lgoin">
+                                <div class="d1" id="loginbar">
+                                    <label>领取请您先：</label>
+                                    <a class="wd_logn" onclick="alertFn(null,null,true)">登录</a>
+                                </div>
+                                <p>
+                                    <label>选择服务器：</label>
+                                    <select name="netType"  id="ddlNetType">
+                                         <option value="3">双线</option>
+                                        <option value="1">网通</option>
+                                        <option value="2">电信</option>
+                                    </select>
+                                    <select name="serverId" id="ddlGameServer">
+                                    </select>
+                                </p>
+                                <p>
+                                    <label>新手卡号码：</label><input type="text" class="input_w" name="card" id="txtNoviceCard"/></p>
+                                <p>
+                                    <label>输入验证码：</label><input type="text" class="input_w input_w100"  name="code" id="txtCheckcode"/>
+                                    <img class="yzm1" width="88" height="40" alt="验证码" title="看不清楚,请点击." src="http://api.gyyx.cn/Captcha/CreateVJ.ashx" id="captcha_image"/>
+                                </p>
+								<p class="errorp"></p>
+								<input type="hidden" value="28" id="batchNo" name="batchNo"/>
+								<input type="hidden" name="hdName" id="hdName" value="问道决战昆仑新手卡" />
+								<input type="hidden" name="activityId" id="activityId" value="192" />
+                            </div>
+                            <div class="wd_lqlb">
+                                <a href="javascript:;" class="lqbut pngbg" id="btnRegister">领取礼包</a>
+                                <a target="_blank" href="http://account.gyyx.cn/Member/Register" class="reg">注册激活</a>
+                                <a target="_blank" href="http://wd.gyyx.cn/download/index.aspx" class="down">下载游戏</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wd_right">
+                        <h3 class="tit_lb pngbg"></h3>
+                        <p>1、本卡只能用于激活5月22日开启的双线新服“决战昆仑”以及以后开启的问道新服；</p>
+                        <p>2、激活相应服务器30天之内的帐号可以领取；</p>
+                        <p>3、同一服务器内，一个帐号只能领取一张卡。</p>
+                    </div>
+                </div>
+                <div class="wd_box wd_box2">
+                    <h3 class="tit_list pngbg"></h3>
+                    <ul class="wd_lblist">
+<li><a href="#"><img src="http://static.cn114.cn/action/commonNovicecard/images/wd150507_pic01.png" alt="至尊礼包"/></a></li>
+<li><a href="#"><img src="http://static.cn114.cn/action/commonNovicecard/images/wd150507_pic02.png" alt="尊享礼包"/></a></li>
+<li><a href="#"><img src="http://static.cn114.cn/action/commonNovicecard/images/wd150507_pic03.png" alt="超级礼包"/></a></li>
+<li><a href="#"><img src="http://static.cn114.cn/action/commonNovicecard/images/wd150507_pic04.png" alt="贵宾礼包"/></a></li>
+<li><a href="#"><img src="http://static.cn114.cn/action/commonNovicecard/images/wd150507_pic05.png" alt="飞龙礼包"/></a></li>
+<li><a href="#"><img src="http://static.cn114.cn/action/commonNovicecard/images/wd150507_pic06.png" alt="特权礼包"/></a></li>
+<li><a href="#"><img src="http://static.cn114.cn/action/commonNovicecard/images/wd150507_pic07.png" alt="专属礼包"/></a></li>
+<li><a href="#"><img src="http://static.cn114.cn/action/commonNovicecard/images/wd150507_pic08.png" alt="豪华礼包"/></a></li>
+<li><a href="#"><img src="http://static.cn114.cn/action/commonNovicecard/images/wd150507_pic09.png" alt="微信礼包"/></a></li>
+<li><a href="#"><img src="http://static.cn114.cn/action/commonNovicecard/images/wd150507_pic10.png" alt="特供礼包"/></a></li>
+<li><a href="#"><img src="http://static.cn114.cn/action/commonNovicecard/images/wd150507_pic11.png" alt="专享礼包"/></a></li>
+<li><a href="#"><img src="http://static.cn114.cn/action/commonNovicecard/images/wd150507_pic12.png" alt="飞天礼包"/></a></li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+</body>
+</html>

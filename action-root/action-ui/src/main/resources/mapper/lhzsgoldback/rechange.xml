@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lhzsgoldback.IRechangeMapper">
+	<resultMap type="RechangeBean" id="RechangeBean">
+		<result column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="cash_amount" property="cashAmount" />
+		<result column="spent_cash" property="spentCash" />
+	</resultMap>
+
+	<!-- 根据用户账号查询用户充值记录  -->
+	<select id="findByAccount" resultMap="RechangeBean">
+		select account,cash_amount,spent_cash
+		from lhzs_goldback_rechange_tb
+		where account = #{account};
+	</select>
+</mapper>

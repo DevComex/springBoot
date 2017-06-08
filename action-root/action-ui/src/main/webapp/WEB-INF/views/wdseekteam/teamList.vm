@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>问道寻找基友</title>
+		<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdlookfriends/css/index.css"/>
+		<script  type="text/javascript">
+	    	var rc = "${rc.contextPath}";
+	 	</script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wdlookfriends/js/jquery-1.8.2.min.js" ></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+		<script type="text/javascript" src="http://s.gyyx.cn/common/Statistics/gyyx_statistics.js"></script> <!--光宇统计-->
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+ 			 hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+ 			 var s = document.getElementsByTagName("script")[0]; 
+  			s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+	<body>
+		<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+		<div id="wd_top_login">
+			<div class="wd_top_main">
+				<div class="wd_top_nav">
+					<a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank"><i class="gw"></i>问道官网</a>|<a href="http://wd.gyyx.cn/download/index.aspx" target="_blank">游戏下载</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://pay.gyyx.cn/" target="_blank">账号充值</a>|<a href="http://wd.gyyx.cn/News/NewsDetail_New.aspx?NewsID=79170" target="_blank">领取礼包</a>|<a href="http://wd.gyyx.cn/Reserve/NewServer.html" target="_blank">预约新服</a>
+				</div>
+				<div class="wd_top_data">2016年12月30日12:00-2017年2月9日12:00</div>
+				<!--登录按钮-->
+				<div class="wd_top_login">
+				</div>
+			</div>
+		</div>
+		<div id="wd_team_list">
+			<div class="main">
+				<div class="refer">
+					<a href="javascript:;" class="tipgd js_progress on"></a>
+					<a href="javascript:;" class="tipxr js_finish"></a>
+					<input class="searchinp js_serinp" type="text" value="请输入角色名查询" />
+					<a href="javascript:;" class="tipcx js_search"></a>
+				</div>
+				<div class="list" id="list">
+					
+				</div>
+				<!-- 页码开始 -->
+                <div class="page" style="width: 656px">
+                    <div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers"></div>
+                </div>
+                <!-- 页码结束 -->
+			</div>
+		</div>
+		<!--漂浮-->
+		<div class="wd_piao">
+			<a href="teamList" class="jr"></a>
+			<a href="teamDetail" class="wd"></a>
+			<a href="index#lj" class="lj"></a>
+			<a class="js_hdgz gz" href="javascript:;"></a>
+			<a target="_blank" href="http://wd.gyyx.cn/News/NewsDetail_New.aspx?NewsID=79160" class="gd"></a>
+		</div>
+		<!--活动规则-->
+		<div class="wd_tc" id="wd_tc_gz">
+			<div class="wd_tc_gz">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<ul>
+					<li>活动时间：2016年12月30日12：00-2017年2月6日12：00</li>
+					<li>领取奖励与抽奖时间：2016年12月30日12：00-2017年2月9日12：00</li>
+					<li><h1>活动简介</h1></li>
+					<li>年度数字服“2017”来了！1月6日12：00开服！叫上基友们一起冲刺新服还有好礼送呦~</li>
+					<li><h1>活动规则</h1></li>
+					<li><span>1</span>此活动只针对新服“2017”的玩家开放。参与活动登录时，第一次需要绑定角色，绑定后不可更改。</li>
+					<li class="tip">注：一个角色只能由一个帐号绑定参与活动，如若角色在交易前已绑定参与此活动则无法再次绑定该角色参与活动。</li>
+					<li><span>2</span>玩家可以选择发起组队或者加入别人的队伍，但是每位玩家只能在一个队伍中。</li>
+					<li class="tip">发起组队规则:</li>
+					<li class="tip">1）发起组队的玩家需填写新服宣言，语言必须文明。审核通过的新服宣言将会在前台展示，不通过的则会显示默认新服宣言。宣言提交之后不可更改。</li>
+					<li class="tip">2）发起组队的玩家在队伍中没有队员的情况下还可以向其他的队伍发出加入的申请，申请通过之后该玩家担任队长的队伍自动解散。</li>
+					<li class="tip">3）队长通过其他玩家加入队伍申请后之前发出的申请默认取消。</li>
+					<li class="tip">4）队长同意其他玩家的加入队伍申请之后不可撤销。</li>
+					<li class="tip">申请加入队伍规则：</li>
+					<li class="tip">1）加入队伍需填写新服宣言，语言必须文明。审核通过的新服宣言将会在前台展示，不通过的则会显示默认新服宣言。宣言提交之后不可更改。</li>
+					<li class="tip">2）玩家在没有加入队伍时可以向多个队伍发出申请，但不得超过20次。</li>
+					<li class="tip">3）队长通过申请后，其他队伍队长不可再进行通过。队员也不可退出队伍。</li>
+					<li><span>3</span>玩家队伍满足五人后，队伍平均等级、道行达到一定程度可在页面上领取奖励。</li>
+					<li><span>4</span>玩家在队伍中，同时个人等级、道行达到一定程度也可在页面上领取奖励。</li>
+					<li class="tip">注：本页面的等级、道行情况相对于游戏内实际情况稍有延迟，请各位玩家耐心等候。</li>
+					<li><span>5</span>每位玩家只能有一个帐号参与活动。活动结束后，将会进行核实。如有违反，则只发放所获得奖励总价值最高帐号下的奖励。</li>
+					<li class="tip">注：活动最终解释权由光宇在线科技有限责任公司所有。</li>
+				</ul>
+			</div>
+		</div>
+		<!--申请入队-->
+		<div class="wd_tc" id="wd_tc_rd">
+			<div class="wd_tc_rd">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<div>
+					<a href="javascript:;" class="sure js_toteam"></a>
+					<a href="javascript:;" class="cancle js_wdclose"></a>
+				</div>
+			</div>
+		</div>
+		<!--无申请资格-->
+		<div class="wd_tc" id="wd_tc_wzg">
+			<div class="wd_tc_wzg">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+			</div>
+		</div>
+		<!--申请入队宣言--> 
+		<div class="wd_tc" id="wd_tc_rdxy">
+			<div class="wd_tc_rdxy">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<div class="xy">
+					<h1><label>队长：</label><span id="tname"></span></h1>
+					<h1><label>申请入队宣言：</label></h1>
+					<textarea class="js_texts"></textarea>
+					<p class="shstatus"></p>
+				</div>
+				<div class="an">
+					<a href="javascript:;" class="sure js_saveTeam"></a>
+					<a href="javascript:;" class="cancle js_wdclose"></a>
+				</div>
+			</div>
+		</div>
+		<!--我的入队申请-->
+		<div class="wd_tc" id="wd_tc_wdsq">
+			<div class="wd_tc_wdsq">
+				<a href="javascript:;" class="wdclose js_wdclose"></a>
+				<h1>您还可申请：<span></span>次</h1>
+				<ul class="ul1">
+					<li>队长</li>
+					<li>等级</li>
+					<li>道行</li>
+					<li class="li3">队长新服宣言</li>
+					<li></li>
+				</ul>
+				<div class="myapplylist">
+				</div>
+			</div>
+		</div>
+		<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+	</body>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdlookfriends/js/lineFeed.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdlookfriends/js/jquery.ajaxpage-2.2.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdlookfriends/js/login.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdlookfriends/js/list.js" ></script>
+</html>

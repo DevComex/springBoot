@@ -1,0 +1,9 @@
+<div class="COS_VerificationCode">
+    <span>验证码：</span>
+    <input class="yzm" type="text" name="veCode" placeholder="请输入下图验证码"/>   
+    <div>                    
+        <img src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=2374" id="code_pic" class="COS_VerificationCode_yzm"/>
+        <a class="COS_VerificationCode_word" id="check_code" >看不清，换一张</a>  
+    </div>                     
+    <span class="COS_VerificationCode_zm">作品一经上传，则默认上传作者同意光宇游戏通过合法途径对作品进行使用</span>
+</div>

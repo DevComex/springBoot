@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>“问道”才艺比拼</title>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wdTalent/css/main.css" />
+    <script  type="text/javascript">
+    	var rc = "${rc.contextPath}";
+ 	</script>
+    <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?c95fd8c40d269cbe110500c1f792836c";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wrap">
+        <div class="main clear">
+            <div class="nav">
+                <a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm" class="on">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+            </div>
+            <div class="time clear">活动时间：4月7日—4月30日</div>
+            <div class="index_btn_con">
+                <a href="${rc.contextPath}/wdTalent/list?type=qianming" class="qz_btn"></a>
+                <a href="${rc.contextPath}/wdTalent/list?type=huihua" class="hh_btn"></a>
+                <a href="${rc.contextPath}/wdTalent/list?type=shougong" class="diy_btn"></a>
+                <a href="${rc.contextPath}/wdTalent/list?type=shufa" class="sf_btn"></a>
+                <a href="${rc.contextPath}/wdTalent/list?type=cosplay" class="cosplay_btn"></a>
+                <a href="${rc.contextPath}/wdTalent/info" class="join_btn"></a>
+            </div>
+        </div>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+
+</body>
+</html>

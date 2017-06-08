@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>《灵魂战神》官网-抢激活码</title>
+<link type="text/css" href="http://static.cn114.cn/action/LHZSActivityCode/css/sm150806.css" rel="stylesheet" />
+<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=webgame"></script>
+<style>
+.pop_mask {width: 100%;background: #000;opacity: 0.5;filter: alpha(opacity=50);position: fixed;left: 0;top: 0;z-index: 1000;}
+
+</style>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?137b06090c00b7fe9b9aa8fb34964d2a";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</head>
+
+<body>
+<!--搜索及导航begin-->
+        <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+
+    <!--logo&搜索 begin-->
+
+<!--导航-->
+<div class="jhm_nav">
+	<div class="main clear"><a href="http://actionv2.gyyx.cn/LHZS/step1Index" class="on"><i>01</i><span><em>STEP</em><br />抢激活码</span></a><a href="http://actionv2.gyyx.cn/LHZS/step2Index"><i>02</i><span><em>STEP</em><br />激活游戏</span></a><a href="http://actionv2.gyyx.cn/LHZS/step3Index"><i>03</i><span><em>STEP</em><br />激活状态</span></a><a href="http://sm.gyyx.cn/download/download.shtml"><i>04</i><span><em>STEP</em><br />下载游戏</span></a></div>
+</div><!--导航 end-->
+<div class="bg1">
+	<div class="main">
+		<div class="game_login">
+			<!-- 登陆前 -->
+			<div class="game_fail" style="display: none;">抽奖前请先 <a href="#" class="game_col">[登录]</a></div>
+			<!-- 登陆后 -->
+			<div class="game_sucs">欢迎您：chfff4 <a href="#">[注销]</a><br>剩余抽奖次数：<span class="game_col">3</span></div>
+		</div>
+		<div class="jhm_cont clear">
+			<div class="jhm_left">
+				<h2>我的激活码</h2>
+				<input class="jhm" type="text" id="js_jhm"/>
+				<h2>活动说明</h2>
+				<p><span>-</span>参与活动之前必须先进行账号登录。如果您还没有光宇账号，请进入<a href="http://account.gyyx.cn/Member/Register" target="_blank">注册账号</a>页面进行账号注册。</p>
+				<p><span>-</span>每个光宇账号每天只有3次抽取激活码的机会。</p>
+				<p><span>-</span>每个光宇账号只能获得一个激活码，成功获得激活码后将无法再次获得。</p>
+				<p><span>-</span>激活码在有效期内不使用将会作废。如果您成功获得激活码，请您尽快至<a href="http://actionv2.gyyx.cn/LHZS/step2Index">激活游戏页</a>面进行账号激活。</p>
+				<p><span>-</span>本活动最终解释权归光宇在线所有</p>
+			</div>
+			<div class="jhm_right">
+				<h3>幸运大转盘，抽取激活码</h3>
+				<div class="zpbg js_zpbg">
+				   <a class="start" href="javascript:;" id="js_start" style="text-indent: -4000px;" data-state="yes">go</a>
+          			<div class="js_img zp0" id="dzp0"></div>
+          			<div class="js_img zp1 " id="dzp1"></div>
+          			<div class="js_img zp2" id="dzp2"></div>
+          			<div class="js_img zp3" id="dzp3"></div>
+          			<div class="js_img zp4" id="dzp4"></div>
+          			<div class="js_img zp5" id="dzp5"></div>
+        		</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- 弹出层 -->
+<div class="popup_con js_tcstprize" id="virtualPrize" style="display:none;z-index:1001">
+	<h2 class="tit tc_tit js_title">恭喜您获得激活码</h2>
+    <a class="close js_tcclose js_getjf" href="javascript:;">关闭</a>
+    <div class="con tc_cont">
+        <p class="js_prizes">5487-6287-5894-2351</p>
+    </div>
+</div>
+
+<div class="pop_mask"></div>
+<!-- <script type="text/javascript" src="http://static.cn114.cn/action/jswstower/js/Lottery.js"></script> -->
+<script>
+$(function(){
+var Defaults = {
+        /*==================参数说明=========================*/
+        /* LoginStatusAjaxUrl 判断是否登录接口               */
+        /*===================================================*/
+        LoginStatusAjaxUrl: "http://reg.gyyx.cn/Login/Status",
+        GetIntegralUrl: "http://actionv2.gyyx.cn/LHZS/step1"
+    };
+ 
+ //判断是否登录
+ function checkLogin(fn) {
+        $.ajax({
+            url: Defaults.LoginStatusAjaxUrl,
+            type: "GET",
+            dataType: "jsonp",
+            jsonp: "jsoncallback",
+            data: { r: Math.random() },
+            success: function (d) {
+                if (d.IsLogin) {
+                    if (fn.success) {
+                        fn.success(d);
+                    }
+                } else {
+                    if (fn.failed) {
+                        fn.failed(d);
+                    }
+                }
+            }
+        });
+    }
+  checkLogin({
+                success: function (d) {
+                    $(".game_fail").hide();
+                    $(".game_sucs").show();
+                    var temp = "$!{lotteryNum}";
+                    var temp2 = "$!{account}";
+                    $(".game_sucs").empty().html('<p style="text-align: center;">欢迎您：<strong>'+ temp2 +'</strong> <a class="js_Logout">[注销]</a><br />剩余抽奖次数：<span class="game_col js_temp">'+  temp +'</span></p>');
+                },
+                failed: function () {
+                    $(".game_fail").show();
+                    $(".game_sucs").hide();
+                    $(".game_fail").empty().html('<p> 抽奖前请先 <a class="game_col" onclick="alertFn(null,null,true); return false;">[登录]</a></span></p>');
+                  $(".js_zpbg a").click(function () { 
+					    alertFn(null, null, true);
+					});
+                }
+            });
+//抽奖
+    $("#js_start").bind("click", function () {
+  checkLogin({
+                success: function (d) {
+                 $(document).rotate({
+				ajaxUrl:Defaults.GetIntegralUrl
+			});
+                },
+                failed: function () {
+                   alertFn(null, null, true);
+                }
+            });
+       
+});
+
+$.fn.extend({
+    rotate: function (option) {
+
+        /* --------------------------------插件参数说明start--------------------------------------------------- */
+        /* Btn：抽奖按钮                                                                                        */
+        /* prizeObj：奖品统一的class名用来遍历                                                                  */
+        /* prizeClass：奖品展示选中样式                                                                         */
+        /* BtnStateYes：标识抽奖按钮可用                                                                        */
+        /* BtnStateNo：标识抽奖按钮不可用                                                                       */
+        /* BtnAttr：按钮属性值用来和按钮可用和不可用状态对比来确定是否允许抽奖；(^_^)除了全局变量可以这么做的哦 */
+        /* num:动画执行次数                                                                                     */
+        /* -------------------------------插件参数说明end------------------------------------------------------ */
+
+        var defaults = {
+            Btn: "#js_start",
+            prizeObj: "js_img",
+            prizeClass: "zp",
+            BtnStateYes: "yes",
+            BtnStateNo: "no",
+            BtnAttr: "data-state",
+            num: 2,
+            ajaxUrl: "http://actionv2.gyyx.cn/LHZS/step1",
+            ajaxData: {
+              
+            }
+        };
+        $.extend(defaults, option);
+
+        $.extend(defaults.ajaxData, { r: Math.random() });  //参数扩展随机数
+
+        var roundNum = defaults.num;
+        var timer;
+        var i=0;
+        var k = 0;
+        var stop=0;
+
+        if ($(defaults.Btn).attr(defaults.BtnAttr) == defaults.BtnStateYes) {
+
+            $(defaults.Btn).attr(defaults.BtnAttr,defaults.BtnStateNo);
+
+            $.ajax({
+                url:defaults.ajaxUrl,
+                type:"GET",
+                dataType:"JSON",
+                data:defaults.ajaxData,
+                success: function (result) {
+                    resultFn(result, defaults);
+                    //alert(result.lotteryNum + "hhh");
+                    $(".js_temp").html(result.lotteryNum);
+                }
+            });
+        }
+        //中奖函数
+        function resultFn(result, defaults) {
+            if (result != null) {
+                if (alertFunc(result, defaults)) {
+                    turnFn(result, defaults);
+                    
+                }
+            }
+        }
+        //间隔调用
+        function turnFn(result, defaults) {
+      
+          timer = setInterval(function () { animateFn(result.resultBean.message,result.resultBean.data, result.resultBean.message, defaults); }, 50);
+		
+        }
+//提示没有资格抽奖
+function alertFunc(result,defaults) {
+    if (!result.resultBean.isSuccess) {//已经抽中激活码
+        if(result.resultBean.message == "alreadyHas"){
+        //激活码显示在输入框中
+           $("#js_jhm").val(result.resultBean.data);
+           alert("您已经获得激活码！");  
+        }else if(result.resultBean.message == "noActivityCode"){
+        alert("激活码发放完毕！");
+        } else{
+            $("#js_jhm").val()   
+       		 alert(result.resultBean.data)
+        }
+		$(defaults.Btn).attr(defaults.BtnAttr, defaults.BtnStateYes);
+        return false;
+    }else {
+        return true;
+    }
+}
+//中奖信息
+function winPrizeFn(point, prizeName, message, defaults) {
+point=parseInt(point);
+    switch (point) {
+        case 0:
+ $(".js_prizes").text(prizeName);
+            showWindows($(".js_tcstprize"), $(".js_tcstprize"), $(".js_tcclose"));
+            break;
+        case 1:
+        
+ $(".js_prizes").text("谢谢参与");
+ $(".js_title").text("很遗憾，请再试一次");
+            showWindows($(".js_tcstprize"), $(".js_tcstprize"), $(".js_tcclose"));
+            
+            break;
+        case 2:
+ $(".js_prizes").text(prizeName);
+ 
+            showWindows($(".js_tcstprize"), $(".js_tcstprize"), $(".js_tcclose"));
+            break;
+        case 4:
+ $(".js_prizes").text(prizeName);
+            showWindows($(".js_tcstprize"), $(".js_tcstprize"), $(".js_tcclose"));
+            break;
+        case 3:
+        
+ $(".js_title").text("恭喜您获得激活码");
+ $(".js_prizes").text(prizeName);
+		    $("#js_jhm").val(prizeName) 
+            showWindows($(".js_tcstprize"), $(".js_tcstprize"), $(".js_tcclose"));
+              
+            break;
+        case 5:
+ $(".js_prizes").html(prizeName);
+            showWindows($(".js_tcstprize"), $(".js_tcstprize"), $(".js_tcclose"));
+            break;
+    }
+    $(defaults.Btn).attr(defaults.BtnAttr, defaults.BtnStateYes);
+}
+
+        //执行动画
+        function animateFn(point, prizeName, message, defaults) {
+            var prizeLen = $("."+defaults.prizeObj).length; 
+            k = i == 0 ? prizeLen - 1 : i - 1;
+
+            $("." + defaults.prizeClass + i).addClass(defaults.prizeClass + i + "_" + i);
+            $("." + defaults.prizeClass + k).removeClass(defaults.prizeClass + k + "_" + k);
+            i++;
+            stop = i;
+               
+            if (i == prizeLen) {
+                roundNum--;
+                i = 0;
+                stop = prizeLen;
+            }
+            if (stop - 1 == point && roundNum == 0) {
+
+                clearInterval(timer);
+                //中奖后各变量初始化
+                roundNum = defaults.num;
+                i = 0;
+                k = 0;
+
+                //中奖图片位置
+                winPrizeFn(point, prizeName, message, defaults);
+             
+            }
+
+        }
+     //弹层方法
+    function showWindows(win, content, winClose) {
+        $(win).show();
+        var winwidth = $(window).width();
+        var thisleft = (winwidth / 2 - $(content).width() / 2) - 100;
+        var thistop = $(window).height() / 2 - $(content).height() / 2 + $(window).scrollTop();
+        var bodyheight = Math.max($(document.body).outerHeight(true), $(window).height());
+        $(".pop_mask").css("height", bodyheight).show();
+        $(content).css({ 'left': thisleft, 'top': thistop });
+       
+        //关闭按钮
+        $(winClose).bind("click", function () {
+        // window.location.reload();
+            $(win).hide();
+            $(".pop_mask").hide(); return false;
+            checkLogin({
+                success: function (d) {
+                    $(".game_fail").hide();
+                    $(".game_sucs").show();
+                    var temp = "$!{lotteryNum}";
+                    var temp2 = "$!{account}";
+                    $(".game_sucs").empty().html('<p style="text-align: center;">欢迎您：<strong>'+ temp2 +'</strong> <a class="js_Logout">[注销]</a><br>剩余抽奖次数：<span class="game_col">'+  temp +'</span></p>');
+                },
+                failed: function () {
+                    $(".game_fail").show();
+                    $(".game_sucs").hide();
+                    $(".game_fail").empty().html('<p> 抽奖前请先 <a class="game_col" onclick="alertFn(null,null,true); return false;">[登录]</a></span></p>');
+                  $(".js_zpbg a").click(function () { 
+					    alertFn(null, null, true);
+					});
+                }
+            });
+        });
+    }
+    
+    }
+    
+});
+})
+</script>
+ <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+
+</body>
+</html>

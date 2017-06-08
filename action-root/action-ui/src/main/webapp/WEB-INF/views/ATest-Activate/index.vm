@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head></head>
+<style>
+.word{width:100px;margin:0px}
+</style>
+<body>
+<form action="${rc.contextPath}/ActivateAccount/test">
+  <p class="word"><b>gameID:</b></p><input type="text" id="gameId" name="gameId"/>
+  <p class="word"><b>serverId:</b></p><input type="text" id="serverId" name="serverId"/>
+  <p class="word"><b>account:</b></p><input type="text" id="account" name="account"/><br/>
+  <p class="word"><b>GamePwd:</b></p><input type="text" id="gamePwd" name="gamePwd"/><br/>
+  <p class="word"><b>Ip:</b></p><input type="text" id="ip" name="ip"/><br/>
+  <p class="word"><b>ActiveCode:</b></p><input type="text" id="activeCode" name="activeCode"/><br/>
+  <input type="submit" id="submit" value="提交"/><br/>
+</form>
+
+
+<p>
+
+<br/><font color="red"><b>结果：</b></font><br/>
+<b>是否成功：</b>$!{result.isSuccess}<br/>
+<b>返回信息：</b>$!{result.message}<br/>
+<b>接口返回信息：</b>$!{result.data.get(0)}<br/>
+<b>返回错误类型：</b>$!{result.data.get(1)}<br/>
+<b>接口用时：</b>$!{time}/ms
+</p>
+
+
+</body>
+</html>

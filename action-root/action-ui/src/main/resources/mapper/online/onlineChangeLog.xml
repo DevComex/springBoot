@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.online.IOnlineChangeLogMapper">
+
+	<resultMap type="OnlineChangeLogBean" id="OnlineChangeLogMap">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="yuanbao" property="yuanbao" />
+		<result column="gyyx_currency" property="gyyxCurrency" />
+		<result column="change_time" property="changeTime" />
+	</resultMap>
+	<select id="selectonlineChangeLog" parameterType="String" resultMap="OnlineChangeLogMap">
+		select * from online_change_log where account = #{account}
+	</select>
+	<insert id="addOnlineChangeLog" parameterType="OnlineChangeLogBean">
+		insert into online_change_log (account,yuanbao,gyyx_currency,change_time) 
+		values(#{account},#{yuanbao},#{gyyxCurrency},#{changeTime})
+	</insert>
+</mapper>

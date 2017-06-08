@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Layout:luochongfei" />
+    <title>签到奖励</title>
+
+    <link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+    
+    
+    <script src="${rc.contextPath}/resources/script/swfupload.js" type="text/javascript"></script>
+    <script src="${rc.contextPath}/resources/script/SWFInitialize.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/SWFInitializes.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/videoHandlers.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/VideoUpload.js" type="text/javascript" ></script>
+    
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+                        <header class="header bg-white b-b clearfix">
+                            <div class="">
+                                <div class="col-sm-2 m-b-xs">
+                                    <h4 class="m-t bold"></h4>
+									<span class="input-group-btn">
+    									<a class="btn btn-sm btn-dark js_add_signPrize" href="#addSignPrize" data-toggle="modal">添加奖励</a>
+                                    </span>
+                                </div>
+                            </div>
+                        </header>
+                        <!--顶部标题导航 end-->
+
+                        <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <div class="m-b-md">
+                            </div>
+                            <!--数据表格  begin -->
+							<input type="hidden" id="hiddenType" value="" />
+                            <section class="panel panel-default" style="height:750px">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            <tr>
+                                                <th>奖励编号</th>
+                                                <th>奖励名称</th>
+                                                <th>奖励图片</th>
+                                                <th>奖励类型</th>
+                                                <th>奖励性别</th>
+												<th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+											#foreach($!signPrize in $!signPrizeList)
+                                            <tr>
+                                                <td>$!signPrize.prizeCode</td>
+                                                <td>$!signPrize.prizeName</td>
+                                                <td><a target="_blank" href="$!signPrize.prizePhoto">$!signPrize.prizePhoto</a></td>
+												<td>
+													#if($!signPrize.prizeType == "twoDaysReward")
+														签到两天奖励
+													#elseif($!signPrize.prizeType == "fiveDaysReward")
+														签到五天奖励
+													#elseif($!signPrize.prizeType == "tenDaysReward")
+														签到十天奖励
+													#elseif($!signPrize.prizeType == "fifteenDaysReward")
+														签到十五天奖励
+													#elseif($!signPrize.prizeType == "allDaysReward")
+														签到满勤奖励
+													#else
+														$!signPrize.prizeType
+													#end
+												</td>
+                                                <td>
+													#if($!signPrize.prizeSex == "无")
+														不区分性别
+													#else
+														$!signPrize.prizeSex
+													#end
+												</td>
+												<td>
+													<a class="btn btn-xs btn-info js_edit" code="$!signPrize.code" href="#updateSignPrize" data-title="编辑" data-toggle="modal" title="编辑">
+                                                        <i class="fa fa-edit"></i>
+                                                    </a>
+													<a title="" code="$!signPrize.code" class="btn btn-xs btn-danger js_del" href="javascript:void(0)" data-title="删除" data-toggle="tooltip" data-original-title=""><i class="fa fa-times"></i></a>
+												</td>
+                                            </tr>
+											#end
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </section>
+                            <!--数据表格  end -->
+                        <!--主体内容 end-->
+					
+	
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+
+    <!--添加域名弹层 begin-->
+<div class="modal fade" id="addSignPrize">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h6 class="modal-title" style="display:inline-block">增加奖励</h6>
+            </div>
+
+            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+
+            <div class="modal-body">
+                <form id="addSignPrice" action="addSignPrice" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" style="text-align:center;">奖励编号:</label>
+
+                        <div class="col-sm-6">
+                            <input id="prizeCode" name="prizeCode" class="form-control" style="width:350px;" value="" maxlength="300"/>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <label class="col-sm-3 control-label" style="text-align:center;">奖励名称:</label>
+
+                        <div class="col-sm-6">
+                            <input id="prizeName" name="prizeName" class="form-control" style="width:350px;" value="" maxlength="300"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" style="text-align:center;font-size:10pt">发奖邮件内容：</label>
+                        <div class="col-sm-6">
+                        	<textarea id="mailContent" name="mailContent" class="form-control" rows="5" style="width:350px;" maxlength="200"></textarea>
+                       </div>
+                    </div>
+					<div class="form-group">
+                        <label class="col-sm-3 control-label" style="text-align:center;">图片链接:</label>
+
+                        <div class="col-sm-6 uploadimg">
+                        
+                        
+                        <input type="button" id="btnUpload" class="upload" onclick="swfu.selectFile(); this.blur(); " value="上传视频截图" />
+                        <input type="hidden" id="hid_addImgUrl" name="hid_addImgUrl" />
+                        <input type="hidden" id="hid_addthumbImgUrl" name="hid_addthumbImgUrl" />
+                        
+                        <span style="width:80%; display: block; text-align: left;"><img class="titleimgs_add" id="addImg" src="http://static.cn114.cn/action/xuanwuba/images/xwb150623_zj_pic01.jpg" width=300 height=200 ></span>             
+                        
+                            <input id="prizePhoto" name="prizePhoto" class="form-control" style="width:350px;" value="" maxlength="300" type="hidden"/>
+                        </div>
+                    </div>
+					<div class="form-group"><label class="col-sm-3 control-label" style="text-align:center;">奖励类型:</label>
+						<div class="col-sm-9">
+							<select class="input-sm-9 form-control prizeType" id="prizeType" name="prizeType" style="width: 350px">
+								<option value="twoDaysReward">签到两天奖励</option>
+								<option value="fiveDaysReward">签到五天奖励</option>
+								<option value="tenDaysReward">签到十天奖励</option>
+								<option value="fifteenDaysReward">签到十五天奖励</option>
+								<option value="allDaysReward">签到满勤奖励</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group"><label class="col-sm-3 control-label" style="text-align:center;">奖励性别:</label>
+						<div class="col-sm-9">
+							<select class="input-sm-9 form-control prizeSex" id="prizeSex" name="prizeSex" style="width: 350px">
+								<option value="无">不区分性别</option>
+								<option value="男">男</option>
+								<option value="女">女</option>
+							</select>
+						</div>
+					</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info js_add_task">确定</button>
+                        <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">返回</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+
+    <!-- /.modal-dialog -->
+</div>
+    <!--添加域名弹层 begin-->
+
+    <!--编辑域名弹层 begin-->
+<div class="modal fade" id="updateSignPrize">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="height:60px;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h6 class="modal-title">修改</h6>
+            </div>
+            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+
+            <div class="modal-body">
+                <form id="editSignPrice" action="modifySignPrice" class="form-horizontal" method="post">
+					<input type="hidden" id="codeU" name="code" class="form-control" style="width:350px;" value="" maxlength="300"/>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" style="text-align:center;">奖励编号:</label>
+
+                        <div class="col-sm-6">
+                            <input id="prizeCodeU" name="prizeCode" class="form-control" style="width:350px;" value="" maxlength="300"/>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <label class="col-sm-3 control-label" style="text-align:center;">奖励名称:</label>
+
+                        <div class="col-sm-6">
+                            <input id="prizeNameU" name="prizeName" class="form-control" style="width:350px;" value="" maxlength="300"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" style="text-align:center;">发奖邮件内容：</label>
+                        <div class="col-sm-6">
+                        	<textarea id="mailContentU" name="mailContent" class="form-control" rows="5" style="width:350px;" maxlength="200"></textarea>
+                       </div>
+                    </div>
+					<div class="form-group">
+                        <label class="col-sm-3 control-label" style="text-align:center;">图片链接:</label>
+
+                        <div class="col-sm-6">
+                         <input type="button" id="btnUploads" class="upload" onclick="swfus.selectFile(); this.blur(); " value="上传视频截图" />
+                        <span style="width:80%; display: block; text-align: left;"><img class="titleimgs_add" id="addImgs" src="${rc.contextPath}/resources/images/testimg01.jpg" width=300 height=200 ></span>
+                            <input id="prizePhotoU" name="prizePhoto" class="form-control" style="width:350px;" value="" maxlength="300" type="hidden"/>
+                        </div>
+                    </div>
+					<div class="form-group"><label class="col-sm-3 control-label" style="text-align:center;">奖励类型:</label>
+						<div class="col-sm-9">
+							<select class="input-sm-9 form-control prizeType" id="prizeTypeU" name="prizeType" style="width: 350px">
+								<option value="twoDaysReward">签到两天奖励</option>
+								<option value="fiveDaysReward">签到五天奖励</option>
+								<option value="tenDaysReward">签到十天奖励</option>
+								<option value="fifteenDaysReward">签到十五天奖励</option>
+								<option value="allDaysReward">签到满勤奖励</option>
+							</select>
+						</div>
+					</div>
+					<div class="form-group"><label class="col-sm-3 control-label" style="text-align:center;">奖励性别:</label>
+						<div class="col-sm-9">
+							<select class="input-sm-9 form-control prizeSex" id="prizeSexU" name="prizeSex" style="width: 350px">
+								<option value="无">不区分性别</option>
+								<option value="男">男</option>
+								<option value="女">女</option>
+							</select>
+						</div>
+					</div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info js_edit_task">确定</button>
+                        <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">返回</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+
+    <!-- /.modal-dialog -->
+</div>
+    <!--编辑域名弹层 end-->
+
+
+<script>
+		$(function(){
+			$(".js_add_task").click(function(){
+				if($.trim($("#prizeCode").val())==""){
+					alert("奖励编号不能为空!");
+				}
+				else if($.trim($("#prizeName").val())==""){
+					alert("奖励名称不能为空!");
+				}
+				else if($.trim($("#mailContent").val())==""){
+					alert("发奖邮件内容不能为空!");
+				}
+				else if($.trim($("#prizePhoto").val())==""){
+					alert("图片链接不能为空!");
+				}
+				else if(isNaN($("#prizeCode").val())){
+					alert("奖励编号只能为数字!");
+				}
+				else if($("#prizeCode").val() < 0){
+					alert("奖励编号不能是负数!");
+				}
+				else{
+					$.ajax
+					({
+						url:'getPrizeCountByType',
+						type:'get',
+						data:{prizeType:$("#prizeType").val(),sex:$("#prizeSex").val(),r:Math.random()},
+						dataType:'json',
+						success:function(data){
+							if(data == 2){
+								alert("每种类型的奖励最多有两种(不区分男女)!");
+							}else{
+								$("#addSignPrice").submit();
+							}
+						},
+						error:function(){
+							alert("网络连接超时!");
+						}
+					})
+				}
+			})
+			
+			$(".js_edit_task").click(function(){
+				var type = $("#hiddenType").val();
+				
+				if($.trim($("#prizeCodeU").val())==""){
+					alert("奖励编号不能为空!");
+				}
+				else if($.trim($("#prizeNameU").val())==""){
+					alert("奖励名称不能为空!");
+				}
+				else if($.trim($("#mailContentU").val())==""){
+					alert("发奖邮件内容不能为空!");
+				}
+				else if($.trim($("#prizePhotoU").val())==""){
+					alert("图片链接不能为空!");
+				}
+				else if(isNaN($("#prizeCodeU").val())){
+					alert("奖励编号只能为数字!");
+				}
+				else if($("#prizeCodeU").val() < 0){
+					alert("奖励编号不能是负数!");
+				}
+				else{
+				
+					$.ajax
+					({
+						url:'getPrizeCountByType',
+						type:'get',
+						data:{prizeType:$("#prizeTypeU").val(),sex:$("#prizeSexU").val(),r:Math.random()},
+						dataType:'json',
+						success:function(data){
+							if(data == 2 && type != $("#prizeTypeU").val()){
+								alert("每种类型的奖励最多有两种(不区分男女)!");
+							}else{
+								$("#editSignPrice").submit();
+							}
+						},
+						error:function(){
+							alert("网络连接超时!");
+						}
+					})
+				}
+			})
+		
+			$(".js_edit").click(function(){
+				var code = $(this).attr("code");
+				$.ajax
+				({
+					url:"getSignPrizeByCode",
+					type:"GET",
+					data:{code:code,r:Math.random()},
+					dataType:"JSON",
+					success:function(data){
+						$("#codeU").val(data.code);
+						$("#prizeCodeU").val(data.prizeCode);
+						$("#prizeNameU").val(data.prizeName);
+						$("#mailContentU").val(data.mailContent);
+						$("#prizePhotoU").val(data.prizePhoto);
+						$(".titleimgs_add").attr("src",data.prizePhoto)
+						$("#prizeTypeU").val(data.prizeType);
+						$("#hiddenType").val(data.prizeType);
+						$("#prizeSexU").val(data.prizeSex);
+					}
+				})
+			})
+			$(".js_clkupimg").click(function(){
+				$("#SWFUpload_0").trigger("click");
+			});
+			$(".js_del").click(function(){
+				var code = $(this).attr("code");
+				if(confirm("确认删除?")){
+					window.location.href="deleteSignPrice?code="+code;
+				}
+			})
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wechat.IWechatSendPresentLogMapper">
+	<resultMap id="WechatPresentLogMap" type="WechatPresentLogBean">
+		<id column="code" property="code" />
+		<result column="activity_id" property="activityId" />
+		<result column="source" property="source" />
+		<result column="source_code" property="sourceCode" />
+		<result column="account" property="account" />
+		<result column="game_id" property="gameId" />
+		<result column="server_id" property="serverId" />
+		<result column="server_name" property="serverName" />
+		<result column="present_type" property="presentType" />
+		<result column="present_name" property="presentName" />
+		<result column="draw_time" property="drawTime" />
+		<result column="draw_ip" property="drawIp" />
+		<result column="available" property="available" />
+		<result column="remark" property="remark" />
+	</resultMap>
+	
+	
+	<select id="getLotteryPrizeCount" parameterType="WechatPresentLogBean" resultType="Integer">
+		SELECT COUNT(*) FROM [hd_send_present_log] WHERE [present_name] LIKE CONCAT('${presentName}','%' ) AND [activity_id] = #{activityId}
+	</select>
+</mapper>

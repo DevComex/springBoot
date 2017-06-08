@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>《问道》挑战“新世界”活动</title>
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/png.js"></script>
+
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/common.js"></script><!-- 公用head -->
+
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/share.js"></script>
+<link href="http://static.cn114.cn/action/challenger/css/reset.css" rel="stylesheet" /> 
+<link href="http://static.cn114.cn/action/challenger/css/popup.css" rel="stylesheet" /> <!-- 报名弹层 -->
+<link href="http://static.cn114.cn/action/challenger/css/index.css" rel="stylesheet" />  <!--首页小导航分享 -->
+<link href="http://static.cn114.cn/action/challenger/css/commonTop.css" rel="stylesheet" />  <!-- 公用head -->
+<link rel="stylesheet" href="http://static.cn114.cn/action/challenger/css/style_hjh.css" />
+</head>
+<script>
+	var rc="${rc.contextPath}";
+	$(function(){
+		$(".navList").find("a").removeClass("active");
+		$("#navList_team").addClass("active");
+		
+		$(".navTab ul a").removeClass("active");
+		$(".navTab .myTeam_zzl").addClass("active");
+	});
+</script>
+<body>
+    <!-- 社区公用头部-->
+      <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+	#parse("challenger/challengerHeader.vm")
+
+    <!--  以下是自己的内容页面  -->
+  <div class="background">
+      
+      #if($!team_msg ==  "") 
+      	 #if($!is_leader ==  "Y") 
+	        <div class="teamMsgC teamBox">
+	          <div class="teamName">
+	            <p>队伍名称：<span id="js_TeamName">$!teamInfo.teamName</p>
+	          </div>
+	          <div class="teamInfoC">
+	            <p>队伍联系方式：<span id="js_teamTell">$!{teamInfo.contactType}-$!teamInfo.contactName</span></p>
+	            <p>目标：<span id="js_mubiao">$!teamInfo.target</span></p>
+	            <p>宣言：<span id="js_xuanyan">$!teamInfo.declaration</span></p>
+	          </div>
+	        </div>
+	        <div class="teamPeople teamBox">
+	          <div class="teamName">
+	            <p>我的队伍信息</p>
+            	<div style="float: right;margin-top: -30px;margin-right: 15px;" class="js-share-btn" data-sharCon="我正在参与《问道》挑战“新世界”活动，我的队友，你们在哪里？别忘了，7.22我在 “二〇一六”与你有约 ！">
+              	   <input id="source" name="index" value="contingent" type="hidden">
+              	   <input id="sourceSrcUrl" name="index" value="$!sourceSrcUrl" type="hidden">
+                   <a class="shar_wb" target="_self" href="javascript:void(0)" data-sharename="tqq"></a>
+                   <a class="shar_kj" target="_self" href="javascript:void(0)" data-sharename="qzone"></a>
+                 </div>
+	          </div>
+	          <div class="teamTell">
+	          	<ul class="teamTellTit">
+	              <li>队友</li>
+	              <li>联系方式</li>
+	              <li>队友</li>
+	              <li>联系方式</li>
+	            </ul>
+	            <ul class="teamTellInfo">
+	              #foreach( $obj in $member_list )
+	              	<li><span>$!{obj.roleName}</span><span>$!{obj.contactType}-$!{obj.contact}</span></li>
+	              #end 
+	            </ul>
+	          </div>
+	        </div>
+	        <div class="teamJoin teamBox">
+	          <div class="teamName">
+	            <p>申请加入的玩家</p>
+	          </div>
+	          <div class="joinPlayer">
+	            <table>
+	              <tr>
+	                <th>申请角色名</th>
+	                <th>联系方式</th>
+	                <th id="lastTh">操作</th>
+	              </tr>
+	              #foreach( $obj in $apply_list )
+		              <tr>
+		                <td>$!{obj.roleName}</td>
+		                <td>$!{obj.contact}</td>
+		                <td><input type="hidden" name="applyCode" value="$!{obj.code}"/><a class="join js_join"></a><a class="pass js_pass"></a></td>
+		              </tr>
+	              #end 
+	            </table>
+	          </div>
+	        </div>
+	        <div class="temp"></div>
+	       #elseif($!is_leader ==  "N") 
+	       	<div class="teamBox">
+				<div class="teamName">
+					<p>队伍名称：<span id="js_teamName">$!teamInfo.teamName</span></p>
+                    
+				</div>
+				<div class="teamInfo">
+                    <p class="nor">队长：<span>$!teamInfo.roleName</span></p>
+                    <p class="nor">队伍联系方式：<span>$!{teamInfo.contactType}-$!teamInfo.contactName</span></p>
+                    <p class="nor">目标：<span>$!teamInfo.target</span></p>
+                    <p class="nor">宣言：<span>$!teamInfo.declaration</span></p>
+                    <p class="nor">成员：<span>$!teamInfo.teamMember</span></p>
+				</div>
+			</div>
+	       #end 
+	    #elseif($!team_msg ==  "noTeam") 
+	    	<div class="teamMsgC teamBox">
+		    	<div class="teamName">
+					<p>当前状态</p>
+				</div>
+				<div class="teamInfo">
+					<p class="nor"><b>您还未有队伍，请前往</b></p>
+	                <p class="nor"><a href="javascript:;" class="setUp js_cjdw">创建</a><a href="javascript:;" class="joinTeam">加入</a></p>
+				</div>
+			</div>
+	    #else
+	    	<div class="teamMsgC teamBox">
+		    	<div class="teamName">
+					 <p>当前状态</p>
+				</div>
+				<div class="teamInfo">
+	                 <p class="nor"><b>$!team_msg</b></p>
+			    </div>
+		    </div>
+        #end 
+    </div>
+  
+
+    <!-- 社区公用底部 -->
+    <div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom()</script>
+ </div>
+
+   #parse("challenger/challengerLogin.vm")
+
+   <div class="maskPop"></div>
+   <script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/work.js"></script>
+</body>
+</html>

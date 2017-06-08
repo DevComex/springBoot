@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.sdsg.activityCode.ISDSGPresentLogMapper">
+	<resultMap id="PresentLogBeanInfo" type="PresentLogBean">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="draw_ip" property="drawIP" />
+		<result column="draw_time" property="drawTime" />
+		<result column="present_name" property="presentName" />
+		<result column="server_id" property="serverID" />
+		<result column="server_name" property="serverName" />
+		<result column="available" property="available" />
+	</resultMap>
+	<resultMap type="ActionConfigBean" id="ActionConfigBean">
+		<id column="code" property="code" />
+		<result column="hd_name" property="hdName" />
+		<result column="hd_start" property="hdStart" />
+		<result column="hd_end" property="hdEnd" />
+		<result column="is_delete" property="isDelete" />
+		<result column="game_id" property="gameId" />
+		<result column="paras" property="paras" />
+		<result column="hd_link" property="hdLink" />
+	</resultMap>
+	<!-- 判断当天抽奖次数-->
+	<select id="presentCountDay" resultType="int" >
+		select count(code)
+        from hd_send_present_log
+        where 
+        	  activity_id=#{0}
+          and account=#{1} 
+<![CDATA[ and draw_time<#{2} ]]>
+<![CDATA[ and draw_time>=#{3} ]]>
+	</select>
+	<!-- 是否抽中奖品 -->
+	<select id="hasPrize" resultMap="PresentLogBeanInfo" >
+		select top 1 *
+		from hd_send_present_log
+		where 
+			activity_id=#{0}
+	    and account=#{1} 
+	    and present_type=#{2}
+	</select>
+	<!-- 查询是否激活 -->
+	<select id="isActivation" resultType="int" >
+  		select code
+  		from game_activation_code
+  		where game_id=#{0} and user_id=#{1} and status=2
+	</select>
+	<!-- 更新激活状态与服务器状态 -->
+	<select id="updateActivation">
+		update hd_send_present_log
+		set available='1'
+		   ,server_id=#{3}
+		   ,server_name=#{4}
+		   ,present_name=#{5}
+		where 
+		      activity_id=#{0} 
+		  and account=#{1} 
+		  and present_type=#{2}
+	</select>
+	<select id="isExist" resultType="int">
+		select code
+		from hd_send_present_log
+		where  
+			  activity_id=#{0} 
+		  and account=#{1} 
+		  and present_type=#{2}
+	</select>
+	<insert id="insertPrizeLog" >
+		use ActionDBV2
+  		insert into hd_send_present_log
+  		values(
+  			278,
+  			'灵魂战神激活码大放送'
+  			,278
+  			, #{0} 
+  			,0
+  			, #{1} 
+  			, #{2}
+  			,'noRealPrize'
+  			, #{3}
+  			, #{4}
+  			, #{5}
+  			, 1 
+  			,null)
+	</insert>
+	<update id="updateGameActivityCode">
+		update game_activation_code
+		set status=2,
+		server_id=#{2},
+		account_name=#{3},
+		activation_time=#{4},
+		user_id=#{5}
+		where 
+			game_id=#{0}
+		and activation_code=#{1}
+	</update>
+	<update id="updateGameActivityCodeStatus">
+		update game_activation_code
+		set status=1
+		where 
+			game_id=28
+		and activation_code=#{0}
+	</update>
+	
+	<select id="isExistActiveCode" resultType="int">
+		select COUNT(*) 
+    	from game_activation_code a
+    	where activation_code=#{activeCode} and user_id is null
+	</select>
+	
+	<select id="getActionMsg" resultMap="ActionConfigBean">
+		select * 
+		from hd_config_tb
+		where code=#{code}
+	</select>
+	<select id="isRightActiveCode" resultType="int">
+		select COUNT(*) 
+    	from game_activation_code a
+    	where activation_code=#{activeCode} 
+	</select>
+</mapper>

@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.common.IActionCommonImageBean">
+	<resultMap type="ActionCommonImageBean" id="ActionCommonImageBeanMapper">
+		<id column="code" property="code" />
+		<result column="form_code" property="formCode" />
+		<result column="temp_url" property="tempUrl" />
+		<result column="action_code" property="actionCode" />
+		<result column="real_url" property="realUrl" />
+		<result column="img_type" property="imgType" />
+		<result column="img_width" property="imgWidth" />
+		<result column="img_height" property="imgHeight" />
+		<result column="img_feature" property="imgFeature" />
+		<result column="status" property="status" />
+	</resultMap>
+	<insert id="insertActionCommonImageBean" useGeneratedKeys="true" keyProperty="code" parameterType="ActionCommonImageBean">
+		insert into action_common_image
+		(form_code,temp_url,action_code,real_url,img_type,img_width,img_height,img_feature,status)
+		values
+		(#{formCode},#{tempUrl},#{actionCode},#{realUrl},#{imgType},#{imgWidth},#{imgHeight},#{imgFeature},#{status})
+	</insert>
+	
+	<select id="selectActionCommonImageBeanBycode" parameterType="int" resultMap="ActionCommonImageBeanMapper">
+		select * from action_common_image
+		where code = #{code}
+	</select>
+	<select id="getImgBeanByFormCode" parameterType="int" resultMap="ActionCommonImageBeanMapper">
+		select * from action_common_image
+		where form_code = #{formCode}
+	</select>
+	<update id="updateActionCommonImageBean" parameterType="ActionCommonImageBean">
+		update action_common_image
+		set
+		temp_url = #{tempUrl},real_url = #{realUrl},img_width = #{imgWidth},img_height = #{imgHeight},img_feature = #{imgFeature},status = #{status}
+		where
+		code = #{code}
+	</update>
+	
+	<delete id="deleteActionCommonImageBeanBycode" parameterType="int">
+		delete from action_common_image
+		where code = #{code}
+	</delete>
+	
+	
+</mapper>

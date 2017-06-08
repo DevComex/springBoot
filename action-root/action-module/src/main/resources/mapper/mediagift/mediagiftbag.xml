@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.giftbaginterface.IMediaGift">
+	<resultMap type="MediaGiftBagBean" id="MediaGiftBagBeanMap">
+		<result column="con" property="number" />
+		<result column="server_id" property="serverId" />
+		<result column="virtual_Item" property="pageName" />
+	</resultMap>
+	<select id="getMediaGiftBagBeans" resultMap="MediaGiftBagBeanMap"
+		resultType="java.util.List">
+		select count(code) as con ,server_id,virtual_Item from
+		novice_card_receive_log
+		where
+<![CDATA[
+create_time >= #{begin}
+and
+create_time < #{end}
+and
+server_id= #{serverId}
+]]>
+group by virtual_Item,server_id
+	</select>
+</mapper>

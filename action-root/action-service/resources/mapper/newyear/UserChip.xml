@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.newyear.IUserChipMapper">
+	<resultMap id="UserChipBean" type="UserChipBean">
+		<result property="userChipCode" column="user_chip_code" />
+		<result property="userChipName" column="user_chip_name" />
+		<result property="userChipType" column="user_chip_type" />
+		<result property="userChipNum" column="user_chip_num" />
+	</resultMap>
+
+	<insert id="insertUserChip" parameterType="UserChipBean">
+		INSERT INTO
+		user_chip_tb (user_chip_name,user_chip_type,user_chip_num)
+		VALUES
+		(#{userChipName},#{userChipType},#{userChipNum})
+	</insert>
+
+	<update id="updateUserChip" parameterType="UserChipBean">
+		UPDATE
+		user_chip_tb SET
+		user_chip_num=user_chip_num + #{userChipNum}
+		WHERE
+		user_chip_name=#{userChipName} and user_chip_type=#{userChipType}
+	</update>
+
+	<select id="selectChipByTypeAndName" parameterType="userChipBean"
+		resultMap="UserChipBean">
+		select * from user_chip_tb where
+		user_chip_name=#{userChipName} and user_chip_type=#{userChipType}
+	</select>
+	<select id="selectUserChip" resultMap="UserChipBean"
+		parameterType="String">
+		SELECT [user_chip_code]
+		,[user_chip_name]
+		,[user_chip_type]
+		,[user_chip_num]
+		FROM user_chip_tb
+		WHERE
+		user_chip_name=#{userChipName}
+	</select>
+
+	<select id="getGatheredChipInfoOnType" resultType="ChipInfoOnTypeBean">
+		SELECT 
+		user_chip_type AS chipType,
+		COUNT(distinct user_chip_name) AS userNumber,
+		SUM(user_chip_num) AS chipNumber
+		FROM user_chip_tb 
+		GROUP BY user_chip_type
+		ORDER BY chipType
+	</select>
+
+</mapper>

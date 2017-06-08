@@ -1,0 +1,9 @@
+#foreach($item in $pagination.objects)
+    <li>
+    	<div class="pl_info">
+    		<span class="pl_name">$!{item.nickName}说：</span>
+    		<span class="pl_time">留言时间：$!{item.commentTime}</span>
+    	</div>
+    	<div class="pl_txt">$!{item.commentContent}</div>
+    </li>
+#end

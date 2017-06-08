@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>萌宠活动</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdschoolopen/css/wd151123.css" />
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script src="http://static.cn114.cn/action/NoteURL/js/noteURL.js"></script><!--统计代码 -->
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+<script language="javascript" type="text/javascript" src=" http://a.gyyx.cn/StatServer.ashx?v=&amp;s=30&amp;r="></script>
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?1fb7def745a4b3884bde22be5219b783";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<!-- head  footer -->
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+<script type="text/javascript" charset="utf-8">
+    alert("谢谢参与，活动已结束");
+</script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+<!-- 图片放大 -->
+<div id="maskBoxPicAll" style="display:none;">
+			<div id="picBigShow" style="display:none;">
+   				<img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_wrap03_video01.png">
+			</div>
+			<div class="maskBox" id="maskBoxPic"></div> 
+</div>
+ 
+<!-- id="virtualPrize" -->  
+<div class="maskBox" id="maskBox"></div>  
+ <!--中实物奖品-->
+	<div class="wdTc prizeYes" style="display:none;" id="materialPrize">
+		<a  class="close"></a>
+		<div class="tcTit">
+			<h3>恭喜你中奖：<span class="js_prizes">iphone 6</span></h3>
+			<p>请填写准确详细的个人信息，以便我们邮寄奖品，包邮哦！</p>
+		</div>
+		<div class="tcInp">
+			<p class="inp"><label>姓名</label><input type="text" maxlength="6" name="getName" class="getName"/><span class="error"></span></p>
+			<p class="inp"><label>手机号码</label><input type="text" maxlength="11" name="getPhone" class="getPhone"/><span class="error"></span></p>
+			<p class="inp"><label>邮寄地址</label><input type="text" maxlength="100" name="getAddress" class="getAddress"/><span class="error"></span></p>
+			<div class="tc_sub tcBtn"><input type="button" value="确定" class="js_addressSubmit"/></div>
+		</div>
+		<div class="tcCont">
+			<p><span></span>活动结束后我们会统一邮寄奖品，请耐心等待~~</p>
+			<p><span></span>以上信息可在"中奖纪录"中修改</p>
+		</div>
+	</div>
+<!--中实物虚拟卡号-->
+	<div class="wdTc wdTc01"   style="display:none;">
+		<a class="close"></a>
+		<div class="tcTit">
+			<h3>恭喜你中奖：<span class="js_virtualPrize">XXX虚拟卡</span></h3>
+		</div>
+		<div class="tcInp02">
+			<p>礼包卡号： <i class="js_virtualPrizeNum">XXXX-XXXX-XXXX-XXXX</i>
+                <a class="copybtn tcCopy" id="d_clip_button" href="javascript:void(0);">复制</a>
+             </p>
+            
+			<div class="tcBtn"><input type="button" value="确定" class="js_closepop"/></div>
+		</div>
+	</div>
+<!--查询中奖记录-->
+	<div class="wdTc wdTc01 wdTc02"  style="display:none;" id="listPrizeMe">
+		<a class="close"></a>
+		<div class="tcTit">
+			<h3>您已中得的奖品为：</h3>
+		</div>
+		<div class="tcInp02">
+			<!--<p>1.  虚拟卡 <i>XXXX-XXXX-XXXX-XXXX</i>
+                <a class="copybtn tcCopy" id="A1" href="javascript:void(0);">复制</a>
+
+			</p>-->
+			<p>实物奖 <i class="js_list">iphone6</i></p>
+			
+		</div>
+<div class="tcBtn"><input type="button" value="确定" class="js_closepop js_noPrize"><a id="setNewAddress">修改邮寄地址</a></div>
+	</div>
+<!--修改邮寄地址-->
+	<div class="wdTc wdTc03"  style="display:none;"  id="materialPrize02">
+		<a class="close"></a>
+		<div class="tcInp">
+			<p class="inp"><label>姓名</label><input type="text" maxlength="10" name="getName" class="getName"/><span class="error"></span></p>
+			<p class="inp"><label>手机号码</label><input type="text" maxlength="11" name="getPhone" class="getPhone"/><span class="error"></span></p>
+			<p class="inp"><label>邮寄地址</label><input type="text" maxlength="100" name="getAddress" class="getAddress"/><span class="error"></span></p>
+			<div class="tc_sub tcBtn"><input type="button" value="确定" class="js_addressSubmitNew"/></div>
+		</div>
+		<div class="tcCont">
+			<p><span></span>以上信息在活动期间内可随时修改，活动截止后不可修改</p>
+		</div>
+	</div>
+<!--未中奖-->
+	<div class="wdTc wdTc04"  style="display:none;" id="noPrizeMe">
+		<a  class="close"></a>
+		<div class="tcTit">
+			<h3>很遗憾</h3>
+			<p>您未中奖</p>
+		</div>
+		<div class="tcBtn"><input type="button" value="确定" class="js_closepop js_noPrize" /></div>
+	</div>
+	
+
+
+
+	<div class="pfNav">
+		<a href="#page01" class="first">首页</a>
+		<a href="#page02">萌宠神兽</a>
+		<a href="#page03">唤醒爱</a>
+		<a href="#page04" class="last">问道伴同行</a>
+	</div>
+	<!--第一屏-->
+	<div class="wrap01" id="page01">
+		<div class="main">
+			<div class="nav"><a href="http://news.gyyx.cn/Counter.ashx?pc=4089&sc=15617&mc=6304&gc=2&ul=http%3a%2f%2fwd.gyyx.cn%2findex_wd_v5.htm&mt=4061&et=1 " class="first">进入官网</a><a href="http://pay.gyyx.cn/">充值中心</a><a href="http://news.gyyx.cn/Counter.ashx?pc=4089&sc=15618&mc=6304&gc=2&ul=http%3a%2f%2faccount.gyyx.cn%2fMember%2fRegister&mt=4061&et=1 ">账号注册</a><a href="http://wd.gyyx.cn/download/" class="last">下载中心</a></div>
+			<div class="wrap01_btn">
+				<a href="#page02" class="a01">萌宠神兽</a>
+				<a href="#page03" class="a02">唤醒爱</a>
+				<a href="#page04" class="a03">丰厚奖品</a>
+			</div>
+		</div>
+	</div>
+	<!--第二屏-->
+	<div class="wrap02" id="page02">
+		<div class="main">	
+			<div class="wrap02_pos">
+				<div class="wrap02_time">活动截止：2015年1月17日</div>
+				<div class="loginBox">
+					<!-- 登陆前 -->
+					<div class="login">请 <a>[登陆]</a></div>
+					<!-- 登陆后 -->
+					<div class="login_suc" style="display: none;">欢迎xxxxx</div>
+				</div>
+				<!-- 上传图片 -->
+                  <div class="wd02_btn01 wrap02_upload">
+						<div class="js_showPic" style="width:167px; height:168px;display:none;">
+							<div id="spanButtonPlaceholderFace" type="button" class="scbtn" value="选择图片"></div>
+							<i></i>
+						</div>
+
+							<a class="wrap02_upload js_showPic02" style="background:none;"></a>
+						
+					</div>
+ 				<!-- 上传图片 -->
+
+			</div>
+		
+			
+			<div class="wrap02_con">
+				<ul class="wrap02_menu">
+					<li class="topeight on"><a >TOP 8</a></li>
+                    <li class="newList"><a >最新</a></li>
+				</ul>
+				<div class="wrap02_list">
+					<div class="wrap02_box" id="photoList01" style="display: block;">
+						<ul class="picList" id="photoList">
+							<!-- <li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>028</span><strong class="js_add">+1</strong></div></li>
+							<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li>
+							<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li>
+							<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li>
+							<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li>
+							<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li>
+							<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li>
+							<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li> -->
+						</ul>
+						
+					</div>
+					<div class="wrap02_box" id="photoList02">
+						<ul class="picList" id="photoListNew">
+							<!-- <li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li>
+							<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li>
+							<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li>
+							<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li>
+							<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li>
+							<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li>
+							<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li>
+							<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg" /></a><div class="picTxt"><i>心</i><span>029</span></div></li> -->
+						</ul>
+						
+					</div>
+				</div>
+			</div>
+			<div class="wrap02_rule">
+				<h2>活动规则</h2>
+				<p><span>1.</span>登录光宇通行证后，在活动页面点击【上传图片】即可上传萌宠图片参与活动。</p>
+				<p><span>2.</span>每个光宇社区用户每天最多上传10张图片。上传要求：常规图片格式（不支持GIF）。</p>
+				<p><span>3.</span>用户可以在自己所喜爱的神宠图片下方点亮“爱心”图标，但同一用户每天点亮3次“爱心”后就会精疲力尽，需要第二天精力恢复后才可再次为萌宠点亮“爱心”。<span class="wrap02_col">获得点赞数最高的前三名作品，参与用户将获得水女手办一个，点赞数以活动结束时为准。</span></p>
+			</div>
+		</div>
+	</div>
+	<!--第三屏-->
+	<div class="wrap03" id="page03">
+		<div class="main">
+			<div class="wrap03_txt">现代社会中，隐藏着大量神宠，它们就像折翼的天使，在城市中流浪等待着大家去发现，去爱护。<br />为了让更多流浪动物们成为可爱又迷人的萌宠。<br />《问道》流浪动物关爱活动，让我们一起呼唤爱的降临，唤醒生命的美丽。</div>
+			<div class="wrap03_cont">
+				<h2 class="wrap03_tit01"></h2>
+				<div class="wrap03_video clear">
+					
+					<div class="wrap03_video01">
+						<a href="javascript:;" class="play01"><img src="http://static.cn114.cn/action/wdschoolopen/images/video01.jpg" width="489" height="310"/></a>
+						<p>《问道》唤醒爱公益行动</p>
+					</div>
+					<div class="wrap03_video02">
+						<a href="javascript:;" class="play02"><img src="http://static.cn114.cn/action/wdschoolopen/images/video02.jpg" width="489" height="310" /></a>
+						<p>美女网红七宝助力公益行动</p>
+					</div>
+				</div>
+				<h2 class="wrap03_tit02"></h2>
+				<ul class="wrap03_list clear">
+					<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/before01.jpg" /></a></li>
+					<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/before02.jpg" /></a></li>
+					<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/before03.jpg" /></a></li>
+					<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/before04.jpg" /></a></li>
+					<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/before05.jpg" /></a></li>
+					<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/after01.jpg" /></a></li>
+					<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/after02.jpg" /></a></li>
+					<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/after03.jpg" /></a></li>
+					<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/after04.jpg" /></a></li>
+					<li><a><img src="http://static.cn114.cn/action/wdschoolopen/images/after05.jpg" /></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<!--第四屏-->
+	<div class="wrap04" id="page04">
+		<div class="main">
+			<div class="wrap04_header">
+				<div class="wrap04_logn">
+					<!--登录前-->
+					<div class="login"><a>[登录领奖]</a></div>
+					<!--登录后-->
+					<div class="login_suc" style="display: none;">欢迎xxx登录</div>	
+					<div class="logn_times">剩余抽奖次数<a>0</a>次</div>
+				</div>
+				<a href="javascript:;" class="wrap04_check">查询中奖记录</a>
+
+
+              
+			</div>
+			<div class="wrap04_cj clear">
+				<ul class="cj_list jfSul">
+					<li id="dzp0" class="jp"><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_wrap04_pic01.jpg" /><span></span></li>
+					<li id="dzp1" class="jp"><img src="http://static.cn114.cn/action/wdschoolopen/images/get2.jpg" /><span></span></li>
+					<li id="dzp2" class="jp"><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_wrap04_pic01.jpg" /><span></span></li>
+					<li id="dzp7" class="jp"><img src="http://static.cn114.cn/action/wdschoolopen/images/get8.jpg" /><span></span></li>
+					<li class="cj_start"><a id="btnStart" text="go" href="javascript:;">立即中奖</a></li>
+					<li id="dzp3" class="jp"><img src="http://static.cn114.cn/action/wdschoolopen/images/get4.jpg" /><span></span></li>
+					<li id="dzp6" class="jp"><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_wrap04_pic01.jpg" /><span></span></li>
+					<li id="dzp5" class="jp"><img src="http://static.cn114.cn/action/wdschoolopen/images/get6.jpg" /><span></span></li>
+					<li id="dzp4" class="jp"><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_wrap04_pic01.jpg" /><span></span></li>
+				</ul>
+				<div class="cj_txt">
+					<h2></h2>
+					<p><span>1</span>每位光宇社区用户每天最多获得3次抽奖机会。抽奖次数会每日清零哦。</p>
+					<p><span>2</span>用户可通过上传萌宠图片获得抽奖机会，每天上传1张图片，获得1次抽奖机会；上传2张以上（含2张）图片，获得2次抽奖机会。</p>
+					<p><span>3</span>用户每天还可通过点亮“爱心”获得1次抽奖机会。</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+<script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/swfobject.min.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/ymadplayer.min.js"></script>
+<!--<script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/pngIe.js"></script> -->
+
+<!-- 上传js效仿-->
+<script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/upload/handlers.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/upload/swfupload.js" charset="UTF-8"></script>
+
+<script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/upload/uploadSetting.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/uploadFace/uploadSetting.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/uploadFace/handlers.js" charset="UTF-8"></script>
+
+ <!--<script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/lottery.js" charset="UTF-8"></script>  -->   
+<!-- 抽奖 -->
+<script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/Lotterywd.js" charset="UTF-8"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdschoolopen/js/handle.js" charset="UTF-8"></script>
+
+<script>
+var NLOTTERY_CONFIG = {
+
+//抽奖
+lotteryUrl: "../wdschoolopen/getPrize"
+}
+
+</script>
+<script>
+ $(function () {
+//抽奖 
+nLottery.init();
+//获取爱心图片列表
+ var getPhotoIndexUrl = "../wdschoolopen/ajaxGetTopFive";
+//获取最新图片列表
+ var getPhotoNewUrl = "../wdschoolopen/getTopEightFaceBeanByTime";
+
+//点亮爱心图片
+var favoritePhotoUrl = "../wdschoolopen/ajaxLightFace";
+//最新抽奖次数
+var getLotteryTimeUrl = "../wdschoolopen/getLotteryTime";
+//获取中奖列表
+var getLotteryInfoUrl = "../wdschoolopen/getLotteryInfo";
+//提交地址
+var addressUrl = "../wdschoolopen/resetAddress";
+
+//修改地址
+var setAddress = "../wdschoolopen/setAddress";
+//我的中奖奖品
+var getLotteryByUserUrl = "../wdschoolopen/getLotteryInfoByUser";
+
+
+
+//页面右侧悬浮导航
+var bgTop1 = $(".wrap01").position().top;
+var bgTop2 = $(".wrap02").position().top;
+var bgTop3 = $(".wrap03").position().top;
+var bgTop4 = $(".wrap04").position().top;
+$(".pfNav a").click(function () {
+    $(this).addClass("on");
+    $(this).siblings().removeClass("on");
+});
+//星星导航nav
+$(".a01").click(function () {
+    $('html, body').animate({ scrollTop: bgTop2 + 46}, 500, "linear");
+    return false;
+});
+$(".a02").click(function () {
+    $('html, body').animate({ scrollTop: bgTop3 + 46 }, 500, "linear");
+    return false;
+});
+$(".a03").click(function () {
+    $('html, body').animate({ scrollTop: bgTop4 + 46 }, 500, "linear");
+    return false;
+});
+//鼠标滚动导航随之标示变色
+$(window).scroll(function () {
+    var scrollTop = $(this).scrollTop();
+    var scrollHeight = $(document).height();
+    var windowHeight = $(this).height();
+    if (scrollTop >= bgTop1 && scrollTop < bgTop2) {
+        $(".pfNav a").removeClass("on").eq(0).addClass("on");
+    } else if (scrollTop >= bgTop2 && scrollTop < bgTop3) {
+        $(".pfNav a").removeClass("on").eq(1).addClass("on");
+    } else if (scrollTop >= bgTop3 && scrollTop < bgTop4) {
+        $(".pfNav a").removeClass("on").eq(2).addClass("on");
+    } else if (scrollTop >= bgTop4) {
+        $(".pfNav a").removeClass("on").eq(3).addClass("on");
+    }
+
+    if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {
+        $(".pfNav").css("top", $(window).scrollTop() + 100 + "px");
+    }
+
+});
+
+
+    
+
+
+//地址提交
+function addressSubmit() {
+    //参数
+    var datas = {
+        userName: $("#materialPrize").find("input[name='getName']").val(),
+        userPhone: $("#materialPrize").find("input[name='getPhone']").val(),
+        userAddress: $("#materialPrize").find("input[name='getAddress']").val(),
+        r: Math.random()
+    }
+    $.ajax({
+        url: addressUrl,
+        type: "GET",
+        dataType: "JSON",
+        data: datas,
+        beforeSend: function () {
+           // $(".js_addressSubmit").attr("disabled", "disabled");
+        },
+        success: function (d) {
+            if (d.isSuccess) {
+                $(".prizeYes").hide();
+				$(".maskBox").hide();
+				alert("提交成功！");
+                //$(".js_addressSubmit").removeAttr("disabled");
+                $("#materialPrize").pop("close");
+            }
+        }
+    });
+}
+//地址提交(中奖纪录页面增加新地址)
+function addressSubmitNull() {
+    //参数
+    var datas = {
+        userName: $("#materialPrize02").find("input[name='getName']").val(),
+        userPhone: $("#materialPrize02").find("input[name='getPhone']").val(),
+        userAddress: $("#materialPrize02").find("input[name='getAddress']").val(),
+        r: Math.random()
+    }
+    $.ajax({
+        url: addressUrl,
+        type: "GET",
+        dataType: "JSON",
+        data: datas,
+        beforeSend: function () {
+           
+        },
+        success: function (d) {
+            if (d.isSuccess) {
+                $(".wdTc03").hide();
+				$(".maskBox").hide();
+				alert("提交成功！");
+               
+                $("#materialPrize02").pop("close");
+            }
+        }
+    });
+}
+//地址提交(修改)
+function addressSubmitNew() {
+    //参数
+    var datas = {
+        userName: $("#materialPrize02").find("input[name='getName']").val(),
+        userPhone: $("#materialPrize02").find("input[name='getPhone']").val(),
+        userAddress: $("#materialPrize02").find("input[name='getAddress']").val(),
+        r: Math.random()
+    }
+
+
+    $.ajax({
+      
+        url: "../wdschoolopen/setAddress", 
+ 		type: "GET",
+        dataType: "JSON",
+        data: datas,
+        beforeSend: function () {
+           // $(".js_addressSubmit").attr("disabled", "disabled");
+        },
+        success: function (d) {
+            if (d.isSuccess) {
+				$(".wdTc03").hide();
+				$(".maskBox").hide();
+				
+                alert("修改成功！");
+				
+                $("#materialPrize02").hide();
+            }
+        }
+    });
+}
+//地址提交(修改)--抽奖同时
+function addressSubmitNew02() {
+    //参数
+    var datas = {
+        userName: $("#materialPrize").find("input[name='getName']").val(),
+        userPhone: $("#materialPrize").find("input[name='getPhone']").val(),
+        userAddress: $("#materialPrize").find("input[name='getAddress']").val(),
+        r: Math.random()
+    }
+
+
+    $.ajax({
+        url: "../wdschoolopen/setAddress", 
+ 		type: "GET",
+        dataType: "JSON",
+        data: datas,
+        beforeSend: function () {
+           // $(".js_addressSubmit").attr("disabled", "disabled");
+        },
+        success: function (d) {
+            if (d.isSuccess) {
+				$(".prizeYes").hide();
+				$(".maskBox").hide();
+                alert("修改成功！");
+				
+                //$(".js_addressSubmitNew").removeAttr("disabled");
+               // $("#materialPrize02").pop("close");
+            }
+        }
+    });
+}
+//登录判断
+checkLogin({
+    success: function (d) {
+        $(".login").hide();
+        $(".login_suc").show();
+        $(".uploadimgNo").hide();
+        $(".uploadimg").show().css("cursor","pointer");
+		//获取抽奖次数
+        getLotteryTime();  
+        var uname = "";
+
+        if (d.Account.length <= 8) {
+            uname = d.Account;
+        } else {
+            var uname1 = d.Account.substring(0, 2);
+            var uname2 = d.Account.substring(d.Account.length - 2, d.Account.length);
+            uname = uname1 + "****" + uname2;
+        }
+        $(".login_suc").text('欢迎'+uname);
+        $(".login_suc").attr("data-account", d.Account);
+        $(".js_showPic").show();
+		$(".js_showPic02").hide();
+        
+    },
+    failed: function () {
+        $(".login").show();
+        $(".login_suc").hide();
+		$(".js_showPic02").show();
+		$(".js_showPic").hide();
+        $(".js_showPic02").click(function () {
+            alertFn(null, null, true); return false
+        });
+        $(".picTxt").click(function () {
+            alertFn(null, null, true); return false
+        });
+        $(".cj_start").click(function () {
+            alertFn(null, null, true); return false
+        });
+        $(".login a").click(function () {
+            alertFn(null, null, true); return false
+        });
+      
+        $(".wrap04_check").click(function () {
+            alertFn(null, null, true); return false
+        });
+        
+            
+    }
+});
+function checkLogin(fn) {
+    $.ajax({
+        url: "http://reg.gyyx.cn/Login/Status",
+        type: "GET",
+        dataType: "jsonp",
+        jsonp: "jsoncallback",
+        data: { r: Math.random() },
+        success: function (d) {
+            if (d.IsLogin) {
+                if (fn) {
+                    fn.success(d);
+                }
+            }
+            else {
+                if (fn) {
+                    fn.failed(d);
+                }
+            }
+        }
+    });
+}
+//获取最新抽奖次数
+function getLotteryTime() {
+    $.ajax({
+        url: getLotteryTimeUrl,
+        type: "GET",
+        dataType: "JSON",
+        data: {
+            r: Math.random()
+        },
+        success: function (d) {
+            if (d.isSuccess) {
+                $(".logn_times a").text(d.data);
+            } else {
+               alert(d.message);
+            }
+        }
+    });
+
+}
+//中奖函数
+        function resultFn(result, defaults) {
+            if (result != null) {
+                if (alertFunc(result, defaults)) {
+                    turnFn(result, defaults);
+                }
+            }
+        }
+//提示没有资格抽奖
+function alertFunc(result,defaults) {
+    if (!result.isSuccess&& result.message== "您现在没有抽奖机会") {
+        alert(result.message);
+	$(defaults.Btn).attr(defaults.BtnAttr, defaults.BtnStateYes);
+        return false;
+    } else if(!result.isSuccess&& result.message== "您的抽奖次数已经用完") {
+        alert(result.message);
+	$(defaults.Btn).attr(defaults.BtnAttr, defaults.BtnStateYes);
+        return false;
+    }  else if (!result.isSuccess && result.message == "活动已结束，感谢参与！") {
+        alert(result.message);
+        $(defaults.Btn).attr(defaults.BtnAttr, defaults.BtnStateYes);
+        return false;
+    } else {
+        return true;
+    }
+}
+//中奖信息
+function winPrizeFn(point, message,cardcode, defaults) {
+  switch (point) {
+        case 0:
+	   $(".js_prizes").text(message);
+            $("#materialPrize").pop("open");
+            break;
+        case 3:
+	   $(".js_prizes").text(message);
+            $("#materialPrize").pop("open");
+            break;
+        case 4:
+            $(".js_prizes").text(message);
+            $("#materialPrize").pop("open");
+            break;
+        case 2:
+	       alert(message);
+            break;
+        case 1:
+        case 5:
+	   $(".js_virtualPrize").text(message+" "+cardcode);
+            $("#virtualPrize").pop("open");
+	   $("#yqm_num").val(cardcode);
+            //复制功能
+            ZeroClipboard.setMoviePath('http://static.cn114.cn/action/wdschoolopen/js/ZeroClipboard.swf');
+            var clip = new ZeroClipboard.Client();
+            clip.setHandCursor(true);
+            var test = document.getElementById("yqm_num");
+            clip.addEventListener("mouseOver", function () {
+                clip.setText(test.value);
+            });
+            clip.addEventListener("complete", function () {
+                alert("已复制成功");
+            });
+            clip.glue("d_clip_button", "d_clip_container");
+
+            break;
+     }
+    $(defaults.Btn).attr(defaults.BtnAttr, defaults.BtnStateYes);
+}
+
+//点赞切换
+$(".wrap02_menu li").click(function () {
+    $(this).addClass("on").siblings().removeClass("on");
+    var index = $(".wrap02_menu li").index(this);
+    $(".wrap02_list>div").eq(index).show().siblings().hide();
+})
+  
+//初始化列表宠物展示
+getPhotoIndex()
+
+//（top8）
+$(".topeight").click(function () {
+    getPhotoIndex();
+})
+//最新排序
+$(".newList").click(function () {
+  getPhotoIndexNew()
+})             
+
+//top8列表+点赞
+function getPhotoIndex() {
+    $.ajax({
+        url: getPhotoIndexUrl,
+        type: "GET",
+        dataType: "JSON",
+        data: {
+            r: function () { return Math.random(); }
+        },
+        success: function (d) {
+            if (d.isSuccess) {
+                
+				
+                $("#photoList01").empty();
+				$("#photoList01").append('<ul class="picList" id="photoList"></ul>')
+                var length = (d.data.length >= 8) ? 8 : d.data.length;
+                for (var i = 0; i < length; i++) {
+                    var lightclass = (d.data[i].isLighted == true) ? "curr" : "";//点亮效果增加
+
+				   $("#photoList").append('<li data-code="' + d.data[i].code + '" class="js_praise"><a href="javascript:void(0);"><img src="' + d.data[i].faceUrl + '" width="137" height="179"></a><div class="picTxt"><i class="' + lightclass + '">心</i><b class="xinClass"><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_icoBig.png"></b><span class="js_favnum">' + d.data[i].voteNum + '</span><strong class="js_add">+1</strong></div></li>');
+                }
+                $("#photoList01").append('<div class="wrap02_more"><a href="listHot" class="wd02_more"><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg"><span>查看更多图片</span></a></div>');
+               
+		//更多图标位置变化判断
+         if($("#photoList li").length < 4){
+			$("#photoList ").css("width","auto")
+			$(".wrap02_box").css("width","100%")
+		}else if($("#photoList li").length == 4){
+		    $("#photoList").css("width","100%")
+		}else if($("#photoList li").length > 4){
+		    $(".wrap02_more").css({position: "absolute",top: "246px",left: "673px"})
+			$(".wrap02_box").css("overflow","initial");
+		    $("#photoList").css("float","none")
+		}
+
+			 //点击图片点亮爱心，并且加1
+               $(".js_praise .picTxt").on("click", function () {
+
+                    var $this = $(this).children("i");//爱心小图标
+                    
+                    if ($this.hasClass("curr")) {
+                        // return false;
+                    }
+
+                    $.ajax({
+                        url: favoritePhotoUrl,//点亮爱心
+                        type: "GET",
+                        dataType: "JSON",
+                        data: {
+                       
+                            faceCode: $this.parent(".picTxt").parent(".js_praise").attr("data-code"),
+                            r: function () { return Math.random(); }
+                        },
+                        success: function (d) {
+                            if (d.isSuccess) {//只能3次的点赞机会
+                               var number = parseInt($this.siblings(".js_favnum").text())+1;
+                                //获取最新抽奖次数
+                                getLotteryTime();
+                               // $this.addClass("curr");
+                                $this.attr("class","curr")
+                                $this.siblings(".xinClass").fadeIn("slow");
+                                $this.siblings(".js_add").fadeIn("slow");//+1显示后消失
+                                $this.siblings(".js_favnum").text(number);
+                                $this.siblings(".js_add").fadeOut("slow");
+
+                               
+                            } else {
+                                if (d.message == "请先登录") {
+                                    alertFn(null, null, true);
+                                } else {
+                                    alert(d.message);
+                                }
+                            }
+                        }
+                    });
+                });
+
+            } else {
+                alert(d.message);
+            }
+        }
+    });
+
+
+
+}
+
+
+//最新列表排列+点赞
+function getPhotoIndexNew() {
+    $.ajax({
+        url: getPhotoNewUrl,
+        type: "GET",
+        dataType: "JSON",
+        data: {
+            r: function () { return Math.random(); }
+        },
+        success: function (d) {
+            if (d.isSuccess) {
+               $("#photoList02").empty();
+			   $("#photoList02").append('<ul class="picList" id="photoListNew"></ul>')
+                var length = (d.data.length >= 8) ? 8 : d.data.length;
+                for (var i = 0; i < length; i++) {
+                    var lightclass = (d.data[i].isLighted == true) ? "curr" : "";//点亮效果增加
+
+                    $("#photoListNew").append('<li data-code="' + d.data[i].code + '" class="js_praise"><a href="javascript:void(0);"><img src="' + d.data[i].faceUrl + '" width="137" height="179"></a><div class="picTxt"><i class="' + lightclass + '">心</i><b class="xinClass"><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_icoBig.png"></b><span class="js_favnum">' + d.data[i].voteNum + '</span><strong class="js_add">+1</strong></div></li>');
+                }
+                $("#photoList02").append('<div class="wrap02_more"><a href="listNew" class="wd02_more"><img src="http://static.cn114.cn/action/wdschoolopen/images/wd151123_img.jpg"><span>查看更多图片</span></a></div>');
+               
+		//更多图标位置变化判断
+         if($("#photoListNew li").length < 4){
+			$("#photoListNew ").css("width","auto")
+			$(".wrap02_box").css("width","100%")
+		}else if($("#photoListNew li").length == 4){
+		    $("#photoListNew").css("width","100%")
+		}else if($("#photoListNew li").length > 4){
+		    $(".wrap02_more").css({position: "absolute",top: "246px",left: "673px"})
+			$(".wrap02_box").css("overflow","initial");
+		    $("#photoListNew").css("float","none")
+		}
+
+			 //点击图片点亮爱心，并且加1
+                $(".js_praise .picTxt").on("click", function () {
+                   var $this = $(this).children("i");//爱心小图标
+                        
+                    if ($this.hasClass("curr")) {
+                        // return false;
+                    }
+                    $.ajax({
+                        url: favoritePhotoUrl,//点亮爱心
+                        type: "GET",
+                        dataType: "JSON",
+                        data: {
+                            faceCode: $this.parent(".picTxt").parent(".js_praise").attr("data-code"),
+                            r: function () { return Math.random(); }
+                        },
+                        success: function (d) {
+                            if (d.isSuccess) {//只能3次的点赞机会
+                               var number = parseInt($this.siblings(".js_favnum").text())+1;
+                                //获取最新抽奖次数
+                                getLotteryTime();
+                                
+                                $this.addClass("curr");
+                                $this.siblings(".xinClass").fadeIn("slow");
+                                $this.siblings(".js_add").fadeIn("slow");//+1显示后消失
+                                $this.siblings(".js_favnum").text(number);
+                                $this.siblings(".js_add").fadeOut("slow");
+
+                               
+                            } else {
+                                if (d.message == "请先登录") {
+                                    alertFn(null, null, true);
+                                } else {
+                                    alert(d.message);
+                                }
+                            }
+                        }
+                    });
+                });
+
+            } else {
+                alert(d.message);
+            }
+        }
+    });
+
+
+
+}
+
+
+
+
+
+
+
+    
+$('.pfNav a').click(function(){
+    $(this).addClass("on").siblings().removeClass("on").end();	
+}).eq(0).trigger('click');
+
+//我的中奖信息
+$(".wrap04_check").click(function () {
+					$.ajax({
+                        url: getLotteryByUserUrl,//中奖信息接口
+                        type: "GET",
+                        dataType: "JSON",
+                        data: {
+                            r: function () { return Math.random(); }
+                        },
+                        success: function (d) {
+                            if (d.isSuccess) {
+
+							var prizeList = '';
+                            var dConts = d.data;
+							var nummber = 1;
+                     		for (var i = 0; i < dConts.length; i++) {
+                        		prizeList += '' +
+                             '<p>'+ (nummber + i) +'.  实物奖 '+ '<i>' + dConts[i].presentName +'</i></p>';
+                          		
+
+                     }
+                     $(".tcInp02").empty().html(prizeList);
+                                
+                                $(".js_list").empty().html(d.prizeList);
+								//$(".tcInp02").append('<div class="tcBtn"><input type="button" value="确定" class="js_closepop js_noPrize"><a id="setNewAddress">修改邮寄地址</a></div>')
+								 if($(".tcInp02 p").length == 0 ){
+										$("#setNewAddress").hide();
+								   }else{
+									    $("#setNewAddress").show();
+									}
+                                $(".maskBox").show();  							  
+								$(".wdTc02").show(); 
+								//关闭
+                                $(".js_noPrize").click(function () {
+  									  $(".wdTc").hide();
+    								  $(".maskBox").hide();
+								})
+
+								
+                            } 
+                         }
+                       
+                    });
+
+
+})
+//修改邮寄地址（信息回绑）
+$("#setNewAddress").die().live('click',function(){
+   $(".wdTc02").hide();//中奖列表展示消失
+   $(".wdTc03").show();//修改地址页面显示
+ $.ajax({
+            url: "../wdschoolopen/getAddress",//中奖信息接口
+            type: "GET",
+            dataType: "JSON",
+            data: {
+                r: function () { return Math.random(); }
+            },
+            success: function (d) {//回绑地址信息
+                if (d.data == null) {
+                      
+                      //地址提交(修改)
+                        $(".js_addressSubmitNew").die("click").live("click", function () {
+                            var addressflag = true;
+                            $("#materialPrize02").find(":text").each(function () {
+                                if (_VerEmpty($(this)) == false) {
+                                    addressflag = false;
+                                } else {
+                                    if ($(this).attr("name") == "getPhone") {
+                                        if (_phoneNum($(this)) == false) {
+                                            addressflag = false;
+                                        }
+                                    }
+                                    if ($(this).attr("name") == "getName") {
+                                        if (_varChina($(this), "姓名") == false) {
+                                            addressflag = false;
+                                        }
+                                    }
+                                }
+                            });
+                            if (addressflag) {
+                                addressSubmitNull();//回绑信息为空的情况下增加页面地址js
+                            }
+                            return false;
+                        });
+                      
+                      
+                      
+                } else {
+                    
+				    $(".getName").attr("value",d.data.userName);
+                    $(".getPhone").attr("value",d.data.userPhone);
+                    $(".getAddress").attr("value",d.data.userAddress);
+                 //点击确定---修改上传覆盖原本的
+					//地址提交(修改)
+  			 $(".js_addressSubmitNew").die("click").live("click",function () {
+        			var addressflag = true;
+        		$("#materialPrize02").find(":text").each(function () {
+           			 if (_VerEmpty($(this)) == false) {
+              		  addressflag = false;
+           		 } else {
+                if ($(this).attr("name") == "getPhone") {
+                    if (_phoneNum($(this)) == false) {
+                        addressflag = false;
+                    }
+                }
+                if ($(this).attr("name") == "getName") {
+                    if (_varChina($(this), "姓名") == false) {
+                        addressflag = false;
+                    }
+                }
+            }
+        });
+        if (addressflag) {
+            addressSubmitNew();//修改页面地址js
+        }
+        return false;
+    });
+                
+                }
+            }
+                    
+        })
+	
+})
+
+
+//确定
+$(".js_noPrize").click(function () {
+    $(".wdTc").hide();
+    $(".maskBox").hide();
+
+})
+//关闭图标
+$(".close").click(function () {
+    $(".wdTc").hide();
+    $(".maskBox").hide();
+
+})
+
+$(".js_addressSubmit").click(function () {
+    $.ajax({
+            url: "../wdschoolopen/getAddress",//中奖信息接口
+            type: "GET",
+            dataType: "JSON",
+            data: {
+                r: function () { return Math.random(); }
+            },
+            success: function (d) {
+				//alert(d.data)
+            if (d.data == null) {
+       				 var addressflag = true;
+    $("#materialPrize").find(":text").each(function () {
+        if (_VerEmpty($(this)) == false) {
+            addressflag = false;
+        } else {
+            if ($(this).attr("name") == "getPhone") {
+                if (_phoneNum($(this)) == false) {
+                    addressflag = false;
+                }
+            }
+            if ($(this).attr("name") == "getName") {
+                if (_varChina($(this), "姓名") == false) {
+                    addressflag = false;
+                }
+            }
+        }
+    });
+    if (addressflag) {
+        addressSubmit();
+    }			
+
+					
+	}else{
+            //
+					
+ 						var addressflag = true;
+                        $("#materialPrize").find(":text").each(function () {
+                            if (_VerEmpty($(this)) == false) {
+                                addressflag = false;
+                            } else {
+                                if ($(this).attr("name") == "getPhone") {
+                                    if (_phoneNum($(this)) == false) {
+                                        addressflag = false;
+                                    }
+                                }
+                                if ($(this).attr("name") == "getName") {
+                                    if (_varChina($(this), "姓名") == false) {
+                                        addressflag = false;
+                                    }
+                                }
+                            }
+                        });
+                        if (addressflag) {
+                            addressSubmitNew02();
+                        }
+
+
+
+
+            //
+
+			}
+		}
+
+    });
+
+  
+});
+
+
+function openwin(url) {
+    var a = document.createElement("a");
+    a.setAttribute("href", url);
+    a.setAttribute("target", "_blank");
+    a.setAttribute("id", "openwin");
+    document.body.appendChild(a);
+    a.click();
+}
+
+//------------------验证函数 start-----------------//
+//非空验证
+function _VerEmpty(obj) {
+    if ($.trim(obj.val()) == "") {
+        obj.parent().find(".error").html("必填").show();
+        return false;
+    } else {
+        _okPass(obj);
+        return true;
+    }
+}
+//中文验证
+function _varChina(obj, title) {
+    var exp = new RegExp("^[\u4E00-\u9FA5]+$");
+    if (!exp.test(obj.val())) {
+        obj.parent().find(".error").html(title+"为中文").show();
+        return false;
+    } else {
+        _okPass(obj);
+        return true;
+    }
+};
+//数字
+function _Number(obj) {
+    var exp = new RegExp("^[0-9]*$");
+    if (!exp.test(obj.val())) {
+        obj.parent().find(".error").html("陪同人数为数字").show();
+        return false;
+    } else {
+        _okPass(obj);
+        return true;
+    }
+};
+
+//最大值
+function _Max(obj, max) {
+    if (parseInt(obj.val()) >= max) {
+        obj.parent().find(".error").html("陪同人数不得多于"+max+"人").show();
+        return false;
+    } else {
+        _okPass(obj);
+        return true;
+    }
+};
+
+//长度验证
+function _strLength(obj, title, length) {
+    if ($.trim(obj.val()).length > length) {
+        obj.parent().find(".error").html(title+"不得多于"+length+"个字").show();
+        return false;
+    } else {
+        _okPass(obj);
+        return true;
+    }
+};
+//手机号和固定电话
+
+function _phoneNum(obj) {
+    var exp = new RegExp("^[1][358][0-9]{9}$");  //^[1-9][0-9]{10}$
+    if (!exp.test(obj.val())) {
+        obj.parent().find(".error").html("请正确输入手机号").show();
+        return false
+    } else {
+        _okPass(obj);
+        return true;
+    }
+}
+//验证通过
+function _okPass(obj) {
+    obj.parent().find(".error").html("").hide();
+    return true;
+}
+//------------------验证函数 end-------------------//
+
+
+ });
+
+//放大效果
+$(".js_praise>a").die().live('click',function(){
+var imgAddress = $(this).children("img").attr("src")
+
+	$("#picBigShow").empty().append('<img src="' + imgAddress + '" >')//添加元素
+	
+	//真实宽高
+	var img = new Image();
+	img.src =$("#picBigShow img").attr("src") ;
+	var wid = img.width;
+	var hei = img.height;
+	
+	//定位的width;
+	var newWidth = -(wid/2)+'px';
+	
+	//定位的height;
+	var newHeight =-(hei/2)+'px';
+	
+	$("#maskBoxPicAll").show()
+	$("#maskBoxPic").show().css("z-index","1000");
+	$("#picBigShow img").css({"margin-top":newHeight,"margin-left":newWidth});
+	$("#picBigShow").show();
+})
+$("#maskBoxPicAll").click(function(){
+   $("#maskBoxPic").hide();
+   $("#picBigShow").hide();
+})
+
+//视频显示弹层
+ YM.Flash.embedAdPlayer({
+        openBtn: '.play01',
+        url: 'http://static.cn114.cn/action/wdschoolopen/flash/adplayer.swf',
+        bgUrl: 'http://static.cn114.cn/action/wdschoolopen/images/tvbg.png',
+        closeBtnUrl:'http://static.cn114.cn/action/wdschoolopen/images/tvclose.png',
+        width: 640,
+        height: 360,
+        vars: {
+            videoUrl: 'http://download.gyyx.cn/Default.ashx?typeid=938%5EnetType=1%5Efile=wdmc.flv',
+            coverUrl: ''
+        }
+    });
+    
+    YM.Flash.embedAdPlayer({
+        openBtn: '.play02',
+        url: 'http://static.cn114.cn/action/wdschoolopen/flash/adplayer.swf',
+        bgUrl: 'http://static.cn114.cn/action/wdschoolopen/images/tvbg.png',
+        closeBtnUrl:'http://static.cn114.cn/action/wdschoolopen/images/tvclose.png',
+        width: 640,
+        height: 360,
+        vars: {
+            videoUrl: 'http://download.gyyx.cn/Default.ashx?typeid=938%5EnetType=1%5Efile=qb.flv',
+            coverUrl: ''
+        }
+    });
+
+</script>
+
+ <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+ </div>
+<!-- 兼容ie定位以及透明度 -->
+<!--[if IE 6]>
+<script src="http://www.gyyx.cn/Scripts/DD_belatedPNG.js"></script>
+<script>
+DD_belatedPNG.fix('.wrap01_btn a.a01');
+DD_belatedPNG.fix('.wrap01_btn a.a02');
+DD_belatedPNG.fix('.wrap01_btn a.a03');
+DD_belatedPNG.fix('.picList li');
+DD_belatedPNG.fix('.picTxt i');
+DD_belatedPNG.fix('.picTxt i.curr');
+DD_belatedPNG.fix('.wrap02_upload');
+DD_belatedPNG.fix('.wrap02_more span');
+DD_belatedPNG.fix('.wrap02_rule h2');
+DD_belatedPNG.fix('.wrap02_rule p');
+DD_belatedPNG.fix('.wrap03_cont h2');
+DD_belatedPNG.fix('.wrap03_video img');
+DD_belatedPNG.fix('.wrap03_tit02');
+DD_belatedPNG.fix('.wrap03_list li');
+DD_belatedPNG.fix('.cj_txt h2');
+DD_belatedPNG.fix('.wdTc a.close');
+DD_belatedPNG.fix('.tcCont p span');
+
+
+
+
+
+	var oMask = document.getElementById('maskBox');
+	var oMaskPic = document.getElementById('maskBoxPic');
+
+	var iH = Math.max( view().h, scrollH(), offsetH() );
+//遮罩层的height铺满
+	oMask.style.height = iH + 'px';
+	oMaskPic.style.height = iH + 'px';
+	
+	
+function scrollH(){
+	return document.body.scrollHeight;	
+}
+
+function offsetH(){
+	return document.body.offsetHeight;	
+}
+
+function scrollX(){
+	return document.body.scrollLeft || document.documentElemenbt.scrollLeft;
+}
+
+function scrollY(){
+	return document.body.scrollTop || document.documentElement.scrollTop;
+	
+}
+
+
+function view(){
+
+	return {
+		
+		w : document.documentElement.clientWidth,
+		
+		h : document.documentElement.clientHeight
+		
+	};	
+	
+}
+
+
+
+</script>
+<![endif]-->
+
+    
+
+</body>
+</html>

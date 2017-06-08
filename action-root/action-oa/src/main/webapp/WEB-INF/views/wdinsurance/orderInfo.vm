@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>订单数据查询</title>
+    <link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet" />
+    <link href="${rc.contextPath}/resources/style/main.css" rel="stylesheet"/>
+<style>
+       .table-responsive{ width:100%; overflow-x:scroll;padding-bottom:30px;}
+       .table{width:100%;table-layout:fixed;}
+       .panel .table td, .panel .table th{ padding: 5px;}
+       .panel .table td, .panel .table th{ word-wrap: break-word;word-break: normal; }
+    </style>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+    <!-- <script src="http://static.cn114.cn/action/wdinsurance/js/My97DatePicker/WdatePicker.js"></script> -->
+    <script src="${rc.contextPath}/resources/script/My97DatePicker/WdatePicker.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+		$(function(){
+			var status = "$!contion.status";
+			$("#orderStatusList").val(status);
+		})
+    </script>
+    <script type="text/javascript">
+	function goBack(){
+	var redirectUrl = $("#js_redirectUrl").val();
+	window.location.href=redirectUrl;
+}
+    </script>
+    <link href="/memo/resources/style/jquery-ui.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+                        <header class="header bg-white b-b clearfix">
+                        	<input id="startTime" placeholder="开始时间" class="startTimeTotal" type="text" style="margin-left:30px;margin-top:13px;" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'endTime\')}'})">
+							<input id="endTime" placeholder="结束时间" class="endTimeTotal" type="text"  style="margin-left:30px;margin-top:13px;" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'startTime\')}'})">
+							<a id="orderTotalButton" data-toggle="modal" class="btn btn-rounded btn-sm btn-gplus" style="margin-left:30px;margin-bottom:15px;" href="#sumOrder">
+								总计<i class="fa fa-play"></i>
+							</a>
+							
+							<a id="ExcelBtn" data-toggle="modal" class="btn btn-rounded btn-sm btn-dark" style="margin-left:30px;margin-bottom:15px;" pageAccount="$!contion.account" pageStartTime="$!contion.startTimeStr" pageEndTime="$!contion.endTimeStr" pageOrderNum="$!contion.orderNum" pagePageNum="$!contion.pageNum" pageStatus="$!contion.status">导出Excel表格</a>
+        </header>
+		<script >
+			$(function(){
+				$("#orderTotalButton").click(function(){
+					
+					var startTimeList = $(".startTimeTotal").val();
+    				var endTimeList = $(".endTimeTotal").val();
+    					var data = {startTimeStr:startTimeList,endTimeStr:endTimeList}
+    					$.ajax
+						({
+    						url:"orderTotal",
+    						data:data,
+    						dataType:"json",
+    						type:"GET",
+    						success:function(data){
+    							$(".protectionSUMSPAN").html(data.protectionSUM);
+    							$(".reparationSUMSPAN").html(data.reparationSUM);
+    							$(".orderCountSPAN").html(data.orderCount);
+    							$(".reparationCountSPAN").html(data.reparationCount);
+    							$(".failreparationCountSPAN").html(data.failreparationCount);
+    						},
+    						error:function(){
+    							alert("查询失败！");
+    						}
+    					});
+				})
+				
+			})
+        </script>
+                        <!--顶部标题导航 end-->
+
+        <!--主体内容 begin-->
+        <section class="scrollable padder">
+            <div class="m-b-md">
+            </div>
+            <!--数据表格  begin -->
+            <div style="padding: 15px;">
+				<div class="block" style=" padding: 15px; font-size: 18px; background-color: #fff;">
+					<i class="fa fa-bars icon-muted"></i>&nbsp;
+					<small >订单数据查询</small>
+					<span style="position: absolute;right: 15px; font-size: 12px;">
+						<input id="startTime" placeholder="开始时间" class="startTimeList" type="text" style="margin-left:30px;" onFocus="WdatePicker({maxDate:'#F{$dp.$D(\'endTime\')}'})" value="$!contion.startTimeStr">
+						<input id="endTime" placeholder="结束时间" class="endTimeList" type="text"  style="margin-left:30px;" onFocus="WdatePicker({minDate:'#F{$dp.$D(\'startTime\')}'})" value="$!contion.endTimeStr">
+						<input type="text" id="orderNumList" placeholder="订单号" style="margin-left:30px;" value="$!contion.orderNum" class="input-sm" >
+						<input type="text" id="orderAccountList" placeholder="账号" style="margin-left:30px;" value="$!contion.account" class="input-sm" >
+						<select type="text" id="orderStatusList" placeholder="订单状态" style="margin-left:30px;" class="input-sm" >
+							<option value="">全部</option>
+							<option value="nopay">未支付</option>
+							<option value="failpay">支付失败</option>
+							<option value="succpay">支付成功</option>
+							<option value="efforder">有效保单</option>
+							<option value="noefforder">失效保单</option>
+							<option value="reparation">理赔处理中</option>
+							<option value="succreparation">理赔成功</option>
+							<option value="failreparation">理赔失败</option>
+                        </select>
+						<a id="orderSearchButton" style="margin-left:30px;" class="btn btn-rounded btn-sm btn-facebook">
+							查询<i class="fa fa-anchor"></i>
+						</a>
+					</span>
+				</div>
+            </div>
+            <section class="panel panel-default">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            <tr>
+                                                <th width="50" >订单号</th>
+                                                <th width="50">姓名</th>
+                                                <th width="50">手机号</th>
+                                                <th width="50">订单类型</th>
+                                                <th width="50">图片</th>
+                                                <th width="50">账号</th>
+                                                <th width="50">区组</th>
+                                                <th width="50">名称</th>
+												<th width="50">角色Id</th>
+                                                <th width="50">等级</th>
+                                                <th width="50">保费</th>
+                                                <th width="50">保单周期</th>
+												<th width="50">下单时间</th>
+												<th width="50">有效时间</th>
+												<th width="50">订单状态</th>
+												<th width="50">保额上限</th>
+												<th width="50">登陆IP</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+											#foreach($!orderBean in $orderList)
+                                            <tr>
+                                                <td >$!orderBean.orderNum</td>
+                                                <td>$!orderBean.name</td>
+                                                <td>$!orderBean.phone</td>
+                                                <td>$!orderBean.orderType</td>
+                                                <td><img width="40" height="40" src="$!orderBean.pictureUrl"></td>
+                                                <td>$!orderBean.account</td>
+                                                <td>$!orderBean.serverName</td>
+                                                <td>$!orderBean.roleName</td>
+												<td>$!orderBean.roleId</td>
+                                                <td>$!orderBean.level</td>										
+                                                <td>$!orderBean.protection</td>
+                                                <td>$!orderBean.circle</td>
+												<td>$!orderBean.creatTimeStr</td>
+                                                <td>$!orderBean.validTimeStr</td>
+                                                <td>$!orderBean.statusShow</td>
+                                                <td>$!orderBean.reparation</td>
+                                                <td>$!orderBean.ip</td>
+                                            </tr>
+											#end
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </section>
+    		<!--数据表格  end -->
+         </section>
+            <!--主体内容 end-->
+		<footer class="footer bg-white b-t" id="testDomainFooter"><div class="row dataTables_wrapper">
+			<div class="col-sm-6">
+				#if($!count == 0)
+					<span class="dataTables_info">共 1  页</span>
+				#else
+					<span class="dataTables_info">共 $!count 页</span>
+				#end
+    			
+    		</div>
+    		<div class="col-sm-6">
+        		<div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers">
+         			<a id="FirstPage" style="color: rgb(99, 99, 99);" value="首页" tabindex="0" class="first paginate_button" >首页</a>
+					#set($pageLast=$pageNum - 1)
+        			<a id="LastPage" style="color: rgb(99, 99, 99);" value="上一页" tabindex="0" class="previous paginate_button" >上一页</a>
+        			<span>
+						#if($!count == 0)
+							#foreach($page in [1..1])
+								<a style="color:#000033" value='$page' tabindex="0" class="paginate_active PageButton" pageStatus="$!contion.status" pageAccount="$!contion.account" pageStartTime="$!contion.startTimeStr" pageEndTime="$!contion.endTimeStr" pageOrderNum="$!contion.orderNum">$page</a>
+							#end
+						#elseif($!count>15)
+    						#foreach($page in [1..10])
+    							<a style="color:#000033" value='$page' tabindex="0" class="paginate_active PageButton" pageStatus="$!contion.status" pageAccount="$!contion.account" pageStartTime="$!contion.startTimeStr" pageEndTime="$!contion.endTimeStr" pageOrderNum="$!contion.orderNum" >$page</a>
+							#end
+							<a style="color:#000033"  tabindex="0" class="paginate_active" >...</a>
+							<a style="color:#000033" value='$count' tabindex="0" class="paginate_active PageButton" pageStatus="$!contion.status" pageAccount="$!contion.account" pageStartTime="$!contion.startTimeStr" pageEndTime="$!contion.endTimeStr" pageOrderNum="$!contion.orderNum" >$count</a>
+						#else
+							#foreach($page in [1..$count])
+								<a style="color:#000033" value='$page' tabindex="0" class="paginate_active PageButton" pageStatus="$!contion.status" pageAccount="$!contion.account" pageStartTime="$!contion.startTimeStr" pageEndTime="$!contion.endTimeStr" pageOrderNum="$!contion.orderNum" >$page</a>
+							#end
+						#end
+					</span>
+					#set($pageNext=$pageNum+1)
+        			<a id="NextPage" style="color:#000033" value="下一页" tabindex="0" class="next paginate_button">下一页</a>
+        			<a id="FinalPage" style="color:#000033" value="末页" tabindex="0" class="last paginate_button" >末页</a>
+     		</div>
+    		</div>
+		</footer>
+			
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+    <!-- -----------------------------------------------添加弹层开始---------------------------------------------- -->
+    <div class="modal fade" id="sumOrder" > 
+    <div class="modal-dialog" >
+    	<div class="col-lg-8">
+        	<section class="panel panel-default">
+            	<header class="panel-heading bg-danger lt no-border">
+                	<div class="clearfix">
+                    	<div class="clear">
+                        	<div class="h3 m-t-xs m-b-xs text-white">订单数据总计</div>
+                        </div>
+                    </div>
+                </header>
+               <ul class="list-group no-radius">
+                   <li class="list-group-item"><span class="label bg-primary">1</span><span style="font-weight: bold; padding-left: 10px;">保费总计：</span><span class="protectionSUMSPAN"></span></li>
+                   <li class="list-group-item"><span class="label bg-primary">2</span><span style="font-weight: bold; padding-left: 10px;">投保订单个数总计：</span><span class="orderCountSPAN"></span></li>
+                   <li class="list-group-item"><span class="label bg-primary">3</span><span style="font-weight: bold; padding-left: 10px;">理赔金额总计：</span><span class="reparationSUMSPAN"></span></li>
+                   <li class="list-group-item"><span class="label bg-primary">4</span><span style="font-weight: bold; padding-left: 10px;">理赔成功订单个数总计：</span><span class="reparationCountSPAN"></span></li>
+                   <li class="list-group-item"><span class="label bg-primary">5</span><span style="font-weight: bold; padding-left: 10px;">理赔失败订单个数总计：</span><span class="failreparationCountSPAN"></span></li>
+               </ul>
+            </section>
+         </div>
+    </div>
+    </div>
+    <!-- -----------------------------------------------添加弹层结束---------------------------------------------- -->
+    
+    
+    <!--添加网络组件弹层 begin-->
+    <div id="addPop">
+        <div class="row">
+            <div class="col-sm-3 text-right m-t-xs">所属项目集</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">所属项目</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">网络组件名称</div>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">说明</div>
+            <div class="col-sm-8">
+                <textarea cols="30" rows="2" class="form-control"></textarea>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+    </div>
+    <!--添加网络组件弹层 begin-->
+
+    <!--编辑网络组件弹层 begin-->
+    <div id="editPop">
+        <div class="row">
+            <div class="col-sm-3 text-right m-t-xs">所属项目集</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">所属项目</div>
+            <div class="col-sm-6">
+                <select class="form-control">
+                    <option>请选择项目集</option>
+                    <option>项目集1</option>
+                </select>
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">网络组件名称</div>
+            <div class="col-sm-6">
+                <input type="text" class="form-control" />
+            </div>
+            <div class="col-sm-1">
+                <span class="required">*</span>
+            </div>
+        </div>
+        <div class="row m-t">
+            <div class="col-sm-3 text-right m-t-xs">说明</div>
+            <div class="col-sm-8">
+                <textarea cols="30" rows="2" class="form-control"></textarea>
+            </div>
+        </div>
+    </div>
+    <!--编辑网络组件弹层 end-->
+ 	<!-- 分页防止页码溢出 -->
+	<script >
+		$(function(){
+    		
+    		if($page<=1){
+				$("#LastPage").click(function(){
+    			alert("当前页已经是首页！");return false;
+    			})	
+    		}
+    		
+			
+			if($page>=$count){
+				$("#NextPage").click(function(){
+					alert("当前页已经是末页！");return false;
+				})		
+			}
+			
+		})
+	
+    </script>
+	<!-- 订单列表查询 -->
+	<script >
+		$(function(){
+			$("#orderSearchButton").click(function(){
+				var startTimeList = $(".startTimeList").val();
+				var endTimeList = $(".endTimeList").val();
+				var orderNumList = $("#orderNumList").val();
+				var orderAccountList = $("#orderAccountList").val();
+				var orderStatusList = $("#orderStatusList").val();
+				var pageNum = $page
+				window.location.href = "orderSearch?startTimeStr="+startTimeList+"&endTimeStr="+endTimeList+"&orderNum="+orderNumList+"&account="+orderAccountList+"&status="+orderStatusList+"&pageNum="+pageNum;
+			})
+			$("#FirstPage").click(function(){
+				var startTimeList = $(".startTimeList").val();
+				var endTimeList = $(".endTimeList").val();
+				var orderNumList = $("#orderNumList").val();
+				var orderAccountList = $("#orderAccountList").val();
+				var orderStatusList = $("#orderStatusList").val();
+				var pageNum = 1
+				window.location.href = "orderPageSearch?startTimeStr="+startTimeList+"&endTimeStr="+endTimeList+"&orderNum="+orderNumList+"&account="+orderAccountList+"&status="+orderStatusList+"&pageNum="+pageNum;
+			})
+			$("#FinalPage").click(function(){
+				var startTimeList = $(".startTimeList").val();
+				var endTimeList = $(".endTimeList").val();
+				var orderNumList = $("#orderNumList").val();
+				var orderAccountList = $("#orderAccountList").val();
+				var orderStatusList = $("#orderStatusList").val();
+				var pageNum = $count
+				window.location.href = "orderPageSearch?startTimeStr="+startTimeList+"&endTimeStr="+endTimeList+"&orderNum="+orderNumList+"&account="+orderAccountList+"&status="+orderStatusList+"&pageNum="+pageNum;
+			})
+			$("#NextPage").click(function(){
+				var startTimeList = $(".startTimeList").val();
+				var endTimeList = $(".endTimeList").val();
+				var orderNumList = $("#orderNumList").val();
+				var orderAccountList = $("#orderAccountList").val();
+				var orderStatusList = $("#orderStatusList").val();
+				var pageNum = $page + 1
+				var count = $count;
+				if(pageNum>count){}else{
+				window.location.href = "orderPageSearch?startTimeStr="+startTimeList+"&endTimeStr="+endTimeList+"&orderNum="+orderNumList+"&account="+orderAccountList+"&status="+orderStatusList+"&pageNum="+pageNum;
+				}
+			})
+			$("#LastPage").click(function(){
+				var startTimeList = $(".startTimeList").val();
+				var endTimeList = $(".endTimeList").val();
+				var orderNumList = $("#orderNumList").val();
+				var orderAccountList = $("#orderAccountList").val();
+				var orderStatusList = $("#orderStatusList").val();
+				var pageNum = $page - 1
+				if(pageNum<1){}else{
+				window.location.href = "orderPageSearch?startTimeStr="+startTimeList+"&endTimeStr="+endTimeList+"&orderNum="+orderNumList+"&account="+orderAccountList+"&status="+orderStatusList+"&pageNum="+pageNum;
+				}
+			})
+			$(".PageButton").click(function(){
+				var startTimeList = $(this).attr("pageStartTime");
+				var endTimeList =  $(this).attr("pageEndTime");
+				var orderNumList = $(this).attr("pageOrderNum");
+				var orderAccountList = $(this).attr("pageAccount");
+				var orderStatusList = $(this).attr("pageStatus");
+				var pageNum = $(this).text();
+				window.location.href = "orderPageSearch?startTimeStr="+startTimeList+"&endTimeStr="+endTimeList+"&orderNum="+orderNumList+"&account="+orderAccountList+"&status="+orderStatusList+"&pageNum="+pageNum;
+			})
+			$("#ExcelBtn").click(function(){
+				var startTimeList = $(this).attr("pageStartTime");
+				var endTimeList =  $(this).attr("pageEndTime");
+				var orderNumList = $(this).attr("pageOrderNum");
+				var orderAccountList = $(this).attr("pageAccount");
+				var orderStatusList = $(this).attr("pageStatus");
+				var pageNum = $(this).attr("pagePageNum");
+				if(pageNum == ""){
+				window.location.href = "exportOrderExcel?startTimeStr="+startTimeList+"&endTimeStr="+endTimeList+"&orderNum="+orderNumList+"&account="+orderAccountList+"&status="+orderStatusList+"&pageNum=1";
+				}else{
+				window.location.href = "exportOrderExcel?startTimeStr="+startTimeList+"&endTimeStr="+endTimeList+"&orderNum="+orderNumList+"&account="+orderAccountList+"&status="+orderStatusList+"&pageNum="+pageNum;
+			
+			}})
+			
+		})
+    </script>
+</body>
+</html>

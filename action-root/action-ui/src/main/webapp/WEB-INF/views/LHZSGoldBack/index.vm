@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>灵魂战神  金币返还</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/lhzsGoldBack/css/style.css" />
+		<script  type="text/javascript">
+		    var rc = "${rc.contextPath}";
+		</script>
+		<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+		<script src="http://static.cn114.cn/action/lhzsGoldBack/js/main.js"></script>
+		<script type="text/javascript" charset="utf-8">
+    		alert("谢谢参与，活动已结束");
+    	</script>
+	</head>
+	<body>
+		<div class="public_nav_top">
+      		<script type="text/javascript">Showtop();</script>
+    	</div>
+		<div class="bg">
+			<div class="content">
+				<div class="space">
+					
+				</div>
+				<div class="part" style="margin-top: 20px;">
+						<p style="font-size: 20px;line-height: 42px;">《灵魂战神》金币返还</p>
+						<p>《灵魂战神》不删档封测已开启了一段时间，参加萌动封测并成功充值“金币”的玩家，可以点击下面的登录按钮，登录之前的充值账号申请金币100%返还（已经参加过的不能重复参加哦），感谢大家对《灵魂战神》的支持与喜爱。</p>
+					</div>
+				<div class="beforLogin" style="    margin-top: 30px;">
+					<p style="margin: 30px;font-size: 20px;">登录通行证申请返还金币</p>
+					<div class="part btn">
+					
+						<a class="loginBtn" onclick="alertFn(null, null, true); return false;">登&nbsp;&nbsp;录</a>
+					</div>
+				</div>
+				<div class="afterLogin" style="    margin-top: -24px;">
+					<div class="part" style="margin-top: 44px;">
+						<p class="words">欢迎您：<span id="account">isisaisoaosiao</span></p>
+						<p class="words">可返还的金币数</p>
+						<p class="words"><span id="coin">999999</span></p>
+					</div>
+					<div class="part">
+						<div class="part BackBtn">
+							<a class="coinBackBtn">申请返还</a>
+						</div>
+					</div>
+				</div>
+				<div class="part">
+					<p style="font-size: 20px;line-height: 42px;">返还规则说明</p>
+					<p>凡参与2015年11月20日《灵魂战神》萌动测试的玩家，在封测期间所完成的充值“金币”数额将会在本次游戏测试中100%返还。玩家登陆上次测试账号，即可查询返还金额。</p>
+					<p style="color:red">注：</br>活动时间：2016年5月21日至2015年5月25日（申请时间）<br/> 我们会在活动结束后的两个工作日内将金币发放到您的账号中，错过申请时间将无法再申请，请相互转告呦~~~~</p>
+				</div>
+			</div>
+		</div>
+		<!--页脚-->
+		<div class="public_nav_bottom" style="clear: both;">
+      		<script type="text/javascript">ShowBottom()</script>
+    	</div>
+	</body>
+</html>

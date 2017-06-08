@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdtenyearpicture.IScore">
+
+	<resultMap type="WDTenYearScoreBean" id="ScoreBeanMap">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="user_code" property="userCode" />
+		<result column="ip" property="ip" />
+		<result column="score" property="score" />
+		<result column="creat_time" property="creatTime" />
+
+	</resultMap>
+	<select id="getScoreBean" resultMap="ScoreBeanMap">
+		select * from
+		wd_tenyears_score_tb
+		where
+		user_code=#{userCode}
+	</select>
+	<update id="setScoreBean">
+		update wd_tenyears_score_tb
+		set score=score+ #{score}
+		where
+		user_code=#{userCode}
+	</update>
+	<insert id="addScoreBean">
+		insert into wd_tenyears_score_tb
+		(account,user_code,ip,score)
+		values
+		(#{account},#{userCode},#{ip},#{score})
+
+	</insert>
+
+	<select id="getCountByAccount" resultType="int">
+		select count(account)
+		from wd_tenyears_score_tb
+
+	</select>
+		<select id="getScoreBeanas" resultType="java.util.List" resultMap="ScoreBeanMap">
+	select * from
+		wd_tenyears_score_tb
+	</select>
+
+</mapper>

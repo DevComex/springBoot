@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.novicecard.INoviceCardMapper">
+	<resultMap type="NoviceCard" id="NoviceCard">
+		<id column="code" property="code" />
+		<result column="card_no" property="cardNo" />
+		<result column="is_use" property="isUse" />
+		<result column="game_id" property="gameId" />
+		<result column="description" property="description" />
+		<result column="item_id" property="itemId" />
+		<result column="start_time" property="startTime" />
+		<result column="end_time" property="endTime" />
+		<result column="is_limit" property="isLimit" />
+		<result column="batch_no" property="batchNo" />
+		<result column="type_id" property="typeId" />
+	</resultMap>
+
+
+
+
+	<!-- 通过卡号查询新手卡 -->
+	<select id="selectNoviceCardByCardNo" resultMap="NoviceCard"
+		parameterType="String">
+		SELECT
+		code,card_no,is_use,game_id,description,item_id,start_time,end_time,is_limit,batch_no,type_id
+		FROM novice_card
+		WHERE card_no=#{cardNo}
+	</select>
+
+
+
+
+</mapper>

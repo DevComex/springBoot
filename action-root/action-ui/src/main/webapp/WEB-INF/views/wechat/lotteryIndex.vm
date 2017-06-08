@@ -1,0 +1,264 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>转转大转盘 好礼缤纷乐</title>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/zjkp/lottery/css/conmon.css" />
+    <script src="http://s.gyyx.cn/lib/jquery.js"></script>
+    <script src="http://action.gyyx.cn/DialLottery/WXZjjsDialLottery/js/gyyx_wxshare.min.js"></script>
+    <script src="http://static.cn114.cn/action/zjkp/lottery/js/jQueryRotate.2.2.js"></script>
+
+    <script src="http://static.cn114.cn/action/zjkp/lottery/js/index.js"></script>
+    <script type="text/javascript" charset="utf-8">
+    	alert("谢谢参与，活动已结束");
+    </script>
+</head>
+<body class="draw_box">
+    <input type="hidden" value="o6UxvwlTeoxHvrs6q2uQfMDLMtOs" id="openId" />
+    <input type="hidden" value="" id="codeId" />
+    <img src="http://static.cn114.cn/action/zjkp/lottery/images/coverbg.png" class="js_openweb" />
+	<img src="http://static.cn114.cn/action/zjkp/lottery/images/sharebg.png" class="js_openshare" />
+    <!--start 遮罩-->
+    <div class="black_b"></div>
+
+    <!-- 抽奖：未中奖 -->
+    <div class="alert_box no_info">
+        <img src="http://static.cn114.cn/action/zjkp/lottery/images/xunibg.png" width="85%" alt="" />
+        <div class="Winn_info" style="top:42%;">
+            <h2>
+                <img src="http://static.cn114.cn/action/zjkp/lottery/images/icox.png" class="imgico" style="left:34%;" />&nbsp;&nbsp;&nbsp;&nbsp;不好意思<br />
+                <span class="fontbig">您没中奖</span>
+                <span class="jplist">分享后再来抽奖吧</span>
+            </h2>
+            <a href="javascript:;" class="js_back_btn"><img src="http://static.cn114.cn/action/zjkp/lottery/images/agninbtn.png" /></a>
+        </div>
+    </div>
+
+    <!-- 抽奖：中奖了 -虚拟奖 -->
+    <div class="alert_box yes_info">
+        <img src="http://static.cn114.cn/action/zjkp/lottery/images/shiwubj1.png" width="85%" alt="" />
+        <div class="Winn_site" style="top:35%;">
+            <h2>
+                <!--  <img src="http://static.cn114.cn/action/zjkp/lottery/images/icox.png" class="imgico" />恭喜中奖<br />-->
+                <span class="jplist"><span class="js_jpname"></span></span>
+                <span class="jplist ItemCode"></span>
+                <span class="jplist">快去游戏里使用吧</span>
+            </h2>
+            <a href="javascript:;" class="js_back_btn"><img src="http://static.cn114.cn/action/zjkp/lottery/images/closebtn.png" /></a>
+        </div>
+    </div>
+
+    <!-- 抽奖：中奖了 -实物奖 -->
+    <div class="alert_box yes_info2">
+        <img src="http://static.cn114.cn/action/zjkp/lottery/images/shiwubj.png" width="85%" alt="" class="swpr" />
+        <div class="Winn_site">
+            <h2>
+                <!--  <img src="http://static.cn114.cn/action/zjkp/lottery/images/icox.png" class="imgico" />恭喜中奖<br />-->
+                <span class="jplist wining_sum">恭喜您获得<span></span></span>
+            </h2>
+            <p class="clearfix">
+                <label></label><input type="text" name="username" maxlength="20" class="js_name" />
+            </p>
+
+            <p class="clearfix">
+                <label></label><input type="text" name="phone" maxlength="11" class="js_phone" />
+            </p>
+
+            <p class="clearfix">
+                <label></label><input type="text" name="phone" maxlength="80" class="js_site" />
+            </p>
+            <input type="submit" value="" class="js_submit" />
+            <img src="http://static.cn114.cn/action/zjkp/lottery/images/hint_txt.png" alt="" width="39%" class="txttip" />
+        </div>
+    </div>
+
+    <!-- 中奖纪录： --无奖品 -->
+    <div class="alert_box record_no">
+        <img src="http://static.cn114.cn/action/zjkp/lottery/images/xunibg.png" width="85%" alt="" />
+        <div class="Winn_info" style="top:42%;">
+            <h2>
+                <img src="http://static.cn114.cn/action/zjkp/lottery/images/icox.png" class="imgico" />&nbsp;&nbsp;&nbsp;&nbsp;嗨,您还没有获得奖品,<br />
+                <span class="fontbig">记得抽奖哦！</span>
+                <span class="jplist">分享获得抽奖次数</span>
+            </h2>
+            <a href="javascript:;" class="js_back_btn"><img src="http://static.cn114.cn/action/zjkp/lottery/images/closebtn.png" /></a>
+        </div>
+        <!--  -->
+    </div>
+
+    <!-- 中奖纪录： --虚拟道具码奖品 -->
+    <div class="alert_box  noviceCard">
+        <img src="http://static.cn114.cn/action/zjkp/lottery/images/xunibg.png" width="85%" alt="" />
+        <div class="Winn_info" style="top:39%;">
+            <h2>
+                <img src="http://static.cn114.cn/action/zjkp/lottery/images/icox.png" class="imgico" />&nbsp;&nbsp;&nbsp;&nbsp;嗨,这是您获得的奖品,<br />
+                <span class="fontbig">记得来领哦！</span>
+                <span class="jplist">终极酷跑游戏礼包</span>
+                <span class="jplist">京东E卡300元</span>
+                <span class="jplist">实物周边</span>
+            </h2>
+            <a href="javascript:;" class="js_back_btn"><img src="http://static.cn114.cn/action/zjkp/lottery/images/closebtn.png" /></a>
+        </div>
+    </div>
+
+    <!-- 中奖纪录： --（已填地址）实物奖品 -->
+    <div class="alert_box record">
+        <img src="http://static.cn114.cn/action/zjkp/lottery/images/xunibg.png" width="85%" alt="" />
+        <div class="Winn_info" style="top:39%;">
+            <h2>
+                <img src="http://static.cn114.cn/action/zjkp/lottery/images/icox.png" class="imgico" />&nbsp;&nbsp;&nbsp;&nbsp;嗨,这是您获得的奖品,<br />
+                <span class="fontbig">记得来领哦！</span>
+                <span class="jplist">终极酷跑游戏礼包</span>
+                <span class="jplist">京东E卡300元</span>
+                <span class="jplist">实物周边</span>
+            </h2>
+            <a href="javascript:;" class="js_back_btn"><img src="http://static.cn114.cn/action/zjkp/lottery/images/closebtn.png" /></a>
+        </div>
+    </div>
+
+    <!-- 无抽奖次数 -->
+    <div class="alert_box no_num">
+        <img src="http://static.cn114.cn/action/zjkp/lottery/images/xunibg.png" width="85%" alt="" />
+        <div class="Winn_info" style="top:42%;">
+            <h2>今日抽奖机会已经用光啦<br />
+                <span class="fontbig">记得明天再战！</span>
+                <span class="jplist" style="font-size:16px;">每天分享朋友圈可多获得三次机会！</span>
+            </h2>
+            <a href="javascript:;" class="js_back_btn"><img src="http://static.cn114.cn/action/zjkp/lottery/images/closebtn.png" /></a>
+        </div>
+    </div>
+
+    <div class="dia_modal_nouse js_nouse" style="display:none;">请在竖屏使用！</div>
+    <!--end 遮罩-->
+
+    <div class="draw_pan">
+        <div class="shareno"><h3>您今天还有<span class="js_lottrycut">0</span>次抽奖机会</h3></div>
+        <div class="shrBtn js_shrBtn"><img src="http://static.cn114.cn/action/zjkp/lottery/images/shareIco.png" alt="" /></div>
+        <div class="js_draw_btn">
+            <img src="http://static.cn114.cn/action/zjkp/lottery/images/draw_btn.png" />
+        </div>
+        <a class="xzBtn js_downbtns" href="javascript:;"><img src="http://static.cn114.cn/action/zjkp/lottery/images/downIco.png" alt="" /></a>
+        <div class="zjBtn"><img src="http://static.cn114.cn/action/zjkp/lottery/images/recordIco.png" alt="" /></div>
+
+    </div>
+
+    <div class="draw_rule">
+        <div class="cjRule">
+            <h3> 抽奖规则：</h3>
+            <ul>
+                <!--<li class="zjjs_time"></li>-->
+                <li>1. 每天一次抽奖机会。</li>
+                <li>2. 分享可再获得三次抽奖机会。</li>
+                <li>3. 如多次中奖，则以最高奖项为准。</li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+         $(function () {
+			
+		 
+            //判断微信和浏览器
+            function is_weixin() {
+                var ua = navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == "micromessenger") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            var browser = {
+                versions: function () {
+                    var u = navigator.userAgent, app = navigator.appVersion;
+                    return {
+                        trident: u.indexOf('Trident') > -1,
+                        presto: u.indexOf('Presto') > -1,
+                        webKit: u.indexOf('AppleWebKit') > -1,
+                        gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1,
+                        mobile: !!u.match(/AppleWebKit.*Mobile.*/),
+                        ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/),
+                        android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1,
+                        iPhone: u.indexOf('iPhone') > -1,
+                        iPad: u.indexOf('iPad') > -1,
+                        webApp: u.indexOf('Safari') == -1
+                    }
+                }(),
+                language: (navigator.browserLanguage || navigator.language).toLowerCase()
+            };
+            function init() {
+                if (is_weixin()) {
+                    if (browser.versions.ios && (browser.versions.iPhone || browser.versions.iPad)) {
+                        //weixin为提示使用浏览器打开的div
+                        $(".js_downbtns").unbind().bind("click", function () {
+                            alert("iOS版本敬请期待");
+                        });
+							$(".js_shrBtn").unbind().bind("click", function () {
+                             $(".js_openshare").show();
+                            $(".js_openshare").unbind().bind("click", function () {
+                                $(this).hide();
+                            });
+                        });
+                    } else {
+                        $(".js_downbtns").click(function () {
+                            $(".js_openweb").show();
+                            $(".js_openweb").unbind().bind("click", function () {
+                                $(this).hide();
+                            });
+                        });
+							$(".js_shrBtn").unbind().bind("click", function () {
+                             $(".js_openshare").show();
+                            $(".js_openshare").unbind().bind("click", function () {
+                                $(this).hide();
+                            });
+                        });
+					
+                    }
+                } else {
+                    if (browser.versions.ios &&( browser.versions.iPhone || browser.versions.iPad)) {
+                        //下载页div
+                        $(".js_downbtns").unbind().bind("click", function () {
+                            alert("iOS版本敬请期待");
+                        });
+                    } else {
+                    window.location = "http://download.gyyx.cn/Default.ashx?typeid=978&netType=1";
+                    }
+                }
+            };
+            init();
+			
+			function getQuery(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"),
+                    regs = new RegExp("%26", "g"); addda = window.location.search.replace(regs, "&");
+                r = addda.substr(1).match(reg); if (r != null) { return r[2]; } return null;
+            };
+        			
+    		  wxShare({
+                debug: false,
+                game: "Zjjs",
+                title: "和孙佳奇一起酷跑，赢Iphone6S等周边好礼吧！",
+                desc: "和孙佳奇一起酷跑，赢Iphone6S等周边好礼吧！",
+                link: "http://actionv2.gyyx.cn/wechatLottery/zjkpShare",
+                imgUrl: "http://static.cn114.cn/action/zjkp/lottery/images/share_pic.png",
+                success: function () {
+                    var geturl = "http://actionv2.gyyx.cn/wechatCount/ajaxBackstageCount?countType=zjjsShare&nickName=" + getQuery("OpenId");
+                    $("body").append("<img src=" + geturl + " border=0 width=0 height=1 style='display:none;'>");
+                    alert("分享成功！");
+					window.location.reload();
+                },
+                cancel: function () {
+                    alert("取消了分享");
+                }
+            });
+
+
+
+	 
+			
+			
+        });
+    </script>
+
+
+</body>
+</html>

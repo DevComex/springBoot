@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>创世2活动专题页</title>
+		<meta name="keywords" content="四大活动 礼迎群侠,创世2,光宇游戏">
+		<meta name="description" content="《创世2》首次封测5月20日12点整盛情开测！">
+		<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/cs2Cb/css/cs160506.css">
+		<script  type="text/javascript">
+	    	var rc = "${rc.contextPath}";
+	 	</script>
+	 	<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+		<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+        <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=chuangshier" type="text/javascript"></script>
+		
+	</head>
+	<body>
+    <div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+		<div class="wrap">
+			<div class="main">
+				<div class="cs_header">
+					<div class="cs_nav">
+						<a href="http://cs2.gyyx.cn/Home/index.shtml" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://cs2.gyyx.cn/DownLoad/guest/index.shtml" target="_blank">下载中心</a>
+					</div>
+					<div class="cs_time">
+						<p>5<br>月20日12点整盛情开测<br>！</p>
+						<p><span>首次封测</span></p>
+					</div>
+					<div class="cs_btn">
+						<!--签到送礼-->
+						<a href="javascript:;" onclick="alertFn(null,null,true);" class="btn_qdsl js_unlogin" style="display: block;">签到送礼</a>
+						<!--获取角色-->
+						<div class="cs_get js_unBindRole01" style="display: none;">
+							<p>欢迎您：<span class="js_accountName">CH**24 </span><a class="js_Loginout" href="javascript:;">退出登录</a></p>
+							<div class="cs_line">
+								<label>请选择服务器：</label>
+								<select id="sel_serverlist">
+									<option value="0">请选择服务器</option>
+								</select>
+							</div>
+							<div class="cs_line">
+								<label>请输入验证码：</label>
+								<input type="text" name="verifyCode" maxlength="5" id="captchaInput">
+								<img class="js_captcha" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=0.9730367364827543" width="66" height="34" />
+							</div>
+							<a href="javascript:;" class="btn_con get_btn" id="js_upRole">获取角色</a>
+						</div>
+						<!--绑定角色-->
+						<div class="cs_bind js_unBindRole02" style="display: none;">
+							<p>欢迎您：<span class="js_accountName">CH**24 </span><a href="javascript:;" class="js_Loginout">退出登录</a></p>
+							<div class="cs_line">
+								<label>请选择角色：</label>
+								<select class="js_roleList">
+									<option value="0">请选择角色</option>
+								</select>
+							</div>
+							<p>注：角色绑定后不可修改</p>
+							<a href="javascript:;" class="btn_con bind_btn js_bindRoleSubmitBtn">绑定角色</a>
+						</div>
+						<!--完成今日签到-->
+						<div class="cs_sign js_bindRole" style="display: none;">
+							<p>欢迎您：<span class="js_accountName">CH**24 </span><a href="javascript:;" class="js_Loginout">退出登录</a></p>
+							<!--<p>您已连续签到：</p>
+							<p class="p_data"><span>0</span>天</p>-->
+							<p class="js_bindInfo"></p>
+							<a href="javascript:;" class="btn_con sign_btn js_unsign">完成今日签到</a>
+							<a href="javascript:;" class="btn_con signed_btn js_sign" style="display:none;">今日签到成功</a>
+						</div>
+					</div>
+				</div>
+				<div class="cs_cont">
+					<!--01 start-->
+					<div data-id="cs_box1" class="cs_box cs_box1">
+						<h2>每日签到 天天有礼</h2>
+						<h4>2016年5月20日-5月26日</h4>
+						<h3>活动概述</h3>
+						<p>活动期间内，每天登陆签到页面签到，即可立即获得珍贵游戏道具，如：装备强化道具、血池蓝池、经验双倍、还有各种助您快速升级的便利性道具送不停！天天礼不同，天天新期待！</p>
+						<div class="cs_gift">
+							<ul class="gift_ul">
+								<li><a href="#">第一天</a></li>
+								<li><a href="#">第二天</a></li>
+								<li><a href="#">第三天</a></li>
+								<li><a href="#">第四天</a></li>
+								<li><a href="#">第五天</a></li>
+								<li><a href="#">第六天</a></li>
+								<li><a href="#">第七天</a></li>
+							</ul>
+							<div class="gift_block">
+                            	<!--第一天-->
+								<div class="gift_list">
+									<div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/hfxn.jpg" width="73" height="73">
+										<p class="gift_tit">幻法行囊</p>
+										<p>24格包裹</p>
+										<p>数量：3</p>
+									</div>
+									<div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/ylf.jpg" width="73" height="73">
+										<p class="gift_tit">引路蜂</p>
+										<p>立即飞往目的地</p>
+										<p>数量：10</p>
+									</div>
+								</div>
+                                <!--第二天-->
+								<div class="gift_list">
+									<div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/jsm.jpg" width="73" height="73">
+										<p class="gift_tit">金丝木</p>
+										<p>增加仓库储存量</p>
+										<p>数量：3</p>
+									</div>
+                                    <div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/ylf.jpg" width="73" height="73">
+										<p class="gift_tit">引路蜂</p>
+										<p>立即飞往目的地</p>
+										<p>数量：10</p>
+									</div>
+								</div>
+                                <!--第三天-->
+								<div class="gift_list">
+									<div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/nld.jpg" width="73" height="73">
+										<p class="gift_tit">凝炼丹</p>
+										<p>双倍经验、潜能、修为</p>
+										<p>数量：5</p>
+									</div>
+									<div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/dwf.jpg" width="73" height="73">
+										<p class="gift_tit">定位符</p>
+										<p>记录当前位置</p>
+										<p>数量：10</p>
+									</div>
+                                    <div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/gmfl.jpg" width="73" height="73">
+										<p class="gift_tit">归命符箓</p>
+										<p>死亡原地复活</p>
+										<p>数量：10</p>
+									</div>
+								</div>
+                                <!--第四天-->
+								<div class="gift_list">
+									<div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/wmts.jpg" width="73" height="73">
+										<p class="gift_tit">完美的体质魂魄石</p>
+										<p>强化幻兽属性</p>
+										<p>数量：5</p>
+									</div>
+									<div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/jlf.jpg" width="73" height="73">
+										<p class="gift_tit">精炼符</p>
+										<p>幻兽属性强化辅助道具</p>
+										<p>数量：5</p>
+									</div>
+									<div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/nld.jpg" width="73" height="73">
+										<p class="gift_tit">凝炼丹</p>
+										<p>双倍经验、潜能、修为</p>
+										<p>数量：5</p>
+									</div>
+								</div>
+                                <!--第五天-->
+								<div class="gift_list">
+									<div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/gmfl.jpg" width="73" height="73">
+										<p class="gift_tit">归命符箓</p>
+										<p>死亡原地复活</p>
+										<p>数量：10</p>
+									</div>
+                                    <div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/htd.jpg" width="73" height="73">
+										<p class="gift_tit">还童丹</p>
+										<p>重置幻兽属性</p>
+										<p>数量：10</p>
+									</div>
+                                    <div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/mzp.jpg" width="73" height="73">
+										<p class="gift_tit">免战牌</p>
+										<p>不会被其他玩家PK</p>
+										<p>数量：20</p>
+									</div>
+								</div>
+                                <!--第六天-->
+								<div class="gift_list">
+									<div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/htd.jpg" width="73" height="73">
+										<p class="gift_tit">还童丹</p>
+										<p>重置幻兽属性</p>
+										<p>数量：10</p>
+									</div>
+                                    <div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/cjlz.jpg" width="73" height="73">
+										<p class="gift_tit">超级龙珠</p>
+										<p>强化武器及首饰</p>
+										<p>数量：100</p>
+									</div>
+                                    <div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/cjjs.jpg" width="73" height="73">
+										<p class="gift_tit">超级晶石</p>
+										<p>强化防具</p>
+										<p>数量：200</p>
+									</div>
+                                    <div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/xj.jpg" width="73" height="73">
+										<p class="gift_tit">玄晶</p>
+										<p>强化装备所需道具</p>
+										<p>数量：300</p>
+									</div>
+								</div>
+                                <!--第七天-->
+								<div class="gift_list">
+									<div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/jstsk.jpg" width="73" height="73">
+										<p class="gift_tit">寄售替身卡</p>
+										<p>召唤替身摆摊</p>
+										<p>数量：5</p>
+									</div>
+                                    <div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/cjjzjd.jpg" width="73" height="73">
+										<p class="gift_tit">次级九转金丹</p>
+										<p>人物血药，81万</p>
+										<p>数量：2</p>
+									</div>
+                                    <div class="gift_pic">
+										<img src="http://static.cn114.cn/action/cs2Cb/images/cjycyy.jpg" width="73" height="73">
+										<p class="gift_tit">次级瑶池玉液</p>
+										<p>人物蓝药，63万</p>
+										<p>数量：2</p>
+									</div>
+								</div>
+							</div>
+						</div>
+                        <h3>活动规则</h3>
+						<p><i>1</i>在2016年5月20日-5月26日，凡是激活过《创世2》首测区服并创建角色的玩家，均可通过页面签到的方式，每日领取一个签到宝箱。</p>
+						<p><i>2</i>登陆签到页面后，玩家需要先登陆激活过《创世2》区组的账号，并且选择区组名称和账号下的角色名称（注意：一个账号只能给其中最多一个角色领取到签到宝箱）。</p>
+						<p><i>3</i>签到宝箱会即刻发送至账号对应角色下的游戏邮箱内，玩家需登陆游戏自行查收。</p>
+					</div>
+					<!--01 end-->
+					<!--02 start-->
+					<div data-id="cs_box2" class="cs_box cs_box2">
+						<h2>预创新角 领取奖金</h2>
+						<h4>2016年5月16日-5月19日</h4>
+						<h3>活动概述</h3>
+						<p>《创世2》首次封测将开放预创建角色的功能，在游戏开服之前玩家就可以进入到创建角色界面，创建自己喜欢的职业和角色名。同时，参与预创建角色的玩家开服当日角色等级达到20级，将会在次日获得100金的游戏启动资金，助力玩家快速成长。</p>
+						<h3>活动规则</h3>
+						<p><i>1</i>2016年5月16日-5月19日，可登陆游戏至角色创建界面，创建好自己心仪的职业和角色后即完成角色预创建操作。</p>
+						<p><i>2</i>完成角色预创建后，请不要尝试登陆游戏，此时服务器还未正式对外开放。</p>
+                      <p><i>3</i>在开服次日，也就是5月21日，我们将收集成功完成预创建的角色并且等级达到20级以上的玩家，然后统一对这些角色发放100金的游戏启动资金，等次日玩家登陆角色即可查看。</p>
+					  <h3>奖励内容</h3>
+						<p>游戏币：100金</p>
+					</div>
+					<!--02 end-->
+					<!--03 start-->
+					<div data-id="cs_box3" class="cs_box cs_box3">
+						<h2>整点在线 元宝拿来</h2>
+						<h4>2016年5月20日-5月26日</h4>
+						<h3>活动概述</h3>
+						<p>活动期间内，等级在20级以上的玩家，只要每晚20:00-21:00保持账号角色在线40分钟，即可获得丰富奖励，海量元宝、复活道具、双倍大药统统拿下！连续3天保持在线将获得圣兽一只，7天全勤将有一定几率获得极品神兽一只。</p>
+						<!--第三部分礼包-->
+						<ul class="pack_ul">
+							<li>
+								<a href="#">
+									<img src="http://static.cn114.cn/action/cs2Cb/images/cs160506_pack.png" width="161" height="176">
+									<p>整点在线礼包</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="http://static.cn114.cn/action/cs2Cb/images/cs160506_pack.png" width="161" height="176">
+									<p>3天登录礼包</p>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="http://static.cn114.cn/action/cs2Cb/images/cs160506_pack.png" width="161" height="176">
+									<p>全勤礼包</p>
+								</a>
+							</li>
+						</ul>
+						<!--第三部分礼包弹层-->
+						<div class="pack_tc">
+							<div class="pack_cont pack_cont1">
+								<h2>整点在线礼包</h2>
+								<div class="pack_list">
+									<table>
+										<tr>
+											<th width="175">道具名称</th>
+											<th width="149">数量</th>
+										</tr>
+										<tr>
+											<td>银元宝</td>
+											<td>10000</td>
+										</tr>
+										<tr>
+											<td>归命符箓</td>
+											<td>10</td>
+										</tr>
+										<tr>
+											<td>引路蜂</td>
+											<td>20</td>
+										</tr>
+                                        <tr>
+											<td>凝炼丹</td>
+											<td>10</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="pack_cont pack_cont2">
+								<h2>3天登录礼包</h2>
+								<div class="pack_list">
+									<table>
+										<tr>
+											<th width="175">道具名称</th>
+											<th width="149">数量</th>
+										</tr>
+										<tr>
+											<td>银元宝</td>
+											<td>20000</td>
+										</tr>
+										<tr>
+											<td>白银幻兽箱</td>
+											<td>1</td>
+										</tr>
+										<tr>
+											<td>归命符箓</td>
+											<td>10</td>
+										</tr>
+                                        <tr>
+											<td>还童丹</td>
+											<td>20</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="pack_cont pack_cont3">
+								<h2>全勤礼包</h2>
+								<div class="pack_list">
+									<table>
+										<tr>
+											<th width="175">道具名称</th>
+											<th width="149">数量</th>
+										</tr>
+										<tr>
+											<td>银元宝</td>
+											<td>50000</td>
+										</tr>
+										<tr>
+											<td>黄金幻兽箱</td>
+											<td>1</td>
+										</tr>
+										<tr>
+											<td>归命符箓</td>
+											<td>10</td>
+										</tr>
+                                        <tr>
+											<td>还童丹</td>
+											<td>30</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+                        <h3>活动规则</h3>
+						<p><i>1</i>2016年5月20日-5月26日，每晚整点20:00-21:00保持账号角色在线40分钟，即可在次日获得相应活动奖励。</p>
+						<p><i>2</i>2016年5月20日-5月26日，连续3天20:00-21:00保持账号角色在线40分钟（无论哪三天，只要保持连续3天即可）将在次日额外获得圣兽一只；7天均在20:00-21:00保持账号角色在线40分钟，将有一定几率在次日额外获得神兽一只。</p>
+						<p><i>3</i>所有奖励的活动道具需要成功创建角色后，并且角色等级达到20级以上（包括20级），请在次日登陆游戏，在游戏的邮箱中查收。</p>
+						<p><i>4</i>所有奖励只针对角色结算，如要参与此活动，建议在每晚20:00登陆同一个角色，这样才能进行累计，如中途更换角色将会重新计算。</p>
+						<p><i>5</i>每个账号最多只有一个角色可以获得活动奖励，不可创建多个角色重复领取。</p>
+					</div>
+					<!--03 end-->
+					<!--04 start-->
+					<div data-id="cs_box4" class="cs_box cs_box4">
+						<h2>捉虫高手 策划大事(论坛活动)</h2>
+						<h4>2016年5月20日-6月3日</h4>
+						<h3>活动概述</h3>
+						<p>标题：你提我改，游戏建议大征集</p>
+						<p>精益求精是《创世2》不断前进的宗旨，首次封测游戏肯定还有很多不完善的地方，我们急需了解和倾听广大玩家对于《创世2》的意见和建议，因此非常诚恳的欢迎大家踊跃的给《创世2》挑毛病。在活动结束后，我们将根据玩家提出的所有的意见和建议进行筛选，根据这些意见和建议对于《创世2》的重要程度评选出一、二、三等奖。</p>
+						<h3>活动地点</h3>
+						<p>官方论坛BUG建议提交区<a class="actionaddr" href="http://bbs.gyyx.cn/forum.php?mod=viewthread&tid=7196848&extra=page%3D1" target="_blank">点击进入</a></p>
+						<h3>发帖格式</h3>
+						<p>QQ号：（请填写正确的qq号，以免获奖后官方工作人员无法联系到您）。</p>
+						<p>建议描述：（文字需清晰简洁，最好附加截图说明）。</p>
+						<h3>活动规则</h3>
+						<p><i>1</i>本次活动期间，玩家可在本活动贴下，按照提交格式回复游戏建议和意见。</p>
+						<p><i>2</i>为方便收集，非建议内容将删除处理，请非建议内容不要在本帖回复。</p>
+						<p><i>3</i>遵守论坛规定，严禁散播色情、辱骂等不良信息和违反版规的言语。</p>
+						<p><i>4</i>请正确提交联系qq号，若信息有误，将会影响奖励的发放。</p>
+						<p><i>5</i>本活动最终解释权归《创世2》官方团队所有。</p>
+						<h3>领奖方式</h3>
+						<p>本次活动奖品均为实物奖品，因此我们将通过您留下的QQ号与您取得联系，然后获知您的通信地址后将实物奖品寄给您。</p>
+						<h3>奖品内容</h3>
+						<p>注意：获奖标准和评级将按照建议和意见对于游戏的重要程度和利用价值为评定，如果相应的评级没有收集到相应标准的游戏建议和意见，那么该级的奖项将以空缺处理。</p>
+						<ul class="prize_ul">
+							<li>
+								<img src="http://static.cn114.cn/action/cs2Cb/images/cs160506_pic1.jpg" width="129" height="151">
+								<p class="prize_tit">一等奖：至多1名</p>
+								<p>奖品：iPhone6s手机1部</p>
+							</li>
+							<li>
+								<img src="http://static.cn114.cn/action/cs2Cb/images/cs160506_pic2.jpg" width="129" height="151">
+								<p class="prize_tit">二等奖：至多5名</p>
+								<p>奖品：高级双肩背包1个</p>
+							</li>
+							<li>
+								<img src="http://static.cn114.cn/action/cs2Cb/images/cs160506_pic3.jpg" width="129" height="151">
+								<p class="prize_tit">三等奖：至多10名</p>
+								<p>奖品：《问道》虎头抱枕1个</p>
+							</li>
+						</ul>
+					</div>
+					<!--04 end-->
+				</div>
+			</div>
+		</div>
+		<div class="cs_pf">
+			<ul>
+				<li><a href="#cs_box1">①每日签到天天有礼</a></li>
+				<li><a href="#cs_box2">②预创新角领取奖金</a></li>
+				<li><a href="#cs_box3">③整点在线元宝拿来</a></li>
+				<li><a href="#cs_box4">④捉虫高手策划大师</a></li>
+				<li><a href="#" class="pf_top">Top</a></li>
+				<li>
+					<a href="javascript:;" class="pf_yzm"><span>获取</span>激活码</a>
+					<div class="pf_link">
+						<a href="http://actionv2.gyyx.cn/chsActivationCode/stepOneIndex" target="_blank">转盘抽码</a>
+						<a href="http://actionv2.gyyx.cn/cs2survey/index" target="_blank">问卷预约</a>
+						<a href="http://cs2.gyyx.cn/Compre/Notice/2016/05/206195.shtml" target="_blank">微信预约</a>
+						<a href="http://bbs.gyyx.cn/forum.php?mod=viewthread&tid=7196411&extra=page%3D1" target="_blank">论坛踩楼</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+        <div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+		<script src="http://static.cn114.cn/action/cs2Cb/js/ymcore.min.js"></script>
+		<script src="http://static.cn114.cn/action/cs2Cb/js/cs160506.js"></script>
+		<script src="http://static.cn114.cn/action/cs2Cb/js/index.js"></script>
+	</body>
+
+</html>

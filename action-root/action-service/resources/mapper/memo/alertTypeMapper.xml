@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.memo.IAlertTypeMapper">
+	<resultMap id="AlertTypeBean" type="AlertTypeBean" >
+		<id column="code" property="code" />
+		<result column="alert_name" property="alertName" />
+	</resultMap>
+
+	<!-- 查询所有提醒类型数据 -->
+	<select id="selectAll" resultMap="AlertTypeBean">
+		select code,alert_name from mos_alerttype_tb
+	</select>
+
+	<!-- 根据提醒类型code数组查询数据 -->
+	<select id="selectByCodeArr" resultMap="AlertTypeBean">
+		select code,alert_name from mos_alerttype_tb where code in
+		<foreach collection="array" index="index" item="item" open="("
+			close=")" separator=",">
+			#{item}
+		</foreach>
+	</select>
+
+	<!-- 根据提醒类型code查询数据 -->
+	<select id="selectByCode" resultMap="AlertTypeBean" parameterType="int">
+		select code,alert_name from mos_alerttype_tb where code = #{code}
+	</select>
+	
+	<!-- 插入提醒类型名称 -->
+	<insert id="insertAlertType" parameterType="AlertTypeBean">
+	  insert into mos_alerttype_tb (alert_name) 
+	  values (#{alertName})
+	</insert>
+	
+</mapper>

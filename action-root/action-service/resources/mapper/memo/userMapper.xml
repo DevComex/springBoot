@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.memo.IUserMapper">
+	<resultMap id="UserBean" type="UserBean" >
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="real_name" property="realName" />
+		<result column="user_id" property="userId" />
+	</resultMap>
+
+	<!-- 根据用户ID查询用户名字 -->
+	<select id="selectNameById" parameterType="int" resultType="String">
+		select real_name from user_relationship_tb where user_id=#{userId}
+	</select>
+
+	<!-- 插入用户关系-->
+	<insert id="insertUser" parameterType="UserBean">
+	  insert into user_relationship_tb (account,real_name,user_id) values (#{account},#{realName},#{userId})
+	</insert>
+	<!-- 查找分享我日程的人-->
+	<select id="selectName"  parameterType="Integer" resultMap="UserBean" >
+ 		select real_name , user_id from memo_entity,user_relationship_tb,share_memo where memo_entity.memo_delete_mark = 0 and share_memo.memo_delete_mark = 0 and share_memo.to_user_code=#{toUserCode} and memo_entity.memo_code=share_memo.memo_code and user_relationship_tb.user_id=memo_entity.user_code
+	</select>
+	
+</mapper>

@@ -1,0 +1,35 @@
+<ul class="cjul" id = "cjulid">
+#foreach($item in $pets)
+    <li><a href="${rc.contextPath}/wdno1pet/pet/$!{item.petCode}" target="view_window" class = "touClass"><img src = "$!{item.smallUrl}" width="131" height="103"></a><p>作品：$!{item.smallPetName}<br/>区组：$!{item.serverName}<br/>角色名：$!{item.smallCharacterName}<br/>宠物总成长：$!{item.petGrowth}<br/><span>当前票数：$!{item.voteCount}</span><br/><a onclick="jumpTo('${rc.contextPath}/wdno1pet/pet/$!{item.petCode}')" target="view_window">投票支持</a></p></li>
+#end
+</ul>
+<div class="page">
+	#if($pageNum != 0)
+    	#set($beginPage = $crtPage - 2)
+    	#set($endPage = $crtPage + 2)
+    	
+    	#if($beginPage < 1)
+    		#set($beginPage = 1)
+    	#end
+    	#if($endPage > $pageNum)
+    		#set($endPage = $pageNum)
+    	#end
+    	
+    	<a id = "pageGoFirst" class="page_fh">&lt;&lt;</a>
+    	#if($crtPage != $beginPage)
+    		<a id = "pageGoPrevious" class="page_fh">&lt;</a>
+    	#end
+    	#foreach($foo in [$beginPage..$endPage])
+    		#if($foo == $crtPage)
+    			<a class="page_on pageGoTo">$foo</a>
+    		#else
+    			<a class = "pageGoTo" >$foo</a>
+    		#end
+    	#end
+    	#if($crtPage != $endPage)
+    		<a id = "pageGoNext" class="page_fh">&gt;</a>
+		#end
+		<a id = "pageGoLast" class="page_fh">&gt;&gt;</a>
+		<input id = "maxPageHidden" type = "hidden" value = "${pageNum}"/>
+	#end
+</div>

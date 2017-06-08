@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=0">
+		<title>幸运大转盘 免费抽大奖</title>
+		<link rel="stylesheet" href="http://static.cn114.cn/action/wxdzp/css/index.css?f4" />
+		<script src="http://static.cn114.cn/action/wxdzp/js/jquery-1.7.2.js"></script>
+		<script src="http://static.cn114.cn/action/wxdzp/js/jQueryRotate.2.2.js"></script>
+		<script type="text/javascript" src="http://static.cn114.cn/action/wxdzp/js/index.js"></script>
+        <style type="text/css">
+            body{min-width: 100%;
+            background:#83cffc; /* 一些不支持背景渐变的浏览器 */
+            background:-moz-linear-gradient(top, ＃ade8fa,＃35a2fe);
+            background:-webkit-gradient(linear, 0 0, 0 100%, from(#ade8fa), to(#35a2fe));  }
+            .main .cjimg input.cjBtn:active{background: url('http://static.cn114.cn/action/wxdzp/images/cpBg.png') no-repeat  0.2rem  0.2rem;background-size:95%;}
+            .js_zjxx_btn {position: absolute;top: 40%;width: 37%;display: block;left: 33%;}
+            .js_zjxx_btn img{ width:100%}
+            .main .cjimg {width: 100%;position: absolute;left: 0;top: 68%;}
+            .main .js_num {text-align: center;font-size: 1.5rem;margin-top: -2rem;position: absolute;bottom: -3%;left: 30%;color: #FFF;}
+            .rule {padding: 2rem 5%;color: #FFF;}
+            </style>
+
+	</head>
+	<body>
+        <!--" http://static.cn114.cn/action/wxdzp/" -->
+	<input id="openId" type="hidden" value="${openId}">
+	<div class="main">
+		<input type="hidden" value="" id="openId">
+		<input type="hidden" value="" id="codeId">
+		<img src="http://static.cn114.cn/action/wxdzp/images/dzpImg.png" alt="" />
+		<div class="cjimg">
+			<img src="http://static.cn114.cn/action/wxdzp/images/cjImg.png" alt="" class="js_pointer" />
+			<input type="button" class="cjBtn js_draw_btn" />
+		</div>
+		<p class="js_num">您今天还有<span>0</span>次抽奖机会</p>
+        <a href="javascript:;" class="js_zjxx_btn"><img src="http://static.cn114.cn/action/wxdzp/images/zjxx_btn.png"/></a>
+	</div>
+	<div class="rule">
+		<h3><span>活动规则</span></h3>
+		<ul>
+			<li>1.一个账号每天只能抽奖一次哦~</li>
+			<li>2.实物奖品请填写详细的用户信息，实物奖品将在30个工作日内寄出。</li>
+			<li>3.自行车赛在海南举办~海南的小伙伴们可以算好时间去围观。</li>
+			<li>4.本次活动的解释权归光宇游戏所有。</li>
+			<li>5.如有问题请拨打客服电话010-82438999进行咨询。</li>
+		</ul>
+	</div>
+	<div class="black_b"  style="display: none;"></div>
+	<div class="alert_box"  style="display: none;">
+
+		<!-- 未中奖等其他信息弹层 start-->
+		<div class="alert_B_con js_no_lottery" style="display: none;">
+			<img src="http://static.cn114.cn/action/wxdzp/images/tcImg3.png" alt="" />
+			<p>今天已经抽过了 请明天再来吧！</p>
+			<a href="javascript:;" class="js_close"></a>
+		</div>
+		<!-- end  未中奖等其他信息弹层 -->
+
+
+		<!-- 虚拟物品电影票弹层 start-->
+		<div class="alert_B_con js_viedo_lottery" style="display: none;">
+			<p>恭喜您获得《追凶者也》电影票一张，请复制以下代码并登录格瓦拉电影APP兑换奖品代码
+			</p>
+			<p class="viedo_code">
+				奖品代码<span>1231321321322321</span>
+			</p>
+			<a href="javascript:;" class="js_close"><img src="http://static.cn114.cn/action/wxdzp/images/close_img.png"/></a>
+		</div>
+		<!-- end 虚拟物品电影票弹层-->
+
+		<!-- 虚拟物品漫展票弹层 start-->
+		<div class="alert_B_con js_manzhan_lottery" style="display: none;">
+			<dl>
+				<dt>	<img src="http://static.cn114.cn/action/wxdzp/images/mzmp_img.jpg"/></dt>
+				<dd>IDO漫展门票</dd>
+				<dd>数量1</dd>
+
+			</dl>
+			<p class="viedo_code">
+				奖品代码<span>1231321321322321</span>
+			</p>
+			<button class="btn_close"><img src="http://static.cn114.cn/action/wxdzp/images/btn_bg.png" alt="" /></button>
+			<a href="javascript:;" class="js_close"><img src="http://static.cn114.cn/action/wxdzp/images/close_img.png"/></a>
+		</div>
+		<!-- end 虚拟物品漫展票弹层-->
+
+		<!-- 实物品弹层 start-->
+		<div class="alert_B_con js_article_lottery"  style="display: none;" >
+			<dl>
+				<dt><img src="http://static.cn114.cn/action/wxdzp/images/mzmp_img.jpg"/></dt>
+				<dd>恭喜您获得<span>xxxxx</span>，请正确填写下列信息以确保顺利收到奖品</dd>
+			</dl>
+			<form>
+				<p>
+					<label for="">真实姓名</label>
+					<input type="text" placeholder="真实姓名" name="name" maxlength="10"/>
+				</p>
+
+				<p>
+					<label for="">详细地址</label>
+					<textarea name="address" rows="" cols="" placeholder="详细地址" maxlength="50"></textarea>
+				</p>
+				<p>
+					<label for="">联系电话</label>
+					<input type="text" placeholder="联系电话" name="phone" maxlength="11"/>
+				</p>
+
+			</form>
+			<div class="tip">注意：信息无法修改，请确认无误后点击确定按钮！如遇到问题请拨打电 010-82438999 进行咨询</div>
+			<button class="js_add_sub"><img src="http://static.cn114.cn/action/wxdzp/images/btn_bg.png" alt="" /></button>
+			<a href="javascript:;" class="js_close"><img src="http://static.cn114.cn/action/wxdzp/images/close_img.png"/></a>
+		</div>
+		<!-- end 实物品弹层-->
+
+
+		<!-- 中奖信息查询 start-->
+		<div class="alert_B_con js_lottery_info" style="display: none;">
+			<dl>
+				<dt><img src="http://static.cn114.cn/action/wxdzp/images/mzmp_img.jpg"/></dt>
+				<dd class="js_jpName">IDO漫展门票</dd>
+				<dd class="js_jpNum">数量1</dd>
+				<dd class="js_jpUserName"></dd>
+				<dd class="js_jpPhone"></dd>
+				<dd class="js_jpAddress"></dd>
+			</dl>
+			<p class="viedo_code">
+				奖品代码<span>1231321321322321</span>
+			</p>
+			<button class="btn_close"><img src="http://static.cn114.cn/action/wxdzp/images/btn_bg.png" alt="" /></button>
+			<a href="javascript:;" class="js_close"><img src="http://static.cn114.cn/action/wxdzp/images/close_img.png"/></a>
+		</div>
+		<!-- end 中奖信息查询 -->
+	</div>
+	<div class="dia_modal_nouse js_nouse" style="display:none;">请在竖屏使用！</div>
+	</body>
+</html>

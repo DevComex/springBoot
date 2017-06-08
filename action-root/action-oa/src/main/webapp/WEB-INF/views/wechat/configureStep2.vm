@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>后台统计首页</title>
+
+    <link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+    
+    
+    <script src="${rc.contextPath}/resources/script/swfupload.js" type="text/javascript"></script>
+    <script src="${rc.contextPath}/resources/script/SWFInitialize.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/SWFInitializes.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/videoHandlers.js" type="text/javascript" charset="GB2312"></script>
+    <script src="${rc.contextPath}/resources/script/VideoUpload.js" type="text/javascript" ></script>
+    
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+	<script>
+		$(function(){
+			$(".nav-justified").find("li").eq(0).click(function(){
+				window.location.href="../configureIndex/step1?configCode=$!configCode"
+			})
+			
+			$(".nav-justified").find("li").eq(1).click(function(){
+				window.location.href="../configureIndex/step2?configCode=$!configCode"
+			})
+			
+			$(".nav-justified").find("li").eq(2).click(function(){
+				window.location.href="../configureIndex/step3?configCode=$!configCode"
+			})
+			
+			$(".nav-justified").find("li").eq(3).click(function(){
+				window.location.href="../configureIndex/step4?configCode=$!configCode"
+			})
+			
+			$(".js_edit").click(function(){
+				var code = $(this).attr("code");
+				$.ajax
+				({
+					url:'../getCustomInfoByCode',
+					type:'get',
+					data:{code:code,r:Math.random()},
+					dataType:'json',
+					success:function(data){
+						$("#codeU").val(data.code);
+						$("#customTypeU").val(data.customType);
+						$("#customDescU").val(data.customDesc);
+					}
+				})
+			})
+			
+			$(".js_add_para").click(function(){
+				var configCode = $!configCode;
+				$.ajax
+				({
+					url:'../getOperateConfigInfo',
+					type:'get',
+					data:{configCode:configCode,r:Math.random()},
+					dataType:'json',
+					success:function(data){
+						var opt = "";
+						for(var i = 0 ; i < data.length ; i++){
+							opt += '<option value="'+ data[i].code +'">'+ data[i].operateDesc +'</option>';
+						}
+						$("#operateCodeSelected").empty().html(opt);
+					}
+				})
+			})
+			
+			
+			$(".js_add_new_para_btn").click(function(){
+				var str = $("#customType").val();
+				var flag = 0;
+				for(var i = 0 ;i < str.length ; i++){
+					var key = str.charCodeAt(i);
+					if(64 < key && key < 91){
+						
+					}else if(96 < key && key < 123){
+						
+					}else{
+						flag = 1;
+					}
+				}
+				if(flag == 1){
+					alert("参数只能为字母！");
+				}else{
+    				$.ajax
+    				({
+    					url:'../addWechatPara',
+    					type:'POST',
+    					data:$("#addParaForm").serialize(),
+    					dataType:'text',
+    					success:function(data){
+    						alert(data);
+    						if(data == "添加参数成功！"){
+    							window.location.reload();
+    						}
+    					}
+    				})
+				}
+			})
+			
+			
+			$(".js_edit_para_btn").click(function(){
+				var str = $("#customTypeU").val();
+				var flag = 0;
+				for(var i = 0 ;i < str.length ; i++){
+					var key = str.charCodeAt(i);
+					if(64 < key && key < 91){
+						
+					}else if(96 < key && key < 123){
+						
+					}else{
+						flag = 1;
+					}
+				}
+				if(flag == 1){
+					alert("参数只能为字母！");
+				}else{
+    				$.ajax
+    				({
+    					url:'../updateWechatPara',
+    					type:'POST',
+    					data:$("#updateParaForm").serialize(),
+    					dataType:'text',
+    					success:function(data){
+    						alert(data);
+    						if(data == "修改参数成功！"){
+    							window.location.reload();
+    						}
+    					}
+    				})
+				}
+			})
+			
+			$(".js_delete").click(function(){
+				var code = $(this).attr("code");
+				if(confirm("确认删除该参数？")){
+					$.ajax
+    				({
+    					url:'../deleteCustomInfo',
+    					type:'get',
+    					data:{code:code,r:Math.random()},
+    					dataType:'json',
+						async:false,
+    					success:function(){
+    					}
+    				})
+    				window.location.reload();
+				}
+			})
+		})
+	</script>
+    <link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+                        <header class="header bg-white b-b clearfix">
+                            <div class="">
+                                <div class="col-sm-2 m-b-xs">
+                                    <h4 class="m-t bold"></h4>
+									<a class="btn btn-sm btn-default" href="../index" data-toggle="modal">&lt; BACK</a>
+                                </div>
+                            </div>
+                        </header>
+                        <!--顶部标题导航 end-->
+
+                        <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <div class="m-b-md">
+                            </div>
+                            <!--数据表格  begin -->
+							<ul class="nav nav-tabs nav-justified">
+                                <li><a data-toggle="tab" href="#">操作配置</a></li>
+								<li class="active"><a data-toggle="tab" href="#" style="background-color: #ddd;">参数配置</a></li>
+                                <li><a data-toggle="tab" href="#">接口配置</a></li>
+                                <li><a data-toggle="tab" href="#">统计配置</a></li>
+                            </ul>
+							
+							<section class="panel panel-default" style="display:block">
+								<header class="header bg-white b-b clearfix">
+                                    <div class="">
+                                        <div class="col-sm-2 m-b-xs">
+                                            <h4 class="m-t bold"></h4>
+											<a class="btn btn-sm btn-dark js_add_para" href="#addPara" data-toggle="modal"><i class="fa fa-plus"></i> 增加参数</a>
+										</div>
+                                    </div>
+                                </header>
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            <tr>
+												<th>操作描述</th>
+                                                <th>参数</th>
+                                                <th>参数名</th>
+												<th>参数类型</th>
+												<th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+											<tr>
+												<td>适用全部</td>
+                                                <td>nickName</td>
+                                                <td>昵称</td>
+												<td>系统参数</td>
+												<td><span class="label label-default" style="margin-top:3px;">不可编辑</span></td>
+                                            </tr>
+											<tr>
+												<td>适用全部</td>
+                                                <td>partakeTime</td>
+                                                <td>时长/s</td>
+												<td>系统参数</td>
+												<td><span class="label label-default" style="margin-top:3px;">不可编辑</span></td>
+                                            </tr>
+											#foreach($!custom in $!customList)
+                                            <tr>
+												<td>$!custom.operateDesc</td>
+                                                <td>$!custom.customType</td>
+                                                <td>$!custom.customDesc</td>
+												<td>自定义参数</td>
+												<td>
+													<a class="btn btn-xs btn-info js_edit" code="$!custom.code" href="#updatePara" data-title="编辑" data-toggle="modal" title="编辑">
+                                                        <i class="fa fa-edit"></i> 编辑
+                                                    </a>
+													
+													<a class="btn btn-xs btn-danger js_delete" code="$!custom.code" href="#" data-title="删除" data-toggle="modal" title="删除">
+                                                        <i class="fa fa-minus-square"></i> 删除
+                                                    </a>
+												</td>
+                                            </tr>
+											#end
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </section>
+							<!--主体内容 end-->
+                    </section>
+					<!--翻页功能-->
+                </section>
+            </section>
+        </section>
+    </section>
+	
+    <!--添加域名弹层 begin-->
+<div class="modal fade" id="addPara">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h6 class="modal-title" style="display:inline-block">增加</h6>
+            </div>
+
+            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+
+            <div class="modal-body">
+                <form id="addParaForm" class="form-horizontal" method="post">
+					<input id="configCode" name="configCode" type="hidden" class="form-control" style="width:350px;" value="$!configCode" readonly />
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" style="text-align:center;">操作描述:</label>
+
+                        <div class="col-sm-6">
+                            <select class="input-sm-9 form-control" id="operateCodeSelected" name="operateCode" style="width: 350px">
+							</select>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <label class="col-sm-3 control-label" style="text-align:center;">参数:</label>
+
+                        <div class="col-sm-6">
+                            <input id="customType" name="customType" class="form-control" style="width:350px;" value="" maxlength="20"/>
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <label class="col-sm-3 control-label" style="text-align:center;">参数名:</label>
+
+                        <div class="col-sm-6">
+                            <input id="customDesc" name="customDesc" class="form-control" style="width:350px;" value="" maxlength="50"/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info js_add_new_para_btn">确定</button>
+                        <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">返回</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+
+    <!-- /.modal-dialog -->
+</div>
+    <!--添加域名弹层 begin-->
+	
+	
+	
+    <!--编辑域名弹层 begin-->
+<div class="modal fade" id="updatePara">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="height:60px;">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h6 class="modal-title">编辑</h6>
+            </div>
+            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+
+            <div class="modal-body">
+                <form id="updateParaForm" class="form-horizontal" method="post">
+					<input id="codeU" name="code" type="hidden" class="form-control" style="width:350px;" value="" readonly />
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label" style="text-align:center;">参数:</label>
+
+                        <div class="col-sm-6">
+                            <input id="customTypeU" name="customType" class="form-control" style="width:350px;" value="" />
+                        </div>
+                    </div>
+					<div class="form-group">
+                        <label class="col-sm-3 control-label" style="text-align:center;">参数名:</label>
+
+                        <div class="col-sm-6">
+                            <input id="customDescU" name="customDesc" class="form-control" style="width:350px;" value="" />
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info js_edit_para_btn">确定</button>
+                        <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">返回</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+
+    <!-- /.modal-dialog -->
+</div>
+    <!--编辑域名弹层 end-->
+</body>
+</html>

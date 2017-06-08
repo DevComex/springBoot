@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>光宇社招</title>
+		 <script  type="text/javascript">
+     var rc = "${rc.contextPath}";
+ </script>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/publicjian.css" />
+</head>
+<body style="background: #1d75d4;">
+	<div class="warp">
+		<div class="main shouye">
+			<img src="http://static.cn114.cn/action/positionApply/img/introduce.png" />
+			<div class="jian">
+				<a href="${rc.contextPath}/position/positionlist"><img src="http://static.cn114.cn/action/positionApply/img/jian.png" /></a>
+			</div>
+		</div>
+	</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/zepto.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/allstyle.js" ></script>
+</body>
+</html>

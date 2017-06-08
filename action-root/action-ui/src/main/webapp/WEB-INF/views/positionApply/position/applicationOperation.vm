@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+    <title>光宇社招</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/positionApply/css/publicjian01.css"/>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/allstyle01.css" />
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/animate.css" />
+</head>
+<body style="background: #9363e3;">
+	<div class="warp">
+		<div class="main yingyongK" uid="560025840">
+			<h1><a href="${rc.contextPath}/position/index?a=1" class="list">职位列表</a></h1>
+			<div class="btn">
+				<p class="heads btnanimated fadeIn">
+					<img src="http://static.cn114.cn/action/positionApply/img01/yyHead.png"/>
+				</p>
+				<a href="${rc.contextPath}/position/positiontype/applicationDBA" class="left leftani fadeInRight"></a>
+				<a href="${rc.contextPath}/position/positiontype/applicationDataBase" class="right rightani fadeInLeft"></a>
+			</div>
+			<div class="content contentani fadeIn2" id="fontStyle">
+				<h2>游戏运维工程师</h2>
+				<h3>岗位职责</h3>
+				<p>1、保障网络游戏系统稳定可靠运行;</p>
+				<p>2、游戏服务器端程序的安装、配置、优化、监控、管理;</p>
+				<p>3、游戏维护、更新及合服、挪服等操作。</p>
+				<h3>任职资格</h3>
+				<p>1、计算机相关专业大专以上学历，1年以上Linux系统相关运维管理工作经验;</p>
+				<p>2、精通sed、grep、awk、vi等工具和命令，熟悉shell脚本和mysql数据库。</p>
+			</div>
+			<div class="xsbtn xsani fadeInUpBig">
+				 <a href="http://gyyx.m.zhiye.com/JobAd/Info?adid=560025840" class="sq">在线申请</a>
+				<a href="#" class="fx fxz">分享职位</a>
+			</div>
+		</div>
+	</div>
+	<div class="zz">
+		<img src="http://static.cn114.cn/action/positionApply/img01/zz.png" />
+	</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/zepto.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/allstyle01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/gyyx_wxshare.min.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/content01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/fx01.js" ></script>
+<script>
+	$("body").on("swipeLeft",function(){
+		location.href="${rc.contextPath}/position/positiontype/applicationDataBase";
+	})
+	$("body").on("swipeRight",function(){
+		location.href="${rc.contextPath}/position/positiontype/applicationDBA";
+	})
+</script>
+</body>
+</html>

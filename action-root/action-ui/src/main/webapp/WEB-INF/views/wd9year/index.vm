@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+<head>
+	
+	<meta charset="utf-8">
+		<title>问道-周年“9”要任性 收祝福撒百万奖励</title>
+		<link href="${staticSource}/css/style150316.css" rel="stylesheet" type="text/css" />
+		<link href="${staticSource}/css/jquery.lightbox-0.5.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript">
+        var NYEAR_CONFIG={
+        		//上传祝福语和图片Url
+        		upCongImgUrl:"saveWish",
+        		getImgListUrl:"searchWish",
+        		needClose:true,
+        		upBtnImg:"${staticSource}/images/pic_upbtn.jpg",
+        		imageLoading: '${staticSource}/images/wd150316_ico-loading.gif', 	
+        		imageBtnPrev: '${staticSource}/images/prev.gif', 		
+        		imageBtnNext: '${staticSource}/images/nextlabel.gif', 		
+        		imageBtnClose: '${staticSource}/images/wd150316_close.jpg', 	
+        		imageBlank: '${staticSource}/images/blank.gif'
+        }
+		</script>
+		<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+		<script src="${staticSource}/js/index.js"></script>
+		<script src="${staticSource}/js/swfupload.js"></script>
+		<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+</head>
+
+<body>
+	<div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+	<div class="wd_box">
+    	<!--piaofu-->
+    	<div class="piaofu">
+        	<a class="a1" href="#" id="js_btnUpZF">上传祝福</a>
+            <a class="a2" href="wishLottery">我要抽奖</a>
+            <a class="a3" href="#">活动流程</a>
+            <a class="a4" href="#">活动奖励</a>
+        </div>
+    	<div class="main">
+        	<div class="wd_header">
+            	<ul class="wd_nav">
+                	<li><a href="http://wd.gyyx.cn/index_wd_v5.htm">进入官网</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                    <li><a href="http://account.gyyx.cn/Member/Register">账号注册</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                    <li><a href="http://pay.gyyx.cn/">充值中心</a>&nbsp;&nbsp;|&nbsp;&nbsp;</li>
+                    <li><a href="http://wd.gyyx.cn/download/">下载游戏</a></li>
+                </ul>
+            </div>
+            <div class="wd_show">
+				#foreach($param in $!wishList)
+				<div class="d$velocityCount">
+                	<a href="$param.pictureURL" target="_blank"><img src="$!param.smallPictureURL" width="126" height="80"></a>
+                    <p title="$param.content">$param.content</p>
+                </div>
+				#end
+            </div>
+            <div class="wd_bottom">
+            	<div class="a_link">
+                	<a class="a1" href="javascript:;" id="js_btnUpdateImgs">更新</a>
+                    <a class="a2" href="javascript:;" id="js_btnNewImgs">最新</a>
+                </div>
+				<ul class="uComment">
+                	<li><a href="#">上传游戏截图祝福问道九岁即可在活 </a></li>
+                    <li><a href="#">动结束后抽奖，千足金手链、限量九</a></li>
+                    <li><a href="#">尾仙狐手办、威威虎抱枕、问道钱包</a></li>
+					<li><a href="#">等丰富大礼等你拿！</a></li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+	
+			<input type="hidden" value="" id="js_hidImgUrl" />
+<!--tanceng-->
+<div class="tc_box1">
+		<span class="close_pop js_closePop" title="关闭"></span>
+    	<ul class="up_form">
+        	<li>欢迎[<span id="js_Account">角色名</span>]登录，请上传您的祝福！</li>
+            <li>
+            	<label>祝福语</label>
+                <input type="text" value="请输入祝福语，最多十个字" id="js_ZFY" maxlength="10"/>
+            </li>
+            <li>
+            	<label>上传截图</label>
+				<span class="btn_place">
+					<button id="btnUpload">请选择上传照片</button>
+				</span>
+                
+            </li>
+			<li class="up_infoplace" id="js_upImgInfo">上传成功</li>
+        </ul>
+        <a class="up_btn" href="javascript:;" id="js_btnUpCongAImg">上传</a>
+</div>
+<div class="tc_box2">
+		<span class="close_pop js_closePop" title="关闭"></span>
+    <h2>活动流程</h2>
+    <div class="tc_cont">
+        <p>活动时间：2015年4月1日-4月20日</p>
+        <p>1、投稿时间内在活动页面中上传自己的游戏截图和祝福留言
+      <p>2、玩家上传成功后该账号可获得一次抽奖机会（活动结束后开启抽奖，每个账号只能抽奖一次。）</p>
+        <p class="note">注：玩家上传截图必须带有角色名称和客户端上的角色名，否则审核不通过将失去抽奖资格。</p>
+        <p class="note"><img src="${staticSource}/images/shili.png" alt="" width="336" height="43" align="absmiddle"></p>
+    </div>
+    <a class="Iknow" href="#">我知道了</a>
+</div>
+<div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+</div>
+<div class="tc_box3">
+		<span class="close_pop js_closePop" title="关闭"></span>
+    <h2>活动奖励</h2>
+  <div class="tc_cont">
+        <p>玩家上传祝福成功后都可获得一次抽奖机会，活动结束即可抽奖，奖励包括限量千足金手链、九尾狐手办+福元宝、海尔音响、极智鼠标、威威虎抱枕、问道钱包、问道t恤、微达人礼包、银元宝等</p>
+      <p class="note"><img src="${staticSource}/images/shouban.jpg" width="121" height="101"><img src="${staticSource}/images/shoulian.jpg" width="121" height="101"><img src="${staticSource}/images/qianbao.jpg" width="121" height="101"></p>
+      <p class="note">&nbsp;</p>
+        <p class="note">&nbsp;</p>
+    </div>
+    <a class="Iknow" href="#">我知道了</a>
+</div>
+<script type="text/javascript" src="${staticSource}/js/jquery.lightbox-0.5.min.js"></script>
+<script type="text/javascript" src="${staticSource}/js/ymcore.js"></script>
+<script type="text/javascript">
+//点击大图
+ $('.wd_show a').lightBox({
+ 			imageLoading: NYEAR_CONFIG.imageLoading, 	
+			imageBtnPrev:  NYEAR_CONFIG.imageBtnPrev, 		
+			imageBtnNext:  NYEAR_CONFIG.imageBtnNext, 		
+			imageBtnClose:  NYEAR_CONFIG.imageBtnClose, 	
+			imageBlank:  NYEAR_CONFIG.imageBlank,
+			maxWidth:800,
+			maxHeight:650
+ });
+//piaofu
+(function ($, window) {
+        var box = $(".piaofu"), winObj = $(window), startPoint = 250;
+        box.css({ "top": startPoint,"right":"10px", "position": "absolute" });
+        winObj.scroll(function () {
+            var pos = startPoint + winObj.scrollTop();
+            box.stop().animate({ "top": pos }, 300);
+        });
+    })(jQuery, window);
+ //弹出层
+YM.UI.Popup({container: 'div.tc_box3',openBtn: '.a4',closeBtn: '.Iknow',state: 'hide',time: 500});
+YM.UI.Popup({container: 'div.tc_box2',openBtn: '.a3',closeBtn: '.Iknow',state: 'hide',time: 500});
+YM.UI.Popup({container: 'div.tc_box1',openBtn: '.a1',closeBtn: '.Iknow',state: 'hide',time: 500});
+</script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道补砖块</title>
+<meta name="keywords" content="问道，光宇游戏"/>
+<meta name="description" content="问道补砖块，看谁补的多。"/>
+<meta name="apple-mobile-web-app-capable" content="yes"/>
+<meta name="full-screen" content="yes"/>
+<meta name="screen-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="360-fullscreen" content="true"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link rel="stylesheet" href="http://static.cn114.cn/action/wdwxDZK201703/css/style.min.css">
+<style type="text/css">
+    #player-ad,#p-bg-l,#p-bg-r {display:none!important;display:none}</style>
+<script src="http://s.gyyx.cn/Lib/jqueryModule/jquery-1.12.4.min.js "></script>
+	<script  type="text/javascript">
+    	var rc = "${rc.contextPath}";
+ 	</script>
+ 	<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+ 	<script>
+	var _hmt = _hmt || [];
+	(function() {
+	  var hm = document.createElement("script");
+	  hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
+	})();
+	</script>
+</head>
+<body style="padding:0; margin: 0; background: #442117;">
+<canvas id="gameCanvas" width="800" height="450"></canvas>
+<input type="hidden" id="identify"/>
+<script src="http://static.cn114.cn/action/wdwxDZK201703/js/common.min.js"></script>
+<script src="http://static.cn114.cn/action/wdwxDZK201703/js/game.min.js?r=123"></script>
+<script src="http://static.cn114.cn/action/wdwxDZK201703/js/jweixin-1.0.0.js"></script>
+<script src="http://static.cn114.cn/action/wdwxDZK201703/js/loading.min.js"></script>
+<script src="http://static.cn114.cn/action/wdwxDZK201703/js/main.min.js"></script>
+
+<div id="rank" class="rank">
+    <img class="close" src="http://static.cn114.cn/action/wdwxDZK201703/res/close.png"/>
+    <ul></ul>
+</div>
+<div id="prizeList" class="prizeList">
+    <img class="close" src="http://static.cn114.cn/action/wdwxDZK201703/res/close.png"/>
+    <ul></ul>
+    
+</div>
+<div id="myPrize" class="myPrize">
+    <img class="close" src="http://static.cn114.cn/action/wdwxDZK201703/res/close.png"/>
+    <div class="js_prizeCon">
+        <!--中奖未领取==============================================================-->
+        <!--<h2>恭喜中奖</h2>
+        <h3>威威虎抱枕</h3>
+        <a class="btn"></a>-->
+        <!--未中奖==================================================================-->
+        <!--<p class="tip">很遗憾，您还未中奖</p>-->
+        <!--活动结束 已中奖=========================================================-->
+        <!--<h2>恭喜中奖</h2>
+        <h3>威威虎抱枕</h3>
+        <p class="tip01">活动领奖时间已结束！<br>敬请期待下次活动！</p>-->
+        <!--活动结束 未中奖=========================================================-->
+        <!--<p class="tip">很遗憾，您还未中奖</p>
+        <p class="tip01">活动领奖时间已结束！<br>敬请期待下次活动！</p>-->
+    </div>
+</div>
+<div id="shareTip" class="shareTip">
+    <img src="http://static.cn114.cn/action/wdwxDZK201703/res/shareTip.png"/>
+    <a class="close">关闭</a>
+</div>
+<div id="loadTip" class="loadTip">
+    <p>努力加载中。。。</p>
+</div>
+<script type="text/javascript">
+    $(function(){
+        //分享
+        weixin({
+            debug: false,
+            game:"Wd",
+            wxShareCfg:{
+                title: "庆问道十一周年，玩补砖块小游戏得丰厚好礼！！快来参加~~",
+                desc: "补砖块得积分！还能赢好礼！我达到了0分！敢来比吗？",
+                link: "http://actionv2.gyyx.cn/wd/fightbrickgame/share"+window.location.search,
+                imgUrl: "http://static.cn114.cn/action/wdwxDZK201703/res/shareIcon.jpg",
+                success: function () {
+                    $(document).WeiXinShareNumFn();
+                },
+                cancel: function () {
+                    
+                }
+            }
+        });
+
+    })
+</script> 
+</body>
+</html>

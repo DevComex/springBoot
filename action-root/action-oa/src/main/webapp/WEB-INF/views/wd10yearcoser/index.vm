@@ -1,0 +1,99 @@
+#parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/jquery.ajaxpage-2.2.js"></script>
+<style>
+	.table td{word-wrap:break-word;vertical-align: middle !important;}
+	.table td img{width:100%;}
+	 textarea{border-color: #d9d9d9;}
+</style>
+<script>
+	$(function () {
+		
+	});
+</script>
+<!--标题-->
+<header class="header bg-white b-b clearfix">
+    <div class="col-sm-9 m-t-xs">
+        <h4>同人活动-后台首页</h4>
+    </div>
+</header>
+
+<!--主体内容 begin-->
+<section class="scrollable padder">
+
+	<div class="m-b-md"></div>
+	<div class="row">
+		<!--数据表格  begin -->
+		<div style="text-align: center; margin-top: 30px;"></div>
+
+	</div>
+	<!--起始页六大模块  begin -->
+	<section class="row">
+		<!-- <div class="col-lg-3">
+			<section class="panel panel-default">
+				<div class="panel-body">
+					<a href="../wd10yearcoser/banner" target="_blank"> <span
+						class="fa-stack fa-2x pull-left m-r-sm"> <i
+							class="fa fa-circle fa-stack-2x text-primary"></i> <i
+							class="fa fa-star fa-stack-1x text-white"></i>
+					</span>
+					</a> <a id="sear1" href="../wd10yearcoser/banner" target="_blank"
+						class="fa-20x">首页导航图片信息</a>
+				</div>
+			</section>
+		</div> -->
+		<div class="col-lg-3">
+			<section class="panel panel-default">
+				<div class="panel-body">
+					<a href="../wd10yearcoser/workslist" target="_blank"> <span
+						class="fa-stack fa-2x pull-left m-r-sm"> <i
+							class="fa fa-circle fa-stack-2x text-primary"></i> <i
+							class="fa fa-thumbs-up fa-stack-1x text-white"></i>
+					</span>
+					</a> <a href="../wd10yearcoser/workslist" target="_blank" class="fa-20x">用户作品列表</a>
+				</div>
+			</section>
+		</div>
+
+		<div class="col-lg-3">
+			<section class="panel panel-default">
+				<div class="panel-body">
+					<a href="../wd10yearcoser/pic" target="_blank"> <span
+						class="fa-stack fa-2x pull-left m-r-sm"> <i
+							class="fa fa-circle fa-stack-2x text-primary"></i> <i
+							class="fa fa-minus fa-stack-1x text-white"></i>
+					</span>
+					</a> <a href="../wd10yearcoser/pic" target="_blank" class="fa-20x">首页图片轮播公告</a>
+				</div>
+			</section>
+		</div>
+
+		<div class="col-lg-3">
+			<section class="panel panel-default">
+				<div class="panel-body">
+					<a href="../wd10yearcoser/novice" target="_blank"> <span
+						class="fa-stack fa-2x pull-left m-r-sm"> <i
+							class="fa fa-circle fa-stack-2x text-primary"></i> <i
+							class="fa fa-leaf fa-stack-1x text-white"></i>
+					</span>
+					</a> <a href="../wd10yearcoser/novice" target="_blank" class="fa-20x">首页文字公告</a>
+				</div>
+			</section>
+		</div>
+		
+		<div class="col-lg-3">
+			<section class="panel panel-default">
+				<div class="panel-body">
+					<a href="../wd10yearcoser/video" target="_blank"> <span
+						class="fa-stack fa-2x pull-left m-r-sm"> <i
+							class="fa fa-circle fa-stack-2x text-primary"></i> <i
+							class="fa fa-eye fa-stack-1x text-white"></i>
+					</span>
+					</a> <a href="../wd10yearcoser/video" target="_blank" class="fa-20x">官方视频列表</a>
+				</div>
+			</section>
+		</div>
+	</section>
+
+    
+ #parse("/shared/footer.vm")

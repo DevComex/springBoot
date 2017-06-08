@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.bugsystem.IBugInfoMapper">
+	<select id="getBugInfoByCode" parameterType="Integer" resultType="BugInfoBean" resultMap="BugInfoBean">
+		SELECT code,present_user,theme,detail,present_time,acceptuser,solve_content,bug_status,solve_time,evaluate,bug_type,is_delete
+  		FROM bug_buginfo_tb 
+  		WHERE code = #{code}
+	</select>
+	<update id="updateBugAcceptUser" parameterType="java.util.List">
+		UPDATE bug_buginfo_tb SET acceptuser = #{acceptuser} WHERE code = #{code}
+	</update>
+	<resultMap type="BugInfoBean" id="BugInfoBean">
+		<id column="code" property="code" />
+		<result column="present_user" property="presentUser" />
+		<result column="theme" property="theme" />
+		<result column="detail" property="detail" />
+		<result column="present_time" property="presentTime" />
+		<result column="acceptuser" property="acceptuser" />
+		<result column="solve_content" property="solveContent" />
+		<result column="bug_status" property="bugStatus" />
+		<result column="solve_time" property="solveTime" />
+		<result column="evaluate" property="evaluate" />
+		<result column="bug_type" property="bug_type" />
+		<result column="is_delete" property="isDelete" />
+	</resultMap>
+
+
+	<select id="selectBugStatus" parameterType="Integer" resultType="Integer">
+		select bug_status  
+		from   bug_buginfo_tb 
+		where  code=#{bugCode}
+	</select>
+	<update id="updateBugInfo" parameterType="BugInfoBean">
+		update bug_buginfo_tb  
+		set    theme=#{theme},detail=#{detail},acceptuser=#{acceptuser}  
+		where  code = #{code} 
+	</update>
+	<update id="updateBugDelete" parameterType="Integer"> 
+		update bug_buginfo_tb  
+		set    is_delete=1  
+		where  code = #{code}
+	</update>
+	<update id="updateBugEvaluate" parameterType="BugInfoBean"> 
+		update bug_buginfo_tb  
+		set    evaluate=#{evaluate},bug_status=#{bugStatus}
+		where  code = #{code}
+	</update>
+	
+	<insert id="insertBugInfo" parameterType="BugInfoBean">
+		insert into bug_buginfo_tb (present_user,theme,detail,present_time,acceptuser) values (#{presentUser},#{theme},#{detail},#{presentTime},#{acceptuser})
+	</insert>
+
+	<!-- 更改解决，@auhor jh -->
+	<update id="updateSolution" parameterType="BugInfoBean">
+		update bug_buginfo_tb set solve_content=#{solveContent},
+				  solve_time=#{solveTime},
+				  bug_status=#{bugStatus}
+	    where code =#{code}
+	</update>	
+	<!-- 更改,删除，@auhor jh -->
+	<update id="updateBugStatus" parameterType="BugInfoBean">
+		update bug_buginfo_tb set bug_status=#{bugStatus}
+	    where code =#{code}
+	</update>
+	<!-- 通过用户名查询bugInfo -->
+	<select id="selectBugInfoByAccName" parameterType="String" resultMap="BugInfoBean">
+		select * from bug_bugInfo_tb where is_delete = 0 and acceptuser = #{acceptuser}  order by bug_status asc, present_time desc
+	</select>
+	<!-- 查询不是该用户名册bugINFO -->
+	<select id="selectBugInfoOther" parameterType="String" resultMap="BugInfoBean">
+		<![CDATA[  
+			select * from bug_bugInfo_tb where is_delete = 0 and acceptuser <> #{acceptuser} or acceptuser is null order by bug_status asc, present_time desc
+		]]>
+	</select>
+	<!-- 条件查询 -->
+	<select id="selectBugInfoWhere" parameterType="BugInfoBean" resultMap="BugInfoBean">
+		<![CDATA[  
+			select * from bug_bugInfo_tb where is_delete = 0 
+		]]>
+		<if test="presentTime != null">  
+         <![CDATA[  
+             and present_time >= #{presentTime} and present_time < #{nextDay} 
+         ]]>  
+   		</if>
+   		<if test="acceptuser != null and '' != acceptuser">  
+         <![CDATA[  
+             and acceptuser like CONCAT('%','${acceptuser}','%') 
+         ]]>  
+    	</if> 
+    	<if test="bugStatus != null">  
+         <![CDATA[  
+             and bug_status = #{bugStatus}
+         ]]>  
+    	</if>
+    	<![CDATA[ 
+    		order by bug_status asc, present_time desc
+    	]]>
+	</select>
+	<!-- 根据code值查询bugInfo -->
+	<select id="selectBugInfoByCode" resultType="BugInfoBean">
+		select * from bug_bugInfo_tb where is_delete = 0 and code = #{code}
+	</select>
+</mapper>
+

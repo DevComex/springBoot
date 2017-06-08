@@ -1,0 +1,239 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>问道-我和宠物有个约会</title>
+      <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wdpetdating/css/wd150824.css">
+        <script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+        <script>
+          var rc = "${rc.contextPath}";
+        </script>
+        <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+        <!--统计代码 -->
+        <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+        <script src="http://static.cn114.cn/action/wdpetdating/js/pet.js"></script>
+      </head>
+  <body>
+    <div class="public_nav_top">
+      <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wd_bg">
+
+      <!--左侧-->
+      <div class="wd_left">
+        <div class="wd_logo">问道</div>
+        <!--活动类目-->
+        <div class="wd_item">
+          <ul>
+            <li>
+              <a class="a01" href="index.html">赛事首页</a>
+            </li>
+            <li>
+              <a class="a02" href="guize.html">活动规则</a>
+            </li>
+            <li>
+              <a class="a03" href="cansai.html">我要参赛</a>
+            </li>
+            <li class="on">
+              <a class="a04" href="choujiang.html">参与抽奖</a>
+            </li>
+          </ul>
+        </div>
+        <!--左侧链接-->
+        <div class="wd_link">
+          <a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>
+          <a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>
+          <a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>
+          <a href="http://wd.gyyx.cn/download/" target="_blank">下载游戏</a>
+        </div>
+      </div>
+      <!--右侧-->
+      <div class="wd_right">
+        <!--导航-->
+        <div class="wd_nav">
+          <a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+        </div>
+        <div class="people">人物</div>
+        <div class="wd_tab">
+          <!--参与抽奖开始-->
+          <div class="wd_cont wd_box04">
+            <div class="wd_main">
+              <h2>参与抽奖</h2>
+              <div class="wd_cj04">
+                <div class="logn_befor">
+                  <p id="js_account">
+                    抽奖需要先&nbsp;&nbsp;<a class="wd_logn" onclick="alertFn(null,null,true);" href="javascript:;">[登录]</a>
+                  </p>
+                  <p>
+                    <label>我的服务器</label>
+                    <select id="js_netType">
+                      <option value="">请选择区组</option>
+                      <option value="1">网通</option>
+                      <option value="2">电信</option>
+                      <option value="3">双线</option>
+                    </select>
+                    <select id="js_server">
+                      <option value="">请选择服务器</option>
+                    </select>
+                  </p>
+                  <p class="wd_prize" id="js_myPrize"></p>
+                </div>
+                <div class="logn_after">
+                  <p>清风似无影，欢迎您！</p>
+                </div>
+              </div>
+              <div class="wd_cjzp clear">
+                <ul class="wdcj_list01 cj_list">
+                  <li class="jp" id="dzp0">
+                    <a href="#">
+                      <img src="http://static.cn114.cn/action/wdpetdating/images/bz.jpg" width="63" height="60" />
+                      <p>威威虎抱枕</p>
+                    </a>
+                  </li>
+                  <li class="jp" id="dzp9">
+                    <a href="#">
+                      <img src="http://static.cn114.cn/action/wdpetdating/images/ip6plus.jpg" width="63" height="60" />
+                      <p>Iphone6 plus</p>
+                    </a>
+                  </li>
+                  <li class="jp" id="dzp8">
+                    <a href="#">
+                      <img src="http://static.cn114.cn/action/wdpetdating/images/jwsb.jpg" width="63" height="60" />
+                      <p>九尾狐手办+福元宝</p>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="wdcj_list02">
+                  <li class="jp" id="dzp1">
+                    <a href="#">
+                      <img src="http://static.cn114.cn/action/wdpetdating/images/pad.jpg" width="63" height="60" />
+                      <p>IPAD AIR</p>
+                    </a>
+                  </li>
+                  <li class="jp" id="dzp2">
+                    <a href="#">
+                      <img src="http://static.cn114.cn/action/wdpetdating/images/sb.jpg" width="63" height="60" />
+                      <p>极智鼠标</p>
+                    </a>
+                  </li>
+                  <li class="wdcj_btn">
+                    <a text="go" id="btnStart" href="javascript:;">立即抽奖</a>
+                  </li>
+                  <li class="jp" id="dzp7">
+                    <a href="#">
+                      <img src="http://static.cn114.cn/action/wdpetdating/images/tx.jpg" width="63" height="60" />
+                      <p>问道T恤</p>
+                    </a>
+                  </li>
+                  <li class="jp" id="dzp6">
+                    <a href="#">
+                      <img src="http://static.cn114.cn/action/wdpetdating/images/wdr.jpg" width="63" height="60" />
+                      <p>微达人礼包</p>
+                    </a>
+                  </li>
+                </ul>
+                <ul class="wdcj_list03">
+                  <li class="jp" id="dzp3">
+                    <a href="#">
+                      <img src="http://static.cn114.cn/action/wdpetdating/images/yx.jpg" width="63" height="60" />
+                      <p>海尔音箱</p>
+                    </a>
+                  </li>
+                  <li class="jp" id="dzp4">
+                    <a href="#">
+                      <img src="http://static.cn114.cn/action/wdpetdating/images/yyb.jpg" width="63" height="60" />
+                      <p>银元宝</p>
+                    </a>
+                  </li>
+                  <li class="jp" id="dzp5">
+                    <a href="#">
+                      <img src="http://static.cn114.cn/action/wdpetdating/images/wd150824_pic02.png" width="63" height="60" />
+                      <p>谢谢参与</p>
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!--参与抽奖结束-->
+        </div>
+      </div>
+    </div>
+
+    <div class="public_nav_bottom">
+      <script type="text/javascript">ShowBottom()</script>
+    </div>
+
+
+    <!--弹层一-->
+    <div class="wd_tc popup_con" style="display: none;" id="js_popAddress">
+      <h2>恭喜你中奖</h2>
+      <a class="wd_close fontHide pop-close" href="javascript:;">关闭</a>
+      <div class="tc_cont01">
+        <h3 id="js_realPrizePanel"></h3>
+        <p class="tc_p01">请填写准确详细的个人信息，以便我们邮寄奖品，包邮哦！</p>
+        <form>
+          <div class="tc_form01">
+            <p>
+              <label>姓名</label>
+              <input type="text" name="userName" maxlength="20" />
+            </p>
+            <p>
+              <label>手机</label>
+              <input type="text" name="userPhone" maxlength="11" />
+            </p>
+            <p>
+              <label>地址</label>
+              <input type="text" name="userAddress" maxlength="80" />
+            </p>
+            <p class="tc_btn01 fontHide">
+              <input type="submit" id="js_sbtnAddress" />确认提交
+            </p>
+            <p class="tc_p02">活动结束后我们会统一邮寄奖品，请耐心等待~~</p>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!--弹层二-->
+    <div class="wd_tc tc_02 popup_con prosit" style="display: none;" id="js_popNormalTip">
+      <h2>恭喜你中奖</h2>
+      <a class="wd_close fontHide pop-close" href="javascript:;">关闭</a>
+      <div class="tc_cont02">
+        <h3 id="js_panelPrize"></h3>
+        <p class="tc02_sure fontHide">
+          <a class="pop-close" href="javascript:;">确定</a>
+        </p>
+        <p class="tc_p02">活动结束后我们会统一发奖，请耐心等待~</p>
+      </div>
+    </div>
+
+
+    <script>
+      var NLOTTERY_CONFIG = {
+      //获取我的奖品
+      getMyPrize: "/wdpetdating/getLotteryInfoByUser",
+      //服务器列表
+      serverListUrl: "/wdpetdating/getServers",
+      //修改收货地址
+      updateAddress: "/wdpetdating/setAddress",
+      //修改之前回填收货地址
+      getBeforeAddress: "/wdpetdating/getAddress",
+      //提交收货地址
+      submitAddress: "/wdpetdating/resetAddress",
+      //抽奖
+      lotteryUrl: "/wdpetdating/getPrize",
+      //滚动信息（其他玩家获取列表）
+      scrollNews: "/wdpetdating/getLotteryInfo"
+      };
+    </script>
+    <script src="http://static.cn114.cn/action/wdpetdating/js/Lotterywd.js"></script>
+    <script src="http://s.gyyx.cn/lib/jquery.bgiframe.js"></script>
+    <script src="http://static.cn114.cn/action/wdpetdating/js/handle.js"></script>
+    <script>
+      $(function () {
+      nLottery.init();
+      nLottery.resetAddressForm($("#js_popAddress"));
+      });
+    </script>
+  </body>
+</html>

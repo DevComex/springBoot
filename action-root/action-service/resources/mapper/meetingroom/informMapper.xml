@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.meetingroom.IInformMapper">
+	<resultMap type="Inform" id="Inform">
+		<id column="code" property="code"/>
+		<result column="user_code" property="userCode"/>
+		<result column="order_code" property="orderCode"/>
+		<result column="alerttype_code" property="alertTypeCode"/>
+		<result column="alert_time" property="alertTime"/>
+		<result column="is_inform" property="isInform"/>
+	</resultMap>
+	
+	<!-- 查询消息传值给队列 -->
+	<select id="getMessageQueue" resultType="map">
+		select mos_inform_tb.* ,
+		mos_alerttype_tb.alert_name,
+		mos_user_tb.email,mos_user_tb.phone,mos_user_tb.rtx,mos_user_tb.user_name
+		from
+		mos_inform_tb,mos_alerttype_tb,mos_user_tb
+		where mos_inform_tb.alerttype_code = mos_alerttype_tb.code
+		and mos_inform_tb.user_code = mos_user_tb.code
+		order by mos_inform_tb.alert_time
+	</select>
+	
+	<!-- 添加会议提前通知表 -->
+	<insert id="insertInform" parameterType="Inform">
+	    insert into mos_inform_tb (user_code,order_code,alerttype_code,alert_time,is_inform)
+	    values (
+	     #{userCode},
+	     #{orderCode},
+	     #{alertTypeCode},
+	     #{alertTime},
+	     #{isInform}
+	    )
+	</insert>
+	
+	
+	
+</mapper>

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>每日签到</title>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/xuanwuba/css/xwb150619.css" type="text/css" />
+	<script  type="text/javascript">
+        var rc = "${rc.contextPath}";
+	 </script>
+     <script src="http://s.gyyx.cn/lib/jquery.js"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=xuanwuba" type="text/javascript"></script>
+   
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+
+    <div class="s_wrap">
+        <div class="s_wrap01">
+            <div class="s_wrapFooter">
+                <div class="smain">
+                    <div class="header">
+                        <div class="s_nav">
+							<a href="http://xwb.gyyx.cn/" target="_blank">进入官网</a>|<a href="http://xwb.gyyx.cn/Download/index.shtml" target="_blank">下载游戏</a>|<a href="http://bbs.gyyx.cn/forum.php?gid=167" target="_blank">进入论坛</a>|<a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" target="_blank">兑换充值</a>
+						</div>
+                        <div class="s_left">
+                            <div class="part_login">
+                                <div class="login">
+                                    <!--登录前-->
+									<a href="javascript:;" class="login_btn js_alertlogin_a">登录</a>
+
+                                    <p>还没有光宇通行证?<a href="http://account.gyyx.cn/Member/Register" target="_blank">点此注册</a></p>
+                                </div>
+                                <!--登录前-->
+                                <div class="success_sign" style="display: none;" id="userSuccess">
+                                    <!--登录后-->
+                                     <h3><span>
+                                        <img src="http://static.cn114.cn/action/xuanwuba/images/xwb150619_qd_pic01.png"></span><p id="loginbar" class="red">登录超时<br /><a href="javascript:;" class="info_mli_a js_Logout">退出</a></p>
+                                    </h3>
+                                    <p>玩家区组：<i class="red">未选择</i></p>
+                                    <p>性别：<i class="red">未选择</i></p>
+                                    <p><span class="sp01">积分：<i class="red">0</i></span></p><p>累计签到天数：<i class="red">0天</i></p>
+                                </div>
+                                <!--登录后-->
+                            </div>   
+                            <div class="s_div s_btn">
+                                <a href="javascript:;" class="registerBtn "><span class="ico01">签到</span></a>
+                                <a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" class="a02" target="_blank" id="s_div_s_btn_a02"><span class="ico02">充值</span></a>
+                            </div>
+                        </div>
+                        <a href="index" class="goHome">返回首页</a>
+                    </div>
+                    <div class="s_cont">
+                        <h3 class="s_tit">每日签到<span></span></h3>
+                        <div class="s_txt">
+                            <p><span>1</span>活动期间，每位玩家只要每日在活动页面签到即可获得1积分。</p>
+                            <p><span>2</span>累计签到2天、5天、10天、15天都会获得额外的道具奖励。</p>
+                            <p><span>3</span>全月满勤会有额外道具奖励和额外5积分奖励。</p>
+                        </div>
+                        <div class="s_box">
+                            <div class="qd_dateList">
+                                <ul class="qd_dateTit">
+                                    <li>日</li>
+                                    <li>一</li>
+                                    <li>二</li>
+                                    <li>三</li>
+                                    <li>四</li>
+                                    <li>五</li>
+                                    <li>六</li>
+                                </ul>
+                                <ul class="qd_day" id="js_day">
+                                    
+                                </ul>
+                            </div>
+                            <div class="qd_month">
+                                <div>
+                                    <p><font>$!month</font><span>月</span></p>
+                                    <span class="qd_year">2016</span></div>
+                                <select id="monthList">
+                                    <option>2015-12</option>
+                                    <option>2016-01</option>
+                                    <option>2016-02</option>
+                                    <option>2016-03</option>
+                                    <option>2016-04</option>
+                                    <option>2016-05</option>
+                                    <option>2016-06</option>
+                                    <option>2016-07</option>
+                                    <option>2016-08</option>
+                                    <option>2016-09</option>
+                                    <option>2016-10</option>
+									<option>2016-11</option>
+                                    <option>2016-12</option>
+                                    <option>2017-01</option>
+                                    <option>2017-02</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pfNav">
+        <ul>
+            <li class="on"><a href="signIndex">每日签到</a></li>
+            <li><a href="taskShow">舞吧任务</a></li>
+            <li><a href="lotteryIndex">舞吧奖励</a></li>
+            <li><a href="collectIndex">舞吧征集</a></li>
+            <li><a href="videoShow">个人中心</a></li>
+        </ul>
+        <a  class="goTop">top</a>
+    </div>
+    <div id="qd_boxMain">
+        <div class="qd_pfjl" id="qd_pfjl">
+            <p class="qdBoxs01">签到<span daysReward = "twoDaysReward">2</span>天<a >领取奖励</a></p>
+            <p class="qdBoxs02">签到<span daysReward = "fiveDaysReward">5</span>天<a >领取奖励</a></p>
+            <p class="qdBoxs03">签到<span daysReward = "tenDaysReward">10</span>天<a >领取奖励</a></p>
+            <p class="qdBoxs04">签到<span daysReward = "fifteenDaysReward">15</span>天<a >领取奖励</a></p>
+            <p class="qdBoxs05"><span daysReward = "allDaysReward">满勤</span><a >领取奖励</a></p>
+        </div>
+    </div>
+
+    <!-- 弹框样式 -->
+    <div class="maskBox" id="maskBox"></div>
+    <div class="popBox" id="popBox">
+    
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/ymcore.min.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/gyyxEffect.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/xwb150623.js"></script>
+<script  type="text/javascript">
+		var monthSelect = '$!yearMonth';
+		$("#monthList").val(monthSelect) ; 
+	 </script>
+</body>
+</html>

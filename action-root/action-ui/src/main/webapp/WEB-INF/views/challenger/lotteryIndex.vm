@@ -1,0 +1,495 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>《问道》挑战“新世界”活动</title>
+<script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/share.js"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/png.js"></script>
+<!--<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/common.js"></script>-->
+<script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/luckly.js"></script>
+<link href="http://static.cn114.cn/action/challenger/css/reset.css" rel="stylesheet" /> 
+<link href="http://static.cn114.cn/action/challenger/css/commonTop.css" rel="stylesheet" /> 
+<link href="http://static.cn114.cn/action/challenger/css/luckly.css" rel="stylesheet" />
+   <style>
+   	.stop {
+    height: 110px;
+    width: 830px;
+    float: right;
+}
+.stop .logo {
+    display: block;
+    width: 80px;
+    height: 92px;
+    margin: 0 auto;
+    overflow: hidden;
+    float: left;
+    margin-top: 18px;
+    margin-left: 58px;
+}
+.stop .topNav {
+    display: inline-block;
+    float: right;
+    margin-top: 10px;
+    margin-right: 56px;
+}
+.stop .topNav li {
+    float: left;
+}
+.stop .topNav li a {
+    font-size: 14px;
+    color: #000000;
+    margin-left: 4px;
+    margin-right: 4px;
+    }
+   </style>
+    <script>
+    var rc="${rc.contextPath}";
+	</script>
+
+    <!--[if IE 6]>
+	<script src="http://static.cn114.cn/action/challenger/js/DD_belatedPNG_0.0.8a-min.js"></script>
+	<script>DD_belatedPNG.fix('.dzp div');</script>
+	<![endif]-->
+</head>
+
+<body>
+    <!-- 社区公用头部-->
+      <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+
+    <!-- 活动公用头部-->
+    <div class="js_mask">
+        <ul class="navList">
+            <li><a href="/challenger/lotteryIndex" class="active">首页</a></li>
+            <li><a href="/challenger/teamList">挑战新世界</a></li>
+            <li><a href="/challenger/challengeinfo/fighterList">生死挑战者</a></li>
+        </ul>
+    </div>
+   
+    <div class="luckTop">
+         <div class="wid1000 centerDiv">
+         <div class="stop" style="height: 110px;width: 830px;float: right;position: absolute;top: 0;right: 0px;">
+           
+           <ul class="topNav">
+               <li><a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm ">进入官网</a>|</li>
+               <li><a target="_blank" href="http://news.gyyx.cn/Counter.ashx?pc=4089&amp;sc=17763&amp;mc=6304&amp;gc=2&amp;ul=http%3a%2f%2faccount.gyyx.cn%2fMember%2fRegister&amp;mt=4061&amp;et=1">账号注册</a>|</li>
+               <li><a target="_blank" href="http://wd.gyyx.cn/download/index.aspx ">下载中心</a>|</li>
+               <li><a target="_blank" href="http://bbs.gyyx.cn/forum.php?gid=8">游戏论坛</a></li>
+                <li class="js-share-btn" data-sharcon="《问道》新服“二〇一六”, 开启PK新世界。挑战“四象封印”，引领世界等级；生死挑战，名扬中州大陆，更有十万大奖等你挑战。军令已立，生死何惧，年中PK大服“二〇一六”，7.22不打不欢！">
+                   <input id="source" type="hidden" name="index" value="index">
+                   <a class="shar_wb" target="_self" href="javascript:void(0)" data-sharename="tqq" style="margin: 0;"></a>
+                   <a class="shar_kj" target="_self" href="javascript:void(0)" data-sharename="qzone" style="margin: 0;"></a>
+               </li> 
+           </ul>
+       </div>
+        <!-- 登录/报名参赛 -->
+        <div class="siginBox siginCenter">
+                	<!--登录前-->
+                    <div class="lb_before loginBtn">
+                       <a href="javascript:;">登录 <span>SIGN IN</span></a>
+                    </div>
+                    <!--登录后-->
+                    <P class="lb_log" style="display: none">
+                        <span>h***24</span><br>
+                        <a href="javascript:;" class="border" id="js_myPrize">查看我的中奖纪录</a><br>
+                        <a href="#" class="js_Logout">退出登录</a>
+                    </P>
+          </div>
+             <a href="/challenger/teamList" class="challenge">挑战新世界</a>
+             <a href="/challenger/challengeinfo/fighterList" class="defier">生死挑战者</a>
+        </div>
+    </div>
+
+    <!--  以下是自己的内容页面  -->
+    <div class="mainLuckly">
+        <div class="width1000">
+            <div style="overflow:hidden">
+            <!--焦点图展示 -->
+               <div class="focus" id="focus">
+                  <div class="scrollArea" id="scrollArea">
+					
+                       <ul>
+                         <!--<li><a href="#"><img src="http://static.cn114.cn/action/challenger/images/indexTop.jpg" /></a></li>
+                         <li><a href="#"><img src="http://static.cn114.cn/action/challenger/images/indexTop.jpg" /></a></li>
+                         <li><a href="#"><img src="http://static.cn114.cn/action/challenger/images/indexTop.jpg" /></a></li>
+                         <li><a href="#"><img src="http://static.cn114.cn/action/challenger/images/indexTop.jpg" /></a></li>
+                         <li><a href="#"><img src="http://static.cn114.cn/action/challenger/images/indexTop.jpg" /></a></li>
+                         <li><a href="#"><img src="http://static.cn114.cn/action/challenger/images/indexTop.jpg" /></a></li>
+                    		 -->
+					   </ul>
+                 </div>
+      
+                  <div id="num">
+                  <ul>
+                      <!--<li>1</li>
+                      <li>2</li>
+                      <li>3</li>
+                      <li>4</li>
+                      <li>5</li>-->
+                      </ul>
+                  </div>
+               </div>
+
+            <div class="tvList">
+                <ul class="tvMain">
+                    <li style="width:33%;">时间</li>
+                    <li style="width:42%;">对战玩家</li>
+                    <li style="width:25%;">直播频道</li>
+                </ul>
+                <div class="tvNews">
+                   #foreach( $elem in $!liveTimeRankList)
+		            <ul>
+	                    <li style="width:33%;">$!elem.liveTime</li>
+	                    <li style="width:42%;"><span style="width:42%">$!elem.playerA</span> <span style="width:16%; color:#FFF">VS</span> <span style="width:42%">$!elem.playerB</span></li>
+	                    <li style="width:25%;">$!elem.liveRadio</li>
+                    </ul>
+				    #end
+                </div>
+            </div>
+            </div>
+         </div>
+     
+
+            <div class="lucklyBox">
+                <div class="width1000">
+                <div class="lucklyLeft">
+                    <!--剩余次数显示 -->
+                    <p class="loginNum">剩余抽奖次数：<a href="javascript:;">登录后查询</a></p>
+                    <p class="luckNummber" style="display:none;">剩余抽奖次数：<a href="javascript:;"></a></p>
+                    <!--<p class="prize" id="js_myPrize"></p>-->
+                    <!-- 大转盘 -->
+                    <div class="dzp">
+						<a href="javascript:;" id="js_start" class="start" data-state="yes">立即抽奖</a>
+						<a class="js_img dzp0 dzp0_0" id="dzp0"></a>
+						<a class="js_img dzp1" id="dzp1"></a>
+						<a class="js_img dzp2" id="dzp2"></a>
+						<a class="js_img dzp3" id="dzp3"></a>
+						<a class="js_img dzp4" id="dzp4"></a>
+						<a class="js_img dzp5" id="dzp5"></a>
+						<a class="js_img dzp6" id="dzp6"></a>
+						<a class="js_img dzp7" id="dzp7"></a>
+					</div>
+                </div>
+
+                <div class="lucklyRight">
+                    <h3>中奖展示</h3>
+                    <div class="scrolloLuckly">
+                    <div class="scollTxt pr" id="J_listScroll">
+					<ul class="pa">
+						<li><a href="javascript:;">x8****82 抽中了10元光宇币</a></li>
+						<li><a href="javascript:;">nb****s4 抽中了10元光宇币</a></li>
+						<li><a href="javascript:;">lu****57 抽中了10元光宇币</a></li>
+						<li><a href="javascript:;">lq****t2 抽中了10元光宇币</a></li>
+						<li><a href="javascript:;">ca****99 抽中了10元光宇币</a></li>
+						<li><a href="javascript:;">rt****76 抽中了10元光宇币</a></li>
+						<li><a href="javascript:;">ds****03 抽中了10元光宇币</a></li>
+						<li><a href="javascript:;">fr****ns 抽中了10元光宇币</a></li>
+						<li><a href="javascript:;">er****go 抽中了10元光宇币</a></li>
+						<li><a href="javascript:;">sf****8t 抽中了10元光宇币</a></li>
+						<li><a href="javascript:;">gh****80 抽中了10元光宇币</a></li>
+						<li><a href="javascript:;">rr****yu 抽中了10元光宇币</a></li>
+						<li><a href="javascript:;">jt****09 抽中了10元光宇币</a></li>
+						<li><a href="javascript:;">xt****tt 抽中了10元光宇币</a></li>
+						<li><a href="javascript:;">cc****97 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">ry****95 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">tr****87 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">ds****94 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">yu****65 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">yt****76 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">gy****yu 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">ty****ty 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">u8****83 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">hj****go 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">er****hg 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">zf****53 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">z6****95 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">gx****97 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">hz****ds 抽中了50元光宇币</a></li>
+						<li><a href="javascript:;">hz****95 抽中了100元光宇币</a></li>
+						<li><a href="javascript:;">gt****65 抽中了100元光宇币</a></li>
+						<li><a href="javascript:;">nt****jt 抽中了100元光宇币</a></li>
+						<li><a href="javascript:;">sf****rt 抽中了100元光宇币</a></li>
+						<li><a href="javascript:;">yi****73 抽中了100元光宇币</a></li>
+						<li><a href="javascript:;">ty****hw 抽中了100元光宇币</a></li>
+						<li><a href="javascript:;">w8****89 抽中了100元光宇币</a></li>
+						<li><a href="javascript:;">jh****25 抽中了100元光宇币</a></li>
+						<li><a href="javascript:;">nh****jk 抽中了北通游戏手柄</a></li>
+						<li><a href="javascript:;">lg****jg 抽中了北通游戏手柄</a></li>
+						<li><a href="javascript:;">km****74 抽中了北通游戏手柄</a></li>
+						<li><a href="javascript:;">kl****lo 抽中了北通游戏手柄</a></li>
+						<li><a href="javascript:;">za****yp 抽中了北通游戏手柄</a></li>
+						<li><a href="javascript:;">ly****04 抽中了北通游戏手柄</a></li>
+						<li><a href="javascript:;">jr****hg 抽中了北通游戏手柄</a></li>
+						<li><a href="javascript:;">mz****52 抽中了北通游戏手柄</a></li>
+						<li><a href="javascript:;">gh****js 抽中了北通游戏手柄</a></li>
+						<li><a href="javascript:;">hr****72 抽中了北通游戏手柄</a></li>
+						<li><a href="javascript:;">zj****h7 抽中了问道周边T恤</a></li>
+						<li><a href="javascript:;">x8****16 抽中了问道周边T恤</a></li>
+						<li><a href="javascript:;">gp****75 抽中了问道周边T恤</a></li>
+						<li><a href="javascript:;">mp****te 抽中了问道周边T恤</a></li>
+						<li><a href="javascript:;">hf****67 抽中了问道周边T恤</a></li>
+						<li><a href="javascript:;">mt****j7 抽中了问道周边T恤</a></li>
+						<li><a href="javascript:;">mz****jk 抽中了问道周边T恤</a></li>
+						<li><a href="javascript:;">gf****39 抽中了问道周边T恤</a></li>
+												
+					</ul>
+				</div>
+                   </div>
+                    <div class="callUs">
+                        <h3 style="font-size:24px;background: #713d23;">联系我们</h3>
+                        <ul>
+                            <li>光宇-小小<br />642958081</li>
+                            <li>光宇-诗生<br />3298098366</li>
+                        </ul>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+
+        <div class="tc tc_01" style="display:none;" id="js_popAddress">
+            <div class="js_popAddressBox">
+            <h3 class="startIcon">恭喜你</h3>
+                <p class="giftLottery">获得<span class="js_panelPrize"></span></p>
+                <p>获得的奖励将在活动结束后，统一寄出，<br />请填写联系方式、快递地址等信息。</p>
+		        <div class="tc_shdz">
+			        <form id="js_popAddressForm">
+				        <div class="tc_shdztxt">
+					        <p><label>姓名：</label><input type="text" name="userName" class="sh_name"></p>
+					        <p><label>电话：</label><input type="text" name="userPhone" class="sh_tel"></p>
+                            <p><label>QQ：</label><input type="text" name="userQq" class="sh_qq"></p>
+					        <p style="height: 50px;"><label>地址：</label><textarea name="userAddress" class="sh_address"></textarea></p>
+				        </div>
+				        <div class="tc_btn">
+					        <input type="button" value="" class="js_addressSubmit">
+				        </div>
+			        </form>
+		        </div>
+        </div>
+        <a class="close pop-close" href="javascript:;">关闭</a>
+	</div>
+	    
+	    <div class="tc tc_02" id="js_popFailTip" style="display:none;">
+		<div class="tc_cj">
+			<div class="tc_cjtxt cry">
+				<h3>很遗憾你没有中奖，继续努力吧~</h3>
+			</div>
+		</div>
+            <a class="close pop-close" href="javascript:;">关闭</a>
+	</div>
+
+        <div class="tc tc_02" id="js_popSuccTip" style="display:none;">
+		<div class="tc_cj">
+			<div class="tc_cjtxt">
+				<h3 class="startIcon">恭喜你</h3>
+                <p class="giftLottery">获得<span class="js_panelPrize"></span></p>
+                <p>卡号：<span class="xnGiftNum"></span></p>
+                <p>密码：<span class="xnGiftPassword"></span></p>
+			</div>
+			
+		</div>
+            <a class="close pop-close" href="javascript:;">关闭</a>
+	</div>
+
+ <div class="tc tc_02" id="js_popNonummber" style="display:none;">
+		<div class="tc_cj">
+			<div class="tc_cjtxt cry">
+				<h3>很遗憾，您的抽奖机会已用完，<br /> 赶紧去增加抽奖次数吧~</h3>
+			</div>
+		</div>
+            <a class="close pop-close js_closeThis" href="javascript:;">关闭</a>
+	</div>
+       
+        
+          <!-- 获取我中奖的记录弹层-->
+        <div class="tc tc_01" style="display:none;" id="pop_myLottery">
+            <div class="js_popAddressBox">
+                <h3 class="startIcon">中奖情况</h3>
+                <div class="opacity_lottery">
+                    <ul class="titleTop">
+                        <li>中奖时间</li>
+                        <li>奖品内容</li>
+                    </ul> 
+                    <div class="scrollY">
+                    
+                   </div>
+                   <p style="color:#d39b45; text-align:center;">有问题请联系QQ:3298098366 / 642958081</p>  
+                </div>
+            </div>
+        <a class="close pop-close js_closeThis" href="javascript:;">关闭</a>
+	</div>
+
+        <div class="rule">
+            <div class="width1000">
+                <h4>活动规则</h4>
+                 <p><span class="nummberBg">1</span><span>报名参与“挑战‘新世界’”和“生死挑战者”活动可以获得一次抽奖机会。</span></p>
+                 <p><span class="nummberBg">2</span><span>玩家在“挑战‘新世界’”活动中，创建队伍或者加入队伍，可获得一次抽奖机会。</span></p>
+                 <p><span class="nummberBg">3</span><span>“生死挑战”活动中，在页面对其他玩家发起挑战或加入直播，可分别获得一次抽奖机会。</span></p>
+                 <p><span class="nummberBg">4</span><span>分享活动内容、分享队伍的招募信息、分享挑战信息等，可分别获得一次抽奖机会，每日最多可获得3次。</span></p>
+                 <p><span class="nummberBg">5</span><span>抽奖活动中的实物奖品，将在活动结束后统一邮寄，请中奖玩家耐心等待。</span></p>
+                 <p><span class="nummberBg">6</span><span>禁止使用非正常方式参与进行抽奖，否则抽奖视为无效，活动的最终解释权归光宇游戏所有。</span></p>
+
+            </div>
+
+        </div>
+
+    </div>
+    <!-- 社区公用底部 -->
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+ </div>
+   #parse("challenger/challengerLogin.vm")
+    <!-- 消息滚动js -->
+<script  type="text/javascript" src="http://static.cn114.cn/action/challenger/js/kxbdMarquee.js"></script> 
+<script >
+    $(function () {
+        //中奖信息滚动
+        //消息条上下滚动
+        $("#J_listScroll").kxbdMarquee({
+            direction: 'up',
+            newAmount: 4,
+            eventA: 'mouseenter',
+            eventB: 'mouseleave',
+            scrollDelay: 40
+        });
+    })
+   
+</script>
+    <script>
+        var NLOTTERY_CONFIG ={
+			//抽奖
+            lotteryUrl: rc + "/challenger/lottery/letUsLottery",
+            
+			/*获取我的奖品
+            getMyPrize: rc + "data/getAllLotteryInfoByUser.js",
+         	//服务器列表
+            serverListUrl: rc + "reback/getServers",
+           	// 滚动信息（其他玩家获取列表）
+            scrollNews: rc + "reback/getLotteryInfo",
+            getBeforeAddress: rc + "data/getAddress.js",
+            updateAddress: rc + "data/resetAddress.js",//更新重置地址信息
+            submitAddress: rc + "data/resetAddress.js"//提交地址信息*/
+        };
+	</script>
+    <script src="http://s.gyyx.cn/lib/jquery.bgiframe.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/lottery.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/handle.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/swfobject.min.js"></script><!--视频播放js -->
+    <script type="text/javascript" src="http://static.cn114.cn/action/challenger/js/ymadplayer.min.js"></script><!--视频播放js -->
+ 	<!-- 在html下部增加如下脚本代码  -->
+	<script>
+	     /*---------------------- 接口调取焦点图片的信息 ---------------------------*/
+	     var n, c = 0, wid
+	     function autoPlay() {
+	         c++
+	         if (c >= n) c = 0
+	         $($("#num li")[c]).addClass("current")
+	         $($("#num li")[c]).siblings().removeClass("current")
+	         $("#scrollArea").stop(true, true).animate({ scrollLeft: 458 * c }, 400);
+	
+	     }
+	     $(function () {
+	
+	         $.ajax({
+	              url: "/challenger/getLiveRadioTopN",//展示视频焦点图接口
+	             //url: "http://zzl.gyyx.cn/new/data/list.js",
+	             type: "GET",
+	             dataType: "json",
+	             data: {
+	            	 pageSize:5,
+	                 r: Math.random(),
+	             },
+	             success: function (data) {
+	                 var dataHtml = ''; var dataHtmlNum = ''; var dCont = data.data;
+	                 if (data.message) {
+	                     var nummber = 0;
+	                     //拼接焦点图
+	                     for (var i = 0; i < dCont.length; i++) {
+	                         nummber++;
+	                         dataHtml += '<li video = "' + dCont[i].radioUrl + '" style="position:relative;"><a href="javascript:;" class="play0' + nummber + '" ><img src="http://static.cn114.cn/action/challenger/images/circlePlayScroll.png" class="palyVideo" style="position: absolute;bottom: 40px;left: 10px;width:44px; height:44px"><img src="' + dCont[i].picUrl + '" /></a></li>'
+	                     }
+	                     
+	                     $("#scrollArea ul").empty().html(dataHtml);
+	                     
+	                     //var imgAppend = ''
+		                 //$("#scrollArea li").eq(0).append(imgAppend);
+	                     //拼接小按钮
+	                     for (var j = 0; j < dCont.length; j++) {
+	                         dataHtmlNum += '<li>' + (j + 1) + '</li>'
+	                     }
+	                     $("#num ul").empty().html(dataHtmlNum);
+	
+	                     /*焦点图转换*/
+	                    
+	                     n = $("#scrollArea li").size()
+	                     $("#num li").css("left", function (i) { return 25 * i + 332 })
+	                     $("#num li:first").addClass("current")
+	                     $(".scrollArea ul").css("width", 458 * n);
+	                     
+	                     $("#num li").hover(
+	                        function () {
+	                            c = $(this).index()
+	                            window.clearInterval(wid)
+	                            $(this).addClass("current")
+	                            $(this).siblings().removeClass("current")
+	                            $("#scrollArea").stop(true, true).animate({ scrollLeft: 458 * c }, 400)
+	                        },
+	                        function () {
+	                            wid = window.setInterval("autoPlay()", 4000)
+	                        })
+	
+	                     wid = window.setInterval("autoPlay()", 4000)
+	                     //视频播放加载
+	                     var nummber2 = 0;
+	                     var videoList = $(".scrollArea li");
+	                     for (var i = 0; i < $(".scrollArea li").length; i++) {
+	                    	
+	                         nummber2++;
+	                         var videoUrl = videoList.eq(i).attr("video");
+	                         videoShowPlay('.play0' + nummber2, videoUrl);
+	                     }
+	                     
+	                     $(".palyVideo").click(function(){
+                    		 $(this).parents("a").click();
+                    		 
+                    	 })
+	                 }
+	
+	             }
+	
+	         });
+	
+	     })
+	     
+	     function videoShowPlay(videoBtn, videoUrlAddress) {
+	         YM.Flash.embedAdPlayer({
+	             openBtn: videoBtn,
+	             url: 'http://static.cn114.cn/action/wdschoolopen/flash/adplayer.swf',
+	             bgUrl: 'http://static.cn114.cn/action/wdschoolopen/images/tvbg.png',
+	             closeBtnUrl: 'http://static.cn114.cn/action/wdschoolopen/images/tvclose.png',
+	             width: 640,
+	             height: 360,
+	             vars: {
+	                 videoUrl: videoUrlAddress,
+	                 coverUrl: ''
+	             }
+	         });
+	
+	     }
+
+
+ 	</script>
+ 	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "//hm.baidu.com/hm.js?e215d1f4b023105658b20892e86189d6";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.cadet.IEvaluate">
+	<resultMap id="EvaluateBeanMap" type="EvaluateBean">
+		<result property="code" column="code" />
+		<result property="guideCode" column="guide_code" />
+		<result property="reportCode" column="report_code" />
+		<result property="content" column="evaluate_content" />
+	</resultMap>
+	<insert id="addEvaluateBean">
+		insert into cadet_evaluate_tb 
+		(guide_code,report_code,evaluate_content)
+		values
+		(#{guideCode},#{reportCode},#{content})
+	</insert>
+	<select id="getEvaluateByReportAndGuide" resultMap="EvaluateBeanMap">
+		select * from cadet_evaluate_tb
+		left join cadet_guide_tb
+		on cadet_evaluate_tb.guide_code = cadet_guide_tb.code
+		where
+		cadet_evaluate_tb.report_code = #{reportCode}
+		and
+		cadet_guide_tb.guide_name = #{guideName}
+	</select>
+	<select id="selectEvaluatByReportCode" resultMap="EvaluateBeanMap" resultType="java.util.List">
+		select * from 
+		cadet_evaluate_tb
+		where
+		report_code=#{reportCode}
+	</select>
+	<update id="updateEvaluateBeanBean">
+		update cadet_evaluate_tb
+		set
+			evaluate_content = #{content}
+		where
+			code = #{code}
+	</update>
+</mapper>

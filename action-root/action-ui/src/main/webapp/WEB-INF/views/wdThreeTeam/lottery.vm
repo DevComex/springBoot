@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>《盗墓三番队》概念站</title>
+    <!--<link href="http://static.cn114.cn/action/wdWildCity/css/gmmc.css" rel="stylesheet" type="text/css">-->
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wdThreeTeam/css/lottery.css"/>
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script  type="text/javascript">
+		    var rc = "${rc.contextPath}";
+	    </script>
+    <!--<script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?5e57c77b5a00405a016d6793113e7ff5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>-->
+    <script>
+        if (navigator.platform.indexOf('Win32') != -1 || navigator.platform.indexOf('Win64') != -1 || navigator.platform.indexOf('MacPPC') != -1|| navigator.platform.indexOf('MacIntel') != -1) {
+
+
+        } else {
+            //shouji
+            window.location.href = rc+"/tombThreeTeam/mobile/index"+window.location.search;
+        }
+    </script>
+</head>
+<body>
+
+<div class="public_nav_top">
+    <script type="text/javascript">Showtop();</script>
+</div>
+
+
+<!--抽奖转盘-->
+<div class="wrap">
+    <a href="$returnIndex" class = "return1"></a>
+    <div class=" yy_lottery" >
+        <div class="con">
+            <p class="tit s2">感谢您参与我们的调研，您现在可以抽奖啦，有机会获得Apple watch哦！</p>
+            <div class="zpbg fl zpbg04">
+                <img id="rotate" src="http://static.cn114.cn/action/wdThreeTeam/img/lottery_zp.png" alt="turntable">
+                <div class="start">
+                    <div id="btnStart" class="rotate_startBtn"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul class="lottery_foot">
+        <li class="lottery_rule">
+            <div class="lottery_rule_in"></div>
+            <p>每个手机号只有一次抽奖机会</p>
+
+            <p>游戏礼包CDK以短信的形式发放到预约手机上</p>
+
+            <p>获得实物奖励的玩家请您详细填写个人信息，以便我们能及时联系到您。</p>
+
+            <p>如在预约过程中遇到问题请及时联系官方，QQ群：515448236</p>
+        </li>
+        <li class="lottery_detail">
+            <div class="lottery_rule_in"></div>
+            <ul>
+                <li><img src="http://static.cn114.cn/action/wdThreeTeam/img/lottery_prize1.png" alt=""/>
+
+                    <p>wacom 手绘板</p>
+                </li>
+                <li><img src="http://static.cn114.cn/action/wdThreeTeam/img/lottery_prize2.png" alt=""/>
+
+                    <p>apple watch</p>
+                </li>
+                <li><img src="http://static.cn114.cn/action/wdThreeTeam/img/lottery_prize3.png" alt=""/>
+
+                    <p>3级随机宝石</p>
+                </li>
+                <li><img src="http://static.cn114.cn/action/wdThreeTeam/img/lottery_prize4.png" alt=""/>
+
+                    <p>强化石</p>
+                </li>
+                <li><img src="http://static.cn114.cn/action/wdThreeTeam/img/lottery_prize5.png" alt=""/>
+
+                    <p>法宝精华</p>
+                </li>
+                <li><img src="http://static.cn114.cn/action/wdThreeTeam/img/lottery_prize6.png" alt=""/>
+
+                    <p>金币小袋</p>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<!--抽奖已获奖弹窗-->
+<div class="popup tc04 tc05" id="js_popup">
+    <!--<a href="javascript:;" class="close"></a>-->
+    <!--<h3 class="tc05_tit">恭喜中奖</h3>-->
+    <!--<p>-->
+        <img src="http://static.cn114.cn/action/wdThreeTeam/img/lottery_bj.png" id="lbImg">
+    <!--</p>-->
+    <p class="tip1"><span>白金礼包：</span>3级随机宝石*1、法宝精华*30、金币100000</p>
+    <p class="tip2">xxxxxxxx</p>
+    <!--<p>-->
+    <a href="javascript:;" class="close_popup">
+    </a>
+        <img src="http://static.cn114.cn/action/wdThreeTeam/img/order_ewm.jpg" width="154" height="154"  class="lbimg2">
+    <!--</p>-->
+
+    <p class="tip3"><i>公众号搜索：</i><span>盗娘俱乐部</span><br>扫一扫关注我们，获取更多咨询</p>
+    <!--<h4>请妥善保管礼包码</h4>-->
+    <!--<p class="fz28" id="js-contain"></p>-->
+    <!--<a href="javascript:;" class="copyBtn02" id="js-copy"></a>-->
+
+</div>
+<input type="hidden" value="" id="souce" />
+
+
+<div class="mask" id="mask"></div>
+<div class="public_nav_bottom">
+    <script type="text/javascript">ShowBottom()</script>
+</div>
+<script>
+    var _hmt = _hmt || [];
+    (function() {
+        var hm = document.createElement("script");
+        hm.src = "//hm.baidu.com/hm.js?adf34816abef562c37599de5f6071496";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+<div class="mask"></div>
+<script src="http://static.cn114.cn/action/wdWildCity/js/validation.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdWildCity/js/awardRotate.js"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdWildCity/js/ZeroClipboard.min.js"></script>
+<!--<script src="http://static.cn114.cn/action/wdThreeTeam/js/"></script>-->
+<script type="text/javascript" src="http://static.cn114.cn/action/wdThreeTeam/js/award.js"></script>
+<script>
+    //抽奖
+    $("#btnStart").startBtn();
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.common.IActionCommonCommentBean">
+	<resultMap type="ActionCommonCommentBean" id="ActionCommonCommentBean">
+		<id column="code" property="code" />
+		<result column="action_code" property="actionCode" />
+		<result column="form_code" property="formCode" />
+		<result column="nick_name" property="nickName" />
+		<result column="comment" property="comment" />
+		<result column="status" property="status" />
+		<result column="uploadDate" property="upload_date" />
+	</resultMap>
+	<insert id="insertActionCommonCommentBean" useGeneratedKeys="true" keyProperty="code" parameterType="ActionCommonCommentBean">
+		insert into action_common_comment
+		(action_code,form_code,nick_name,comment,status)
+		values
+		(#{actionCode},#{formCode},#{nickName},#{comment},#{status})
+	</insert>
+	
+	<select id="selectActionCommonCommentBeanBycode" parameterType="int" resultMap="ActionCommonCommentBean">
+		select * from action_common_comment
+		where code = #{code}
+	</select>
+	
+	<update id="updateActionCommonCommentBean" parameterType="ActionCommonCommentBean">
+		update action_common_comment
+		set
+		action_code = #{actionCode},form_code = #{formCode},nick_name = #{nickName},comment = #{comment},status = #{status}
+		where
+		code = #{code}
+	</update>
+	
+	<delete id="deleteActionCommonCommentBeanBycode" parameterType="int">
+		delete from action_common_comment
+		where code = #{code}
+	</delete>
+		<select id="getTalkByPage" resultMap="ActionCommonCommentBean">
+			select action_common_comment.*,t.* from 
+		(
+			select action_common_comment.code,ROW_NUMBER() OVER (ORDER BY upload_date desc) as m from action_common_comment
+			where  action_code=#{actionCode} and status != '审核未通过'
+		) as t
+		left join action_common_comment
+		on t.code = action_common_comment.code
+		where t.m between ((${pageIndex}*10) + 1) and ((${pageIndex} + 1)*10)
+	</select>
+		<select id="getTalk" resultMap="ActionCommonCommentBean">
+			select action_common_comment.*,t.* from 
+		(
+			select action_common_comment.code,ROW_NUMBER() OVER (ORDER BY upload_date desc) as m from action_common_comment
+			where  action_code=#{actionCode} and status != '审核未通过'
+		) as t
+		left join action_common_comment
+		on t.code = action_common_comment.code
+	</select>
+	<update id="updateTalk" parameterType="ActionCommonCommentBean">
+		update action_common_comment set status = #{status} where code = #{code}
+	</update>
+	<select id="selectTalkBycode" resultMap="ActionCommonCommentBean" parameterType="int">
+		select * from action_common_comment where code = #{code}
+		</select>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdno1pet.IUserLottery">
+<!-- 关于用户中奖资格配置的XML -->
+	<resultMap type="UserLottery" id="UserLotteryMap">
+	<id column="ul_code" property="userLotteryCode" />
+		<result column="user_code" property="userCode" />
+		<result column="lottery_status" property="userLotteryStatus" />
+		<result column="lottery_type" property="userLotteryType" />
+		<result column="user_address" property="userAdress" />
+	</resultMap>
+	<!-- total  number of lottery-->
+	<select id="selectNumLucky" resultType="int">
+	select 
+	count(ul_code)
+	from wdno1_user_lottery_tb
+	</select>
+	<!-- insert User for lottery -->
+	<insert id="insertUser">
+	insert 
+	into
+	wdno1_user_lottery_tb
+	(user_code,lottery_status,lottery_type,user_address)
+	values
+	(#{userCode},#{userLotteryStatus},#{userLotteryType},#{userAdress})
+	
+	</insert>
+	<!-- add lottery information -->
+	<insert id="insertUserLottery">
+	insert 
+	into
+	wdno1_user_lottery_tb
+	(lottery_status,lottery_type)
+	values
+	(#{userLotteryStatus},#{userLotteryType})
+	where
+	user_code=#{userCode}
+	<!-- select lottery information by  userCode -->
+	</insert>
+	<select id="selectUserLotteryByUserCode" resultMap="UserLotteryMap" >
+	select
+	 ul_code,user_code,lottery_status,lottery_type,user_address
+	 from
+	 wdno1_user_lottery_tb
+	 where
+	 user_code=#{userCode}
+	</select>
+	<update id="updateUserLotteryStatusAndType">
+	<![CDATA[
+	update 
+	wdno1_user_lottery_tb
+	set
+	lottery_type=(select lottery_type 
+	from
+	wdno1_lottery_config_tb
+	with(TABLOCKX)
+	where lc_order=(
+	(select 
+	count(ul_code)
+	from  wdno1_user_lottery_tb
+	where
+	lottery_status
+	<>'none'
+	
+	) +1)
+	),
+	lottery_status= 'have'
+	where user_code =#{userCode}
+	]]>
+	</update>
+
+	<!-- update lottery type-->
+
+	<update id="updateUserLotteryStatus">
+	update
+	wdno1_user_lottery_tb
+	set 
+	lottery_status=#{lotteryStatus}
+	where
+	user_Code=#{userCode}
+	
+	</update>
+	
+	<update id="updateUserAdress" >
+	<!-- update user address -->
+	update
+	wdno1_user_lottery_tb
+	set 
+	user_address=#{lotteryAdress}
+	where
+	user_Code=#{userCode}
+	</update>
+	<parameterMap type="map" id="lotteryParamMap">  
+   		<parameter property="userCode" jdbcType="INTEGER" mode="IN"/>  
+   		<parameter property="errorCode" jdbcType="INTEGER" mode="OUT"/>  
+ 	</parameterMap>
+	<update id="updateLotteryType" statementType="CALLABLE" parameterMap="lotteryParamMap">
+	 <![CDATA[   	
+        {
+        	call dbo.sp_wdno1_userLottery(#{userCode,mode=IN,jdbcType=INTEGER},#{errorCode,mode=OUT,jdbcType=INTEGER})
+        }    
+        
+        ]]>
+	
+	</update>
+</mapper>

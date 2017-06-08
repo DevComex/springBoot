@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>问道-2999新版礼包 免费福利火爆送 十一万人新服推荐 千百万专属豪礼</title>
+		<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wd2999/card/css/wd161202.css">
+		<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+		<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+		<script>
+			var _hmt = _hmt || [];
+			(function() {
+			  var hm = document.createElement("script");
+			  hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+			  var s = document.getElementsByTagName("script")[0]; 
+			  s.parentNode.insertBefore(hm, s);
+			})();
+		</script>
+	</head>
+	<body>
+	<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+		<div class="wd_bg">
+			<div class="wd_top">
+				<div class="wd_bottom">
+					<div class="main">
+						<div class="wd_nav">
+							<a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|
+							<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|
+							<a href="http://account.gyyx.cn/Member/Register" target="_blank">账号注册</a>|
+							<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>
+						</div>
+						<div class="wd_link">
+							<a href="javascript:void(0)" class="a01">登录<span>领取<br/>礼包账号</span></a>
+							<a href="javascript:void(0)" class="a02">选择<span>领取<br/>服务器</span></a>
+							<a href="javascript:void(0)" class="a03"><span>输入</span>礼包卡号<br/><span>激活领取</span></a>
+							<a href="javascript:void(0)" class="a04">游戏内上线<br/>收到系统消息在<br/><span>NPC南极仙翁<br/>领取礼包</span></a>
+						</div>
+						<div class="wd_box01 wd_box">
+							<h2>2999 2017礼包激活</h2>
+							<div class="wd_entry">
+								<p class="beforeLogin"><label>领取请您先：</label>
+									<a href="javascript:void(0)" class="js_alertlogin_a">登陆</a>
+								</p>
+								<p class="afterLogin" data-islogin="" style="display: none;">
+									<span style="float:left;">欢迎您：<i class="loginAccount" style="font-style:normal"></i></span>
+									<a href="javascript:;" style="float:right;margin-right:12px;" class="js_Logout">退出</a>
+								</p>
+								<p><label>选择服务器：</label>
+									<select name="netType" id="ddlNetType" style="margin-right:10px">
+										<option value="3">双线一区</option>
+									</select>
+									<select name="serverId" id="ddlGameServer"></select>
+								</p>
+								<p><label>新手卡号码：</label><input type="text" name="tel" id="txtNoviceCard"></p>
+								<p><label>输入验证码：</label><input type="text" name="yzm" id="txtCheckcode" class="yzm"><img  class="js_yzmImg" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=" width="83" height="25"></p>
+								<p class="js_error" style="color: red;"></p>
+								<input type="hidden" value="38" id="batchNo" name="batchNo" />
+								<input type="hidden" name="hdName" id="hdName" value="问道媒体29992017" />
+							</div>
+							<div class="wd_btn">
+								<input type="button"  class="a01 js_sub" value="" />
+								<a href="http://account.gyyx.cn/Member/Register" target="_blank" class="a02">注册激活</a>
+								<a href="http://wd.gyyx.cn/download/" target="_blank" class="a03">游戏下载</a>
+							</div>
+						</div>
+						<div class="wd_box02 wd_box">
+							<h2>礼包说明</h2>
+							<ul class="wd_explain">
+								<li><i>1</i>
+									<p>本卡只能用于激活1月6日开启的双线一区“2017”及之后开启的新服；</p>
+								</li>
+								<li><i>2</i>
+									<p>激活相应服务器30天之内的帐号可以领取；</p>
+								</li>
+								<li><i>3</i>
+									<p>同一服务器内，一个帐号只能领取一张卡；</p>
+								</li>
+								<li><i>4</i>
+									<p>本激活页面还可激活问道微信礼包。</p>
+								</li>
+							</ul>
+						</div>
+						<div class="wd_box03 wd_box clear">
+							<h2>2999 2017礼包列表</h2>
+							<ul class="wd_list">
+								<li>
+									<p class="p_name">至尊礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">尊享礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">贵宾礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">飞龙礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">特权礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">专属礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">超级礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">豪华礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">微信礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">特供礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">专享礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">飞天礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">专供礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">玄黄礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">至圣礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+								<li>
+									<p class="p_name">荣耀礼包</p>
+									<p class="p_num">2999</p>
+								</li>
+
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+		<script src="http://static.cn114.cn/action/wd2999/card/js/index.js"></script>
+
+	</body>
+</html>

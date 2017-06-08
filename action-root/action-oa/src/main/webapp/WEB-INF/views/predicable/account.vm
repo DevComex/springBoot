@@ -1,0 +1,52 @@
+
+#parse("/shared/top.vm")
+
+<!--标题-->
+<header class="header bg-white b-b clearfix">
+    <div class="col-sm-2 m-t-xs">
+        <h4>作品审核界面</h4>
+    </div>
+</header>
+
+
+<!--列表-->
+<section class="scrollable padder">
+    <div class="m-t-xs"></div>
+    <div class="row m-b-xs">
+    </div>
+    <section class="panel panel-default">
+         <table class="table table-striped m-b-none">
+			
+                                            <tbody>
+												#if($flag==1)
+												#set($tempnum=0)
+											    #set($tempflag1=0)
+												  #set($tempflag2=0)
+                                               #foreach($listItme in $list)
+                                                      #if($tempnum==0)
+													  <tr>
+														 #set($tempflag1=$tempflag1+1)
+													#end
+                                                        
+                                                                <td>$listItme.account</td>
+                                                     #set($tempnum=$tempnum+1)
+                                                            
+													 #if($tempnum==7)
+															</tr>
+															 #set($tempflag2=$tempflag2+1)
+															#set($tempnum=0)
+													 #end
+												
+											   #end
+											  #if($tempflag1!=$tempflag2)
+											   	    </tr>
+											  #end
+												#end
+												#if($flag==0)
+                                                    <tr><td>没有相关记录</td></tr>
+													#end
+                                            </tbody>
+                                        </table>
+    </section>
+
+ #parse("/shared/footer.vm")

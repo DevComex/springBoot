@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>激活游戏</title>
+		<link type="text/css" href="http://static.cn114.cn/action/chsActivationCodes/css/cs160407.css" rel="stylesheet" />
+		<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+		<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=webgame"></script>
+		<script  type="text/javascript">
+		    var rc = "${rc.contextPath}";
+		</script>
+		<script type="text/javascript" charset="utf-8">
+	    	alert("谢谢参与，活动已结束");
+    	</script>
+	</head>
+	<body>
+		<div class="public_nav_top">
+		    	<script type="text/javascript">Showtop();</script>
+		</div>
+		<!--导航-->
+		<div class="jhm_nav">
+			<div class="main clear"><a href="stepOneIndex"><i>01</i><span><em>STEP</em>抢激活码</span></a><a href="stepTwoIndex" class="on"><i>02</i><span><em>STEP</em>激活游戏</span></a><a href="stepThreeIndex"><i>03</i><span><em>STEP</em>激活状态</span></a><a href="http://cs2.gyyx.cn/DownLoad/guest/index.shtml"><i>04</i><span><em>STEP</em>下载游戏</span></a></div>
+		</div><!--导航 end-->
+		<div class="game_bg">
+			<div class="main">
+				<div class="game_login">
+					<!-- 登陆前 -->
+					<div class="game_fail">抽奖前请先<a href="#" class="game_col">[登录]</a></div>
+					<!-- 登陆后 -->
+					<div class="game_sucs" style="display: none;">欢迎您：<a href="#" class="game_col">[注销]</a><p>剩余抽奖次数：<span></span></p></div>
+				</div>
+				<div class="game_activ">
+					<div><p>请输入激活码</p><input class="jhm js_jhmcode" type="text" value="" /></div>
+					<!--<div><p>请输入密码</p><input class="jhm js_pwd" type="password" value="" /></div>
+					<div><p>输入确认密码</p><input class="jhm js_pwdagain" type="password" value="" /></div>-->
+					<div>
+						<p>请选择游戏大区</p>
+						<div class="selwrap"><div class="selwrap2"><select class="game_sel jhm js_game">
+							<option value="-1">请选择区服</option>
+							<option value="1">不删档封测服</option>
+						</select></div></div>
+					</div>
+					<a class="game_btn js_now" href="javascript:;">立即激活</a>
+					<div class="jhm_left game_tips">
+						<h3>活动说明</h3>
+						<p><span>▪</span>本次封测将开启一个游戏服务区“封测一服”，请玩家激活此区服即可。</p>
+						<p><span>▪</span>激活后页面将弹出“激活成功”的提示，即代表该账号可以参加此次测试。</p>
+						<p><span>▪</span>如果您忘记账号是否已经被激活，可以在<a href="stepThreeIndex">激活状态</a>页面进行查询。</p>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- 弹出层 -->
+    		<div class="popup_con js_tcstprize" id="virtualPrize">
+        		<h2 class="tit tc_tit">激活结果</h2>
+        		<a class="close js_tcclose js_getjf" href="javascript:;">关闭</a>
+        		<div class="con tc_cont">
+            			<p>激活成功</p>
+        		</div>
+    		</div>
+    		<div class="pop_mask"></div>
+		<div class="public_nav_bottom">
+		    <script type="text/javascript">ShowBottom()</script>
+		</div>
+		<script type="text/javascript" src="http://static.cn114.cn/action/chsActivationCodes/js/csaction160425.js"></script>
+		<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?97b6bd99a0a8a498770d1c13b7d9edc4";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+	</body>
+</html>

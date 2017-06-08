@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.cadet.IMatter">
+	<resultMap id="MatterBeanMap" type="MatterBean">
+		<result property="code" column="code" />
+		<result property="reportCode" column="report_code" />
+		<result property="matterName" column="matter_name" />
+		<result property="matterSolution" column="matter_solution" />
+	</resultMap>
+	<select id="getMattersByReportCode" parameterType="Integer" resultMap="MatterBeanMap">
+		select * from cadet_matter_tb where report_code = #{code}
+	</select>
+	<insert id="addMatter" parameterType="MatterBean">
+		insert into cadet_matter_tb
+		(report_code,matter_name,matter_solution)
+		values
+		(#{reportCode},#{matterName},#{matterSolution})
+	</insert>
+	<update id="updateMatter" parameterType="MatterBean">
+		update cadet_matter_tb
+		set 
+		matter_name = #{matterName},
+		matter_solution = #{matterSolution}
+		where code = #{code}
+	</update>
+</mapper>

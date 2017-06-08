@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.mobile.website.IRegisteMapper">
+
+	<insert id="insertRegiste">
+		insert into mobile_website_registe_tb (phone,password,ip,is_deleted,is_obtain,date,type) values
+		(#{phone},#{password},#{ip},#{isDeleted},#{isObtain},getdate(),#{type})
+	</insert>
+	<select id="isExist" resultType="int">
+		select count(code)
+		from mobile_website_registe_tb
+		where phone = #{phone}
+	</select>
+	<insert id="insertRegisteLog">
+		insert into mobile_registe_log(phone,registe_code) values
+		(#{phone},#{registeCode})
+	</insert>
+</mapper>

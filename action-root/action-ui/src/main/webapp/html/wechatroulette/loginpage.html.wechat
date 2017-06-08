@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <!--<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>-->
+    <!--<meta name="viewport" content="width=640, user-scalable=no,target-densitydpi=device-dpi"/>-->
+    <meta http-equiv="expires" content="0">
+    <meta http-equiv="pragma" content="no-cache">
+    <meta http-equiv="cache-control" content="no-cache">
+    <title>问道周年大转盘</title>
+    <link href="http://qibao.gyyx.cn/favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+    <link href="http://static.cn114.cn/action/wechatroulette/css/chinaCaptha11.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wechatroulette/css/css640.css"/>
+   
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/lib/md5-min.js"></script>
+    <script src="http://static.cn114.cn/action/wdmiddleyearwx/js/addChinaCaptcha.js"></script>
+    <script src="http://static.cn114.cn/action/wechatroulette/js/common.js"></script>
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+    <script>
+        if(/Android (\d+\.\d+)/.test(navigator.userAgent)){
+            var version = parseFloat(RegExp.$1);
+            //alert(version);
+            if(version>2.3){
+                var phoneScale = parseInt(window.screen.width)/640;
+                if(/MZ-M571C/.test(navigator.userAgent)){
+                    document.write('<meta name="viewport" content="width=640, minimum-scale = 0.5, maximum-scale= 0.5">');
+                }else{
+                    document.write('<meta name="viewport" content="width=640, minimum-scale = '+ phoneScale +', maximum-scale = '+ phoneScale +', target-densitydpi=device-dpi">');
+                }
+            }else{
+                document.write('<meta name="viewport" content="width=640,  target-densitydpi=device-dpi">');
+            }
+        }else{
+            document.write('<meta name="viewport" content="width=640, user-scalable=no, target-densitydpi=device-dpi">');
+        }
+    </script>
+   
+</head>
+<body>
+<!-- header公共部分 -->
+<section class="login_wrap">
+    <div class="login_time">3月27日00:00-4月27日23:59</div>
+    <!-- header公共部分 -->
+    <div id="main" class="main">
+        <!-- 登陆部分开始-->
+        <div class="mask_yzm"></div>
+        <form id="form" action="" class="reg_form_web js_login_form">
+
+            <label class="login_title">参与活动前请登录</label>
+            <input type="text" class="js_Account" id="Account" value="" name="Account" autocomplete="off" maxlength="18" data-olduser="" placeholder="请输入账号"/>
+
+            <div class="duan1">
+                <input type="password" class="js_Password" id="Password" value="" name="Password" maxlength="18" autocomplete="off" placeholder="请输入密码"/>
+            </div>
+            <div class="js_captcha " style="display:none;">
+                <p class="item_p">
+                    <input type="text" id="Captcha" name="captcha" value="" class="validCodeVal" placeholder="验证码"/>
+                </p>
+
+                <p class="easycode">
+                    <img class="js_captchaimg" src=""/>
+                    <a class="changecode chinaCaptcha_Tip03">看不清？</a>
+                </p>
+            </div>
+            <p class="yzm_title">请输入验证码完成登录</p>
+
+            <p class="chinaCaptchaContainer_p01 js_china ">
+                <!--<span id="yzm_label">验证码</span>-->
+			<span class="ChinaCaptchaInput_container ">
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="ChinaCaptchaInput js_ChinaCaptchaInput"><i class="chinaCaptchaImg"></i></em>
+				<em class="chinaCaptchaIcon chinaCaptchaIcon1 ChinaCaptchaInput ChinaCaptcha_DeleteBtn js_deleteChinaCaptcha"></em>
+			</span>
+                <i class="chinaCaptchaIcon chinaCaptcha_Tip02 js_checkChinaCaptchaTip default"></i>
+            </p>
+
+            <p class="chinaCaptchaContainer_p02 js_china">
+                <span class="chinaCaptchaImg chinaCaptchaImg_yes js_refreshChinaCaptcha marginLefet47"></span>
+                <a class="chinaCaptchaChange js_refreshChinaCaptcha chinaCaptcha_Tip03 ">看不清？</a>
+            </p>
+
+            <p class="chinaCaptchaContainer_p03 js_china">点击框内文字输入上图中<b class="chinaCaptcha_Tip04">汉字</b>相应文字</p>
+
+            <div class="chinaCaptchaContainer_p02 js_china">
+                <ul class="ChinaCaptchaSelectCon clearFix js_ChinaCaptchaSelect">
+                    <li class="chinaCaptchaImg chinaCaptchaImg_0 js_ChinaCaptchaSelect_img" data-code="0"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_1 js_ChinaCaptchaSelect_img" data-code="1"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_2 js_ChinaCaptchaSelect_img" data-code="2"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_3 js_ChinaCaptchaSelect_img" data-code="3"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_4 js_ChinaCaptchaSelect_img" data-code="4"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_5 js_ChinaCaptchaSelect_img" data-code="5"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_6 js_ChinaCaptchaSelect_img" data-code="6"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_7 js_ChinaCaptchaSelect_img" data-code="7"></li>
+                    <li class="chinaCaptchaImg chinaCaptchaImg_8 js_ChinaCaptchaSelect_img" data-code="8"></li>
+                </ul>
+            </div>
+            <p class="chinaCaptchaContainer_p04" style="display:none;">
+                <span class="chinaCaptchaSubmit_Btn js_chinaCaptchaBtn">确定</span>
+            </p>
+            <a id="loginBtn" class="login_btn" href="javascript:;"></a>
+        </form>
+        <!-- 报名部分-->
+        <!-- 登陆部分结束-->
+    </div>
+    <div class="v_h_tips" style="display:none;">要使用竖屏访问哦！</div>
+</section>
+<!--<script src="http://static.cn114.cn/action/nationalday/js/gyyx_wxshare.min.js" type="text/javascript"></script>-->
+<script src="http://static.cn114.cn/action/wechatroulette/js/login.js" type="text/javascript"></script>
+<!--<script src="http://static.cn114.cn/action/wechatroulette/js/share.js"></script>-->
+</body>
+</html>

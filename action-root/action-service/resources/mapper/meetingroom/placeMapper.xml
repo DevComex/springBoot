@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.meetingroom.IPlaceMapper">
+	<resultMap type="Place" id="Place">
+		<id column="code" property="code" />
+		<result column="place_name" property="placeName" />
+	</resultMap>
+
+	<!-- 查询所有会议室地点信息 -->
+	<select id="selectAllPlace" resultMap="Place">
+		select * from mos_place_tb
+	</select>
+
+	<!-- 新增会议室地点 -->
+	<insert id="insertPlace" parameterType="Place">
+		insert into
+		mos_place_tb(place_name) values(#{placeName})
+	</insert>
+	
+
+	<!-- 提交更改的会议室地点 -->
+	<update id="updatePlace">
+		update mos_place_tb set
+		place_name = #{placeName}	
+		where code = #{code}
+	</update>
+
+
+
+	<!-- 查询单个会议室信息 -->
+	<select id="selectOnePlace" resultMap="Place" parameterType="String">
+		select * from mos_place_tb where place_name=#{placeName};
+	</select>
+
+</mapper>

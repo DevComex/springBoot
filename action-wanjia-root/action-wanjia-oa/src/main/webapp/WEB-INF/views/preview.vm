@@ -1,0 +1,37 @@
+<!doctype html>
+    <meta charset="utf-8" />
+    <title>浏览页</title>
+    <meta content="问道玩家天地" name="keywords" />
+    <meta content="问道玩家天地" name="description" />
+    <script type="text/javascript" charset="utf-8">
+		var rc="${rc.contextPath}";
+    </script>
+  
+    <link href="${rc.contextPath}/assets/css/preview.css" rel="stylesheet" type="text/css" />    
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/preview.js"></script>  
+
+	<!--main  start-->
+    <div class="web_wrap">
+        <div class="wd_con" style="overflow: hidden;">
+    	    <!--左侧  start-->
+    	    <div class="js_browseMain">
+   	    		<!-- 
+   	    		<div class="js_browseDiv"><img class="js_browseImg" src="${rc.contextPath}/assets/img/manhua.png" /></div>	 -->
+   	    		
+    	    </div>
+    	    <!-- 自己分页 -->
+			<div class="imgPage">		
+				<a class="lastPage" last_pageNum=0;>上一页</a>
+				<a class="nextPage" pageNum=0;>下一页</a>
+ 			</div>
+ 			<!-- 自己分页 -->
+    	    
+	   	</div>
+	</div> 
+	</div>
+	<!--main  end-->
+
+
+</body>
+</html>

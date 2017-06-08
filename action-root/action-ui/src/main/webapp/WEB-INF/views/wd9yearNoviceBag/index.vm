@@ -1,0 +1,724 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>问道-九周年庆典 2199九九归一庆典礼包</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/wd9yearbag/css/wd_150309.css">
+		
+<!--    <link href="css/jquery-ui-1.8.13.custom.css" rel="stylesheet" />-->
+
+	<script type="text/javascript">
+		var rc = {
+			GETSERVERSURL : 'getServers',
+			GETPAGURL	: 'receive'
+		};
+	</script>
+    <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+    <script src="http://static.cn114.cn/action/wd9yearbag/js/jquery-ui-1.8.16.custom.min.js" type="text/javascript"></script>
+	<style>.ui-icon{display:none;}</style>
+    <script src="http://static.cn114.cn/action/wd9yearbag/js/index.js" type="text/javascript"></script>
+</head>
+
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wrap">
+        <div class="main">
+            <div class="nav">
+                <ul>
+                    <li><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a></li>
+                    <li><a href="http://wd.gyyx.cn/download/" target="_blank">下载游戏</a></li>
+                    <li><a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a></li>
+                </ul>
+            </div>
+            <div class="iframeCont">
+                <div class="ic01"><a href="http://account.gyyx.cn/Member/Register" target="_blank"></a></div>
+                <div class="ic02"><a href="http://hd.gyyx.cn/gameDownload/Default.aspx?typeid=13&netType=1&file=asktao_mini_setup.exe" class="a21">10秒30M微端</a><a href="http://download.gyyx.cn/Default.ashx?typeid=664&netType=1" target="_blank" class="a22">完整客户端</a></div>
+                <div class="ic03 js_start"><a onclick="alertFn(null, null, true); return false;" id="openPopBtn3" class="next2">03.领取礼包</a></div>
+                <div class="ic04"><a href="" id="openPopBtn4">04.新手福利</a></div>
+            </div>
+            <div class="props tabBox">
+                <ul class="level">
+                    <li class="on"><a href="#" class="a01">10级</a></li>
+                    <li><a href="#" class="a02">20级</a></li>
+                    <li><a href="#" class="a03">40级</a></li>
+                    <li><a href="#" class="a04">60级</a></li>
+                    <li><a href="#" class="a05">80级</a></li>
+                    <li><a href="#" class="a06">100级</a></li>
+                    <li><a href="#" class="a07">120级</a></li>
+                    <li><a href="#" class="a08">140级</a></li>
+                </ul>
+                <div class="con_t">
+                    <div class="conBlock" style="display: block;">
+                        <dl>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xlk.jpg" width="50" height="50"><p>仙灵卡</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/cjbgyyl.jpg" width="50" height="50"><p>超级八卦阴阳令</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xsj.jpg" width="50" height="50"><p>驯兽诀</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xhk.jpg" width="50" height="50"><p>鲜花卡</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/tshy.jpg" width="50" height="50"><p>天神护佑*1</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/cjqqk.jpg" width="50" height="50"><p>超级穷奇卡*2</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/cjgck.jpg" width="50" height="50"><p>超级勾陈卡*2</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>卷轴</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·拜师</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·幸运大使</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·采购</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·天神降临</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="conBlock">
+                        <dl>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jctq.jpg" width="50" height="50"><p>金蝉脱壳</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/yht.jpg" width="50" height="50"><p>烟花筒</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/tshy.jpg" width="50" height="50"><p>天神护佑*1</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xzjs.jpg" width="50" height="50"><p>袖珍晶石*3</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xzls.jpg" width="50" height="50"><p>袖珍灵石*3</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/cjflk.jpg" width="50" height="50"><p>超级飞廉卡*2</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/cjyzk.jpg" width="50" height="50"><p>超级英招卡*2</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/cjgbk.jpg" width="50" height="50"><p>超级龟宝卡*2</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>卷轴</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·除暴任务</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·捉宠</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·妖魔道</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·报效师门</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·遥领天机</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="conBlock">
+                        <dl>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/wxhyl.jpg" width="50" height="50"><p>五行合缘露</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/yjxsd.jpg" width="50" height="50"><p>易经洗髓丹</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/yqd.jpg" width="50" height="50"><p>元气丹</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/tshy.jpg" width="50" height="50"><p>天神护佑*1</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xzjs.jpg" width="50" height="50"><p>袖珍晶石*4</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xzls.jpg" width="50" height="50"><p>袖珍灵石*4</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>装备</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/ss35.jpg" width="50" height="50"><p>35级限时首饰*2</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jqllb.jpg" width="50" height="50"><p>汉钟离玲珑笔</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>卷轴</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·强化</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·押镖</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·加入帮派</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·聚沙成塔*5</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·古道热肠</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="conBlock">
+                        <dl>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/thl.jpg" width="50" height="50"><p>果仁糖葫芦</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/bbss.jpg" width="50" height="50"><p>宝宝圣水</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/shs.jpg" width="50" height="50"><p>兽魂散*1</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/hyjj.jpg" width="50" height="50"><p>火眼金睛</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/tshy.jpg" width="50" height="50"><p>天神护佑*1</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xyxdb.jpg" width="50" height="50"><p>小游戏代币*3</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xzjs.jpg" width="50" height="50"><p>袖珍晶石*5</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xzls.jpg" width="50" height="50"><p>袖珍灵石*5</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/qfmy.jpg" width="50" height="50"><p>清风沐雨套时装</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>装备</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/ss60.jpg" width="50" height="50"><p>60级限时首饰*2</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>卷轴</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·切磋</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·绑定</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·日常任务</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·仙人指路</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·神工砺兵</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·仙界悬赏</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="conBlock">
+                        <dl>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/tshy.jpg" width="50" height="50"><p>天神护佑</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/yjxsd.jpg" width="50" height="50"><p>易经洗髓丹</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/shs.jpg" width="50" height="50"><p>兽魂散</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/sls.jpg" width="50" height="50"><p>兽灵散</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/tj.jpg" width="50" height="50"><p>糖浆</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/zy.jpg" width="50" height="50"><p>纸鸢</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/cjks.jpg" width="50" height="50"><p>赤金矿石*5</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/gjzqkb.jpg" width="50" height="50"><p>高级战棋卡包*1</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/hyq.jpg" width="50" height="50"><p>鸿运签</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/wwmj.jpg" width="50" height="50"><p>娃娃随机秘笈</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>装备</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/ss80.jpg" width="50" height="50"><p>80级限时首饰*2</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/yd80.jpg" width="50" height="50"><p>80级限时腰带</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>卷轴</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·副本任务</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·仙魔录</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·日常任务</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·神行千里</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·遥领天机</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·仙界悬赏</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="conBlock">
+                        <dl>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/zdbtk.jpg" width="50" height="50"><p>自动摆摊卡</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/hyjj.jpg" width="50" height="50"><p>火眼金睛</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/bbss.jpg" width="50" height="50"><p>宝宝圣水</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xsj.jpg" width="50" height="50"><p>驯兽诀</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jctq.jpg" width="50" height="50"><p>金蝉脱壳</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/tshy.jpg" width="50" height="50"><p>天神护佑*1</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xzssj.jpg" width="50" height="50"><p>袖珍圣水晶</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xzfys.jpg" width="50" height="50"><p>袖珍封印石</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/cwwxd.jpg" width="50" height="50"><p>宠物武学丹</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/fw1.jpg" width="50" height="50"><p>随机1阶符文</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/cwdwd.jpg" width="50" height="50"><p>宠物顿悟丹</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xfbd.jpg" width="50" height="50"><p>心法宝典</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>装备</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/ss100.jpg" width="50" height="50"><p>100限时首饰*2</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/hjs.jpg" width="50" height="50"><p>幻境石*2</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>卷轴</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·天罡地煞</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·门派比武</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·礼从天降</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·移花接木</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·醉梦八仙</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="conBlock">
+                        <dl>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/tshy.jpg" width="50" height="50"><p>天神护佑</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/hyjj.jpg" width="50" height="50"><p>火眼金睛</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/ryzdl.jpg" width="50" height="50"><p>如意战斗令*2</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/yhkql.jpg" width="50" height="50"><p>限时御魂孔雀翎</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/tjbgyyl.jpg" width="50" height="50"><p>特级八卦阴阳令</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xfbd.jpg" width="50" height="50"><p>心法宝典*2</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xzssj.jpg" width="50" height="50"><p>袖珍圣水晶</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xzths.jpg" width="50" height="50"><p>袖珍天换石</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/hty.jpg" width="50" height="50"><p>混沌玉</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/zbgms.jpg" width="50" height="50"><p>装备共鸣石</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/fw2.jpg" width="50" height="50"><p>随机2阶符文</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/sjsz.jpg" width="50" height="50"><p>随机时装一套</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>装备</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/ss120.jpg" width="50" height="50"><p>120限时首饰*2</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/zwxzhf.jpg" width="50" height="50"><p>紫微星召唤符</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>卷轴</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·试道大会</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·宠物强化</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·蟾宫折桂</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·聚沙成塔</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                        </dl>
+                    </div>
+                    <div class="conBlock">
+                        <dl>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/tshy.jpg" width="50" height="50"><p>天神护佑</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/djtck.jpg" width="50" height="50"><p>道具套餐卡</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/cjcbt.jpg" width="50" height="50"><p>超级藏宝图</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jctq.jpg" width="50" height="50"><p>金蝉脱壳</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/bgsf.jpg" width="50" height="50"><p>八卦神符</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/tdsf.jpg" width="50" height="50"><p>天道神符</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>道具</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/lbs.jpg" width="50" height="50"><p>蓝宝石*5</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xzhsj.jpg" width="50" height="50"><p>袖珍黑水晶</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/tks.jpg" width="50" height="50"><p>天空石</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/fw3.jpg" width="50" height="50"><p>随机3阶符文</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/xfbd.jpg" width="50" height="50"><p>心法宝典*3</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/lhd.jpg" width="50" height="50"><p>炼魂丹</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>装备</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/ss140.jpg" width="50" height="50"><p>140限时首饰*2</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/wwjj.jpg" width="50" height="50"><p>娃娃随机绝技</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                            <dt><span>卷轴</span></dt>
+                            <dd>
+                                <ul class="conPic">
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·试道大会</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz1.jpg" width="50" height="50"><p>卷轴·门派比武</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·神行千里</p>
+                                    </li>
+                                    <li>
+                                        <img src="http://static.cn114.cn/action/wd9yearbag/images/jz2.jpg" width="50" height="50"><p>卷轴·遥领天机</p>
+                                    </li>
+                                </ul>
+                                <div class="tmbg"></div>
+                            </dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--快速注册弹出层-->
+    <!--领取礼包弹出层-->
+    <div class="pc3" id="js_dialogbox">
+        <a class="close js_popclose" href="javascript:void(0);" id="close3" style="border:none;display:block;">关闭</a>
+        <div class="con3">
+            <h3>领取2199 九九归一周年礼包</h3>
+            <div class="text3">
+                <p class="fwq">选择服务器：</p>
+                <p class="sel" style="display:inline-block;margin-bottom:15px;">
+					<span style="float:left;width:100px;">
+                    <select id="sel_blocklist" >              
+                    </select>
+					</span>
+					<span style="float:left;width:100px;margin-left:20px;">
+                    <select id="sel_serverlist">
+                            <option value="0">请选择服务器</option>
+                    </select>
+					</span>
+                </p>
+                <p>1、本卡只能用于激活4月10日开启的双线新服“道道道”及之后开启的新服；</p>
+                <p>2、激活相应服务器30天之内的帐号可以领取；</p>
+                <p>3、同一服务器内，一个帐号只能领取一张卡；</p>
+                <p>4、领取成功后，玩家在新服达到10级即可在天墉城-南极仙翁处领取礼包。</p>
+                <p class="btnp"><a  class="btn js_submit" id="btnRegister">领取礼包</a></p>
+            </div>
+               </div>
+   </div>
+            <!--成功领取周年礼包 -->
+            <div class="pc3"  id="js_succ">
+				<a class="close js_popclose" href="javascript:void(0);" id="close5">关闭</a>
+       <div class="texthidden" style="margin:50px 25px;display:inline-block;min-height:400px;">
+          <div class="thSucc"></div>
+          <p class="p01">恭喜您领取成功！</p>
+          <p class="p02">您在新服达到10级后即可在天墉城-南极仙翁处领取礼包。</p>
+          <a href="http://hd.gyyx.cn/gameDownload/Default.aspx?typeid=13&netType=1&file=asktao_mini_setup.exe" class="thbtn1">10秒下载 30M微端</a>
+          <a href="http://download.gyyx.cn/Default.ashx?typeid=664&netType=1" class="thbtn2">完整客户端</a>
+       </div>
+      </div>
+ 
+    <!--新手升级福利礼包弹出层-->
+    <div class="pc4" id="js_messageBox">
+        <a class="close js_close" href="#" id="close4">关闭</a>
+        <div class="con4">
+            <h3>新手升级福利礼包</h3>
+            <div class="text4">
+                <span class="refreshChinaCaptcha"></span>
+                <p class="refreshChinaCaptcha"><strong>注：玩家进入游戏即可获得新手福利礼包（此礼包可与2199九九归一礼包同时使用）</strong></p>
+                <span></span>
+                <p></p>
+                <span>10级：</span><p>驯兽诀、烟花筒、任务卷轴·采购、功能卷轴·神行千里</p>
+                <span>15级：</span><p>血池、任务卷轴·捉宠、功能卷轴·礼从天降</p>
+                <span>20级：</span><p>超级疆良卡、超级祝融卡、灵池、任务卷轴·摆摊、任务卷轴·钱庄、任务卷轴·力破千钧、功能卷轴·报效师门</p>
+                <span>25级：</span><p>20级首饰一个(种类随机)（限40级前使用） 、天神护佑、袖珍晶石*6、任务卷轴·领双、功能卷轴·移花接木</p>
+                <span>30级：</span><p>超级仙风散、BOSS卡、特级八卦阴阳令、任务卷轴·答题、功能卷轴·鸿运当头</p>
+                <span>35级：</span><p>一级无天技3级御灵一只（限时7天）、任务卷轴·除暴任务、任务卷轴·天降大任、功能卷轴·天神降临</p>
+                <span>40级：</span><p>随机属性玩家等级守护一只、宠风散、袖珍灵石*6、任务卷轴·妖魔道、功能卷轴·古道热肠</p>
+                <span>45级：</span><p>特效仙风散、鲜花卡、水果卡、金蝉脱壳、任务卷轴·日常任务、任务卷轴·加入帮派、功能卷轴·乐于助人</p>
+                <span>50级：</span><p>袖珍晶石*6、袖珍天换石*1、任务卷轴·守护神、任务卷轴·仙人指路、功能卷轴·易筋改气</p>
+                <span>55级：</span><p>鲜花卡、水果卡、天神护佑、任务卷轴·降妖任务、任务卷轴·帮派任务、功能卷轴·聚沙成塔、功能卷轴·吉人天相</p>
+                <span>60级：</span><p>随机铭牌（限时7天）、果仁糖葫芦、仙灵卡、任务卷轴·加锁、任务卷轴·绑定、任务卷轴·商城消费、功能卷轴·神工砺兵、功能卷轴·遥领天机</p>
+                <span>65级：</span><p>纸鸢、中级灵池、中级血池效果、任务卷轴·押镖、任务卷轴·切磋、任务卷轴·炼丹、功能卷轴·遥领天机</p>
+                <span>70级：</span><p>7级金色玄石*5、7级金色精铁*5、7级金色麟木*5、7级金色水铜*5、7级金色炎石*5、火眼金睛、超级神兽丹、任务卷轴·副本任务、任务卷轴·天罡地煞、任务卷轴·守护神、功能卷轴·蟾宫折桂</p>
+                <span>75级：</span><p>仙灵卡、任务卷轴·仙魔录、功能卷轴·鸿运当头、功能卷轴·古道热肠、功能卷轴·聚沙成塔</p>
+                <span>80级：</span><p>宠物武学丹、随机时装一套（限时7天）、道具套餐卡·体验、高级驯兽诀、喇叭、任务卷轴·试道大会、任务卷轴·结婚、任务卷轴·结拜、任务卷轴·宠物强化</p>
+            </div>
+        </div>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div> 
+    <script src="http://static.cn114.cn/action/wd9yearbag/js/ymcore.js"></script>
+    <script type="text/javascript">
+        YM.UI.Tab({
+            container: 'div.tabBox',
+            animated: 'fade',
+            bind: 'click',
+            index: 0, 
+            time: 0
+        });
+    </script>
+</body>
+</html>

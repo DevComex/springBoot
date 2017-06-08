@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.ISumCreditMapper">
+	<resultMap type="SumCredit" id="SumCredit">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="sum_credit" property="sumCredit" />
+	</resultMap>
+	
+  <!-- 根据用户账号查询总积分 -->
+  <select id="getSumCredit" resultType="int" parameterType="String">
+	select sum_credit from xuanwuba_sum_credit_tb where account=#{account}
+  </select>
+ <!-- 根据用户账号查询总积分 -->
+  <select id="getCreditByAccount" resultMap="SumCredit" parameterType="String">
+	select * from xuanwuba_sum_credit_tb where account=#{account}
+  </select>
+  
+  <!-- 新增总积分新用户 -->
+	<insert id="addSumCredit" parameterType="SumCredit">
+		insert into xuanwuba_sum_credit_tb  
+		(account,sum_credit) 
+		values(#{account},#{sumCredit})
+	</insert>
+	
+	 <!-- 修改积分 -->
+	<update id="setSumCredit" parameterType="SumCredit">
+		update xuanwuba_sum_credit_tb set sum_credit=#{sumCredit} 
+		where account=#{account}
+	</update>
+
+
+</mapper>

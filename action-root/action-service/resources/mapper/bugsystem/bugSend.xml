@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.bugsystem.IBugSendMapper">
+	<insert id="addChangeUserInfo" parameterType="BugSend">
+		INSERT INTO bug_bugsend_tb(bug_code,pre_username,later_username,send_time) VALUES(#{bugInfoCode},#{preUsername},#{laterUsername},#{sendTime})
+	</insert>
+	<resultMap type="BugSend" id="BugSend">
+		<id column="code" property="code" />
+		<result column="bug_code" property="bugInfoCode" />
+		<result column="pre_username" property="preUsername" />
+		<result column="later_username" property="laterUsername" />
+		<result column="send_time" property="sendTime" />
+	</resultMap>
+</mapper>

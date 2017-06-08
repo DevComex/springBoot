@@ -1,0 +1,6 @@
+         	/*增加漫画专区一系列icon*/
+.upload_ls li.cartoon i{background:url(../img/wd_icon111.png) no-repeat 0 50%;}
+.nav_wrap .icon5 i {background:url(../img/wd_nav2_20170111.png) no-repeat 0 50%; margin-right:8px;}
+.font_cartoon {background:url(../img/cartoonCollect.jpg) no-repeat 0 0; display:inline-block; width:135px;height:30px;}
+/*未改*/
+.nav_wrap .icon5 a:hover i,.nav_wrap .nav li.on5 i{background:url(../img/wd_nav2_20170111hover.png) no-repeat 0 50%;}

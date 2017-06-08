@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.novicecard.IReceiveLogMapper">
+	<resultMap type="ReceiveLog" id="ReceiveLog">
+		<id column="code" property="code" />
+		<!--  由于bean中是codeNo-->
+		<result column="card_no" property="cardNo" />
+		<result column="user_id" property="userId" />
+		<result column="account" property="account" />
+		<result column="game_id" property="gameId" />
+		<result column="server_id" property="serverId" />
+		<result column="virtual_Item" property="virtualItem" />
+		<result column="error_code" property="errorCode" />
+		<result column="error_desc" property="errorDesc" />
+		<result column="create_time" property="createTime" />
+		<result column="type_id" property="typeId" />
+		<result column="cellphone" property="cellPhone" />
+		<result column="role_name" property="roleName" />
+		<result column="batch_no" property="batchNo" />
+		<result column="type_name " property="typeName" />
+	</resultMap>
+	
+	<select id="selectLogAccount" parameterType="ReceiveLog" resultType="java.lang.Integer">
+		SELECT  count(a.code)
+ 	 	FROM [novice_card_receive_log] a 
+  		JOIN [dbo].[novice_card_type]  b on a.type_id=b.code 
+   		WHERE a.game_id=#{gameId} and user_id=#{userId} and batch_no=#{batchNo} and server_id=#{serverId}
+	</select>
+
+	<select id="selectTypeByLog" parameterType="Integer" resultMap="ReceiveLog">
+		SELECT
+		type_id
+		FROM novice_card_receive_log
+		SELECT 
+		code, card_no,user_id,account,game_id,server_id,virtual_Item,error_code,error_desc,create_time,type_id,cellphone,role_name   
+		FROM novice_card_receive_log 
+		WHERE user_id=#{userId}
+	</select>
+
+    <!-- @doc 插入新手卡日誌表，@author jianghan -->
+	<insert id="setNoviceCardReceiveLog" parameterType="ReceiveLog">
+		insert into novice_card_receive_log
+		(card_no,user_id,account,game_id,server_id,virtual_Item,error_code,error_desc,create_time,type_id,cellphone,role_name)
+		values ( 
+		         #{codeNo},
+		         #{userId},
+		         #{account},
+		         #{gameId},
+		         #{serverId},
+		         #{virtualItem},
+		         #{errorCode},
+		         #{errorDesc},
+		         #{createTime},
+		         #{typeId},
+		         #{cellPhone},
+		         #{roleName}
+		        ) 
+	</insert>
+	<select id="spNoviceCardReceiveItem" statementType="CALLABLE" parameterType="ReceiveLog"> 
+        <![CDATA[ 
+     	
+        	exec sp_test	@CardNo=#{cardNo},@Code=#{code, mode=OUT, jdbcType=INTEGER}
+         	
+        ]]>
+    </select>
+    <!-- @doc 插入新手卡日誌表，存储过程，@author jianghan -->
+    <select id="spNoviceCardReceiveLog" statementType="CALLABLE" parameterType="ReceiveLog"> 
+        <![CDATA[   	
+        	exec sp_novice_card_receive_itemV4
+         	    @CardNo=#{cardNo, mode=IN, jdbcType=VARCHAR},
+          		@UserId=#{userId, mode=IN, jdbcType=INTEGER},
+          		@Account=#{account, mode=IN, jdbcType=VARCHAR},
+          		@GameId=#{gameId, mode=IN, jdbcType=INTEGER},
+          		@ServerId=#{serverId, mode=IN, jdbcType=INTEGER},
+          		@ItemName=#{virtualItem, mode=IN, jdbcType=VARCHAR},
+          		@TypeId=#{typeId, mode=IN, jdbcType=INTEGER},
+          		@ErrorCode=#{errorCode, mode=OUT, jdbcType=INTEGER},
+          		@CellPhone=#{cellPhone, mode=IN, jdbcType=VARCHAR},
+          		@Code=#{code, mode=OUT, jdbcType=INTEGER},
+          		@CheckType=#{checkType, mode=IN, jdbcType=VARCHAR}
+        ]]>
+    </select>
+    <select id="spNoviceCardReceiveLogV3" statementType="CALLABLE" parameterType="ReceiveLog"> 
+        <![CDATA[   	
+        	exec sp_novice_card_receive_item_ewV3
+         	    @CardNo=#{cardNo, mode=IN, jdbcType=VARCHAR},
+          		@UserId=#{userId, mode=IN, jdbcType=INTEGER},
+          		@Account=#{account, mode=IN, jdbcType=VARCHAR},
+          		@GameId=#{gameId, mode=IN, jdbcType=INTEGER},
+          		@ServerId=#{serverId, mode=IN, jdbcType=INTEGER},
+          		@ItemName=#{virtualItem, mode=IN, jdbcType=VARCHAR},
+          		@TypeId=#{typeId, mode=IN, jdbcType=INTEGER},
+          		@ErrorCode=#{errorCode, mode=OUT, jdbcType=INTEGER},
+          		@CellPhone=#{cellPhone, mode=IN, jdbcType=VARCHAR},
+          		@Code=#{code, mode=OUT, jdbcType=INTEGER},
+          		@CheckType=#{checkType, mode=IN, jdbcType=VARCHAR}
+        ]]>
+    </select>
+</mapper>
+
+
+
+
+
+
+

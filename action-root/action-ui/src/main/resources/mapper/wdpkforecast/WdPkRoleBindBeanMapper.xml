@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdpkforecast.IWdPkForeCastMapper">
+	<insert id="insertWdPkRoleBindBean" useGeneratedKeys="true" keyProperty="code" parameterType="cn.gyyx.action.beans.wdpkforecast.WdPkRoleBindBean">
+		insert into action_rolebind_tb
+		(actionCode,account,userId,area,ImageNumber,serverId,serverName,roleName,createAt)
+		values
+		(#{actionCode},#{account},#{userId},#{area},#{ImageNumber},#{serverId},#{serverName},#{roleName},#{createAt})
+	</insert>
+	
+	<select id="selectWdPkRoleBindBeanByCode" parameterType="integer" resultType="cn.gyyx.action.beans.wdpkforecast.WdPkRoleBindBean">
+		select * from action_rolebind_tb
+		where code = #{code}
+	</select>
+	
+	<select id="selectWdPkRoleBindBeanByAccount" parameterType="String" resultType="cn.gyyx.action.beans.wdpkforecast.WdPkRoleBindBean">
+		select top 1 * from action_rolebind_tb
+		where account = #{account}
+	</select>
+	
+	<select id="selectRoleBindInfoByAccount"  resultType="cn.gyyx.action.beans.wdpkforecast.WdPkRoleBindBean">
+		select top 1 * from action_rolebind_tb
+		where account = #{account} and actionCode=#{actionCode} order by code desc
+	</select>
+	
+	<update id="updateWdPkRoleBindBean" parameterType="cn.gyyx.action.beans.wdpkforecast.WdPkRoleBindBean">
+		update action_rolebind_tb
+		set
+		actionCode=#{actionCode},account = #{account},userId=#{userId},area = #{area},ImageNumber=#{ImageNumber},serverId = #{serverId},serverName = #{serverName},roleName = #{roleName},createAt=#{createAt}
+		where
+		code = #{code}
+	</update>
+	
+	<select id="selectWdPkRoleBindBeanByRoleName" parameterType="String" resultType="cn.gyyx.action.beans.wdpkforecast.WdPkRoleBindBean">
+		select top 1 * from action_rolebind_tb
+		where roleName = #{roleName} order by code 
+	</select>
+	
+	<update id="updateBind" parameterType="cn.gyyx.action.beans.wdpkforecast.WdPkRoleBindBean">
+	update action_rolebind_tb set area=#{area} ,serverId=#{serverId},serverName=#{serverName} where  actionCode=#{actionCode} and userId=#{userId}
+	</update>
+	
+	<select id="selectByAccountOrRoleName" resultType="cn.gyyx.action.beans.wdpkforecast.WdPkRoleBindBean">
+	select top 1 * from action_rolebind_tb
+	where   actionCode=#{actionCode} 
+	and (account = #{account} or roleName=#{roleName}) 
+	order by code desc
+	</select>
+</mapper>

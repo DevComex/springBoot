@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+    <title>光宇社招</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/positionApply/css/publicjian01.css"/>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/allstyle01.css" />
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/animate.css" />
+</head>
+<body style="background: #64a237;">
+	<div class="warp">
+		<div class="main meiS" uid="560022763">
+			<h1><a href="${rc.contextPath}/position/index?a=1" class="list">职位列表</a></h1>
+			<div class="btn">
+				<p class="heads btnanimated fadeIn">
+					<img src="http://static.cn114.cn/action/positionApply/img01/msHead.png"/>
+				</p>
+				<a href="${rc.contextPath}/position/positiontype/artscene" class="left leftani fadeInRight"></a>
+				<a href="${rc.contextPath}/position/positiontype/arteffects" class="right rightani fadeInLeft"></a>
+			</div>
+			<div class="content contentani fadeIn2">
+				<h2>资深角色原画师</h2>
+				<h3>岗位职责</h3>
+				<p>根据项目要求制作游戏中的角色原画。</p>
+				<h3>任职资格</h3>
+				<p>1、3年以上游戏角色原画经验，至少完整参与过2款手游项目的开发；</p>
+				<p>2、熟练运用flash、photoshop等主流2D软件，作品精致。</p>
+			</div>
+			<div class="xsbtn xsani fadeInUpBig">
+				 <a href="http://gyyx.m.zhiye.com/JobAd/Info?adid=560022763" class="sq">在线申请</a>
+				<a href="#" class="fx fxz">分享职位</a>
+			</div>
+		</div>
+	</div>
+	<div class="zz">
+		<img src="http://static.cn114.cn/action/positionApply/img01/zz.png" />
+	</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/zepto.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/allstyle01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/gyyx_wxshare.min.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/content01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/fx01.js" ></script>
+<script>
+	$("body").on("swipeLeft",function(){
+		location.href="${rc.contextPath}/position/positiontype/arteffects";
+	})
+	$("body").on("swipeRight",function(){
+		location.href="${rc.contextPath}/position/positiontype/artscene";
+	})
+</script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>问道-2015全民PK赛 来就有奖</title>
+<link href="http://static.cn114.cn/action/wdallpklottery/css/wd151020.css" rel="stylesheet" type="text/css">
+<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+<script type="text/javascript" src="http://static.cn114.cn/action/wdallpklottery/js/scrolltext.js"></script>
+<script src="http://static.cn114.cn/action/wdallpklottery/js/lotteryFn11.js"></script>
+<script type="text/javascript">
+var rc="";
+</script>
+<script type="text/javascript" charset="utf-8">
+	alert("谢谢参与，活动已结束");
+</script>
+</head>
+<body>
+	     <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wd_bg">
+<div class="wd_wrap">
+  <div class="main">
+  	<div class="wd_header">
+		<div class="wd_nav"><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a></div>
+	</div>
+    <div class="wd_cj clear">
+		<div class="wd_logn">
+		  <!--登录前-->
+		  <div class="login_befor" style="display:block">
+			 <p class="login_p">抽奖需要先<a href="javascript:;" onclick="alertFn(null, null, true); return false;">【登录】</a></p>
+
+		  </div>
+		  <!--登录后-->
+		  <div class="login_after" style="display:none;">
+			 <p class="login_p js_Login">欢迎XX登录，<a href="#">【注销】</a></p>
+			 <p class="sele_fwq">
+			 	<label>我的服务器:</label>
+				 <select id="js_blocklist">
+					<option value="0">请选择区组</option>
+					<option value="1">网通</option>
+				    <option value="2">电信</option>
+				    <option value="3">双线</option>
+				 </select>
+				 <select id="js_serverlist">
+					<option value="0">请选择服务器</option>
+				 </select>
+			 </p>
+			 <p id="present" class="login_jp js_myPresent">我的奖品 ：<span id="mypresent"></span></p>
+		  </div>
+	  </div>
+      	<div class="cjlist_l">
+          <div class="cj_list">
+          <ul class="cj_list01">
+            <li class="js_cjBox" id="cjx0">
+				<img src="http://static.cn114.cn/action/wdallpklottery/images/ipadair.jpg" class="gift" />
+				<span></span>
+			</li>
+            <li class="js_cjBox" id="cjx11">
+				<img src="http://static.cn114.cn/action/wdallpklottery/images/Iphone6-plus.jpg" class="gift" />
+				<span></span>
+			</li>
+            <li class="js_cjBox" id="cjx10">
+				<img src="http://static.cn114.cn/action/wdallpklottery/images/hotday.jpg" class="gift" />
+				<span></span>
+			</li>
+            <li class="js_cjBox" id="cjx9">
+				<img src="http://static.cn114.cn/action/wdallpklottery/images/thanku.jpg" class="gift" />
+				<span></span>
+			</li>
+          </ul>
+          <ul class="cj_list02">
+            <li class="js_cjBox" id="cjx1">
+						 <img src="http://static.cn114.cn/action/wdallpklottery/images/cost.jpg" class="gift" />
+						 <span></span>
+					  </li>
+            <li class="js_cjBox" id="cjx2">
+						 <img src="http://static.cn114.cn/action/wdallpklottery/images/ninefox.jpg" class="gift" />
+						 <span></span>
+					  </li>
+                      <li class="star"><a href="javascript:;" id="js_star" class="star" text="go">立即抽奖</a></li>
+            <li class="js_cjBox" id="cjx8">
+						 <img src="http://static.cn114.cn/action/wdallpklottery/images/turtlebaby.jpg" class="gift" />
+						 <span></span>
+					  </li>
+            <li class="js_cjBox" id="cjx7">
+						 <img src="http://static.cn114.cn/action/wdallpklottery/images/tshirt.jpg" class="gift" />
+						 <span></span>
+					  </li>
+          </ul>
+          <ul class="cj_list03">
+            <li class="js_cjBox" id="cjx3">
+						 <img src="http://static.cn114.cn/action/wdallpklottery/images/sliver.jpg" class="gift" />
+						 <span></span>
+					  </li>
+            <li class="js_cjBox" id="cjx4">
+						 <img src="http://static.cn114.cn/action/wdallpklottery/images/firedog.jpg" class="gift" />
+						 <span></span>
+					  </li>
+            <li class="js_cjBox" id="cjx5">
+						 <img src="http://static.cn114.cn/action/wdallpklottery/images/wd151020_pic03.jpg" class="gift" />
+						 <span></span>
+					  </li>
+            <li class="js_cjBox" id="cjx6">
+						 <img src="http://static.cn114.cn/action/wdallpklottery/images/coin.jpg" class="gift" />
+						 <span></span>
+					  </li>
+          </ul>
+          </div>
+    <div class="zj_name" style="position: relative;overflow: hidden;height: 47px;">
+			<div  style="position:absolute;left:25px;top:0;" >
+			<ul id="js_tbody" style="overflow:hidden;height:35px; margin-top: 7px;">
+				<li><span class="lileft">ba***7</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">tb***6</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">hl***x</span><span class="liright">Kindle电子阅读器</span></li>
+								   <li><span class="lileft">hu***n</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">ni***u</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">xi***4</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">je***e</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+								   <li><span class="lileft">qq***8</span><span class="liright">50元话费充值卡</span></li>
+								   <li><span class="lileft">po***3</span><span class="liright">价值888元の至尊游戏礼包</span></li>
+			</ul>
+			</div>
+		</div>
+        </div>
+      	<div class="cjlist_r">
+              <h3>活动时间:</h3>
+              <p></p>
+              <p></p> 
+              <h3>活动奖励:</h3>
+              <p></p>
+              <h3>活动说明:</h3>
+              <ul class="cj_notice">
+                  <li><span>1</span><p></p></li>
+                  <li><span>2</span><p></p></li>
+                  <li><span>3</span><p></p></li>
+                  <li><span>4</span><p></p></li>
+                  <li><span>5</span><p></p></li>
+              </ul>
+          </div>
+    </div>
+  </div>
+</div>
+<!--弹层一-->
+<div class="wd_tc wd151110_tc01" id="realPrize" style="display:none">
+	<a href="javascript:;" class="close"></a>
+   <h2>收货地址</h2>
+   <div class="tc_cont1">
+      <h3>请填写正确奖励收货地址，活动结束后统一发放奖励~</h3>
+      <p>活动结束前若未填写或因地址不正确导致无法发放，则默认道友放弃奖励不再发放！</p>
+      <div class="wd_form" id="inform">
+         <div class="tc_div">
+            <label>收件人姓名</label>
+            <input type="text" id="txtRecName"/>
+         </div>
+         <div class="tc_div">
+            <label>&nbsp;&nbsp;&nbsp;联系电话</label>
+            <input type="text" id="txtMobPhoneNumber"/>
+         </div>
+         <div class="tc_div">
+            <label>&nbsp;&nbsp;&nbsp;收件地址</label>
+            <input type="text" id="txtAddress"/>
+         </div>
+		 <input type="submit" class="tc_btn" value="确认提交" />
+      </div>
+   </div>
+</div>
+ <!--弹层二-->       
+<div class="wd_tc wd151110_tc02" id="noReal" style="display:none">
+	<a href="javascript:;" class="close">关闭</a>
+    <h2>抽奖</h2>
+    <div class="tc_cont2">
+       <h3 class="h3_24">&nbsp;&nbsp;恭喜你获得5000银元宝奖励！</h3>
+       <p>我们将在活动结束后7个工作日内统一发放奖励。</p>
+    </div>
+</div>
+<div id="mask"></div>
+<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+</body>
+
+
+</html>

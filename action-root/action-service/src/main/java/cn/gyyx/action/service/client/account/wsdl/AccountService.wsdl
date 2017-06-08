@@ -1,0 +1,948 @@
+<?xml version="1.0" encoding="UTF-8"?><definitions xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://asktao.gbits.com/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://asktao.gbits.com/" name="AccountService">
+  <types>
+    <xsd:schema>
+      <xsd:import namespace="http://asktao.gbits.com/" schemaLocation="AccountService_schema1.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    </xsd:schema>
+  </types>
+  <message name="Register">
+    <part name="parameters" element="tns:Register"/>
+  </message>
+  <message name="RegisterResponse">
+    <part name="parameters" element="tns:RegisterResponse"/>
+  </message>
+  <message name="Suspend">
+    <part name="parameters" element="tns:Suspend"/>
+  </message>
+  <message name="SuspendResponse">
+    <part name="parameters" element="tns:SuspendResponse"/>
+  </message>
+  <message name="GetVersion">
+    <part name="parameters" element="tns:GetVersion"/>
+  </message>
+  <message name="GetVersionResponse">
+    <part name="parameters" element="tns:GetVersionResponse"/>
+  </message>
+  <message name="UpdatePassword">
+    <part name="parameters" element="tns:UpdatePassword"/>
+  </message>
+  <message name="UpdatePasswordResponse">
+    <part name="parameters" element="tns:UpdatePasswordResponse"/>
+  </message>
+  <message name="Charge">
+    <part name="parameters" element="tns:Charge"/>
+  </message>
+  <message name="ChargeResponse">
+    <part name="parameters" element="tns:ChargeResponse"/>
+  </message>
+  <message name="ChargeEx">
+    <part name="parameters" element="tns:ChargeEx"/>
+  </message>
+  <message name="ChargeExResponse">
+    <part name="parameters" element="tns:ChargeExResponse"/>
+  </message>
+  <message name="CheckTransCharge">
+    <part name="parameters" element="tns:CheckTransCharge"/>
+  </message>
+  <message name="CheckTransChargeResponse">
+    <part name="parameters" element="tns:CheckTransChargeResponse"/>
+  </message>
+  <message name="CheckTransChargeEx">
+    <part name="parameters" element="tns:CheckTransChargeEx"/>
+  </message>
+  <message name="CheckTransChargeExResponse">
+    <part name="parameters" element="tns:CheckTransChargeExResponse"/>
+  </message>
+  <message name="RegisterEx">
+    <part name="parameters" element="tns:RegisterEx"/>
+  </message>
+  <message name="RegisterExResponse">
+    <part name="parameters" element="tns:RegisterExResponse"/>
+  </message>
+  <message name="LockAccount">
+    <part name="parameters" element="tns:LockAccount"/>
+  </message>
+  <message name="LockAccountResponse">
+    <part name="parameters" element="tns:LockAccountResponse"/>
+  </message>
+  <message name="UnlockAccount">
+    <part name="parameters" element="tns:UnlockAccount"/>
+  </message>
+  <message name="UnlockAccountResponse">
+    <part name="parameters" element="tns:UnlockAccountResponse"/>
+  </message>
+  <message name="QueryAccountLockStatus">
+    <part name="parameters" element="tns:QueryAccountLockStatus"/>
+  </message>
+  <message name="QueryAccountLockStatusResponse">
+    <part name="parameters" element="tns:QueryAccountLockStatusResponse"/>
+  </message>
+  <message name="QuerySpentCoins">
+    <part name="parameters" element="tns:QuerySpentCoins"/>
+  </message>
+  <message name="QuerySpentCoinsResponse">
+    <part name="parameters" element="tns:QuerySpentCoinsResponse"/>
+  </message>
+  <message name="QueryRemainingCoins">
+    <part name="parameters" element="tns:QueryRemainingCoins"/>
+  </message>
+  <message name="QueryRemainingCoinsResponse">
+    <part name="parameters" element="tns:QueryRemainingCoinsResponse"/>
+  </message>
+  <message name="QueryTransactionHistory">
+    <part name="parameters" element="tns:QueryTransactionHistory"/>
+  </message>
+  <message name="QueryTransactionHistoryResponse">
+    <part name="parameters" element="tns:QueryTransactionHistoryResponse"/>
+  </message>
+  <message name="BatchGivePresents">
+    <part name="parameters" element="tns:BatchGivePresents"/>
+  </message>
+  <message name="BatchGivePresentsResponse">
+    <part name="parameters" element="tns:BatchGivePresentsResponse"/>
+  </message>
+  <message name="GivePresents">
+    <part name="parameters" element="tns:GivePresents"/>
+  </message>
+  <message name="GivePresentsResponse">
+    <part name="parameters" element="tns:GivePresentsResponse"/>
+  </message>
+  <message name="SetUpdateCoinPassword">
+    <part name="parameters" element="tns:SetUpdateCoinPassword"/>
+  </message>
+  <message name="SetUpdateCoinPasswordResponse">
+    <part name="parameters" element="tns:SetUpdateCoinPasswordResponse"/>
+  </message>
+  <message name="GetCoinPasswordState">
+    <part name="parameters" element="tns:GetCoinPasswordState"/>
+  </message>
+  <message name="GetCoinPasswordStateResponse">
+    <part name="parameters" element="tns:GetCoinPasswordStateResponse"/>
+  </message>
+  <message name="CancelRemoveCoinPassword">
+    <part name="parameters" element="tns:CancelRemoveCoinPassword"/>
+  </message>
+  <message name="CancelRemoveCoinPasswordResponse">
+    <part name="parameters" element="tns:CancelRemoveCoinPasswordResponse"/>
+  </message>
+  <message name="RemoveCoinPassword">
+    <part name="parameters" element="tns:RemoveCoinPassword"/>
+  </message>
+  <message name="RemoveCoinPasswordResponse">
+    <part name="parameters" element="tns:RemoveCoinPasswordResponse"/>
+  </message>
+  <message name="GetProtectCardState">
+    <part name="parameters" element="tns:GetProtectCardState"/>
+  </message>
+  <message name="GetProtectCardStateResponse">
+    <part name="parameters" element="tns:GetProtectCardStateResponse"/>
+  </message>
+  <message name="SetUpdateProtectCard">
+    <part name="parameters" element="tns:SetUpdateProtectCard"/>
+  </message>
+  <message name="SetUpdateProtectCardResponse">
+    <part name="parameters" element="tns:SetUpdateProtectCardResponse"/>
+  </message>
+  <message name="LostProtectCard">
+    <part name="parameters" element="tns:LostProtectCard"/>
+  </message>
+  <message name="LostProtectCardResponse">
+    <part name="parameters" element="tns:LostProtectCardResponse"/>
+  </message>
+  <message name="CancelProtectCard">
+    <part name="parameters" element="tns:CancelProtectCard"/>
+  </message>
+  <message name="CancelProtectCardResponse">
+    <part name="parameters" element="tns:CancelProtectCardResponse"/>
+  </message>
+  <message name="CancelLostProtectCard">
+    <part name="parameters" element="tns:CancelLostProtectCard"/>
+  </message>
+  <message name="CancelLostProtectCardResponse">
+    <part name="parameters" element="tns:CancelLostProtectCardResponse"/>
+  </message>
+  <message name="IsAdult">
+    <part name="parameters" element="tns:IsAdult"/>
+  </message>
+  <message name="IsAdultResponse">
+    <part name="parameters" element="tns:IsAdultResponse"/>
+  </message>
+  <message name="SetAdult">
+    <part name="parameters" element="tns:SetAdult"/>
+  </message>
+  <message name="SetAdultResponse">
+    <part name="parameters" element="tns:SetAdultResponse"/>
+  </message>
+  <message name="SetVipSms">
+    <part name="parameters" element="tns:SetVipSms"/>
+  </message>
+  <message name="SetVipSmsResponse">
+    <part name="parameters" element="tns:SetVipSmsResponse"/>
+  </message>
+  <message name="SetUpdatePhoneAuth">
+    <part name="parameters" element="tns:SetUpdatePhoneAuth"/>
+  </message>
+  <message name="SetUpdatePhoneAuthResponse">
+    <part name="parameters" element="tns:SetUpdatePhoneAuthResponse"/>
+  </message>
+  <message name="SetUpdateAlipayAccount">
+    <part name="parameters" element="tns:SetUpdateAlipayAccount"/>
+  </message>
+  <message name="SetUpdateAlipayAccountResponse">
+    <part name="parameters" element="tns:SetUpdateAlipayAccountResponse"/>
+  </message>
+  <message name="AutomaticLock">
+    <part name="parameters" element="tns:AutomaticLock"/>
+  </message>
+  <message name="AutomaticLockResponse">
+    <part name="parameters" element="tns:AutomaticLockResponse"/>
+  </message>
+  <message name="SetLockTimer">
+    <part name="parameters" element="tns:SetLockTimer"/>
+  </message>
+  <message name="SetLockTimerResponse">
+    <part name="parameters" element="tns:SetLockTimerResponse"/>
+  </message>
+  <message name="GetLockState">
+    <part name="parameters" element="tns:GetLockState"/>
+  </message>
+  <message name="GetLockStateResponse">
+    <part name="parameters" element="tns:GetLockStateResponse"/>
+  </message>
+  <message name="SetAccountSettingAutoLock">
+    <part name="parameters" element="tns:SetAccountSettingAutoLock"/>
+  </message>
+  <message name="SetAccountSettingAutoLockResponse">
+    <part name="parameters" element="tns:SetAccountSettingAutoLockResponse"/>
+  </message>
+  <message name="GetAccountSettingAutoLockState">
+    <part name="parameters" element="tns:GetAccountSettingAutoLockState"/>
+  </message>
+  <message name="GetAccountSettingAutoLockStateResponse">
+    <part name="parameters" element="tns:GetAccountSettingAutoLockStateResponse"/>
+  </message>
+  <message name="GiftSilverCoins">
+    <part name="parameters" element="tns:GiftSilverCoins"/>
+  </message>
+  <message name="GiftSilverCoinsResponse">
+    <part name="parameters" element="tns:GiftSilverCoinsResponse"/>
+  </message>
+  <message name="GiftSilverCoinsEx">
+    <part name="parameters" element="tns:GiftSilverCoinsEx"/>
+  </message>
+  <message name="GiftSilverCoinsExResponse">
+    <part name="parameters" element="tns:GiftSilverCoinsExResponse"/>
+  </message>
+  <message name="GiftCoins">
+    <part name="parameters" element="tns:GiftCoins"/>
+  </message>
+  <message name="GiftCoinsResponse">
+    <part name="parameters" element="tns:GiftCoinsResponse"/>
+  </message>
+  <message name="QueryAccountBlockHistory">
+    <part name="parameters" element="tns:QueryAccountBlockHistory"/>
+  </message>
+  <message name="QueryAccountBlockHistoryResponse">
+    <part name="parameters" element="tns:QueryAccountBlockHistoryResponse"/>
+  </message>
+  <message name="QueryAccountBlockReason">
+    <part name="parameters" element="tns:QueryAccountBlockReason"/>
+  </message>
+  <message name="QueryAccountBlockReasonResponse">
+    <part name="parameters" element="tns:QueryAccountBlockReasonResponse"/>
+  </message>
+  <message name="GetMatrixStateForStoragePwd">
+    <part name="parameters" element="tns:GetMatrixStateForStoragePwd"/>
+  </message>
+  <message name="GetMatrixStateForStoragePwdResponse">
+    <part name="parameters" element="tns:GetMatrixStateForStoragePwdResponse"/>
+  </message>
+  <message name="SetUpdateMatrixForStoragePwd">
+    <part name="parameters" element="tns:SetUpdateMatrixForStoragePwd"/>
+  </message>
+  <message name="SetUpdateMatrixForStoragePwdResponse">
+    <part name="parameters" element="tns:SetUpdateMatrixForStoragePwdResponse"/>
+  </message>
+  <message name="CancelMatrixForStoragePwd">
+    <part name="parameters" element="tns:CancelMatrixForStoragePwd"/>
+  </message>
+  <message name="CancelMatrixForStoragePwdResponse">
+    <part name="parameters" element="tns:CancelMatrixForStoragePwdResponse"/>
+  </message>
+  <message name="ImmediatelyCancelMatrixForStoragePwd">
+    <part name="parameters" element="tns:ImmediatelyCancelMatrixForStoragePwd"/>
+  </message>
+  <message name="ImmediatelyCancelMatrixForStoragePwdResponse">
+    <part name="parameters" element="tns:ImmediatelyCancelMatrixForStoragePwdResponse"/>
+  </message>
+  <message name="GetLocalEncryptState">
+    <part name="parameters" element="tns:GetLocalEncryptState"/>
+  </message>
+  <message name="GetLocalEncryptStateResponse">
+    <part name="parameters" element="tns:GetLocalEncryptStateResponse"/>
+  </message>
+  <message name="RemoveLocalEncrypt">
+    <part name="parameters" element="tns:RemoveLocalEncrypt"/>
+  </message>
+  <message name="RemoveLocalEncryptResponse">
+    <part name="parameters" element="tns:RemoveLocalEncryptResponse"/>
+  </message>
+  <message name="QueryTransactionID">
+    <part name="parameters" element="tns:QueryTransactionID"/>
+  </message>
+  <message name="QueryTransactionIDResponse">
+    <part name="parameters" element="tns:QueryTransactionIDResponse"/>
+  </message>
+  <message name="SyncProtectInfo">
+    <part name="parameters" element="tns:SyncProtectInfo"/>
+  </message>
+  <message name="SyncProtectInfoResponse">
+    <part name="parameters" element="tns:SyncProtectInfoResponse"/>
+  </message>
+  <portType name="Account">
+    <operation name="Register">
+      <input message="tns:Register"/>
+      <output message="tns:RegisterResponse"/>
+    </operation>
+    <operation name="Suspend">
+      <input message="tns:Suspend"/>
+      <output message="tns:SuspendResponse"/>
+    </operation>
+    <operation name="GetVersion">
+      <input message="tns:GetVersion"/>
+      <output message="tns:GetVersionResponse"/>
+    </operation>
+    <operation name="UpdatePassword">
+      <input message="tns:UpdatePassword"/>
+      <output message="tns:UpdatePasswordResponse"/>
+    </operation>
+    <operation name="Charge">
+      <input message="tns:Charge"/>
+      <output message="tns:ChargeResponse"/>
+    </operation>
+    <operation name="ChargeEx">
+      <input message="tns:ChargeEx"/>
+      <output message="tns:ChargeExResponse"/>
+    </operation>
+    <operation name="CheckTransCharge">
+      <input message="tns:CheckTransCharge"/>
+      <output message="tns:CheckTransChargeResponse"/>
+    </operation>
+    <operation name="CheckTransChargeEx">
+      <input message="tns:CheckTransChargeEx"/>
+      <output message="tns:CheckTransChargeExResponse"/>
+    </operation>
+    <operation name="RegisterEx">
+      <input message="tns:RegisterEx"/>
+      <output message="tns:RegisterExResponse"/>
+    </operation>
+    <operation name="LockAccount">
+      <input message="tns:LockAccount"/>
+      <output message="tns:LockAccountResponse"/>
+    </operation>
+    <operation name="UnlockAccount">
+      <input message="tns:UnlockAccount"/>
+      <output message="tns:UnlockAccountResponse"/>
+    </operation>
+    <operation name="QueryAccountLockStatus">
+      <input message="tns:QueryAccountLockStatus"/>
+      <output message="tns:QueryAccountLockStatusResponse"/>
+    </operation>
+    <operation name="QuerySpentCoins">
+      <input message="tns:QuerySpentCoins"/>
+      <output message="tns:QuerySpentCoinsResponse"/>
+    </operation>
+    <operation name="QueryRemainingCoins">
+      <input message="tns:QueryRemainingCoins"/>
+      <output message="tns:QueryRemainingCoinsResponse"/>
+    </operation>
+    <operation name="QueryTransactionHistory">
+      <input message="tns:QueryTransactionHistory"/>
+      <output message="tns:QueryTransactionHistoryResponse"/>
+    </operation>
+    <operation name="BatchGivePresents">
+      <input message="tns:BatchGivePresents"/>
+      <output message="tns:BatchGivePresentsResponse"/>
+    </operation>
+    <operation name="GivePresents">
+      <input message="tns:GivePresents"/>
+      <output message="tns:GivePresentsResponse"/>
+    </operation>
+    <operation name="SetUpdateCoinPassword">
+      <input message="tns:SetUpdateCoinPassword"/>
+      <output message="tns:SetUpdateCoinPasswordResponse"/>
+    </operation>
+    <operation name="GetCoinPasswordState">
+      <input message="tns:GetCoinPasswordState"/>
+      <output message="tns:GetCoinPasswordStateResponse"/>
+    </operation>
+    <operation name="CancelRemoveCoinPassword">
+      <input message="tns:CancelRemoveCoinPassword"/>
+      <output message="tns:CancelRemoveCoinPasswordResponse"/>
+    </operation>
+    <operation name="RemoveCoinPassword">
+      <input message="tns:RemoveCoinPassword"/>
+      <output message="tns:RemoveCoinPasswordResponse"/>
+    </operation>
+    <operation name="GetProtectCardState">
+      <input message="tns:GetProtectCardState"/>
+      <output message="tns:GetProtectCardStateResponse"/>
+    </operation>
+    <operation name="SetUpdateProtectCard">
+      <input message="tns:SetUpdateProtectCard"/>
+      <output message="tns:SetUpdateProtectCardResponse"/>
+    </operation>
+    <operation name="LostProtectCard">
+      <input message="tns:LostProtectCard"/>
+      <output message="tns:LostProtectCardResponse"/>
+    </operation>
+    <operation name="CancelProtectCard">
+      <input message="tns:CancelProtectCard"/>
+      <output message="tns:CancelProtectCardResponse"/>
+    </operation>
+    <operation name="CancelLostProtectCard">
+      <input message="tns:CancelLostProtectCard"/>
+      <output message="tns:CancelLostProtectCardResponse"/>
+    </operation>
+    <operation name="IsAdult">
+      <input message="tns:IsAdult"/>
+      <output message="tns:IsAdultResponse"/>
+    </operation>
+    <operation name="SetAdult">
+      <input message="tns:SetAdult"/>
+      <output message="tns:SetAdultResponse"/>
+    </operation>
+    <operation name="SetVipSms">
+      <input message="tns:SetVipSms"/>
+      <output message="tns:SetVipSmsResponse"/>
+    </operation>
+    <operation name="SetUpdatePhoneAuth">
+      <input message="tns:SetUpdatePhoneAuth"/>
+      <output message="tns:SetUpdatePhoneAuthResponse"/>
+    </operation>
+    <operation name="SetUpdateAlipayAccount">
+      <input message="tns:SetUpdateAlipayAccount"/>
+      <output message="tns:SetUpdateAlipayAccountResponse"/>
+    </operation>
+    <operation name="AutomaticLock">
+      <input message="tns:AutomaticLock"/>
+      <output message="tns:AutomaticLockResponse"/>
+    </operation>
+    <operation name="SetLockTimer">
+      <input message="tns:SetLockTimer"/>
+      <output message="tns:SetLockTimerResponse"/>
+    </operation>
+    <operation name="GetLockState">
+      <input message="tns:GetLockState"/>
+      <output message="tns:GetLockStateResponse"/>
+    </operation>
+    <operation name="SetAccountSettingAutoLock">
+      <input message="tns:SetAccountSettingAutoLock"/>
+      <output message="tns:SetAccountSettingAutoLockResponse"/>
+    </operation>
+    <operation name="GetAccountSettingAutoLockState">
+      <input message="tns:GetAccountSettingAutoLockState"/>
+      <output message="tns:GetAccountSettingAutoLockStateResponse"/>
+    </operation>
+    <operation name="GiftSilverCoins">
+      <input message="tns:GiftSilverCoins"/>
+      <output message="tns:GiftSilverCoinsResponse"/>
+    </operation>
+    <operation name="GiftSilverCoinsEx">
+      <input message="tns:GiftSilverCoinsEx"/>
+      <output message="tns:GiftSilverCoinsExResponse"/>
+    </operation>
+    <operation name="GiftCoins">
+      <input message="tns:GiftCoins"/>
+      <output message="tns:GiftCoinsResponse"/>
+    </operation>
+    <operation name="QueryAccountBlockHistory">
+      <input message="tns:QueryAccountBlockHistory"/>
+      <output message="tns:QueryAccountBlockHistoryResponse"/>
+    </operation>
+    <operation name="QueryAccountBlockReason">
+      <input message="tns:QueryAccountBlockReason"/>
+      <output message="tns:QueryAccountBlockReasonResponse"/>
+    </operation>
+    <operation name="GetMatrixStateForStoragePwd">
+      <input message="tns:GetMatrixStateForStoragePwd"/>
+      <output message="tns:GetMatrixStateForStoragePwdResponse"/>
+    </operation>
+    <operation name="SetUpdateMatrixForStoragePwd">
+      <input message="tns:SetUpdateMatrixForStoragePwd"/>
+      <output message="tns:SetUpdateMatrixForStoragePwdResponse"/>
+    </operation>
+    <operation name="CancelMatrixForStoragePwd">
+      <input message="tns:CancelMatrixForStoragePwd"/>
+      <output message="tns:CancelMatrixForStoragePwdResponse"/>
+    </operation>
+    <operation name="ImmediatelyCancelMatrixForStoragePwd">
+      <input message="tns:ImmediatelyCancelMatrixForStoragePwd"/>
+      <output message="tns:ImmediatelyCancelMatrixForStoragePwdResponse"/>
+    </operation>
+    <operation name="GetLocalEncryptState">
+      <input message="tns:GetLocalEncryptState"/>
+      <output message="tns:GetLocalEncryptStateResponse"/>
+    </operation>
+    <operation name="RemoveLocalEncrypt">
+      <input message="tns:RemoveLocalEncrypt"/>
+      <output message="tns:RemoveLocalEncryptResponse"/>
+    </operation>
+    <operation name="QueryTransactionID">
+      <input message="tns:QueryTransactionID"/>
+      <output message="tns:QueryTransactionIDResponse"/>
+    </operation>
+    <operation name="SyncProtectInfo">
+      <input message="tns:SyncProtectInfo"/>
+      <output message="tns:SyncProtectInfoResponse"/>
+    </operation>
+  </portType>
+  <binding name="AccountPortBinding" type="tns:Account">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+    <operation name="Register">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Suspend">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetVersion">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UpdatePassword">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="Charge">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ChargeEx">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckTransCharge">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CheckTransChargeEx">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RegisterEx">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LockAccount">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="UnlockAccount">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="QueryAccountLockStatus">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="QuerySpentCoins">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="QueryRemainingCoins">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="QueryTransactionHistory">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="BatchGivePresents">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GivePresents">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SetUpdateCoinPassword">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetCoinPasswordState">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CancelRemoveCoinPassword">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RemoveCoinPassword">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetProtectCardState">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SetUpdateProtectCard">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="LostProtectCard">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CancelProtectCard">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CancelLostProtectCard">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="IsAdult">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SetAdult">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SetVipSms">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SetUpdatePhoneAuth">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SetUpdateAlipayAccount">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="AutomaticLock">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SetLockTimer">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetLockState">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SetAccountSettingAutoLock">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetAccountSettingAutoLockState">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GiftSilverCoins">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GiftSilverCoinsEx">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GiftCoins">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="QueryAccountBlockHistory">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="QueryAccountBlockReason">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetMatrixStateForStoragePwd">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SetUpdateMatrixForStoragePwd">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="CancelMatrixForStoragePwd">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="ImmediatelyCancelMatrixForStoragePwd">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="GetLocalEncryptState">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="RemoveLocalEncrypt">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="QueryTransactionID">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="SyncProtectInfo">
+      <soap:operation soapAction=""/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="AccountService">
+    <port name="AccountPort" binding="tns:AccountPortBinding">
+      <soap:address location="http://192.168.6.181:81/AAAWebService/AccountService" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"/>
+    </port>
+  </service>
+</definitions>

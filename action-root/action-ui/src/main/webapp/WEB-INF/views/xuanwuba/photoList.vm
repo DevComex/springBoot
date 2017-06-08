@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>舞吧征集</title>
+    <script type="text/javascript">
+        var rc = "${rc.contextPath}";
+    </script>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/xuanwuba/css/xwb150619.css" type="text/css" />
+    <script src="http://static.cn114.cn/action/xuanwuba/js/jquery.js" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=xuanwuba" type="text/javascript"></script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="s_wrap">
+        <div class="s_wrap01">
+            <div class="s_wrapFooter">
+                <div class="smain">
+                    <div class="header">
+                        <div class="s_nav">
+                            <a href="http://xwb.gyyx.cn/" target="_blank">进入官网</a>|<a href="http://xwb.gyyx.cn/Download/index.shtml" target="_blank">下载游戏</a>|<a href="http://bbs.gyyx.cn/forum.php?gid=167" target="_blank">进入论坛</a>|<a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" target="_blank">兑换充值</a>
+                        </div>
+                        <div class="s_left">
+                            <div class="part_login">
+                                <div class="login">
+                                    <!--登录前-->
+                                    <a href="javascript:;" class="login_btn js_alertlogin_a">登录</a>
+                                    <p>还没有光宇通行证?<a href="http://account.gyyx.cn/Member/Register" target="_blank">点此注册</a></p>
+                                </div>
+                                <!--登录前-->
+                                <div class="success_sign" style="display: none;" id="userSuccess">
+                                    <!--登录后-->
+                                    <h3><span>
+                                        <img src="http://static.cn114.cn/action/xuanwuba/images/xwb150619_qd_pic01.png"></span><p id="loginbar" class="red">
+                                            登录超时<br />
+                                            <a href="javascript:;" class="info_mli_a js_Logout">退出</a>
+                                        </p>
+                                    </h3>
+                                    <p>玩家区组：<i class="red">未选择</i></p>
+                                    <p>性别：<i class="red">未选择</i></p>
+                                    <p><span class="sp01">积分：<i class="red">0</i></span></p>
+                                    <p>累计签到天数：<i class="red">0天</i></p>
+                                </div>
+                                <!--登录后-->
+                            </div>
+                            <div class="s_div s_btn">
+                                <a href="../xuanwuba/signIndex" class="registerBtn "><span class="ico01">签到</span></a>
+                                <a href="http://pay.gyyx.cn/gamepay/paygold?gameId=11" class="a02" target="_blank"><span class="ico02">充值</span></a>
+                            </div>
+                        </div>
+                        <a href="index" class="goHome">返回首页</a>
+                    </div>
+                    <div class="s_cont">
+                        <h3 class="s_tit">服装列表</h3>
+                        <div class="s_box zj_cont">
+                            <div class="zj_box">
+                                <ul class="zj_picShow" id="js_tbSzList"></ul>
+                                <div id="DataTables_Table_0_info" class="dataTables_info"></div>
+                                <div class="page" style="width: 1000px">
+                                    <div id="DataTables_Table_0_paginate" class="dataTables_paginate paging_full_numbers"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a class="zj_gotop" href="#"></a>
+                <!--返回顶部-->
+            </div>
+        </div>
+    </div>
+    <div class="pfNav">
+        <ul>
+            <li><a href="signIndex">每日签到</a></li>
+            <li><a href="taskShow">舞吧任务</a></li>
+            <li><a href="lotteryIndex">舞吧奖励</a></li>
+            <li class="on"><a href="collectIndex">舞吧征集</a></li>
+            <li><a href="videoShow">个人中心</a></li>
+        </ul>
+        <a href="#" class="goTop">top</a>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div>
+    <script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/ymcore.min.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/xwb150623.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/gyyxEffect.js"></script>
+    <script type="text/javascript" src="http://static.cn114.cn/action/xuanwuba/js/jquery.ajaxpage-2.2.js"></script>
+    <script type="text/javascript">
+        function page(pageon) {
+            $("#js_tbSzList").ajaxPage({
+                url: "photoListPageJSON",
+                pageObj: $("#DataTables_Table_0_paginate"),
+                pageIndex: pageon,
+                pageSize: 15,
+                curPageCls: "paginate_active",
+                pageInfo: {
+                    obj: $("#DataTables_Table_0_info"),
+                    content: "共{allCount}条  当前第{pageIndex}/{allPage}页"
+                },
+                paramObj: {
+
+                },
+                dataFn: function (data, $this) {
+                    var dataHtml = "", dCont = data.list;
+                    if (dCont && dCont.length && dCont[0]) {
+                        for (var i = 0; i < dCont.length; i++) {
+                            if (i == 0 || i == 5 || i == 10) {
+                                dataHtml += '<li class="nopl"><a href="photo?materialCode=' + dCont[i].materialCode + '"><img src="' + dCont[i].materialPicture + '" width="184" height="220"><div class="mb"></div></a><div class="xwb_txt" style="width: 184px">';
+                                if (dCont[i].commonNum != null) {
+                                    if (dCont[i].praiseNum != null) {
+                                        dataHtml += '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btns" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].praiseGot + '<b class="txt_ico">+1</b></span><span class="xwb_sp02 on2"><i class="comment_btn" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].commentGot + '</span></p>';
+                                    } else {
+                                        dataHtml += '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btns" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].praiseGot + '<b class="txt_ico">+1</b></span><span class="xwb_sp02 on2"><i class="comment_btn" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].commentGot + '</span></p>'
+                                    }
+                                } else {
+                                    if (dCont[i].praiseNum != null) {
+                                        dataHtml += '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btns" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].praiseGot + '<b class="txt_ico">+1</b></span><span class="xwb_sp02 on"><i class="comment_btn" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].commentGot + '</span></p>'
+                                    } else {
+                                        dataHtml += '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btns" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].praiseGot + '<b class="txt_ico">+1</b></span><span class="xwb_sp02 on"><i class="comment_btn" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].commentGot + '</span></p>'
+                                    }
+                                }
+                                if (dCont[i].content != null) {
+                                    dataHtml += '<p class="xwb_p02" style="color: blue"><strong>最佳评论：</strong>' + dCont[i].content + '</p>';
+                                } else {
+                                    dataHtml += '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>';
+                                }
+                                dataHtml += '</div></li>'
+                            }
+                            else {
+                                dataHtml += '<li><a href="photo?materialCode=' + dCont[i].materialCode + '"><img src="' + dCont[i].materialPicture + '" width="184" height="220"><div class="mb"></div></a><div class="xwb_txt" style="width: 184px">';
+                                if (dCont[i].commonNum != null) {
+                                    if (dCont[i].praiseNum != null) {
+                                        dataHtml += '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btns" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].praiseGot + '<b class="txt_ico">+1</b></span><span class="xwb_sp02 on2"><i class="comment_btn" materialcode="' + dCont[i].materialCode + '"></i>$!photo.commentGot</span></p>';
+                                    } else {
+                                        dataHtml += '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btns" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].praiseGot + '<b class="txt_ico">+1</b></span><span class="xwb_sp02 on2"><i class="comment_btn" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].commentGot + '</span></p>';
+                                    }
+                                } else {
+                                    if (dCont[i].praiseNum != null) {
+                                        dataHtml += '<p class="xwb_p01"><span class="xwb_sp01 on1"><i class="praise_btns" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].praiseGot + '<b class="txt_ico">+1</b></span><span class="xwb_sp02 on"><i class="comment_btn" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].commentGot + '</span></p>';
+                                    } else {
+                                        dataHtml += '<p class="xwb_p01"><span class="xwb_sp01 on"><i class="praise_btns" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].praiseGot + '<b class="txt_ico">+1</b></span><span class="xwb_sp02 on"><i class="comment_btn" materialcode="' + dCont[i].materialCode + '"></i>' + dCont[i].commentGot + '</span></p>';
+                                    }
+                                }
+                                if (dCont[i].content != null) {
+                                    dataHtml += '<p class="xwb_p02" style="color: blue"><strong>最佳评论：</strong>' + dCont[i].content + '</p>';
+                                } else {
+                                    dataHtml += '<p class="xwb_p02"><strong>最佳评论：</strong>还没有最佳评论哦~</p>';
+                                }
+                                dataHtml += '</div></li>'
+                            }
+                        }
+                        $("#js_tbSzList").empty().html(dataHtml)
+                        return dataHtml;
+                    } else if (dCont == null) {
+                        $("#js_tbSzList").empty().html("");
+                    } else {
+                        alert("页码超出范围")
+                        for (var i = 0; i < $(".page a").length; i++) {
+                            if ($(".page a").eq(i).hasClass("paginate_active")) {
+                                page($(".page a").eq(i).text())
+                            }
+                        }
+                    }
+                }
+            });
+        };
+        page(1)
+        $(".praise_btns").die().live("click", function () {
+            var $this = $(this);
+            checkLogin({
+                success: function (d) {
+                    if ($this.parent(".xwb_sp01").hasClass("on1")) {
+                        //$this.next(".txt_ico").html("-1").show();
+                    } else {
+                        //$this.next(".txt_ico").html("+1").show();
+                    }
+                    var materialCode = $this.attr("materialCode");
+                    $.ajax
+					({
+                        url: 'praise',
+                        type: 'get',
+                        data: { materialCode: materialCode, r: Math.random() },
+                        dataType: 'json',
+                        async: false,
+                        success: function (d) {
+                            if (d.isSuccess) {
+                                $.ajax
+								({
+                                    url: 'photoListJSON',
+                                    type: 'get',
+                                    data: {
+                                        r: Math.random()
+                                    },
+                                    dataType: 'json',
+                                    success: function (data) {
+                                        for (var i = 0; i < $(".page a").length; i++) {
+                                            if ($(".page a").eq(i).hasClass("paginate_active")) {
+                                                page($(".page a").eq(i).text())
+                                            }
+                                        }
+                                    }
+                                })
+                            }
+                        }
+                    })
+                },
+                failed: function () {
+                    alertFn(null, null, true)
+                }
+            });
+        })
+        $(".js_gopages").die("click").live("click", function () {
+            var reg = /^[0-9]*[1-9][0-9]*$/;
+            if (!reg.test($.trim($(".js_pageipt").val()))) {
+                alert("必须为大于0的整数");
+            } else {
+                page($(".js_pageipt").val())
+            }
+        });
+        $(".comment_btn").die().live("click", function () {
+            window.location.href = "photo?materialCode=" + $(this).attr("materialCode");
+        })
+    </script>
+</body>
+</html>

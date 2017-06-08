@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.meetingroom.IUserMapper">
+	<resultMap type="User" id="User">
+		<id  column="code" property="code"/>
+		<result column="user_name" property="userName"/>
+		<result column="rtx" property="rtx"/>
+		<result column="email" property="email"/>
+		<result column="phone" property="phone"/>
+	</resultMap>
+	
+	<!-- 添加游用户信息 -->
+	<insert id="insertUser" parameterType="User">
+	  insert into mos_user_tb (user_name,rtx,email,phone,oa_message,user_id,order_code)
+	  values(
+	    #{userName},
+	    #{rtx},
+	    #{email},
+	    #{phone},
+	    #{oaMessage},
+	    #{userId},
+	    #{orderCode}
+	  )
+	</insert>
+
+</mapper>

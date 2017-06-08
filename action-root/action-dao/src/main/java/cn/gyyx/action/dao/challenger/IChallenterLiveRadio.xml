@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.challenger.IChallenterLiveRadio">
+	<resultMap type="cn.gyyx.action.beans.challenger.ChallenterLiveRadioBean" id="ChallenterLiveRadioBeanMap">
+		<result column="code" property="code" />
+		<result column="pic_url" property="picUrl" />
+		<result column="radio_url" property="radioUrl" />
+		<result column="is_top" property="isTop" />
+		<result column="create_time" property="createTime" />
+		<result column="is_delete" property="isDelete" />
+		<result column="title" property="title" />
+	</resultMap>
+
+	<insert id="insert" parameterType="cn.gyyx.action.beans.challenger.ChallenterLiveRadioBean"
+		useGeneratedKeys="true" keyProperty="code">
+		INSERT INTO 
+			challenger_live_radio_tb
+		 ( [pic_url], [radio_url], [is_top], [create_time], [is_delete],[title]) 
+		 VALUES (#{picUrl}, #{radioUrl}, #{isTop}, #{createTime}, #{isDelete}, #{title})
+	</insert>
+	
+	
+	<update id="delete">
+		update challenger_live_radio_tb 
+			set is_delete = 'Y'
+		where 1=1
+		and code = #{code}
+	</update>
+	
+	<update id="update" parameterType="cn.gyyx.action.beans.challenger.ChallenterLiveRadioBean">
+		update challenger_live_radio_tb 
+		<set>
+			<if test="picUrl!= null and picUrl!= '' ">
+				pic_url = #{picUrl}, 
+			</if>
+			<if test="radioUrl!= null and radioUrl!= '' ">
+				radio_url = #{radioUrl}, 
+			</if>
+			<if test="isTop!= null and isTop!= '' ">
+				is_top = #{isTop}, 
+			</if>
+			<if test="isDelete!= null and isDelete!= '' ">
+				 is_delete = #{isDelete},
+			</if>
+			<if test="title!= null and title!= '' ">
+				 title = #{title},
+			</if>
+		</set>
+		where code = #{code}
+	</update>
+	
+	<!--分页总数量 -->
+	<select id="getChallenterLiveRadioCount" resultType="java.lang.Integer">
+		select count(1) from challenger_live_radio_tb where 1=1 and is_delete != 'Y'
+		<if test="isTop!= null and isTop!= '' ">
+				and is_top = #{isTop}
+			</if>
+	</select>
+	
+	<!--分页显示 -->
+	<select id="getChallenterLiveRadioListPaging"
+		resultMap="ChallenterLiveRadioBeanMap">
+		select 
+			TOP (#{pageSize})  
+			A.*
+		from (
+			SELECT 
+				TOP (#{pageSize}*#{currentPage})
+			    ROW_NUMBER() OVER (ORDER BY is_top desc,a.create_time desc) AS row_num,a.*
+			FROM challenger_live_radio_tb a
+			where 1=1 and is_delete != 'Y' 
+			<if test="isTop!= null and isTop!= '' ">
+					and is_top = #{isTop}
+				</if>
+			order by is_top desc,a.create_time desc
+		) A
+		WHERE row_num >
+		(#{pageSize}*(#{currentPage}-1))
+	</select>
+	
+	<!--分页总数量/web前台 -->
+	<select id="getWebFrontChallenterLiveRadioCount" resultType="java.lang.Integer">
+		select count(1) from challenger_live_radio_tb where 1=1 and is_delete != 'Y'
+	</select>
+	
+	<!--分页显示/web前台 -->
+	<select id="getWebFrontChallenterLiveRadioListPaging"
+		resultMap="ChallenterLiveRadioBeanMap">
+		select 
+			TOP (#{pageSize})  
+			A.*
+		from (
+			SELECT 
+				TOP (#{pageSize}*#{currentPage})
+			    ROW_NUMBER() OVER (ORDER BY a.create_time desc) AS row_num,a.*
+			FROM challenger_live_radio_tb a
+			where 1=1 and is_delete != 'Y' 
+			order by a.create_time desc
+		) A
+		WHERE row_num >
+		(#{pageSize}*(#{currentPage}-1))
+	</select>
+	
+	<!-- 得到记录 -->
+	<select id="getChallenterLiveRadioBean" parameterType="int"
+		resultMap="ChallenterLiveRadioBeanMap">
+		select top 1 * from
+		challenger_live_radio_tb
+		where is_delete != 'Y' 
+		and code = #{code}
+	</select>
+</mapper>

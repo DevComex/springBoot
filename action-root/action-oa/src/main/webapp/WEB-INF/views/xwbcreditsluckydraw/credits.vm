@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Layout:luochongfei" />
+    <title>玩家积分情况列表</title>
+
+    <link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+	<script src="${rc.contextPath}/xwbresources/Script/datepicker/bootstrap-datepicker.js" type="text/javascript"></script>
+	 <link href="${rc.contextPath}/xwbresources/Script/datepicker/datepicker.css" rel="stylesheet" />
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+	<script>
+	$(function(){
+		var t = '$!ty';
+		$("#materialTypeSelect").val(t);
+		
+	})
+	</script>
+    <link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet" />
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+						<section id="content">
+                    <section class="vbox">
+						<header class="header bg-white b-b clearfix">
+							<div class="col-sm-2 m-b-xs">
+                                    <h4 class="m-t bold"></h4>
+                                </div>
+                                <div class="col-sm-2 m-b-xs m-t-sm">
+                                    <div class="input-group">
+                                        
+                                    </div>
+                                </div>
+                        </header>
+						
+                        <!--顶部标题导航 end-->
+
+                        <!--主体内容 begin-->
+                        <section class="scrollable padder">
+                            <div class="m-b-md">
+                            </div>
+							<!--头部功能-->
+                        <header class="header bg-white b-b clearfix">
+							<form action="credits" method="post">
+                            <div class="row m-t-sm">    
+                                <div class="col-sm-2 m-b-xs">
+                                    <div class="input-group">
+                                        <input type="text" value="$!acc"   name="account" class="input-sm form-control" placeholder="账号">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 m-b-xs">
+                                    <div class="input-group">
+                                        <input type="text" value="$!time" name="date" class="input-sm form-control js_startTimeCtr" readonly placeholder="时间">
+                                    </div>
+                                </div>
+                                <div class="col-sm-2 m-b-xs">
+                                    <div class="input-group">
+										<select class="input-sm form-control" name="type" id="materialTypeSelect" style="width: 160px">
+											<option value="">请选择获取方式</option>
+											<option value="签到">签到</option>											
+											<option value="审核">审核</option>
+											<option value="撤销">撤销</option>
+											<option value="签到任务">签到任务</option>
+                                            <option value="视频">视频</option>
+                                            <option value="服装">服装</option>
+                                            <option value="建议">建议</option>
+											<option value="兑换">兑换</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 m-b-xs">
+                                    <span class="input-group-btn">
+                                        <input type="submit" class="btn btn-sm btn-info" value="筛选">
+                                    </span>
+                                </div>
+                            </div>
+							</form>
+                               <div class="row m-t-sm">    
+                               <form action="getSumCredit" method="post">
+                                 <div class="col-sm-2 m-b-xs">
+                                    <div class="input-group">
+                                        <input type="text" value="$!sumAcc" name="account" class="input-sm form-control" placeholder="账号">
+                                    </div>
+                                </div>
+                                <div class="col-sm-1 m-b-xs">
+                                    <span class="input-group-btn">
+                                        <input type="submit" class="btn btn-sm btn-info" value="查询">
+                                    </span>
+                                </div>
+								
+                                <div class="col-sm-2 m-b-xs">
+                                    <div class="input-group">
+										#if($!sumNum == -1)
+											<input type="text" class="input-sm form-control" placeholder="总积分显示" value="此用户暂无记录">
+										#else
+											<input type="text" class="input-sm form-control" placeholder="总积分显示" value="$!sumNum">
+										#end
+                                    </div>
+                                </div>
+							   </form>
+							   <div class="col-sm-1 m-b-xs">
+                                    <span class="input-group-btn">
+										<a class="btn btn-xs btn-dark js_give" href="#addCredits" data-title="发放积分" data-toggle="modal" title="发放积分">
+											发放积分
+                                        </a>
+                                    </span>
+                                </div>
+                            </div>
+                        </header>
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default" style="height:750px">
+                                <div class="table-responsive">
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                             <tr>
+                                                <th>账号</th>
+                                                <th>获取时间</th>
+                                                <th>所获积分</th>
+                                                <th>获取方式</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            #foreach($!credit in $!creditList)
+                                            <tr>
+                                                <td>$!credit.account</td>
+                                                <td>$!credit.enterTimeStr</td>
+                                                <td>$!credit.credits</td>
+                                                <td>$!credit.type</td>
+                                            </tr>
+											#end
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </section>
+                            <!--数据表格  end -->
+                        </section>
+                        <!--主体内容 end-->
+						<!--翻页功能-->
+						<br />
+						<br />
+                        <!--翻页功能-->
+                        <footer class="footer bg-white b-t">
+                            <div class="row dataTables_wrapper">
+                                <div class="col-sm-2">
+                                    <div class="dataTables_info" id="DataTables_Table_0_info">共$!{page.totalRecords}条 第$!{page.pageNo}/$!{page.totalPages}页</div>
+                                </div>
+                                <div class="col-sm-10">
+                                    <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_0_paginate">
+										#if(${page.pageNo} == $!{page.topPage})
+                                        <a href="credits?pageNum=$!{page.topPage}&acc=$!{acc}&time=$!{time}&ty=$!{ty}" class="first paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_first">首页</a>
+										<a href="credits?pageNum=$!{page.previousPageNo}&acc=$!{acc}&time=$!{time}&ty=$!{ty}" class="previous paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_previous">上一页</a>
+										#else
+										<a href="credits?pageNum=$!{page.topPage}&acc=$!{acc}&time=$!{time}&ty=$!{ty}" class="first paginate_button" tabindex="0" id="DataTables_Table_0_first">首页</a>
+										<a href="credits?pageNum=$!{page.previousPageNo}&acc=$!{acc}&time=$!{time}&ty=$!{ty}" class="previous paginate_button" tabindex="0" id="DataTables_Table_0_previous">上一页</a>
+										#end
+										<span>
+											#foreach($param in $!page.pageNumArray)
+												#if($param == $page.pageNo)
+													<a href="credits?pageNum=$param&acc=$!{acc}&time=$!{time}&ty=$!{ty}" class="paginate_active" style="background-color:#D1D1D1" tabindex="0">$param</a>
+												#else
+													<a href="credits?pageNum=$param&acc=$!{acc}&time=$!{time}&ty=$!{ty}" class="paginate_button" tabindex="0">$param</a>
+												#end
+											#end
+											
+										</span>
+										#if(${page.pageNo} == $!{page.bottomPageNo})
+										<a href="credits?pageNum=$!{page.nextPageNo}&acc=$!{acc}&time=$!{time}&ty=$!{ty}" class="next paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_next">下一页</a>
+										<a href="credits?pageNum=$!{page.bottomPageNo}&acc=$!{acc}&time=$!{time}&ty=$!{ty}" class="last paginate_button paginate_button_disabled" tabindex="0" id="DataTables_Table_0_last">末页</a>
+										#else
+										<a href="credits?pageNum=$!{page.nextPageNo}&acc=$!{acc}&time=$!{time}&ty=$!{ty}" class="next paginate_button" tabindex="0" id="DataTables_Table_0_next">下一页</a>
+										<a href="credits?pageNum=$!{page.bottomPageNo}&acc=$!{acc}&time=$!{time}&ty=$!{ty}" class="last paginate_button" tabindex="0" id="DataTables_Table_0_last">末页</a>	
+										#end
+										
+										<input type="hidden" id="goPageMax" value="$!{page.totalPages}" />
+										&nbsp;&nbsp;&nbsp;&nbsp;页码：
+										<input type="text" id="goPageNum" value="" style="width:50px"/>
+										<a class="last paginate_button" tabindex="0" id="goPage">Go</a>
+										
+										<script>
+                                    	$(function(){
+										
+                                    		$("#goPage").click(function(){
+                                    			var max = parseInt($("#goPageMax").val());
+                                    			var index = parseInt($.trim($("#goPageNum").val()));
+                                    			if(index == ""){
+                                    				alert("请输入页码!");
+                                    			}else if(isNaN(index)){
+                                    				alert("页码只能为数字!");
+                                    			}else if(index <= 0){
+                                    				alert("页码只能为正整数!");
+                                    			}else if(index > max){
+                                    				alert("超出页码范围!");
+                                    			}else{
+                                    				window.location.href="credits?pageNum="+index+"&acc=$!{acc}&time=$!{time}&ty=$!{ty}";
+                                    			}
+                                    		})
+                                    	})
+                                    </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </footer>
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+	
+ <div class="modal fade" id="addCredits">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h6 class="modal-title">发放积分</h6>
+            </div>
+            <p class="js_Message text-center text-danger m-t-sm m-b-none"></p>
+            <div class="modal-body">
+                <form id="addCreditsForm" class="form-horizontal" method="post">
+					
+					<div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">玩家账号：</label>
+                        <div class="col-sm-6">
+							<input id="addCreditsAccount" name="account" class="form-control" style="width:350px;" maxlength="300"/>
+                       </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">积分：</label>
+                        <div class="col-sm-6">
+							<input id="addCreditsNum" name="credits" class="form-control" style="width:350px;" maxlength="300"/>
+                       </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label" style="text-align:center;font-size:10pt">获取方式：</label>
+                        <div class="col-sm-6">
+							<input id="addCreditsType" name="type" class="form-control" style="width:350px;" value="审核" maxlength="300" readonly />
+                       </div>
+                    </div>
+                    
+                 <div class="modal-footer">
+                    	<button type="button"  class="btn btn-info js_addCredits_Submit">确定</button>
+                        <button type="button" class="btn btn-default close_js_Msg" data-dismiss="modal">返回</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+	
+    <!-- /.modal-dialog -->
+</div>
+
+<script>
+	$(function(){
+		$(".js_give").click(function(){
+			$("#addCreditsType").val("审核");
+		})
+	
+	
+		$(".js_addCredits_Submit").click(function(){
+			var account = $.trim($("#addCreditsAccount").val());
+			var credits = $.trim($("#addCreditsNum").val());
+			if(account == ""){
+				alert("玩家账号不能为空！");
+			}else if(credits == ""){
+				alert("积分不能为空！");
+			}else if(isNaN(credits)){
+				alert("积分只能为数字！");
+			}else if(credits <= 0){
+				alert("积分必须是大于0的正整数！");
+			}else if(credits > 1000){
+				alert("积分必须小于1000！");
+			}else{
+				$.ajax
+				({
+					url:"giveCredit",
+					type:"post",
+					data:$("#addCreditsForm").serialize(),
+					dataType:"json",
+					success:function(d){
+						if(d == "1"){
+							alert("发放成功！");
+							window.location.reload();
+						}else{
+							alert("发放失败！");
+						}
+					}
+				})
+			}
+		})
+	})
+</script>
+
+<script type="text/javascript">
+        $(function () {
+            //时间控件--开始
+            $(".js_startTimeCtr").datepicker({
+                format: 'yyyy-mm-dd',
+                startView: 2,   //默认打开是年试图
+                autoclose: true,  //选择后自动关闭
+                todayBtn: true,  //选择今天的按钮
+                minView: 2   //只能选到年试图  （0 代表能选到分钟、1 代表能选到小时、2 代表能选到日 ）
+            })
+            //时间控件--结束
+        });
+    </script>
+</body>
+</html>

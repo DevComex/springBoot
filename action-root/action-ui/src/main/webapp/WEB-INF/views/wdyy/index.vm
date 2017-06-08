@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>问道YY活动</title>
+<link rel="stylesheet" href="http://static.cn114.cn/action/wdyy/css/wd151219.css" />
+<script src="http://s.gyyx.cn/Lib/jquery.js" type="text/javascript"></script>
+    <script  type="text/javascript">
+        var rc = "";
+</script>
+<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script><!--统计代码 -->
+<script src="http://www.gyyx.cn/inc/gyyx_statistics.js" type="text/javascript"></script>
+<script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/wdyy/js/ymcore.min.js" ></script>
+<script src="http://static.cn114.cn/action/wdyy/js/ReceiveCommon.js" type="text/javascript"></script>
+</head>
+<body>
+
+<div class="public_nav_top"><script type="text/javascript">Showtop();</script></div>
+	<div class="wrap">
+		<div class="box">
+			<div class="main">
+				<div class="nav"><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank">进入官网</a>|<a href="http://pay.gyyx.cn/" target="_blank">充值中心</a>|<a href="http://account.gyyx.cn/Member/Register/" target="_blank">账号注册</a>|<a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a></div>
+				<div class="hdCont01">
+					<div class="hdTxt">
+						<h3 class="hdTit"><img src="http://static.cn114.cn/action/wdyy/images/wd151219_tit01.png"></h3>
+						<div class="hdLc">
+							<p><span>1、</span>2015年12月28日-2016年1月10日期间，玩家可以在YY游戏频道领取任务码后在此页面选择“2016”新服进行激活。<br>
+							</p>
+							<p><span>2、</span>2016年1月1日12点开启“2016”新服，届时玩家即可进入。</p>
+							<p><span>3、</span>激活任务后，进入“2016”新服游戏，将会收到系统提示：“您获得了“奇经八脉圣至礼包”，可以前往天墉城南极仙翁处领取。</p>
+							<p><span>4、</span>在升级到对应级别，均可获得相应道具奖励。</p>
+							<h3>注意：</h3>
+							<p><span>1、</span>本次活动只在2016年1月1日所开启的新服“2016”进行，</p>
+							<p><span>2、</span>激活任务账号必须为首次使用YY任务码且此区组未激活过其他媒体新手卡，才可 激活任务，进入游戏后完成升级任务领取对应的礼包物品。</p>
+							<p><span>3、</span>玩家在YY公会游戏频道，一个账号只可领取一次任务码，且在游戏中，一个任务 码只可激活领取一次。</p>
+							<p><span>4、</span>玩家账号在2016年1月1日所开启的新服【2016】服，如果已经先行激活了YY任务码，则在此区组不可以再领取其他任何媒体新手卡。</p>
+						</div>
+					</div>
+					<div class="hdInp">
+						<h3 class="hdTit"><img src="http://static.cn114.cn/action/wdyy/images/wd151219_tit02.png"></h3>
+						<div class="inpBox">
+							<div class="loginBox">
+								<div class="login" id="loginbar">领取请您先：<a class="wd_login" onclick="alertFn(null,null,true)">登录</a><span>（新用户注册后再登录）</span></div>
+                                <div class="sucss" style="display: none;">欢迎xxxxx!!</div>
+							</div>
+							<div class="inpD">
+                                <label>选择服务器：</label>
+                                <!--<select class="sel01"><option>双线</option></select>
+                                <select class="sel02"><option>请选择服务器</option></select>-->
+                                <select name="netType" id="ddlNetType" class="sel01">
+                                <option value="3">双线</option>
+                                <option value="1">网通</option>
+                                <option value="2">电信</option>
+                            </select>
+                             <select name="serverId" id="ddlGameServer" class="sel02">
+                            </select>
+
+							</div>
+							<div class="inpD">
+                                <label class="labe">激活任务码：</label>
+                                <input type="text" name="card" id="txtNoviceCard" />
+                             </div>
+
+							<div class="inpD wd_yzm checknum"><label>输入验证码：</label><input type="text" name="code" id="txtCheckcode" class="w90"/><span class="yzm"><img alt="验证码" title="看不清楚,请点击." src="http://static.cn114.cn/action/WDSevenAcupuncture/images/wd151125_yzm.jpg" width="88" height="40" id="captcha_image"/></span></div>
+	             
+					         <p class="errorp" style="color:red;padding-left: 29px;"></p>
+                            <!-- 隐藏域 -->
+                            <input type="hidden" value="33" id="batchNo" name="batchNo" />
+                            <input type="hidden" name="hdName" id="hdName" value="问道YY2016元旦活动" />
+                            <input type="hidden" name="activityId" id="activityId" value="336" />
+
+                            <div class="inpBtn">
+								<a href="javascript:;" class="a01" id="btnRegister">激活任务</a>
+								<a href="http://account.gyyx.cn/Member/Register" class="a02" target="_blank">注册激活</a>
+								<a href="http://wd.gyyx.cn/download/index.aspx" class="a03" target="_blank">下载游戏</a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<h3 class="contTit"><img src="http://static.cn114.cn/action/wdyy/images/wd151219_tit03.png"></h3>
+				<div class="hdcon02">
+					<div class="contBgC">
+						<div class="contBgF">
+							<ul class="hdTab">
+								<li class="first"><a href="javascript:;" class="firstA">10级</a></li>
+								<li><a href="javascript:;">20级</a></li>
+								<li><a href="javascript:;">40级</a></li>
+								<li><a href="javascript:;">60级</a></li>
+								<li><a href="javascript:;">80级</a></li>
+								<li><a href="javascript:;">100级</a></li>
+								<li><a href="javascript:;">120级</a></li>
+								<li class="last"><a href="javascript:;" class="lastA">140级</a></li>
+							</ul>
+							<div class="contPart">
+								<div class="contTab">
+								  <table class="contTable">
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xlk.jpg" />仙灵卡</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/cjbgyyl.jpg" />超级八卦阴阳令</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xsj.jpg" />驯兽诀</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xhk.jpg" />鲜花卡</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/tshy.jpg" />天神护佑*1</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/cjjlk.jpg" />超级疆良卡*2</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/cjmdk.jpg" />超级九尾狐卡*2</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>卷轴</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·拜师</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·幸运大使</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·采购</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·天神降临</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+							      </table>
+								</div>
+								<div class="contTab">
+								  <table class="contTable">
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jctq.jpg" />金蝉脱壳</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/yht.jpg" />烟花筒</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/tshy.jpg" />天神护佑*1</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xzjs.jpg" />袖珍晶石*3</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xzls.jpg" />袖珍灵石*3</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/cjddj.jpg" />超级玄冥卡*2</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/cjkkl.jpg" />超级祝融卡*2</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/cjbbn.jpg" />超级后土卡*2</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>卷轴</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·除暴任务</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·捉宠</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·妖魔道</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·报效师门</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·遥领天机</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+							      </table>
+								</div>
+								<div class="contTab">
+								  <table class="contTable">
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/wxhyl.jpg" />五行合缘露</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/yjxsd.jpg" />易经洗髓丹</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/yqd.jpg" />元气丹</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/tshy.jpg" />天神护佑*1</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xzjs.jpg" />袖珍晶石*4</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xzls.jpg" />袖珍灵石*4</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>装备</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/ss35.jpg" />35级限时首饰*2</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jqllb.jpg" />汉钟离玲珑笔</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>卷轴</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·强化</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·押镖</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·加入帮派</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·聚沙成塔*5</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·古道热肠</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+							      </table>
+								</div>
+								<div class="contTab">
+								  <table class="contTable">
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/thl.jpg" />果仁糖葫芦</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/bbss.jpg" />宝宝圣水</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/shs.jpg" />兽魂散*1</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/hyjj.jpg" />火眼金睛</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/tshy.jpg" />天神护佑*1</td>
+								      <td>&nbsp;<!--<img src="http://static.cn114.cn/action/wdyy/images/xyxdb.jpg" />小游戏代币*3--></td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xzjs.jpg" />袖珍晶石*5</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xzls.jpg" />袖珍灵石*5</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/qfmy.jpg" />清风沐雨套时装</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>装备</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/ss60.jpg" />60级限时首饰*2</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>卷轴</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·切磋</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·绑定</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·日常任务</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·仙人指路</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·神工砺兵</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·仙界悬赏</td>
+								      <td>&nbsp;</td>
+							        </tr>
+							      </table>
+								</div>
+								<div class="contTab">
+								  <table class="contTable">
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/tshy.jpg" />天神护佑</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/yjxsd.jpg" />易经洗髓丹</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/shs.jpg" />兽魂散</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/sls.jpg" />兽灵散</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/tj.jpg" />糖浆</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/zy.jpg" />纸鸢</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/cjks.jpg" />赤金矿石*5</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/gjzqkb.jpg" />高级战棋卡包*1</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/hyq.jpg" />鸿运签</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/wwmj.jpg" />娃娃随机秘笈</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>装备</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/ss80.jpg" />80级限时首饰*2</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/yd80.jpg" />80级限时腰带</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>卷轴</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·副本任务</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·仙魔录</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·日常任务</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·神行千里</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·遥领天机</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·仙界悬赏</td>
+								      <td>&nbsp;</td>
+							        </tr>
+							      </table>
+								</div>
+								<div class="contTab">
+								  <table class="contTable">
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/zdbtk.jpg" />自动摆摊卡</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/hyjj.jpg" />火眼金睛</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/bbss.jpg" />宝宝圣水</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xsj.jpg" />驯兽诀</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jctq.jpg" />金蝉脱壳</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/tshy.jpg" />天神护佑*1</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xzssj.jpg" />袖珍圣水晶</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xzfys.jpg" />袖珍封印石</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/cwwxd.jpg" />宠物武学丹</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/fw1.jpg" />随机1阶符文</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/cwdwd.jpg" />宠物顿悟丹</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xfbd.jpg" />心法宝典</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>装备</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/ss100.jpg" />100限时首饰*2</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/hjs.jpg" />幻境石*2</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>卷轴</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·天罡地煞</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·门派比武</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·礼从天降</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·移花接木</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·醉梦八仙</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+							      </table>
+								</div>
+								<div class="contTab">
+								  <table class="contTable">
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/tshy.jpg" />天神护佑</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/hyjj.jpg" />火眼金睛</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/ryzdl.jpg" />如意战斗令*2</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/yhkql.jpg" />限时御魂孔雀翎</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/tjbgyyl.jpg" />特级八卦阴阳令</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xfbd.jpg" />心法宝典*2</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xzssj.jpg" />袖珍圣水晶</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xzths.jpg" />袖珍天换石</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/hty.jpg" />混沌玉</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/zbgms.jpg" />装备共鸣石</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/fw2.jpg" />随机2阶符文</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/sjsz.jpg" />随机时装一套</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>装备</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/ss120.jpg" />120限时首饰*2</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/zwxzhf.jpg" />紫微星召唤符</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/yssp.jpg" />绑定异兽碎片</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xwd.jpg" />修为丹</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>卷轴</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·试道大会</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·宠物强化</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·蟾宫折桂</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·聚沙成塔</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+							      </table>
+								</div>
+								<div class="contTab">
+								  <table class="contTable">
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/tshy.jpg" />天神护佑</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/djtck.jpg" />道具套餐卡</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/cjcbt.jpg" />超级藏宝图</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jctq.jpg" />金蝉脱壳</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/bgsf.jpg" />八卦神符</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/tdsf.jpg" />天道神符</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/cjts.jpg" />超级天书</td>
+							        </tr>
+								    <tr>
+								      <th>道具</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/lbs.jpg" />蓝宝石*5</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xzhsj.jpg" />袖珍黑水晶</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/tks.jpg" />天空石</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/fw3.jpg" />随机3阶符文</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/xfbd.jpg" />心法宝典*3</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/lhd.jpg" />炼魂丹</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>装备</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/ss140.jpg" />140限时首饰*2</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/wwjj.jpg" />娃娃随机绝技</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+								    <tr>
+								      <th>卷轴</th>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·试道大会</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz1.jpg" />卷轴·门派比武</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·神行千里</td>
+								      <td><img src="http://static.cn114.cn/action/wdyy/images/jz2.jpg" />卷轴·遥领天机</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+								      <td>&nbsp;</td>
+							        </tr>
+							      </table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+
+<script>
+//切换
+	YM.UI.Tab({
+	  container: 'div.contBgF',
+	  animated: 'fade',
+	  index: 0,
+	  time: 0
+	});
+	$(".contTable tr:last").addClass("noLine");
+	$(".contTable tr:last").addClass("noLine");
+</script>
+<!--[if IE 6]>
+<script src="http://www.gyyx.cn/Scripts/DD_belatedPNG.js"></script>
+<script>
+DD_belatedPNG.fix('.hdTit img');
+DD_belatedPNG.fix('.inpBtn a');
+DD_belatedPNG.fix('.contTit img');
+DD_belatedPNG.fix('.hdTab');
+DD_belatedPNG.fix('.hdTab li.on a');
+  
+</script>
+
+<![endif]-->
+<script>alert("谢谢参与，活动已结束");</script>
+</body>
+</html>

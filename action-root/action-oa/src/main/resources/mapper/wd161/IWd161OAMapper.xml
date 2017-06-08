@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wd161.IWd161Mapper">
+	<resultMap type="Wd161RoleAccountBean" id="Wd161RoleAccountMap">
+		<id column="code" property="code" />
+		<result column="user_code" property="userCode" />
+		<result column="user_name" property="userName" />
+		<result column="server_code" property="serverCode" />
+		<result column="server_name" property="serverName" />
+		<result column="gid" property="gid" />
+		<result column="role_name" property="roleName" />
+		<result column="action_code" property="actionCode" />
+		<result column="create_time" property="createTime" />
+		<result column="audit_time" property="auditTime" />
+		<result column="audit_status" property="auditStatus" />
+		<result column="ip" property="ip" />
+		<result column="pic_url" property="picUrl" />
+		<result column="audit_status" property="auditStatus" />
+		<result column="votes" property="votes" />
+		<result column="rank" property="rank" />
+		<result column="audit_person" property="auditPerson" />
+	</resultMap>
+	
+	<resultMap type="Wd161CommentsBean" id="Wd161CommentsMap">
+		<id column="code" property="code" />
+		<result column="nick_name" property="nickName" />
+		<result column="comments" property="comments" />
+		<result column="create_time" property="createTime" />
+		<result column="audit_status" property="auditStatus" />
+		<result column="audit_person" property="auditPerson" />
+		<result column="audit_time" property="auditTime" />
+	</resultMap>
+	
+	<!-- 查询pic列表  -->
+	<select id="getPicList" resultMap="Wd161RoleAccountMap">
+		select top 10 *, a.row_num
+			from(
+			select
+				ROW_NUMBER () OVER (order by code desc) as row_num ,*
+				from
+				wd161_role_account_tb
+				
+				where 
+				pic_url is not null
+				
+				<if test="beginTime!= null and beginTime!= '' ">
+					<![CDATA[ and create_time >=  #{beginTime} ]]>  
+				</if>
+				<if test="endTime!= null and endTime!= '' ">
+					<![CDATA[ and create_time <=  #{endTime} ]]>  
+				</if>
+				<if test="auditStatus!= null and auditStatus!= '' ">
+					<![CDATA[ and audit_status =  #{auditStatus} ]]> 
+				</if>
+			) a
+			where
+		a.row_num > 10 *  (#{pageNo} -1)
+			
+		
+	</select>
+
+	<!-- 查询作品列表  总数-->
+	<select id="getPicCount" resultType="java.lang.Integer">
+		select count(*) 
+		from 
+		wd161_role_account_tb 
+		where 
+		pic_url is not null
+		
+		<if test="beginTime!= null and beginTime!= '' ">
+			<![CDATA[ and create_time >=  #{beginTime} ]]>  
+		</if>
+		<if test="endTime!= null and endTime!= '' ">
+			<![CDATA[ and create_time <=  #{endTime} ]]>  
+		</if>
+		<if test="auditStatus!= null and auditStatus!= '' ">
+			<![CDATA[ and audit_status =  #{auditStatus} ]]> 
+		</if>
+		
+	</select>
+	
+	<!-- pic审核 -->
+	<update id="checkPics" >
+		update  wd161_role_account_tb 
+		set 
+		audit_status=#{auditStatus},
+		audit_person=#{realName},
+		audit_time=getdate()
+		where 
+		user_name=#{userName}
+	</update>
+	<!-- pic批量审核 -->
+	<update id="batchCheckPics" >
+		update  wd161_role_account_tb 
+		set 
+		audit_status=#{auditStatus},
+		audit_person=#{realName},
+		audit_time=getdate()
+		where 
+		user_code=#{userId}
+	</update>
+	
+	<!-- 查询评论列表  -->
+	<select id="commentsList" resultMap="Wd161CommentsMap">
+		select top 10 *, a.row_num
+			from(
+			select
+				ROW_NUMBER () OVER (order by code desc) as row_num ,*
+				from
+				wd161_comments_tb
+				
+				where 1=1
+				
+				
+				<if test="beginTime!= null and beginTime!= '' ">
+					<![CDATA[ and create_time >=  #{beginTime} ]]>  
+				</if>
+				<if test="endTime!= null and endTime!= '' ">
+					<![CDATA[ and create_time <=  #{endTime} ]]>  
+				</if>
+				<if test="auditStatus!= null and auditStatus!= '' ">
+					<![CDATA[ and audit_status =  #{auditStatus} ]]> 
+				</if>
+			) a
+			where
+		a.row_num > 10 *  (#{pageNo} -1)
+			
+		
+	</select>
+
+	<!-- 查询评论列表  总数-->
+	<select id="getCommentsCount" resultType="java.lang.Integer">
+		select count(*) 
+		from 
+		wd161_comments_tb 
+		where 1=1
+		
+		<if test="beginTime!= null and beginTime!= '' ">
+			<![CDATA[  and create_time >=  #{beginTime} ]]>  
+		</if>
+		<if test="endTime!= null and endTime!= '' ">
+			<![CDATA[ and create_time <=  #{endTime} ]]>  
+		</if>
+		<if test="auditStatus!= null and auditStatus!= '' ">
+			<![CDATA[ and audit_status =  #{auditStatus} ]]> 
+		</if>
+		
+	</select>
+	
+	<!-- 评论审核 -->
+	<update id="checkComments" >
+		update  wd161_comments_tb 
+		set 
+		audit_status=#{auditStatus},
+		audit_person=#{realName},
+		audit_time=getdate()
+		where 
+		code=#{code}
+	</update>
+	
+	<!-- 评论批量审核 -->
+	<update id="batchCheckComments" >
+		update  wd161_comments_tb 
+		set 
+		audit_status=#{auditStatus},
+		audit_person=#{realName},
+		audit_time=getdate()
+		where 
+		code=#{code}
+	</update>
+	
+	<!-- 批量审核 comments 先查  -->
+	<select id="getCommentsByCode" resultMap="Wd161CommentsMap">
+		SELECT
+		*
+		FROM
+			wd161_comments_tb
+		WHERE
+		code =#{code}
+		
+	</select>
+	
+	<!-- 获取用户绑定角色信息  -->
+	<select id="getUserInfo" parameterType="int" resultMap="Wd161RoleAccountMap">
+		select * from
+		wd161_role_account_tb
+		where user_code = #{userCode}
+	</select>
+	
+
+</mapper>

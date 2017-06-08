@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>问道-跨服赛事</title>
+
+    <link type="text/css" rel="stylesheet" href="http://static.cn114.cn/action/LiveVideo/css/css.css" />
+
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+</head>
+<body>
+    <!-- 页头 开始 -->
+    <!-- div class="public_nav_top"><script type="text/javascript">Showtop();</script></div -->
+    <!-- 页头 结束 -->
+
+    <!-- 正文部分 开始 -->
+    <div class="warp">
+        <!-- 导航栏 开始 -->
+        <div class="page_head">
+            <div class="page_head_nav">
+                <a class="page_head_nav_logo" href="http://www.gyyx.cn" target="_blank" alt="光宇游戏">光宇游戏</a>
+                <ul class="page_head_nav_link">
+                    <li><a href="#">首页</a></li>
+                </ul>
+            </div>
+        </div>
+        <!-- 导航栏 结束 -->
+
+        <!-- 正文 开始 -->
+        <div class="page_cont">
+            <div class="page_cont_body">
+                <div class="page_cont_body_videoplayer" id="js_videoplayer"></div>
+                <div class="page_cont_body_right">
+                    <ul class="page_cont_body_right_ad">
+                        <li><a href="http://wd.gyyx.cn/huodong/qmpk2016/index.html" target="_blank"><img src="http://static.cn114.cn/action/LiveVideo/images/pic/6.jpg" alt="" /></a></li>
+                        <li><a href="http://wd.gyyx.cn/huodong/wdxf/2016/qxzb_xf.html" target="_blank"><img src="http://static.cn114.cn/action/LiveVideo/images/pic/2.jpg" alt="" /></a></li>
+                        <li><a href="http://wd.gyyx.cn/huodong/hyxy201610/index.html" target="_blank"><img src="http://static.cn114.cn/action/LiveVideo/images/pic/3.jpg" alt="" /></a></li>
+                        <li><a href="http://wd.gyyx.cn/huodong/jl2016/index.html" target="_blank"><img src="http://static.cn114.cn/action/LiveVideo/images/pic/4.jpg" alt="" /></a></li>
+                        <li><a href="http://wd.gyyx.cn/huodong/qfhy/index.html" target="_blank"><img src="http://static.cn114.cn/action/LiveVideo/images/pic/5.jpg" alt="" /></a></li>
+                        <li><a href="http://wd.gyyx.cn/action/1.60/index.html" target="_blank"><img src="http://static.cn114.cn/action/LiveVideo/images/pic/1.jpg" alt="" /></a></li>
+                    </ul>
+                </div>
+
+                $!error
+                <!--
+                <br />
+                当前直播间 ID 是 <span id="roomId">$!roomId</span>，<br />
+                直播间在直播中：<span id="onAir">$!onAir</span>，<br />
+                直播开始时间：<span id="onAir">$!startTime</span>，<br />
+                直播 URL 是：<span id="720P">$!r720P</span>、<br />
+                <span id="480P">$!r480P</span>、<br />
+                <span id="360P">$!r360P</span><br />
+                当前在线：<span id="online">$!onlineCount<span>人
+                <br /><br />
+                <span id="msg"></span>
+                <form id="form" action="/wdfinalchallenge/feedback" method="POST">
+                	<input name="contact" placeholder="联系方式" />
+                	<textarea name="text"></textarea>
+                	<input type="submit" value="反馈">
+                </form
+                -->
+
+            </div>
+        </div>
+        <!-- 正文 结束 -->
+    </div>
+    <!-- 正文部分 结束 -->
+
+    <!-- 页尾 开始 -->
+    <div class="public_nav_bottom"><script type="text/javascript">ShowBottom();</script></div>
+    <!-- 页尾 结束 -->
+
+    <!-- 视频播放器控制脚本 开始 -->
+    <script type="text/javascript" src="http://static.cn114.cn/action/LiveVideo/player/ckplayer.js" charset="utf-8"></script>
+    <script src="http://static.cn114.cn/action/LiveVideo/lib/jquery.cookie.js"></script>
+    <script src="http://static.cn114.cn/action/LiveVideo/lib/socket.io-1.4.5.js"></script>
+    <script type="text/javascript">
+        $("#js_videoplayer").css("height", "618px");
+        $(document).ready(function() {
+    		var socket = io('http://room.live.gyyx.cn', { query: 'roomId=$roomId&vuid=' + $.cookie('VUID') });
+            var defaults = {
+                "onAir": $!onAir,
+                "startTime": "$!startTime",
+                "origin": "$!origin",
+                "360P": "$!r360P",
+                "480P": "$!r480P",
+                "720P": "$!r720P"
+                };
+            var wait_flag = false; /* 标记是否进入等待房间 */
+
+            socket.on('connect', function(){
+            	//$('#msg').text('已连接到服务器，SessionID：' + socket.io.engine.id +', VUID：' + $.cookie('VUID'));
+
+                /* 在线人数变化 */
+            	/*
+            	socket.on('room_online_changed', function(data){
+                	$('#online').text(data)
+                });
+                */
+
+                /* 进入等待房间 */
+            	socket.on('live_user_wait', function(data){
+                	console.log("live_user_wait: " + data);
+                	$("#js_videoplayer").html('<div class="page_cont_body_videoplayer_info">直播太火爆了，您正在排队！可以先去<a href="http://wd.gyyx.cn" target="_blank">问道官网</a>看看...</div>');
+                });
+
+                /* 进入直播房间 */
+                socket.on('live_user_online', function(data){
+                    console.log("live_user_online: " + data);
+                    if(data == "wait") wait_flag = true;
+                    else wait_flag = false;
+                	live();
+                });
+
+                /* 从等待房间进入到直播房间 */
+                socket.on('live_user_wait_to_online', function(data){
+                    console.log("live_user_wait_to_online: " + data);
+                    if((defaults.onAir && defaults.startTime != "") || wait_flag) set_player();
+                    else $("#js_videoplayer").html('<div class="page_cont_body_videoplayer_info">主播去洗澡了，稍后即将登场！可以先去<a href="http://wd.gyyx.cn" target="_blank">问道官网</a>看看...</div>');
+                });
+
+                /* 直播开始 */
+                socket.on('live_started', function(data){
+                    /* 开始直播事件 */
+                    console.log("live_started: " + data);
+                    set_player();
+                });
+
+                /* 直播停止 */
+                socket.on('live_stopped', function(data){
+                	console.log("live_stopped: " + data);
+                	$("#js_videoplayer").html('<div class="page_cont_body_videoplayer_info">主播去洗澡了，稍后即将登场！可以先去<a href="http://wd.gyyx.cn" target="_blank">问道官网</a>看看...</div>');
+                });
+
+            });
+
+            live();
+
+            /* 判断直播是否已经开始 */
+            function live(){
+                //if(wait_flag) return false;
+                if(defaults.onAir && defaults.startTime != ""){
+                     //delete defaults.onAir;
+                     //delete defaults.startTime;
+                     if(wait_flag){
+                        $("#js_videoplayer").html('<div class="page_cont_body_videoplayer_info">直播太火爆了，您正在排队！可以先去<a href="http://wd.gyyx.cn" target="_blank">问道官网</a>看看...</div>');
+                        return false;
+                     }
+                     set_player();
+                 }else{
+                     $("#js_videoplayer").html('<div class="page_cont_body_videoplayer_info">主播去洗澡了，稍后即将登场！可以先去<a href="http://wd.gyyx.cn" target="_blank">问道官网</a>看看...</div>');
+                 }
+              }
+
+
+            $('#form').submit(function(e){
+    		    $.ajax({
+    				type: "POST",
+    				url: e.target.action,
+    				data: $("#form").serialize(),
+    				success: function(data)
+    				{
+    	               alert(data.message);
+    	           }
+    		    });
+            	e.preventDefault();
+            });
+        });
+
+
+        /* 设置播放器 */
+        function set_player(){
+            var flashvars = {
+                f: 'http://static.cn114.cn/action/LiveVideo/player/[$pat]/index.xml',
+                a: 'r1_258',
+                s: '2',
+                c: 0,
+                p: 1,
+                b: 0,
+                lv: 1,
+                i: 'http://static.cn114.cn/action/LiveVideo/images/player_bg.jpg'
+            }
+
+
+
+            console.log(flashvars);
+
+            //CKobject.getObjectById("ckplayer_a1").changeFlashvars(parm);
+
+
+            var params = { bgcolor:"#FFF", allowFullScreen:true, allowScriptAccess:"always", wmode:"transparent" };
+            CKobject.embedSWF("http://static.cn114.cn/action/LiveVideo/player/ckplayer.swf", "js_videoplayer", "ckplayer_a1", "1008", "618", flashvars, params);
+
+        }
+    </script>
+    <!-- 视频播放器控制脚本 结束 -->
+
+</body>
+</html>

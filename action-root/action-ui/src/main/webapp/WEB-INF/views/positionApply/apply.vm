@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>光宇社招</title>
+		 <script  type="text/javascript">
+     var rc = "${rc.contextPath}";
+ </script>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/positionApply/css/sqPage.css"/>
+</head>
+<body style="background: #1d75d4;">
+	<div class="warp">
+		<img src="http://static.cn114.cn/action/positionApply/img/sqbg.jpg" class="top"/>
+		<div class="main">
+			<img src="http://static.cn114.cn/action/positionApply/img/sqt.jpg" class="top"/>
+			<div class="content">
+				<h2>您正在申请：<span class="zwName">$!position</span></h2>
+				<p><label>*应聘者姓名：</label><input type="text" class="name" maxlength="10"/></p>
+				<p><label>*应聘者电话：</label><input type="text" class="phone" maxlength="11"/></p>
+				<p><label>应聘者QQ：</label><input type="text" class="qq" maxlength="15"/></p>
+				<p><label>应聘者性别：</label><select id="sex"><option>男</option><option>女</option></select></p>
+			</div>
+			<div class="content">
+				<h2>如为内部推荐请完善以下信息：</h2>
+				<p><label>推荐者姓名：</label><input type="text" class="Tname" maxlength="10" / ></p>
+				<p><label>推荐者邮箱：</label><span><input type="text" class="Temail"/>@gyyx.cn</span></p>
+			</div>
+			<p>※简历及作品请发送至：</p>
+			<p>gyyxhr01@gyyx.cn</p>
+			<p>（邮件中请注明应聘职位）</p>
+			<a href="javascript:;" class="subtn" id="sub">提&nbsp;&nbsp;交</a>
+		</div>
+	</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/zepto.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/allstyle.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/content.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/shenqingPage.js" ></script>
+</body>
+</html>

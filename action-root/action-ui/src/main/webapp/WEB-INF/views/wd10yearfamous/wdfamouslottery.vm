@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>问道—第六届名人争霸赛参与抽奖</title>
+    <link href="http://static.cn114.cn/action/wd10yearmrzbLottery/css/wdmr_160509.css" rel="stylesheet" type="text/css">
+    <script src="http://s.gyyx.cn/lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js"></script>
+ 	 <script  type="text/javascript">
+	 var rc="${rc.contextPath}";
+	 </script>
+	 <script type="text/javascript">
+			alert("谢谢参与，活动已结束")
+	</script>
+</head>
+<body>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="wrap">
+        <div class="main">
+            <div class="nav"><a target="_blank" href="http://wd.gyyx.cn/index_wd_v5.htm">进入官网</a>|<a target="_blank" href="http://pay.gyyx.cn/">充值中心</a>|<a target="_blank" href="http://account.gyyx.cn/Member/Register">账号注册</a>|<a target="_blank" href="http://wd.gyyx.cn/download/">下载中心</a></div>
+            <a href="http://wd.gyyx.cn/huodong/10zn/mrzb/index.html" class="back">返回名人争霸赛</a>
+            <div class="wd_cj">
+                <div class="server">
+                    <p class="login_p" id="js_account">抽奖需要先<a href="javascript:;" onclick="alertFn(null,null,true);">登录</a></p>
+                    <p class="sele_fwq">
+                        <label>我的服务器:</label>
+                        <select id="js_netType">
+                            <option value="">请选择区组</option>
+                            <option value="1">网通</option>
+                            <option value="2">电信</option>
+                            <option value="3">双线</option>
+                        </select>
+                        <select id="js_server">
+                            <option value="">请选择服务器</option>
+                        </select>
+                    </p>
+                    <p class="login_succ" id="js_myPrize"></p>
+                </div>
+                <div class="cjlist_l">
+                    <div class="cj_list">
+                        <ul>
+                            <li id="dzp0" class="jp">
+                                <img src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/wd_160509_prize_img1.jpg"></li>
+                            <li id="dzp11" class="jp">
+                                <img src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/wd_160509_prize_img5.jpg"></li>
+                            <li id="dzp10" class="jp">
+                                <img src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/wd_160509_prize_img5.jpg"></li>
+                            <li id="dzp9" class="jp">
+                                <img src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/wd_160509_prize_img4.jpg"></li>
+                        </ul>
+                        <ul class="cj_list02">
+                            <li id="dzp1" class="jp">
+                                <img src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/wd_160509_prize_img5.jpg"></li>
+                            <li id="dzp2" class="jp">
+                                <img src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/wd_160509_prize_img5.jpg"></li>
+                            <li class="ljcj"><a href="javascript:;" id="btnStart" text="go">立即中奖</a></li>
+                            <li id="dzp8" class="jp">
+                                <img src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/wd_160509_prize_img5.jpg"></li>
+                            <li id="dzp7" class="jp">
+                                <img src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/wd_160509_prize_img5.jpg"></li>
+                        </ul>
+                        <ul>
+                            <li id="dzp3" class="jp">
+                                <img src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/wd_160509_prize_img2.jpg"></li>
+                            <li id="dzp4" class="jp">
+                                <img src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/wd_160509_prize_img5.jpg"></li>
+                            <li id="dzp5" class="jp">
+                                <img src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/wd_160509_prize_img5.jpg"></li>
+                            <li id="dzp6" class="jp">
+                                <img src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/wd_160509_prize_img3.jpg"></li>
+                        </ul>
+                    </div>
+                    <div class="zj_name">
+                        <ul class="scroll_box" id="js_scrollList">
+                            <li>1111,已获得XXXXX！</li>
+                            <li>2222,已获得XXXXX！</li>
+                            <li>3333,已获得XXXXX！</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="cjlist_r">
+                    <h2>参与抽奖活动</h2>
+                    <div class="rlist_cont">
+                        <h3>活动时间:</h3>
+                        <div class="contxt">5月16日0：00—5月22日 23：59<br />（参加第六届名人争霸赛并进入战场参战的玩家的选手可抽奖）</div>
+                        <h3>奖励说明:</h3>
+                        <div class="contxt">随机元灵、元灵精魄、随机神兽、随机变异</div>
+                        <h3>活动说明:</h3>
+                        <ul>
+                            <li><span>1.</span><p>玩家在开启转盘活动之前必须先进行登录；</p></li>
+                            <li><span>2.</span><p>每个账号只有1次抽奖机会，活动期间若未抽奖则视为放弃抽奖资格；</p></li>
+                            <li><span>3.</span><p>奖品按照参与名人争霸赛时，角色所在的账号、区组发放（活动结束后统一发放）；</p></li>
+                            <li><span>4.</span><p>本次活动奖品不可退换；</p></li>
+                            <li><span>5.</span><p>奖品图片仅为展示，元灵、神兽、变异为随机奖品；</p></li>
+							<li><span>6.</span><p>活动最终解释权由光宇在线科技有限责任公司所有。</p></li>
+							
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--弹层一-->
+    <div class="wd_tc1" style="display:none;" id="js_popFailTip">
+        <a class="close pop-close" href="#">关闭</a>
+        <div class="tc_cont1">
+            <p class="tc_p1"><img class="deco1" src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/poptextbg1.png" />很遗憾您未能获得奖品<img  class="deco2" src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/poptextbg2.png" /></p>
+            <a class="surebtn pop-close">确定</a>
+        </div>
+    </div>
+    <!--弹层二-->
+    <div class="wd_tc2" style="display:none;" id="js_popSuccTip">
+        <a class="close pop-close" href="#">关闭</a>
+        <div class="tc_cont2">
+            <p class="tc2_p1"><img class="deco1" src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/poptextbg1.png" />恭喜您获得<span id="js_panelPrize"></span><img class="deco2" src="http://static.cn114.cn/action/wd10yearmrzbLottery/images/poptextbg2.png" /></p>
+            <p class="tc2_p2">奖品将在活动结束后统一发放，请耐心等待。</p>
+            <a class="surebtn pop-close">确定</a>
+        </div>
+    </div>
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom();</script>
+    </div>
+	<script>
+	var NLOTTERY_CONFIG = {
+	//获取我的奖品
+    	getMyPrize: rc+"/wd10years/getAllLotteryInfoByUser",
+    	//服务器列表
+    	serverListUrl: rc+"/wd10years/getServers",
+    	//抽奖
+    	lotteryUrl: rc+"/wd10years/goFamousLottery",
+    	//滚动信息（其他玩家获取列表）
+    	scrollNews: rc+"/wd10years/getAllLotteryInfo"
+	};
+	</script>
+    <script src="http://static.cn114.cn/action/wd10yearmrzbLottery/js/Lotterywd.js"></script>
+    <script src="http://s.gyyx.cn/lib/jquery.bgiframe.js"></script>
+    <script src="http://static.cn114.cn/action/wd10yearmrzbLottery/js/handle.js"></script>
+    <script>
+        $(function () {
+            nLottery.init();
+         });
+    </script>
+</body>
+</html>

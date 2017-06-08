@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.oa.internal.dao.bugsystem.IBugLogMapper">
+	<resultMap type="BugLogBean" id="BugLogBean">
+		<id column="code" property="code" />
+		<result column="username" property="username" />
+		<result column="bug_code" property="bugInfoCode" />
+		<result column="bug_status" property="bugStatus" />
+		<result column="change_time" property="changeTime" />
+	</resultMap>
+	
+	<!-- 添加游用户信息 -->
+	<insert id="insertBugLog" parameterType="BugLogBean">
+		insert into bug_buglog_tb
+		(username,bug_code,bug_status,change_time)
+		values(
+		#{username},
+		#{bugInfoCode},
+		#{bugStatus},
+		#{changeTime}
+		)
+	</insert>
+</mapper>

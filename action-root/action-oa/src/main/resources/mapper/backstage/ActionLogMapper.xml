@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.backstage.IActionMapper">
+<resultMap type="ActionBean" id="ActionBean">
+		<id column="code" property="code" />
+		<result column="user_name" property="userName" />
+		<result column="action_date" property="actionDate" />
+		<result column="action_name" property="actionName" />
+		<result column="action_code" property="actionCode" />
+	</resultMap>
+	<insert id="inserActionLog"  parameterType="ActionBean" >
+		insert into action_action_log
+		(user_name,action_date,action_name,action_code)
+		values
+		(#{userName},#{actionDate},#{actionName},#{actionCode})
+	</insert>
+	
+
+</mapper>

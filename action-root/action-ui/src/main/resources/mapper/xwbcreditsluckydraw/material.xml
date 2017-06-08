@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.IMaterialAuditMapper">
+	<resultMap type="MaterialAuditBean" id="MaterialAuditMap">
+		<id column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="server_name" property="serverName" />
+		<result column="material_name" property="materialName" />
+		<result column="material_type" property="materialType" />
+		<result column="is_checked" property="isChecked" />
+		<result column="credits" property="credits" />
+		<result column="comment_got" property="commentGot" />
+		<result column="praise_got" property="praiseGot" />
+		
+		<result column="net_type" property="netType" />
+		<result column="is_show" property="isShow" />
+		<result column="material_code" property="materialCode" />
+		<result column="upload_time" property="uploadTime" />
+		
+		<result column="with_best" property="withBest" />
+		<!-- new -->
+		<result column="content" property="content" />
+		<result column="material_profile" property="materialProfile" />
+		<result column="material_picture" property="materialPicture" />
+		
+		<result column="common_num" property="commonNum" />
+		<result column="praise_num" property="praiseNum" />
+	</resultMap>
+
+	<!-- 分页查询素材 -->
+	<select id="getMaterialAuditByPage" parameterType="java.util.Map"
+		resultMap="MaterialAuditMap">
+		<![CDATA[
+			select TOP (#{page.pageSize}) *  from xuanwuba_material_audit_new_tb 
+			where 
+			(code NOT IN 
+				(SELECT TOP (#{page.pageSize}*(#{page.pageNo}-1)) code FROM xuanwuba_material_audit_new_tb 
+					where '1'='1'
+		]]>
+		<if
+			test="materialAudit.materilType != null and materialAudit.materilType != ''">
+		<![CDATA[
+					and  material_type=#{materialAudit.materilType}
+		]]>
+		</if>
+		<if
+			test="materialAudit.isChecked != null and materialAudit.isChecked != ''">
+		<![CDATA[
+					and is_checked=#{materialAudit.isChecked} 
+		]]>
+		</if>
+		<![CDATA[
+       			 ORDER BY code desc )
+       		)
+       	]]>
+		<if
+			test="materialAudit.materilType != null and materialAudit.materilType != ''">
+		<![CDATA[
+					and  material_type=#{materialAudit.materilType}
+		]]>
+		</if>
+		<if
+			test="materialAudit.isChecked != null and materialAudit.isChecked != ''">
+		<![CDATA[
+					and is_checked=#{materialAudit.isChecked} 
+		]]>
+		</if>
+		<![CDATA[
+			ORDER BY code desc
+		]]>
+	</select>
+	<!-- 查询素材数量 -->
+	<select id="getMaterialAuditCount" parameterType="MaterialAuditBean"
+		resultType="Integer">
+		<![CDATA[
+			select count(*) from xuanwuba_material_audit_new_tb where '1'='1'
+		]]>
+		<if test="materilType != null and materilType != ''">
+		<![CDATA[
+					and  material_type=#{materilType}
+		]]>
+		</if>
+		<if test="isChecked != null and isChecked != ''">
+		<![CDATA[
+					and is_checked=#{isChecked} 
+		]]>
+		</if>
+	</select>
+	<!-- 首页显示素材 -->
+	<select id="selectMaterialShow" parameterType="MaterialAuditBean"
+		resultMap="MaterialAuditMap" resultType="list">
+		select * from
+		xuanwuba_material_audit_new_tb
+		where material_type = #{materialType} and is_show = #{isShow} order by with_best desc,material_code desc
+	</select>
+	<select id="selectMaterialUserShow" parameterType="String"
+		resultMap="MaterialAuditMap" resultType="list">
+		select * from
+		xuanwuba_material_audit_new_tb
+		where account = #{account} 
+		order by upload_time  DESC 
+
+	</select>
+	<!-- 修改审核状态 -->
+	<update id="updateIsChecked">
+		update xuanwuba_material_audit_new_tb set
+		is_checked=#{checkedStatus} where code=#{code}
+	</update>
+
+	<!-- 上传  2015-10-15 fanyongliang -->
+	<insert id="addMaterialAudit" parameterType="MaterialAuditBean">
+		insert into
+		xuanwuba_material_audit_new_tb
+		(account,server_name,material_name,material_type,is_checked,credits,comment_got,praise_got,net_type,is_show,material_code,upload_time,with_best)
+		values(#{account},#{serverName},#{materialName},#{materialType},#{isChecked},#{credits},#{commentGot},#{praiseGot},#{netType},#{isShow},#{materialCode},#{uploadTime},0)
+	</insert>
+
+	<!-- 征集首页显示 2015-10-15 fanyongliang -->
+	<select id="getCollectTopShow" resultMap="MaterialAuditMap" parameterType="CollectTopShowBean">
+		with common_best as(select content,material_code from xuanwuba_comments_tb where is_best = 1 and is_delete = 0)
+		,common_own as(select count(content) common_num,material_code,comment_account from xuanwuba_comments_tb where comment_account = #{account} and is_delete = 0 group by material_code,comment_account)
+		,praise_own as(select count(praise_date) praise_num,material_info,account from xuanxuba_praise_tb where account = #{account} and is_delete = 0 group by material_info,account)
+	
+		select top ${topNum} * from (select top ${topNum} common_own.common_num,praise_own.praise_num,a.code,a.with_best,a.account,a.material_type,a.praise_got,a.comment_got,common_best.content,a.material_code,c.material_name,c.material_profile,c.material_picture from xuanwuba_material_audit_new_tb a
+				left join common_best
+				on a.material_code = common_best.material_code 
+				left join xuanwuba_material_info_tb c
+				on  a.material_code = c.code
+				left join common_own
+				on  a.material_code = common_own.material_code
+				left join praise_own
+				on  a.material_code = praise_own.material_info
+				where a.is_checked = '已通过' and  a.material_type = #{materialType} order by with_best desc,code desc
+		
+		 ) t1 order by with_best desc,material_code desc
+	</select>
+	<!-- 点赞 -->
+	<update id="updatePraiseInfo" parameterType="Integer">
+		update xuanwuba_material_audit_new_tb set praise_got = praise_got + #{0} where material_code = #{1}
+	</update>
+
+	<select id="getVideoListWithName" resultMap="MaterialAuditMap" parameterType="String">
+		with common_best as(select content,material_code from xuanwuba_comments_tb where is_best = 1 and is_delete = 0)
+		,common_own as(select count(content) common_num,material_code,comment_account from xuanwuba_comments_tb where comment_account = #{account} and is_delete = 0 group by material_code,comment_account)
+		,praise_own as(select count(praise_date) praise_num,material_info,account from xuanxuba_praise_tb where account = #{account} and is_delete = 0 group by material_info,account)
+		select * from (select common_own.common_num,praise_own.praise_num,a.code,a.account,a.material_type,a.praise_got,a.comment_got,common_best.content,a.material_code,c.material_name,c.material_profile,c.material_picture from xuanwuba_material_audit_new_tb a
+		left join common_best
+		on a.material_code = common_best.material_code 
+		left join xuanwuba_material_info_tb c
+		on  a.material_code = c.code
+		left join common_own
+		on  a.material_code = common_own.material_code
+		left join praise_own
+		on  a.material_code = praise_own.material_info
+		where a.is_checked = '已通过' and  a.material_type = '视频') t order by code desc
+	</select>
+
+	<select id="getPhotoListWithName" resultMap="MaterialAuditMap" parameterType="String">
+		with common_best as(select content,material_code from xuanwuba_comments_tb where is_best = 1 and is_delete = 0)
+		,common_own as(select count(content) common_num,material_code,comment_account from xuanwuba_comments_tb where comment_account = #{account} and is_delete = 0 group by material_code,comment_account)
+		,praise_own as(select count(praise_date) praise_num,material_info,account from xuanxuba_praise_tb where account = #{account} and is_delete = 0 group by material_info,account)
+		select * from (select common_own.common_num,praise_own.praise_num,a.code,a.account,a.material_type,a.praise_got,a.comment_got,common_best.content,a.material_code,c.material_name,c.material_profile,c.material_picture from xuanwuba_material_audit_new_tb a
+		left join common_best
+		on a.material_code = common_best.material_code 
+		left join xuanwuba_material_info_tb c
+		on  a.material_code = c.code
+		left join common_own
+		on  a.material_code = common_own.material_code
+		left join praise_own
+		on  a.material_code = praise_own.material_info
+		where a.is_checked = '已通过' and  a.material_type = '服装') t order by code desc
+	</select>
+
+	<select id="getSuggestListWithName" resultMap="MaterialAuditMap" parameterType="String">
+		with common_best as(select content,material_code from xuanwuba_comments_tb where is_best = 1 and is_delete = 0)
+		,common_own as(select count(content) common_num,material_code,comment_account from xuanwuba_comments_tb where comment_account = #{account} and is_delete = 0 group by material_code,comment_account)
+		,praise_own as(select count(praise_date) praise_num,material_info,account from xuanxuba_praise_tb where account = #{account} and is_delete = 0 group by material_info,account)
+		select * from (select common_own.common_num,praise_own.praise_num,a.code,a.account,a.material_type,a.praise_got,a.comment_got,common_best.content,a.material_code,c.material_name,c.material_profile,c.material_picture from xuanwuba_material_audit_new_tb a
+		left join common_best
+		on a.material_code = common_best.material_code 
+		left join xuanwuba_material_info_tb c
+		on  a.material_code = c.code
+		left join common_own
+		on  a.material_code = common_own.material_code
+		left join praise_own
+		on  a.material_code = praise_own.material_info
+		where a.is_checked = '已通过' and  a.material_type = '建议') t order by code desc
+	</select>
+	<!-- 评论 -->
+	<update id="updateCommentNum" parameterType="Integer">
+		update xuanwuba_material_audit_new_tb set comment_got = comment_got + #{0} where material_code = #{1}
+	</update>
+	
+	<!-- 重置是否有最佳评论标志  -->
+	<update id="resetBestFlag" parameterType="Integer">
+		update xuanwuba_material_audit_new_tb set with_best = 0 where material_code = #{materialCode}
+	</update>
+	
+	<select id="getMaterialTypeByMaterialCode" parameterType="Integer" resultType="String">
+		select material_type from
+		xuanwuba_material_audit_new_tb
+		where material_code = #{materialCode}
+	</select>
+</mapper>

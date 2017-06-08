@@ -1,0 +1,134 @@
+
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>审核图片</title>
+<script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+<script >
+var imgCode= ${imageBean.imgCode};
+var rc = "${rc.contextPath}";
+$(document).ready(function() {
+
+
+	$("#pass").click(function() {		   
+		
+		
+		$.ajax
+		({
+			type : "POST",
+			url : rc + "/checkImg/passImgSlience/" + imgCode,//请输入审核的链接
+			success : function() {
+              alert("审核通过");
+			  window.close();
+			},
+			error : function() {
+             alert("审核失败");
+				
+			}
+		});
+		
+	
+	});
+	$("#unpass").click(function() {		   
+		
+		
+		$.ajax
+		({
+			type : "POST",
+			url : rc + "/checkImg/failCheck/"+ imgCode,//请输入审核不通过的链接
+			success : function(result) {
+              alert("审核不通过");
+			  window.close();
+			},
+			error : function(result) {
+             alert("出现问题");
+			 window.close();
+				
+			}
+		});
+	
+	});
+	
+	
+
+});
+</script>
+</head>
+<body>
+<table width="819" height="401" border="0">
+  <tr>
+    <td colspan="4" rowspan="9"><img src="${imageBean.tempUrl}"></td>
+    <td width="88" height="41">&nbsp;</td>
+    <td width="67">&nbsp;</td>
+    <td width="150">服务器：</td>
+    <td width="191">$!{serverName}</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>角色名：</td>
+    <td>$!{petBean.characterName}</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>宠物成长：</td>
+    <td>$!{petBean.petGrowth}</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>宠物速度：</td>
+    <td>$!{petBean.petSpeed}</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>宠物气血：</td>
+    <td>$!{petBean.petBlood}</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>宠物法攻：</td>
+    <td>$!{petBean.petMagic}</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>宠物物攻：</td>
+    <td>$!{petBean.petAttack}</td>
+  </tr>
+  <tr>
+    <td height="48">&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>票数：</td>
+    <td>$!{petBean.voteCount}</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>类型：</td>
+    <td>$!{petBean.typeInString}</td>
+  </tr>
+  <tr>
+    <td width="8">&nbsp;</td>
+    <td width="11">&nbsp;</td>
+    <td width="11">&nbsp;</td>
+    <td width="259">
+      <div align="center">
+        <input type="button" name="pass" id="pass" value="审核通过">
+      </div>
+ </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>
+      <div align="center">
+        <input type="button" name="unpass" id="unpass" value="审核不通过">
+      </div>
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</body>
+</html>

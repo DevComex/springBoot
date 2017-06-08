@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.fightbrickgame.IFightBrickGameHistoryMapper">
+	<resultMap type="cn.gyyx.action.beans.fightbrickgame.FightBrickGameHistoryBean" id="FightBrickGameHistoryMap">
+		<id column="code" property="code" />
+		<result column="openid" property="openid" />
+		<result column="nick_name" property="nickName" />
+		<result column="score" property="score" />
+		<result column="create_time" property="createTime" />
+	</resultMap>
+	
+	<insert id="addScoreHistory" parameterType="cn.gyyx.action.beans.fightbrickgame.FightBrickGameHistoryBean">
+		INSERT INTO fightbrickgame_score_history_tb(openid,nick_name,score,create_time) VALUES(#{openid},#{nickName},#{score},GETDATE())
+	</insert>
+
+</mapper>

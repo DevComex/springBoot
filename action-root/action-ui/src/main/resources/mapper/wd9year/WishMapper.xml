@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wd9year.IWishDAO">
+
+	<!-- 上传祝福的sql -->
+	<insert id="uploadWish" useGeneratedKeys="true" parameterType="WishBean">
+		insert into wendao_nineyear_wish_tb values(#{userId},#{content},#{pictureURL},#{checkStatus},#{wishTime})
+	</insert>
+	<!--根据用户Id查询得到用户当天的祝福的数量 -->
+	<select id="getWishCountByUserId" resultType="Integer">
+		select count(*) from wendao_nineyear_wish_tb where user_id = #{userId} and wish_time between #{date1} and #{date2}
+	</select>
+	<!-- 查询最新的20条 -->
+	<select id="selectWishByNew" resultMap="wishBeanInfo">
+		select top 20 * from
+		wendao_nineyear_wish_tb where check_status = 'checked' order by
+		wish_time desc;
+	</select>
+	<!-- 根据code得到用户祝福的 -->
+	<select id="getWishByCode" resultMap="wishBeanInfo">
+		select [code],[user_id],[content],[picture_url],[check_status],[wish_time] 
+		from wendao_nineyear_wish_tb where code=#{code} and check_status='checked'
+	</select>
+	<!-- 查询审核通过的Wish -->
+	<select id="getWish" resultMap="wishBeanInfo">
+		select [code],[user_id],[content],[picture_url],[check_status],[wish_time] 
+		from wendao_nineyear_wish_tb where check_status='checked'
+	</select>
+	<!-- 查询wish中code的最大值 -->
+	<select id="getMaxCode" resultType="Integer">
+		select Max(code) from wendao_nineyear_wish_tb where check_status='checked'
+	</select>
+	<!-- 得到审核通过的wish的数量 -->
+	<select id="getWishCount" resultType="Integer">
+		select count(*) from wendao_nineyear_wish_tb where check_status='checked'
+	</select>
+	<resultMap type="wishBean" id="wishBeanInfo">
+		<id column="code" property="code" />
+		<result column="user_id" property="userId" />
+		<result column="content" property="content" />
+		<result column="picture_url" property="pictureURL" />
+		<result column="check_status" property="checkStatus" />
+		<result column="wish_time" property="wishTime" />
+	</resultMap>
+</mapper>

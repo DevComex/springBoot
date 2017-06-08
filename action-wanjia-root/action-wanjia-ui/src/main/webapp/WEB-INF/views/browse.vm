@@ -1,0 +1,246 @@
+<!doctype html>
+    <meta charset="utf-8" />
+    <title>浏览页</title>
+    <meta content="问道玩家天地" name="keywords" />
+    <meta content="问道玩家天地" name="description" />
+    <script type="text/javascript" charset="utf-8">
+		var rc="${rc.contextPath}";
+    </script>
+    <link href="${rc.contextPath}/assets/css/common.css" rel="stylesheet" type="text/css" />
+    <link href="${rc.contextPath}/assets/css/icon.css" rel="stylesheet" type="text/css" />
+    <link href="${rc.contextPath}/assets/css/globle.css" rel="stylesheet" type="text/css" />
+    <link href="${rc.contextPath}/assets/css/cartoon.css" rel="stylesheet" type="text/css" />
+    
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/cartoon.js"></script>
+	<script type="text/javascript" src="${rc.contextPath}/assets/js/list.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/jquery.tools.min.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/common.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/catalog.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/browse.js"></script>
+    <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=wendao" type="text/javascript"></script>
+    
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/jquery.ajaxpagev1.2.js"></script>
+    <script type="text/javascript" src="${rc.contextPath}/assets/js/listPage.js"></script>
+    <link href="${rc.contextPath}/assets/css/JavaIcon.css" rel="stylesheet" />
+    <!--6.29问道玩家天地添加百度统计代码-->
+    
+   
+    <script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?7eb91b062beda588d30290bb847c40aa";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<style>
+    	.paginate_button,.paginate_active{margin: 10px;}
+    </style>
+    <div class="public_nav_top">
+        <script type="text/javascript">Showtop();</script>
+    </div>
+    <div class="head h165">
+        <div class="web_wrap wwd_head">
+            <div class="logo clear">
+                <a class="lg_wd pngbg" href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank" title="问道官网"></a><a class="lg_wanwd pngbg" href="http://wanwd.gyyx.cn/" target="_blank" title="问道玩家天地"></a>
+            </div>
+            <div class="search">
+                <form id="js_SearchForm" action="../Home/Search" method="get" target="_blank">
+                    <div class="search_bg">
+                        <input class="text_w" maxlength="50" name="s_KeyWord" type="text" value="" />
+                        <input class="input_s" type="submit" value="搜索" />
+                    </div>
+                </form>
+            </div>
+            <div class="upload_info">
+                <ul>
+                    <li><a class="upload_ie6" href="http://wanwd.gyyx.cn/user/index" target="_blank"><i class="upload_p"></i>用户中心</a></li>
+                    <li><a class="js_upload" href="#"><i class="upload_i"></i>上传<i class="down"></i></a>
+                        <ul class="upload_ls js_upload_ul" style="display: none;">
+                            <li class="up"><a href="#"><i class="pngbg"></i>上&nbsp;传</a> </li>
+                            <li class="gj"><a href="http://wanwd.gyyx.cn/article/upload" target="_blank"><i class="pngbg"></i>上传稿件</a> </li>
+                            <li class="pic"><a href="http://wanwd.gyyx.cn/Picture/Upload" target="_blank"><i class="pngbg"></i>上传图片</a> </li>
+                            <li class="video"><a href="http://wanwd.gyyx.cn/Video/Upload" target="_blank"><i class="pngbg"></i>上传视频</a> </li>
+                            <li class="jl"><a href="http://hd.gyyx.cn/P/WDReporter/wd140214.html" target="_blank"><i class="pngbg"></i>投稿奖励</a> </li>
+                        	<li class="cartoon"><a target="_blank" href="http://wanwdv2.gyyx.cn/upload"><i class="pngbg"></i>上传漫画</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="nav_wrap">
+            <div class="web_wrap">
+                <ul class="nav clear">
+                    <li alt="1" class="icon1"><a href="http://wanwd.gyyx.cn" target="_blank"><i class="pngbg"></i>首页</a> </li>
+                    <li alt="2" class="icon2"><a href="http://wanwd.gyyx.cn/articlelist/Index" target="_blank"><i class="pngbg"></i>图文驿站</a> </li>
+                    <li alt="3" class="icon3"><a href="http://wanwd.gyyx.cn/Picture/Index" target="_blank"><i class="pngbg"></i>秀图专区</a> </li>
+                    <li alt="4" class="icon4"><a href="http://wanwd.gyyx.cn/Video/Index" target="_blank"><i class="pngbg"></i>火爆视频</a> </li>
+                	<li class="icon5 on1" alt="5">
+                        <a target="_blank" href="http://wanwdv2.gyyx.cn/home"><i class="pngbg" style="width:23px;"></i>漫画专区</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div style="padding-top: 10px;">
+    </div>
+    <!-- end -->
+    <!-- main -->
+    <!--图-->
+    <div class="focus_pic" style="margin-top: -23px;">
+        <div class="web_wrap focus_wrap" style="width:100%;">
+            <div class="scrollablebody" style="width: 1343px;">
+                <div class="scrollableitems">
+                        <div class="current" style="display: block;">
+                            <a target="_blank" href="http://wd.gyyx.cn/huodong/10zn/10qd/index.html" style="display: block; height: 308px; width: 1343px; background: url(http://img.gyyx.cn/wd1/M00/03/04/Cg8RA1SiYgOAKWchAAI29jFBpJ8375.jpg) 50% 0% no-repeat;">
+                            
+                            </a>
+                        </div>
+                </div>
+            </div>
+            <div class="focus_pre prev" style="display: none;"><a class="pngbg"></a></div><!--<div class="focus_pre on1"><a href="#"></a></div>-->
+            <div class="focus_next next" style="display: none;"><a class="pngbg"></a></div><!--<div class="focus_next"><a href="#"></a></div>-->
+        </div>
+    </div>
+    <!--图-->
+
+	<!--返回顶部-->
+	<img class="js_topBtn" src="${rc.contextPath}/assets/img/top.png" style="width: 40px;margin-right: 5%;border: 1px solid #ddd;margin-bottom: 35%;position: fixed;top: 70%;left: 90%;"> 
+	
+	<!--main  start-->
+    <div class="web_wrap">
+        <div class="wd_con" style="overflow: hidden;">
+    	    <!--左侧  start-->
+    	    <div class="js_browseMain">
+   	    		<!-- <div class="catalog_title">
+   	    			<span class="catalog_style"></span>
+   	    			<span>漫画专区></span>
+   	    			<span>《名侦探柯南》</span>
+   	    			<span>青山刚唱>第三章：大都会暗号地图事件</span>
+   	    		</div>
+   	    		<div class="js_browseDiv"><img class="js_browseImg" src="${rc.contextPath}/assets/img/manhua.png" /></div>	 -->
+   	    		
+    	    </div>
+    	    <!-- 自己分页 -->
+			<div class="imgPage">
+				<a class="lastChapter">上一章</a>
+				<a class="lastPage">上一页</a>
+				<div>
+					<span>转到</span>
+					<!-- <input placeholder="请输入" class="page"/> -->
+					<select class="js_selects page">
+						<option>请选择</option>
+					</select>
+					<span style="width: 10px;margin-right: 1%;">页</span>
+					
+				</div>
+				<a class="nextPage">下一页</a>
+				<a class="nextChapter">下一章</a>
+				<a id="js_collection">收藏</a>
+				<a id="js_newChapter">最新章节</a>
+ 			</div>
+ 			<!-- 自己分页 -->
+    	    <!--左侧  end-->
+    	    <div style="width: 755px;float: left;">
+			    <div class="catalog_comment">
+    	    		<div class="commentTitleWord">
+    	    			<a class="people_say js_sayActive" style="border-right:0;"  href="javascript:;"  type = "1">众说纷纭</a>
+    	    			<span style="border-right:1px solid #dfdfdf;height:51px;float:left;"></span>
+    	    			<a class="authors_say"  href="javascript:;"  type = "2">作者有话说</a>
+    	    		</div>
+    	    		
+    	    		<div id="js_commentDiv">
+    	    			<!--
+	    	    		<div class="commentTitle">
+	    	    			<div  class="comment_img">
+	    	    				<div style="width:80px;">
+	    	    					<img src="${rc.contextPath}/assets/img/tx.png" />
+	    	    					<a>青山刚常</a>
+	    	    				</div>
+	    	    				<div class="js_introduce">
+	    	    					流动的水没有形状，漂流的风找不到踪迹，任何按键的推理都取决于心，解开唯一真相的，是围标看似小孩，置灰却过于强人的。何按键的推理都取决于心，解开唯一真相的，是围标看似小孩，置灰却过于强人的。何按键的推理都取决于心，解开唯一真相的，是围标看似小孩，置灰却过于强人的。何按键的推理都取决于心，解开唯一真相的，是围标看似小孩，置灰却过于强人的。	    					
+	    	    				</div>
+	    	    			</div>
+	    	    			<div class="js_comment_div">
+	    	    				<a>展开评论<img style="margin-bottom: 4px;margin-left: 4px;" src="${rc.contextPath}/assets/img/shou.png" /></a>
+		    					<span>2016-8-29  21:49</span>
+		    				</div>
+	    	    			<div class="js_commentkuang">
+	    	    				<div class="js_commentList">
+		    	    				<ul class="js_commentUl">
+		    	    					<li>
+		    	    						<p>用户名A对作者说：膜拜大师，请问柯南什么时候大结局</p>
+		    	    						<div class="js_Reply">
+		    	    							<a class="js_replyA">回复</a>
+		    	    							<span>2016-8-29  21:49</span>
+		    	    						</div>
+		    	    						
+		    	    					</li>
+		    	    				</ul>
+	    	    				</div>
+	    	    				<div style="width:100%;height: 30px;margin-top:15px;margin-bottom: 2%;"><a class="js_say" href="javascript:;">我来说一句<img src="${rc.contextPath}/assets/img/shou.png" /></a></div>
+	    	    				<div class="say_hidden">
+				    				<textarea></textarea>
+				    				<a class="js_publish">发表</a>
+				    			</div>
+				    			<span class="splitLine"></span>
+	    	    			</div>
+	    	    		</div>
+    	    			-->
+    	    		</div>
+    	    		
+    	    		<div class="js_authorSay">
+    					<div style="width:100%;height: 30px;margin-top:15px;"><a class="js_myComment">我来评论<img src="${rc.contextPath}/assets/img/shou.png" /></a></div>
+	    				<div class="say_show">
+		    				<textarea></textarea>
+		    				<a class="js_myPublish">发表</a>
+		    			</div>
+					</div>
+					<!-- 分页 -->
+					<div class="catalogPage">
+						<footer class="">
+		    				<div class="">
+		            			<div class="">
+		            				<div id="DataTables_Table_0_paginate_collection2" class=""></div>
+		            			</div>
+		        			</div>
+		     			</footer>
+		 			</div>
+		 			<!-- 分页 -->
+    	    	</div>
+    	    </div>
+	    	
+			<!--他们还看过  start-->
+           	<div class="box_area con_bottom" style="margin-top: 10px;">
+           		<div class="js_recommend">
+                   <a class="theyRead" order="39">他们还看过</a>
+               </div>
+               <div class="js_theyMain">
+                   <!-- <div class="js_theyDiv">
+                   	<div class="js_theyName">
+                       	<span class="theyNumber">1</span>
+                       	<a class="js_theyNewName">据说我是王</a>
+                       </div>
+                       <div class="js_theyBrief">
+                           <a><img src="${rc.contextPath}/assets/img/right.jpg" /></a>
+                           <span class="js_theyContent">简介：善良可爱的薇薇安来到地下时间-乌乌托邦开始了武-乌乌托邦开始了武-乌托邦开始了武-乌托邦开</span>
+                       </div>
+                   </div> -->
+               </div>
+           </div>
+           <!--他们还看过  end-->
+	   	</div>
+	</div> 
+	</div>
+	<!--main  end-->
+    
+    
+    <div class="public_nav_bottom">
+        <script type="text/javascript">ShowBottom()</script>
+    </div>
+    
+
+</body>
+</html>

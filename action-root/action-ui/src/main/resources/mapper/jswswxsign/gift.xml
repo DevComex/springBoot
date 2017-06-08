@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.jswswxsign.IGiftMapper">
+	<!-- Bean Map 映射 -->
+	<resultMap type="JSWSWxSignGiftBean" id="JSWSWxSignGiftBeanMap">
+		<id column="code" property="code" />
+		<result column="gitf_name" property="gitfName" />
+		<result column="gift_intergral" property="giftIntergral" />
+		<result column="is_display" property="isDisplay" />
+		<result column="gift_picture" property="giftPicture" />
+		<result column="gift_desc" property="giftDesc" />
+		<result column="soft" property="soft" />
+	</resultMap>
+	
+	<!-- 获得礼包列表 -->
+	<select id="getGiftList" parameterType="JSWSWxSignGiftBean" resultMap="JSWSWxSignGiftBeanMap">
+		select 
+			* 
+		from
+			jsws_wx_sign_gift_tb
+		where 
+			1=1 and is_display=1
+		order by soft 
+	</select>
+	
+	<!-- 获得礼礼包信息-->
+	<select id="getGift" parameterType="JSWSWxSignGiftBean" resultMap="JSWSWxSignGiftBeanMap">
+		select 
+			top 1 * 
+		from
+			jsws_wx_sign_gift_tb
+		where 
+			1=1 and code=#{code}
+	</select>
+	
+</mapper>

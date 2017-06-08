@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.xwbcreditsluckydraw.IMaterialInfoMapper">
+	<resultMap type="MaterialInfoBean" id="MaterialInfoMap">
+		<id column="code" property="code" />
+		<result column="material_name" property="materialName" />
+		<result column="material_type" property="materialType"/>
+		<result column="material_profile" property="materialProfile"/>
+		<result column="material_picture" property="materialPicture"/>
+		<result column="material_link" property="materialLink"/>
+		<result column="is_show_issuer" property="isShowIssuer"/>
+		<result column="material_cate" property="materialCate" />
+		
+		<!-- 图片  begin  -->
+		<result column="temp_url" property="tempUrl" />
+		<result column="img_feature" property="imgFeature" />
+		<result column="img_width" property="imgWidth" />
+		<result column="img_height" property="imgHeight" />
+		<!-- 图片  end  -->
+		
+		<result column="account" property="account" />
+		<result column="upload_time" property="uploadTime" />
+	</resultMap>
+	
+	<select id="selectMaterialInfo" parameterType="MaterialInfoBean" resultMap="MaterialInfoMap">
+		select * from xuanwuba_material_info_tb 
+		where code = #{code}	
+	</select>
+	
+	<!-- 添加正式图片信息 -->
+	<update id="setRealUrl" parameterType="MaterialInfoBean">
+		update xuanwuba_material_info_tb set material_picture = #{materialPicture} where code = #{code}
+	</update>
+</mapper>

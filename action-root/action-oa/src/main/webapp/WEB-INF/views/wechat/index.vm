@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="author" content="Layout:luochongfei" />
+    <title>后台统计</title>
+
+    <link href="${rc.contextPath}/resources/style/projectStyle.css" rel="stylesheet" />
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.functions.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/getUserInfo.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/te_data.js"></script>
+    <script src="${rc.contextPath}/resources/script/jquery-ui.dialog.min.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.write(teheadstr);
+    </script>
+    <link href="${rc.contextPath}/resources/style/jquery-ui.css" rel="stylesheet" />
+	<script type="text/javascript">
+		var seconds = 20;
+        function countdown ()
+        {
+			$("#clock").text(seconds);
+			seconds--;
+            if (seconds < 0)
+            {
+               window.location.reload();
+            }
+            setTimeout ('countdown()', 1000);
+        }
+        window.onload = function ()
+        {
+            countdown ();
+        }
+    </script>
+</head>
+<body>
+    <section class="vbox">
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs js_template_top"></header>
+        <section>
+            <section class="hbox stretch">
+                <aside class="bg-dark lter aside-md hidden-print js_template_left" id="nav"></aside>
+                <section id="content">
+                    <section class="vbox js_template_right">
+                        <!--顶部标题导航 begin-->
+						<section id="content">
+							<section class="vbox">
+                            <!--顶部标题导航 end-->
+
+							<!--主体内容 begin-->
+							<section class="scrollable padder" style="background-image: url(${rc.contextPath}/resources/images/jsbg.png);">
+                        
+                                    <!--数据表格  begin -->
+                                    <section class="panel panel-default" style="width:500px;margin-top:8%;margin-left:30%">
+                                        <header class="panel-heading bg-info lt no-border">
+                                            <div class="clearfix">
+                                                <div class="clear">
+                                                    <div class="h3 m-t-xs m-b-xs text-white">《终极教师试炼选拔》游戏 v1.0</div>
+                                                    <small class="text-muted">后台数据统计</small>
+                                                </div>
+                                            </div>
+                                        </header>
+                                        <ul class="list-group no-radius">
+                                            <li class="list-group-item" style="height:60px;line-height:40px;font-size:15pt"><span class="label bg-primary">1</span><span style="font-weight: bold; padding-left: 10px;">活动启动页面次数：</span><span>$!normalAccess</span>&nbsp;次</li>
+                                            <li class="list-group-item" style="height:60px;line-height:40px;font-size:15pt"><span class="label bg-primary">2</span><span style="font-weight: bold; padding-left: 10px;">活动参与人数（试题页）：</span><span>$!examAccess</span>&nbsp;次</li>
+											<li class="list-group-item" style="height:60px;line-height:40px;font-size:15pt"><span class="label bg-primary">3</span><span style="font-weight: bold; padding-left: 10px;">活动参与人数（证书页）：</span><span>$!certAccess</span>&nbsp;次</li>
+											<li class="list-group-item" style="height:60px;line-height:40px;font-size:15pt"><span class="label bg-primary">4</span><span style="font-weight: bold; padding-left: 10px;">分享朋友圈次数：</span><span>$!shareAccess</span>&nbsp;次</li>
+											<li class="list-group-item" style="height:60px;line-height:40px;font-size:15pt"><span class="label bg-primary">5</span><span style="font-weight: bold; padding-left: 10px;">从引导页进入的次数：</span><span>$!leadAccess</span>&nbsp;次</li>
+											<li class="list-group-item" style="height:60px;line-height:40px;font-size:15pt"><span class="label bg-primary">6</span><span style="font-weight: bold; padding-left: 10px;">每名玩家参加活动的时间：</span><a target="_blank" href="online">点击查看</a></li>
+                                        </ul>
+                                    </section>
+									<div style="margin-left:42%">
+    									离下次自动刷新还有 <strong id="clock" style="color:red"></strong> 秒
+									</div>
+                                    
+                                    <!--数据表格  end -->
+							</section>
+							<!--主体内容 end-->
+							</section>
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
+</body>
+</html>

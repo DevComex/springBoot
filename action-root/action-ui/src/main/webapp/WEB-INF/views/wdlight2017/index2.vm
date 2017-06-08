@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="content-type" content="text/html;charset=utf-8">
+		<title>点亮2017</title>
+         <script type="text/javascript" src="http://s.gyyx.cn/Lib/jquery.js"></script>
+        <link type="text/css" href="http://static.cn114.cn/action/light2017/css/light2017.css" rel="stylesheet"/>
+        <script src="http://s.gyyx.cn/publictop/jquery.publictop.js?webname=shequ" type="text/javascript"></script>
+	</head>
+	<body>
+          <div class="public_nav_top">
+                <script type="text/javascript">Showtop();</script>
+           </div>
+
+        <!-- 漂浮 -->
+        <div class="floatBox">
+            
+             <a href="#wishBox" class="heart"></a>
+	     	 <div class="more" style="display:block;">
+	         	<a href="http://wd.gyyx.cn/News/NewsDetail_New.aspx?NewsID=79160" target="_blank">更多"2017"精彩活动</a>
+	      	 </div>
+            
+        </div>
+       <div class="lightBox">
+           <div class="wid1000">
+           <div class="lightNav">
+               <ul class="lightNavUl">
+                   <li><a href="http://wd.gyyx.cn/index_wd_v5.htm" target="_blank" class="actie">进入官网</a>|</li>
+                   <li><a href="http://wd.gyyx.cn/download/" target="_blank">下载中心</a>|</li>
+                   <li><a href="http://pay.gyyx.cn/gamepay/paygold?gameId=2" target="_blank">充值中心</a>|</li>
+                   <li><a href="http://account.gyyx.cn/Member/Register" target="_blank">账号注册</a>|</li>
+                   <li><a href="http://wd.gyyx.cn/News/NewsDetail_New.aspx?NewsID=79170" target="_blank">领取礼包</a>|</li>
+                   <li><a href="http://wd.gyyx.cn/Reserve/NewServer.html" target="_blank">新服预约</a></li> 
+               </ul>
+           </div>
+           <!-- 点灯区 -->
+           <div class="lightLine">
+               <div class="lightShow">
+                   <ul class="km_wrap js_light">
+                            <li class="js_level_1 li_01 li_01_per_0" data-code="1" popYst=""></li>
+                            <li class="js_level_2 li_02 li_02_per_0" data-code="2" popYst=""></li>
+                            <li class="js_level_3 li_03 li_03_per_0" data-code="3" popYst=""></li>
+                            <li class="js_level_4 li_04 li_04_per_0" data-code="4" popYst=""></li>
+                    </ul>
+               </div>
+           </div>
+           <!-- 内容区 -->
+           <a name="wishBox"></a>
+            <div class="mainLight">
+                <div class="leftBox">
+                    <!-- 登录，绑定角色，选区确认，我的积分 -->
+                    <div class="messageBox">
+                        <!-- 登录 -->
+                        <div class="sign js_login_wrap" style="display:block;">
+                            <p>活动尚未开始敬请期待哦！</p>
+                        </div>
+                        <!-- 绑定角色 -->
+                        <div class="binding" style="display:none;">
+                            <p style="overflow:hidden;"><span class="account js_accountName">欢迎您：Chn**24</span><a href="javascript:;" class="passSign js_Loginout">退出登录</a></p>
+                            <div class="role">
+                                <label>选择您要绑定的角色</label>
+                                 <select class="js_roleList">
+                                    <option>选择角色</option>
+                                    <option>角色1名称角色1名称</option>
+                                    <option>第三层</option>
+                                    <option>第四层</option>
+                                </select>
+                            </div>  
+                            <a href="javascript:;" class="bindingBtn js_bindRoleBtn">确定</a>                                    
+                        </div>
+                        <!-- 选区确认 -->
+                        <div class="pace" style="display:none;">
+                            <p style="overflow:hidden;"><span class="account js_accountName">欢迎您：Chn**24</span><a href="javascript:;" class="passSign js_Loginout">退出登录</a></p>
+                            <p class="word">许愿前请先选择您的角色信息，许愿后不可修改，请认真选择</p>
+                            <div class="paceChange">
+                                <select id="sel_blocklist">
+			                        <option value="0">请选择区组</option>
+			                        <option value="3">双线</option>
+			                    </select>
+                                <select id="sel_serverlist">
+                                    <option value="0">请选择服务器</option>
+                                    <option value="1">2017</option>
+                                </select>
+
+                                <span><label>验证码</label>
+                                    <input id="captchaInput" value="" type="text" maxlength="5"><img src="http://api.gyyx.cn/Captcha/CreateVJ.ashx" id="yzmImg" class="Captcha js_captcha" alt="验证码"/></span>
+
+                            </div>
+                            <a href="javascript:;" class="gainRole" id="js_upRole">获取角色</a>
+                        </div>
+                        <!-- 我的积分 -->
+                        <div class="integral" style="display:none;">
+                            <p style="overflow:hidden;padding-bottom:10px;"><span class="account js_accountName">欢迎您：Chn**24</span><a href="javascript:;" class="passSign js_Loginout">退出登录</a></p>
+                            <h2>游戏活跃度积分：<span class="js_integral_game">9999</span></h2>
+                            <a href="javascript:;" class="js_myWish">查询我许下的愿望&gt;&gt;</a>
+                            <a href="javascript:;" class="js_myGift js_myPrize">查询我所获得的奖励&gt;&gt;</a>
+                            <a href="javascript:;" class="js_mypace">修改地址&gt;&gt;</a>
+                        </div>
+                    </div>
+                    <!-- 许愿区 -->
+                    <form>
+                        <textarea id="wishContent" class="wish_textarea" disabled>请输入您的愿望（16字内哦！）</textarea>
+                        <div class="wish_level">
+                    	    <label>我要在这层许愿：</label>
+                    	    <select class="js_prizelevel" id="wishLevel" name="wishLevel">
+                                <option value="4">第4层</option>
+                                <option value="3">第3层</option>
+                                <option value="2">第2层</option>
+                                <option value="1">第1层</option>
+                    	    </select>
+                        </div>
+                        <a class="submit_btn js_wishBtn" data-bind="">立即许愿</a>
+                    </form>
+
+                </div>
+                <div class="rightBox">
+                    <div class="prize_info">
+                        <h2 class="prize_all_counts js_all_counts">中奖数量：敬请期待</h2>
+                        <div class="prize_list_con">
+                            <ul class="prize_list js_all_prize">
+                                <!-- 中奖信息 -->
+                                <li style="font-size: 19px;text-align: center;padding: 130px 0;">活动尚未开始，敬请期待哦~</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- 规则区 -->
+           <div class="ruleBox">
+               <h3 class="rule">活动规则</h3>
+               <div class="padL43">
+               <h4>如何获取积分</h4>
+               <p>游戏内活动积分：在活动期间，玩家在游戏内完成日常任务可以获得积分，日常活动项目包括：助人为乐、帮派日常挑战、副本系统、驱除邪灵、八仙梦境、探索世界、通天塔、悬赏任务、答题任务、师门任务。每种活动每天最多可获得2积分~</p>
+               <h4>如何“点亮孔明灯”</h4>
+               <p>玩家在本页面可进行许愿，召集小伙伴一起将孔明灯点亮后在孔明灯中抽奖100%会获得奖励哦（获得奖池中的随机一个奖励）！每次许愿都会消耗积分，在越高层的孔明灯进行许愿消耗的积分就越多，奖励也更好哦，玩家每次许愿的内容不可以超过16个字哦，我们会尽快审核大家的愿望，通过审核的愿望将会显示在孔明灯内哟。</p>
+               <h4>如何进行许愿抽奖</h4>
+               <p>孔明灯只能依次被点亮，在该层未被完全点亮之前在该层的第一次许愿消耗积分较少，完全点亮后第一次在该层许愿就要消耗更多的积分啦。所有玩家在同层孔明灯进行多次许愿的时候，需要消耗的积分会越来越多哦。</p>
+               <h4>如何获得奖励</h4>
+               <p>玩家抽取到的称号、铭牌、银元宝奖励会直接发放到游戏中。其他奖励则需等到活动结束后统一发放~获得游戏内奖励的玩家可在收到系统邮箱提示后前往“南极仙翁”处领取。其他奖励会在活动结束后统一发放~其中实物奖励将发送至玩家所填写的地址中，宠物奖励将发至玩家参与活动绑定的角色中（称号效果是会覆盖的）。</p>
+               <p class="yellow">温馨提示<br>玩家用鼠标停留在孔明灯上的时候就可以看见孔明灯中的奖励啦，点击孔明灯还可以看见大家许下的愿望哦~(部分奖池奖励种类较多，仅显示部分)玩家在游戏内获取的积分每小时会更新一次~</p>
+            </div>
+               <h3 class="rule2">活动限制</h3>
+               <div class="padL43">
+                   <p>玩家绑定角色后才可进行许愿；绑定角色不可更改~；<br />
+获得实物奖励的玩家需要认真填写自己的收件地址，如果因为地址填写问题导致奖励无法发放，则视为玩家放弃奖励~；</p>
+                   <p>注：本活动最终解释权由光宇在线科技有限责任公司所有</p>
+               </div>
+           </div>
+
+            <!-- 许愿池奖品定位展示 -->
+	<div class="js_prize_show prize_show prize_show_01 hide">
+                <h2>第一层奖品</h2>
+                <ul>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_ch.jpg" alt="奖品"><h4>称号（限时）</h4></li>
+                </ul>
+            </div>
+    <div class="js_prize_show prize_show prize_show_02 hide">
+                <h2>第二层奖品</h2>
+                <ul>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_mp.jpg" alt="奖品"><h4>铭牌（限时）</h4></li>
+                	<li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_yb5000.jpg" alt="奖品"><h4>3000银元宝</h4></li>
+                </ul>
+            </div>
+    <div class="js_prize_show prize_show prize_show_03 hide">
+                <h2>第三层奖品</h2>
+                <ul>
+                	<li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_mp.jpg" alt="奖品"><h4>铭牌（限时）</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_yb5000.jpg" alt="奖品"><h4>5000银元宝</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_ch.jpg" alt="奖品"><h4>称号（限时）</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_ddj.png" alt="奖品"><h4>蛋蛋鸡</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_T.jpg" alt="奖品"><h4>问道T恤</h4></li>
+                </ul>
+            </div>
+    <div class="js_prize_show prize_show prize_show_04 hide">
+                <h2>第四层奖品</h2>
+                <ul>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_yb8000.jpg" alt="奖品"><h4>8000银元宝</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/Iphone7.png" alt="奖品"><h4>IPHONE 7</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_bz.jpg" alt="奖品"><h4>威威虎 U型枕</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_ch.jpg" alt="奖品"><h4>称号（限时）</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_mp.jpg" alt="奖品"><h4>铭牌（限时）</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_zjddj.png" alt="奖品"><h4>至尊蛋蛋鸡</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/icon_yb10000.jpg" alt="奖品"><h4>10000银元宝</h4></li>
+                    <li><img width="68" height="68" src="http://static.cn114.cn/action/light2017/image/jnb.png" alt="奖品"><h4>十周年纪念币</h4></li>
+                </ul>
+            </div>
+       
+
+    </div>
+ </div>
+    
+         <div class="public_nav_bottom">
+              <script type="text/javascript">ShowBottom()</script>
+         </div>
+        
+      <script>
+          $('.js_light li').hover(function () {
+              var indexs = $(this).index();
+              $('.js_prize_show').each(function (i) {
+                  if (indexs == i) {
+                      $(this).removeClass("hide");
+                  }
+              });
+
+          }, function () {
+              var indexs = $(this).index();
+              $('.js_prize_show').each(function (i) {
+                  if (indexs == i) {
+                      $(this).addClass("hide");
+                  }
+              });
+          });
+
+
+      </script>
+        <script>
+        alert("谢谢参与，活动已结束！")
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?474026b4f048e111162ce3c87d912558";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+		</script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wechat.IWeChatCountMapper">
+	<resultMap type="WeChatCountBean" id="WeChatCountMap">
+		<id column="code" property="code" />
+		<result column="count_type" property="countType" />
+		<result column="nick_name" property="nickName" />
+		<result column="action_code" property="actionCode" />
+		<result column="count_time" property="countTime" />
+		<result column="partake_time" property="partakeTime" />
+		<result column="S1" property="S1" />
+		<result column="S2" property="S2" />
+		<result column="S3" property="S3" />
+		<result column="S4" property="S4" />
+		<result column="S5" property="S5" />
+		<result column="S6" property="S6" />
+	</resultMap>
+	
+	<select id="selectCountByType" parameterType="String" resultType="Integer">
+		SELECT COUNT(*) FROM [dbo].[wechat_count_tb] WHERE [count_type] = #{countType}
+	</select>
+	
+	<select id="selectCountWithPM" resultMap="WeChatCountMap">
+		SELECT * FROM [dbo].[wechat_count_tb] WHERE [count_type] = 'certAccess' and [partake_time] IS NOT NULL
+	</select>
+</mapper>

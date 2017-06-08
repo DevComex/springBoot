@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wechat.IOperateMapper">
+	<resultMap type="OperateBean" id="OperateMap">
+		<id column="code" property="code" />
+		<result column="config_code" property="configCode" />
+		<result column="operate_type" property="operateType" />
+		<result column="operate_desc" property="operateDesc" />
+		<result column="operate_para" property="operatePara" />
+		<result column="in_count" property="inCount" />
+		<result column="in_detail" property="inDetail" />
+		<result column="is_delete" property="isDelete" />
+	</resultMap>
+	
+	<select id="getOperateInfoByConfigCode" parameterType="Integer" resultMap="OperateMap">
+		SELECT * FROM [dbo].[wechat_operation_tb] where is_delete = 0 and config_code = #{configCode} order by code desc
+	</select>
+	
+	<select id="getOperateInfoByConfigCodeNoCount" parameterType="Integer" resultMap="OperateMap">
+		SELECT * FROM [dbo].[wechat_operation_tb] where is_delete = 0 and in_count = 1 and config_code = #{configCode} order by code desc
+	</select>
+	
+	<select id="getCountByOperateType" parameterType="OperateBean" resultType="Integer">
+		SELECT COUNT(*) FROM [dbo].[wechat_operation_tb] where is_delete = 0 and operate_type = #{operateType} and config_code = #{configCode}
+	</select>
+	
+	<insert id="addOperateInfo" parameterType="OperateBean">
+		INSERT INTO [dbo].[wechat_operation_tb] (config_code,operate_type,operate_desc,operate_para,in_count,in_detail,is_delete)
+		VALUES (#{configCode},#{operateType},#{operateDesc},NULL,#{inCount},#{inDetail},#{isDelete})
+	</insert>
+	
+	<select id="getOperateInfoByCode" parameterType="Integer" resultMap="OperateMap">
+		SELECT * FROM [dbo].[wechat_operation_tb] where code = #{code}
+	</select>
+	
+	<update id="updateOperateInfo" parameterType="OperateBean">
+		UPDATE [dbo].[wechat_operation_tb] SET operate_type = #{operateType},operate_desc = #{operateDesc} where code = #{code}
+	</update>
+	
+	<update id="updateDeleteFlag" parameterType="Integer">
+		UPDATE [dbo].[wechat_operation_tb] SET is_delete = 1 where code = #{code}
+	</update>
+	
+	<update id="updateWechatCustomPara" parameterType="OperateBean">
+		UPDATE [dbo].[wechat_operation_tb] SET operate_para = #{operatePara} where code = #{code}
+	</update>
+	
+	<update id="updateOperateInCount">
+		UPDATE [dbo].[wechat_operation_tb] SET in_count = #{inCount} WHERE code = #{code}
+	</update>
+	
+	<update id="updateOperateInDetail">
+		UPDATE [dbo].[wechat_operation_tb] SET in_detail = #{inDetail} WHERE code = #{code}
+	</update>
+</mapper>

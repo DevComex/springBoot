@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.wdnationaldayshare.IWdSignLogMapper">
+	<resultMap type="cn.gyyx.action.beans.wdnationalday.WdSignLogBean" id="IWdSignLogMap">
+		<id column="code" property="code" />
+		<result column="action_code" property="actionCode" />
+		<result column="prizes_code" property="prizesCode" />
+		<result column="user_id" property="userId" />
+		<result column="send_time" property="sendTime" />
+		<result column="remark" property="remark" />
+		<result column="prizes_status" property="prizesStatus" />
+	
+	</resultMap>
+	<insert id="insertsendlog"  parameterType="cn.gyyx.action.beans.wdnationalday.WdSignLogBean" >
+	  insert into action_signlog_tb (action_code,prizes_code,user_id,send_time,prizes_status) 
+  values (#{actionCode},#{prizesCode},#{userId},#{sendTime},#{prizesStatus});
+	
+	</insert>
+	
+	<select id="selectstep"  parameterType="cn.gyyx.action.beans.wdnationalday.WdSignLogBean" resultType="Integer">
+	select count(*)prizes_code from action_signlog_tb  
+	where action_code=#{actionCode} and user_id=#{userId} and prizes_code=#{prizesCode};
+	</select>
+	
+	</mapper>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.gyyx.action.dao.lhzsgoldback.IReturnMapper">
+	<resultMap type="ReturnBean" id="ReturnBean">
+		<result column="code" property="code" />
+		<result column="account" property="account" />
+		<result column="user_code" property="userCode" />
+		<result column="return_amount" property="returnAmount" />
+		<result column="return_date" property="returnDate" />
+	</resultMap>
+
+	<!-- 添加用户返还记录 -->
+	<insert id="addReturnBean" parameterType="VoteBean">
+		insert into lhzs_goldback_return_tb
+		(account,user_code,return_amount,return_date)
+		values(#{account},#{userCode},#{returnAmount},
+		#{returnDate});
+	</insert>
+
+	<!-- 根据用户账号查询用户返还记录  -->
+	<select id="findByAccount" parameterType="VoteBean" resultType="Integer">
+		select count(*) 
+		from lhzs_goldback_return_tb
+		where account = #{account};
+	</select>
+</mapper>

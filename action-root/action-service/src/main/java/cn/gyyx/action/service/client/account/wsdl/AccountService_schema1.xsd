@@ -1,0 +1,997 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" targetNamespace="http://asktao.gbits.com/" xmlns:tns="http://asktao.gbits.com/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="AutomaticLock" type="tns:AutomaticLock"/>
+
+  <xs:element name="AutomaticLockResponse" type="tns:AutomaticLockResponse"/>
+
+  <xs:element name="BatchGivePresents" type="tns:BatchGivePresents"/>
+
+  <xs:element name="BatchGivePresentsResponse" type="tns:BatchGivePresentsResponse"/>
+
+  <xs:element name="CancelLostProtectCard" type="tns:CancelLostProtectCard"/>
+
+  <xs:element name="CancelLostProtectCardResponse" type="tns:CancelLostProtectCardResponse"/>
+
+  <xs:element name="CancelMatrixForStoragePwd" type="tns:CancelMatrixForStoragePwd"/>
+
+  <xs:element name="CancelMatrixForStoragePwdResponse" type="tns:CancelMatrixForStoragePwdResponse"/>
+
+  <xs:element name="CancelProtectCard" type="tns:CancelProtectCard"/>
+
+  <xs:element name="CancelProtectCardResponse" type="tns:CancelProtectCardResponse"/>
+
+  <xs:element name="CancelRemoveCoinPassword" type="tns:CancelRemoveCoinPassword"/>
+
+  <xs:element name="CancelRemoveCoinPasswordResponse" type="tns:CancelRemoveCoinPasswordResponse"/>
+
+  <xs:element name="Charge" type="tns:Charge"/>
+
+  <xs:element name="ChargeEx" type="tns:ChargeEx"/>
+
+  <xs:element name="ChargeExResponse" type="tns:ChargeExResponse"/>
+
+  <xs:element name="ChargeResponse" type="tns:ChargeResponse"/>
+
+  <xs:element name="CheckTransCharge" type="tns:CheckTransCharge"/>
+
+  <xs:element name="CheckTransChargeEx" type="tns:CheckTransChargeEx"/>
+
+  <xs:element name="CheckTransChargeExResponse" type="tns:CheckTransChargeExResponse"/>
+
+  <xs:element name="CheckTransChargeResponse" type="tns:CheckTransChargeResponse"/>
+
+  <xs:element name="GetAccountSettingAutoLockState" type="tns:GetAccountSettingAutoLockState"/>
+
+  <xs:element name="GetAccountSettingAutoLockStateResponse" type="tns:GetAccountSettingAutoLockStateResponse"/>
+
+  <xs:element name="GetCoinPasswordState" type="tns:GetCoinPasswordState"/>
+
+  <xs:element name="GetCoinPasswordStateResponse" type="tns:GetCoinPasswordStateResponse"/>
+
+  <xs:element name="GetLocalEncryptState" type="tns:GetLocalEncryptState"/>
+
+  <xs:element name="GetLocalEncryptStateResponse" type="tns:GetLocalEncryptStateResponse"/>
+
+  <xs:element name="GetLockState" type="tns:GetLockState"/>
+
+  <xs:element name="GetLockStateResponse" type="tns:GetLockStateResponse"/>
+
+  <xs:element name="GetMatrixStateForStoragePwd" type="tns:GetMatrixStateForStoragePwd"/>
+
+  <xs:element name="GetMatrixStateForStoragePwdResponse" type="tns:GetMatrixStateForStoragePwdResponse"/>
+
+  <xs:element name="GetProtectCardState" type="tns:GetProtectCardState"/>
+
+  <xs:element name="GetProtectCardStateResponse" type="tns:GetProtectCardStateResponse"/>
+
+  <xs:element name="GetVersion" type="tns:GetVersion"/>
+
+  <xs:element name="GetVersionResponse" type="tns:GetVersionResponse"/>
+
+  <xs:element name="GiftCoins" type="tns:GiftCoins"/>
+
+  <xs:element name="GiftCoinsResponse" type="tns:GiftCoinsResponse"/>
+
+  <xs:element name="GiftSilverCoins" type="tns:GiftSilverCoins"/>
+
+  <xs:element name="GiftSilverCoinsEx" type="tns:GiftSilverCoinsEx"/>
+
+  <xs:element name="GiftSilverCoinsExResponse" type="tns:GiftSilverCoinsExResponse"/>
+
+  <xs:element name="GiftSilverCoinsResponse" type="tns:GiftSilverCoinsResponse"/>
+
+  <xs:element name="GivePresents" type="tns:GivePresents"/>
+
+  <xs:element name="GivePresentsResponse" type="tns:GivePresentsResponse"/>
+
+  <xs:element name="ImmediatelyCancelMatrixForStoragePwd" type="tns:ImmediatelyCancelMatrixForStoragePwd"/>
+
+  <xs:element name="ImmediatelyCancelMatrixForStoragePwdResponse" type="tns:ImmediatelyCancelMatrixForStoragePwdResponse"/>
+
+  <xs:element name="IsAdult" type="tns:IsAdult"/>
+
+  <xs:element name="IsAdultResponse" type="tns:IsAdultResponse"/>
+
+  <xs:element name="LockAccount" type="tns:LockAccount"/>
+
+  <xs:element name="LockAccountResponse" type="tns:LockAccountResponse"/>
+
+  <xs:element name="LostProtectCard" type="tns:LostProtectCard"/>
+
+  <xs:element name="LostProtectCardResponse" type="tns:LostProtectCardResponse"/>
+
+  <xs:element name="QueryAccountBlockHistory" type="tns:QueryAccountBlockHistory"/>
+
+  <xs:element name="QueryAccountBlockHistoryResponse" type="tns:QueryAccountBlockHistoryResponse"/>
+
+  <xs:element name="QueryAccountBlockReason" type="tns:QueryAccountBlockReason"/>
+
+  <xs:element name="QueryAccountBlockReasonResponse" type="tns:QueryAccountBlockReasonResponse"/>
+
+  <xs:element name="QueryAccountLockStatus" type="tns:QueryAccountLockStatus"/>
+
+  <xs:element name="QueryAccountLockStatusResponse" type="tns:QueryAccountLockStatusResponse"/>
+
+  <xs:element name="QueryRemainingCoins" type="tns:QueryRemainingCoins"/>
+
+  <xs:element name="QueryRemainingCoinsResponse" type="tns:QueryRemainingCoinsResponse"/>
+
+  <xs:element name="QuerySpentCoins" type="tns:QuerySpentCoins"/>
+
+  <xs:element name="QuerySpentCoinsResponse" type="tns:QuerySpentCoinsResponse"/>
+
+  <xs:element name="QueryTransactionHistory" type="tns:QueryTransactionHistory"/>
+
+  <xs:element name="QueryTransactionHistoryResponse" type="tns:QueryTransactionHistoryResponse"/>
+
+  <xs:element name="QueryTransactionID" type="tns:QueryTransactionID"/>
+
+  <xs:element name="QueryTransactionIDResponse" type="tns:QueryTransactionIDResponse"/>
+
+  <xs:element name="Register" type="tns:Register"/>
+
+  <xs:element name="RegisterEx" type="tns:RegisterEx"/>
+
+  <xs:element name="RegisterExResponse" type="tns:RegisterExResponse"/>
+
+  <xs:element name="RegisterResponse" type="tns:RegisterResponse"/>
+
+  <xs:element name="RemoveCoinPassword" type="tns:RemoveCoinPassword"/>
+
+  <xs:element name="RemoveCoinPasswordResponse" type="tns:RemoveCoinPasswordResponse"/>
+
+  <xs:element name="RemoveLocalEncrypt" type="tns:RemoveLocalEncrypt"/>
+
+  <xs:element name="RemoveLocalEncryptResponse" type="tns:RemoveLocalEncryptResponse"/>
+
+  <xs:element name="SetAccountSettingAutoLock" type="tns:SetAccountSettingAutoLock"/>
+
+  <xs:element name="SetAccountSettingAutoLockResponse" type="tns:SetAccountSettingAutoLockResponse"/>
+
+  <xs:element name="SetAdult" type="tns:SetAdult"/>
+
+  <xs:element name="SetAdultResponse" type="tns:SetAdultResponse"/>
+
+  <xs:element name="SetLockTimer" type="tns:SetLockTimer"/>
+
+  <xs:element name="SetLockTimerResponse" type="tns:SetLockTimerResponse"/>
+
+  <xs:element name="SetUpdateAlipayAccount" type="tns:SetUpdateAlipayAccount"/>
+
+  <xs:element name="SetUpdateAlipayAccountResponse" type="tns:SetUpdateAlipayAccountResponse"/>
+
+  <xs:element name="SetUpdateCoinPassword" type="tns:SetUpdateCoinPassword"/>
+
+  <xs:element name="SetUpdateCoinPasswordResponse" type="tns:SetUpdateCoinPasswordResponse"/>
+
+  <xs:element name="SetUpdateMatrixForStoragePwd" type="tns:SetUpdateMatrixForStoragePwd"/>
+
+  <xs:element name="SetUpdateMatrixForStoragePwdResponse" type="tns:SetUpdateMatrixForStoragePwdResponse"/>
+
+  <xs:element name="SetUpdatePhoneAuth" type="tns:SetUpdatePhoneAuth"/>
+
+  <xs:element name="SetUpdatePhoneAuthResponse" type="tns:SetUpdatePhoneAuthResponse"/>
+
+  <xs:element name="SetUpdateProtectCard" type="tns:SetUpdateProtectCard"/>
+
+  <xs:element name="SetUpdateProtectCardResponse" type="tns:SetUpdateProtectCardResponse"/>
+
+  <xs:element name="SetVipSms" type="tns:SetVipSms"/>
+
+  <xs:element name="SetVipSmsResponse" type="tns:SetVipSmsResponse"/>
+
+  <xs:element name="Suspend" type="tns:Suspend"/>
+
+  <xs:element name="SuspendResponse" type="tns:SuspendResponse"/>
+
+  <xs:element name="SyncProtectInfo" type="tns:SyncProtectInfo"/>
+
+  <xs:element name="SyncProtectInfoResponse" type="tns:SyncProtectInfoResponse"/>
+
+  <xs:element name="UnlockAccount" type="tns:UnlockAccount"/>
+
+  <xs:element name="UnlockAccountResponse" type="tns:UnlockAccountResponse"/>
+
+  <xs:element name="UpdatePassword" type="tns:UpdatePassword"/>
+
+  <xs:element name="UpdatePasswordResponse" type="tns:UpdatePasswordResponse"/>
+
+  <xs:complexType name="QueryTransactionHistory">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="startIndex" type="xs:int"/>
+      <xs:element name="maxNumOfReturnedRecords" type="xs:int"/>
+      <xs:element name="startDate" type="xs:dateTime" minOccurs="0"/>
+      <xs:element name="endDate" type="xs:dateTime" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QueryTransactionHistoryResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:QueryTransactionHistoryResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QueryTransactionHistoryResult">
+    <xs:complexContent>
+      <xs:extension base="tns:ProcessResult">
+        <xs:sequence>
+          <xs:element name="Records" type="tns:TransactionRecord" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="ProcessResult">
+    <xs:sequence/>
+    <xs:attribute name="Description" type="xs:string"/>
+    <xs:attribute name="ErrorCode" type="xs:int" use="required"/>
+    <xs:attribute name="RequestIndex" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="TransactionRecord">
+    <xs:sequence/>
+    <xs:attribute name="TransactionID" type="xs:int" use="required"/>
+    <xs:attribute name="ItemName" type="xs:string"/>
+    <xs:attribute name="ItemAmount" type="xs:int" use="required"/>
+    <xs:attribute name="GoldCoins" type="xs:int" use="required"/>
+    <xs:attribute name="SilverCoins" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="SetUpdateProtectCard">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="protectCardValue" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetUpdateProtectCardResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LockAccount">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LockAccountResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetAccountSettingAutoLockState">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetAccountSettingAutoLockStateResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:GetAccountSettingAutoLockStateResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetAccountSettingAutoLockStateResult">
+    <xs:complexContent>
+      <xs:extension base="tns:ProcessResult">
+        <xs:sequence/>
+        <xs:attribute name="AccountSettingAutoLockState" type="xs:int" use="required"/>
+        <xs:attribute name="StateDescription" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CancelMatrixForStoragePwd">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CancelMatrixForStoragePwdResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RemoveCoinPassword">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RemoveCoinPasswordResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetProtectCardState">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetProtectCardStateResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:GetProtectCardStateResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetProtectCardStateResult">
+    <xs:complexContent>
+      <xs:extension base="tns:ProcessResult">
+        <xs:sequence/>
+        <xs:attribute name="ProtectCardState" type="xs:int" use="required"/>
+        <xs:attribute name="StateDescription" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="GetLockState">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetLockStateResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:GetLockStateResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetLockStateResult">
+    <xs:complexContent>
+      <xs:extension base="tns:ProcessResult">
+        <xs:sequence/>
+        <xs:attribute name="LockState" type="xs:int" use="required"/>
+        <xs:attribute name="StateDescription" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="RemoveLocalEncrypt">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RemoveLocalEncryptResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UpdatePassword">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="newPassword" type="xs:string" minOccurs="0"/>
+      <xs:element name="oldPassword" type="xs:string" minOccurs="0"/>
+      <xs:element name="protect" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UpdatePasswordResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetUpdateAlipayAccount">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="alipayAccount" type="xs:string" minOccurs="0"/>
+      <xs:element name="bindTime" type="xs:string" minOccurs="0"/>
+      <xs:element name="oper" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetUpdateAlipayAccountResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LostProtectCard">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="protectCardValue" type="xs:string" minOccurs="0"/>
+      <xs:element name="duration" type="xs:int"/>
+      <xs:element name="reason" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="LostProtectCardResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ImmediatelyCancelMatrixForStoragePwd">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ImmediatelyCancelMatrixForStoragePwdResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QueryAccountBlockReason">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QueryAccountBlockReasonResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:queryAccountBlockReasonResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="queryAccountBlockReasonResult">
+    <xs:sequence/>
+    <xs:attribute name="Description" type="xs:string"/>
+    <xs:attribute name="ErrorCode" type="xs:int" use="required"/>
+    <xs:attribute name="Reason" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="Suspend">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="duration" type="xs:int"/>
+      <xs:element name="reason" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SuspendResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UnlockAccount">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="UnlockAccountResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RegisterEx">
+    <xs:sequence>
+      <xs:element name="arguments" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RegisterExResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetLockTimer">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="securityType" type="xs:int"/>
+      <xs:element name="duration" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetLockTimerResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GiftCoins">
+    <xs:sequence>
+      <xs:element name="transactionID" type="xs:string" minOccurs="0"/>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="giftType" type="xs:int"/>
+      <xs:element name="goldCoins" type="xs:int"/>
+      <xs:element name="silverCoins" type="xs:int"/>
+      <xs:element name="giftReason" type="xs:string" minOccurs="0"/>
+      <xs:element name="serverCaption" type="xs:string" minOccurs="0"/>
+      <xs:element name="checkValue" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GiftCoinsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetAdult">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="adult" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetAdultResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetVipSms">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetVipSmsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SyncProtectInfo">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="securityType" type="xs:int"/>
+      <xs:element name="bindTime" type="xs:string" minOccurs="0"/>
+      <xs:element name="protectValue" type="xs:string" minOccurs="0"/>
+      <xs:element name="md5Checksum" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SyncProtectInfoResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QuerySpentCoins">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QuerySpentCoinsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:QueryResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QueryResult">
+    <xs:complexContent>
+      <xs:extension base="tns:ProcessResult">
+        <xs:sequence/>
+        <xs:attribute name="GoldCoins" type="xs:int" use="required"/>
+        <xs:attribute name="SilverCoins" type="xs:int" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="SetUpdateCoinPassword">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="password" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetUpdateCoinPasswordResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BatchGivePresents">
+    <xs:sequence>
+      <xs:element name="accounts" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="characterIDs" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="dists" type="xs:string" maxOccurs="unbounded" minOccurs="0"/>
+      <xs:element name="encourageType" type="xs:string" minOccurs="0"/>
+      <xs:element name="expiredTime" type="xs:string" minOccurs="0"/>
+      <xs:element name="memo" type="xs:string" minOccurs="0"/>
+      <xs:element name="checkValue" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="BatchGivePresentsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" maxOccurs="unbounded" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GiftSilverCoins">
+    <xs:sequence>
+      <xs:element name="transactionID" type="xs:string" minOccurs="0"/>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="numberOfSilverCoins" type="xs:int"/>
+      <xs:element name="giftReasonDesc" type="xs:string" minOccurs="0"/>
+      <xs:element name="checkValue" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GiftSilverCoinsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AutomaticLock">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="securityType" type="xs:int"/>
+      <xs:element name="options" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="AutomaticLockResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CancelRemoveCoinPassword">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CancelRemoveCoinPasswordResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetAccountSettingAutoLock">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+      <xs:element name="arg1" type="xs:boolean"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetAccountSettingAutoLockResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetMatrixStateForStoragePwd">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetMatrixStateForStoragePwdResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:GetProtectCardStateResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Charge">
+    <xs:sequence>
+      <xs:element name="TransactionID" type="xs:string" minOccurs="0"/>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="numberOfCoins" type="xs:int"/>
+      <xs:element name="silverGoldRatio" type="xs:int"/>
+      <xs:element name="checkValue" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ChargeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="Register">
+    <xs:sequence>
+      <xs:element name="arguments" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="RegisterResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QueryAccountBlockHistory">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QueryAccountBlockHistoryResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:QueryAccountBlockHistoryResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QueryAccountBlockHistoryResult">
+    <xs:complexContent>
+      <xs:extension base="tns:ProcessResult">
+        <xs:sequence>
+          <xs:element name="Records" type="tns:BlockRecord" maxOccurs="unbounded" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="Account" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="BlockRecord">
+    <xs:complexContent>
+      <xs:extension base="tns:ProcessResult">
+        <xs:sequence/>
+        <xs:attribute name="OperationIntermal" type="xs:string"/>
+        <xs:attribute name="OperationReason" type="xs:string"/>
+        <xs:attribute name="OperationTime" type="xs:string"/>
+        <xs:attribute name="OperationType" type="xs:string"/>
+        <xs:attribute name="Operator" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="QueryTransactionID">
+    <xs:sequence>
+      <xs:element name="TransactionID" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QueryTransactionIDResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:queryIntResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="queryIntResult">
+    <xs:sequence/>
+    <xs:attribute name="Description" type="xs:string"/>
+    <xs:attribute name="ErrorCode" type="xs:int" use="required"/>
+    <xs:attribute name="Value" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="CancelProtectCard">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CancelProtectCardResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GiftSilverCoinsEx">
+    <xs:sequence>
+      <xs:element name="transactionID" type="xs:string" minOccurs="0"/>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="chargeType" type="xs:int"/>
+      <xs:element name="numberOfSilverCoins" type="xs:int"/>
+      <xs:element name="giftReasonDesc" type="xs:string" minOccurs="0"/>
+      <xs:element name="checkValue" type="xs:string" minOccurs="0"/>
+      <xs:element name="serverCaption" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GiftSilverCoinsExResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CheckTransCharge">
+    <xs:sequence>
+      <xs:element name="TransactionID" type="xs:string" minOccurs="0"/>
+      <xs:element name="Account" type="xs:string" minOccurs="0"/>
+      <xs:element name="ChargeType" type="xs:int"/>
+      <xs:element name="GoldCoins" type="xs:int"/>
+      <xs:element name="SilverCoins" type="xs:int"/>
+      <xs:element name="CheckValue" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CheckTransChargeResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ChargeEx">
+    <xs:sequence>
+      <xs:element name="transactionID" type="xs:string" minOccurs="0"/>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="chargeType" type="xs:int"/>
+      <xs:element name="numberOfCoins" type="xs:int"/>
+      <xs:element name="silverGoldRatio" type="xs:int"/>
+      <xs:element name="checkValue" type="xs:string" minOccurs="0"/>
+      <xs:element name="serverCaption" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="ChargeExResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QueryAccountLockStatus">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QueryAccountLockStatusResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:QueryAccountLockStatusResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QueryAccountLockStatusResult">
+    <xs:complexContent>
+      <xs:extension base="tns:ProcessResult">
+        <xs:sequence/>
+        <xs:attribute name="Status" type="xs:int" use="required"/>
+        <xs:attribute name="StatusDescription" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="SetUpdateMatrixForStoragePwd">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="protectCardValue" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetUpdateMatrixForStoragePwdResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CancelLostProtectCard">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CancelLostProtectCardResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetUpdatePhoneAuth">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="bindTime" type="xs:string" minOccurs="0"/>
+      <xs:element name="oper" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="SetUpdatePhoneAuthResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetVersion"/>
+
+  <xs:complexType name="GetVersionResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GivePresents">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="dist" type="xs:string" minOccurs="0"/>
+      <xs:element name="characterID" type="xs:string" minOccurs="0"/>
+      <xs:element name="encourageType" type="xs:string" minOccurs="0"/>
+      <xs:element name="expiredTime" type="xs:string" minOccurs="0"/>
+      <xs:element name="memo" type="xs:string" minOccurs="0"/>
+      <xs:element name="checkValue" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GivePresentsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetCoinPasswordState">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetCoinPasswordStateResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:CoinPasswordStateResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CoinPasswordStateResult">
+    <xs:complexContent>
+      <xs:extension base="tns:ProcessResult">
+        <xs:sequence/>
+        <xs:attribute name="CoinPasswordState" type="xs:int" use="required"/>
+        <xs:attribute name="StateDescription" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="CheckTransChargeEx">
+    <xs:sequence>
+      <xs:element name="transactionID" type="xs:string" minOccurs="0"/>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+      <xs:element name="chargeType" type="xs:int"/>
+      <xs:element name="goldCoins" type="xs:int"/>
+      <xs:element name="silverCoins" type="xs:int"/>
+      <xs:element name="checkValue" type="xs:string" minOccurs="0"/>
+      <xs:element name="serverCaption" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="CheckTransChargeExResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="IsAdult">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="IsAdultResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:IsAdultResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="IsAdultResult">
+    <xs:complexContent>
+      <xs:extension base="tns:ProcessResult">
+        <xs:sequence/>
+        <xs:attribute name="Adult" type="xs:boolean" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="GetLocalEncryptState">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="GetLocalEncryptStateResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:ProcessResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QueryRemainingCoins">
+    <xs:sequence>
+      <xs:element name="account" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="QueryRemainingCoinsResponse">
+    <xs:sequence>
+      <xs:element name="return" type="tns:QueryResult" minOccurs="0"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
+

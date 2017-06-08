@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+    <title>光宇社招</title>
+    <link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/positionApply/css/publicjian01.css"/>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/allstyle01.css" />
+    <link rel="stylesheet" href="http://static.cn114.cn/action/positionApply/css/animate.css" />
+</head>
+<body style="background: #9363e3;">
+	<div class="warp">
+		<div class="main yingyongK" uid="560024606">
+			<h1><a href="${rc.contextPath}/position/index?a=1" class="list">职位列表</a></h1>
+			<div class="btn">
+				<p class="heads btnanimated fadeIn">
+					<img src="http://static.cn114.cn/action/positionApply/img01/yyHead.png"/>
+				</p>
+				<a href="${rc.contextPath}/position/positiontype/applicationNET" class="left leftani fadeInRight"></a>
+				<!--<a href="#" class="right rightani fadeInLeft"></a>-->
+			</div>
+			<div class="content contentani fadeIn2" id="fontStyle">
+				<h2>Web前端工程师</h2>
+				<h3>岗位职责</h3>
+				<p>1、与设计师和后台程序配合，高效率高质量地完成HTML页面的制作和修改工作;</p>
+				<p>2、能在以后的工作中不断的学习摸索，逐步提高本职位相关技能。</p>
+				<h3>任职资格</h3>
+				<p>1、精通HTML、DIV+CSS，熟悉Javascript并可以独立进行相关特效的编写，熟悉HTML5、CSS3等网页前端制作技术;</p>
+				<p>2、熟练使用Dreamweaver,Photoshop等网页制作软件;</p>
+				<p>3、能够手写DIV+CSS，兼容IE6-IE10，火狐，谷歌，360浏览器等，代码结构简洁高效，代码模块化清晰。</p>
+			</div>
+			<div class="xsbtn xsani fadeInUpBig">
+				<a href="http://gyyx.m.zhiye.com/JobAd/Info?adid=560024606" class="sq">在线申请</a>
+				<a href="#" class="fx fxz">分享职位</a>
+			</div>
+		</div>
+	</div>
+	<div class="zz">
+		<img src="http://static.cn114.cn/action/positionApply/img01/zz.png" />
+	</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/zepto.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/allstyle01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/gyyx_wxshare.min.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/content01.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/fx01.js" ></script>
+<script>
+	$("body").on("swipeRight",function(){
+		location.href="${rc.contextPath}/position/positiontype/applicationNET";
+	})
+</script>
+</body>
+</html>

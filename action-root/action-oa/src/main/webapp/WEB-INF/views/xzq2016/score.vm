@@ -1,0 +1,94 @@
+ #parse("/shared/top.vm")
+<script src="${rc.contextPath}/resources/script/jquery-1.8.2.min.js"></script>
+<script src="${rc.contextPath}/resources/script/swfupload.js" type="text/javascript"></script>
+<script src="${rc.contextPath}/resources/script/SWFInitialize.js" type="text/javascript" charset="GB2312"></script>
+<script src="${rc.contextPath}/resources/script/videoHandlers.js" type="text/javascript" charset="GB2312"></script>
+<script src="${rc.contextPath}/resources/script/VideoUpload.js" type="text/javascript" ></script>
+<script>
+	var commit_flag = 0;
+	$(function(){
+		$("#save").click(function(){
+			var score = $.trim($("#score").val());
+			
+			if($.trim(score)==""){
+				alert("战力值不能为空!");
+				return false;
+			}
+			if(isNaN($.trim(score))){
+				alert("战力值必须为数字!");
+				return false;
+			}
+			if(commit_flag){
+				console.log("不要重复提交");
+				return false;
+			}
+			if(confirm("确定要修改数据吗？")){
+				commit_flag = 1;
+				$.ajax({
+					url:'/xzq2016/saveScore',
+					type:'post',
+					data:{score:score,r:Math.random()},
+					dataType:'json',
+					complete:function(){
+						commit_flag = 0;
+					},
+					success:function(data){
+						if (data.isSuccess) {
+							alert("保存成功!");
+						}else{
+							alert(data.message);
+						}
+					},
+					error:function(){
+						alert("网络连接超时!");
+					}
+				})
+			}
+		});
+	});
+</script>
+<style>
+
+</style>
+<!--标题-->
+<header class="header bg-white b-b clearfix">
+	<div class="col-sm-12 m-t-xs">
+		<h4 class="doc-buttons pull-left" style="margin-top: 16px">问道2016助力薛之谦活动-修改薛之谦战力值</h4>
+		<span class="doc-buttons pull-left"> <a
+			class="btn btn-sm btn-info" id="js_add_project"
+			style="margin-top: 10px; margin-left: 10px" href="/xzq2016"><i class="fa fa-home"></i>首页</a>
+		</span>
+	</div>
+</header>
+<!-- 查询表单 -->
+<section class="scrollable padder" style="overflow: scroll; top: 72px;"
+	id="scrollable_one">
+
+	<div class="row">
+		<div class="col-sm-8">
+			<form class="form-horizontal" data-validate="parsley">
+				<section class="panel panel-default">
+					<header class="panel-heading">
+						<strong>修改</strong>
+					</header>
+					<div class="panel-body">
+						<div class="form-group">
+							<label class="col-sm-3 control-label">当前战力值：</label>
+							<div class="col-sm-5">
+								<input type="text" class="form-control" id="score" name="score" max-length="9" value="$!score"/>
+							</div>
+						</div>
+						<div class="line line-dashed line-lg pull-in"></div>
+						<div class="form-group">
+							<div class="col-sm-3"></div>
+							<div class="col-sm-9">
+								<button id="save" type="button" class="btn btn-success btn-s-xs">保存</button>
+							</div>
+						</div>
+					</div>
+				</section>
+			</form>
+		</div>
+	</div>
+</section>
+#parse("/shared/footer.vm")

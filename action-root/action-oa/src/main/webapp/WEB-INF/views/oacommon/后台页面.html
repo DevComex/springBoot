@@ -1,0 +1,476 @@
+﻿<!DOCTYPE html>
+<html class="app">
+<head>
+    <meta charset="utf-8" />
+    <title>后台</title>
+    <meta name="description" content="app, web app, responsive, admin dashboard, admin, flat, flat ui, ui kit, off screen nav" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+    <link rel="stylesheet" href="../../Contents/css/font.css" type="text/css" />
+    <link rel="stylesheet" href="../../Script/calendar/bootstrap_calendar.css" type="text/css" />
+    <link rel="stylesheet" href="../../Contents/css/app.v2.css" type="text/css" />
+    <link href="../../Script/datatables/datatables.css" rel="stylesheet" />
+    <link href="../../Script/datepicker/datepicker.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../../Contents/css/projectManage.css" type="text/css" />
+    <script src="http://oa.gyyx.cn/Script/app.v2.js"></script>
+    <script src="http://oa.gyyx.cn/Script/js/jquery.min.js"></script>
+
+    <script type="text/javascript" src="http://oa.gyyx.cn/Script/js/jquery.validate.js"></script>
+    <!--[if lt IE 9]>
+        <script src="../../Script/ie/html5shiv.js"></script>
+        <script src="../../Script/ie/respond.min.js"></script>
+        <script src="../../Script/ie/excanvas.js"></script> 
+    <![endif]-->
+</head>
+<body>
+    <section class="vbox">
+        <!--公用头部  begin-->
+        <header class="bg-dark dk header navbar navbar-fixed-top-xs">
+            <div class="navbar-header aside-md">
+                <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
+                    <i class="fa fa-bars"></i>
+                </a>
+                <a href="#" class="navbar-brand" data-toggle="fullscreen">
+                    <img src="../../Contents/images/gyyxlogo.png" class="m-r-sm logo">办公系统
+                </a>
+                <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user">
+                    <i class="fa fa-cog"></i>
+                </a>
+            </div>
+            <ul class="nav navbar-nav hidden-xs">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle dker" data-toggle="dropdown">
+                        <i class="fa fa-building-o"></i>
+                        <span class="font-bold">个人信息</span>
+                    </a>
+                    <section class="dropdown-menu aside-xl on animated fadeInLeft no-borders lt">
+                        <div class="wrapper lter m-t-n-xs">
+                            <div class="clear">
+                                <a href="#">
+                                    <span class="text-white font-bold">孙维晟</span>
+                                </a>
+                                <small class="block">开发部总监</small>
+                                <a href="#">
+                                    <span class="text-white font-bold">sunweisheng@gyyx.cn</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row m-l-none m-r-none m-b-n-xs text-center">
+                            <div class="col-xs-4">
+                                <div class="padder-v">
+                                    <span class="m-b-xs h4 block text-white">245</span>
+                                    <small class="text-muted">代办事务</small>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 dk">
+                                <div class="padder-v">
+                                    <span class="m-b-xs h4 block text-white">55</span>
+                                    <small class="text-muted">通知公告</small>
+                                </div>
+                            </div>
+                            <div class="col-xs-4">
+                                <div class="padder-v">
+                                    <span class="m-b-xs h4 block text-white">2,035</span>
+                                    <small class="text-muted">邮件</small>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </li>
+                <li>
+                    <div class="m-t m-l">
+                        <a href="price.html" class="dropdown-toggle btn btn-xs btn-primary" title="Upgrade">
+                            <i class="fa fa-long-arrow-up"></i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+            <div class="flleft">&nbsp;</div>
+            <a href="#" class="btn btn-rounded btn-sm btn-twitter"><i class="fa fa-fw fa-envelope"></i>信息中心</a>
+            <a href="#" class="btn btn-rounded btn-sm btn-facebook"><i class="fa fa-fw fa-book"></i>我的办公桌</a>
+            <a href="#" class="btn btn-rounded btn-sm btn-gplus"><i class="fa fa-fw fa-folder"></i>文档中心</a>
+            <ul class="nav navbar-nav navbar-right hidden-xs nav-user">
+                <li class="hidden-xs">
+                    <a href="#" class="dropdown-toggle dk" data-toggle="dropdown">
+                        <i class="fa fa-bell"></i>
+                        <span class="badge badge-sm up bg-danger m-l-n-sm count">2</span>
+                    </a>
+                    <section class="dropdown-menu aside-xl">
+                        <section class="panel bg-white">
+                            <header class="panel-heading b-light bg-light">
+                                <strong>你有<span class="count">3</span>条消息</strong>
+                            </header>
+                            <div class="list-group list-group-alt animated fadeInRight">
+                                <a href="#" class="media list-group-item">
+                                    <span class="pull-left thumb-sm">
+                                        <img src="../../Contents/images/avatar.jpg" alt="John said" class="img-circle">
+                                    </span>
+                                    <span class="media-body block m-b-none">加入自动部署上传系统<br>
+                                        <small class="text-muted">10分钟前</small>
+                                    </span>
+                                </a>
+                                <a href="#" class="media list-group-item">
+                                    <span class="media-body block m-b-none">加入办公平台<br>
+                                        <small class="text-muted">1小时前</small>
+                                    </span>
+                                </a>
+                            </div>
+                            <footer class="panel-footer text-sm">
+                                <a href="#" class="pull-right">
+                                    <i class="fa fa-cog"></i>
+                                </a>
+                                <a href="#notes" data-toggle="class:show animated fadeInRight">查看所有消息</a>
+                            </footer>
+                        </section>
+                    </section>
+                </li>
+                <li class="dropdown hidden-xs"><a href="#" class="dropdown-toggle dker" data-toggle="dropdown"><i class="fa fa-fw fa-search"></i></a>
+                    <section class="dropdown-menu aside-xl animated fadeInUp">
+                        <section class="panel bg-white">
+                            <form role="search">
+                                <div class="form-group wrapper m-b-none">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="搜索">
+                                        <span class="input-group-btn">
+                                            <button type="submit" class="btn btn-info btn-icon"><i class="fa fa-search"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+                    </section>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="thumb-sm avatar pull-left">
+                            <img src="../../Contents/images/avatar.jpg">
+                        </span>光宇人<b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu animated fadeInRight">
+                        <span class="arrow top"></span>
+                        <li><a href="#">修改密码</a> </li>
+                        <li><a href="#">退出</a> </li>
+                    </ul>
+                </li>
+            </ul>
+        </header>
+        <!--主体内容-->
+        <section>
+            <section class="hbox stretch">
+                <!-- 公用左侧导航 -->
+                <aside class="bg-dark lter aside-md hidden-print" id="nav">
+                    <section class="vbox">
+                        <header class="header bg-primary lter text-center clearfix">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-sm btn-dark btn-icon" title="New project">
+                                    <i class="fa fa-plus"></i>
+                                </button>
+                                <div class="btn-group hidden-nav-xs">
+                                    <button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
+                                        添加应用
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu text-left">
+                                        <li><a href="#">添加内部应用</a></li>
+                                        <li><a href="#">添加外部应用</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </header>
+                        <section class="w-f scrollable">
+                            <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0" data-size="5px" data-color="#333333">
+                                <!-- 左侧大导航 begin -->
+                                <nav class="nav-primary hidden-xs">
+                                    <ul class="nav">
+                                        <li class="active">
+                                            <a href="../../html_V2/Home/index.html" class="active">
+                                                <i class="fa fa-home icon">
+                                                    <b class="bg-danger"></b>
+                                                </i>
+                                                <span>主页</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#办公平台">
+                                                <i class="fa fa-desktop icon">
+                                                    <b class="bg-success"></b>
+                                                </i>
+                                                <span class="pull-right">
+                                                    <i class="fa fa-angle-down text"></i>
+                                                    <i class="fa fa-angle-up text-active"></i>
+                                                </span>
+                                                <span>办公平台</span>
+                                            </a>
+                                            <ul class="nav lt">
+                                                <li>
+                                                    <a href="buttons.html">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>组织机构管理</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li><a href="../../html_V2/Agency/index.html"><i class="fa fa-angle-right"></i><span>机构列表</span> </a></li>
+                                                        <li><a href="../../html_V2/Rank/index.html"><i class="fa fa-angle-right"></i><span>职级列表</span> </a></li>
+                                                        <li><a href="../../html_V2/Post/index.html"><i class="fa fa-angle-right"></i><span>岗位列表</span> </a></li>
+                                                        <li><a href="../../html_V2/Staff/index.html"><i class="fa fa-angle-right"></i><span>员工列表</span> </a></li>
+                                                        <li><a href="../../html_V2/staffapply/index.html"><i class="fa fa-angle-right"></i><span>员工申请列表</span> </a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="icons.html">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>权限管理</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li><a href="../../html_V2/Credential/index.html"><i class="fa fa-angle-right"></i><span>凭据列表</span> </a></li>
+                                                        <li><a href="../../html_V2/Role/index.html"><i class="fa fa-angle-right"></i><span>角色列表</span> </a></li>
+                                                        <li><a href="../../html_V2/OaFunction/QueryPermission.html"><i class="fa fa-angle-right"></i><span>权限查询</span> </a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#table">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>基础信息管理</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li><a href="../../html_V2/OaApplication/index.html"><i class="fa fa-angle-right"></i><span>应用列表</span> </a></li>
+                                                        <li><a href="../../html_V2/OaModule/index.html"><i class="fa fa-angle-right"></i><span>模块列表</span> </a></li>
+                                                        <li><a href="../../html_V2/OaFunctionGroup/index.html"><i class="fa fa-angle-right"></i><span>功能组列表</span> </a></li>
+                                                        <li><a href="../../html_V2/OaFunction/index.html"><i class="fa fa-angle-right"></i><span>功能列表</span> </a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#uikit">
+                                                <i class="fa fa-upload icon">
+                                                    <b class="bg-info"></b>
+                                                </i>
+                                                <span class="pull-right">
+                                                    <i class="fa fa-angle-down text"></i>
+                                                    <i class="fa fa-angle-up text-active"></i>
+                                                </span><span>自动部署上传系统</span>
+                                            </a>
+                                            <ul class="nav lt">
+                                                <li>
+                                                    <a href="buttons.html">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>上传申请</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>项目申请</span></a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>上传项目管理</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>经理审核项目</span> </a></li>
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>测试审核项目</span> </a></li>
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>部署项目至正式</span> </a></li>
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>历史版本回滚</span> </a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#table">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>项目版本号管理</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>立项版本号分配</span> </a></li>
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>版本管理</span> </a></li>
+                                                    </ul>
+                                                </li>
+                                                <li>
+                                                    <a href="#table">
+                                                        <i class="fa fa-angle-down text"></i>
+                                                        <i class="fa fa-angle-up text-active"></i>
+                                                        <span>基础信息管理</span>
+                                                    </a>
+                                                    <ul class="nav bg">
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>项目名录管理</span> </a></li>
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>添加项目</span> </a></li>
+                                                        <li><a href="javascript:;"><i class="fa fa-angle-right"></i><span>新增站点</span> </a></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </nav>
+                                <!-- 左面大导航 end -->
+                            </div>
+                        </section>
+                        <footer class="footer lt hidden-xs b-t b-dark">
+                            <nav class=" on aside-md m-l-n dropup" id="chat">
+                                <ul class="dropdown-menu aside-md panel-body">
+                                    <li><a href="javascript:;">SysV2</a></li>
+                                    <li><a href="javascript:;">Ucenter</a></li>
+                                    <li><a href="javascript:;">中心信息</a></li>
+                                    <li><a href="javascript:;">沟通平台</a></li>
+                                    <li><a href="javascript:;">考勤管理</a></li>
+                                    <li><a href="javascript:;">运维事务</a></li>
+                                </ul>
+                            </nav>
+                            <a href="#nav" data-toggle="class:nav-xs" class="pull-right btn btn-sm btn-dark btn-icon">
+                                <i class="fa fa-angle-left text"></i>
+                                <i class="fa fa-angle-right text-active"></i>
+                            </a>
+                            <div class="btn-group hidden-nav-xs">
+                                <button type="button" title="Chats" class="btn  btn-dark" data-toggle="dropdown" data-target="#chat">
+                                    <i class="fa fa-laptop"></i>
+                                    外部系统
+                                </button>
+                            </div>
+                        </footer>
+                    </section>
+                </aside>
+                <!-- 中间内容部分-->
+                <section id="content">
+                    <section class="vbox">
+                        <!--头部功能-->
+                        <header class="header bg-white b-b clearfix">
+                            <div class="row m-t-sm">
+
+                                <label class="col-lg-0-96 control-label">审核状态:</label>
+                                <div class="col-sm-2 m-b-xs">
+                                    <select class="form-control input-sm">
+                                        <option value="-1">请选择</option>
+                                        <option value="0">审核通过</option>
+                                        <option value="1">未审核</option>
+                                    </select>
+                                </div>
+                                <a class="btn btn-sm btn-info btn-margin-l-01">查询</a>
+
+                            </div>
+                        </header>
+
+                        <!--表格主体 start-->
+                        <section class="padder scrollable">
+                            <div class="m-b-md"></div>
+                            <!--数据表格  begin -->
+                            <section class="panel panel-default">
+                                <div class="table-responsive">
+
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            <tr>
+                                                <th>编号</th>
+                                                <th>账号</th>
+                                                <th>区组</th>
+                                                <th>角色名</th>
+                                                <th>作品名</th>
+                                                <th>上传时间</th>
+                                                <th>作品详细</th>
+                                                <th>点赞数</th>
+                                                <th>状态</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>1004</th>
+                                                <th>gyyxpj</th>
+                                                <th>北京古都</th>
+                                                <th>角色名</th>
+                                                <th>作品名</th>
+                                                <th>2015-08-02</th>
+                                                <th><a data-toggle="modal" href="#seepic" data-title="点击查看" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-eye"></i></a></th>
+                                                <th>0</th>
+                                                <th>未审核</th>
+                                                <th><a data-toggle="tooltip" data-title="删除" href="javascript:;" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-times"></i></a><a data-toggle="tooltip" data-title="审核" href="javascript:;" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-check-square"></i></a><a data-toggle="tooltip" data-title="撤销审核" href="javascript:;" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-rotate-right"></i></a></th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <!--评论审核管理 s-->
+                                    <table class="table table-striped m-b-none">
+                                        <thead>
+                                            <tr>
+                                                <th>评论昵称</th>
+                                                <th>评论内容</th>
+                                                <th>状态</th>
+                                                <th>操作</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th>1004</th>
+                                                <th>gyyxpj</th>
+                                                <th>未审核</th>
+                                                <th><a data-toggle="tooltip" data-title="删除" href="javascript:;" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-times"></i></a><a data-toggle="tooltip" data-title="审核" href="javascript:;" class="btn btn-xs btn-danger " data-original-title="" title=""><i class="fa fa-check-square"></i></a></th>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                    <!--评论审核管理 end-->
+
+                                </div>
+                            </section>
+                            <!--数据表格  end -->
+
+                            <!--翻页功能-->
+                            <footer class="footer bg-white b-t">
+                                <div class="row dataTables_wrapper">
+                                    <div class="col-sm-6">
+                                        <div id="Div1" class="dataTables_info">当前显示：第 1 至 20 条 总共 68 条记录</div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="dataTables_paginate paging_full_numbers">
+                                            <a class="first paginate_button paginate_button_disabled">首页</a><a class="next paginate_button paginate_button_disabled">上一页</a><span>1/3<a tabindex="0" class="next paginate_button" href="">下一页</a><a id="A1" tabindex="0" class="last paginate_button" href="">末页</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </footer>
+
+
+
+                        </section>
+                        <!--表格主体 end-->
+
+                        <!-- -----------------------------------------------添加弹层开始---------------------------------------------- -->
+                        <div class="modal fade" id="seepic">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button aria-hidden="true" data-dismiss="modal" class="close" type="button">×</button>
+                                        <h4 class="modal-title">查看图片</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <section class="panel bg-dark">
+                                                <div class="carousel slide carousel-fade panel-body" id="c-fade">
+                                                    <div class="carousel-inner js_con">
+                                                        <div class="item active">
+                                                            <img src="" alt="" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </section>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer" style="text-align: center;">
+                                        <button class="btn btn-info btn-s-md" type="button" id="js_editPorSubmit" style="display: none;">确定</button>
+                                        <button data-dismiss="modal" class="btn btn-default close_js_Msg" type="button">返回</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- -----------------------------------------------添加弹层结束---------------------------------------------- -->
+
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+
+    <script src="http://oa.gyyx.cn/Script/js/alertMsg.js"></script>
+
+</body>
+
+</html>
+

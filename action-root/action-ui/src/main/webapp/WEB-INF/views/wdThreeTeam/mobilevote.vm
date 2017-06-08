@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>《盗墓三番队》概念站</title>
+    <meta name="keywords" content="光宇游戏，手游大作，十年手游概念站，概念站"/>
+    <meta name="description" content="光宇游戏，十年手游概念站，饮冰十年，寄情南派。"/>
+    <meta name="format-detection" content="telephone=no">
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'/>
+    <link rel="stylesheet" href="http://static.cn114.cn/action/wdThreeTeam/wap/source/css/mobilevote.css"/>
+    <script type="text/javascript">
+        var rc = "${rc.contextPath}";
+    </script>
+	<script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+	<script>
+		var _hmt = _hmt || [];
+		(function() {
+		  var hm = document.createElement("script");
+		  hm.src = "https://hm.baidu.com/hm.js?0bbf4491592eb5562a53d4f29c54f657";
+		  var s = document.getElementsByTagName("script")[0]; 
+		  s.parentNode.insertBefore(hm, s);
+		})();
+	</script>
+	<script>
+        if (navigator.platform.indexOf('Win32') != -1 || navigator.platform.indexOf('Win64') != -1 || navigator.platform.indexOf('MacPPC') != -1|| navigator.platform.indexOf('MacIntel') != -1) {
+			window.location.href = rc+"/tombThreeTeam/votePage"+window.location.search;
+
+        } else {
+            //shouji
+            
+        }
+    </script>
+    <script src="http://s.gyyx.cn/Lib/jquery.js"></script>
+    <script src="http://s.gyyx.cn/WebGame/PageStat.js" type="text/javascript"></script>
+    <!--统计代码 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function () {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?31b991250dc15aaf429c6100d033678d";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+</head>
+<body>
+<section>
+    
+
+<a href="http://dm3fd.gyyx.cn/phone/html/mobileIndex.html" class="return_index"></a>
+<p class="date">11月08日-12月02日</p>
+<div class="logined_m">
+    <ul class="logined_m_in">
+        <li>欢迎您：133******21</li>
+        <li>我的积分：99999</li>
+    </ul>
+    <a href="javascript:;">查询我的投票记录</a>
+    <button>退出登录</button>
+</div>
+<div class="logine_m">
+
+</div>
+<ul class="person_box js_section">
+    <li>
+        <span>山新</span>
+        <img src="http://static.cn114.cn/action/wdThreeTeam/wap/source/img/vote_00.jpg" alt=""/>
+        <p>当前票数：9999</p>
+        <button></button>
+    </li>
+    <li>
+        <span>宝木中阳</span>
+        <img src="http://static.cn114.cn/action/wdThreeTeam/wap/source/img/vote_01.jpg" alt=""/>
+        <p>当前票数：9999</p>
+        <button></button>
+    </li>
+    <li>
+        <span>Slyerboom</span>
+        <img src="http://static.cn114.cn/action/wdThreeTeam/wap/source/img/vote_02.jpg" alt=""/>
+        <p>当前票数：9999</p>
+        <button></button>
+    </li>
+    <li>
+        <span>幽舞越山</span>
+        <img src="http://static.cn114.cn/action/wdThreeTeam/wap/source/img/vote_03.jpg" alt=""/>
+        <p>当前票数：9999</p>
+        <button></button>
+    </li>
+    <li>
+        <span>季冠霖</span>
+        <img src="http://static.cn114.cn/action/wdThreeTeam/wap/source/img/vote_04.jpg" alt=""/>
+        <p>当前票数：9999</p>
+        <button></button>
+    </li>
+    <li>
+        <span>边江</span>
+        <img src="http://static.cn114.cn/action/wdThreeTeam/wap/source/img/vote_05.jpg" alt=""/>
+        <p>当前票数：9999</p>
+        <button></button>
+    </li>
+    <li>
+        <span>桃宝</span>
+        <img src="http://static.cn114.cn/action/wdThreeTeam/wap/source/img/vote_06.jpg" alt=""/>
+        <p>当前票数：9999</p>
+        <button></button>
+    </li>
+    <li>
+        <span>新月冰冰</span>
+        <img src="http://static.cn114.cn/action/wdThreeTeam/wap/source/img/vote_07.jpg" alt=""/>
+        <p>当前票数：9999</p>
+        <button></button>
+    </li>
+    <li>
+        <span>夏一可</span>
+        <img src="http://static.cn114.cn/action/wdThreeTeam/wap/source/img/vote_08.jpg" alt=""/>
+        <p>当前票数：9999</p>
+        <button></button>
+    </li>
+    <li>
+        <span>轻薄的假象</span>
+        <img src="http://static.cn114.cn/action/wdThreeTeam/wap/source/img/vote_09.jpg" alt=""/>
+        <p>当前票数：9999</p>
+        <button></button>
+    </li>
+</ul>
+
+<h2 class="h20">活动简介</h2>
+
+<p>
+    我是盗娘，你认识我吗？你听过我的声音吗？我在你心目中是御姐还是萌妹呢？其实我也不知道我到底是什么样子的，
+    因为我的一切都将由你来支配，我的主人。所以快来赋予我你最喜欢的声音吧。你的投票，会让我成为独一无二的完美盗娘。
+</p>
+
+
+<h2 class="h21">活动规则</h2>
+
+<p><span>1</span>投票时间：11月08日-12月02日</p>
+
+<p><span>2</span>每个手机号每天有1票机会为自己喜爱的声优投票。</p>
+
+<p><span>3</span>每个投票的手机号会获得“积分”奖励，积分与您的手机号绑定，在未来，您可以使用积分兑换超值道具。</p>
+
+
+<div class="v_h_tips">要使用竖屏访问哦！</div>
+<!--登录弹窗-->
+<div class="login_pop">
+    <h2>手机登录</h2>
+    <i>STEP 01</i>
+    <input type="text" placeholder="请输入手机号码" class="phoneIpt" maxlength="11"/>
+    <div class="simple_yzm">
+        <input type="text" placeholder="请输入右侧验证码" maxlength="6"/>
+        <img class="js_captchaimg" id="captcha_image" src="http://api.gyyx.cn/Captcha/CreateVJ.ashx?r=" width="100" height="50" alt="验证码"/>
+        <span>换一张</span>
+    </div>
+    <button class="get_message"></button>
+    <p>60秒后可重新发送</p>
+    <i>STEP 02</i>
+    <input class="message_yzm" type="text" placeholder="请输入您收到的短信验证码" maxlength="10"/>
+    <button class="login_btn" id="login_btn"></button>
+</div>
+<!--投票成功弹窗-->
+<div class="vote_success_pop">
+    <h2>投票成功</h2>
+    <p>投票成功，恭喜您获得10积分奖励，积分将与您手机号绑定，在未来，您可以使用积分兑换超值道具。</p>
+    <button></button>
+</div>
+<!-- 查询投票记录弹窗-->
+<div class="query_record_pop">
+    <div class="title">
+        <h2>投票时间</h2>
+        <h2>投票声优</h2>
+    </div>
+    <div class="person_record">
+        <ul class="person_record_l">
+            <li>2016-03-39</li>
+        </ul>
+        <ul class="person_record_r">
+            <li>轻薄的假象</li>
+            <li>234</li>
+            <li>轻薄的假象</li>
+            <li>234</li>
+            <li>轻薄的假象</li>
+            <li>234</li>
+            <li>轻薄的假象</li>
+            <li>234</li>
+            <li>轻薄的假象</li>
+            <li>234</li>
+        </ul>
+    </div>
+</div>
+<!--已投过票弹窗-->
+<div class="second_vote_pop">
+    <p>
+        您今日已参与过投票 <br/>请明日再来
+    </p>
+    <button></button>
+</div>
+</section>
+</body>
+<script src="http://static.cn114.cn/action/wdThreeTeam/wap/source/js/mobileVote.js"></script>
+<!--<script type="text/javascript" src="http://static.cn114.cn/action/wdlostcity/wap/source/js/index.js"></script>-->
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+		<meta http-equiv="expires" content="0">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="cache-control" content="no-cache">
+    	<title>光宇社招</title>
+			 <script  type="text/javascript">
+     var rc = "${rc.contextPath}";
+ </script>
+		<link rel="stylesheet" type="text/css" href="http://static.cn114.cn/action/positionApply/css/publicjian.css"/>
+		<style>
+			.btn{
+				width: 80%;
+				height: 40px;
+				position: absolute;
+				left: 10%;
+				bottom: 11%;
+			}
+			.btn>img{
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+			@media only screen and (min-width: 1000px) {
+				.btn{
+					width: 70%;
+					height: 50px;
+					position: absolute;
+					left: 15%;
+				}
+			}
+		</style>
+	</head>
+	<body style="background: #1d75d4;">
+		<div class="warp">
+			<div class="main">
+				<img src="http://static.cn114.cn/action/positionApply/img/lianxi.jpg" />
+				<div class="btn">
+					<img class="all fxz" src="http://static.cn114.cn/action/positionApply/img/alljobb.png" />
+				</div>
+				<div class="jian">
+					<a href="positionlist"><img src="http://static.cn114.cn/action/positionApply/img/jianT.png" /></a>
+				</div>
+			</div>
+		</div>
+		<div class="zz fxz" id="allFx">
+			<img src="http://static.cn114.cn/action/positionApply/img/zz.png" />
+		</div>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/zepto.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/allstyle.js" ></script>
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/gyyx_wxshare.min.js" ></script>
+<!--<script src="https://res.wx.qq.com/open/js/jweixin-1.0.0.js "></script>-->
+<script type="text/javascript" src="http://static.cn114.cn/action/positionApply/js/lianxiW.js" ></script>
+</body>
+</html>
